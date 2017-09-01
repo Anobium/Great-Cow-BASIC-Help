@@ -12,8 +12,11 @@
     Case _value2_
     	_code2_
 
-    Case Else
+    Case _value_3 To _value4_    
     	_code3_
+        
+    Case Else
+    	_code4_
 
     End Select
 ----
@@ -30,6 +33,9 @@ then `_code1_` will be run. Once `_code1_` has run, the chip will jump to
 the `End Select` command and continue running the program. If none of the
 other conditions are true, then the code under the `Case Else` section
 will be run.
+
+`Case _var_ TO _var_` is a range of values. If the value is within the range the code section will be executed.
+
 
 `Case Else` is optional, and the program will function correctly without
 it.
