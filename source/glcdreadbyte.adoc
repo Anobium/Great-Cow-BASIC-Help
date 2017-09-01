@@ -1,0 +1,9 @@
+==== GLCDReadByte
+
+*Syntax:*
+----
+    byte_variable = GLCDReadByte
+----
+*Explanation:*
+
+Reads a byte of data from the Graphic LCD memory

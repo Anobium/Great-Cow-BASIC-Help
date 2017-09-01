@@ -1,0 +1,43 @@
+==== UnLockPPS
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    UNLOCKPPS
+----
+
+*Explanation:*
+
+Peripheral Pin Select (PPS) has an operation mode in which all input and output selections can be prevented to stop  inadvertent changes.
+
+PPS selections are unlocked by setting by the use of the `UnLockPPS` command.
+
+Using this command will ensure the special sequence of Microchip assembler is handled correctly.
+
+*Command Availability:*
+
+Available on all Microchip microcontrollers only.
+
+
+
+----
+    #chip 16f18855,32
+    #option explicit
+    #config RSTOSC_HFINT32
+
+    'Set the PPS of the I2C and the RS232 ports.
+    #startup InitPPS, 85
+    Sub InitPPS
+      LOCKPPS
+        RC0PPS = 0x0010       'RC0->EUSART:TX;
+        RXPPS  = 0x0011       'RC1->EUSART:RX;
+
+        SSP1CLKPPS = 0x14     'RC3->MSSP1:SCL1;
+        SSP1DATPPS = 0x13     'RC4->MSSP1:SDA1;
+        RC3PPS = 0x15         'RC3->MSSP1:SCL1;
+        RC4PPS = 0x14         'RC4->MSSP1:SDA1;
+      UnLockPPS
+    End Sub
+----
+
+*For more help, see: <<_lockpps, LockPPS>>*.

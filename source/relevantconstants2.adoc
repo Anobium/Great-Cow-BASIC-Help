@@ -1,0 +1,42 @@
+==== RS232 Software Overview
+
+*Introduction:*
+
+These routines allow the microcontroller to send and receive RS232 data.
+
+All functions are implemented using software, so no special hardware is
+required on the microcontroller. However, if the microcontroller has a
+hardware serial module (usually referred to as UART or USART), and the
+serial data lines are connected to the appropriate pins, the hardware
+routines should be used for smaller code, improved reliability and
+higher baud rates.
+
+*Relevant Constants:*
+
+These constants are used to control settings for the RS232 serial
+communication routines. To set them, place a line in the main program
+file that uses `#define` to assign a value to the particular constant.
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name/s*
+|*Controls*
+|*Default Value*
+|`SendALow`, `SendBLow`, `SendCLow`
+|These are used to define the commands used to send a low (0) bit on
+serial channels A, B and C respectively.
+|No Default +
+*Must be defined*
+|`SendAHigh`, `SendBHigh`, `SendCHigh`
+|These are used to define the commands used to send a high (1) bit on
+serial channels A, B and C respectively.
+|No Default +
+*Must be defined*
+|`RecALow`, `RecBLow`, `RecCLow`
+|The condition that is true when a low bit is being received
+|`Sys232Temp.0 OFF` +
+*Must be defined*
+|`RecAHigh`, `RecBHigh`, `RecCHigh`
+|The condition that is true when a high bit is being received
+|`Sys232Temp.0 ON` +
+*Must be defined*
+|===

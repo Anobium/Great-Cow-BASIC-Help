@@ -1,0 +1,42 @@
+==== Dir
+
+*Syntax:*
+[subs="quotes"]
+----
+    Dir __port.bit__ {In | Out}               *__(Individual Form)__*
+    Dir __port__ {In | Out | __DirectionByte__}  *__(Entire Port Form)__*
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Dir` command is used to set the direction of the ports of the microcontroller chip. The individual form sets the direction of one pin at a time, whereas the entire port form will set all bits in a port.
+
+In the individual form, specify the port and bit (ie. `PORTB.4`), then the direction, which is either In or Out.
+
+The entire port form is similiar to the `TRIS` instruction offered by some Microchip PIC microcontrollers. To use it, give the name of the port (_i.e._ `PORTA`), and then a byte is to be written into the `TRIS` variable. This form of the command is for those who are familiar with the Microchip PIC microcontrollers internal architecture.
+
+*Note:*
+Entire port form will work differently on Atmel AVR microcontrollers when a value other than IN or OUT is used. Atmel AVR microcontrollers use 0 to indicate in and 1 to indicate out, whereas Microchip PIC microcontrollers use 0 for out and 1 for in. When IN and OUT are used there are no compatibility issues.
+
+*Example:*
+----
+    'This program sets PORTA bits 0 and 1 to in, and the rest to out.
+    'It also sets all of PORTB to output, except for B1.
+    'Individual form is used for PORTA:
+    DIR PORTA.0 IN
+    DIR PORTA.1 IN
+    DIR PORTA.2 OUT
+    DIR PORTA.3 OUT
+    DIR PORTA.4 OUT
+    DIR PORTA.5 OUT
+    DIR PORTA.6 OUT
+    DIR PORTA.7 OUT
+    'Entire port form used for B:
+    DIR PORTB b'00000010'
+
+    'Entire port form used for C:
+    DIR PORTC IN
+----

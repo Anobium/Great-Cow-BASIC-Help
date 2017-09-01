@@ -1,0 +1,24 @@
+==== LCDBacklight
+
+*Syntax:*
+----
+    LCDBacklight ( On | Off )
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+Sets the LCD backlight on or off
+
+Do not connect the LCD backlight directly to the microcontroller! Always refer to
+the datasheet for the correct method to drive the LCD backlight.
+
+The diagram below shows a method to connect the LCD backlight to a microcontroller.
+
+image:lcdbacklightb1.JPG[graphic]
+The diagram above was provided by William Roth, January 2015.
+
+*Supported in <LCD.H>*
+

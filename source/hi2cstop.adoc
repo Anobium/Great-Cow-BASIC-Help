@@ -1,0 +1,30 @@
+==== HI2CStop
+
+*Syntax:*
+
+----
+    HI2CStop
+----
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+`HI2CStop` should be called at the end of every I2C transmission.
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2Stop
+----
+
+*Example:*
+
+Please see <<_hi2csend,HI2CSend>> and <<_hi2creceive,HI2CReceive>> for an
+example.
+
+
+Supported in <HI2C.H>

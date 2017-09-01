@@ -1,0 +1,121 @@
+// Edit EvanV 171016  edit MLO 261016
+==== DisplayValue
+
+*Syntax:*
+[subs="quotes"]
+----
+    DisplayValue (_display, data, dot_)
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will display the given value on a seven segment LED
+display.
+
+`_display_` is the number of the display to use. Up to 4 digits. +
+
+`_data_` is the value between 0 and F to be shown.
+
+`_dot_` is an optional parameter. When it is 1 then the decimal point for that digit  is turned on.
+
+The command also support HEX characters in the range between 0x00 and
+0x0F (0 to 15). See example two below for usage.
+
+*Example 1:*
+
+----
+    'This program will count from 0 to 99 on two LED displays
+    #chip 16F819, 8
+    #config osc = int
+
+  'See 7 Segment Display Overview for alternate ways of defining Ports
+    #define DISP_SEG_A PORTB.0
+    #define DISP_SEG_B PORTB.1
+    #define DISP_SEG_C PORTB.2
+    #define DISP_SEG_D PORTB.3
+    #define DISP_SEG_E PORTB.4
+    #define DISP_SEG_F PORTB.5
+    #define DISP_SEG_G PORTB.6
+  '#define DISP_SEG_DOT PORTB.7 ' Optional DP
+
+    #define DISP_SEL_1 PORTA.0
+    #define DISP_SEL_2 PORTA.1
+
+    Do
+        For Counter = 0 To 99
+
+            'Get the 2 digits
+            Number = Counter
+            Num1 = 0
+            If Number >= 10 Then
+                Num1 = Number / 10
+                'SysCalcTempX stores remainder after division
+                Number = SysCalcTempX
+            End If
+            Num2 = Number
+
+            'Show the digits
+            'Each DisplayValue will erase the other (multiplexing)
+            'So they must be called often enough that the flickering
+            'cannot be seen.
+            Repeat 500
+                DisplayValue 1, Num1
+                Wait 1 ms
+                DisplayValue 2, Num2
+                Wait 1 ms
+            End Repeat
+        Next
+    Loop
+----
+
+*Example 2:*
+
+----
+    'This program will count from 0 to 0xff on two LED displays
+    #chip 16F819, 8
+    #config osc = int
+
+    #define DISP_SEG_A PORTB.0
+    #define DISP_SEG_B PORTB.1
+    #define DISP_SEG_C PORTB.2
+    #define DISP_SEG_D PORTB.3
+    #define DISP_SEG_E PORTB.4
+    #define DISP_SEG_F PORTB.5
+    #define DISP_SEG_G PORTB.6
+
+    #define DISP_SEL_1 PORTA.0
+    #define DISP_SEL_2 PORTA.1
+    #define DISP_SEL_4 PORTA.2
+    #define DISP_SEL_3 PORTA.3
+
+    Do
+        For Counter = 0 To 0xff
+
+            'Get the 2 digits
+            Number = Counter
+            Num1 = 0
+            If Number >= 0x10 Then
+                Num1 = Number / 0x10
+                'SysCalcTempX stores remainder after division
+                Number = SysCalcTempX
+            End If
+            Num2 = Number
+
+            'Show the digits
+            'Each DisplayValue will erase the other (multiplexing)
+            'So they must be called often enough that the flickering
+            'cannot be seen.
+            Repeat 500
+                DisplayValue 1, Num1
+                Wait 1 ms
+                DisplayValue 2, Num2
+                Wait 1 ms
+            End Repeat
+        Next
+    Loop
+----
+
+*Also, see* <<_7_segment_displays_overview,7 Segment Display Overview>>, <<_displaychar,DisplayChar>>, <<_displaysegment,DisplaySegment>>

@@ -1,0 +1,48 @@
+==== Poke
+
+*Syntax:*
+[subs="quotes"]
+----
+    Poke(__location__, __value__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Poke` command is used to write information to the on-chip RAM of the microcontroller.
+
+`_location_` is a word variable that gives the address to write. The exact range of valid values varies from chip to chip.
+`_value_` is the data to write to the location.
+
+This command should not normally be used, as it will make the porting of code to another chip very difficult.
+
+*Example 1:*
+----
+    'This program will set all of the PORTB pins high
+    POKE (6, 255)
+----
+
+*Example 2:*
+
+----
+    ;Chip Settings
+    #chip 16F88
+
+    Do Forever
+        FlashPin @PORTB, 8
+        Wait 1 s
+    Loop
+
+    Sub FlashPin (In DestVar As word, In DestBit)
+        Poke DestVar, Peek(DestVar) Or DestBit
+        Wait 1 s
+        Poke DestVar, Peek(DestVar) And Not DestBit
+    End Sub
+----
+
+Using @ before the name of a variable (including a special function register) will give you the address of that variable, which can then be stored in a word variable and used by `Peek` and `Poke` to indirectly access the location.
+
+*See Also* <<_peek,Peek>>

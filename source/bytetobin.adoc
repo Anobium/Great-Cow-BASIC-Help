@@ -1,0 +1,27 @@
+==== ByteToBin
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = ByteToBin(__bytevar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `ByteToBin` function creates a string of a ANSI (8-byte) characters.
+The function converts a number to a string consisting of ones and zeros that represents the binary value.
+
+*Note:*
+Supports BYTE variables only.  For WORD variables use `WordToBin`
+
+*Example:*
+----
+    string = ByteToBin( 1 )   ' Returns "00000001"
+
+    string = ByteToBin( 254 ) ' Returns "11111110"
+----
+*For more help, see* <<_wordtobin,WordToBin>>

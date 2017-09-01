@@ -1,0 +1,14 @@
+===== ST7920GraphicTest
+
+*Syntax:*
+----
+    ST7920GraphicTest
+----
+*Explanation:*
+
+This command tests the graphics functionality of the GLCD display.
+
+*Example usage:*
+----
+    ST7920GraphicTest ‘Test the display
+----

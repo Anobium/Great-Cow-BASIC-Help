@@ -1,0 +1,32 @@
+==== PulseIn
+
+*Syntax:*
+[subs="quotes"]
+----
+    PulseIn __pin__, __user_variable__, __time units__
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `PulseIn` command will monitor the specified pin when the pin is high, and then measure the high time. It will store the time in the user variable.
+The user variable must be a WORD if returned units are expected to be > 255  (Example: Pulse is 500 ms)
+
+PulseIn is not recommended for accurate measurement of microsecond pulses
+
+*Example:*
+----
+    #chip 12F629, 4
+    #config INTRC_OSC_NOCLKOUT
+
+    Dir GPIO.0 In
+    Dim TimeResult as WORD
+    
+    Do while GPIO.0 = Off        'Wait for next positive edge to start measuring 
+    Loop	
+	
+    Pulsein GPIO.0, TimeResult, ms 
+----

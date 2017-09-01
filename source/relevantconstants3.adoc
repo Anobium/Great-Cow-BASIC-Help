@@ -1,0 +1,132 @@
+==== RS232 Software Overview - Optimised
+
+*Introduction:*
+
+These routines allow the microcontroller to send and receive RS232 data.
+
+SoftSerial is a library for the Creat Cow BASIC compiler and works on AVR and PIC microcontrollers.
+These routines allow the microcontroller to send and receive RS232 data.
+All functions are implemented using software, so no special hardware is required on the microcontroller.
+SoftSerial uses ASM routines for minimal overhead.
+If the microcontroller has a hardware serial module (usually referred to as UART or USART) the hardware routines can be used too.
+
+*Features*
+
+- 3 independent channels Ser1... , Ser2... , Ser3...
+- I/O pins user configurable
+- polarity can be inverted
+- freely adjustable baud rate
+- maximum baudrate depends on MCU speed
+   * PIC@ 1Mhz    9600 baud
+   * PIC@ 4Mhz   38400 baud
+   * PIC@ 8Mhz   64000 baud
+   * PIC@16Mhz  128000 baud
+   * AVR@ 1Mhz   28800 baud
+   * AVR@ 8Mhz  115200 baud
+   * AVR@16Mhz  460800 baud
+
+
+- 5 - 8  data bits
+- 1 or 2 stop bits
+- parity bit not supported
+
+*Relevant Constants:*
+
+These constants are used to control settings for the RS232 serial
+communication routines. To set them, place a line in the main program
+file that uses `#define` to assign a value to the particular constant.
+[cols=4, options="header,autowidth"]
+|===
+|Constant Name/s
+|Controls
+Valid Values
+|Default value
+
+|SER1_TXPORT,
+SER2_TXPORT,
+SER3_TXPORT
+
+|These are used to define the port for sending on serial channels 1, 2 and 3 respectively. Note, that we also have to define a PortPin (see next line). It is not necessary to define this, if we want to receive only.
+Sample:  #define SER1_TXPORT PortB
+
+|PORTA - PORTx
+|No Default
+Must be defined for sending
+
+|SER1_TXPIN,
+SER2_TXPIN,
+SER3_TXPIN
+
+|These are used to define the pin (the corresponding bit) for sending on serial channels 1, 2 and 3 respectively.
+Sample:  #define SER1_TXPIN 0
+|0 - 7
+|No Default
+Must be defined
+for sending
+
+|SER1_RXPORT,
+SER2_RXPORT,
+SER3_RXPORT
+|These are used to define the port for receiving on serial channels 1, 2 and 3 respectively. Note, that we also have to define a PortPin (see next line). It is not necessary to define this, if we want to receive only.
+Sample:  #define SER1_RXPORT PortA
+|PORTA - PORTx  No Default
+|Must be defined
+for receiving
+
+|SER1_RXPIN,
+SER2_RXPIN,
+SER3_RXPIN
+|These are used to define the pin (the corresponding bit) for receiving on serial channels 1, 2 and 3 respectively. It is not necessary to define this, if we want to send only.
+Sample:  #define SER1_RXPIN 5
+|0 - 7
+|No Default
+Must be defined
+for receiving
+
+|SER1_BAUD,
+SER2_BAUD,
+SER3_BAUD
+
+|These are used to define the baudrate for sending and receiving on serial channels 1, 2 and 3 respectively. It is not necessary to define this, if we want to send only.
+Sample:  #define SER1_BAUD 19200
+|75 - 512000
+|No Default
+Must be defined
+
+|SER1_DATABITS,
+SER2_DATABITS,
+SER3_DATABITS
+
+|These are used to define the databits for sending and receiving on serial channels 1, 2 and 3 respectively.
+Sample:  #define SER1_DATABITS 7
+|5 - 8
+|Optional
+Default = 8
+
+|SER1_STOPBITS,
+SER2_STOPBITS,
+SER3_STOPBITS
+|These are used to define the stopbits for sending and receiving on serial channels 1, 2 and 3 respectively.
+Sample:  #define SER1_STOPBITS 2
+|1, 2
+|Optional
+Default = 1
+
+|SER1_INVERT,
+SER2_INVERT,
+SER3_INVERT
+|These are used to define the polarity for sending and receiving on serial channels 1, 2 and 3 respectively. If it is "On", then high bits will be changed to low, and low to high. This is useful for connection to a PCs native serial port or USB-serial converters with  MAX232.
+Sample:  #define SER1_INVERT On
+|On, Off
+|Optional
+Default = Off
+
+|SER1_RXNOWAIT,
+SER2_RXNOWAIT,
+SER3_RXNOWAIT
+|These are used to define, if SerNReceive waits for the startbits when receiving on serial channels 1, 2 and 3 respectively. If it is "On", then SerNReceive does not wait for the startbits edge, but directly reads the serial data. Also the time for delaying the startbit is shortened. This is useful when calling SerNReceive from an Interrupt-Service-Routine.
+Sample:  #define SER1_RXNOWAIT On
+|On, Off
+|Optional
+Default = Off
+|===

@@ -1,0 +1,40 @@
+==== HserPrintCRLF
+
+*Syntax:*
+----
+    HserPrintCRLF [optional BYTE] [, 1 | 2  | 3 | 4 ]
+----
+
+*Command Availability:*
+
+Available on all microcontrollers with a USART or UART module. +
+
+Microchip PIC supports USART1 and 2.+
+Atmel AVR supports USART 1,2,3 and 4.
+
+*Explanation:*
+
+This command will send ASCII codes 13 and 10 only using the hardware
+RS232 module. ASCII codes 13 and 10 equate to a carriage return and line
+feed.
+
+Optionally, you can add a parameter. The number will determine the
+number of ASCII codes 13 and 10 set to the hardware RS232 module.
+
+Also you can choose the comport with second optional parameter if it is not the default comport 1. If there is no first optional parameter then you must have atleast acomma before it  to indicate this is the second parameter.
+
+*Examples:*
+----
+	'This Line will send 1  CR and LF
+	HserPrintCRLF    ' Will send a CR & LF to the terminal
+
+	'This Line will send 2  times (CR and LF)
+	HserPrintCRLF 2    ' Will send 2 times (CR & LF) to the terminal
+						'out of comport 1
+
+	'This Line will send 1  CR and LF
+	HserPrintCRLF 1,2    ' Will send a CR & LF out of
+						'comport 2 to the terminal
+
+----
+*See also* <<_hserprintbytecrlf,HserPrintByteCRLF>>

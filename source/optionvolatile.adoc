@@ -1,0 +1,30 @@
+=== #Option Volatile
+// Edit EvanV 171016
+*Syntax:*
+----
+    #option volatile `bit`
+----
+This option ensure port setting are glitch-free.
+
+*Introduction:*
+
+#option volatile bit where bit is an IO bit, like PORTB.0 appended.
+
+This will cause the compiler to set the bit without any glitches when copying a value from another variable, but will increase code size slightly.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16f877a
+
+    'Example command
+    #option volatile portb.0
+
+    dir portb.0 out
+
+    do forever
+
+      portb.0 = !portb.0
+
+    loop
+----

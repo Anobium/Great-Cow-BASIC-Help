@@ -1,0 +1,19 @@
+===== ST7920cTile
+
+*Syntax:*
+----
+  ST7920cTile ( word variable )
+----
+*Explanation:*
+
+Tiles screen with a Chinese Symbol.
+
+This required 2 bytes of data into DDRAM to display one 16x16 font from
+memory location A140H~D75FH are BIG5 code, A1A0H~F7FFH are GB code.
+
+*Example usage:*
+----
+    Dim CTileValue as word
+    cTileValue = (0xA140H * 256 ) + 0xA140H
+    ST7920Tile (CTileValue) ‘tile the screen with a nice cross hatch
+----

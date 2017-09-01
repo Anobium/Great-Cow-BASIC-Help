@@ -1,0 +1,12 @@
+=== #config
+
+*Syntax:*
+[subs="quotes"]
+----
+    #config __option1__, __option2__, ... , __optionN__
+----
+*Explanation:*
+
+The `#config` directive is used to specify configuration options for the chip. There is a detailed explanation of `#config` in the Configuration section of help.
+
+*See Also* <<_configuration,Configuration>>

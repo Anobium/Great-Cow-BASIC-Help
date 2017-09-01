@@ -1,0 +1,52 @@
+==== InitGLCD
+
+*Syntax:*
+----
+    InitGLCD
+----
+*Explanation:*
+
+This initializes the Graphical LCD for operation. Here are the steps it
+takes:
+
+*Example:*
+----
+'Set pin directions
+
+Dir GLCD_RS Out
+Dir GLCD_RW Out
+Dir GLCD_ENABLE Out
+Dir GLCD_CS1 Out
+Dir GLCD_CS2 Out
+Dir GLCD_RESET Out
+
+'Reset
+
+Set GLCD_RESET Off
+Wait 1 ms
+Set GLCD_RESET On
+Wait 1 ms
+
+'Select both chips
+
+Set GLCD_CS1 On
+Set GLCD_CS2 On
+
+'Set on
+
+Set GLCD_RS Off
+GLCDWriteByte 63
+
+'Set Z to 0
+
+GLCDWriteByte 192
+
+'Deselect chips
+
+Set GLCD_CS1 Off
+Set GLCD_CS2 Off
+
+'Clear screen
+
+GLCDCLS
+----

@@ -1,0 +1,40 @@
+==== CLS
+
+*Syntax:*
+----
+    CLS
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `CLS` command clears the contents of the LCD, and returns the cursor
+to the top left corner of the screen
+
+*Example :*
+----
+    'A Flashing Hello World program for Great Cow BASIC
+
+    'General hardware configuration
+    #chip 16F877A, 20
+
+    'LCD connection settings
+    #define LCD_IO 8
+    #define LCD_DATA_PORT PORTC
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    'Main routine
+    Do
+        Print "Hello World"
+        Wait 1 sec
+        CLS
+        Wait 1 sec
+    Loop
+----
+*For more help, see* <<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

@@ -1,0 +1,36 @@
+==== GLCDRotate
+
+*Syntax:*
+----
+
+    GLCDROTATE LANDSCOPE | PORTRAIT_REV | LANDSCAPE_REV  | PORTRAIT
+
+----
+*Explanation:*
+
+Rotate the GLCD display to a relative position.
+
+GLCD rotation needs to be supported by the GLCD chipset. *NOT* all GLCD chipset support these commands.
+
+The options are:
+----
+    LANDSCAPE
+    PORTRAIT_REV
+    LANDSCAPE_REV
+    PORTRAIT
+----
+
+The command will rotate the screen and set the following variables using the global variables shown below.
+
+----
+    GLCD_WIDTH
+    GLCD_HEIGHT
+----
+
+The command is supported by the following global constants.
+----
+    #define LANDSCAPE       1
+    #define PORTRAIT_REV    2
+    #define LANDSCAPE_REV   3
+    #define PORTRAIT        4
+----

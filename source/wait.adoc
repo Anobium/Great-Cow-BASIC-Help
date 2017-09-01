@@ -1,0 +1,106 @@
+==== Wait
+
+*Syntax:*
+[subs="quotes"]
+
+
+*_Fixed Length Delay:_*
+----
+    Wait time units
+----
+
+*_Conditional Delay:_*
+----
+    Wait {While | Until} condition
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Wait` command will cause the program to wait for either a specified
+amount of time (such as 1 second), or while/until a condition is true.
+
+When using the fixed-length delay, there is a variety of units that are
+available:
+
+[cols=3, options="header,autowidth"]
+|===
+|*Unit*
+|*Length of unit*
+|*Delay range*
+
+|us
+|1 microsecond
+|1 us - 65535 us
+
+|10us
+|10 microseconds
+|10 us - 2.55 ms
+
+|ms
+|1 millisecond
+|1 ms - 65535 ms
+
+|10ms
+|10 milliseconds
+|10 ms - 2.55 s
+
+|s
+|1 second
+|1 s - 255 s
+
+|m
+|1 minute
+|1 min - 255 min
+
+|h
+|1 hour
+|1 hour - 255 hours
+|===
+
+At one stage, Great Cow BASIC variables could not hold more than 255. The `10us`
+and `10ms` units were added as a way to work around this limit. There is
+now no such limit (`Wait 1000 ms` will work for example), so these are not
+really needed. However, you may see them in some older examples or
+programs, and the `10us` units are sometimes the shortest delay that will
+work accurately.
+
+*Example:*
+
+----
+    'This code will wait until a button is pressed, then it will flash
+    'a light every half a second and produce a 440 Hz tone.
+
+    #chip 16F819, 8
+    #config osc = int
+
+    #define BUTTON PORTB.0
+    #define SPEAKER PORTB.1
+    #define LIGHT PORTB.2
+    Dir BUTTON In
+    Dir SPEAKER Out
+    Dir LIGHT Out
+
+    'Assumes Button switches on when pressed
+    Wait Until BUTTON = 1
+    Wait Until BUTTON = 0
+
+    Do
+      'Flash the light
+      Set LIGHT On
+      Wait 500 ms
+      Set LIGHT Off
+
+      'Produce the tone
+      '440 Hz = 880 changes = tone on for 1.14 ms
+      Repeat 440
+        PulseOut SPEAKER, 1140 us
+        Wait 114 10us 'Wait for 114 x 10 us (1.14 ms)
+      End Repeat
+    Loop
+----
+
+*For more help, see <<_conditions,Conditions>>*

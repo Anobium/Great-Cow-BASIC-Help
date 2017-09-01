@@ -1,0 +1,13 @@
+==== GLCDCLS
+
+*Syntax:*
+----
+    GLCDCLS
+----
+*Explanation:*
+
+Clears the screen of a Graphic LCD.
+
+This command supports all GLCD displays.
+
+Specific to the ST7920 GLCD devices. This command supports the clearing the GLCD in text mode and graphics mode.

@@ -1,0 +1,20 @@
+==== PS2WriteByte
+
+*Syntax:*
+[subs="quotes"]
+----
+    PS2WriteByte _user_data_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`PS2WriteByte` will send a byte to a PS/2 device. Once the byte has been
+written, the PS/2 bus will be placed in the inhibit state.
+
+*Example:*
+
+For an example, please refer to the `PS2SetKBLeds` function. +
+<<_ps2setkbleds,PS2 Set Keyboard Leds>>

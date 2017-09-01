@@ -1,0 +1,66 @@
+==== Using Variables
+
+*Explaination*
+
+Using and accessing bytes within word and long numbers etc may be required when you are creating your solution. This can be done with some ease.
+
+You can access the bytes within word and longs variables using the following as a guide using the Suffixes `_H`, `_U` and `_E`
+----
+    Dim workvariable as word
+    workvariable = 21845
+    Dim lowb as byte
+    Dim highb as byte
+    Dim upperb as byte
+    Dim lastb as byte
+
+    lowb = workvariable
+    highb = workvariable_H
+    upperb = workvariable_U
+    lastb = workvariable_E
+----
+
+To further explain, where
+
+----
+    Dim rB as Byte
+    Dim sW as Word
+    Dim sW as Word
+----
+
+To extract the bytes from a WORD of 16 bits use the Suffix `_H`
+
+----
+    'To use the bits 7-0 [lower byte] in the Word variable sW
+    rB = sW
+
+    'For bits 15-8 [upper byte] in the Word variable sW, use sw_H
+    rB = sW_H
+----
+
+To extract the bytes from a LONG of 32 bits use the Suffixes `_H`, `_U` and
+`_E`, where
+
+----
+    Dim rB as Byte
+    Dim sW as Word
+    Dim tL as Long
+
+    ‘ For bits 7-0 [lowest byte #0] in Long variable tL
+    rB = tL
+
+    ‘ For bits 15-8 [lower middle byte #1] in Long variable tL
+    rB = tL_H
+
+    ‘ For bits 23-16 [upper middle byte #2] in Long variable tL
+    rB = tL_U
+
+    ‘ For bits 31-24 [highest byte #3] in Long variable tL
+    rB = tL_E
+----
+
+To extract nibbles from the variable `rB`
+
+----
+    lower_nibble = rB & 0x0F
+    upper_nibble = (rB & 0xF0) / 16
+----

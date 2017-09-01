@@ -1,0 +1,25 @@
+// Edit EvanV 171016
+=== #Option NoConfig
+
+*Syntax:*
+----
+    #option NoConfig
+----
+This option will prevent the generated assembler from generating _Config items.
+
+
+`#option NoConfig` is used when using a bootloader.
+
+*Introduction:*
+
+
+*Example:*
+----
+    'Set chip model
+    #chip 16f877a
+
+    'Example command
+    #option NoConfig
+
+    'User Code......
+----

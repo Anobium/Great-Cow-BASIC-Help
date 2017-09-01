@@ -1,0 +1,9 @@
+cd "/home/project-web/gcbasic/htdocs/help/output"
+lcd "D:\GCB\GCBdoc\output"
+mput -r *
+
+cd "/home/project-web/gcbasic/htdocs/help"
+lcd "D:\GCB\GCBdoc\output\web\gcbasic"
+mput -r *
+
+quit

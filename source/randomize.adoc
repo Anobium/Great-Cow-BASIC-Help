@@ -1,0 +1,41 @@
+==== Randomize
+
+*Syntax:*
+[subs="quotes"]
+----
+    Randomize
+    Randomize _seed_
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+Randomize is used to seed the pseudo random number generator, so that it
+will produce a different sequence of numbers each time it is used.
+
+If no _seed_ is specified, then the RANDOMIZE_SEED constant will be used
+as the seed. If _seed_ is specified, then it will be used to seed the
+generator.
+
+It is important that the seed is different every time that Randomize is
+used. If the seed is always the same, then the sequence of numbers will
+always be the same. It is best to use a running timer, an input port, or
+the analog to digital converter as the source of the seed, since these
+will normally provide a different value each time the program runs.
+
+*Example:*
+----
+    'Set chip model
+    #chip tiny2313, 1
+
+    'Use randomize, with the value on PORTD as the seed
+    Randomize PORTD
+
+    'Generate random numbers, and output on PORTB
+    Do
+        PORTB = Random
+        Wait 1 s
+    Loop
+----

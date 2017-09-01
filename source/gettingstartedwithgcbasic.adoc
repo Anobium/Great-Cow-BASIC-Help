@@ -1,0 +1,43 @@
+== Using Great Cow BASIC
+
+Need to compile a program with Great Cow BASIC, but don't know where to begin? Try these simple instructions:
+{empty} +
+{empty} +
+ - Complete the installation using the default values - select all the programmers but not the portable mode.
+{empty} +
+{empty} +
+ - The installer will automatically start the IDE.
+{empty} +
+{empty} +
+ - When a Great Cow BASIC sourcefile is opened, check out the IDE Tools menu - through this menu you can access the oneclick commands.
+ Try right mousebutton - this will access the same options.
+{empty} +
+{empty} +
+ - The IDE Tools... commands (function keys F5 - F8) starts a Great Cow BASIC utility which calls the batchfiles for compiling sourcecode and programming
+   ("flashing")[small]#^(1)^# the target microcontroller.   By default these batchfiles are called flashAVR.bat (when the chipmodel is an AVR) and flashPIC.bat (when the chipmodel is a PIC) and a batch file to create and program your microcontroller called makeHEX.bat.  The chipmodel is autodetected by the IDE.
+{empty} +
+{empty} +
+ - By editing these batchfiles you can configure the programmer software for
+   your own needs. All the programmers are located in the G+Stools subfolder.
+{empty} +
+{empty} +
+ - If there is a batchfile "FlashThis.bat" present in the same folder as
+   the sourcefile, this batchfile is used for flashing. This may be useful
+   for project-specific flashing.
+{empty} +
+{empty} +
+   - Included programmer software is:
+{empty} +
+    -- Avrdude for AVR,
+{empty} +
+    -- PICPgm for PIC,
+{empty} +
+    -- PicKit2 and PicKit3
+{empty} +
+    -- TinyBootLoader+
+{empty} +
+    -- Microchip Xpress Board and many, many more.
+
+
+[small]#^(1)^ You need a suitable programmer to do this, and instructions should be
+included with the programmer on how to download to the microcontroller.#

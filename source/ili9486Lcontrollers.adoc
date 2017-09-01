@@ -1,0 +1,204 @@
+==== ILI9486L Controllers
+
+
+This section covers GLCD devices that use the ILI9486L graphics controller.
+
+The ILI9486L is a 262,144-color single-chip SoC driver for a-Si TFT liquid crystal display with resolution of
+320RGBx480 dots, comprising a 960-channel source driver, a 480-channel gate driver, 345,600bytes GRAM for
+graphic data of 320RGBx480 dots.
+
+The Great Cow BASIC constants shown below control the configuration of the ILI9486L controller. &#160;&#160;&#160;Great Cow BASIC supports SPI hardware and software connectivity  - this is shown in the tables below.
+
+
+To use the ILI9486L driver simply include the following in your user code.  This will initialise the driver.
+
+----
+    #include <glcd.h>
+    #DEFINE GLCD_TYPE GLCD_TYPE_ILI9486L
+----
+
+The Great Cow BASIC constants for the interface to the controller are shown in the table below.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Options
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_ILI9486L`
+|
+
+|`GLCD_DC`
+|Specifies the output pin that is connected to Data/Command IO pin on the GLCD.
+|Required
+
+|`GLCD_CS`
+|Specifies the output pin that is connected to Chip Select (CS)  on the GLCD.
+|Required
+
+|`GLCD_Reset`
+|Specifies the output pin that is connected to Reset pin on the GLCD.
+|Required
+
+|`GLCD_DI`
+|Specifies the output pin that is connected to Data In (GLCD out) pin on the GLCD.
+|Required
+
+|`GLCD_DO`
+|Specifies the output pin that is connected to Data Out (GLCD in) pin on the GLCD.
+|Required
+
+|`GLCD_SLK`
+|Specifies the output pin that is connected to Clock (CLK) pin on the GLCD.
+|Required
+|===
+
+
+The Great Cow BASIC constants for control display characteristics are shown in the table below.
+
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|`320`
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|`480`
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|`6`
+|===
+
+
+The Great Cow BASIC commands supported for this GLCD are shown in the table below.&#160;&#160;&#160;Always review the appropiate library for the latest full set of supported commands.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Command
+|Purpose
+|Example
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable )`
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode [,Optional LineColour] )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable [,Optional LineColour] )`
+
+|`Box`
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour]`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2  [,Optional In LineColour] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour)`
+
+|`GLCDWriteByte`
+|Set a byte value to the controller, see the datasheet for usage.
+|`GLCDWriteByte ( LCDByte)`
+
+|`GLCDReadByte`
+|Read a byte value from the controller, see the datasheet for usage.
+|`bytevariable = GLCDReadByte`
+
+|`GLCDRotate`
+|Rotate the display
+|`LANDSCAPE`, `PORTRAIT_REV`, `LANDSCAPE_REV` and `PORTRAIT` are supported
+
+
+
+|`ILI9486L_[color]`
+|Specify color as a parameter for many GLCD commands
+|Color constants for this device are shown in the list below. +
+
+
+ Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
+|===
+
+
+----
+    ILI9486L_BLACK   'hexidecimal value 0x0000
+    ILI9486L_RED     'hexidecimal value 0xF800
+    ILI9486L_GREEN   'hexidecimal value 0x07E0
+    ILI9486L_BLUE    'hexidecimal value 0x001F
+    ILI9486L_WHITE   'hexidecimal value 0xFFFF
+    ILI9486L_PURPLE  'hexidecimal value 0xF11F
+    ILI9486L_YELLOW  'hexidecimal value 0xFFE0
+    ILI9486L_CYAN    'hexidecimal value 0x07FF
+    ILI9486L_D_GRAY  'hexidecimal value 0x528A
+    ILI9486L_L_GRAY  'hexidecimal value 0x7997
+    ILI9486L_SILVER  'hexidecimal value 0xC618
+    ILI9486L_MAROON  'hexidecimal value 0x8000
+    ILI9486L_OLIVE   'hexidecimal value 0x8400
+    ILI9486L_LIME    'hexidecimal value 0x07E0
+    ILI9486L_AQUA    'hexidecimal value 0x07FF
+    ILI9486L_TEAL    'hexidecimal value 0x0410
+    ILI9486L_NAVY    'hexidecimal value 0x0010
+    ILI9486L_FUCHSIA 'hexidecimal value 0xF81F
+----
+
+For a ILI9486L datasheet, please refer to Google.
+
+
+This example shows how to drive a ILI9486L based Graphic LCD module with the built in commands of Great Cow BASIC.
+
+
+*Example:*
+----
+    #chip mega328p, 16
+    #option explicit
+
+    #include <glcd.h>
+    #include <UNO_mega328p.h >
+
+    #define GLCD_TYPE GLCD_TYPE_ILI9486L
+
+    'Pin mappings for SPI - this GLCD driver supports Hardware SPI and Software SPI
+    #define GLCD_DC       DIGITAL_8           ' Data command line
+    #define GLCD_CS       DIGITAL_10          ' Chip select line
+    #define GLCD_RESET    DIGITAL_9           ' Reset line
+
+    #define GLCD_DI       DIGITAL_12          ' Data in | MISO
+    #define GLCD_DO       DIGITAL_11          ' Data out | MOSI
+    #define GLCD_SCK      DIGITAL_13          ' Clock Line
+
+    #define ILI9486L_HardwareSPI              ' Remove/comment out if you want to use software SPI.
+
+
+    GLCDPrint(0, 0, "Test of the ILI9486L Device")
+    end
+----
+
+
+*For more help, see*
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
+
+Supported in <GLCD.H>

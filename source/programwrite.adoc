@@ -1,0 +1,30 @@
+==== ProgramWrite
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    ProgramWrite (_location_, _value_)
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC microcontrollers with self write capability. Not available on
+Atmel AVR at present.
+
+*Explanation:*
+
+`ProgramWrite` writes information to the program memory on chips that
+support this feature. `_location_` and `_value_` are both word variables.
+
+The largest value possible for `_location_` depends on the amount of
+program memory on the microcontroller , which is given on the datasheet. `_value_` is
+14 bits wide, and thus can store values up to 16383.
+
+This is an advanced command which should only be used by advanced
+developers. ProgramErase must be used to clear a block of memory BEFORE
+`ProgramWrite` is called.
+
+*Example:*
+
+*For more help, see <<_programerase,ProgramErase>>* and *<<_programread,ProgramRead>>*

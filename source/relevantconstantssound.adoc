@@ -1,0 +1,56 @@
+==== Sound Overview
+
+*Introduction:*
+
+These Great Cow BASIC methods generate tones of a given frequency and duration.
+
+[cols=2, options="header,autowidth",width="80%"]
+|===
+
+|*Method*
+|*Controls*
+
+|Tone
+|Generate a specified tone for a specified duration in terms of a frequency of a specified Mhz and units of 10ms
+
+|ShortTone
+|Generate a specified tone for a specified duration in terms of a frequency of a 10Mhz and units of 1ms
+
+|Play
+|Play a tune string.  The format of the string is the QBASIC play command.
+
+|PlayRTTTL
+|Play a tune string.  The format of the string is the Nokia cell phone RTTTL format.
+
+|===
+
+
+*Relevant Constants:*
+
+These constants are used to control settings for the tone generation routines. To set them, place a line in the main program file that uses `#define` to assign a value to the particular constant.
+
+[cols=3, options="header,autowidth",width="80%"]
+|===
+|*Constant Name*
+|*Controls*
+|*Default Value*
+|`SoundOut`
+|The output pin to produce sound on
+|N/A - *_Must be defined_*
+|===
+
+
+*_Note:_* If an exact frequency is required, or a smaller program is needed, these routines should not be used. Instead, you should use code like this:
+[subs="specialcharacters,quotes"]
+----
+    Repeat _count_
+    PulseOut SoundOut, _period_ us
+    Wait _period_ us
+    End Repeat
+----
+
+Set `_count_` and `_period_` to the appropriate values as follows:
+
+`_period_` to 1000000 / desired frequency / 2 +
+`_count_` to desired duration / _period_.
+

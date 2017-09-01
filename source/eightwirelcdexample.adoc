@@ -1,0 +1,197 @@
+===== LCD_IO 8 Example
+
+This is an connection mode 8 Driver to demonstrate LCD features. This for the 16F877A, but, it can easily be adapted for other microcontrollers.
+
+A 2 by 16 LCD is assumed.
+
+Based on the works by Thomas Henry and then revised Evan R. Venn
+
+----
+    #chip 16F877A,20
+
+
+    'Use LCD in 8 pin mode and define LCD pins
+    #define LCD_IO 8
+    #define LCD_RW PORTE.1
+    #define LCD_RS PORTE.0
+    #define LCD_Enable PORTE.2
+    #define LCD_Data_Port PORTD
+
+    ;Here are various LCD commands which can be used.
+    ;These are the LCD commands for the HD44780 controller
+    #define clrHome = 1     ;clear the display, home the cursor
+    #define home    = 2     ;home the cursor only
+    #define RtoL    = 4     ;print characters right to left
+    #define insR    = 5     ;insert characters to right
+    #define LtoR    = 6     ;print characters left to right
+    #define insL    = 7     ;insert characters to left
+    #define lcdOff  = 8     ;LCD screen off
+    #define lcdOn   = 12    ;LCD screen on, no cursor
+    #define curOff  = 12    ;an alias for the above
+    #define block   = 13    ;LCD screen on, block cursor
+    #define under   = 14    ;LCD screen on, underline cursor
+    #define undblk  = 15    ;LCD screen on, blinking and underline cursor
+    #define CLeft   = 16    ;cursor left
+    #define CRight  = 20    ;cursor right
+    #define panR    = 24    ;pan viewing window right
+    #define panL    = 28    ;pan viewing window left
+    #define bus4    = 32    ;4-bit data bus mode
+    #define bus8    = 48    ;8-bit data bus mode
+    #define mode1   = 32    ;one-line mode (alias)
+    #define mode2   = 40    ;two-line mode
+    #define line1   = 128   ;go to start of line 1
+    #define line2   = 192   ;go to start of line 2
+    ;----- Variables
+    dim char, msn, lsn, index, ii as byte
+    ;----- Main Program
+    LoadEeprom              ;load the EEprom with strings
+
+    do forever
+        printMsg(0)             ;print first message
+        wait 3 S                ;pause 3 seconds
+        printMsg(2)             ;print next message
+        wait 3 S                ;pause 3 seconds
+        repeat 5                ;blink it five times
+          LCDCmd(lcdOff)       ;display off
+          wait 500 mS           ;pause
+          LCDCmd(lcdOn)        ;display on
+          wait 500 mS           ;pause
+        end repeat
+        wait 1 S                ;pause before next demo
+        ;demonstrate panning
+        printMsg(4)             ;print next message
+        wait 3 S                ;pause 3 seconds
+        repeat 16
+          LCDCmd(panL)         ;pan left a step at a time
+          wait 300 mS           ;slow down to avoid blur
+        end repeat
+        repeat 16
+          LCDCmd(panR)         ;then pan right
+          wait 300 mS
+        end repeat
+        wait 1 S                ;pause before next demo
+                                ;demonstrate moving the cursor
+        printMsg(6)             ;print next message
+        wait 3 S                ;pause 3 seconds
+        doHome                  ;home cursor
+        LCDCmd(under)          ;choose underline cursor
+        for ii = 0 to 15         ;move cursor across first line
+          LCDCmd(line1+i)
+          wait 200 mS
+        next i
+        for ii = 0 to 15         ;move cursor across second line
+          LCDCmd(line2+i)
+          wait 200 mS
+        next i
+        for ii = 15 to 0 step -1 ;move cursor back over second line
+          LCDCmd(line2+i)
+          wait 200 mS
+        next i
+        for ii = 15 to 0 step -1 ;move cursor back over first line
+          LCDCmd(line1+i)
+          wait 200 mS
+        next i
+        wait 3 S
+        ;demonstrate blinking block cursor
+        printMsg(8)             ;print next message
+        doHome                  ;home the cursor
+        LCDCmd(block)          ;choose blinking block cursor
+        wait 4 S                ;pause 4 seconds
+        LCDCmd(mode1)          ;change to one long line mode
+        doHome                  ;home the cursor again
+        LCDCmd(curOff)         ;and disable it
+
+
+        ;demonstrate scrolling a lengthy one-line marquee
+        for ii = 0xd0 to 0xff    ;print next message - the remaining EEPROM
+          EPread ii, char        ;fetch directly from eeprom
+          print chr(char)
+        next i
+        wait 1 S
+        doHome                  ;home cursor once more
+        repeat 141              ;scroll message twice
+          LCDCmd(panR)
+          wait 250 mS
+        end repeat
+        wait 2 S
+        LCDCmd(mode2)          ;change back to two line mode
+        doClr                   ;clear the screen
+        ;demonstrate all of the characters
+        printMsg(11)             ;print next message
+        for ii = 33 to 127       ;print first batch of ASCII characters
+          LCDCmd(line1+12)     ;overwrite each character displayed
+          print chr(ii)            ;this is the ASCII code
+          wait 500 mS
+        next i
+        for ii = 161 to 255      ;print next batch of ASCII characters
+          LCDCmd(line1+12)
+          print chr(ii)
+          wait 500 mS
+        next i
+        ;say good-bye
+        LCDCmd(line2)
+        printMsg(11)             ;print next message
+        doHome                  ;home the cursor
+    loop
+    end
+
+    ;----- Clear the screen
+    sub doClr
+        LCDCmd(clrHome)
+        wait 5 mS                   ;this command takes extra time
+    end sub
+
+    ;----- Home the cursor
+    sub doHome
+        LCDCmd(home)
+        wait 5 mS                   ;and so does this one
+    end sub
+
+    ;----- Print a message to the LCD
+    ;The parameter 'row' points to the start of the string.
+    sub printMsg(in row as byte, in Optional StringLength As Byte = 15)
+          LCDCmd(line1)              ;get set for first line
+
+          for ii = 0 to StringLength
+            index = row*16+ii
+            EPread index, char        ;fetch next character and
+            print chr(char)             ;transmit to the LCD
+          next
+          LCDCmd(line2)              ;get set for second line
+          for ii = 0 to StringLength
+            index = (row+1)*16+ii
+            EPread index, char        ;fetch next character and
+            print chr(char)             ;transmit to the LCD
+          next
+    end sub
+
+    sub loadEeprom
+
+        ' Strings for EEPROM, Strings should be limited to 16 characters for the first 13 sstrings, then a long string to fill eeprom
+        location = 0
+        WriteEeprom "First we'll show"
+        WriteEeprom "this message.   "
+        WriteEeprom "Then we'll blink"
+        WriteEeprom "five times.     "
+        WriteEeprom "Now lets pan    "
+        WriteEeprom "left and right. "
+        WriteEeprom "Watch the line  "
+        WriteEeprom "cursor move.    "
+        WriteEeprom "A block cursor  "
+        WriteEeprom "is available.   "
+        WriteEeprom "Characters:     "
+        WriteEeprom "Bye!            "
+        WriteEeprom "in one line mode"
+        WriteEeprom "Next well scroll this long message as a marquee"
+    end sub
+
+
+    ; Write to the device eeprom
+    sub WriteEeprom ( in Estring() ) as string * 64
+        for ee = 1 to len ( Estring )
+            HSersend Estring(ee)
+            epwrite location, Estring(ee)
+            location++
+        next
+    end sub
+----

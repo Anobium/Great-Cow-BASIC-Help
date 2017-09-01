@@ -1,0 +1,21 @@
+==== Average
+
+*Syntax:*
+[subs="quotes"]
+----
+    integer_variable = Average(__byte_variable1__ , __byte_variable2__)
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+A function that returns the average of two numbers. This only supports byte variables.
+
+Provides a very fast way to calculate the average of two 8 bit numbers.
+
+*Example:*
+----
+ average_value = Average(8,4)   ' Will return 6
+----

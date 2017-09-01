@@ -1,0 +1,194 @@
+// Edit KentS 5/7/17
+==== HPWM AVR OCRnx
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+     HPWM _channel_, _frequency_, _duty cycle_
+----
+
+*Command Availability:*
+
+The HPWM command is available on Atmel AVR microcontrollers with an OCnx pin, and is compatible with the PIC HPWM command method.  Due to the the unique way of AVR PWM implementation, and code efficiency, there are some notable differences in the HPWM initialization and its use.
+
+This command supports the Fast PWM Mode and period registers for their respective devices.  Typically Timer0 and Timer2 do not have a period register and the "A" channel is sacrificed to provide that function.  Therefore, channel 1 and channel 6 will not be available, but are documented for possible future use.  Some device Timers do not have an adjustable period register, so this command is not feasible (consult the datasheet).
+
+*Explanation:*
+
+The HPWM command sets up the hardware PWM module of the Atmel AVR microcontrollers to generate a PWM waveform of the given frequency and duty cycle.  Once this command is called, the PWM will be emitted until the duty cycle parameter is written to zero.
+
+If the need is just one particular frequency and duty cycle, one should use PWMOn and the constants PWM_Freq and PWM_Duty instead.  PWMOn for the AVR is uniquely assigned to the OC0B pin, or channel 2. PWMOff will only shutdown  the AVR HPWM channel 2.
+
+`_channel_` described as 1, 2, 3,...16 correspond to the pins OCR0A, OCR0B....OCR5C as detailed in the _channel_ constant table.  Channel 1 and channel 6 are not available.
+
+`_frequency_` sets the frequency of the PWM output measured in Khz.  The maximum value allowed is 255 KHz. In situations that do not require a specific PWM frequency, the PWM frequency should equal approximately 4 times the clock speed (GCB chipMHz) of the microcontroller (ie 63 KHz on a 16 MHz chip, 32 KHz on 8 MHz, 4 Khz on 1 MHz).  This gives the best duty cycle resolution possible.  Alternate frequencies with good duty cycle resolution are 1Khz, and 4Khz with chipMhz values of 16 and 8 respectively.
+
+`_duty cycle_` specifies the desired duty cycle of the PWM signal, and ranges from 0 to 255 where 255 is 100% duty cycle.  The AVR fast PWM mode has a small spike at the extreme setting of  0x00, on most devices, with each period register rollover.  By using the HPWM command, and writing 0x00 to the duty cycle parameter, the PWM signal will shutdown completely and avoid the spike.  The PWM signal can then be restarted again with a new HPWM command.
+
+Note: Due to the AVR having a timer prescaler of just 1, 8, and 64; the AVR frequency and duty cycle resolution will be different from the PIC frequency and duty cycle resolution.   The AVR HPWM parameters will likely need adjusting ,when substituted into an existing PIC program, and where accuracy is required.
+
+*HPWM Constants:*
+
+The AVR HPWM timer constants for channel number control are shown in the table below.  Each timer constant needs to be defined for any one of the channels it controls.
+
+[cols="1,4,1", options="header,autowidth"]
+|===
+|*Timer* +
+*Constants*
+|*Controls*
+|*Options*
+
+|AVRTC0
+|Specifies AVR TC0 associated  with _channel_ 1, and 2
+|Must be defined
+
+|AVRTC1
+|Specifies AVR TC1 associated  with _channel_ 3, 4 and 5 +
+Channel 5 present on larger pinout devices
+|Must be defined
+
+|AVRTC2
+|Specifies AVR TC2 associated  with _channel_ 6, and 7
+|Must be defined
+
+|AVRTC3
+|Specifies AVR TC3 associated  with _channel_ 8, 9, and 10
+|Must be defined
+
+|AVRTC4
+|Specifies AVR TC4 associated  with _channel_ 11,12, and 13
+|Must be defined
+
+|AVRTC5
+|Specifies AVR TC5 associated  with _channel_ 14, 15, and 16
+|Must be defined
+|===
+
+The Great Cow BASIC HPWM channel constants for output pin control are shown in the table below.  Each HPWM channel used needs to be defined.  The Port pin associated with each OCnx must be set to output.
+
+[cols="1,4,1", options="header,autowidth"]
+|===
+|*Channel* +
+*Constants*
+|*Controls*
+|*Options*
+
+|AVRCHAN1
+|Specifies AVR HPWM _channel_ 1 to the associated output pin OC0A +
+OCR0A is used as period register and thus not available
+|N/A
+
+|AVRCHAN2
+|Specifies AVR HPWM _channel_ 2 to the associated output pin OC0B
+|Must be defined
+
+|AVRCHAN3
+|Specifies AVR HPWM _channel_ 3 to the associated output pin OC1A +
+MUX'd  with OC0A pin on some ATTiny's
+|Must be defined
+
+|AVRCHAN4
+|Specifies AVR HPWM _channel_ 4 to the associated output pin OC1B
+|Must be defined
+
+|AVRCHAN5
+|Specifies AVR HPWM _channel_ 5 to the associated output pin OC1C +
+On some larger pinout devices and MUX'd with OC0A pin
+|Must be defined
+
+|AVRCHAN6
+|Specifies AVR HPWM _channel_ 6 to the associated output pin OC2A +
+OCR2A is used as a period register and thus not available
+|N/A
+
+|AVRCHAN7
+|Specifies AVR HPWM _channel_ 7 to the associated output pin OC2B
+|Must be defined
+
+|AVRCHAN8
+|Specifies AVR HPWM _channel_ 8 to the associated output pin OC3A
+|Must be defined
+
+|AVRCHAN9
+|Specifies AVR HPWM _channel_ 9 to the associated output pin OC3B
+|Must be defined
+
+|AVRCHAN10
+|Specifies AVR HPWM _channel_ 9 to the associated output pin OC3C
+|Must be defined
+
+|AVRCHAN11
+|Specifies AVR HPWM _channel_ 11 to the associated output pin OC4A
+|Must be defined
+
+|AVRCHAN12
+|Specifies AVR HPWM _channel_ 12 to the associated output pin OC4B
+|Must be defined
+
+|AVRCHAN13
+|Specifies AVR HPWM _channel_ 13 to the associated output pin OC4C
+|Must be defined
+
+|AVRCHAN14
+|Specifies AVR HPWM _channel_ 14 to the associated output pin OC5A
+|Must be defined
+
+|AVRCHAN15
+|Specifies AVR HPWM _channel_ 15 to the associated output pin OC5B
+|Must be defined
+
+|AVRCHAN16
+|Specifies AVR HPWM _channel_ 16 to the associated output pin OC5C
+|Must be defined
+|===
+
+
+*Example:*
+----
+        'Using HPWM command to alternate ramping leds with the UNO board
+    #chip mega328,16
+
+    '************pwm************************
+    'Must define AVRTCx, AVRCHANx, and set OCnX pin dir to out
+
+    #define AVRTC0    'Timer0
+    #define AVRCHAN2
+    dir PortD.5 Out   'OC0B, UNO pin 5
+
+    #define AVRTC1    'Timer1
+    #define AVRCHAN3
+    #define AVRCHAN4
+    dir PortB.1 out   'OC1A, UNO pin 9
+    dir PortB.2 Out   'OC1B, UNO pin 10
+
+    #define AVRTC2    'Timer2
+    #define AVRCHAN7
+    dir PortD.3 Out   'OC2B, UNO pin 3
+
+    do
+
+    '63khz works good with 16MHz
+    '32khz with 8MHz intosc
+    '4KHz with 8MHz intosc and ckDiv8 fuse
+    freq = 63
+      For PWMled1 = 0 to 255
+        HPWM 2,freq,PWMled1
+        PWMled2 = NOT PWMled1
+        HPWM 3,freq,PWMled2
+        HPWM 4,freq,PWMled2
+        HPWM 7,freq,PWMled1
+        wait 5 ms
+      Next
+
+      For PWMled1 = 255 to 0
+        HPWM 2,freq,PWMled1
+        PWMled2 = NOT PWMled1
+        HPWM 3,freq,PWMled2
+        HPWM 4,freq,PWMled2
+        HPWM 7,freq,PWMled1
+        wait 5 ms
+      Next
+
+    loop
+----

@@ -1,0 +1,19 @@
+==== Ltrim
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = LTRIM(__stringvar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Ltrim` function will trim the 7-bit ASCII space character (value 32) from the LEFT hand side of a string.
+
+Use `Ltrim` on text that you have received from another source that may have irregular spacing at the left hand end of the string.
+
+*See Also* <<_trim,Trim>>, <<_rtrim,Rtrim>>

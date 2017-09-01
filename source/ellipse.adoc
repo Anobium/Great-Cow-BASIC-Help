@@ -1,0 +1,21 @@
+==== Ellipse
+
+*Ellipse:*
+----
+    Ellipse(XPixelPosition, YPixelPosition, XRadius, YRadius [,Optional LineColour] )
+----
+*Explanation:*
+
+Draws a Ellipse on a GLCD at `XPixelPosition`, `YPixelPosition` with a specific vertex of `XRadius` and `YRadius`.
+
+The constant `GLCD_PROTECTOVERRUN` can be added to prevent Ellipses from
+re-drawing at the screen edges. Ensure the `GLCD_Width` and `GLCD_HEIGHT`
+constants are set correctly when using this additional constant.
+
+*Example:*
+----
+    #include <glcd.h>
+
+    Ellipse(63, 31, 20, 10)
+
+----

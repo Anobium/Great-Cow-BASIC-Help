@@ -1,0 +1,89 @@
+=== Serial/RS232 Buffer Ring
+
+// Edit EvanV 01092016 to show buffer element 0 can be part of the buffer.
+
+*Explanation:*
+
+This program demonstrates how to create a serial input buffer ring.
+
+This program program uses an interrupt event to capture the incoming byte value and place in the buffer ring. When a byte is received the buffer ring is incremented to ensuer the next byte is handled correctly.
+
+Testing `bkbhit` will set to True when a byte has been received. Reading the function `bgetc` will return the last byte received.
+
+*Demonstration program:*
+
+----
+    ;Chip Settings
+    #chip 16F1937,32
+    #config LVP=OFF, BODEN=OFF, WDT=OFF, OSC=XT
+
+    ' [change to your config] This is the config for a serial terminal
+    ' turn on the RS232 and terminal port.
+    ' Define the USART port
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_BLOCKING
+    ' [change to your config] Ensure these port addresses are correct
+    #define SerInPort PORTc.7
+    #define SerOutPort PORTc.6
+    'Set pin directions
+    Dir SerOutPort Out
+    Dir SerInPort In
+
+    'This assumes you are using an ANSI compatible terminal.  Use PUTTY.EXE it is very easy to use.
+
+    HSerPrint "Started: Serial between two devices"
+    HSerSend 10
+    HSerSend 13
+
+    ' Pot port
+    DIR PORTA.0 IN
+
+    'Interrupt Handlers
+    On Interrupt UsartRX1Ready Call readUSART
+
+    ' Constants etc required for Buffer Ring
+    #define BUFFER_SIZE 8
+    #define bkbhit (next_in <> next_out)
+    ;Variables
+    Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
+    Dim next_in as byte: next_in = 0
+    Dim next_out as byte: next_out = 0
+    Dim syncbyte as Byte
+
+    syncbyte = 0x55 ' you can use 255 - your choice
+
+    Do
+        ' Send some info to another device
+        Repeat 3
+            HSerSend syncbyte
+        end Repeat
+        HSerprint readad(an0)
+
+        do while bkbhit
+        ' get three sync chars  then display the next char in buffer
+            if bgetc = syncbyte and bgetc = syncbyte and bgetc = syncbyte then
+                HSerPrint "sync'ed '"
+                HSerPrint chr(bgetc)
+                HSerSend 10
+                HSerSend 13
+            end if
+        Loop
+    Loop
+
+    Sub readUSART
+        buffer(next_in) = HSerReceive
+        temppnt = next_in
+        next_in = ( next_in + 1 ) % BUFFER_SIZE
+        if ( next_in = next_out ) then  ' buffer is full!!
+            next_in = temppnt
+        end if
+    End Sub
+
+    function bgetc
+        wait while !(bkbhit)
+        bgetc = buffer(next_out)
+        next_out=(next_out+1) % BUFFER_SIZE
+    end Function
+
+----

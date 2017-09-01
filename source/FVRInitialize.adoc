@@ -1,0 +1,52 @@
+==== FVRInitialize
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+    FVRInitialize ( FVR_OFF | FVR_1x | FVR_2x | FVR_4x  )
+----
+
+*Command Availability:*
+
+Available on all Microchip microcontrollers with the  Fixed Voltage Reference (FVR) module.
+
+*Explanation:*
+
+The method is a subroutine that sets the state of the FVR.&#160;&#160;&#160;
+
+`FVR_Off`&#160;=&#160;&#160;Fixed Voltage Reference is set to OFF
+
+`FVR_1x`&#160;&#160;=&#160; Fixed Voltage Reference is set to 1.024v
+
+`FVR_2x`&#160;&#160;=&#160; Fixed Voltage Reference is set to 2.048v
+
+`FVR_4x`&#160;&#160;=&#160; Fixed Voltage Reference is set to 4.096v
+
+
+Using the the following device's datasheet, as a general case, &#160;&#160;&#160;http://ww1.microchip.com/downloads/en/DeviceDoc/40001419F.pdf &#160;&#160;&#160;that can be downloaded from the device's page,&#160;&#160;&#160;http://www.microchip.com/wwwproducts/en/pic16f1828
+parameter AD06 in table 30-8 at page 359, and the corresponding Note 4, tell us that the Vref voltage (Vref+ minus Vref-) should not be less than 1.8V, regardless of the reference voltage used, in order for the ADC module to work within the datasheet specifications.
+&#160;&#160;Also, as Vref- cannot be a negative voltage (voltages below GND) the lowest voltage on it is 0V. &#160;&#160;Then an FVR of 1.024V cannot be used as VREF+ for the ADC, but only 2.048 and 4.098 values.
+
+
+The 1.024V FVR value exists for usage with other modules not just the ADC module.
+
+*Example:*
+
+----
+
+    '// use FVR 4096 as Reference
+    FVRInitialize ( FVR_4x )
+    wait while FVRIsOutputReady = false
+    ADVal = ReadAd(AN0)
+
+    '// Turn off FVR
+    FVRInitialize ( FVR_Off )
+
+
+
+----
+
+
+
+*For more help, see* <<_fvrisoutputready,FVRIsOutputReady>>

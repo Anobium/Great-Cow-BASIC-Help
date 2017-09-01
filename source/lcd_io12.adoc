@@ -1,0 +1,63 @@
+===== LCD_IO 12
+
+*Using connection mode 12:*
+
+The LCD is controlled via I2C.
+A type 12 is the Ywmjkdz I2C adapter with potentiometer  variable resistor) bent over top of chip.
+To use mode 12 you must define the I2C ports as normal in your GCB code.
+Then, define the LCD type, set the I2C_address of the LCD adapter and the LCD speed, if required.
+
+
+*Relevant Constants:*
+
+These constants are used to control settings for the Liquid Crystal
+Display routines included with Great Cow BASIC. To set them, place a line in the
+main program file that uses `#define` to assign a value to the particular
+constant.
+
+When using 2-bit mode only three constants must be set - all others can
+be ignored.
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name*
+|*Controls*
+|*Value*
+
+|`LCD_IO`
+|I/O mode
+|`12`
+
+|`LCD_I2C_Address_1`
+|Address of I2C adapter
+|Default `0x4E` +
+ could also be `0x27`
+
+|`LCD_I2C_Address_2`
+|Address of I2C adapter
+|Not set
+
+|`LCD_I2C_Address_2`
+|Address of I2C adapter
+|Not set
+
+|`LCD_I2C_Address_2`
+|Address of I2C adapter
+|Not set
+|===
+
+To set the correct address see the picture below:
+
+image::lcd_io12b1.JPG[graphic,align="center"]
+
+
+For code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[I2C LCD Solutions].
+
+
+See the separate sections of the Help file for the specifics of each
+Connection Mode.
+
+*For more help, see*
+<<_lcd_io_0,LCD_IO 0>>, <<_lcd_io_1,LCD_IO 1>>, <<_lcd_io_2,LCD_IO 2>>
+<<_lcd_io_2_74xx164,LCD_IO 2_74xx164>>, <<_lcd_io_2_74xx174,LCD_IO 2_74xx174>>,
+<<_lcd_io_4,LCD_IO 4>>, <<_lcd_io_8,LCD_IO 8>>,
+<<_lcd_io_10,LCD_IO 10>>

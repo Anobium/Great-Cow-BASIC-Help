@@ -1,0 +1,52 @@
+//
+==== PWMOff for AVR
+
+*Syntax:*
+----
+
+  PWMOff
+
+----
+
+
+*Command Availability:*
+
+This command is only available on the Atmel AVR microcontrollers with a Timer/Counter0 OC0B register.
+
+
+*Explanation:*
+
+The PWMOff command will only disable the output of the OC0B/PWM module of the Atmel AVR microcontrollers.
+
+This command is not available for any other OCnx/PWM modules.
+
+*Example:*
+----
+    'This program demonstrates the PWMOn and PWMOff commands
+    'of the fixed mode HPWM on OC0B pin.
+
+    #chip mega328p,16
+
+    'activate appropriate PWM output pins
+    dir PortD.5 Out     'OC0B
+
+    'define PWM_Freq in kHz
+    'define PWM_Duty in %
+
+    #define PWM_Freq 40
+    #define PWM_Duty 50
+
+    do
+
+      'turn on/off single channel 40 KHz PWM on OC0B pin
+      PWMON
+      wait 5 s
+      PWMOFF
+      wait 5 s
+
+    loop
+----
+{empty} +
+{empty} +
+
+*For more help, see* <<_pwmon_for_avr,PWMOn>>

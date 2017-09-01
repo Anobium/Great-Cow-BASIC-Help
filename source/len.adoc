@@ -1,0 +1,30 @@
+==== Len
+
+*Syntax:*
+[subs="quotes"]
+----
+    __output__= Len( string )
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Len` function returns an byte value which is the length of a phrase or a sentence, including the empty spaces. The format is:
+
+----
+    target_byte_variable = Len("Phrase")
+----
+
+or another example. This code will loop through the for-next loop 12 times as determined by the length of the string: +
+----
+    ' create a test string of 12 characters
+    dim teststring as string * 12
+
+    teststring = "0123456789AB"
+    for loopthrustring = 1 to len(teststring)
+       hserprint mid(teststring, loopthrustring , 1)
+    next
+----

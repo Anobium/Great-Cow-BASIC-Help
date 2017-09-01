@@ -1,0 +1,30 @@
+==== Trigonometry ATAN
+
+
+*Syntax*:
+[subs="quotes"]
+----
+    byte_variable = atan (_x_vector_,_y_vector_)
+----
+
+*Explanation*:
+
+Great Cow BASIC supports Three Primary Trigonometric Functions.
+
+
+*Details:*
+
+Great Cow BASIC supports the following functions ATan( x, y) where x and y are the vectors.  The function returns a word representing the angle measured in a whole number of degrees.
+
+The function also returns a global variable NegFlag with returns the quadrant of the angle.
+
+    Quadrant 1 = 0 to 89 +
+    Quadrant 2 = 90 to 179 +
+    Quadrant 3 = 180 to 269 +
+    Quadrant 4 = 270 to 359 +
+
+This ATan function is a fast XY vector to integer degree algorithm developed in Jan 2011, see www.RomanBlack.com and sSee http://www.romanblack.com/integer_degree.htm
+
+The function converts any XY values including 0 to a degree value that should be within +/- 1 degree of the accurate value without needing large slow trig functions like ArcTan() or ArcCos().
+
+At least one of the X or Y values must be non-zero. This is the full version, for all 4 quadrants and will generate the angle in integer degrees from 0-360. Any values of X and Y are usable including negative values provided they are between -1456 and 1456 so the 16bit multiply does not overflow.

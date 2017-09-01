@@ -1,0 +1,41 @@
+==== Instr
+
+*Syntax:*
+[subs="quotes"]
+----
+    __location__ = Instr(__source__, __find__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Instr` function will search one string to find the location of another string within it. `_source_` is the string to search inside, and `_find_` is the string to find. The function will return the location of `_find_` within `_source_`, or 0 if `_source_` does not contain `_find_`.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "Hello, world!"
+
+    'Display the location of "world" within the string
+    'Will return 8, because "w" in world is the 8th character
+    'of "Hello, world!"
+    HSerPrint Instr(TestData, "world")
+    HSerPrintCRLF
+
+    'Display the location of "planet" within the string
+    'Will display 0, because "planet" does not occur inside
+    'the string "Hello, world!"
+    HSerPrint Instr(TestData, "planet")
+    HSerPrintCRLF
+----

@@ -1,0 +1,161 @@
+==== HI2C Overview
+
+*Introduction:*
+
+These methods allow Great Cow BASIC programs to send and receive Inter- Integrated Circuit (I2C™) messages via:
+
+* Master Synchronous Serial Port (MSSP) module of the microcontroller for the Microchip PIC architecture, or
+* ATMEL 2-wire Serial Interface (TWI) for the Atmel AVR microcontroller architecture.
+
+These methods are serial interfaces that are useful for communicating with other peripheral or microcontroller devices.
+These peripheral devices may be serial EEPROMs, shift registers, display drivers, A/D converters, etc.
+
+The method can operate in one of two operational modes:
+
+* Master Mode, or
+* Slave mode (with general address call)
+
+These methods fully implement all the I2C master and slave functions (including general call support) and
+supports interrupts on start and stop bits in hardware to determine a free bus (multi-master function).
+
+These methods implement the standard mode specifications as well as 7-bit and 10-bit addressing.
+A “glitch” filter is built into the SCL and SDA pins when the pin is an input.  This filter operates in both
+the 100 KHz and 400 KHz modes. In the 100 KHz mode, when these pins are an output, there
+is a slew rate control of the pin that is independent of device frequency.
+
+A hardware I2C/TWI module within the microcontroller is required for these methods.
+
+The driver supports two hardware I2C ports.  The second port is addressed by the suffix HI2C2.  All HI2C commands are applicable to the second HI2C2 port.
+
+The method supports the following frequencies:
+
+[cols=3, options="header,autowidth"]
+|===
+|*Frequency*
+|*Description*
+|*Support*
+
+|Up to 400 kbits/s
+|I2C/TWI `fast mode`: Defined as transfer rates up to 400 kbit/s
+|Supported
+
+|Up to 100 kbit/s.
+|I2C/TWI `standard mode`:  Defined as transfer rates up to 100 kbit/s.
+|Supported
+
+|Up to 1 Mbit/s.
+|I2C `fast-mode plus`: Allowing up to 1 Mbit/s.
+|Not Supported
+
+|Up to 3.4 Mbit/s.
+|I2C `high speed`: Allowing up to 3.4 Mbit/s.
+|Not Supported
+
+|===
+
+
+*Relevant Constants:*
+
+These constants control the setup of the hardware I2C methods:
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Controls*
+|*Usage*
+
+|`Master`
+|Operational mode of the microcontroller
+|`HI2CMode ( _Master_ )`
+
+|`Slave`
+|Operational mode of the microcontroller
+|`HI2CMode ( _Slave_ )`
+
+|`HI2C_BAUD_RATE`
+|Operational speed of the microcontroller. Defaults to 100mhz
+|`#define HI2C_BAUD_RATE 400`   or  +
+`#define HI2C_BAUD_RATE 100.` +
+Where  `#define HI2C_BAUD_RATE 100` is the default value and therefore does need to be specified.
+
+|===
+*Port Settings:*
+
+The settings of the pin direction is critical to the operation of these
+methods. Both pins *must* be set as inputs and be pulled up with an
+appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Controls*
+|*Default Value*
+
+|`HI2C_DATA`
+|Pin on microcontroller connected to I2C data
+|Must be defined
+|`HI2C_CLOCK`
+|Pin on microcontroller connected to I2C clock)
+|Must be defined
+|===
+*Example:*
+
+This example examines the IC2 devices and displays on a serial terminal.
+This code will require adaption but the code shows an approach to
+discover the IC2 devices.
+----
+    ' Hardware I2C Overview - using the ChipIno board, see
+    ' http://www.elproducts.com/chipino.html for information
+
+    #chip mega328p, 16
+    #config MCLRE_ON
+
+    ' Define I2C settings
+    #define HI2C_BAUD_RATE 400
+    #define HI2C_DATA PORTC.5
+    #define HI2C_CLOCK PORTC.4
+    'I2C pins need to be input for SSP module when used on Microchip PIC device
+    Dir HI2C_DATA in
+    Dir HI2C_CLOCK in
+
+    'MASTER MODE
+    HI2CMode Master
+
+    'USART/SERIAL PORT WORKS WITH max232 THEN TO PC Terminal
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    Dir PORTc.6 Out
+    #define USART_DELAY 10 ms
+
+    HSerPrintCRLF 2
+    HSerPrint "Hardware I2C Discover using the "
+    HSerPrint CHipNameStr
+    HSerPrintCRLF 2
+
+    for deviceID = 0 to 255
+      HI2CStart
+      HI2CSend ( deviceID )
+
+      if HI2CAckPollState = false then
+
+         if (( deviceID & 1 ) = 0 ) then
+         HSerPrint "W"
+        else
+         HSerPrint "R"
+        end if
+        HSerSend 9
+        HSerPrint   "ID: 0x"
+        HSerPrint   hex(deviceID)
+        HSerSend 9
+        HSerPrint "(d)"+str(deviceID)
+        HSerPrintCRLF
+
+        HI2CSend ( 0 )
+        HI2CSend ( 0 )
+      end if
+
+      HI2CStop
+    next
+    HSerPrintCRLF
+    HSerPrint   "End of Device Search"
+    HSerPrintCRLF 2
+----
+Supported in <HI2C.H>

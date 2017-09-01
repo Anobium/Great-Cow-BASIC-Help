@@ -1,0 +1,39 @@
+==== SerNSend
+
+*Ser1Send, Ser2Send, Ser3Send*
+
+*Syntax:*
+[subs="quotes"]
+----
+    Ser1Send data
+    Ser2Send data
+    Ser3Send data
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will send a byte given by data using the channel referred to as Ser1.. , Ser2... , Ser3... according to the rules set by the related defines.
+
+*Example:*
+----
+    'This program will send one byte using PORTA.5
+
+    ; ----- Configuration
+    #chip 12F1501, 1
+
+    ; ----- Include library
+    #include <SoftSerial.h>
+
+    ; ----- Config Serial UART for sending:
+    #define SER1_BAUD 9600     ; baudrate must be defined
+    #define SER1_TXPORT PORTA  ; I/O port (without .bit) must be defined
+    #define SER1_TXPIN 5       ; portbit  must be defined
+
+    ; ----- Main body of program commences here.
+    Ser1Send 88   'send one byte (88 = X)
+----
+
+Exposed in SoftSerial.h authored by Frank Steinberg

@@ -1,0 +1,23 @@
+==== I2CRestart
+
+*Syntax:*
+----
+    I2CRestart
+----
+*Command Availability:*
+
+Available on all microcontrollers except 12 bit instruction Microchip PIC microcontrollers (10F,
+12F5xx, 16F5xx chips)
+
+*Explanation:*
+
+If the I2C routines are operating in Master mode, this command will send
+a start and restart condition in a single command.
+
+*Example:*
+----
+ ...
+	I2CRESTART
+ ....
+----
+Supported in <I2C.H>

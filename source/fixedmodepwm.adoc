@@ -1,0 +1,72 @@
+==== HPWM Fixed Mode
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    PWMOn
+
+    'or
+
+    PWMOff
+
+----
+*Command Availability:*
+
+*Only* available on Microchip PIC microcontrollers with a CCP1 module.
+
+See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels - this method is fixed to CCP1.
+
+*Explanation:*
+
+This command sets up the hardware PWM module of the Microchip PIC microcontroller to generate
+a PWM waveform of the given frequency and duty cycle. &#160;&#160;Once this command
+is called, the PWM will be emitted until PWMOff is called.
+
+
+These constants are required for PWMOn.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name*
+|*Controls*
+|*Default Value*
+
+|`PWM_Freq`
+|Specifies the output frequency of the PWM module in KHz.
+|38
+
+|`PWM_Duty`
+|Sets the duty cycle of the PWM module output. Given as percentage.
+|50
+|===
+
+
+
+
+
+*Example:*
+----
+    #chip 16f877a,20
+
+    'Set the PWM pin to output mode
+    DIR PORTC.2 out
+
+    'Main code
+
+    #define PWM_Freq 38      'Frequency of PWM in KHz
+    #define PWM_Duty 50      'Duty cycle of PWM (%)
+
+    PWMOn
+
+    wait 10 s                'Wait 10 s
+
+    PWMOff
+
+    do
+    loop
+
+----
+{empty} +
+{empty} +
+
+*For more help, see* <<_pwmon,PWMOn>> and <<_pwmoff,PWMOff>> *or, for AVR see* <<_hpwm_fixed_mode_for_avr,Fixed Mode PWM for AVR>>

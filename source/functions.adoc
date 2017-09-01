@@ -1,0 +1,45 @@
+=== Functions
+
+*About Functions*
+
+Functions are a special type of subroutine that can return a value. This
+means that when the name of the function is used in the place of a
+variable, Great Cow BASIC will call the function, get a value from it, and then
+put the value into the line of code in the place of the variable.
+
+Functions may also have parameters - these are treated in exactly the
+same way as parameters for subroutines. The only exception is that
+brackets are required around any parameters when calling a function.
+
+*Using Functions*
+
+This program uses a function called `AverageAD` to take two analog
+readings, and then make a decision based on the average:
+----
+    'Select chip
+    #chip 16F88, 20
+
+    'Define ports
+    #define LED PORTB.0
+    #define Sensor AN0
+
+    'Set port directions
+    dir LED out
+    dir PORTA.0 in
+
+    'Main code
+    Do
+    Set PORTB.0 Off
+    If AverageAD > 128 Then Set PORTB.0 On
+    wait 10 ms
+    Loop
+
+    Function AverageAD
+    'Get 2 readings, divide by 2, store in AverageAD
+    'Note the cast, the result of ReadAD needs to be converted to
+    'a word before adding, or the result may overflow.
+    AverageAD = ([word]ReadAD(Sensor) + ReadAD(Sensor)) / 2
+    end function
+----
+
+*See Also* <<_subroutines,Subroutines>>, <<_exit,Exit>>

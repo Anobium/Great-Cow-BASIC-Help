@@ -1,0 +1,16 @@
+==== LCDDisplayOff
+
+[subs="specialcharacters,quotes"]
+*Syntax*:
+----
+    LCDDisplayOff
+----
+
+
+*Explanation:*
+
+Will turn off (hide) the LCD display.
+
+*See also* <<_lcdcursor,LCDCursor>>
+
+*Supported in <LCD.H>*

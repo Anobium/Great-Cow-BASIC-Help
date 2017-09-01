@@ -1,0 +1,15 @@
+===== ST7920gLocate
+
+*Syntax:*
+----
+    ST7920gLocate ( Xpos, Ypos)
+----
+*Explanation:*
+
+This command locates the pixel at the specific X and Y location of the
+graphical screen.
+
+*Example usage:*
+----
+    ST7920gLocate ( 64, 31) ‘the pixel at the mid screen point
+----

@@ -1,0 +1,35 @@
+==== UCase
+
+*Syntax:*
+[subs="quotes"]
+----
+  __output__ = UCase(__source__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `UCase` function will convert all of the letters in the string `_source_` to upper case, and return the result.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "Hello, world!"
+
+    'Display the string in upper case
+    'Will display "HELLO, WORLD!"
+    HSerPrint UCase(TestData)
+    HSerPrintCRLF
+----
+*See Also* <<_lcase,LCase>>

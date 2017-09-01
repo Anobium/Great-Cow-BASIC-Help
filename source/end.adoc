@@ -1,0 +1,27 @@
+==== End
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    End
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+When the `End` command is used, the program will immediately stop running.
+There are very few cases where this command is needed - generally, the
+program should be an endless loop.
+
+*Example:*
+
+----
+    'This program will turn on the red light, but not the green light
+    Set RED On
+    End
+    Set GREEN On
+----

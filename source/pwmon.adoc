@@ -1,0 +1,35 @@
+// Edit EvanV 171016 0,95.010.RC9+
+==== PWMOn
+
+*Syntax:*
+----
+
+    PWMOn
+
+----
+
+*Command Availability:*
+
+Only available on Microchip PIC microcontrollers with Capture/Compare/PWM
+module CCP1.
+
+This command does not operate on any other CCP channel.
+
+*Explanation:*
+
+This command will enable the output of the CCP1/PWM module on the Microchip PIC microcontroller.
+
+*Example:*
+----
+    'This program will enable a 76 Khz PWM signal, with a duty cycle
+    'of 80%. It will emit the signal for 10 seconds, then stop.
+    #define PWM_Freq 76    'Set frequency in KHz
+    #define PWM_Duty 80    'Set duty cycle to 80 %
+    PWMOn                  'Turn on the PWM
+    WAIT 10 s              'Wait 10 seconds
+    PWMOff                 'Turn off the PWM
+----
+{empty} +
+{empty} +
+
+*For more help, also see* <<_pwmoff,PWMOff>>

@@ -1,0 +1,77 @@
+==== For
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+    For _counter_ = _start_ To _end_ [Step _increment_]
+    ...
+    _program code_
+    ...
+    <__condition__> Exit For
+    ...
+    Next
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The For command is ideal for situations where a piece of code needs to
+be run a set number of times, and where it is necessary to keep track of
+how many times the code has run. When the For command is first executed,
+`_counter_` is set to `_start_`. Then, each successive time the program
+loops, `_increment_` is added to `_counter_`, until `_counter_` is equal to
+`_end_`. Then, the program continues beyond the Next.
+
+`_Step_` and `_increment_` are optionals. If Step is not specified, Great Cow BASIC
+will increment `_counter_` by 1 each time the code is run.
+
+The `Exit For` is optional and can be used to exit the loop upon a specific
+condition.
+
+*Example 1:*
+
+----
+    'This code will flash a green light 6 times.
+
+    #chip 16F88, 8
+    #config Osc = Int
+
+    #define LED PORTB.0
+    Dir LED Out
+
+    For LoopCounter = 1 to 6
+    	PulseOut Led, 1 s
+    	Wait 1 s
+    Next
+----
+
+*Example 2:*
+
+----
+'This code will flash alternate LEDS until the switch is pressed.
+
+    #chip 16F88, 8
+    #config Osc = Int
+
+    #define LED1 PORTB.0
+    Dir LED1 Out
+    #define LED2 PORTB.2
+    Dir LED2 Out
+
+    #define SWITCH1 PORTA.0
+    Dir SWITCH1 In
+    main:
+    PulseOut LED1, 1 s
+    For LoopCounterOut = 1 to 250
+    	PulseOut LED2, 4 Ms
+    	if switch = On then Exit For
+    Next
+    Set LED2 OFF
+    goto main
+----
+
+*For more help, see <<_repeat,Repeat>>*

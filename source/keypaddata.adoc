@@ -1,0 +1,125 @@
+==== KeypadData
+
+*Syntax:*
+[subs="quotes"]
+----
+    _var_ = KeypadData
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This function will return a value corresponding to the key that is
+pressed on the keypad. Note that if two or more keys are pressed, then
+only one value will be returned.
+`_var_` can have one of the following values:
+[cols="^1,^1,^1", options="header,autowidth"]
+|===
+|*Value*
+|*Constant Name*
+|*Key Pressed*
+
+|0
+|
+|0
+
+|1
+|
+|1
+
+|2
+|
+|2
+
+|3
+|
+|3
+
+|4
+|
+|4
+
+|5
+|
+|5
+
+|6
+|
+|6
+
+|7
+|
+|7
+
+|8
+|
+|8
+
+|9
+|
+|9
+
+|10
+|KEY_A
+|A
+
+|11
+|KEY_B
+|B
+
+|12
+|KEY_C
+|C
+
+|13
+|KEY_D
+|D
+
+|14
+|KEY_STAR
+|Asterisk/Star (*)
+
+|15
+|KEY_HASH
+|Hash (#)
+
+|255
+|KEY_NONE
+|None
+|===
+
+*Example:*
+
+----
+    'Program to show the value of the last pressed key on the LCD
+    #chip 18F4550, 20
+
+    'LCD connection settings
+    #define LCD_IO 4
+    #define LCD_DB4 PORTD.4
+    #define LCD_DB5 PORTD.5
+    #define LCD_DB6 PORTD.6
+    #define LCD_DB7 PORTD.7
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    'Keypad connection settings
+    #define KeypadPort PORTB
+
+    'Main loop
+    Do
+        'Get key
+        Temp = KeypadData
+
+        'If a key is pressed, then display it
+        If Temp <> KEY_NONE Then
+            CLS
+            Print Temp
+            Wait 100 ms
+        End If
+    Loop
+----
+*For more help, see* <<_keypad_overview,Keypad Overview>>

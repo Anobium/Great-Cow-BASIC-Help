@@ -1,0 +1,26 @@
+==== Chr
+
+*Syntax:*
+[subs="quotes"]
+----
+    _stringvar_ = CHR(_bytevar_)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `CHR` function creates a string of a ANSI (1-byte) character.
+
+`ASC` is the natural complement of `CHR`.
+
+*Example:*
+[subs="quotes"]
+----
+    _string_ = CHR( 65 )   ' Returns "A"
+
+    _string_ = CHR( 66 )   ' Returns "B"
+----
+*For more help, see* <<_asc,Asc>>

@@ -1,0 +1,25 @@
+==== HI2CStopped
+
+*Syntax:*
+
+----
+    HI2CStopped
+----
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+In Slave mode only. Check if start condition received since last used of
+HI2CStopped.
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2Stopped
+----
+
+Supported in <HI2C.H>

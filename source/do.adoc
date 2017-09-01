@@ -1,0 +1,73 @@
+==== Do
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+    Do [{While | Until} _condition_]
+    ...
+    _program code_
+    ...
+    _<condition>_ Exit Do
+    ...
+    Loop [{While | Until} _condition_]
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Do` command will cause the code between the `Do` and the `Loop` to run
+repeatedly while `_condition_` is true or until `_condition_` is true,
+depending on whether `While` or `Until` has been specified.
+
+Note that the `While` or `Until` and the condition can only be specified
+once, or not at all. If they are not specified, then the code will
+repeat endlessly.
+
+Optionally, you can specify a condition to `EXIT` the `Do-Loop` immediately.
+
+*Example 1:*
+
+----
+    'This code will flash a light until the button is pressed
+    #chip 12F629, 4
+    #config osc = int
+
+    #define BUTTON GPIO.3
+    #define LIGHT GPIO.5
+
+    Dir BUTTON In
+    Dir LIGHT Out
+
+    Do Until BUTTON = 1
+    	PulseOut LIGHT, 1 s
+    	Wait 1 s
+    Loop
+----
+
+*Example 2:*
+
+This code will also flash a light until the button is pressed. This
+example uses `EXIT DO` within a continuous loop.
+
+----
+    #chip 12F629, 4
+    #config osc = int
+
+    #define BUTTON GPIO.3
+    #define LIGHT GPIO.5
+
+    Dir BUTTON In
+    Dir LIGHT Out
+
+    Do
+    	PulseOut LIGHT, 1 s
+    	Wait 1 s
+    	if BUTTON = 1 then EXIT DO
+    Loop
+----
+
+*For more help, see <<_conditions,Conditions>>*

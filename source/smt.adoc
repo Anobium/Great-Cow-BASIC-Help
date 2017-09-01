@@ -1,0 +1,212 @@
+==== SMT Timers
+
+The Signal Measurement Timer (SMT) capability is a 24-bit counter with advanced clocking and gating logic, which can be configured for measuring a variety of digital signal parameters such as pulse width, frequency and duty cycle, and the time difference between edges on two signals.&#160;&#160;
+
+
+*Syntax:*
+[subs="quotes"]
+----
+
+    SETSMT1PERIOD ( 4045000 )        ' 1.000s period
+                                     ' a perfect internal clock would be 4000000
+
+    SETSMT2PERIOD ( 9322401 )        ' 4.600s period
+
+    InitSMT1(SMT_FOSC,SMTPres_1)
+    InitSMT2(SMT_FOSC4,SMTPres_8)
+
+    On Interrupt SMT1Overflow Call yourSMT1InterruptHandler
+    On interrupt SMT2Overflow Call yourSMT1InterruptHandler
+
+    StartSMT1
+    StartSMT2
+
+
+----
+*Command Availability:*
+
+Available on Microchip microcontrollers with the SMT timer module.
+
+This command set supports the use of the SMT as a 24-bit timer only.
+
+Microchip PIC Microcontrollers have either 1 or 2 Signal Measurement Timers (SMT).&#160;&#160; A 24-bit timer allows for very long timer periods/high resolution and can be quite useful for certain applications.
+&#160;&#160;SMT timers support multiple clock sources and prescales.&#160;&#160; Interrupt on overflow/match is also supported.
+
+
+SMT timers will "overflow" when the 24-bit timer value "matches"  the 24-bit period registers.
+
+The timer period can be precisely adjusted/set by writing a period value to the respective period register for eact timer.
+
+The maximum period is achieved by a period register value of 16,777,215.&#160;&#160;  16,777,215 is the default value at POR. &#160;&#160;The timer period is also affected by the ChipMhz, TimerSource and Timer Prescale.
+
+The library supports "normal" timer operation of SMT1/SMT2.&#160;&#160; The library does not support the advanced signal measurement features.
+
+
+
+*Explanation:*
+
+
+Commands are detailed in the table below:
+
+[cols=3, options="header,autowidth"]
+
+|===
+
+|Command
+|Description
+|Example
+&#160;
+
+|`InitSMT1( Source,Presscaler )`
+|Source can be one of the below: +
+`SMT_AT1_perclk` &#160;&#160;equates to     6{empty} +
+`SMT_MFINTOSC` &#160;&#160;&#160;&#160;&#160;&#160;equates to        5         (500KHz){empty} +
+`SMT_MFINTOSC_16` equates to     4         (500Khz / 16){empty} +
+`SMT_LFINTOSC` &#160;&#160;&#160;&#160;&#160;&#160;equates to        3         (32Khz){empty} +
+`SMT_HFINTOSC`  &#160;&#160;&#160;&#160;&#160;equates to       2{empty} +
+`SMT_FOSC4` &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;equates to           1         (FOSC/4){empty} +
+`SMT_FOSC` &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;equates to            0{empty} +
+{empty} +
+Prescaler can be one of the following:{empty} +
+`SMTPres_1` equates to      1:1{empty} +
+`SMTPres_2` equates to      1:2{empty} +
+`SMTPres_4` equates to      1:4{empty} +
+`SMTPres_8` equates to      1:8{empty} +
+{empty} +
+
+|`InitSMT1(SMT_FOSC,SMTPres_1)`
+
+|`InitSMT2( Source,Presscaler )`
+|Source can be one of the below: +
+`SMT_AT1_perclk` &#160;&#160;equates to     6{empty} +
+`SMT_MFINTOSC` &#160;&#160;&#160;&#160;&#160;&#160;equates to        5         (500KHz){empty} +
+`SMT_MFINTOSC_16` equates to     4         (500Khz / 16){empty} +
+`SMT_LFINTOSC` &#160;&#160;&#160;&#160;&#160;&#160;equates to        3         (32Khz){empty} +
+`SMT_HFINTOSC`  &#160;&#160;&#160;&#160;&#160;equates to       2{empty} +
+`SMT_FOSC4` &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;equates to           1         (FOSC/4){empty} +
+`SMT_FOSC` &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;equates to            0{empty} +
+{empty} +
+Prescaler can be one of the following:{empty} +
+`SMTPres_1` equates to      1:1{empty} +
+`SMTPres_2` equates to      1:2{empty} +
+`SMTPres_4` equates to      1:4{empty} +
+`SMTPres_8` equates to      1:8{empty} +
+
+{empty} +
+
+|`InitSMT2(SMT_FOSC4,SMTPres_8)`
+
+|`ClearSMT1`
+|Clears the timer.  No parameter required.
+|`ClearSMT1`
+
+
+|`ClearSMT`
+|Clears the timer.  No parameter required.
+|`ClearSMT2`
+
+|`SetSMT1( TimerValue )`
+|Sets the timer to the specific value.  The value can be 1 to 16777215
+|`SETSMT1(4045000)`
+
+|`SetSMT2( TimerValue )`
+|Sets the timer to the specific value.  The value can be 1 to 16777215
+|`SETSMT2(4045000)`
+
+|`StopSMT1`
+|Stops the timer.  No parameter required.
+|`StopSMT2`
+
+|`StopSMT2`
+|Stops the timer.  No parameter required.
+|
+
+|`StartSMT1`
+|Starts the timer.  No parameter required.
+|`StartSMT1`
+
+|`StartSMT2`
+|Starts the timer.  No parameter required.
+|`StartSMT2`
+
+|`SetSMT1Period ( PeriodValue )`
+|Sets the timer period to the specific value.  The value can be 1 to 16777215
+|`SETSMT1PERIOD(4045000)`
+
+|`SetSMT2Period ( PeriodValue )`
+|Sets the timer period to the specific value.  The value can be 1 to 16777215
+|`SETSMT1PERIOD(9322401)`
+
+|===
+
+{empty} +
+{empty} +
+*Example 1 (Microchip Only):*
+
+This example will ..
+
+----
+    #Chip 16F18855, 32
+
+    #option explicit
+    #Include <SMT_Timers.h>
+    #config CLKOUTEN_ON
+
+
+      '' -------------------LATA-----------------
+      '' Bit#:  -7---6---5---4---3---2---1---0---
+      '' LED:   ---------------|D5 |D4 |D3 |D1 |-
+      ''-----------------------------------------
+      ''
+      #define LEDD2 PORTA.0
+      #define LEDD3 PORTA.1
+      #define LEDD4 PORTA.2
+      #define LEDD5 PORTA.3
+      #define Potentiometer   PORTA.4
+
+      Dir     LEDD2 OUT
+      Dir     LEDD3 OUT
+      Dir     LEDD4 OUT
+      Dir     LEDD5 OUT
+      DIR     Potentiometer In
+
+
+     SETSMT1PERIOD ( 4045000 )        ' 1.000s periodwith the parameters of SMT_FOSC and SMTPres_1 within the clock variance of the interclock
+                                      ' a perfect internal clock would be 4000000
+
+     SETSMT1PERIOD ( 9322401 )        ' 4.600s period with the parameters of SMT_FOSC4 and SMTPres_8
+
+     InitSMT1(SMT_FOSC,SMTPres_1)
+     InitSMT2(SMT_FOSC4,SMTPres_8)
+
+
+     On Interrupt SMT1Overflow Call BlinkLEDD2
+     On interrupt SMT2Overflow Call BlinkLEDD3
+
+     StartSMT1
+     StartSMT2
+
+
+     Do
+       '// Waiting for interrupts
+
+     LOOP
+
+
+    Sub BlinkLEDD2
+      LEDD2 = !LEDD2
+    End SUB
+
+
+
+    Sub BlinkLEDD3
+      LEDD3 = !LEDD3
+    End SUB
+
+
+----
+{empty} +
+{empty} +
+
+
+*Supported in <SMT_Timers.h>*

@@ -1,0 +1,48 @@
+==== FastHWSPITransfer
+
+*Syntax:*
+[subs="quotes"]
+----
+  `FastHWSPITransfer` _tx_
+----
+*Command Availability:*
+
+Available on Microchip PIC microcontrollers with Hardware SPI modules.
+
+*Explanation:*
+
+This command only sends a byte of data using the
+SPI protocol. This command only supports master mode.
+
+As a master, `FastHWSPITransfer` will initiate a transfer. The
+data in `_tx_` will be sent to the slave.
+
+
+*Example:*
+
+This is an example for this command.
+
+
+*Master Program:*
+----
+  'General hardware configuration
+  #chip 16F877A, 20
+
+  'Set SPI pin directions
+  dir PORTC.5 out
+  dir PORTC.4 in
+  dir PORTC.3 out
+
+  'Set SPI Mode to master, with fast clock
+  SPIMode MasterFast
+
+  'Main Loop
+  do
+
+      'Send the value of 0x55
+      FastHWSPITransfer 0x55
+
+  loop
+----
+
+*See also* <<_spitransfer,SPITransfer>>,<<_spimode,SPIMode>>

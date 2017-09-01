@@ -1,0 +1,26 @@
+==== Concatenation
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = variable1 + variable2
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The method joins two variables into another variable.
+
+This method does not change the existing strings, but returns a new string containing the text of the joined variables.
+
+Concatenation joins the elements of a specified values using the specified separator between each variable.
+
+*Example:*
+[subs="quotes"]
+----
+    timevariable = 999
+    __stringvar__ = "Time = " + timevariable ' Returns Time = 999
+----
+

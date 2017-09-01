@@ -1,0 +1,32 @@
+==== PulseInInv
+
+*Syntax:*
+[subs="quotes"]
+----
+    PulseInInv __pin__, __user_variable__, __time units__
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `PulseIn` command will monitor the specified pin when the pin is low, and then measure the low time. It will store the time in the user variable.
+The user variable must be a WORD if returned units are expected to be > 255  (Example: Pulse is 500 ms)
+
+PulseInInv is not recommended for accurate measurement of microsecond pulses.
+
+*Example:*
+----
+    #chip 12F629, 4
+    #config INTRC_OSC_NOCLKOUT
+
+    Dir GPIO.0 In
+    Dim TimeResult as WORD
+    
+    Do while GPIO.0 = On        'Wait for next negative edge to start measuring 
+    Loop	
+	
+    PulseinInv GPIO.0, TimeResult, ms 
+----

@@ -1,0 +1,51 @@
+==== FnNotBit
+
+*Syntax:*
+[subs="quotes"]
+----
+    BitOut = FnNotBit(BitIn)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`FnNotBit` is the bitwise equivalent of the logical NOT operator. Where BitOut will be the Logical Compliment of BitIn.
+
+`FnNotBit` will return the Logic Compliment State of BitIn.  It is equivalent to the 'C' statement as shown below.
+
+----
+    BitOut != BitIn
+----
+
+`FnNotBit` can be used to assign a non bit variable to a bit variable.
+BitIn may be a variable and of  type: Bit, Byte, Constant or another Function. If BitIn is of type Word or Long only the Least Significant 8 bits will be evaluated. It will return 1 if BitIn evaluates to anything other than zero.
+
+*Note:*
+If BitOut is an I/O Bit, then *<<_setwith, SetWith>>* should be used to encapsulate the function. See below.
+
+
+*Example:*
+
+----
+    ' This program will flash the LED - DS1(RC0) on the Microchip PIC Low Pin Count Demo Board.
+
+    #chip   16f690    ' declare the target Device
+
+    #Define DS1 PORTC.0
+
+    DIR DS1 Out
+
+    Do
+      ' set the Bit DS1 to the Compliment of DS1
+      SetWith( DS1, FnNotBIT( DS1 ) )
+      wait 500 ms
+    Loop
+
+    END
+
+----
+
+*See Also <<_bitwise_operations_overview, Bitwise Operations Overview>>* and *<<_conditions, Conditions>>*

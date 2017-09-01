@@ -1,0 +1,105 @@
+==== I2C Overview
+
+*Introduction:*
+
+These software routines allow Great Cow BASIC programs to send and receive I2C
+messages. They can be configured to act as master or slave, and the
+speed can also be altered.
+
+No hardware I2C module is required for these routines - all
+communication is handled in software. However, these routines will not
+work on 12-bit instruction Microchip PIC microcontrollers (10F, 12F5xx and 16F5xx chips).
+
+*Relevant Constants:*
+
+These constants control the setup of the software I2C routines:
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Controls*
+|*Default Value*
+|I2C_MODE
+|Mode of I2C routines (Master or Slave)
+|Master
+|I2C_DATA
+|Pin on microcontroller connected to I2C data
+|N/A
+|I2C_CLOCK
+|Pin on microcontroller connected to I2C clock
+|N/A
+|I2C_BIT_DELAY
+|Time for a bit (used for acknowledge detection)
+|2 us
+|I2C_CLOCK_DELAY
+|Time for clock pulse to remain high
+|1 us
+|I2C_END_DELAY
+|Time between clock pulses
+|1 us
+|I2C_USE_TIMEOUT
+|Set to true if the I2C routines should stop waiting for the
+I2c bus - the routine will exit if a timeout occurs.
+Should be used when you need to prevent system lockups on the I2C bus.
+
+Supports both software I2C master and slave mode.
+
+Will return the variable `I2CAck = FALSE` when a timeout has occurred.
+|Not Set
+|I2C_DISABLE_INTERRUPTS
+|Disable interrupts during I2C routines. Important when an i2C clock is
+part of your solution
+|Not defined.
+|===
+*Example:*
+This example examines the IC2 devices and displays on a terminal.
+This code will require adaption but the code shows an approach to discover the IC2 devices.
+----
+  ' I2C Overview - using the ChipIno board, see here for information
+  #chip 16F886, 8
+  #config MCLRE_ON
+
+  ' Define I2C settings
+  #define I2C_MODE Master
+  #define I2C_DATA PORTC.4
+  #define I2C_CLOCK PORTC.3
+  #define I2C_DISABLE_INTERRUPTS ON
+
+  'USART/SERIAL PORT via a MAX232 TO PC Terminal
+  #define USART_BAUD_RATE 9600
+  #define USART_TX_BLOCKING
+
+  Dir PORTc.6 Out
+  #define USART_DELAY 5 ms
+
+  HSerPrintCRLF 2
+  HSerPrint "I2C Discover using the ChipIno"
+  HSerPrintCRLF 2
+
+  HSerPrint "Started: "
+  HSerPrint "Searching I2C address space: v0.85"
+  HSerPrintCRLF
+
+  wait 100 ms
+  dim DeviceID as byte
+  for DeviceID = 0 to 255
+    I2CStart
+    I2CSend ( deviceID )
+    I2CSend ( 0 )
+    I2CSend ( 0 )
+    i2cstop
+
+    if I2CSendState = True  then
+
+      HSerPrint   "__"
+      HSerPrint   "ID: 0x"
+      HSerPrint   hex(deviceID)
+      HSerPrint   " (d"
+      HSerPrint   Str(deviceID)
+      HSerPrint   ")"
+      HSerPrintCRLF
+    end if
+  next
+  HSerPrint   "End of Device Search": HSerPrintCRLF 2
+  End
+----
+Supported in <I2C.H>

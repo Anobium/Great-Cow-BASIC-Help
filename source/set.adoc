@@ -1,0 +1,41 @@
+==== Set
+
+*Syntax:*
+[subs="quotes"]
+----
+    Set _variable.bit_ {On | Off}
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The purpose of the Set command is to turn individuals bits on and off.
+
+The Set command is most useful for controlling output ports, but can also be used to set variables.
+
+Often when controlling output ports, Set is used in conjunction with constants. This makes it easier to adapt the program for a new circuit later.
+
+*Example:*
+----
+    'Blink LED sample program for Great Cow BASIC
+    'Controls an LED on PORTB bit 0.
+
+    'Set chip model and config options
+    #chip 16F84A, 20
+
+    'Set a constant to represent the output port
+    #define LED PORTB.0
+
+    'Set pin direction
+    Dir LED Out
+
+    'Main routine
+    Do
+        Set LED On
+        Wait 1 sec
+        Set LED OFF
+        Wait 1 sec
+    Loop
+----

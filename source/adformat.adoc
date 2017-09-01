@@ -1,0 +1,16 @@
+==== ADFormat (Deprecated - Do not use)
+
+*Syntax:*
+[subs="quotes"]
+----
+ADFormat ( Format_Left | Format_Right )
+----
+*Command Availability:*
+
+Available only on Microchip PIC microcontrollers.
+
+*Explanation:*
+
+Left justified means 8 bits in the high byte, 2 in the low. Right
+justified means 2 in the high byte, and the remaining 8 in the low byte.
+It's only supported on Microchip PIC microcontrollers.

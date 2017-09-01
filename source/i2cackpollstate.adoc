@@ -1,0 +1,32 @@
+==== I2CAckPollState
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+	<test condition> I2CAckPollState
+----
+*Command Availability:*
+
+Available on all microcontrollers except 12 bit instruction Microchip PIC microcontrollers (10F,
+12F5xx, 16F5xx chips)
+
+*Explanation:*
+
+Should only be used when I2C routines are operating in Master mode, this
+command will return the last state of the acknowledge response from a
+specific I2C device on the I2C bus.
+
+`I2CACKPOLL` sets the state of variable `I2CAckPollState`. `I2CAckPollState`
+can only read - it cannot be set.
+
+*Example:*
+----
+	 ...
+	' ACK polling removes the need to for the 24xxxxx device to have a 5ms
+	write time
+	I2CACKPOLL( eeprom_device )
+	' You check the exit state,
+	' Use I2CAckPollState to check the state of a target device
+	 ...
+----
+Supported in <I2C.H>

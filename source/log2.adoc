@@ -1,0 +1,23 @@
+==== Log2
+
+*Syntax:*
+[subs="quotes"]
+----
+    returned_word_variable = Log2 ( __word_value__ )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Log2` command will return the base-2 logarithm, to 2 decimal places.
+
+The values returned are fixed-point numbers, with two decimal places assumed on the right. or if you prefer, think of the values as being scaled up by 100.
+
+*Example:*
+----
+    dim log_value as word
+    log_value = log2 ( 10 )   'return 3321 equate to 3.321
+----
+*Supported in <MATHS.H>*

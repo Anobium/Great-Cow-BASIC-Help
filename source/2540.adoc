@@ -1,0 +1,45 @@
+HI2CSend
+
+'''''
+
+*Syntax:*
+HI2CSend _data_
+ +
+*Command Availability:*
+Only available in GCB HI2C.h with release after 6/2014
+ +
+Available on all microcontrollers with the MSSP module.
+ +
+*Explanation:*
+The HI2CSend command will send _data_ through the I2C connection.
+If in master mode, HI2CSend will send the data immediately. If in slave
+mode, HI2CSend will wait for the master to request the data before
+sending.
+ +
+*Example:*
+ +
+This example code retrieves multiple bytes from an EEPROM memory device.
+do
+HI2CReStart ;generate a start signal
+*HI2CSend(eepDev) ;inidcate a write*
+loop While HI2CAckPollState
+ +
+*HI2CSend(eepAddr_H) ;as two bytes*
+*HI2CSend(eepAddr)*
+HI2CReStart
+HI2CSend(eepDev + 1) ;indicate a read
+ +
+eep_i = 0 ;loop consecutively
+do while (eep_i < eepLen) ;these many bytes
+eep_j = eep_i + 1 ;arrays begin at 1 not 0
+if (eep_i < (eepLen - 1)) then
+HI2CReceive(eepArray(eep_j), ACK) ;more data to get
+else
+HI2CReceive(eepArray(eep_j), NACK ) ;send NACK on last byte
+end if
+eep_i++ ;get set for next
+loop
+HI2CStop
+ +
+ +
+Supported in <HI2C.H>

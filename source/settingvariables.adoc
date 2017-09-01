@@ -1,0 +1,69 @@
+==== Setting Variables
+
+*Syntax:*
+[subs="quotes"]
+----
+    _Variable_ = _data_
+----
+*Explanation:*
+
+`_Variable_` will be set to `_data_`. +
+`_data_` can be either a fixed value (such as 157), another variable, or a sum.
+
+All unknown byte variables are assigned Zero. A variable with the name of *Forever* is not defined by Great Cow BASIC and therefore defaults to the value of zero.
+
+If `_data_` is a fixed value, it must be an integer between 0 and 255 inclusive.
+
+If `_data_` is a calculation, then it may have any of the following operands:
+
+----
+    + (add)
+    - (subtract, or negate if there is no value before it)
+    * (multiply)
+    / (divide)
+    % (modulo)
+    & (and)
+    | (or)
+    # (xor)
+    ! (not)
+    = (equal)
+    <> (not equal)
+    < (less than)
+    > (greater than)
+    <= (less than or equal)
+    >= (more than or equal)
+----
+The final six operands are for checking conditions.  They will return FALSE (0) if the condition is false, or TRUE (255) if the condition is true.
+
+The `And`, `Or`, `Xor` and `Not` operators function both as bitwise and logical operators.
+
+Great Cow BASIC understands order of operations. If multiple operands are present, they will be processed in this order:
+----
+    Brackets
+    Unary operations (not and negate)
+    Multiply/Divide/Modulo
+    Add/Subtract
+    Conditional operators
+    And/Or/Xor
+----
+There are several modes in which variables can be set. Great Cow BASIC will automatically use a different mode for each calculation, depending on the type of variable being set. If a byte variable is being set, byte mode will be used; if a word variable is being set, word mode will be used. If a byte is being set but the calculation involves numbers larger than 255, word mode can be used by adding [WORD] to the start of one of the values in the calculation. This is known as casting - refer to the Variables article for more information.
+
+
+Divide or division:  Great Cow BASIC support division.  Division can set the global system variable SysCalcTempX to the remainder of the division. However the following simple rules apply.
+ . If both of the parameters of the division are constants, the compiler will do the calculation itself and use the result rather than making the microcontroller work out the same thing every time.  So, if there are two constants used, the microcontroller division routine does not get used, and SysCalcTempX does not get set.
+ . If either of the parameters of the division are variables, the compiler will ensure the microcontroller do es the calculation as the result could be different every time.  So, in the this case the microcontroller division routine does get used, and SysCalcTempX is set.
+
+If you prefer, you can add `Let` to the start of the line. It will not alter the execution of the program, but is included for those who are used to including it in other BASIC dialects.
+
+*Example:*
+----
+    'This program is to illustrate the setting of variables.
+    Chipmunk = 46        'Sets the variable Chipmunk to 46
+    Animal = Chipmunk    'Sets the variable Animal to the value of the variable Chipmunk
+    Bear = 2 + 3 * 5     'Sets the variable Bear to the result of 2 + 3 * 5, 17.
+    Sheep = (2 + 3) * 5  'Sets the variable Sheep to the result of (2 + 3) * 5, 25.
+    Animal = 2 * Bear    'Sets the variable Animal to twice the value of Bear.
+
+    LargeVar = 321       'LargeVar must be set as a word - see DIM.
+    Temp = LargeVar / [WORD]5 'Note the use of [WORD] to ensure that the calculation is performed correctly
+----

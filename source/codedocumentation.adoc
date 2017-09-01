@@ -1,0 +1,60 @@
+=== Code Documentation
+
+Documenting Great Cow BASIC is key for ease of use. This section is intended for developers only.
+
+Documenting is the ability to read some extra information from comments in libraries.
+
+Some comments that start with ''' have a special meaning, and will be displayed as tooltips or as information to the user. These tooltips helps inexperienced users to use extra libraries.
+
+ . Great Cow BASIC uses ; (a semicolon) to show comments that it has placed automatically, and ' to indicate ones that the user has placed.  When loading a program, it will not load any that start with a ; (semi-colon).  The use of comments do not impact the users  but it worthy of note.
+ . As for code documentation comments, Great Cow BASIC will load information about subroutines/functions and any hardware settings that need to be set.
+ . For subroutines, a line before the Sub or Function line that starts with ''' will be used as a tooltip when the user hovers over the icon. A line that starts with '''@ will be interpreted differently, depending on what comes after the @. '''@param ParamName Parameter Description will add a description for the parameter. For a subroutine, this will show in the Icon Settings panel under the parameter when the user has selected that icon.
+ . For functions, it will show at the appropriate time in the Parameter Editor wizard. '''@return Returned value applies to functions only. It will be displayed in the Parameter Editor wizard when the user is asked to choose a function.  An example of all this is given in srf04.h:
+----
+    '''Read the distance to the nearest object
+    '''@param US_Sensor Sensor to read (1 to 4)
+    '''@return Distance in cm
+    Function USDistance(US_Sensor) As Word
+----
+[start=5]
+ . If a subroutine or command is used internally in the library, but Great Cow BASIC users should not see it, it can be hidden by placing '''@hide before the Sub or Function line. Another example from srf04.h:
+----
+    '''@hide
+    Sub InitUSSensor
+----
+These should hopefully be pretty easy to add. It is also possible to add Hardware Settings. A particular setting can be defined anywhere in the file, using this syntax:
+----
+    '''@hardware condition, display name, constant, value type
+----
+These comments informs Great Cow BASIC when to show the setting. Normally, this is All, but sometimes it can include a constant, a space and then a comma separated list of values. display name is a friendly name for the setting to display. constant is the constant that must be set, and valuetype is the type that will be accepted for that constant's value. To allow for multiple value types, enter a list of types with a | between them.
+[start=6]
+ . Allowed types are:
+----
+    free - Allows anything
+    label - Allows any label
+    condition - Allows a condition
+    table - Allows a data table
+    bit - Allows any bit from variable, or bit variable
+    io_pin - Allows an IO pin
+    io_port - Allows an entire IO port
+    number - Allows any fixed number or variable
+    rangex:y - Allows any number between x and y
+    var - Allows any variable
+    var_byte - Allows any byte variable
+    var_word - Allows any word variable
+    var_integer - Allows any integer variable
+    var_string - Allows any string variable
+    const - Allows any fixed number
+    const_byte - Allows any byte sized fixed number
+    const_word - Allows any word sized fixed number
+    const_integer - Allows any integer sized fixed number
+    const_string - Allows any fixed string
+    byte - Allows any byte (fixed number or variable)
+    word - Allows any word
+    integer - Allows any integer
+    string - Allows any string
+    array - Allows any array
+----
+[start=7]
+ . When the library is added the program, Great Cow BASIC will show a new device with the name of the library file on the Hardware Settings window. The user can then set the relevant constants without necessarily needing to see any code.  Adding a Great Cow BASIC library to Great Cow BASIC will not result in any changes to the library. Great Cow BASIC uses the information it reads to help edit the user's program, but then the user's program is passed to the compiler along with the unchanged library.
+ . Hardware Settings are a bit more involved to add, but hopefully the bit of extra documentation for subroutines will be straight forward.

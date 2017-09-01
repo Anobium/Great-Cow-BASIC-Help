@@ -1,0 +1,24 @@
+==== DecToBcd_GCB
+
+*Syntax:*
+----
+ DectoBcd( ByteVariable )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+Converts numbers from Decimal to Binary Coded Decimal format. Support Bytes only.
+
+You can add this function. Just add this to your Great Cow BASIC program and then call it when you need it.
+
+*Example:*
+----
+    Function DecToBcd(va) as Byte
+       DecToBcd=(va/10)*16+va%10
+    End Function
+----
+
+*Also see* <<_bcdtodec_gcb,BcdToDec_GCB>>

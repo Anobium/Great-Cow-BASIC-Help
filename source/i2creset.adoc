@@ -1,0 +1,23 @@
+==== I2CReset
+
+*Syntax:*
+----
+    I2CReset
+----
+*Command Availability:*
+
+Available on all microcontrollers except 12 bit instruction Microchip PIC microcontrollers (10F,
+12F5xx, 16F5xx chips)
+
+*Explanation:*
+
+This will attempt a reset of the I2C by changing the state of the I2C
+bus.
+
+*Example:*
+----
+ ...
+	I2CReset
+ ...
+----
+Supported in <I2C.H>

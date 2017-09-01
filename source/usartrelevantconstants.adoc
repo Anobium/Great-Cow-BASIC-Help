@@ -1,0 +1,239 @@
+==== RS232 Hardware Overview
+
+*Introduction*
+
+Great Cow BASIC support programs to communicate easily using RS232.
+
+Great Cow BASIC included microcontroller hardware-based serial routines are intended for use on microcontrollers with built in serial communications modules - normally referred to in datasheets as USART or UART modules.  Check the microcontroller data sheet for the defined transmit and receive (TX/Rx) pins.  Make sure your program sets the Tx pin direction to Out and the Rx pin direction to In respectively.  If the RS232 lines are connected elsewhere, or the microcontroller has no USART module, then the Great Cow BASIC software based RS232 routines must be used.
+
+Initialization of the USART module is handled automatically from your program by defining the chip, speed, and the baudrate.  The baudrate generator values are calculated and set,  usart is set to asynchronous, usart is enabled , the receive and transmit  are enabled. See the table below.
+
+*Example:*
+----
+  #chip mega328p, 16
+  #define USART_BAUD_RATE 9600
+  #define USART_TX_BLOCKING
+----
+*Command Availability:*
+
+Available on all microcontrollers with a USART or UART module. +
+Microchip PIC supports USART1 and 2. +
+Atmel AVR supports USART 1,2,3 and 4.
+
+The following table explains the methods that can be implemented when using the Great Cow BASIC serial routines.
+
+*Commands:*
+
+|===
+|*Command* |*Parameters* |*Example*
+
+|Serially print numbers (byte, word, long) or  strings. | |
+
+|`HSerPrint` |Number_constant or number_variable or string [,optional usart address]
+
+The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine prints a variable value to usart 1. No additional parameter for the usart number is used.
+
+`HSerprint` ( mynum )
+
+To print a variable value to usart 2. Note the additional parameter for the usart address.
+
+`HSerprint` ( mynum, 2 )
+
+|Serially receive ascii number characters and assign to a word variable | |
+
+|`HSerGetNum` |Number_variable [,optional usart address]
+
+The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. | This subroutine ensures that the characters received are numbers.  When a carriage return (CR or ASCII code 13) is received this signifies the end of the character stream. Defaults to usart1.
+
+To receive number characters use.
+
+`HSerGetNum` ( mynum   )
+
+To receive number characters via usart2 use.
+
+`HSerGetNum` ( mynum, 2 )
+
+|Serially receive characters as a string.  | |
+|`HSerGetString` |User_string_variable [,optional usart address]
+
+The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. | This subroutine ensures that the characters treated as a string.  When a carriage return (CR or ASCII code 13) is received this signifies the end of the character stream. Great Cow BASIC will determine the default buffering size for strings. See here for more help on string sizes. Defaults to usart1.
+
+To receive a string use. +
+`HserGetString` ( mystring )
+
+To a string via usart2 use. +
+`HserGetString` ( mystring, 2 )
+
+|Serially receive a character using a subroutine. | |
+|`HSerReceive` |byte_variable | This subroutine handles the incoming characters as raw ASCII values.
+
+The subroutine receives a single byte value in the range of 0 to 255.
+
+The subroutine can receive a byte from usart 1, 2, 3 or 4.
+
+The public variable comport  can be set before the use of this method to select the desired usart address.
+
+If ‘#define USART_BLOCKING’ is defined then this methods will wait until it a byte is received.
+
+If ‘#define USART_BLOCKING’ is NOT defined then the method will returns ASCII value received or the method will return the value of 255 to indicate not ASCII data was received.  You can change the value returned by setting redefining ‘#define DefaultUsartReturnValue = [0-255]’.  When ‘#define USART_BLOCKING’ is NOT defined  this method becomes a non- blocking method which allows for the testing and handling of incoming ASCII data within the user program.
+
+To receive an ASCII byte value in blocking mode use. Defaults to usart1
+
+#define USART_BLOCKING +
+… +
+… +
+`HSerReceive` (user_byte_variable)
+
+To receive an ASCII byte value via usart 3 using blocking mode use
+
+#define USART_BLOCKING +
+… +
+… +
+Comport = 3 +
+`HSerReceive` ( user_byte_variable)
+
+To receive an ASCII byte value use in non-blocking mode use. Ensure #define USART_BLOCKING is NOT defined. This method fefaults to usart1
+
+`HSerReceive` (user_byte_variable)
+
+To receive an ASCII byte value via usart 4 using non-blocking mode use. Ensure #define USART_BLOCKING is NOT defined.
+
+Comport = 4 +
+`HSerReceive` ( user_byte_variable )
+
+|Serially receive a character using a function specifically via usart1. | |
+|`HSerReceive1` |none |This function handles the incoming characters as raw ASCII values.
+
+The function receives a single byte value in the range of 0 to 255.
+
+The function can return only a byte value from usart 1.
+
+The blocking and non-blocking mode and the methods are the same as shown in the previous method.
+
+To receive an ASCII byte value via usart 1 using blocking mode use
+
+#define USART_BLOCKING +
+… +
+… +
+user_number_variable = `HSerReceive1`
+
+To receive an ASCII byte value use in non-blocking mode use. Ensure #define USART_BLOCKING is NOT defined.
+
+user_number_variable = `HSerReceive1`
+
+|Serially receive a character using a function specifically via usart2 | |
+|`HSerReceive2` |none |This function handles the incoming characters as raw ASCII values.
+
+The function receives a single byte value in the range of 0 to 255.
+
+The function can receive only a byte value from usart 2.
+
+The blocking and non-blocking mode and the methods are the same as shown in the previous method.
+
+To receive an ASCII byte value via usart 2 using blocking mode use
+
+#define USART_BLOCKING +
+… +
+… +
+user_byte_variable = `HSerReceive2`
+
+To receive an ASCII byte value use in non-blocking mode use. Ensure #define USART_BLOCKING is NOT defined.
+
+user_byte_variable = `HSerReceive2`
+
+|Serially receive a character using a function from either usart ports using a parameter to select the usart. | |
+|`HSerReceiveFrom` |Usart_number, +
+ Default is 1 |This function handles the incoming characters as raw ASCII values.
+
+The function return a single byte value in the range of 0 to 255.
+
+The function can receive only a byte value from usart 1 and usart 2
+
+The blocking and non-blocking mode and the methods are the same as shown in the previous method.
+
+To receive an ASCII byte value via usart 1 using blocking mode use
+
+#define USART_BLOCKING +
+… +
+… +
+user_byte_variable = `HSerReceiveFrom`
+
+To receive an ASCII byte value use in non-blocking mode use. Ensure #define USART_BLOCKING is NOT defined.
+
+'Chosen_usart = 2 +
+user_byte_variable = `HSerReceiveFrom` (2)
+
+|Serially send a byte using any of the usart ports | |
+|`HSerSend` |Byte or byte_variable   [,optional usart address]  + The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a byte value to usart 1. No additional parameter for the usart number is used.
+
+`HSerSend`( user_byte )
+
+To print a variable value to usart 2. Note the additional parameter for the usart address.
+
+`HSerSend` ( user_byte, 2 )
+
+|Serially send a byte and a CR&LF using any of the usart ports | |
+|`HSerPrintByteCRLF` |Byte or byte_variable +  [,optional usart address] The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a byte value to usart 1.
+
+`HserPrintCRLF` users_byte,2
+
+|Serially send  CR&LF (can be multiple) using any of the usart ports | |
+|`HSerPrintCRLF` |Number of CR&LF to be sent + [,optional usart address] The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a CR&LF to port 2.
+
+
+`HserPrintCRLF` 1,2    ' Will send a CR & LF out of comport 2 to the terminal
+
+
+|===
+*Constants*
+These constants affect the operation of the hardware RS232 routines:
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name*
+|*Controls*
+|*Default Value*
+|`USART_BAUD_RATE` |Baud rate (in bps) for the routines to operate at. |No default, user must enter a baud. Doesn't have to be a standard baud.
+|`USART_BLOCKING`
+|If defined, this constant will cause the USART routines to wait until data
+can be sent or received.
+|No parameter needed. Use “#defining” it implement the action.
+|`USART_TX_BLOCKING`
+|If defined, this constant will cause the Transmit USART routines to wait until Transmit register is empty before writing the next byte which prevents over running the register and losing data.
+| No parameter needed. Use “#defining” it implement the action.
+
+|`USART2_BAUD_RATE` |Baud rate (in bps) for the routines to operate at. |No default, user must enter a baud. Doesn't have to be a standard baud.
+|`USART2_BLOCKING`
+|If defined, this constant will cause the USART routines to wait until data
+can be sent or received.
+|No parameter needed. Use “#defining” it implement the action.
+|`USART2_TX_BLOCKING`
+|If defined, this constant will cause the Transmit USART routines to wait until Transmit register is empty before writing the next byte which prevents over running the register and losing data.
+| No parameter needed. Use “#defining” it implement the action.
+
+|`USART3_BAUD_RATE` |Baud rate (in bps) for the routines to operate at. |No default, user must enter a baud. Doesn't have to be a standard baud.
+|`USART3_BLOCKING`
+|If defined, this constant will cause the USART routines to wait until data
+can be sent or received.
+|No parameter needed. Use “#defining” it implement the action.
+|`USART3_TX_BLOCKING`
+|If defined, this constant will cause the Transmit USART routines to wait until Transmit register is empty before writing the next byte which prevents over running the register and losing data.
+| No parameter needed. Use “#defining” it implement the action.
+
+|`USART4_BAUD_RATE` |Baud rate (in bps) for the routines to operate at. |No default, user must enter a baud. Doesn't have to be a standard baud.
+|`USART4_BLOCKING`
+|If defined, this constant will cause the USART routines to wait until data
+can be sent or received.
+|No parameter needed. Use “#defining” it implement the action.
+|`USART4_TX_BLOCKING`
+|If defined, this constant will cause the Transmit USART routines to wait until Transmit register is empty before writing the next byte which prevents over running the register and losing data.
+| No parameter needed. Use “#defining” it implement the action.
+
+|`USART_DELAY`
+|This is the delay between characters.
+|`1 ms`
+
+|`SerPrintCR` | Causes a Carriage return to be sent after every HserPrint automatically. | No parameter needed. User “#defining” it implements the action
+
+|`SerPrintLF` | Causes a LineFeed to be sent after every HserPrint. Some communications require both CR and LF | No parameter needed. User “#defining” it implements the action
+
+|===

@@ -1,0 +1,33 @@
+==== Asc
+
+*Syntax:*
+[subs="quotes"]
+----
+    byte__var__= ASC(string, [position] )
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+Returns the character code of the character at the specified position in a string.
+
+`ASC` returns the character code of a particular character in the string.  If the string is an ANSI string, the returned value will be in the range of 0 to 255. This function DOES NOT support UNICODE.
+
+The optional position parameter determines which character is to be checked. The first character is one, the second two, etc. If the position parameter is missing, the first character is presumed.
+
+`CHR` is the natural complement of `ASC`. `CHR` produces a one-character string corresponding to its ASCII.
+
+*Note:*
+
+If the string passed is null (zero-length) or the position is zero or greater than the length of the string the returned value will be 0.
+
+*Example:*
+----
+    charpos = ASC( "ABCD" )     ' Returns 65
+
+    charpos = ASC( "ABCD", 2 )  ' Returns 66
+----
+
+*For more help, see* <<_chr,Chr>>

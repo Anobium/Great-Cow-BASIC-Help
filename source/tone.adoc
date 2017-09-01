@@ -1,0 +1,33 @@
+==== Tone
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    Tone _Frequency, Duration_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will produce the specified tone for the specified duration.
+`_Frequency_` is measured in Hz, and `_Duration_` is in 10 ms units.
+
+Please note that this command may not produce the exact frequency
+specified. While it is accurate enough for error beeps and small pieces
+of monophonic music, it should not be used for anything that requires a
+highly precise frequency.
+
+*Example:*
+----
+'Sample program to produce a constant A note (440 Hz)
+'on PORTB bit 1.
+#chip 16F877A, 20
+#define SoundOut PORTB.1
+
+Do
+    Tone 440, 1000
+Loop
+----
+*For more help, see* <<_sound_overview,Sound Overview>>

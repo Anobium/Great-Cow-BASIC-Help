@@ -1,0 +1,52 @@
+==== Dim
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    *_For Variables > 1 byte:_*
+    Dim _variable_[, _variable2_ [, _variable3_ ]] [As _type_ ] [Alias _othervar_ [, _othervar2_ ]] [At _location_ ]
+
+    *_For Arrays:_*
+    Dim _array_(_size_) [At _location_]
+----
+
+*Explanation:*
+
+Dim has two uses, both of which involve large variables. It can be used to define arrays, bit variables and all variables larger than 1 byte.
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+The `Dim` variable command is used to inform Great Cow BASIC of variables that are larger than 1 byte, or to create alternate names for other variables.
+
+The `Dim array` command also sets up array variables. The maximum array size is determined by the parameter `_size_` is dynamically allocated by the compiler and depends on the specific chip used, as well as the complexity of the program.
+
+The limit on array size varies dependent on the chip type. The 12F/16F series of chips the array limit is 80 elements. For the Atmel AVR or an 18F there is no limit other than free RAM however Great Cow BASIC limits the array size to 10,000 elements. If a memory limit is reached, the compiler will give an error message.
+
+`_type_` specifies the type of variable that is to be created. Different variable types can hold values over different ranges, and use different amounts of RAM. See the <<_variables,Variables>> article for more information.
+
+When multiple variables are included on the one line, Great Cow BASIC will set them all to the type that is specified at the end of the line. If there is no type specified, then Great Cow BASIC will make the variable a byte.
+
+`Alias` creates a variable using the same memory location as one or more other variables. It is mainly used internally in Great Cow BASIC to treat system variables as a word. For example, this command is used to create a word variable, made up from the two memory locations used to store the result of an A/D conversion:
+
+A variable can be placed at a specific location in the data memory of the chip using the At option. `_location_` will be used whether it is a valid location or not, but a warning will be generated if Great Cow BASIC has already allocated the memory, or if the memory does not appear to be valid. This can be used for peripherals that have multi byte buffers in RAM.
+
+----
+    Dim ADResult As Word Alias ADRESH, ADRESL
+----
+
+
+*Example:*
+----
+    'This program will set up an array, and a word variable
+
+    dim DataList(10)
+    dim Reading as word
+
+    Reading = 21978
+    DataList(1) = 15
+
+    dim stringvariable as string
+----
+*For more help, see:*<<_serprint,SerPrint>> articles as these articales show how to use Dim to create string variables and <<_variables,Variables>> for more details in creating and managing strings lengths.

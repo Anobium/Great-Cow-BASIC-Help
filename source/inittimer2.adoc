@@ -1,0 +1,466 @@
+==== InitTimer2
+
+*Syntax: (MicroChip PIC)*
+[subs="quotes"]
+----
+    InitTimer2 _prescaler_, _postscaler_
+
+or, where you required to state the clock source, use the following
+
+    InitTimer2 _clocksource_, _prescaler_, _postscaler_
+
+----
+
+*Syntax: (Atmel AVR)*
+[subs="quotes"]
+----
+    InitTimer2 _source_, _prescaler_
+----
+
+
+*Command Availability:*
+
+Available on all microcontrollers with a Timer 2 module.&#160;&#160;As shown above a Microchip microcontroller can potentially support two types of methods for initialisation.
+{empty} +
+{empty} +
+The first method is:
+{empty} +
+----
+    InitTimer2 prescaler, postscaler
+----
+This the most common method to initialise a Microchip microcontroller timer.&#160;&#160;With this method the timer has only one possible clock source, this mandated by the microcontrollers architecture, and that clock source is the System Clock/4 also known as FOSC/4.
+{empty} +
+{empty} +
+{empty} +
+The second method is much more flexible in term of the clock source.&#160;&#160;Microcontrollers that support this second method enable you to select different clock sources and to select more prescale values.&#160;&#160;The method is shown below:
+{empty} +
+----
+    InitTimer2 clocksource, prescaler, postscaler
+----
+**How do you determine which method to use for your specific Microchip microcontroller ?**
+{empty} +
+{empty} +
+The timer type for a Microchip microcontroller can be determined by checking for the existance of a T2CLKCON register, either in the Datasheet or in the Great Cow BASIC  "dat file" for the specific device.
+{empty} +
+{empty} +
+If the Microchip microcontroller **DOES NOT** have a T2CLKCON register then timers 2/4/6/8 for that specific microcontroller chip use the first method, and are configured using:
+{empty} +
+----
+    InitTimer2 (PreScale, PostScale)
+----
+If the microcontroller **DOES** have a T2CLKCON register then ALL timers 2/4/6/8 for that specific microcontroller chip use the second method, and are configured using:
+----
+    InitTimer2 (Source,PreScale,PostScale)
+----
+The possible Source, Prescale and Postscale constants for each type are shown in the tables below.&#160;&#160;These table are summary tables from the Microchip datasheets.
+{empty} +
+{empty} +
+
+**Period of the Timers**
+
+The Period of the timer is determined by the system clock speed, the prescale value and 8-bit value in the respective timer period register.&#160;&#160;The timer period for timer 2 is held in register PR2.&#160;&#160;
+{empty} +
+
+When the timer is enabled, by starting the timer, it will increment until the TMR2 register matches the value in the PR2 register.&#160;&#160;At this time the TMR2 register is cleared to 0 and the timer continues to increment until the next match, and so on.
+{empty} +
+
+The lower the value of the PR2 register, the shorter the timer period will be.&#160;&#160;The default value for the PR2 register at power up is 255.
+{empty} +
+
+The timer interrupt flag (TMR2IF) is set based upon the number of match conditions as determine by the postscaler.&#160;&#160;The postscaler does not actually change the timer period, it changes the time between interrupt conditions.
+{empty} +
+{empty} +
+
+*Timer constants for the MicroChip microcontrollers*
+
+Parameters for this timer are detailed in the tables below:
+
+[cols=2, options="header,autowidth"]
+
+|===
+
+|Parameter
+|Description
+
+|`_clocksource_`
+|This is an optional parameter.  Please review the datasheet for specific usage. +
+&#160; +
+Source can be one of the following numeric values: +
+&#160; +
+         1 equates to OSC (FOSC/4). &#160;&#160;&#160;The default clock source +
+         +
+         6 equates to EXTOSC same as SOSC +
+         5 equates to MFINTOSC +
+         4 equates to LFINTOSC +
+         3 equates to HFINTOSC +
+         2 equates to FOSC +
+         1 equates to FOSC/4 same as OSC +
+         0 equates to TxCKIPPS same as EXTOSC and EXT (T1CKIPPS) +
+
+Other sources may be available but can vary from microcontroller to microcontroller and these can be included manually per the specific microcontrollers datasheet.
+
+|`_prescaler_`
+|The value of the prescaler for this specific timer.  See the tables below for permitted values.
+
+
+|`_postscaler_`
+|The value of the postscaler for this specific timer.  See the tables below for permitted values.
+
+|===
+*Table 1 shown above*
+{empty} +
+{empty} +
+
+
+`prescaler` can be one of the following settings, if you MicroChip microcontroller has the T2CKPS4 bit then refer to table 3:
+
+[cols="^1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:1
+|`PS2_1`
+|0
+
+|1:4
+|`PS2_4`
+|1
+
+|1:16
+|`PS2_16`
+|2
+
+|1:64
+|`PS2_64`
+|3
+
+|===
+*Table 2 shown above*
+{empty} +
+{empty} +
+Note that a 1:64 prescale is only avaialable on certain midrange microcontrollers.
+Please refer to the datasheet to determine if a 1:64 prescale is supported by a
+spectific microcontroller.
+{empty} +
+{empty} +
+[cols="^1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:1
+|`PS2_1`
+|0
+
+|1:2
+|`PS2_2`
+|1
+
+|1:4
+|`PS2_4`
+|2
+
+|1:8
+|`PS2_8`
+|3
+
+|1:16
+|`PS2_16`
+|4
+
+|1:32
+|`PS2_32`
+|5
+
+|1:64
+|`PS2_64`
+|6
+
+|1:128
+|`PS2_128`
+|7
+
+
+|===
+*Table 3 shown above*
+{empty} +
+{empty} +
+
+`_postscaler_` slows the rate of the interrupt generation (or WDT reset) from a
+counter/timer by dividing it down.
+
+On Microchip PIC microcontroller one of the following constants where the Postscaler Rate Select bits are in the range of 1 to 16.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Postcaler Value*
+|*GCB Constant*
+|*Eqautes to*
+
+
+|1:1 Postscaler
+|POST_1
+|0
+
+|1:2 Postscaler
+|POST_2
+|1
+
+|1:3 Postscaler
+|POST_3
+|2
+
+|1:4 Postscaler
+|POST_4
+|3
+
+|1:5 Postscaler
+|POST_5
+|4
+
+|1:6 Postscaler
+|POST_6
+|5
+
+|1:7 Postscaler
+|POST_7
+|6
+
+|1:8 Postscaler
+|POST_8
+|7
+
+|1:9 Postscaler
+|POST_9
+|8
+
+|1:10 Postscaler
+|POST_10
+|9
+
+|1:11 Postscaler
+|POST_11
+|10
+
+|1:12 Postscaler
+|POST_12
+|11
+
+|1:13 Postscaler
+|POST_13
+|12
+
+|1:14 Postscaler
+|POST_14
+|13
+
+|1:15 Postscaler
+|POST_15
+|14
+
+|1:16 Postscaler
+|POST_16
+|15
+
+|===
+*Table 4 shown above*
+
+{empty} +
+{empty} +
+
+
+{empty} +
+{empty} +
+
+*Explanation:(Atmel AVR)*
+
+`InitTimer2` will set up timer 2, according to the settings given.
+
+`source` can be one of the following settings:
+Parameters for this timer are detailed in the table below:
+
+[cols=2, options="header,autowidth"]
+
+|===
+
+|Parameter
+|Description
+
+|`_source_`
+|The clock source for this specific timer. Can be either `Osc` or `Ext` where`Osc` is an internal oscillator and `Ext` is an external oscillator.
+
+|===
+*Table 5 shown above*
+{empty} +
+{empty} +
+
+
+`prescaler` for Atmel AVR Timer 2 is chip specific and can be selected from one of the two
+tables shown below.  Please refer to the datasheet determine which table to use and which
+prescales within that table are supported by a specific Atmel AVR microcontroller.
+
+Table1: Prescaler Rate Select bits are in the range of 1 to 1024
+
+[cols="^1,1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Secondary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:0
+|`PS_0`
+|`PS_2_0`
+|1
+
+|1:1
+|`PS_1`
+|`PS_2_1`
+|1
+
+|1:8
+|`PS_8`
+|`PS_2_8`
+|2
+
+|1:64
+|`PS_64`
+|`PS_2_64`
+|3
+
+|1:256
+|`PS_256`
+|`PS2_256`
+|4
+
+|1:1024
+|`PS_1024`
+|`PS_2_1024`
+|5
+
+|===
+*Table 6 shown above*
+{empty} +
+{empty} +
+{empty} +
+
+Prescaler Rate Select bits are in the range of 1 to 16384
+
+[cols="^1,1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Secondary GCB Constant*
+|*Constant Equates +
+to value*
+|1:1
+|`PS_2_1`
+|`none`
+|1
+
+|1:2
+|`PS_2_2`
+|`none`
+|2
+
+|1:4
+|`PS_2_4`
+|`none`
+|3
+
+|1:8
+|`PS_2_8`
+|`none`
+|4
+
+|1:16
+|`PS_2_16`
+|`none`
+|5
+
+|1:32
+|`PS_2_32`
+|`none`
+|6
+
+|1:64
+|`PS_2_64`
+|`none`
+|7
+
+|1:128
+|`PS_2_128`
+|`none`
+|8
+
+|1:256
+|`PS_2_256`
+|`none`
+|9
+
+|1:512
+|`PS_2_512`
+|`none`
+|10
+
+|1:1024
+|`PS_2_1024`
+|`none`
+|11
+
+|1:2048
+|`PS_2_2048`
+|`none`
+|12
+
+|1:4096
+|`PS_2_4096`
+|`none`
+|13
+
+|1:8192
+|`PS_2_8192`
+|`none`
+|14
+
+|1:16384
+|`PS_2_16384`
+|`none`
+|15
+
+|===
+*Table 7 shown above*
+{empty} +
+{empty} +
+*Example:*
+
+This code uses Timer 2 and On Interrupt to flash an LED every 200 timer ticks.
+----
+    #chip 16F1788, 8
+    #config OSC = INTOSC
+
+    #DEFINE LED PORTA.1
+    DIR LED OUT
+
+    #Define Match_Val PR2 'PR2 is the timer 2 match register
+    Match_Val = 200       'Interrupt afer 200 timer ticks
+
+    On interrupt timer2Match call FlashLED  'Interrupt on match
+    Inittimer2 PS2_64, 15 'Prescale 1:64 /Postscale 1:16 (15)
+    Starttimer 2
+
+    Do
+      ' Wating for interrupt on match val of 100
+    Loop
+
+    'This sub will be called when Timer 2 matches "Match_Val" (PR2)
+    SUB FlashLED
+        pulseout LED, 5 ms
+    END SUB
+----

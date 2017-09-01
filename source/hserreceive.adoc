@@ -1,0 +1,121 @@
+==== HSerReceive
+
+*Syntax:*
+
+*_Used as subroutine:_*
+[subs="quotes"]
+----
+    HSerReceive (_user_byte_variable_)
+----
+or, if other multiple comports are in use, set the comport before using HSerReceive.
+----
+
+    comport = 1   '(1|2|3|4)Not needed unless using multiple comports in use
+    HSerReceive (_user_byte_variable_)
+
+----
+*_Used as function:_*
+[subs="quotes"]
+----
+	_user_byte_variable_ = `HSerReceive`	'Supports only USART1
+	_user_byte_variable_ = `HSerReceive1`	'Supports only USART1
+	_user_byte_variable_ = `HSerReceive2`	'Supports only USART2
+
+----
+For other comports use Function `HSerReceiveFrom`
+
+*Command Availability:*
+
+Available on all microcontrollers with a USART or UART module.
+
+Microchip PIC supports USART1 and 2. +
+Atmel AVR supports USART 1,2,3 and 4.
+
+*Explanation:*
+
+This command will read a byte from the hardware RS232 module. It can be
+used either as a subroutine or as a function. If used as a subroutine, a
+variable must be supplied to store the received value in. If used as a
+function, it will return the received value.
+
+The subroutine HSerReceive can get a byte from any comport but must set the comport number immediately before the call.  If ”#define USART_BLOCKING” is defined then the HserReceive waits in a loop until it receives a byte.   If” #define USART_BLOCKING” is NOT defined then HserReceive returns the new byte that was received OR returns 255 because of “DefaultUsartReturnValue = 255”  was defined.  This is good because it don’t hold up your program from executing other  commands and your can check it for new data priodically.
+
+*Example:*
+----
+	'This program will read a value from the USART, and send it to PORTB.
+
+	#chip 16F877A, 20
+
+	'USART settings
+	#define USART_BAUD_RATE 9600	'sets up comport 1 for 9600 baud
+
+	'Set PORTB to output
+	Dir PORTB Out
+	'Set USART receive pin to input
+	Dir PORTC.7 In
+
+	'Main loop
+	Do
+		'Get serial data and output value to PortB as 8 bit binary
+		HSerReceive(InChar)	 'Receive data as Subroutine from comport 1
+		'InChar = HSerReceive	 'Could also be written as Function
+		If InChar <> 255 Then   'If value is 255 then it is old data
+			PortB = InChar		'If new data then it goes to PortB
+		End If
+	Loop
+----
+
+*Example 2:*
+----
+	'If you choose no “Blocking” and comment both of them out.
+	'USART settings
+	#define USART_BAUD_RATE 9600
+	'#define USART_BLOCKING        ' just none OR one of the blocking
+	'#define USART_TX_BLOCKING    ' statements should be defined
+
+	'Main loop
+	Do
+		'Get and display value
+		'If there is no new data, HSerReceive will return default value.
+		comport = 1
+		HSerReceive tempvalue
+		If tempvalue <> 255    Then    ‘ don’t change PortB if it is default
+			PortB = tempvalue
+		End If
+
+	Loop
+----
+
+
+*Example 3:*
+----
+	'If you choose no “Blocking” and comment both of them out.
+	#chip mega328p, 16
+
+	#define USART_BAUD_RATE 9600
+	'#define USART_BLOCKING
+	'#define USART_TX_BLOCKING
+
+	'Don't forget to Set usart pin directions
+	Dir PortD.1 Out    'com1   USART0
+	Dir PortD.0 In
+
+	Wait 1 s
+
+	'Message after reset
+	HSerPrint "ATmega328P  com test"
+	HSerPrintCRLF
+
+	'Main routine  hook up FTDI232 usb to serial and use terminal program to check
+	Start:
+		comport = 1
+		HSerReceive(InChar)    'Subroutine needs the comport set
+		'InChar = HSerReceive    ' This function will get from comport 1
+			If InChar <> 255 Then    ' check if for received byte
+									'return 255 if old data
+				HSerSend InChar    'send back char to UART
+			End If
+	Goto Start
+
+----
+*See also* <<_rs232_hardware_overview,RS232 Hardware Overview>>

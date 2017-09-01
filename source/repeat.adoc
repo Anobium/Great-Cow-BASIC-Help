@@ -1,0 +1,48 @@
+==== Repeat
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+    Repeat _times_
+    ...
+    _program code_
+    ...
+    <__condition__> Exit Repeat
+    ...
+    End Repeat
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Repeat` command is ideal for situations where a piece of code needs
+to be run a set number of times. It uses less memory and runs faster
+than the `For` command, and should be used wherever it is not necessary to
+count how many times the code has run.
+
+Optionally, you can specify a condition to `Exit` the Repeat-Loop
+immediately.
+
+Repeat has a maximum repeat value of 65535.
+
+*Example:*
+
+----
+    'This code will flash a green light 6 times.
+
+    #chip 16F88, 20
+
+    #define LED PORTB.0
+    dir LED out
+
+    Repeat 6
+    PulseOut LED, 1 s
+    Wait 1 s
+    End Repeat
+----
+
+*See Also <<_for,For>>*

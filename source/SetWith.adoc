@@ -1,0 +1,45 @@
+==== SetWith
+
+*Syntax:*
+[subs="quotes"]
+
+
+----
+    SetWith(TargetBit, Source)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`SetWith` is an extended version of SET, it allows a Bit Field to be set or cleared by evaluating the content of Source. `SetWith` should always be used when TargetBit is an I/O Bit and Source is a Function, in order to avoid the possibility of I/O jitter.
+
+Source may be a variable and of  type: Bit, Byte, Word or Long, a Constant, an expression or a Function.
+
+It will SET  TargetBit  to 1 if Source evaluates to anything other than zero. TargetBit  will always be a 1 or a 0 regardless of the variable type of TargetBit.
+
+*Example:*
+
+----
+    ' This program will reflect the state of SW1(RA3) on LED DS1(RC0) of the Microchip
+    ' Low Pin Count Demo Board. Notice that because SW1 is normally High the state has to
+    ' be inverted to turn on the LED (DS1) when SW1 is pressed.
+
+    #chip   16f690    ' declare the target Device
+
+    #Define SW1 PORTA.3
+    #Define DS1 PORTC.0
+
+    DIR DS1 Out
+    DIR SW1 In
+
+    Do
+      ' set the Bit DS1 to equal the Bit SW1
+      SetWith( DS1, !SW1 )
+    Loop
+    END
+----
+
+*See Also <<_bitwise_operations_overview, Bitwise Operations Overview>>* and *<<_conditions, Conditions>>*

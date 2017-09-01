@@ -1,0 +1,37 @@
+=== #chip
+
+*Syntax:*
+[subs="quotes"]
+----
+    #chip __model__, __speed__
+----
+*Explanation:*
+
+The `#chip` directive is used to specify the chip model and speed that Great Cow BASIC must compile for. `_model_` is the model of the microcontroller chip - something along the lines of "16F819". `_speed_` is the speed of the chip in MHz, and is required for the delay and PWM routines.
+
+If `speed` is not present the compiler will select a frequency default frequency that should work.
+
+ . If the chip has an internal oscillator, the compiler will use that and pick the highest speed it supports.
+ . If the chip does not have an internal oscillator, then Great Cow BASIC will assume that the chip is being run at its maximum possible clock speed using an external crystal.
+ . If you are using an external crystal then you must specify a chip frequency.
+
+When using an AVR, there is not need to specify "AT" before the name.
+
+*Examples:*
+----
+    #chip 12F509, 4
+    #chip 18F4550, 48
+    #chip 16F88, 0.125
+    #chip tiny2313, 1
+    #chip mega8, 16
+----
+
+*Setting Other Clock frequencies:*
+
+Some alternative compilers allow value of the clock speed to be set with the numerical value in Hertz (_i.e._ 24576000). This can be useful when using the clock frequencies other than standard frequencies.
+
+Great Cow BASIC requires clock speeds to be specified in MHz, but will accept decimal points. For example, if you wanted to run a 16F1827 at 24576000 Hz, you would write the following:
+
+----
+    #chip 16F1827, 24.576
+----

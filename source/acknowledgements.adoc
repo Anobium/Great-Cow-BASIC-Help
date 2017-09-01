@@ -1,0 +1,47 @@
+== Acknowledgements
+
+*Developers and Contributors:*
+
+Hugh Considine - Main developer of Great Cow BASIC
+
+Stefano Bonomi - Two-wire LCD subroutines
+
+Geordie Millar - Swap and Swap4 subroutines
+
+Jacques Nilo - HEFM and help file conversion to asciidoc
+
+Finn Stokes - 8-bit multiply routine, program memory access code
+
+Evan Venn - Utilities, revised I2C routines, this help file and generally everything else!
+
+*Translation Contributors:*
+
+Stefano Delfiore - Italian
+
+Pablo Curvelo - Spanish
+
+Murat Inceer - Turkish
+
+*Other Contributors:*
+
+Russ Hensel - Great Cow BASIC Notes.
+
+Chuck Hellebuyck - His documentation for the GLCD and other pieces, see http://www.elproducts.com.
+
+Frank Steinberg - GCB@SYN IDE for Great Cow BASIC, see
+http://sourceforge.net/projects/gcbasic/files/IDE/GCB%40Syn/GCB%40Syn.zip.
+
+Alexy T. - SynWrite IDE used for GCB IDE, see http://www.uvviewsoft.com/synwrite.
+
+Thomas Henry for the Select Case and the Sine Table examples.
+
+William Roth for the LCD code and supporting diagrams.
+
+Theo Loermans for the revised LCD sections and the library.
+
+Chris Roper for the bitwise methods including the library including FnEquBit, FnNotBit, FnlslBit, FnlsrBit, SetWith and 47xxx.
+
+
+*Conversion of asciidoctor documentation files*:
+
+See the http://asciidoctor.org/[asciidoctor Web site] and the http://discuss.asciidoctor.org/[support forum].

@@ -1,0 +1,19 @@
+==== Rtrim
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = Rtrim(__stringvar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Rtrim` function will trim the 7-bit ASCII space character (value 32) from the RIGHT hand side of a string.
+
+Use `Rtrim` on text that you have received from another source that may have irregular spacing at the right hand end of the string.
+
+*See Also* <<_trim,Trim>>, <<_ltrim,Ltrim>>

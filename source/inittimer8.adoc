@@ -1,0 +1,209 @@
+==== InitTimer8
+
+*Syntax: (MicroChip PIC)*
+[subs="quotes"]
+----
+    InitTimer8 _prescaler_, _postscaler_
+
+or, where you required to state the clock source, use the following
+
+    InitTimer8 _clocksource_, _prescaler_, _postscaler_
+
+----
+
+*Syntax: (Atmel AVR)*
+[subs="quotes"]
+----
+    InitTimer8 _source_, _prescaler_
+----
+
+
+*Command Availability:*
+
+Available on all microcontrollers with a Timer 8 module.&#160;&#160;As shown above a Microchip microcontroller can potentially support two types of methods for initialisation.
+{empty} +
+{empty} +
+The first method is:
+{empty} +
+----
+    InitTimer8 prescaler, postscaler
+----
+This the most common method to initialise a Microchip microcontroller timer.&#160;&#160;With this method the timer has only one possible clock source, this mandated by the microcontrollers architecture, and that clock source is the System Clock/4 also known as FOSC/4.
+{empty} +
+{empty} +
+{empty} +
+The second method is much more flexible in term of the clock source.&#160;&#160;Microcontrollers that support this second method enable you to select different clock sources and to select more prescale values.&#160;&#160;The method is shown below:
+{empty} +
+----
+    InitTimer8 clocksource, prescaler, postscaler
+----
+**How do you determine which method to use for your specific Microchip microcontroller ?**
+{empty} +
+{empty} +
+The timer type for a Microchip microcontroller can be determined by checking for the existance of a T2CLKCON register, either in the Datasheet or in the Great Cow BASIC  "dat file" for the specific device.
+{empty} +
+{empty} +
+If the Microchip microcontroller **DOES NOT** have a T2CLKCON register then timers 2/4/6/8 for that specific microcontroller chip use the first method, and are configured using:
+{empty} +
+----
+    InitTimer8 (PreScale, PostScale)
+----
+If the microcontroller **DOES** have a T2CLKCON register then ALL timers 2/4/6/8 for that specific microcontroller chip use the second method, and are configured using:
+----
+    InitTimer8 (Source,PreScale,PostScale)
+----
+The possible Source, Prescale and Postscale constants for each type are shown in the tables below.&#160;&#160;These table are summary tables from the Microchip datasheets.
+{empty} +
+{empty} +
+
+**Period of the Timers**
+
+The Period of the timer is determined by the system clock speed, the prescale value and 8-bit value in the respective timer period register.&#160;&#160;The timer period for timer 8 is held in register PR8.&#160;&#160;
+{empty} +
+
+When the timer is enabled, by starting the timer, it will increment until the TMR8 register matches the value in the PR8 register.&#160;&#160;At this time the TMR8 register is cleared to 0 and the timer continues to increment until the next match, and so on.
+{empty} +
+
+The lower the value of the PR8 register, the shorter the timer period will be.&#160;&#160;The default value for the PR8 register at power up is 255.
+{empty} +
+
+The timer interrupt flag (TMR8IF) is set based upon the number of match conditions as determine by the postscaler.&#160;&#160;The postscaler does not actually change the timer period, it changes the time between interrupt conditions.
+{empty} +
+{empty} +
+
+*Timer constants for the MicroChip microcontrollers*
+
+Parameters for this timer are detailed in the tables below:
+
+[cols=2, options="header,autowidth"]
+
+|===
+
+|Parameter
+|Description
+
+|`_clocksource_`
+|This is an optional parameter.  Please review the datasheet for specific usage. +
+&#160; +
+Source can be one of the following numeric values: +
+&#160; +
+         1 equates to OSC (FOSC/4). &#160;&#160;&#160;The default clock source +
+         +
+         6 equates to EXTOSC same as SOSC +
+         5 equates to MFINTOSC +
+         4 equates to LFINTOSC +
+         3 equates to HFINTOSC +
+         2 equates to FOSC +
+         1 equates to FOSC/4 same as OSC +
+         0 equates to TxCKIPPS same as EXTOSC and EXT (T1CKIPPS) +
+
+Other sources may be available but can vary from microcontroller to microcontroller and these can be included manually per the specific microcontrollers datasheet.
+
+|`_prescaler_`
+|The value of the prescaler for this specific timer.  See the tables below for permitted values.
+
+
+|`_postscaler_`
+|The value of the postscaler for this specific timer.  See the tables below for permitted values.
+
+|===
+*Table 1 shown above*
+
+{empty} +
+{empty} +
+
+`prescaler` can be one of the following settings:
+
+[cols="^1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:1
+|`PS8_1`
+|0
+
+|1:4
+|`PS8_4`
+|1
+
+|1:16
+|`PS8_16`
+|2
+
+|1:64
+|`PS8_64`
+|3
+
+|===
+
+Note that a 1:64 prescale is only avaialable on certain midrange microcontrollers.
+Please refer to the datasheet to determine if a 1:64 prescale is supported by a
+spectific microcontroller.
+
+{empty} +
+{empty} +
+
+
+`_postscaler_` slows the rate of the interrupt generation (or WDT reset) from a
+counter/timer by dividing it down.
+
+On Microchip PIC microcontroller one of the following constants where the Postscaler Rate Select bits are in the range of 1 to 16.
+
+[cols="^1,^1", options="header,autowidth"]
+|===
+|*Postcaler Value*
+|*Use Numeric Constant*
+
+
+|1:1 Postscaler
+|0
+
+|1:2 Postscaler
+|1
+
+|1:3 Postscaler
+|2
+
+|1:4 Postscaler
+|3
+
+|1:5 Postscaler
+|4
+
+|1:6 Postscaler
+|5
+
+|1:7 Postscaler
+|6
+
+|1:8 Postscaler
+|7
+
+|1:9 Postscaler
+|8
+
+|1:10 Postscaler
+|9
+
+|1:11 Postscaler
+|10
+
+|1:12 Postscaler
+|11
+
+|1:13 Postscaler
+|12
+
+|1:14 Postscaler
+|13
+
+|1:15 Postscaler
+|14
+
+|1:16 Postscaler
+|15
+
+|===

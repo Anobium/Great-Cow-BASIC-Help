@@ -1,0 +1,14 @@
+===== ST7920GLCDClearGraphics
+
+*Syntax:*
+----
+    ST7920GLCDClearGraphics
+----
+*Explanation:*
+
+This command clears the GCLD display.
+
+*Example usage:*
+----
+    ST7920GLCDClearGraphics 'clear the screen
+----
