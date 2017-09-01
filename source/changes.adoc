@@ -54,6 +54,7 @@
 - Updated the GLCD section to include SSD1306 and SH1106 low memory configuration and add examples
 - Added Ellipse and FilledEllipse
 - Added Triangle and FilledTriangle
+- Added TO range to Select Case. 
 
 
 
