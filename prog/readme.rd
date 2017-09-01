@@ -2,4 +2,4 @@
 
 DO NOT COMMIT THE PROGS FOLDER. EXCLUDE FROM YOUR COMMIT PLEASE
 
-Format: ![Alt Text](..\GCB_DOCs_Prog_Folder.PNG)
+Format: ![Alt Text](GCB_DOCs_Prog_Folder.PNG)
