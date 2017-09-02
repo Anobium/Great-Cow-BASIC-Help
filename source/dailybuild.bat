@@ -1,4 +1,3 @@
-goto jump1
 del D:\Great-Cow-BASIC-Help\trunk\output\chm\gcbasic.chm
 svn up d:\great*
 call all
