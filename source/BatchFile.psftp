@@ -1,9 +1,9 @@
 cd "/home/project-web/gcbasic/htdocs/help/output"
-lcd "D:\GCB\GCBdoc\output"
+lcd "..\output"
 mput -r *
 
 cd "/home/project-web/gcbasic/htdocs/help"
-lcd "D:\GCB\GCBdoc\output\web\gcbasic"
+lcd "..\output\web\gcbasic"
 mput -r *
 
 quit
