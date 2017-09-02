@@ -5,18 +5,35 @@ This is a simple cheat sheet for editors of the Great Cow BASIC Help source file
 == GitHub limitations
 
 This cheatsheet contains small part of Asciidoc markup which works and
-looks fine on GitHub. There is also link:full.adoc[full cheatsheet], but
-for now it's main use is to show bugs, design issues, GitHub limitations
+looks fine on GitHub.&#160;&#160;There is also link:full.adoc[full cheatsheet], but
+for now its main use is to show bugs, design issues, GitHub limitations
 and other differences from http://powerman.name/doc/asciidoc[how Asciidoc
 cheatsheet should really looks like].
 
 == Great Cow BASIC Help
 
-The format is pre-determined.  Meaning the layout and the style sheets are already set.&#160;&#160;These notes are to enable the casual editor insights into some of the tricks when editing Asciidoc's.
+The format is pre-determined.&#160;&#160;Meaning the layout and the style sheets are already mandated, please refer to existing Help pages as a reference.&#160;&#160;These notes are to enable the casual editor insights into some of the tricks when editing Asciidoc's.
 
 To add an example hard space, use the following:
 
-.An example hard break
+== Cheat Sheet
+
+This is an example of how to show user code.  Four dashes, then code indented by two tabs, terminated by four dashes.
+
+.An example of showing  user code
+----
+    ----
+
+    GLCDCLS
+
+    ----
+----
+{empty} +
+
+
+This is how to added a hard space. Always add a hard speace at the end of each sentence in a paragraph.
+
+.An example hard space
 ----
 &#160;&#160;
 ----
@@ -25,15 +42,48 @@ To add a table, using the following:
 
 .An example table
 ----
-[options="header,footer"]
-|=======================
-|Col 1|Col 2      |Col 3
-|1    |Item 1     |a
-|2    |Item 2     |b
-|3    |Item 3     |c
-|6    |Three items|d
-|=======================
+[cols="3,4,4", options="header,autowidth"]
+|===
+|Constant
+|Purpose
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|Set automatically
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|Set automatically
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|6
+|===
+
 ----
+
+Will dispay as:
+
+[cols="3,4,4", options="header,autowidth"]
+|===
+|Constant
+|Purpose
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|Set automatically
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|Set automatically
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|6
+|===
+{empty} +
 {empty} +
 To add an empty line, use the following:
 

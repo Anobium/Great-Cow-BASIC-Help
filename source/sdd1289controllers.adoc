@@ -64,22 +64,25 @@ The Great Cow BASIC constants for control display characteristics are shown in t
 
 The Great Cow BASIC constants for control display characteristics are shown in the table below.
 
-[cols="2,4,4", options="header,autowidth"]
+
+[cols="3,4,4", options="header,autowidth"]
 |===
+|Constant
+|Purpose
+|Default
 
 |`GLCD_WIDTH`
 |The width parameter of the GLCD
-|
+|Set automatically
 
 |`GLCD_HEIGHT`
 |The height parameter of the GLCD
-|
+|Set automatically
 
 |`GLCDFontWidth`
 |Specifies the font width of the Great Cow BASIC font set.
 |6
 |===
-
 
 The Great Cow BASIC commands supported for this GLCD are shown in the table below.&#160;&#160;&#160;Always review the appropiate library for the latest full set of supported commands.
 
@@ -188,6 +191,8 @@ This example shows how to drive a SDD1289 based Graphic LCD module with the buil
     GLCDPrint(0, 0, "Test of the SDD1289 Device")
     end
 ----
+{empty} +
+{empty} +
 *For more help, see*
 <<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> OR <<_pset,Pset>>
 
