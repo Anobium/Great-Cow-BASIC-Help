@@ -1,6 +1,6 @@
 == Asciidoc cheatsheet for GitHub
 
-This is a simple cheat sheet for editors of the Great COw BASIC Help source files.
+This is a simple cheat sheet for editors of the Great Cow BASIC Help source files.
 
 == GitHub limitations
 
@@ -12,7 +12,7 @@ cheatsheet should really looks like].
 
 == Great Cow BASIC Help
 
-The format is pre-determined.  Meaning the layout and the style sheets are already set.&#160;&#160;These notes are to enable the casual editor insights into some of the tricks when editing Asciidoc's.  
+The format is pre-determined.  Meaning the layout and the style sheets are already set.&#160;&#160;These notes are to enable the casual editor insights into some of the tricks when editing Asciidoc's.
 
 To add an example hard space, use the following:
 
