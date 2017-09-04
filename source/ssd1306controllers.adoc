@@ -291,7 +291,7 @@ Hint, the display is 16 rows tall. To scroll the whole display, execute: +
 `startscrolldiagleft_SSD1306(0x00, 0x0F)` +
 Parameters are `Start row`,`End row`, optionally `Scrollspeed`
 
-|`SetContrast ( dim_state )`
+|`GLCDSetContrast ( dim_state )`
 |Sets the constrast between 0 and 255. The contrast increases as the value increases. +
 Parameter is dim value
 |===
