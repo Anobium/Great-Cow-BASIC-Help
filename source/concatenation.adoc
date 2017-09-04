@@ -17,10 +17,36 @@ This method does not change the existing strings, but returns a new string conta
 
 Concatenation joins the elements of a specified values using the specified separator between each variable.
 
+
 *Example:*
 [subs="quotes"]
 ----
     timevariable = 999
     __stringvar__ = "Time = " + timevariable ' Returns Time = 999
 ----
+{empty} +
+{empty} +
+
+*Note: Concatenated String Constraint*
+
+When concatenating a string you cannot assign a string to itself.&#160;&#160;You must assign the result of string concatenation to another string. See below.
+
+*Example:*
+[subs="quotes"]
+----
+    dim outstring1, tmpstring as string * 16
+    dim outnumber as byte
+    
+    outnumber = 24
+    outstring1 = "Result = "
+    'This concatenation will yield an incorrect string 
+    outstring1 = outstring1 +str(outnumber) 
+    
+    'This concatenation will yield an the correct string. With tmpstring1 containing the correct concatenated string 
+    tmpstring1 = outstring1 +str(outnumber) 
+    
+    
+----
+{empty} +
+{empty} +
 
