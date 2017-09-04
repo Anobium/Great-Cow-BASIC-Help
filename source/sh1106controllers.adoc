@@ -165,7 +165,7 @@ The additional Great Cow BASIC commands for this GLCD are shown in the table bel
 |`GLCDSetDisplayNormalMode`
 |Set the display to normal mode
 
-|`SetContrast ( dim_state )`
+|`GLCDSetContrast ( dim_state )`
 |Sets the constrast between 0 and 255. The contrast increases as the value increases. +
 Parameter is dim value
 
