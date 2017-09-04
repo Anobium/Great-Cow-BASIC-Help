@@ -15,6 +15,21 @@ Sets the LCD backlight on or off
 Do not connect the LCD backlight directly to the microcontroller! Always refer to
 the datasheet for the correct method to drive the LCD backlight.
 
+For 0, 4, 8, 404 LCD types you *must* define the controlling port.pin for the LCD backlight. 
+----
+
+    #define LCD_Backlight porta.4   'this port.pin is connected to the LCD backlight via a suitable circuit
+    ...
+    ...
+    ...
+    ...
+    LCDBacklight ( On )
+    
+    .... more user code...
+    LCDBacklight ( Off )
+    
+----
+
 The diagram below shows a method to connect the LCD backlight to a microcontroller.
 
 image:lcdbacklightb1.JPG[graphic]
