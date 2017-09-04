@@ -27,7 +27,7 @@ Concatenation joins the elements of a specified values using the specified separ
 {empty} +
 {empty} +
 
-*Note: Concatenated String Constraint*
+*Note: Concatenated String Constraint @v0.98.00 and prior versions*
 
 When concatenating a string you cannot assign a string to itself.&#160;&#160;You must assign the result of string concatenation to another string. See below.
 
