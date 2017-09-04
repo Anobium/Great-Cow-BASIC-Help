@@ -13,7 +13,7 @@ Available on all microcontrollers
 
 The method joins two variables into another variable.
 
-This method does not change the existing strings, but returns a new string containing the text of the joined variables.
+This method does not change the existing strings, but returns a *new* string containing the text of the joined variables, see Concatenated String Constraint below.
 
 Concatenation joins the elements of a specified values using the specified separator between each variable.
 
