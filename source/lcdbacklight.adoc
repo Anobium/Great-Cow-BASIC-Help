@@ -18,7 +18,8 @@ the datasheet for the correct method to drive the LCD backlight.
 For 0, 4, 8, 404 LCD types you *must* define the controlling port.pin for the LCD backlight. 
 ----
 
-        #define LCD_Backlight porta.4   'this port.pin is connected to the LCD backlight via a suitable circuit
+        'this port.pin is connected to the LCD backlight via a suitable circuit
+        #define LCD_Backlight porta.4   
         ...
         ...
         ...
