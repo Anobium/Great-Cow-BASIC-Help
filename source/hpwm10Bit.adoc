@@ -18,7 +18,7 @@ This command sets up the hardware PWM module of the Microchip PIC microcontrolle
 a PWM waveform of the given frequency and duty cycle. Once this command
 is called, the PWM will be emitted until PWMOff is called.
 
-`_channel_` is 3, 4, 5, 6 or 7. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6 or HPWM7
+`_channel_` is 1, 2, 3, 4, 5, 6 or 7. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6 or HPWM7
 respectively. +
 The channel *MUST* be supported by the microcontroller.   Check the microcontroller specific datasheet for the available channel.
 
@@ -35,8 +35,20 @@ resolution possible.
 ranges from 0 to 1023 where 1023 is 100% duty cycle.&#160;&#160;&#160; This should be a WORD value. &#160;&#160;&#160;Note: Byte values are supported as a Byte value is factorised to a Word value.
 
 `_timer_` specifies the desired to be used. These can be timer 2, 4 or 6.
+{empty} +
+{empty} +
+*Notes:*
 
+PWM channels 1 and 2 are disable by default.&#160;&#160;You must enable using the constants USE_HPWMn where n is the PWM channel you want to enable.&#160;&#160;You can disable any PWM channel by setting the appropiatge change to FALSE.
 
+On some microcontrollers you may need to set the port.pin as an output for PWM to operated as desired.
+{empty} +
+----
+        #define USE_HPWM1 TRUE
+        #define USE_HPWM2 TRUE
+----
+{empty} +
+{empty} +
 *Example 1:*
 ----
     'This program will alter the brightness of an LED using
