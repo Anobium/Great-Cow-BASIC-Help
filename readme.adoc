@@ -18,7 +18,7 @@ This is a simple cheat sheet for editors of the Great Cow BASIC Help source file
 === GitHub limitations
 
 This cheatsheet contains small part of Asciidoc markup which works and
-looks fine on GitHub.&#160;&#160;There is also link:full.adoc[full cheatsheet], but
+looks fine on GitHub.&#160;&#160;There is also link:https://github.com/powerman/asciidoc-cheatsheet/blob/master/README.adoc[full cheatsheet], but
 for now its main use is to show bugs, design issues, GitHub limitations
 and other differences from http://powerman.name/doc/asciidoc[how Asciidoc
 cheatsheet should really looks like].
