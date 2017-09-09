@@ -147,9 +147,8 @@ discover the IC2 devices.
         HSerSend 9
         HSerPrint "(d)"+str(deviceID)
         HSerPrintCRLF
+        HI2CSend ( 0 )
 
-        HI2CSend ( 0 )
-        HI2CSend ( 0 )
       end if
 
       HI2CStop
