@@ -162,7 +162,6 @@ This program has an interrupt driven serial handler to capture and manage input 
                       Hserprint "Unknown_Device"
             end select
             HI2CSend ( 0 )
-            HI2CSend ( 0 )
             HSerPrintCRLF
         end if
         HI2CStop
