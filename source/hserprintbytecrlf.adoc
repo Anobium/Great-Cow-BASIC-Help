@@ -24,6 +24,6 @@ equate to a carriage return and line feed.
 	'This program will send the status of PORTB through the hardware serial module.
 
 	HserPrintByteCRLF 65    ' Will print a single A on the terminal
-	HserPrintByteCRL  "A"   'Will print a single A on the terminal
+	HserPrintByteCRLF "A"   ' Will print a single A on the terminal
 ----
 *See also* <<_hserprintcrlf,HserPrintCRLF>>
