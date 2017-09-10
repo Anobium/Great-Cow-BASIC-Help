@@ -109,6 +109,10 @@ Great Cow BASIC supports the following device libraries.
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
+|GLCD_ILI9481L
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
 |GLCD_ILI9486L
 |Graphical LCD
 |A device specific library for an Graphical LCD.
@@ -208,8 +212,8 @@ Great Cow BASIC supports the following device libraries.
 |A library that supports the NunChuck game controller.
 
 |PCF8574
-|GLCD
-|A device specific library for an Graphical LCD.
+|i2C to serial                       
+|A library that supports the I2C to serial functions.
 
 |SD
 |SD Card
