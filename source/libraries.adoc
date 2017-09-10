@@ -219,6 +219,10 @@ Great Cow BASIC supports the following device libraries.
 |SD Card
 |A device specific library for an SD Card.
 
+|SMT_Timers
+|Signal Measurment Timer
+|A library for Signal Measurment Timer for specific Microchip microcontrollers.
+
 |SOFTSERIAL
 |Serial
 |A library for software serial.
