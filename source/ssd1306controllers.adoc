@@ -528,6 +528,24 @@ This example shows how to drive a SSD1306 based Graphic I2C LCD module with 128 
 ----
 
 
+
+
+This example shows how to drive a SSD1306 with the OLED fonts.  Note the use of the `GLCDfntDefaultSize` to select the size of the OLED font in use.
+----
+
+    #define GLCD_OLED_FONT
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  SSD1306" )
+    GLCDPrint ( 0, 34, "Size: 128x64" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+
 *For more help, see*
 <<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
 
