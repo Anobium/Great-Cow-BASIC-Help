@@ -151,6 +151,18 @@ When selected ONLY text related commands are suppored. For grapical commands you
 |Specifies that the display controller will operate in Low Memory mode.
 |Optional
 
+|`GLCD_OLED_FONT`
+|Specifies the use of the optional OLED font set.
+
+The GLCDfntDefaultsize can be set to 1 or 2 only.
+
+`GLCDfntDefaultsize=  1`.   A small 8 height pixel font with variable width.
+`GLCDfntDefaultsize=  2`.   A larger 10 width * 16 height pixel font.
+
+|Optional
+
+
+
 |===
 
 The Great Cow BASIC variables for control display characteristics are shown in the table below.
