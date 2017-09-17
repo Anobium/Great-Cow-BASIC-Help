@@ -7,16 +7,16 @@
     Select Case _var_
 
     Case _value1_
-    	_code1_
+      _code1_
 
     Case _value2_
-    	_code2_
+      _code2_
 
-    Case _value_3 To _value4_    
-    	_code3_
-        
+    Case _value_3 To _value4_
+      _code3_
+
     Case Else
-    	_code4_
+      _code4_
 
     End Select
 ----
@@ -55,7 +55,7 @@ There are two examples shown below.
     'Program to read a value from a potentiometer, and display a
     'different word based on the result
 
-    #chip 18F4550, 20
+      #chip 16F877a, 4
 
     'LCD connection settings
     #define LCD_IO 4
@@ -64,27 +64,27 @@ There are two examples shown below.
     #define LCD_DB6 PORTD.6
     #define LCD_DB7 PORTD.7
     #define LCD_RS PORTD.0
-    #define LCD_RW PORTD.1
+    #define LCD_NO_RW
     #define LCD_Enable PORTD.2
 
     DIR PORTA.0 IN
     Do
-    	Temp = ReadAD(AN0) / 20
-    	CLS
-    	Select Case Temp
-    		Case 0
-    			Print "None!"
-    		Case 1
-    			Print "One"
-    		Case 2
-    			Print "Two"
-    		Case 3: Print "Three"
-    		Case 4: Print "Four"
-    		Case 5: Print "Five"
-    		Case Else
-    			Print "A lot!"
-    	End Select
-    	Wait 250 ms
+      Temp = ReadAD(AN0) / 20
+      CLS
+      Select Case Temp
+        Case 0
+          Print "None!"
+        Case 1
+          Print "One"
+        Case 2
+          Print "Two"
+        Case 3: Print "Three"
+        Case 4: Print "Four"
+        Case 5: Print "Five"
+        Case Else
+          Print "A lot!"
+      End Select
+      Wait 250 ms
     Loop
 ----
 
@@ -117,7 +117,7 @@ The circuit for the IR receiver and the chip is shown below.
     #define LCD_DB5     PortB.5       'DB5 on pin 11
     #define LCD_DB6     PortB.6       'DB6 on pin 12
     #define LCD_DB7     PortB.7       'DB7 on pin 13
-    #define LCD_NO_RW   1             'ground RW line on LCD
+    #define LCD_NO_RW                 'ground RW line on LCD
     #define IR          PortA.0       'sensor on pin 17
 
     '----- Variables
