@@ -4,7 +4,7 @@
 
 This program demonstrates how to control and display using a LCD the code for the keypad.
 
-This program can be adaptedThis program uses the hardware I2C module within the microcontroller.  If your microcontroller does not have a hardware I2C module then please use the software I2C Great Cow BASIC ibrary.  for most microcontrollers.
+This program can be adapted. This program uses the hardware I2C module within the microcontroller.  If your microcontroller does not have a hardware I2C module then please use the software I2C Great Cow BASIC library; for most microcontrollers.
 
 This program also has an interrupt driven I2C handler to manage the I2C from the Start event.
 
