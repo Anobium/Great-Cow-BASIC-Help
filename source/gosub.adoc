@@ -27,7 +27,7 @@ required to call a subroutine that has been defined using
 
 ----
     'This program will flash an LED on portb bit 0 and play a beep on
-    'porta bit 4. until the robot is turned off.
+    'porta bit 4. until the microcontroller is turned off.
 
     #chip 16F628A, 4 'Change this to suit your circuit
 
