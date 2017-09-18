@@ -57,7 +57,7 @@ type `LightOn`, and have the compiler do the hard work.
 
 *Great Cow BASIC special constant*
 
-`Forever` is a special constant.  For Great Cow BASIC Graphical users think of this as 'false'. For those not using Great Cow BASIC Graphical think of this as a non numeric value that has no value.  You can use in a DO-LOOP but not in a REPEAT-END REPEAT loop, as the in the later case the REPEAT will have no value and you will create an error condition.
+`Forever` is a special constant.  For Great Cow Graphical BASIC users think of this as 'false'. For those not using Great Cow Graphical BASIC think of this as a non numeric value that has no value.  You can use `Forever` in a DO-LOOP but not in a REPEAT-END REPEAT loop, as the in the later case the REPEAT will have no value and you will create an error condition.
 
 **Precedence of Constants within Great Cow BASIC.**
 {empty} +
