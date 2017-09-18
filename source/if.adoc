@@ -44,7 +44,7 @@ Available on all microcontrollers.
 
 The `If` command is the most common command used to make decisions. If
 `_condition_` is `true`, then `_command_` (short) or `_program code_` (long)
-will be run. If it is `false`, then the robot will skip to the code
+will be run. If it is `false`, then the microcontroller will skip to the code
 located on the next line (short) or after the `End If` (long form).
 
 If `Else` is used, then the condition between `If` and `Else` will run if the
