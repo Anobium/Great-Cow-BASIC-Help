@@ -23,4 +23,4 @@ constants are set correctly when using this additional constant.
     circle(10,53,10)  ;lower left
     circle(117,53,10) ;lower right
 ----
-image::circleb1.PNG[graphic,align="center"]
+image::circleb1.PNG[graphic,align="center"] 
