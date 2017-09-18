@@ -13,7 +13,7 @@ Available on all microcontrollers.
 
 *Explanation:*
 
-The `Goto` command will make the robot jump to the line specified, and
+The `Goto` command will make the microcontroller jump to the line specified, and
 continue running the program from there. The `Goto` command is mainly
 useful for exiting out of loops - if you need to create an infinite
 loop, use the `Do` command instead.
