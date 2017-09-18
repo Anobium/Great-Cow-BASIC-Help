@@ -36,7 +36,7 @@ When using connection mode 2_74XX164 only three constants must be set - all othe
 |===
 
 
-LCD.h supports in connection mode 2_74XX164 via the control of pin 11 of the 74HC164 / 74LS164 to the background led/backlight.
+LCD.h supports in connection mode 2_74XX164 via the control of pin 11 of the 74HC164 / 74LS164 the background led/backlight.
 
 How to connect and control the LCD background led: see http://gcbasic.sourceforge.net/help/_lcdbacklight.html
 
