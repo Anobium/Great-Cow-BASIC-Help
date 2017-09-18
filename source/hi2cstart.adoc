@@ -8,7 +8,7 @@
 
 *Command Availability:*
 
-Only available for microcontrollers with the MSSP module..
+Only available for microcontrollers with the hardware I2C or TWI module.
 
 *Explanation:*
 
