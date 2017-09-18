@@ -2,15 +2,15 @@
 
 *Introduction*
 
-The demomstration shows how a macro can be used to optimised code by compiling code inline.
+The demonstration shows how a macro can be used to optimised code by compiling code inline.
 
 When the measurement of a pulse width to sub-microsecond resolution is required for instance measuring the high or low pulse width of an incoming analog signal a comparator can be combined with a timer to provide the pulse width.
 
 Microchip PIC has published a "Compiled Tips 'N Tricks Guide" that explains how to do certain tasks with Microchip PIC 8-bit microcontrollers.
 
-This guide provides the steps that need to be taken to perform the task of measuring a pulse width.  The guide provides guidance on measuring a pulse width using Timer 1 and the CCP module.  This guidance was used as the basis for the Great Cow BASIC port the shown below.  The guidance was generic and in this example  polling the CCP flag bit was more convenient than using an interrupt.
+This guide provides the steps that need to be taken to perform the task of measuring a pulse width.  The guide provides guidance on measuring a pulse width using Timer 1 and the CCP module.  This guidance was used as the basis for the Great Cow BASIC port the shown below.  The guidance was generic and in this example polling the CCP flag bit was more convenient than using an interrupt.
 
-In this demonstration shown below, a 16F1829 microcontroller operating at 32 Mhz uses the internal oscillator. The demomstration code is based on a macro that uses Timer1 and CCP4. However, any of the four CCP modules could be used, the 16F1829 microcontroller has four CCP module.
+In this demonstration shown below, a 16F1829 microcontroller operating at 32 Mhz uses the internal oscillator. The demonstration code is based on a macro that uses Timer1 and CCP4. However, any of the four CCP modules could be used, the 16F1829 microcontroller has four CCP module.
 
 The timer resolution of this method uses a timer Prescaler of 1:8 and a microcontroller frequency of 32 MHz giving a pulse width resolution is 1ms.  With the timer Prescaler of 1:2 and the microcontroller frequency of 32MHz the resolution is 250 ns.
 
@@ -24,7 +24,7 @@ In this demonstration the following was implemented
 - A 4x20 LDC module with an I2C Backpack was used to display the results. However, as an alternative, a serial output +
 to a terminal program to view the data could be used
 
-This demonstration could be improved by adding code to poll the TIMER1 overflow flag. IF the timer overflows, then either no
+This demonstration could be improved by adding code to poll the TIMER1 overflow flag. If the timer overflows, then either no
 pulse was detected or the pulse was longer than allowed by the prescaler/OSC settings. In this case, return a value of zero for pulse width.
 
 *Usage:*
