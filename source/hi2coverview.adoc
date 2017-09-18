@@ -36,7 +36,7 @@ The method supports the following frequencies:
 |*Support*
 
 |Up to 400 kbits/s
-|I2C/TWI `fast mode`: Defined as transfer rates up to 400 kbit/s
+|I2C/TWI `fast mode`: Defined as transfer rates up to 400 kbit/s.
 |Supported
 
 |Up to 100 kbit/s.
@@ -72,7 +72,7 @@ These constants control the setup of the hardware I2C methods:
 |`HI2CMode ( _Slave_ )`
 
 |`HI2C_BAUD_RATE`
-|Operational speed of the microcontroller. Defaults to 100mhz
+|Operational speed of the microcontroller. Defaults to 100 kbit/s
 |`#define HI2C_BAUD_RATE 400`   or  +
 `#define HI2C_BAUD_RATE 100.` +
 Where  `#define HI2C_BAUD_RATE 100` is the default value and therefore does need to be specified.
