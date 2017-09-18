@@ -33,7 +33,7 @@ Great Cow BASIC supports these relative operators:
 |Less than or equal to
 
 |`>=`
-|Equal to or greater than
+|Greater than or equal to
 |===
 In addition, these logical operators can be used to combine several
 conditions into one:
