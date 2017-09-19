@@ -12,7 +12,7 @@ HI2CReceive _data_, N_ACK_
 *Command Availability:*
 Only available in GCB HI2C.h with release after 6/2014
  +
-Available on all microcontrollers with the MSSP module.
+Only available for microcontrollers with the hardware I2C or TWI module.
  +
 *Explanation:*
 The HI2CReceive command will send _data_ through the I2C connection. If
