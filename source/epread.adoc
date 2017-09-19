@@ -12,11 +12,9 @@ Available on all Microchip PIC and Atmel AVR microcontrollers with EEPROM data m
 
 *Explanation:*
 
-`EPRead` is used to read information from the EEPROM data storage that
-many microcontroller chips are equipped with. `_location_` represents the
-location to read data from, and varies from one chip to another. `_store_`
-is the variable in which to store the data after it has been read from
-EEPROM.
+`EPRead` is used to read information from the EEPROM data storage that many microcontroller chips are equipped with. 
+`_location_` represents the location to read data from, and varies from one chip to another.
+`_store_` is the variable in which to store the data after it has been read from EEPROM.
 
 *Example:*
 
