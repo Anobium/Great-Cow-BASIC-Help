@@ -13,7 +13,7 @@ Available on all Microchip microcontrollers with the  Fixed Voltage Reference (F
 
 *Explanation:*
 
-The method is a function that return the state of the FVR.&#160;&#160;&#160;The returned value can be assigned to a variable to used as function.
+The method is a function that returns the state of the FVR.&#160;&#160;&#160;The returned value can be assigned to a variable to used as function.
 
 The method returns 0 or 1.&#160;&#160;&#160;As follows:
 
