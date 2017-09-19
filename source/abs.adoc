@@ -11,7 +11,7 @@ Available on all microcontrollers.
 
 *Explanation:*
 
-The `Abs` function will compute the absolute value of a integer number therefore in the range of -32678 to 32768.
+The `Abs` function will compute the absolute value of a integer number therefore in the range of −32767 to +32767.
 
 *Example:*
 ----
