@@ -16,7 +16,7 @@ Using this command will ensure the special sequence of Microchip assembler is ha
 
 *Command Availability:*
 
-Available on all Microchip microcontrollers only.
+Available on all Microchip microcontrollers only. 
 
 
 
