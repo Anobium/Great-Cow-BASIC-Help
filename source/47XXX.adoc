@@ -168,7 +168,7 @@ This example shows how to use the device.
 
     ; ----- Define Hardware settings for hwi2c
 
-    #define hi2c_BAUD_RATE 1024 
+    #define hi2c_BAUD_RATE 400 
     #define hi2c_DATA  PORTC.3
     #define hi2c_CLOCK PORTC.4
 
