@@ -106,7 +106,7 @@ NOT, AND, OR and XOR will not work.
 
 As Great Cow BASIC is very flexible with the use of variables type this can cause issues when testing constants and/or functions.
 
-A few simple rules. Always put the function or constant first, or, always call the function with the addition of the braces.
+A few simple rules. *Always put the function or constant first, or, always call the function with the addition of the braces.*
 
 The example code below shows the correct method and an example that does compile but will not work as expected.
 
