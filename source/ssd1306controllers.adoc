@@ -397,13 +397,15 @@ Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to 
     dim outString as string * 21
 
     GLCDCLS
-    GLCD_Open_PageTransaction 0,7
+ 	' To Clearify
+	' 0,7 correspond with Text Line from 0 to 7 on a 64 Pixel Display
+	' In this example Code would be 0,1 been enough
+    ' But it is allowed to use 0,7 anyway
+    GLCD_Open_PageTransaction 0,1
        GLCDPrint 0, 0, "Great Cow BASIC"
        GLCDPrint (0, 16, "Anobium 2017")
     GLCD_Close_PageTransaction
     wait 3 s
-    GLCDCLS
-
     DO forever
 
       for CCount = 31 to 127
