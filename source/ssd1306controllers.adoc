@@ -373,10 +373,12 @@ This example shows how to drive a SSD1306 based Graphic I2C LCD module with the 
     LOOP
     end
 ----
-
+{empty} +
+{empty} +
 This example shows how to drive a SSD1306 based Graphic I2C LCD module with the built in commands of Great Cow BASIC using Low Memory Mode GLCD.
-
+{empty} +
 Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to support the Low Memory Mode of operation and the contraining of all GLCD commands with the transaction commands.  The use Low Memory Mode GLCD the two defines `GLCD_TYPE_SSD1306_LOWMEMORY_GLCD_MODE` and `GLCD_TYPE_SSD1306_CHARACTER_MODE_ONLY` are included in the user program.
+{empty} +
 ----
 
     #chip mega328p,16
@@ -397,10 +399,11 @@ Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to 
     dim outString as string * 21
 
     GLCDCLS
-    'To Clearify
-    '0,7 correspond with Text Line from 0 to 7 on a 64 Pixel Display
+
+    'To clarify - page udpates
+    '0,7 correspond with the Text Lines from 0 to 7 on a 64 Pixel Display
     'In this example Code would be GLCD_Open_PageTransaction 0,1 been enough
-    'But it is allowed to use GLCD_Open_PageTransaction 0,7 anyway
+    'But it is allowed to use GLCD_Open_PageTransaction 0,7 to show the full screen update
     GLCD_Open_PageTransaction 0,7
        GLCDPrint 0, 0, "Great Cow BASIC"
        GLCDPrint (0, 16, "Anobium 2017")
@@ -453,9 +456,9 @@ Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to 
     LOOP
     end
 ----
-
+{empty} +
 This example shows how to drive a SSD1306 based Graphic SPI LCD module with the built in commands of Great Cow BASIC.
-
+{empty} +
 ----
     'Chip model
     #chip mega328p, 16
@@ -504,10 +507,9 @@ This example shows how to drive a SSD1306 based Graphic SPI LCD module with the 
 
     Loop
 ----
-
-
-
+{empty} +
 This example shows how to drive a SSD1306 based Graphic I2C LCD module with 128 * 32 pixel support.
+{empty} +
 ----
 
     #chip mega328p,16
@@ -528,11 +530,9 @@ This example shows how to drive a SSD1306 based Graphic I2C LCD module with 128 
     GLCDPrint (0, 16, "Anobium 2017")
 
 ----
-
-
-
-
+{empty} +
 This example shows how to drive a SSD1306 with the OLED fonts.  Note the use of the `GLCDfntDefaultSize` to select the size of the OLED font in use.
+{empty} +
 ----
 
     #define GLCD_OLED_FONT
@@ -547,6 +547,52 @@ This example shows how to drive a SSD1306 with the OLED fonts.  Note the use of 
     GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
 
 ----
+{empty} +
+This example shows how to set the SSD1306 OLED the lowest constrast level by using a OLED chip specific command.
+{empty} +
+----
+
+    'Use the GCB command to set the lowest constrast
+    GLCDSetContrast ( 0 )
+      'Then, use the Write command to set the output between 0 and 255
+      Write_Command_SSD1306(SSD1306_SETVCOMDETECT)
+      Write_Command_SSD1306(15)      ' 0x40 default, to lower the contrast, put 0 for lowest and 255 for highest.
+
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  SSD1306" )
+    GLCDPrint ( 0, 34, "Size: 128x64" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+{empty} +
+
+This example shows how to disable the large OLED Fontset.  This disables the font to reduce memory usage.
+
+When the large OLED fontset is disabled every character will be shown as a block character.
+{empty} +
+----
+
+
+    #define GLCD_OLED_FONT                'The constant is required to support OLED fonts
+    #define GLCD_Disable_OLED_FONT2       'The constant to disable the large fontset.
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  SSD1306" )
+    GLCDPrint ( 0, 34, "Size: 128x64" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+{empty} +
+
 
 *For more help, see*
 <<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
