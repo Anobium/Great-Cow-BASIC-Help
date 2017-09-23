@@ -122,10 +122,19 @@ The table below shows two special directives that support the mapping for one va
 |*Explanation*
 |*Usage*
 
+|#samebit
+|The compiler checks each item in the list to see which ones are implemented on the current microcontroller.
+{empty} +
+If any of the bits do not exist, the compiler will create a constant mapping to the  name of the first parameter in the list of parameters that does exist.
+{empty} + If none of the bits exist the no constant is created.
+|&#160;&#160;#samebit PLLEN, SPLLEN, SPLLMULT
+&#160;&#160;&#160;&#160;Set SPLLEN On
+{empty} +
+
 |#samevar
 |The compiler checks each item in the list to see which ones are implemented on the current microcontroller.
 {empty} +
-If any of the variables do not exist, the compiler will create a constant mapping to the  name of the first paramter in the list of parameters that does exist.
+If any of the variables do not exist, the compiler will create a constant mapping to the  name of the first parameter in the list of parameters that does exist.
 {empty} + If none of the variables exist the no constant is created.
 |&#160;&#160;#samevar CMCON, CMCON0, CMCONbob +
 &#160;&#160;#ifdef Var(CMCONbob) +
