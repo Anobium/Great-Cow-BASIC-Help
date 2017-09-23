@@ -128,6 +128,7 @@ The table below shows two special directives that support the mapping for one va
 If any of the bits do not exist, the compiler will create a constant mapping to the  name of the first parameter in the list of parameters that does exist.
 {empty} + If none of the bits exist the no constant is created.
 |&#160;&#160;#samebit PLLEN, SPLLEN, SPLLMULT
+{empty} +
 &#160;&#160;&#160;&#160;Set SPLLEN On
 {empty} +
 
@@ -143,8 +144,8 @@ If any of the variables do not exist, the compiler will create a constant mappin
 {empty} +
 &#160;&#160;Compiles to: +
 &#160;&#160;;CMCONbob = 7 +
-&#160;&#160;movlw	7 +
-&#160;&#160;movwf	CMCON,ACCESS +
+&#160;&#160;movlw 7 +
+&#160;&#160;movwf CMCON,ACCESS +
 {empty} +
 |===
 {empty} +

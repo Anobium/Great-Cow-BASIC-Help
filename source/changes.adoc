@@ -58,6 +58,8 @@
 - Updated Concatenated String Constraint
 - Updated LCD_Backlight information for 0, 4, 8 and 404 LCD modes
 - Added OLED information to SSD1306 section only. OLED fonts are only support on the SSD1306 GLCD at this release.
+- Added #SameVar and #SameBit
+- Added [canskip] prefix to SettingVariables
 
 
 
