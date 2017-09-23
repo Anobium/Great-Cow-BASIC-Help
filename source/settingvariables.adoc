@@ -84,6 +84,7 @@ Great Cow BASIC supports the method setting a specific bit of a variable or regi
     myByteVariable.1 = 0   'will set bit 1 to 0
     myByteVariable.2 = 1   'will set bit 2 to 1
 ----
+
 {empty} +
 
 To set more than one bit in one command Great Cow BASIC supports the bits method.
@@ -101,6 +102,7 @@ Great Cow BASIC also supports setting specific bits of a variable or register.  
     ' bsf	OSCCON,IRCF0,ACCESS
 
 ----
+
 {empty} +
 This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
 
@@ -114,6 +116,7 @@ Great Cow BASIC supports the method setting a specific bit of a variable or regi
     myByteVariable.1 = 0   'will set bit 1 to 0
     myByteVariable.2 = 1   'will set bit 2 to 1
 ----
+
 {empty} +
 
 To set more than one bit in one command Great Cow BASIC supports the bits method.
@@ -131,6 +134,7 @@ Great Cow BASIC also supports setting specific bits of a variable or register.  
     ' bsf	OSCCON,IRCF0,ACCESS
 
 ----
+
 {empty} +
 This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
 
@@ -144,6 +148,7 @@ Great Cow BASIC supports the method setting a specific bit of a variable or regi
     myByteVariable.1 = 0   'will set bit 1 to 0
     myByteVariable.2 = 1   'will set bit 2 to 1
 ----
+
 {empty} +
 
 To set more than one bit in one command Great Cow BASIC supports the bits method.
@@ -161,6 +166,7 @@ Great Cow BASIC also supports setting specific bits of a variable or register.  
     ' bsf	OSCCON,IRCF0,ACCESS
 
 ----
+
 {empty} +
 This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
 
@@ -179,6 +185,7 @@ The `[canskip]` prefix will handle the error condition when a specific bit or sp
 -----
     [canskip] SPLLEN, IRCF3, IRCF2, IRCF1, IRCF0 = b'01111'
 ----
+
 {empty} +
 This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
 {empty} +
@@ -192,6 +199,7 @@ This example shows how the error handler compares to not have the `[canskip]` pr
       'Second line produces this message:
       'samevar.gcb (16): Error: Bit IRCF3 is not a valid bit and cannot be set
 ----
+
 {empty} +
 {empty} +
 {empty} +
