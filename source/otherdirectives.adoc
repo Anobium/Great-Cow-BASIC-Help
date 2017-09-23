@@ -116,7 +116,7 @@ The table below shows two special directives that support the mapping for one va
 {empty} +
 {empty} +
 {empty} +
-[width="100%",cols="10%,45%,45%"],options="header"]
+[width="100%",cols="<10%,<45%,<45%"],options="header"]
 |===
 |*Directive*
 |*Explanation*
