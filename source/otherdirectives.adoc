@@ -1,3 +1,4 @@
+// Edit EvanV 230917 - added samever and samebit directives
 // Edit EvanV 15116 - added new known directives
 // ERV - add output usage
 // ERV corrected the Allof and Oneof sections
@@ -110,12 +111,34 @@ NoBit(bit_name)
 |===
 {empty} +
 {empty} +
-All entries stated in the [ChipData] section of a specific microcontroller data files are added to program as constants.
-These entries have Chip added to the entry - so **Pins**=28 in the specific microcontroller data data file creates a constant with the name Chip**Pins** and the value 28 in the user program.
+The table below shows two special directives that support the mapping for one variable or bit to anoher variable or bit.  This is useful when creating portable code or libraries to ensure Great Cow BASIC 
 {empty} +
 {empty} +
 {empty} +
 {empty} +
+[cols=3, options="header,autowidth"]
+|===
+|*Directive*
+|*Explanation*
+|*Usage*
+
+|#samevar
+|The compiler checks each item in the list to see which ones are implemented on the current microcontroller.  
+{empty} +
+If any of the variables do not exist, the compiler will create a constant mapping to the  name of the first paramter in the list of parameters that does exist.   If none of the variables exist the no constant is created.
+|#samevar CMCON, CMCON0, CMCONbob
+#ifdef Var(CMCONbob)
+CMCONbob = 7
+#endif
+Compiles to:
+;CMCONbob = 7
+movlw	7
+movwf	CMCON,ACCESS
+
+|===
+{empty} +
+{empty} +
+
 
 
 This table shows the ChipFamily constants mapped to the microcontroller architecture.
