@@ -174,4 +174,4 @@ This example shows how the error handler compares to not have the `[canskip]` pr
 {empty} +
 
 
-Also see <<Variables,Variables>>
+*For more help, see:* <<Variables,Variables>>

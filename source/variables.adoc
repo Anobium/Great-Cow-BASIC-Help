@@ -160,11 +160,15 @@ It's also possible to cast the second value:
 ----
 The result will be exactly the same.
 
-*For more help, see:* <<_dim,Declaring variables with DIM>>,
-<<_setting_variables,Setting Variables>>
-
+{empty} +
 Doing things to individual bits of variables see,
 <<_set,Set>>, <<_rotate,Rotate>>
+{empty} +
+{empty} +
 
 Checking variables and doing different things based on their value, see
 <<_if,If>>, <<_do,Do>>, <<_for,For>>, <<_conditions,Conditions>>
+{empty} +
+
+*For more help, see:* <<_dim,Declaring variables with DIM>>,
+<<_setting_variables,Setting Variables>>
