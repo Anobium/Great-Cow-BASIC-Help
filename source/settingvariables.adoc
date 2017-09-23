@@ -150,14 +150,15 @@ To set more than one bit in one command Great Cow BASIC supports the bits method
 
 Great Cow BASIC also supports setting specific bits of a variable or register with error handling.  Use this method to prevent errors when a specified bit does not exist.
 {empty} +
+
 The `[canskip]` prefix will handle the error condition when a specific bit or specific bits do not exist.  The following example shows the usage.
 {empty} +
 ----
     [canskip] SPLLEN, IRCF3, IRCF2, IRCF1, IRCF0 = b'01111'
 ----
-
 {empty} +
 This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
+{empty} +
 {empty} +
 This example shows how the error handler compares to not have the `[canskip]` prefix
 {empty} +
@@ -171,7 +172,6 @@ This example shows how the error handler compares to not have the `[canskip]` pr
 ----
 
 {empty} +
-{empty} +
-{empty} +
+
 
 Also see <<Variables,Variables>>
