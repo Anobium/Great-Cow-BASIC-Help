@@ -3,18 +3,25 @@
 *Syntax:*
 [subs="specialcharacters,quotes"]
 ----
-    PWMOn
-
+    PWMOn 
     'or
-
     PWMOff
+
+    CCP_PWMOn(2)            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
+    'or
+    CCP_PWMOff(2)
+
+
+    CCP_PWM_2_On            'where the macro can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5 using CCP_PWM_#_On.
+    'or
+    CCP_PWM_2_Off
 
 ----
 *Command Availability:*
 
 *Only* available on Microchip PIC microcontrollers with a CCP1 module.
 
-See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels - this method is fixed to CCP1.
+See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels - this method support  CCP1/PWM, CCP2/PWM, CCP3/PWM, CCP4/PWM and CCP5/PWM.
 
 *Explanation:*
 
@@ -40,11 +47,42 @@ These constants are required for PWMOn.
 |50
 |===
 
+{empty} +
+For CCP/PWM modules are also supported using a call to a method or a macro, as follows:
+{empty} +
+[cols=3, options="header,autowidth"]
+|===
+|*Method/Macro*
+|*Controls*
+|*Default Value*
 
+|CCP_PWMOn( `channel` )
+|Where the parameter is any valid CCP/PWM channel
+|`channel` can be 1, 2, 3, 4 or 5
 
+|CCP_PWMOff( `channel` )
+|Where the parameter is any valid CCP/PWM channel
+|`channel` can be 1, 2, 3, 4 or 5
 
+|
+|
+|
 
-*Example:*
+|CCP_PWM_`channel`_On
+|Where `channel` is any valid CCP/PWM channel.  As in CCP_PWM_2_On
+|`channel` can be 1, 2, 3, 4 or 5
+
+|CCP_PWM_`channel`_Off
+|Where `channel` is any valid CCP/PWM channel.  As in CCP_PWM_2_Off
+|`channel` can be 1, 2, 3, 4 or 5
+
+|===
+{empty} +
+{empty} +
+*Example #1:*
+
+Enable CCP1/PWM channel only.  This is the legacy command.
+
 ----
     #chip 16f877a,20
 
@@ -56,17 +94,71 @@ These constants are required for PWMOn.
     #define PWM_Freq 38      'Frequency of PWM in KHz
     #define PWM_Duty 50      'Duty cycle of PWM (%)
 
-    PWMOn
+    PWMOn    'Will enable CCP1/PWM Only
 
     wait 10 s                'Wait 10 s
 
-    PWMOff
+    PWMOff   'Will disable CCP1/PWM Only
 
     do
     loop
 
 ----
 {empty} +
+*Example #2:*
+
+Enable any CCP/PWM channel using a call to a method.
+
+----
+    #chip 16f877a,20
+
+    'Set the PWM pin to output mode
+    DIR PORTC.2 out
+
+    'Main code
+
+    #define PWM_Freq 38      'Frequency of PWM in KHz
+    #define PWM_Duty 50      'Duty cycle of PWM (%)
+
+    CCP_PWMOn (2)    'Will enable any valid CCP/PWM channel
+
+    wait 10 s                'Wait 10 s
+
+    CCP_PWMOff (2)   'Will disable any valid CCP/PWM channel
+
+    do
+    loop
+
+----
+{empty} +
+Example #3:*
+
+Enable any CCP/PWM channel using a macro.  This option used less memory that the method shown in example #2.
+
+----
+    #chip 16f877a,20
+
+    'Set the PWM pin to output mode
+    DIR PORTC.2 out
+
+    'Main code
+
+    #define PWM_Freq 38      'Frequency of PWM in KHz
+    #define PWM_Duty 50      'Duty cycle of PWM (%)
+
+    CCP_PWM_2_On    'Will enable any valid CCP/PWM channel
+
+    wait 10 s                'Wait 10 s
+
+    CCP_PWM_2_Off  'Will disable any valid CCP/PWM channel
+
+    do
+    loop
+
+----
+{empty} +
+{empty} +
+
 {empty} +
 
 *For more help, see* <<_pwmon,PWMOn>> and <<_pwmoff,PWMOff>> *or, for AVR see* <<_hpwm_fixed_mode_for_avr,Fixed Mode PWM for AVR>>
