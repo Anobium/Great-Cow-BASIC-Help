@@ -30,7 +30,7 @@ a PWM waveform of the given frequency and duty cycle. &#160;&#160;Once this comm
 is called, the PWM will be emitted until PWMOff is called.
 
 
-These constants are required for PWMOn.
+These constants are required to set the parameters for the PWM.  The frequency and the duty applies to all channels when using the method(s) or macro(s) shown above.
 
 [cols=3, options="header,autowidth"]
 |===
