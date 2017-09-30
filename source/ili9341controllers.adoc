@@ -81,7 +81,21 @@ The Great Cow BASIC constants for control display characteristics are shown in t
 
 |`GLCDFontWidth`
 |Specifies the font width of the Great Cow BASIC font set.
-|`6`
+|`6` for GCB fonts, and `5` for OLED fonts.
+
+
+|`GLCD_OLED_FONT`
+|Specifies the use of the optional OLED font set.
+
+The GLCDfntDefaultsize can be set to 1 or 2 only.
+
+`GLCDfntDefaultsize=  1`.   A small 8 height pixel font with variable width.
+`GLCDfntDefaultsize=  2`.   A larger 10 width * 16 height pixel font.
+
+|Optional
+
+
+
 |===
 
 
@@ -199,6 +213,48 @@ This example shows how to drive a ILI9341 based Graphic LCD module with the buil
     GLCDPrint(0, 0, "Test of the ILI9341 Device")
     end
 ----
+{empty} +
+
+This example shows how to drive a ILI3941 with the OLED fonts.  Note the use of the `GLCDfntDefaultSize` to select the size of the OLED font in use.
+{empty} +
+----
+
+
+    #define GLCD_OLED_FONT                'The constant is required to support OLED fonts
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  ILI9341" )
+    GLCDPrint ( 0, 34, "Size: 320 x 240" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+{empty} +
+
+This example shows how to disable the large OLED Fontset.  This disables the font to reduce memory usage.
+
+When the extended OLED fontset is disabled every character will be shown as a block character.
+{empty} +
+----
+
+
+    #define GLCD_OLED_FONT                'The constant is required to support OLED fonts
+    #define GLCD_Disable_OLED_FONT2       'The constant to disable the extended OLED fontset.
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  ILI9341" )
+    GLCDPrint ( 0, 34, "Size: 320 x 240" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+{empty} +
 
 
 
