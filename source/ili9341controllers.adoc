@@ -191,7 +191,7 @@ This example shows how to drive a ILI9341 based Graphic LCD module with the buil
 
 
 
-*Example:*
+*Example #1*
 ----
     ;Chip Settings
     #chip 16F1937,32
@@ -215,6 +215,7 @@ This example shows how to drive a ILI9341 based Graphic LCD module with the buil
 ----
 {empty} +
 
+*Example #2*
 This example shows how to drive a ILI3941 with the OLED fonts.  Note the use of the `GLCDfntDefaultSize` to select the size of the OLED font in use.
 {empty} +
 ----
@@ -234,6 +235,7 @@ This example shows how to drive a ILI3941 with the OLED fonts.  Note the use of 
 ----
 {empty} +
 
+*Example #2*
 This example shows how to disable the large OLED Fontset.  This disables the font to reduce memory usage.
 
 When the extended OLED fontset is disabled every character will be shown as a block character.

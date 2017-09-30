@@ -23,6 +23,11 @@
 {empty} +
 {empty} +
 
+*Release 0.98.nn*::
+- Updated ILI9341 section for OLED fonts
+
+
+
 *Release 0.98.00*::
 - Updated #define USART_TX_BLOCKING examples
 - Updated Conditions page with the known constraints of using functions as test conditions
