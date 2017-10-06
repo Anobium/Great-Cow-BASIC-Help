@@ -3,18 +3,13 @@
 *Syntax:*
 [subs="specialcharacters,quotes"]
 ----
-    PWMOn 
+    PWMOn
     'or
     PWMOff
 
     CCP_PWMOn(2)            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
     'or
     CCP_PWMOff(2)
-
-
-    CCP_PWM_2_On            'where the macro can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5 using CCP_PWM_#_On.
-    'or
-    CCP_PWM_2_Off
 
 ----
 *Command Availability:*
@@ -56,24 +51,12 @@ For CCP/PWM modules are also supported using a call to a method or a macro, as f
 |*Controls*
 |*Default Value*
 
-|CCP_PWMOn( `channel` )
+|PWMOn( `channel` )
 |Where the parameter is any valid CCP/PWM channel
 |`channel` can be 1, 2, 3, 4 or 5
 
-|CCP_PWMOff( `channel` )
+|PWMOff( `channel` )
 |Where the parameter is any valid CCP/PWM channel
-|`channel` can be 1, 2, 3, 4 or 5
-
-|
-|
-|
-
-|CCP_PWM_`channel`_On
-|Where `channel` is any valid CCP/PWM channel.  As in CCP_PWM_2_On
-|`channel` can be 1, 2, 3, 4 or 5
-
-|CCP_PWM_`channel`_Off
-|Where `channel` is any valid CCP/PWM channel.  As in CCP_PWM_2_Off
 |`channel` can be 1, 2, 3, 4 or 5
 
 |===
@@ -133,27 +116,106 @@ Enable any CCP/PWM channel using a call to a method.
 {empty} +
 Example #3:*
 
-Enable any CCP/PWM channel using a macro.  This option used less memory that the method shown in example #2.
+Enable any PWM module using a PWM specific method.
 
 ----
-    #chip 16f877a,20
+    'A real simple and easy PWM setup for 8 and 10 bit PWM channels
+        #chip 18f25k42, 16
 
-    'Set the PWM pin to output mode
-    DIR PORTC.2 out
+        #startup InitPPS, 85
 
-    'Main code
+        Sub InitPPS
 
-    #define PWM_Freq 38      'Frequency of PWM in KHz
-    #define PWM_Duty 50      'Duty cycle of PWM (%)
+                'Module: PWM5
+                RA0PPS = 0x000D    'PWM5 > RA0
+                'Module: PWM6
+                RA1PPS = 0x000E    'PWM6 > RA1
+                'Module: PWM7
+                RA2PPS = 0x000F    'PWM7 > RA2
+                'Module: PWM8
+                RA3PPS = 0x0010    'PWM8 > RA3
 
-    CCP_PWM_2_On    'Will enable any valid CCP/PWM channel
+        End Sub
 
-    wait 10 s                'Wait 10 s
+        'Template comment at the end of the config file
+        dir porta Out
+        dir portb Out
+        dir portc Out
 
-    CCP_PWM_2_Off  'Will disable any valid CCP/PWM channel
+    'This is the setup section for fixed mode PWM
 
-    do
-    loop
+        'The only options are PWM_Timer2_Freq nn|PWM_Timer4_Freq nn|PWM_Timer6_Freq nn. These are the PWM timers
+        'The PWM_yy_Duty xx' where yy is between 1 and 9 and is a valid PWM module, and, xx is the Duty cycle for specific channels
+        'The PMW_zz_Clock_Source tt.  Where zz is channel and tt is the PWM clock source.
+        'You do not need to define all the timers and channels, just define the constants you need.
+        'The minimum is
+        '   A timer with a frequency
+        '   A PWM channel with a duty
+        '   A PWM channel clock source
+        '   For PWM channel 2 with a frequency of 38Khz with a duty of 50% with a clock source of timer 2, use
+        '     #define PWM_Timer2_Freq 38
+        '     #define PWM_7_Duty 50
+        '     #define PMW_7_Clock_Source 2
+
+        #define PWM_Timer2_Freq 20        'Set frequency in KHz, just change the number
+        #define PWM_Timer4_Freq 40        'Set frequency in KHz, just change the number
+        #define PWM_Timer6_Freq 60        'Set frequency in KHz, just change the number
+
+
+      '    Supported PWM module but not by this specific microcontroller
+      '
+      '    #define PWM_1_Duty 10            'Set duty cycle as percentage 0-100%, just change the number
+      '    #define PMW_1_Clock_Source 2
+      '
+      '    #define PWM_2_Duty 20
+      '    #define PMW_2_Clock_Source 4
+      '
+      '    #define PWM_3_Duty 30
+      '    #define PMW_3_Clock_Source 6
+      '
+      '    #define PWM_4_Duty 40
+      '    #define PMW_4_Clock_Source 2
+
+        #define PWM_5_Duty 50
+        #define PMW_5_Clock_Source 6
+
+        #define PWM_6_Duty 60
+        #define PMW_6_Clock_Source 6
+
+        #define PWM_7_Duty 70
+        #define PMW_7_Clock_Source 4
+
+        #define PWM_8_Duty 80
+        #define PMW_8_Clock_Source 4
+
+        '    Supported PWM module but not by this specific microcontroller
+        '
+        '    #define PWM_9_Duty 90
+        '    #define PMW_9_Clock_Source 6
+
+
+        '   Enable module 7
+        HPWMOn ( 7, PWMModule )
+        wait 2 s
+        '   Disable channel 7
+        HPWMOff ( 7, PWMModule)
+        '    wait 2 s
+
+        '   Enable others module
+        HPWMOn ( 5, PWMModule )
+        HPWMOn ( 6, PWMModule )
+        HPWMOn ( 7, PWMModule )
+        HPWMOn ( 8, PWMModule )
+
+        '  Enable CCP/PWM channel 1  - uses constants FREQ and DUTY
+        PWMOn
+
+        '  Enable CCP/PWM channel 2
+        PWMOn ( 2 )
+        do
+        loop
+
+    End
 
 ----
 {empty} +
