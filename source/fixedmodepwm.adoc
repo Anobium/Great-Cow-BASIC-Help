@@ -3,18 +3,24 @@
 *Syntax:*
 [subs="specialcharacters,quotes"]
 ----
-    PWMOn
+    PWMOn               'only applies to CCP/PWM channel 1
     'or
     PWMOff
 
-    CCP_PWMOn(2)            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
+    PWMOn(2)            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
     'or
-    CCP_PWMOff(2)
+    PWMOff(2)
+    
+    PWMOn(2, PWMModule)            'where the parameter can be any valid PWM channel, 1, 2, 3, 4, 5, 6, 7, 8 or 9
+    'or
+    PWMOff(2, PWMModule)
+    
+    
 
 ----
 *Command Availability:*
 
-*Only* available on Microchip PIC microcontrollers with a CCP1 module.
+*Only* available on Microchip PIC microcontrollers with a CCP/PWM or PWM module.
 
 See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels - this method support  CCP1/PWM, CCP2/PWM, CCP3/PWM, CCP4/PWM and CCP5/PWM.
 
