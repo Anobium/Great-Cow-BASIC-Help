@@ -194,11 +194,11 @@ Enable any CCP/PWM channel using a call to a method.
     #define PWM_Freq 38      'Frequency of PWM in KHz
     #define PWM_Duty 50      'Duty cycle of PWM (%)
 
-    CCP_PWMOn (2)    'Will enable any valid CCP/PWM channel
+    PWMOn (2)    'Will enable any valid CCP/PWM channel
 
     wait 10 s                'Wait 10 s
 
-    CCP_PWMOff (2)   'Will disable any valid CCP/PWM channel
+    PWMOff (2)   'Will disable any valid CCP/PWM channel
 
     do
     loop
