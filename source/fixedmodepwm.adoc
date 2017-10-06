@@ -150,7 +150,7 @@ Supported PWM modules, with some example parameters.
 
         #define PWM_9_Duty 90
         #define PMW_9_Clock_Source 6
-----
+
 {empty} +
 {empty} +
 *Example #1:*
