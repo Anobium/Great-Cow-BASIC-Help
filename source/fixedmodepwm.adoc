@@ -7,13 +7,13 @@
     'or
     PWMOff
 
-    PWMOn(2)            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
+    PWMOn( channel )            'where the parameter can be any valid CCP/PWM channel, 1, 2, 3, 4 or 5
     'or
-    PWMOff(2)
+    PWMOff( channel )
     
-    PWMOn(2, PWMModule)            'where the parameter can be any valid PWM channel, 1, 2, 3, 4, 5, 6, 7, 8 or 9
+    PWMOn( module_number , `PWMModule`)            'where the parameter can be any valid PWM channel 1 .. 9
     'or
-    PWMOff(2, PWMModule)
+    PWMOff( module_number , `PWMModule`)
     
     
 
