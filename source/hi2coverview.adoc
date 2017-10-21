@@ -124,40 +124,45 @@ appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
 
 Clock Sources: The Microchip I2C can select one of ten clocks sources as shown in the table below.  I2C1Clock_MFINTOSC is the default which support 125hz.
 {empty} +
+To change the clock source, change the constant as follows:
+----
+        #define I2C1ClockSource  I2C1Clock_MFINTOSC
+----
+Clock Constants
 [cols=3, options="header,autowidth"]
 |===
 |*Constant*
 |*Clock Source*
 |*Default Value*
 
-|#define I2C1Clock_SMT1
+| I2C1Clock_SMT1
 |SMT
 |0x09
-|#define I2C1Clock_Timer6PSO
+| I2C1Clock_Timer6PSO
 |Timer 6 Postscaler
 |0x08
-|#define I2C1Clock_Timer4PSO
+| I2C1Clock_Timer4PSO
 |Timer 4 Postscaler
 |0x07
-|#define I2C1Clock_Timer2PSO
+| I2C1Clock_Timer2PSO
 |Timer 2 Postscaler
 |0x06
-|#define I2C1Clock_Timer0Overflow
+| I2C1Clock_Timer0Overflow
 |Timer 0 Overflow
 |0x05
-|#define I2C1Clock_ReferenceOut
+| I2C1Clock_ReferenceOut
 |Reference clock out
 |0x04
-|#define I2C1Clock_MFINTOSC
+| I2C1Clock_MFINTOSC
 |MFINTOSC
 |0x03 (default)
-|#define I2C1Clock_HFINTOSC
+| I2C1Clock_HFINTOSC
 |HFINTOSC
 |0x02
-|#define I2C1Clock_FOSC
+| I2C1Clock_FOSC
 |FOSC
 |0x01
-|#define I2C1Clock_FOSC4
+| I2C1Clock_FOSC4
 |FOSC/4
 |0x00
 |===
@@ -169,8 +174,10 @@ Alternative Clock Source:  Using SMTClock source as the clock spurce, the follow
     #define I2C1ClockSource I2C1Clock_SMT1
     #Include <SMT_Timers.h>
 
-    SETSMT1PERIOD ( 39 )   '400 KHZ @ 64MHZ
-    '    SETSMT1PERIOD ( 158 )   '100 KHZ @ 64MHZ
+    '400 KHZ @ 64MHZ
+    SETSMT1PERIOD ( 39 )
+      ' 100 KHZ @ 64MHZ
+      ' SETSMT1PERIOD ( 158 )
     InitSMT1(SMT_FOSC,SMTPres_1)
     StartSMT1
 ----
