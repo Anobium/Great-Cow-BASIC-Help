@@ -23,7 +23,7 @@
 {empty} +
 {empty} +
 
-*Release 0.98.nn*::
+*Release 0.98.01*::
 - Updated ILI9341 section for OLED fonts
 - Updated I2C for I2C Module - new constants and commands
 - Updated for Fixed Model PWM
