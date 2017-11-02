@@ -71,7 +71,7 @@ To extract nibbles from the variable `rB`
 
 Assigning values to Word and Long variables via the the Byte variable (the Least Significant Byte [.lsb]) of the same Word and Long variable.
 
-Because a Long (or Word) variable and the  Least Significant Byte have the same variable assignments to specific byte elements must be handled appropriately. 
+Because a Long (or Word) variable and the  Least Significant Byte have the same variable assignments to specific byte elements must be handled appropriately.
 
 The code below uses a Long variable but the same principle is used for a Word.
 
@@ -101,32 +101,31 @@ Assigning values to the byte element of a long variable.
     'This will assign the lowest byte with 0xA4 but this assignment will also clear the upper 3 byte elements of the long variable.
     tL = 0xA4
 
-    Fill the lowest byte 1st, if this isn’t possible, use an intermediate variable as shown in “Help”
-    tL = ( tL AND 0xFFFFFF00) + A4 will preserve the upper bytes and ensure the lowest byte is assigned correctly.
+    'To assign the lowest byte
+    tL = ( tL and 0xffffff00 ) + 0xA4  'Wwill preserve the upper bytes and ensure the lowest byte is assigned correctly.
 ----
 
 A method to check a variable is assigned as expected is to use HserPrint and HserPrint hex(), as follows:
 
 ----
-    HserPrint hex() only prints one byte.
-    HserPrint “ Print tL _E, tL_U, tL_H & tL as hex”
+    ' HserPrint hex() only prints one byte so we need to handle the four elements
+    HserPrint " Print tL _E, tL_U, tL_H & tL as hex"
     HserPrint hex (tL_E)
     HserPrint hex (tL_U)
     HserPrint hex (tL_H)
     HserPrint hex (tL)
     HserPrintCRLF
-    HserPrint “Variable tL = ”
+    HserPrint "Variable tL = "
     HserPrint tL
 ----
 
 The user code above will result in an output as follows:
 
 ----
-    Print tL _E, tL_U, tL_H & tL as hex F7C5E3A4
+    Print tL _E, tL_U, tL_H & tL as hexF7C5E3A4
     Variable tL = 4156941220
 ----
 {empty} +
 {empty} +
-
 
 
