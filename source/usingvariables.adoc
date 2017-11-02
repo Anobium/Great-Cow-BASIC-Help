@@ -4,7 +4,9 @@
 
 Using and accessing bytes within word and long numbers etc may be required when you are creating your solution. This can be done with some ease.
 
+*Example 1:*
 You can access the bytes within word and longs variables using the following as a guide using the Suffixes `_H`, `_U` and `_E`
+{empty} +
 ----
     Dim workvariable as word
     workvariable = 21845
@@ -18,17 +20,16 @@ You can access the bytes within word and longs variables using the following as 
     upperb = workvariable_U
     lastb = workvariable_E
 ----
-
+{empty} +
 To further explain, where
-
+{empty} +
 ----
     Dim rB as Byte
     Dim sW as Word
-    Dim sW as Word
 ----
-
+{empty} +
 To extract the bytes from a WORD of 16 bits use the Suffix `_H`
-
+{empty} +
 ----
     'To use the bits 7-0 [lower byte] in the Word variable sW
     rB = sW
@@ -36,13 +37,12 @@ To extract the bytes from a WORD of 16 bits use the Suffix `_H`
     'For bits 15-8 [upper byte] in the Word variable sW, use sw_H
     rB = sW_H
 ----
-
+{empty} +
 To extract the bytes from a LONG of 32 bits use the Suffixes `_H`, `_U` and
 `_E`, where
-
+{empty} +
 ----
     Dim rB as Byte
-    Dim sW as Word
     Dim tL as Long
 
     ‘ For bits 7-0 [lowest byte #0] in Long variable tL
@@ -57,10 +57,73 @@ To extract the bytes from a LONG of 32 bits use the Suffixes `_H`, `_U` and
     ‘ For bits 31-24 [highest byte #3] in Long variable tL
     rB = tL_E
 ----
-
+{empty} +
 To extract nibbles from the variable `rB`
-
+{empty} +
 ----
     lower_nibble = rB & 0x0F
     upper_nibble = (rB & 0xF0) / 16
 ----
+{empty} +
+{empty} +
+*Example 2:*
+
+Assigning values to Word and Long variables via the the Byte variable (the Least Significant Byte [.lsb]) of the same Word and Long variable.
+
+Because the variable and the lsbyte are the same thing provided that only one byte is written or read to/from the variable. i.e. max 255.
+These examples show a Long variable but the same principle is used for a Word.
+
+Assigning two values, a byte an a word, to the variable tL to compate resulting impact on variables.
+----
+    Dim tL as Long
+
+    tL = 255  'All bits of the value 255 will reside in the lowest byte of the Long variable tL
+    tL = 286   'This assignment will flow into tL_H where tL_H =1 and tl=30.
+
+----
+
+Assigning values to specific elements of a long variable.
+
+----
+    'Assign value to specific elements
+    tL_E = 0xF7
+    tL_U = 0xC5
+    tL_H = 0xE3
+
+    'is same as the following assignment, we show the use of casting for clarification only.
+    [Long] tL = 0xF7C5E300   The lower byte (tL) is empty (zero).
+----
+
+Assigning values to the byte element of a long variable.
+----
+    'This will assign the lowest byte with 0xA4 but this assignment will also clear the upper 3 byte elements of the long variable.
+    tL = 0xA4
+
+    Fill the lowest byte 1st, if this isn’t possible, use an intermediate variable as shown in “Help”
+    tL = ( tL AND 0xFFFFFF00) + A4 will preserve the upper bytes and ensure the lowest byte is assigned correctly.
+----
+
+A method to check a variable is assigned as expected is to use HserPrint and HserPrint hex(), as follows:
+----
+    HserPrint hex() only prints one byte.
+    HserPrint “ Print tL _E, tL_U, tL_H & tL as hex”
+    HserPrint hex (tL_E)
+    HserPrint hex (tL_U)
+    HserPrint hex (tL_H)
+    HserPrint hex (tL)
+    HserPrintCRLF
+    HserPrint “Variable tL = ”
+    HserPrint tL
+----
+
+The user code above will result in an output as follows:
+
+----
+    Print tL _E, tL_U, tL_H & tL as hex F7C5E3A4
+    Variable tL = 4156941220
+----
+{empty} +
+{empty} +
+
+
+
