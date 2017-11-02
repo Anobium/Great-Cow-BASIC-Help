@@ -94,6 +94,9 @@ Assigning values to specific elements of a Long variable.
 
     'is same as the following assignment, we show the use of casting for clarification only.
     [Long] tL = 0xF7C5E300   The lower byte (tL) is empty (zero).
+
+    'or, treat the Long as a byte and assign a byte.
+    [byte]tL = [byte]0xA4
 ----
 
 Assigning values to the byte element of a long variable.
@@ -127,5 +130,4 @@ The user code above will result in an output as follows:
 ----
 {empty} +
 {empty} +
-
 
