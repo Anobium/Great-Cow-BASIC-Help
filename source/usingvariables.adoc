@@ -5,6 +5,7 @@
 Using and accessing bytes within word and long numbers etc may be required when you are creating your solution. This can be done with some ease.
 
 *Example 1:*
+
 You can access the bytes within word and longs variables using the following as a guide using the Suffixes `_H`, `_U` and `_E`
 {empty} +
 ----
