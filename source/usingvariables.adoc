@@ -71,10 +71,11 @@ To extract nibbles from the variable `rB`
 
 Assigning values to Word and Long variables via the the Byte variable (the Least Significant Byte [.lsb]) of the same Word and Long variable.
 
-Because the variable and the lsbyte are the same thing provided that only one byte is written or read to/from the variable. i.e. max 255.
-These examples show a Long variable but the same principle is used for a Word.
+Because a Long (or Word) variable and the  Least Significant Byte have the same variable assignments to specific byte elements must be handled appropriately. 
 
-Assigning two values, a byte an a word, to the variable tL to compate resulting impact on variables.
+The code below uses a Long variable but the same principle is used for a Word.
+
+Assigning two values, a byte and a word constant value, to the variable tL to compare resulting impact on Long variable.
 ----
     Dim tL as Long
 
@@ -83,7 +84,7 @@ Assigning two values, a byte an a word, to the variable tL to compate resulting 
 
 ----
 
-Assigning values to specific elements of a long variable.
+Assigning values to specific elements of a Long variable.
 
 ----
     'Assign value to specific elements
@@ -105,6 +106,7 @@ Assigning values to the byte element of a long variable.
 ----
 
 A method to check a variable is assigned as expected is to use HserPrint and HserPrint hex(), as follows:
+
 ----
     HserPrint hex() only prints one byte.
     HserPrint “ Print tL _E, tL_U, tL_H & tL as hex”
