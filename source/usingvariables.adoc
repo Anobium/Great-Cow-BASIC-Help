@@ -71,7 +71,7 @@ To extract nibbles from the variable `rB`
 
 Assigning values to Word and Long variables via the the Byte variable (the Least Significant Byte [.lsb]) of the same Word and Long variable.
 
-Because a Long (or Word) variable and the  Least Significant Byte have the same variable assignments to specific byte elements must be handled appropriately.
+Because a Long (or Word) variable and the Least Significant Byte, of the variable, have the same variable assignments to specific byte elements (_e, _u and _h) assignment must be appropriate to the element.
 
 The code below uses a Long variable but the same principle is used for a Word.
 

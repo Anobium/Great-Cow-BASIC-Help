@@ -1,14 +1,16 @@
 // Edit EvanV 171016
+// Edit EvanV 081117
+
 ==== HPWM 10 Bit
 
 *Syntax:*
 [subs="specialcharacters,quotes"]
 ----
-    HPWM _channel, frequency, duty cycle, timer_
+    HPWM _channel, frequency, duty cycle, timer [, resolution]_
 ----
 *Command Availability:*
 
-*Only* available on Microchip PIC microcontrollers with the PWM module.
+*Only* available on Microchip PIC microcontrollers with the 10-bit PWM module.
 
 For the Capture/Compare/PWM (CCP) module, see here <<_hpwm_ccp,HPWM CCP>>
 
@@ -20,7 +22,7 @@ is called, the PWM will be emitted until PWMOff is called.
 
 `_channel_` is 1, 2, 3, 4, 5, 6 or 7. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6 or HPWM7
 respectively. +
-The channel *MUST* be supported by the microcontroller.   Check the microcontroller specific datasheet for the available channel.
+The 10-bit PWM channel *MUST* be supported by the microcontroller.   Check the microcontroller specific datasheet for the available channel.
 
 `_frequency_` sets the frequency of the PWM output. It is measured in KHz.
 The maximum value allowed is 255 KHz. The minimum value varies depending
@@ -32,9 +34,12 @@ a 20 MHz chip, 16 KHz on an 8 MHz chip). This gives the best duty cycle
 resolution possible.
 
 `_duty cycle_` specifies the desired duty cycle of the PWM signal, and
-ranges from 0 to 1023 where 1023 is 100% duty cycle.&#160;&#160;&#160; This should be a WORD value. &#160;&#160;&#160;Note: Byte values are supported as a Byte value is factorised to a Word value.
+ranges from 0 to 1023 where 1023 is 100% duty cycle.&#160;&#160;&#160; This should be a WORD value. &#160;&#160;&#160;Note: Byte values are supported as a Byte value is factorised to a Word value. To use a Byte value and to ensure the 10-bit resolution you should cast the parameter as a Word, [WORD]byte_value or  [WORD]constant_value
 
-`_timer_` specifies the desired to be used. These can be timer 2, 4 or 6.
+`_timer_` specifies the desired timer to be used. These can be timer 2, 4 or 6.
+
+Optional `_resolution_` specifies the desired resolution to be used. These can be either 255 or 1023.  The rational of this optional parameter is to support the duty cycle with a BYTE or a WORD range.  If you call the method with a WORD the resolution will be set to 1023.
+
 {empty} +
 {empty} +
 *Notes:*

@@ -27,6 +27,8 @@
 - Updated ILI9341 section for OLED fonts
 - Updated I2C for I2C Module - new constants and commands
 - Updated for Fixed Model PWM
+- Updated for 10-bit PWM with resolution and CCP/PWM with DisableCCPFixedModePWM constant
+- Added PWM 16-bit outline pages
 
 
 *Release 0.98.00*::

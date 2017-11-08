@@ -427,6 +427,9 @@ include::HWpwmoff.adoc[]
 
 :leveloffset: -1
 
+include::hpwm16Bit.adoc[]
+
+
 include::fixedmodepwm.adoc[]
 
 :leveloffset: +1

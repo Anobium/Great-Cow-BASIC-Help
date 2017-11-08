@@ -52,6 +52,8 @@ timer prescaler when needed.  This will provide faster operation, but uses extra
 of RAM and may cause problems if `HPWM` and `PWMOn` are used together in a program.
 This will not cause any issue when using `HPWM` and `PWMOff` in the same program with `HPWM_FAST`.
 
+The optional constant `DisableCCPFixedModePWM` can be defined to prevent Timer2 from being enabled.  This constant may be required when you need to use Timer2 for non-CCP/PWM support.
+
 *Example:*
 ----
     'This program will alter the brightness of an LED using
