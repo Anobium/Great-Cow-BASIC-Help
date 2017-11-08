@@ -5,9 +5,9 @@
 ----
     HPWM16 _channel, frequency, duty cycle_    'Enable a 16-bit PWM channel'
 
-    HPWM16On _channel_                        'Enable a specific PWM channel using parameters set by the HPWM16 method'
+    HPWM16On _channel_                         'Enable a specific PWM channel using parameters set by the HPWM16 method'
 
-    HPWM16Off _channel_                        'Disnable a specific PWM channel'
+    HPWM16Off _channel_                        'Disable a specific PWM channel'
 
 ----
 *Command Availability:*
