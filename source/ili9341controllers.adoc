@@ -157,6 +157,9 @@ The Great Cow BASIC commands supported for this GLCD are shown in the table belo
 |Specify color as a parameter for many GLCD commands
 |Color constants for this device are shown in the list below. +
 
+|`ReadPixel`
+|Read the pixel color at the specified XY coordination.  Returns long variable with Red, Green and Blue encoded in the lower 24 bits.
+|ReadPixel( Xosition , Yposition ) or ReadPixel_ILI9341( Xosition , Yposition )
 
  Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
 |===
