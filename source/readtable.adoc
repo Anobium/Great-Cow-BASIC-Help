@@ -19,9 +19,8 @@ Available on all microcontrollers.
 *Explanation:*
 
 `_Item_` is 1 for the first line of the table, 2 for the second, and so on.
-Item 0 gives the size of the table. Care must be taken to ensure that
-the program is not told to read beyond the end of the table, or strange
-effects will be observed.
+If the Table is more than 256 elements then `_Item_` must be WORD variable.
+Care must be taken to ensure that the program is not instructed to read beyond the end of the table as Zero will be returned.
 
 The type of `_Output_` should match the type of data stored in the table.
 For example, if the table contains Word values then `_Output_` should be a

@@ -217,6 +217,8 @@ include::glcdoverview.adoc[]
 
 :leveloffset: +1
 
+include::hx8347Gcontrollers.adoc[]
+
 include::ili9340controllers.adoc[]
 
 include::ili9341controllers.adoc[]

@@ -253,6 +253,20 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |A very slow device.
 
 |14
+|HX8347G
+|Help
+|2.2inch
+|240 * 320
+|Large
+|Color
+|TFT LCD
+|SPI
+|AVR 8 bit bus
+|Typically operates at VCC 5. Always check voltage specifications	Great pixel display.
+|Controller requires 8 ports plus 5 control ports. Typically 13 in total with an UNO shield.
+|An very nice display
+
+|15
 |SDD1331
 |0.96inch
 |128 * 32
