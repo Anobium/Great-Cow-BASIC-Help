@@ -299,6 +299,12 @@ include::glcddrawstring.adoc[]
 
 include::glcdprint.adoc[]
 
+include::glcdlocatestring.adoc[]
+
+include::glcdprintstring.adoc[]
+
+include::glcdprintstringln.adoc[]
+
 include::glcdrotate.adoc[]
 
 include::glcdreadbyte.adoc[]

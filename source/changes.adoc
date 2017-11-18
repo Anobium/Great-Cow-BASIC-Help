@@ -31,6 +31,7 @@
 - Added PWM 16-bit outline pages
 - Revised ReadTable information
 - Added HX8347 GLCD section
+- Added new GLCDPrintString, GLCDPrintStringLN and GLCDLocateString commands
 
 
 *Release 0.98.00*::
