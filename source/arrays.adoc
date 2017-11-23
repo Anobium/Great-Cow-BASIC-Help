@@ -15,10 +15,10 @@ Examples of array names are:
 |*Meaning*
 
 |`Fish(10)`
-|Element 10 of an array called `Fish`
+|Definition on an array with 10 elements called `Fish`
 
 |`DataLog(2)`
-|The second number in an array named `DataLog`
+|The second element in an array named `DataLog`
 
 |`ButtonList(Temp)`
 |An element in the array `ButtonList` that is selected according to the
@@ -31,7 +31,10 @@ Use the DIM command to define an array.
 ----
     DIM array_title ( number_of_elements )
 ----
-The number of elements can be number, a variable or a constant.
+The number of elements can be number or a constant - not a variable.
+
+The value for the number elements in an array must be a number or constant.
+The compiler allocates RAM for arrays at compile time, and therefore you cannot use a variable because during compilation the value of a variable cannot be determined.
 
 *Setting an entire array at once*
 
