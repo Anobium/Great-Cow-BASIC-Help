@@ -1,27 +1,27 @@
 // Edit EvanV 171016
 // Edit EvanV 191016
-
+// Edit EvanV 011117
 ==== ReadAD
 
 *Syntax:*
 [subs="quotes"]
 For a normal ( also called a Single Channel )  read use.
 ----
-    var = ReadAD_port( ANX )
+    byte_variable = ReadAD( ANX )
 ----
 For a Differential Channel read use the following. Where ANpX is the positive port, and ANnY is the negative port.
 ----
-    user_variable = ReadAD( ANpX , ANnY )
+    byte_variable = ReadAD( ANpX , ANnY )
 ----
 To obtain a byte value from an AD Channel use the following to force an 8 bit AD Channel to respond with a byte value [0 to 255].
 ----
-    user_variable = ReadAD( ANX , TRUE )
+    byte_variable = ReadAD( ANX , TRUE )
 ----
 
 
 *Command Availability:*
 
-When using *ReadAD* ( ANx ) the returned value is an 8 bit number [0- 255]. The user variable assigned by the function can be a byte, word, integer or long.
+When using *ReadAD* ( ANx ) the returned value is an 8 bit number [0- 255]. The byte variable assigned by the function can be a byte, word, integer or long.
 
 
 When using *ReadAD* ( ANpX , ANnY ) the returned value is an integer, as negative values can be returned.
