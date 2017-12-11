@@ -74,7 +74,7 @@ The ChipData section for 12F1840 microcontroller. The 12F1840 is used an example
 
 The IntOsc line specifies the supported internal clock frequencies.
 
-The 12F1840 microcontroller supports nine internal frequencies (ChioMHz). #Chip is used as follows:
+The 12F1840 microcontroller supports nine internal frequencies (ChipMHz). #Chip is used as follows:
 
 ----
     #chip 12F1840, 32
