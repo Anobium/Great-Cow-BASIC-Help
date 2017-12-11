@@ -23,6 +23,7 @@
 - Correct ReadAD section
 - Corrected Array section
 - Correct Dir section
+- Added SSD1331 section
 
 
 {empty} +

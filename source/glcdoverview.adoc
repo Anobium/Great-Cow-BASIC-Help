@@ -268,17 +268,17 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 
 |15
 |SDD1331
+|Help
 |0.96inch
-|128 * 32
-|Large
+|96 * 48
+|Small
 |Color
-|TFT LCD
-|TBD
-|TBD
-|TBD
-|TBD
-|TBD
-|TBD
+|OLED
+|SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|Typically operates at VCC 5. Always check voltage specifications
+|SPI requires typically 6 in total.
+|Ver good color OLED display, excellent value for money
 |===
 
 
