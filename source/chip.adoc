@@ -124,7 +124,7 @@ The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file.
 `INTOSC` is the internal oscillator. All others are some form of external clock source.
 `PLLEN` sets the internal Phase Lock Loop either on or off. With this chip the default clock frequency is 8 Mhz. The PLL multiplies this by 4. So to get 32 Mhz the basic internal oscillator will be 8 Mhz then multiplied by 4. For 16 MHz it wil be 4 multiplied by 2. 
 
-GCB sets the PLL automatically so this option should generally be left alone.
+GCB sets the PLL automatically, so this option should generally be left alone. IF PLLEN is set to ON, then GCB may not be able to set the correct frewuency of the internal oscillator. Only set PLL = ON if you know what you are doing. 
 
 
 It is always a good practice to set the oscillator source in #config at the beginning of your code. This prevents potential errors. Example:
