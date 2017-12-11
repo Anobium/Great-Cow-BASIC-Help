@@ -82,7 +82,7 @@ The 12F1840 microcontroller supports nine internal frequencies (ChioMHz). #Chip 
 
  The "32" does two things.
 
-1.  When using the internal oscillator tells the compiler to set the chip clock frequency (FOSC) to 32MHz
+1.  When using the internal oscillator,  it tells the compiler to set the chip clock frequency (FOSC) to 32MHz
 
 2.  It tells the compiler to calculate all delays (wait times) based upon FOSC of 32 MHz. 
     Unlike Picaxe Basic (and other compilers) Great Cow delays ("wait") are correct regardless of the setting of FOSC. 
