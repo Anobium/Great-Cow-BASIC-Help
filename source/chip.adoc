@@ -80,7 +80,8 @@ The 12F1840 microcontroller supports nine internal frequencies (ChipMHz). #Chip 
     #chip 12F1840, 32
 ----
 
- The "32" does two things.
+
+A ChipMHz of 32 does two things.
 
 1.  When using the internal oscillator,  it tells the compiler to set the chip clock frequency (FOSC) to 32MHz
 
