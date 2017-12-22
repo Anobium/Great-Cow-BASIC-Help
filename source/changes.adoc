@@ -24,6 +24,7 @@
 - Corrected Array section
 - Correct Dir section
 - Added SSD1331 section
+- Updated command line parameters sections with /S and /F[O]
 
 
 {empty} +
