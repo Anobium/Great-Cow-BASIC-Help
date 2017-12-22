@@ -8,6 +8,10 @@
 
     GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/NP] _filename_
 
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX] [/S:Use.ini] [/NP] _filename_  
+    
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/S:Use.ini] [/F[O]] [/NP] _filename_
+
     GCBASIC /version
 
 ----
@@ -55,7 +59,16 @@
 
 |`/S`
 |Load the settings from a specified file, rather than use the defaults.
-|
+| /S:use.ini 
+
+
+|`/F`
+|Used to bypass compilation when not needed, compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
+| 
+
+|`/FO`
+|Used to bypass compilation and program only.  Compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
+| 
 
 
 |`filename`
