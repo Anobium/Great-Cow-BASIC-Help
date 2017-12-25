@@ -25,6 +25,8 @@
 - Correct Dir section
 - Added SSD1331 section
 - Updated command line parameters sections with /S and /F[O]
+- Updated compiler insights to ASM comments and an update to the command line parameters
+
 
 
 {empty} +
