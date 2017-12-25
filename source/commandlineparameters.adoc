@@ -37,8 +37,10 @@
 |Keep original code in assembly output. `/K:C` will save comments, `/K:A` will preserve all input code.
 |No original code left in output.
 
-|`/V`
-|Verbose mode - compiler gives more detailed information about its activities.
+|`/V [:[0|F] [1|T]`  
+|Verbose mode - compiler gives more detailed information about its activities.  
+/Vx will overide any configuration in the user ini file.
+
 |-
 
 |`/L`
@@ -62,8 +64,10 @@
 | /S:use.ini 
 
 
-|`/F`
+|`/F [:[0|F][1|T]`
 |Used to bypass compilation when not needed, compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
+ Skip compilation if the hex file is up to date and has correct config.
+/F:x ( F or 0) to force a fresh compile regardless of what ini specifies.
 | 
 
 |`/FO`
