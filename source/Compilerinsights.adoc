@@ -42,19 +42,49 @@ User Code
 ASM
 
     ;dir gpio.0 in
-      bsf	TRISIO,0
-      movf	TRISIO,W
-      tris	GPIO
+      bsf TRISIO,0
+      movf  TRISIO,W
+      tris  GPIO
     ;gpio0State = gpio.0
-      clrf	GPIO0STATE
-      btfsc	GPIO,0
-      incf	GPIO0STATE,F
+      clrf  GPIO0STATE
+      btfsc GPIO,0
+      incf  GPIO0STATE,F
     ;dir gpio.0 out
-      bcf	TRISIO,0
-      movf	TRISIO,W
-      tris	GPIO
+      bcf TRISIO,0
+      movf  TRISIO,W
+      tris  GPIO
     ;gpio.0 = 1
-      bsf	GPIO,0
+      bsf GPIO,0
 
 
 Anywhere that an individual TRIS bit is set/cleared by change the port direction, the bit in the cache is changed and then that gets written to the TRIS register.
+
+*Forcing the ASM to contain comments*
+
+It may be useful to force comments into the ASM file.  The verbose mode of creating the ASM will include ALL the source program as comments but it may be useful to have specific comments in the ASM to aid the understanding of code or to support debugging.
+
+To force an assembly comment use the following:
+
+----
+    asm showdebug  `comment`
+----
+
+Where the `comment` will be placed into the ASM file.
+
+Example.
+
+The source file contains the following, where the comment text is `OSCCON type is 100`
+
+----
+    asm showdebug OSCCON type is 100
+    OSCCON1 = 0x60
+----
+
+The generated assembly will be as following - this assumes verbose mode is not selected.
+
+----
+    INITSYS
+    ;osccon type is 100
+      movlw 96
+      banksel OSCCON1
+----
