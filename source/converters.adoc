@@ -55,12 +55,12 @@ The configuration file MUST have the extension of `.INI`.  No leading spaces are
 Specification of the configuration file.
 The file has four items: `desc`, `in`, `out` and `exe`. Where:
 +
- desc      : Is the description shown in GCGB
- in        : Is the source file extension to be transformed
- out       : Is the target transformed file extension.
- exe       : Is the executable to be run for this specific configuration file.
- params    : Optional, is the required parameter to be passed from the compiler.  Example:  params = %filename% %chipmodel%
- purge     : Optional, will always recreate the target transformed file. The default is to retain the target transformed file unless source has changed.
+ desc         : Is the description shown in GCGB
+ in           : Is the source file extension to be transformed
+ out          : Is the target transformed file extension.
+ exe          : Is the executable to be run for this specific configuration file.
+ params       : Optional, is the required parameter to be passed from the compiler.  Example:  params = %filename% %chipmodel%
+ deletetarget : Optional, will always recreate the target transformed file. The default is to retain the target transformed file unless source has changed. Options are Y or N
 +
 You can have multiple configuration files within the `..\converters folder structure`.
 +
@@ -166,13 +166,13 @@ This example is located in the converter folder of the Great Cow BASIC installat
     DataIn  ( Rx, RC6 )  'this method is created during the convert process. They do not exist withiut the converter.
 ----
 
-This example would use the optional parameters of `params` and `purge` in the converter configuration file as follows:
+This example would use the optional parameters of `params` and `deletetarget` in the converter configuration file as follows:
 ----
     desc = PPS file (*.PPS)
     params = %filename% %chipmodel%
     in = mcc
     out = GCB
     exe = DataHandler.exe
-    purge = on
+    deletetarget= y
 ----
 ====
