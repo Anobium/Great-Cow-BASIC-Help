@@ -176,27 +176,26 @@ This example would use the optional parameters of `params` and `deletetarget` in
     deletetarget= y
 ----
 ====
-+
-+
+
+
 *Example 5 : Add build numbers and time/date details to your programs*
-+
+
 This converter is used to expose two string variables as follows:
-+
+
 ----
     GCBBuildStr
     GCBBuildTimeStr
 ----
-+
+
 The user code is simple. Using the #include statement specify any filename with an extension must be `cnt`. As follows:
-+
+
 ----
     #include "GCBVersionNumber.cnt"
 ----
-+
-+
+
 
 Complete code would like this - this not optimised - this shows the use of the exposed strings.
-+
+
 ----
     #include "GCBVersionNumber.cnt"
 
@@ -205,19 +204,20 @@ Complete code would like this - this not optimised - this shows the use of the e
     versionString = versionString + "@"+GCBBuildTimeStr
     Print versionString
 ----
-+
+
 This outputs the following - where #20 is the current build and the date/time is correct for build time.
-+
+
 ----
     Max7219 build20@01-06-2018 08:00:21
     Commence main program
 ----
-+
+
 This works as the support INI file instructs the compiler to call a utility that automatically creates a build number tracker file and the supportting string functions.
 The utility creates a tracker file and the methods files in the same folder as your source program - so, each tracker is specific to each project.
 The converter requires the following files - these are included within your Installation.
-+
-GCBVersionStamp.exe - the utility called by the converter capability.
-cnt2gcb.ini - the supporting ini file used by the compiler to handle this converter.
 
+----
+    GCBVersionStamp.exe - the utility called by the converter capability.
+    cnt2gcb.ini - the supporting ini file used by the compiler to handle this converter.
+----
 
