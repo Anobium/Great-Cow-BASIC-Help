@@ -578,6 +578,8 @@ include::hsergetstring.adoc[]
 
 include::hserprint.adoc[]
 
+include::HSerPrintStringCRLF.adoc[]
+
 include::hserreceive.adoc[]
 
 include::hserreceivefrom.adoc[]

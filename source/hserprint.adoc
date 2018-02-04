@@ -4,7 +4,7 @@
 [subs="quotes"]
 ----
     HSerPrint _user_value_ [,1|2|3|4]  'Choose comport with optional parameter
-                                       'Default comport is 11
+                                       'Default comport is 1
 ----
 *Command Availability:*
 
@@ -129,5 +129,5 @@ to a terminal, these commands should follow every `HSerPrint` :
 
 ----
 *For more help, see also*
-<<_hserprintbytecrlf,HserPrintByteCRLF>>
+<<_hserprintbytecrlf,HserPrintByteCRLF>>, <<_hserprintstringcrlf,HserPrintStringCRLF>>
 *and* <<_hserprintcrlf,HserPrintCRLF>>
