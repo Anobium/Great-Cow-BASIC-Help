@@ -13,7 +13,11 @@ For the Capture/Compare/PWM (CCP) module, see here <<_hpwm_ccp,HPWM CCP>>
 
 *Explanation:*
 
-This command updates the **duty cycle only**.  You **MUST** have previously called the HPWM 10 Bit command using the full command (see <<_hpwm_10_bit,HPWM 10 Bit>>) to set the channel specific settings for frequency and timer source.&#160;&#160;See the example below for the usage.
+This command updates the **duty cycle only**.
+
+- You **MUST** have previously called the HPWM 10 Bit command using the full command (see <<_hpwm_10_bit,HPWM 10 Bit>>) to set the channel specific settings for frequency and timer source.&#160;&#160;See the example below for the usage.
+- You **MUST** have previously called the HPWM 10 Bit command with the same type of variable, or, use casting to ensure the variable tpye is the same type.
+
 
 This command only supports the previously called HPWM 10 Bit command, or, if you have set more than one HPWM 10 Bit PWM channel then to use the command you must have set the channel to the same frequency.
 
@@ -55,7 +59,8 @@ ranges from 0 to 1023 where 1023 is 100% duty cycle.
     DIR PORTA.2 out
 
     'Setup PWM - this is mandated as this specifies the frequency and the clock source.
-    HPWM 6, 40, 0, 2
+    'Uses casting [word] to ensure the intialisation value of Zero (0) is a treated as a word.  The variable type MUST match the HPWMUpdate variable type.
+    HPWM 6, 40, [word]0, 2
     'Main code
     do
         'Turn up brightness over 2.5 seconds
