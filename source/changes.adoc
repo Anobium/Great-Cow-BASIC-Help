@@ -28,6 +28,7 @@
 - Updated compiler insights to ASM comments and an update to the command line parameters
 - Updated Converter section to correct state deletetarget=y|n not purge=y|n
 - Added HSerPrintStringCRLF
+- Updated HPWMUpdate section to clarify variable type usage
 {empty} +
 {empty} +
 

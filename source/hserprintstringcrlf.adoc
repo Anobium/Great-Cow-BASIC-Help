@@ -27,9 +27,7 @@ The data will be sent out the hardware serial module.
 
 *Example:*
 ----
-  'This program will display any values received over the serial
-  'connection. If "pot" is received, the value of the analog sensor
-  'will be sent.
+  'This program will display string over the serial connection.
 
   'Chip settings
   #chip 18F2525, 8
@@ -39,19 +37,7 @@ The data will be sent out the hardware serial module.
   #define USART_BAUD_RATE 9600
   #define USART_TX_BLOCKING
 
-  'Potentiometer
-  #define POT_PORT PORTA.0
-  #define POT_AN AN0
-
-  'Set pin directions
-  Dir POT_PORT In
-
-  'Create buffer variables to store received messages
-  Dim Buffer As String
-  Dim OldBuffer As String
-  BufferSize = 0
-
-  'Show test messages
+  'Show string message
   HSerPrintStringCRLF "GCBASIC RS232 Test"
   Wait 1 s
 
