@@ -29,6 +29,7 @@
 - Updated Converter section to correct state deletetarget=y|n not purge=y|n
 - Added HSerPrintStringCRLF
 - Updated HPWMUpdate section to clarify variable type usage
+- Updated GLCDCLS to show additional parameter for colour GLCD devices
 {empty} +
 {empty} +
 
