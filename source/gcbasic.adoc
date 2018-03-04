@@ -885,6 +885,9 @@ include::log10.adoc[]
 
 include::power.adoc[]
 
+include::scale.adoc[]
+
+
 include::sqrt.adoc[]
 
 include::trigonometry.adoc[]
