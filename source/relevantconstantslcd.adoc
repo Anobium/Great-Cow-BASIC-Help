@@ -83,6 +83,8 @@ also known as 4004 type LCD displays.
 {empty} +
 {empty} +
 
+To change the performance (communications speed) of the LCD use `#define LCD_SPEED` and/or to change the LCD width characteristics use `#define LCD_WIDTH`
+
 See the separate sections of the Help file for the specifics of each
 Connection Mode.
 
@@ -91,3 +93,7 @@ Connection Mode.
 <<_lcd_io_2_74xx164,LCD_IO_2 74xx164>>, <<_lcd_io_2_74xx174,LCD_IO_2 74xx174>>,
 <<_lcd_io_4,LCD_IO 4>>, <<_lcd_io_8,LCD_IO 8>>,
 <<_lcd_io_10,LCD_IO 10>> or <<_lcd_io_12,LCD_IO 12>>
+
+*and,*
+
+<<_lcd_width,LCD_Width>>, <<_lcd_speed,lcd_speed>>

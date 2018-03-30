@@ -360,6 +360,8 @@ include::lcd_io12portconfiguration.adoc[]
 
 include::lcd_speed.adoc[]
 
+include::lcd_width.adoc[]
+
 include::cls.adoc[]
 
 include::get.adoc[]

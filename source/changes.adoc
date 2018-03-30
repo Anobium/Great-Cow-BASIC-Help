@@ -31,6 +31,8 @@
 - Updated HPWMUpdate section to clarify variable type usage
 - Updated GLCDCLS to show additional parameter for colour GLCD devices
 - Added Scale method
+- Added LCD_WIDTH constant
+
 {empty} +
 {empty} +
 
