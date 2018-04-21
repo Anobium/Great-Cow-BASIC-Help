@@ -32,6 +32,8 @@
 - Updated GLCDCLS to show additional parameter for colour GLCD devices
 - Added Scale method
 - Added LCD_WIDTH constant
+- Updated Setting variables
+
 
 {empty} +
 {empty} +

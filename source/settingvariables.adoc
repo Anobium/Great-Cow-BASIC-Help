@@ -16,6 +16,7 @@ All unknown byte variables are assigned Zero. A variable with the name of *Forev
 If `_data_` is a fixed value, it must be an integer between 0 and 255 inclusive.
 {empty} +
 If `_data_` is a calculation, then it may have any of the following operands:
+
 {empty} +
 ----
     + (add)
@@ -54,12 +55,32 @@ There are several modes in which variables can be set. Great Cow BASIC will auto
 {empty} +
 {empty} +
 
-Divide or division:  Great Cow BASIC support division.  Division can set the global system variable SysCalcTempX to the remainder of the division. However the following simple rules apply.
- . If both of the parameters of the division are constants, the compiler will do the calculation itself and use the result rather than making the microcontroller work out the same thing every time.  So, if there are two constants used, the microcontroller division routine does not get used, and SysCalcTempX does not get set.
- . If either of the parameters of the division are variables, the compiler will ensure the microcontroller do es the calculation as the result could be different every time.  So, in the this case the microcontroller division routine does get used, and SysCalcTempX is set.
+*Divide or division*
 
-If you prefer, you can add `Let` to the start of the line. It will not alter the execution of the program, but is included for those who are used to including it in other BASIC dialects.
+Great Cow BASIC support division.
+
+When using division you will get accurate results, within the limitations of integer numbers, by completing any multiplication first and the division last. &#160;&#160;But, you may have issues with variables overflowing - ensure your variable type are correct for the calculation type.
+
+If you that calculation a division, the compiler will use the long division routine, if the value may overflow, and then  fit the result into a word. &#160;&#160;This code provides the correct result, again within the limitations of integer numbers:
+
+----
+    dim L1s as word
+    dim L1p as word
+    L1s = 6547200 / L1p
+----
+
+
+Division also sets the global system variable SysCalcTempX to the remainder of the division.&#160;&#160;However the following simple rules apply.
 {empty} +
+
+ - If both of the parameters of the division are constants, the compiler will do the calculation itself and use the result rather than making the microcontroller work out the same thing every time.  So, if there are two constants used, the microcontroller division routine does not get used, and SysCalcTempX does not get set.
+ - If either of the parameters of the division are variables, the compiler will ensure the microcontroller does the calculation as the result could be different every time.  So, in the this case the microcontroller division routine does get used, and SysCalcTempX is set.
+ {empty} +
+
+If you prefer, you can add `Let` to the start of the line. &#160;&#160;It will not alter the execution of the program, but is included for those who are used to including it in other BASIC dialects.
+{empty} +
+{empty} +
+
 *Example:*
 ----
     'This program is to illustrate the setting of variables.
