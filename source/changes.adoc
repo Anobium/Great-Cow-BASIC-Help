@@ -33,7 +33,7 @@
 - Added Scale method
 - Added LCD_WIDTH constant
 - Updated Setting variables
-
+- Added Nextion section
 
 {empty} +
 {empty} +

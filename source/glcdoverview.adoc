@@ -170,17 +170,18 @@ Sensitive to operating voltages.
 
 |9
 |Nexion
-|N/A
+|Help
 |ITEAD Nexion
-|240 * 320
-|Large
+|240 * 320 to
+800 * 480
+|Large - 2.4 to 7inches
 |Color
 |TFT LCD
-|Serial
-|Special command set
+|Serial - hardware or software serial is supported.
+|Nextion specfic and GLCD command set
 |Typically operates at VCC 5 with external power supply. Always check voltage specifications	Great command set, you need to learn the GUI and then interface to Great Cow BASIC.
 |2 ports for the read/write serial operations.
-|An expensive option but if you need flexibility then the best!
+|A very nice option but if you need flexibility then the best!
 
 |10
 |SH1106
