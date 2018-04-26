@@ -179,64 +179,69 @@ This example shows how to drive a PCD8544 based Graphic LCD module with the buil
 
 Example:
 ----
-    #chip 16lf1939,32
-    #config Osc = INT, MCLRE_ON, PLLEN_Off, CLKOUTEN_OFF
+      #chip 16lf1939,32
+      #option Explicit
+      #config Osc = INT, MCLRE_ON, PLLEN_Off, CLKOUTEN_OFF
 
-        #include <glcd.h>
+      #include <glcd.h>
 
-        #DEFINE GLCD_TYPE GLCD_TYPE_PCD8544
+      #DEFINE GLCD_TYPE GLCD_TYPE_PCD8544
 
-          ' Pin mappings for software SPI for Nokia 3310 Device
-              #define GLCD_DO portc.5
-              #define GLCD_SCK portc.3
-              #define GLCD_DC portc.2
-              #define GLCD_CS portc.1
-              #define GLCD_RESET portc.0
+      ' Pin mappings for software SPI for Nokia 3310 Device
+      #define GLCD_DO portc.5
+      #define GLCD_SCK portc.3
+      #define GLCD_DC portc.2
+      #define GLCD_CS portc.1
+      #define GLCD_RESET portc.0
+
+      Dim outString as string
+      Dim ccount, byteNumber as Byte
+      Dim longNumber as Long
+      Dim wordNumber as Word
+      GLCDCLS
+
+      DO forever
+         for CCount = 31 to 127
+              GLCDPrint (0, 0, "PrintStr")
+              GLCDDrawString (0, 9, "DrawStr")
+              GLCDPrint ( 44 ,  21, "     ")
+              GLCDPrint ( 44 ,  29, "     ") ' word value
+              GLCDPrint ( 44 ,  37, "   ") ' Byte value
+
+              outstring = hex( longNumber_U)
+              GLCDPrint ( 44 , 21,outstring )
+              outstring = hex( longNumber_H)
+              GLCDPrint ( 55 , 21, outstring)
+              outstring = hex( longNumber)
+              GLCDPrint ( 67 , 21,  outstring )
+              GLCDPrint ( 44 , 29, mid( str(wordNumber),1, 6))
+              GLCDPrint ( 44 , 37, byteNumber)
+
+              box 46,9,57,19
+              GLCDDrawChar(48, 9, CCount )
+              outString = str( CCount )
+              ' draw a box to overwrite existing strings
+              FilledBox(58,9,GLCD_WIDTH-1,17,GLCDBackground )
+              GLCDDrawString(58, 9, outString )
+
+               box 0,0,GLCD_WIDTH-1, GLCD_HEIGHT-1
+               box GLCD_WIDTH-5, GLCD_HEIGHT-5,GLCD_WIDTH- 1, GLCD_HEIGHT-1
+               filledbox 2,30,6,38, wordNumber
+               Circle( 25,30,8,1)            ;center
+               FilledCircle( 25,30,4,longNumber xor 1) ;center
+
+               line 0,  GLCD_HEIGHT-1 , GLCD_WIDTH/2, (GLCD_HEIGHT /2) +1
+               line  GLCD_WIDTH/2, (GLCD_HEIGHT /2) +1 ,0, (GLCD_HEIGHT /2) +1
 
 
-          GLCDCLS
-
-          DO forever
-             for CCount = 31 to 127
-                  GLCDPrint (0, 0, "PrintStr")
-                  GLCDDrawString (0, 9, "DrawStr")
-                  GLCDPrint ( 44 ,  21, "     ")
-                  GLCDPrint ( 44 ,  29, "     ") ' word value
-                  GLCDPrint ( 44 ,  37, "   ") ' Byte value
-
-                  outstring = hex( longNumber_U)
-                  GLCDPrint ( 44 , 21,outstring )
-                  outstring = hex( longNumber_H)
-                  GLCDPrint ( 55 , 21, outstring)
-                  outstring = hex( longNumber)
-                  GLCDPrint ( 67 , 21,  outstring )
-                  GLCDPrint ( 44 , 29, mid( str(wordNumber),1, 6))
-                  GLCDPrint ( 44 , 37, byteNumber)
-
-                  box 46,9,57,19
-                  GLCDDrawChar(48, 9, CCount )
-                  outString = str( CCount )
-                  ' draw a box to overwrite existing strings
-                  FilledBox(58,9,GLCD_WIDTH-1,17,GLCDBackground )
-                  GLCDDrawString(58, 9, outString )
-
-                   box 0,0,GLCD_WIDTH-1, GLCD_HEIGHT-1
-                   box GLCD_WIDTH-5, GLCD_HEIGHT-5,GLCD_WIDTH- 1, GLCD_HEIGHT-1
-                   filledbox 2,30,6,38, wordNumber
-                   Circle( 25,30,8,1)            ;center
-                   FilledCircle( 25,30,4,longNumber xor 1) ;center
-
-                   line 0,  GLCD_HEIGHT-1 , GLCD_WIDTH/2, (GLCD_HEIGHT /2) +1
-                   line  GLCD_WIDTH/2, (GLCD_HEIGHT /2) +1 ,0, (GLCD_HEIGHT /2) +1
-
-
-                  longNumber = longNumber + 7
-                  wordNumber = wordNumber + 3
-                  byteNumber++
-              NEXT
-          LOOP
+              longNumber = longNumber + 7
+              wordNumber = wordNumber + 3
+              byteNumber++
+          NEXT
+      LOOP
 
       end
+
 ----
 
 
