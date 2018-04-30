@@ -15,7 +15,7 @@
     GCBASIC /version
 
 ----
-[cols=3, options="header,autowidth"]
+[cols="20%,40%,20%", options="header"]
 |===
 |*Switch*
 |*Description*
@@ -33,15 +33,15 @@
 |Batch file used to call programmer^(1)^. This parameter is ignored if the program is not assembled.
 |The program will not be downloaded.
 
-|`/K:{C\|A}`
+|`/K:[C\|A]`
 |Keep original code in assembly output. `/K:C` will save comments, `/K:A` will preserve all input code.
 |No original code left in output.
 
-|`/V [:[0|F] [1\|T]`
+|`/V[:[0\|F][1\|T]`
 |Verbose mode - compiler gives more detailed information about its activities.
 /Vx will overide any configuration in the user ini file.
-
 |-
+
 
 |`/L`
 |Show license and exit.
@@ -64,7 +64,7 @@
 | /S:use.ini
 
 
-|`/F [:[0|F][1|T]`
+|`/F[:[0\|F][1\|T]`
 |Used to bypass compilation when not needed, compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
  Skip compilation if the hex file is up to date and has correct config.
 /F:x ( F or 0) to force a fresh compile regardless of what ini specifies.

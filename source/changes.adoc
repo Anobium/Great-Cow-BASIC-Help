@@ -34,6 +34,8 @@
 - Added LCD_WIDTH constant
 - Updated Setting variables
 - Added Nextion section
+- Corrected format information on the Command Line page
+
 
 {empty} +
 {empty} +
