@@ -19,6 +19,12 @@
 {empty} +
 
 *Updates to HELP are as follows*::
+- Updated Randomize section
+
+{empty} +
+{empty} +
+
+*Release 0.98.02*::
 - Updated chip section
 - Correct ReadAD section
 - Corrected Array section
