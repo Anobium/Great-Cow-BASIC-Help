@@ -19,7 +19,6 @@ Within Great Cow BASIC you can define binary, hexidecimal and decimal constants,
     #config Osc = INT, MCLRE_OFF
 
     ' All these work
-    #define Test0 b'11111111'
     #define Test1 0b11111111
     #define Test2 0B11111111
     #define Test3 255
@@ -27,10 +26,9 @@ Within Great Cow BASIC you can define binary, hexidecimal and decimal constants,
     #define Test5 0xff
     #define Test6 0Xff
 
-    # Proof
+    # Proof - select each option one in turn
     dir porta Out
 
-    porta = test0
     porta = test1
     porta = test2
     porta = test3
