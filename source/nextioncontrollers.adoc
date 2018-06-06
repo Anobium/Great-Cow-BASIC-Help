@@ -231,6 +231,18 @@ The Great Cow BASIC Nextion specific commands supported for this GLCD are shown 
 |Update a Nextion display object with a specific value
 |`GLCDUpdateObject_Nextion( Nextion_object, object_value )`
 
+| `myReturnedString  = GLCDGetTouch_Nextion( "nextion_command_string" )`
+|A function that returns a string threee byte string value of the Touch event.  Typically, "tch2" or "tch2" for the X and Y axis respectively. 
+The function is non-blocking.  
+1. Checks for three bytes of 0xFF. If Four 0xff are received then exit = non-block.
+2. If at any time a 0x71 is recieved then we have data for the event.
+3. If seven bytes arrive, but the method did not receive a 0x71  then exit = non-block.
+4. The method supports software and hardware serial. As does all the other methods.  This may account for the extra few program words.
+5. The method uses a function to receive the data not a sub-routine. Again,   this would account for the extra few program words but this is required to provide full support.
+7. The method returns 'XXX' if there is an invalid read, and, myNextionLong would be set to 0xDEADBEEF
+
+|myReturnedString  = GLCDGetTouch_Nextion( "tch2")  
+
 |===
 
 {empty} +
