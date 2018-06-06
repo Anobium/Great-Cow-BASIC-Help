@@ -232,7 +232,7 @@ The Great Cow BASIC Nextion specific commands supported for this GLCD are shown 
 |`GLCDUpdateObject_Nextion( Nextion_object, object_value )`
 
 | `myReturnedString  = GLCDGetTouch_Nextion( "nextion_command_string" )`
-|A function that returns a string threee byte string value of the Touch event..&#160;&#160;Typically, "tch2" or "tch2" for the X and Y axis respectively. 
+|A function that returns a string threee byte string value of the Touch event..&#160;&#160;Typically, "tch2" or "tch3" for the X and Y axis respectively. 
 The function is non-blocking.  
 
 1. Checks for three bytes of 0xFF. If Four 0xff are received then exit = non-block.
@@ -247,7 +247,11 @@ The function is non-blocking.
 
 6. The method returns 'XXX' if there is an invalid read, and, myNextionLong would be set to 0xDEADBEEF
 
-|myReturnedString  = GLCDGetTouch_Nextion( "tch2")  
+|myReturnedString  = GLCDGetTouch_Nextion( "tch2") 
+
+or,
+
+myReturnedString  = GLCDGetTouch_Nextion( "tch3") 
 
 |===
 
