@@ -231,8 +231,16 @@ The Great Cow BASIC Nextion specific commands supported for this GLCD are shown 
 |Update a Nextion display object with a specific value
 |`GLCDUpdateObject_Nextion( Nextion_object, object_value )`
 
-| `myReturnedString  = GLCDGetTouch_Nextion( "nextion_command_string" )`
-|A function that returns a string threee byte string value of the Touch event..&#160;&#160;Typically, "tch2" or "tch3" for the X and Y axis respectively. 
+| `myReturnedWordValue  = GLCDGetTouch_Nextion( "nextion_command_string" )`
+|A function that returns a long, that can be treated as word variable, value of the Touch event..&#160;&#160;As follows:
+{empty} +
+{empty} +
+"tch0" for current x co-ordinate touched 
+"tch1" for current y co-ordinate touched
+"tch2" for last x co-ordinate touched
+"tch3" for last y co-ordinate touched
+{empty} +
+{empty} +
 The function is non-blocking.  
 
 1. Checks for three bytes of 0xFF. If Four 0xff are received then exit = non-block.
@@ -241,17 +249,17 @@ The function is non-blocking.
 
 3. If seven bytes arrive, but the method did not receive a 0x71  then exit = non-block.
 
-4. The method supports software and hardware serial. As does all the other methods.  This may account for the extra few program words.
+4. The method supports software and hardware serial. As does all the other methods. 
 
-5. The method uses a function to receive the data not a sub-routine. Again,   this would account for the extra few program words but this is required to provide full support.
+5. The method uses a function to receive the data not a sub-routine. 
 
-6. The method returns 'XXX' if there is an invalid read, and, myNextionLong would be set to 0xDEADBEEF
+6. The method returns 0xBEEF if there is an invalid read, and, functional value for GLCDGetTouch_Nextion will also be set to 0xDEADBEEF
 
-|myReturnedString  = GLCDGetTouch_Nextion( "tch2") 
+|myReturnedWordValue  = GLCDGetTouch_Nextion( "tch2") 
 
 or,
 
-myReturnedString  = GLCDGetTouch_Nextion( "tch3") 
+myReturnedWordValue  = GLCDGetTouch_Nextion( "tch3") 
 
 |===
 
