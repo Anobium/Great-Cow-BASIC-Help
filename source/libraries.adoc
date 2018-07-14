@@ -48,6 +48,11 @@ Great Cow BASIC supports the following device libraries.
 |Touch Shield
 |A library that interfaces with the ADS7843 touch screen.
 
+|BME280
+|Temp, Humidity and Pressure sensor
+|A library that interfaces with the BME280 and the BMP280 sensor.
+
+
 |CHIPINO
 |Shield
 |A library that interfaces the Chipino board with Arduino like port addresses.
@@ -68,9 +73,16 @@ Great Cow BASIC supports the following device libraries.
 |Temperature
 |A library that supports the temperature functions.
 
+|DS18SB0MultiPort
+|Temperature
+|A library that supports the temperature functions with devices attached to multiple ports.
+
+
 |DS18S20
 |Temperature
 |A library that supports the temperature functions.
+
+
 
 |DS2482
 |Clock
@@ -101,11 +113,19 @@ Great Cow BASIC supports the following device libraries.
 |Graphical LCD
 |A core library for Graphical LCD support.
 
+|GLCD_HX8347
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
 |GLCD_ILI9340
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
 |GLCD_ILI9341
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ILI9481
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
@@ -118,6 +138,10 @@ Great Cow BASIC supports the following device libraries.
 |A library to increase the capabilities of the Graphical LCDs.
 
 |GLCD_KS0108
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_NEXTION
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
@@ -134,6 +158,10 @@ Great Cow BASIC supports the following device libraries.
 |A device specific library for an Graphical LCD.
 
 |GLCD_SSD1306
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_SSD1331
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
@@ -161,6 +189,16 @@ Great Cow BASIC supports the following device libraries.
 |I2C Slave
 |A support library that supports the use of a Microchip microcontroller as an I2C slave.
 
+
+|HWI2C_ISR_HANDLERKMODE
+|I2C Slave Driver
+|A library that supports the use of a Microchip microcontroller as an I2C slave.
+
+|HWI2C_MESSAGEINTERFACEKMODE
+|I2C Slave
+|A support library that supports the use of a Microchip microcontroller as an I2C slave.
+
+
 |I2CEEPROM
 |I2C EEProm memory
 |A library that supports memory functions.
@@ -185,6 +223,10 @@ Great Cow BASIC supports the following device libraries.
 |Temperature
 |A library that supports the temperature functions.
 
+|MAX7219_ledmatrix_driver
+|LED 8*8 Matrix driver
+|A library that supports the MAX7219 8*8 LED matrixes
+
 |MCP23008
 |i2C to serial
 |A library that supports the I2C to serial functions.
@@ -206,6 +248,10 @@ Great Cow BASIC supports the following device libraries.
 |NUNCHUCK
 |Game controller
 |A library that supports the NunChuck game controller.
+
+|PCA9685
+|PWM
+|A device specific library for the 16channel PWM driver.  See the demonstrations for example on usage.
 
 |PCF8574
 |GLCD
@@ -272,6 +318,10 @@ Great Cow BASIC supports the following device libraries.
 |UNO_MEGA328P
 |Shield
 |A library that interfaces the shield with Arduino like port addresses.
+
+|USB
+|USB Supoort
+|A library that interfaces the USB for 16f and 18f microcontrollers.
 
 |===
 
