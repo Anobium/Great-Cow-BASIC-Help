@@ -19,6 +19,7 @@ The `PulseOut` command will set the specified pin high, wait for the specified a
     #chip 12F629, 4
     #config INTRC_OSC_NOCLKOUT
 
+    'The DIRection of the port is set to show the command.  It is not required to set the DIRection when using the PulseOut command.
     Dir GPIO.0 Out
     Do
         PulseOut GPIO.0, 1 sec 'Turn LED on for 1 sec
