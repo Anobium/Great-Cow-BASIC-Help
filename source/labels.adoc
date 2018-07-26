@@ -25,7 +25,7 @@ at any time.
     #define BUTTON PORTB.0
     #define LIGHT PORTB.1
     Dir BUTTON In
-    Dir BUTTON Out
+    Dir LIGHT Out
 
     Do
     PulseOut LIGHT, 500 ms
