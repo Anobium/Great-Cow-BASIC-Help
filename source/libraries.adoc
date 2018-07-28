@@ -252,6 +252,7 @@ Great Cow BASIC supports the following device libraries.
 |PCA9685
 |PWM
 |A device specific library for the 16channel PWM driver.  See the demonstrations for example on usage.
+Support up to four devices via the I2C bus.
 
 |PCF8574
 |GLCD
