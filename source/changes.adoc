@@ -22,6 +22,8 @@
 - Updated Randomize section
 - Add PCA9685 support to Library section
 - Updated Library section to inclide complete list of library drivers
+- Added HPWM_CCPTimerN
+
 
 {empty} +
 {empty} +
