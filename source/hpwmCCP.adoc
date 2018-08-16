@@ -13,7 +13,10 @@ module.
 
 This command supports the CCP 8 bit support with *Timer 2 only*. +
 
+For CCP/PWM support for timers 2, 4 and 6, if the specific devices supports alternative CCP/PWM clock sources - see here <<_hpwm_ccptimern,HPWM CCPTimer N>>
+
 For PWM 10 Bit support with other timers - see here <<_hpwm_10_bit,HPWM 10 Bit>>
+
 
 *Explanation:*
 
