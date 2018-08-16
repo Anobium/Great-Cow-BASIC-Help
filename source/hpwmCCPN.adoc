@@ -11,7 +11,9 @@
 Only available on Microchip PIC microcontrollers with Capture/Compare/PWM (CCP)
 module.
 
-This command supports the CCP 8 bit support with *Timer 2, 4 or 6 only*. +
+This command supports the CCP 8 bit support with selectable *Timer 2, 4 or 6 only* for CCP/PWM only. +
+
+For CCP/PWM support for timers 2 only see <<_hpwm_ccp,HPWM CCPTimer>>
 
 *Explanation:*
 
