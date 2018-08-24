@@ -26,12 +26,12 @@ There are many possible interrupt events that can occur, and the events
 vary greatly from chip to chip. Great Cow BASIC will display an error if a given
 chip cannot support the specified event.
 
-In some cases, On Interrupt will not be able to set or clear the
-interrupt flag and/or enable bits. If this is the case, Great Cow BASIC will
-display a warning. You will need to consult the chip datasheet and use
-the Set command to manually set/clear the flag and enable bits, both at
-the start of the program and inside the interrupt handler subroutine.
-If On Interrupt is used to handle an event, then the Interrupt
+On Interrupt may require the setting or clearing of the interrupt register bit(s), and, On Interrupt may require setting of explicit enable register bits. You should always consult the device datasheet for these On Interrupt additional specific settings of register bits.  Typically, you will need define the 1) source event register bit(s) in the main program, and, 2) clear or set the register bit at the start of the of the interrupt handler subroutine.
+
+
+Great Cow BASIC has many demonstrations showing how to set and enable appropiate interrupt register bits to support the On Interrupt method.
+
+If On Interrupt is used to handle an event, then the Interrupt()
 subroutine will not be called for that event. However, it will still be
 called for any events not dealt with by On Interrupt.
 
