@@ -8,7 +8,7 @@ For a normal ( also called a Single Channel )  read use.
     user_variable = ReadAD12( ANX )
 ----
 
-For a Differential Channel read use the following. Where ANpX is the positive port, and ANnY is the negative port.
+For a Differential Channel read use the following.&#160;&#160;Where ANpX is the positive port, and ANnY is the negative port.
 ----
     user_variable = ReadAD12( ANpX , ANnY )
 ----
@@ -21,21 +21,21 @@ To obtain a 12-bit value from an AD Channel use the following to force a 12 bit 
 
 *Command Availability:*
 
-When using *ReadAD12* ( ANX ) the returned value is an 12 bit number [0-4095]. The user variable can be a word, integer or long.
+When using *ReadAD12* ( ANX ) the returned value is an 12 bit number [0-4095].&#160;&#160;The user variable can be a word, integer or long.
 
 When using *ReadAD12* ( ANpX , ANnY ) the returned value is an integer as negative values can be returned.
 
-*ReadAD12*  is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include. Port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use. Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc. Refer to the datasheet for the microcontroller chip to find the number of ports available. (Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
+*ReadAD12*  is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include.&#160;&#160;Port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use.&#160;&#160;Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc.&#160;&#160;Refer to the datasheet for the microcontroller chip to find the number of ports available.&#160;&#160;(Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
 
-Other functions that are similar are *ReadAD* and *ReadAD10*. See the relevant Help page for the specific usage of each function.
+Other functions that are similar are *ReadAD* and *ReadAD10*.&#160;&#160;See the relevant Help page for the specific usage of each function.
 
 
-*AD_Delay* controls is the acquisition delay.  The default value is 20 us. This can be changed to a longer acquisition delay by adding the following constant.
+*AD_Delay* controls is the acquisition delay.&#160;&#160; The default value is 20 us.&#160;&#160;This can be changed to a longer acquisition delay by adding the following constant.
 ----
     #define AD_Delay 4 10us
 ----
 
-*ADSpeed*( controls the source of the clock for the ADC module.  It varies from one microcontroller to another.  InternalClock is a Microchip PIC microcontroller only option that will drive the ADC from an internal RC oscillator. The default value is 128.
+*ADSpeed*( controls the source of the clock for the ADC module.&#160;&#160; It varies from one microcontroller to another.&#160;&#160; InternalClock is a Microchip PIC microcontroller only option that will drive the ADC from an internal RC oscillator.&#160;&#160;The default value is 128.
 
 ----
     'default value
@@ -49,11 +49,11 @@ Other functions that are similar are *ReadAD* and *ReadAD10*. See the relevant H
 ----
 
 
-*AD_Acquisition_Time_Select_bits* also controls the Acquisition Time Select bits.  Acquisition time is the duration that the AD charge
+*AD_Acquisition_Time_Select_bits* also controls the Acquisition Time Select bits.&#160;&#160; Acquisition time is the duration that the AD charge
 holding capacitor remains connected to AD channel from the instant the read is commenced is set until conversions begins.
 
 
-The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, where all three ACQT bits will be set. To change use the following.
+The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, where all three ACQT bits will be set.&#160;&#160;To change use the following.
 ----
     'change the default value
     #define AD_Acquisition_Time_Select_bits 0b001    'this will only set ACQT bit 0, ACQT bits 1 and 2 will be cleared.
@@ -107,7 +107,7 @@ The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, wher
 
 *Example 3*
 
-This example used the diffential capabilities of ADC port and writes the output to the EEPROM. The output value will be in the range of [-4095 to 4095].
+This example used the diffential capabilities of ADC port and writes the output to the EEPROM.&#160;&#160;The output value will be in the range of [-4095 to 4095].
 
 AN0 and AN2 are used for the diffential ADC reading.
 ----
