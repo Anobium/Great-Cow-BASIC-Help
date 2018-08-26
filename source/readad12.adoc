@@ -27,7 +27,7 @@ When using *ReadAD12* ( ANpX , ANnY ) the returned value is an integer as negati
 
 *ReadAD12*  is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include. Port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use. Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc. Refer to the datasheet for the microcontroller chip to find the number of ports available. (Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
 
-Another function, *ReadAD10* is similar to *ReadAD12*. The only difference is that it returns a 10 bit number.
+Other functions that are similar are *ReadAD* and *ReadAD10*. See the relevant Help page for the specific usage of each function.
 
 
 *AD_Delay* controls is the acquisition delay.  The default value is 20 us. This can be changed to a longer acquisition delay by adding the following constant.

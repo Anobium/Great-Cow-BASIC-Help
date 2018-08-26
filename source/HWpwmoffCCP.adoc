@@ -40,4 +40,4 @@ This command will disable the output of the CCP1/PWM module on the Microchip PIC
     loop
 
 ----
-*For more help, see* <<_hpwmoff_2,HPWMOff>>
+*For more help, see* <<_hpwmoff,HPWMOff>>

@@ -30,7 +30,7 @@ When using *ReadAD10* ( ANpX , ANnY ), for differential ADC reading, the returne
 
 ReadAD10 is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include. The port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use. Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc. Refer to the datasheet for the microcontroller chip to find the number of ports available. (Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
 
-Another function, *ReadAD* is similar to *ReadAD10*. The only difference is that the *ReadAD* method returns a byte variable.
+Other functions that are similar are *ReadAD* and *ReadAD12*. See the relevant Help page for the specific usage of each function.
 
 
 *AD_Delay* controls is the acquisition delay.  The default value is 20 us. This can be changed to a longer acquisition delay by adding the following constant.
