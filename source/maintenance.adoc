@@ -124,3 +124,20 @@ image::xml2.PNG[graphic,align="center"]
 Where the default is selected from the Info_Type.
 {empty} +
 {empty} +
+
+
+
+**Prog = .  An explaination of the parameter**.
+The Prog value is measured in words. It is the same one devices in the device specific.dat files.
+{empty} +
+
+Microchip in the past have used words, but then they started using bytes on the website instead to make their chips appear to have larger capacity.
+{empty} +
+
+An example: If a device has 8192 words, which is 8192 * 14 = 114688 bits, or 14336 bytes.&#160;&#160;It is an odd measurement because dividing 14336 by 14/8 to see how many instructions you can use is extra maths work within the compiler.
+{empty} +
+
+Great COW BASIC PROGram memory measurements in the compiler are in words.
+{empty} +
+
+{empty} +
