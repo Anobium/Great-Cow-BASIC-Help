@@ -23,7 +23,8 @@ A typical use is to pad a string to be displayed on a serial terminal or LCD.
 *Example:*
 ----
     'Set chip model
-    #chip 18F2520, 8
+ 'Set chip model
+    #chip 16f877a
 
 
     DIR PORTA 0x03
@@ -34,7 +35,7 @@ A typical use is to pad a string to be displayed on a serial terminal or LCD.
 
 
     'Defines (Constants)
-    #define LCD_SPEED fast
+    #define LCD_SPEED slow
     #define LCD_IO 4
     #define LCD_NO_RW
     #define LCD_Enable PORTc.0
@@ -62,8 +63,8 @@ A typical use is to pad a string to be displayed on a serial terminal or LCD.
 
     inString = "12345"
 
-    outString1 = PADleft(inString, 9, "*#o")
-    outString2 = PADleft(inString, 9)
+    outString1 = leftpad(inString, 9, "*")
+    outString2 = leftpad(inString, 9)
 
     'show results on LCD-Display
     cls
