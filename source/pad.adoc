@@ -51,7 +51,7 @@ A typical use is to pad a string to be displayed on a LCD display.
 
 
     ; ---- variables
-    'Defibe a string
+    'Define the string
     Dim TestData As String * 16
     TestData = "Location"
 
