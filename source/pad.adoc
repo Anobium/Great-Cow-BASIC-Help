@@ -58,6 +58,9 @@ A typical use is to pad a string to be displayed on a LCD display.
     'show results on LCD-Display
     cls
     Print Pad ( TestData, 16, "*" )
+    Locate 1,0
+    Print Pad ( TestData, 16, )
+
 
     end
 ----
