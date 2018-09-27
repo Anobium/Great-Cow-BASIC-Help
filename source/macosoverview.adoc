@@ -1,0 +1,96 @@
+=== Overview
+
+*Introduction:*
+Great Cow BASIC can be used when using the Apple macOS operatimg system.
+
+This instructions are for macOS only (not Windows).
+
+You have a choice to make. You can either:
+
+. download a macOS installer which will install a precompiled binary for
+Great Cow BASIC along with support files and some optional components; or
+. download, compile and install Great Cow BASIC from the source files.
+
+There are instructions below for both choices.
+
+*Instructions for using the Great Cow BASIC Installer*
+
+[start=1]
+ . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from
+  [^^ADD LOCATION^^]
+
+ . double click the .dmg file to mount it on your Desktop and a window will
+open which contains the .pkg Installer.
+
+ . double click the .pkg Installer and follow the prompts.
+
+*Instructions for building your own Great Cow BASIC binary*
+
+Complete the following steps to compile and install Great Cow BASIC:
+
+[start=1]
+ . Download the FreeBASIC 1.06 macOS 10.4 binary compilation from: 
+http://tmc.castleparadox.com/temp/fbc-1.06-darwin-wip20160505.tar.bz2
+
+ . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at 
+https://sourceforge.net/projects/gcbasic/files/
+
+ . Open a Terminal window (Terminal can be found in Applications > Utilities).
+
+ . Move the FreeBASIC compressed tar file from your Downloads directory to
+your home directory by typing:
+----
+   mv ~/Downloads/fbc-1.06-darwin-wip20160505.tar.bz2 ~/
+----
+
+ . Unpack the FreeBASIC compressed tar file by typing these commands in your
+Terminal window:
+----
+   gzcat fbc-1.06-darwin-wip20160505.tar.bz2 | tar xvf -
+----
+
+which will produce a new directory called fbc-1.06.
+
+ . Move the Great Cow BASIC compressed tar file from your Downloads directory 
+to your home directory by typing:
+----
+   mv ~/Downloads/GCB-macOS.tar.bz2 ~/
+----
+
+ . Unpack the Great Cow BASIC compressed tar file by typing these commands in 
+ your Termanal window:
+----
+   gzcat GCB-macOS.tar.bz2 | tar xvf -
+----
+
+which will produce a new directory called GreatCowBasic.
+
+ . Change to the ~/GreatCowBasic/Sources directory:
+----
+   eg. cd ~/Downloads/GCB@Syn/GreatCowBasic/Sources/GCBASIC
+----
+[start=5]
+ . Make sure that `install.sh` is set as executable (ie. `chmod +x install.sh`), and then execute: ./install.sh build
+
+
+ . You will need root privileges for this step. You can switch user (su) to root, or optionally use `sudo`.
+----
+   Execute: [sudo] ./install.sh install
+----
+[start=7]
+ . If you su'd to root, use `exit` to drop back to your normal user. Then, be sure to follow the instructions given by the script for updating your path.
+
+
+ . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
+
+
+Now you can create and compile GCB source files.
+
+*Programming microcontrollers:*
+
+To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional software.
+
+For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
+
+For Atmel AVR microcontroller programming, you will need `avrdude`. It should be available in your distributions repository. If not, check here: http://www.nongnu.org/avrdude/
+
