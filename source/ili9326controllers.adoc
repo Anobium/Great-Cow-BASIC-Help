@@ -1,0 +1,253 @@
+==== ILI9326 Controllers
+
+This section covers GLCD devices that use the ILI9326 graphics controller.  The ILI9326 is a TFT LCD Single Chip Driver with 400RGBx320 Resolution and 262K colors.
+
+
+The Great Cow BASIC constants shown below control the configuration of the ILI9326 controller. &#160;&#160;&#160;Great Cow BASIC supports 8 bit bus connectivity  - this is shown in the tables below.
+
+
+To use the ILI9326 driver simply include the following in your user code.  This will initialise the driver.
+
+----
+    #include <glcd.h>
+    #DEFINE GLCD_TYPE GLCD_TYPE_ILI9326
+
+    'Pin mappings for ILI9326 - these MUST be specified
+    #define GLCD_RD       porta.3        ' read command line
+    #define GLCD_WR       porta.2         ' write command line
+    #define GLCD_RS       porta.1         ' Command/Data line
+    #define GLCD_CS       porta.0         ' Chip select line
+    #define GLCD_RST      porta.5         ' Reset line
+    #define GLCD_DataPort portD
+
+----
+
+
+The Great Cow BASIC constants for the interface to the controller are shown in the table below.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Options
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_ILI9326`
+|
+
+|`GLCD_RD`
+|Specifies the output pin that is connected to RD IO pin on the GLCD.
+|Required
+
+|`GLCD_WR`
+|Specifies the output pin that is connected to WR on the GLCD.
+|Required
+
+|`GLCD_RS`
+|Specifies the output pin that is connected to RS pin on the GLCD.
+|Required
+
+|`GLCD_CS`
+|Specifies the output pin that is connected to CS pin on the GLCD.
+|Required
+
+|`GLCD_RST`
+|Specifies the output pin that is connected to RST pin on the GLCD.
+|Required
+
+|`GLCD_DataPort`
+|Specifies the output port that is connected to DB0 to DB7 pins on the GLCD.
+|Required
+|===
+
+
+The Great Cow BASIC constants for control display characteristics are shown in the table below.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|`320`
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|`240`
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|`6` for GCB fonts, and `5` for OLED fonts.
+
+
+|`GLCD_OLED_FONT`
+|Specifies the use of the optional OLED font set.
+
+The GLCDfntDefaultsize can be set to 1 or 2 only.
+
+`GLCDfntDefaultsize=  1`.   A small 8 height pixel font with variable width.
+`GLCDfntDefaultsize=  2`.   A larger 10 width * 16 height pixel font.
+
+|Optional
+
+
+
+|===
+
+
+The Great Cow BASIC commands supported for this GLCD are shown in the table below.&#160;&#160;&#160;Always review the appropiate library for the latest full set of supported commands.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Command
+|Purpose
+|Example
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS  [,Optional LineColour]`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable )`
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode [,Optional LineColour] )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable [,Optional LineColour] )`
+
+|`Box`
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour]`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour)`
+
+|`GLCDWriteByte`
+|Set a byte value to the controller, see the datasheet for usage.
+|`GLCDWriteByte ( LCDByte)`
+
+|`GLCDReadByte`
+|Read a byte value from the controller, see the datasheet for usage.
+|`bytevariable = GLCDReadByte`
+
+|`GLCDRotate`
+|Rotate the display
+|`LANDSCAPE`, `PORTRAIT_REV`, `LANDSCAPE_REV` and `PORTRAIT` are supported
+
+
+|`ILI9326_[color]`
+|Specify color as a parameter for many GLCD commands
+|Color constants for this device are shown in the list below. +
+
+|===
+
+
+----
+    ILI9326_BLACK   'hexidecimal value 0x0000
+    ILI9326_RED     'hexidecimal value 0xF800
+    ILI9326_GREEN   'hexidecimal value 0x07E0
+    ILI9326_BLUE    'hexidecimal value 0x001F
+    ILI9326_WHITE   'hexidecimal value 0xFFFF
+    ILI9326_PURPLE  'hexidecimal value 0xF11F
+    ILI9326_YELLOW  'hexidecimal value 0xFFE0
+    ILI9326_CYAN    'hexidecimal value 0x07FF
+    ILI9326_D_GRAY  'hexidecimal value 0x528A
+    ILI9326_L_GRAY  'hexidecimal value 0x7997
+    ILI9326_SILVER  'hexidecimal value 0xC618
+    ILI9326_MAROON  'hexidecimal value 0x8000
+    ILI9326_OLIVE   'hexidecimal value 0x8400
+    ILI9326_LIME    'hexidecimal value 0x07E0
+    ILI9326_AQUA    'hexidecimal value 0x07FF
+    ILI9326_TEAL    'hexidecimal value 0x0410
+    ILI9326_NAVY    'hexidecimal value 0x0010
+    ILI9326_FUCHSIA 'hexidecimal value 0xF81F
+----
+
+For a ILI9326 datasheet, please refer to Google.
+
+
+
+This example shows how to drive a ILI9326 based Graphic LCD module with the built in commands of Great Cow BASIC.
+
+
+
+*Example #1*
+----
+    ;Chip Settings
+    #chip 16F1789,32
+
+    #config MCLRE=on
+    #option explicit
+    #include <glcd.h>
+    #define GLCD_TYPE GLCD_TYPE_ILI9326
+
+    #define GLCD_RD       porta.3        ' read command line
+    #define GLCD_WR       porta.2         ' write command line
+    #define GLCD_RS       porta.1         ' Command/Data line
+    #define GLCD_CS       porta.0         ' Chip select line
+    #define GLCD_RST      porta.5         ' Reset line
+    #define GLCD_DataPort portD
+
+    GLCDPrint(0, 0, "Test of the ILI9326 Device")
+    end
+----
+{empty} +
+
+*Example #2*
+This example shows how to drive a ILI3941 with the OLED fonts.  Note the use of the `GLCDfntDefaultSize` to select the size of the OLED font in use.
+{empty} +
+----
+
+
+  'Chip Settings
+    #chip 16F1789,32
+
+    #config MCLRE=on
+    #option explicit
+    #include <glcd.h>
+    #define GLCD_TYPE GLCD_TYPE_ILI9326
+
+    #define GLCD_RD       porta.3        ' read command line
+    #define GLCD_WR       porta.2         ' write command line
+    #define GLCD_RS       porta.1         ' Command/Data line
+    #define GLCD_CS       porta.0         ' Chip select line
+    #define GLCD_RST      porta.5         ' Reset line
+    #define GLCD_DataPort portD
+
+    #define GLCD_OLED_FONT                'The constant is required to support OLED fonts
+
+    GLCDfntDefaultSize = 2
+    GLCDFontWidth = 5
+    GLCDPrint ( 40, 0, "OLED" )
+    GLCDPrint ( 0, 18, "Typ:  ILI9326" )
+    GLCDPrint ( 0, 34, "Size: 400 x 240" )
+
+    GLCDfntDefaultSize = 1
+    GLCDPrint(20, 56,"https://goo.gl/gjrxkp")
+
+----
+{empty} +
+
+
+*For more help, see*
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
+
+Supported in <GLCD.H>

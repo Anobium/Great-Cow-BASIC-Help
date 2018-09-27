@@ -59,8 +59,8 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |Large
 |Mono
 |LCD typically with backlight
-|8-bit parallel	PIC and AVR: Software device specific protocol
-|Typically operates at VCC 5. Always check voltage specifications	8-bit bus required.
+|8-bit parallel PIC and AVR: Software device specific protocol
+|Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
 |Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
 |Requires 12 ports/connections.
 |These are low cost mono devices..
@@ -73,7 +73,7 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |320 * 240
 |Large
 |Color
-|TFT LCD	8-bit parallel
+|TFT LCD  8-bit parallel
 |PIC: Set per bit. AVR: via Shield set via AND PORT command
 |+VCC from 2.7 to  5. Always check voltage specifications
 |UNO shield is excellent. Very fast display.
@@ -86,10 +86,10 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |1.77inch
 |Nokia 3310 or 5110
 |160 * 128
-|Small	Mono	LCD with LED
+|Small  Mono  LCD with LED
 |SPI
 |PIC and AVR: Device specific SPI command, all in software.
-|Display can operate in text mode only for low RAM microcontrollers as full GLCD capabilities requires 512bytes of RAM.	+VCC 3.3.  Always check voltage specifications	Nice display.
+|Display can operate in text mode only for low RAM microcontrollers as full GLCD capabilities requires 512bytes of RAM. +VCC 3.3.  Always check voltage specifications  Nice display.
 Sensitive to operating voltages.
 |Minimum RAM required is 512 bytes then add user variables for graphics mode, this display can operate in text mode only for low RAM microcontrollers.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
@@ -103,7 +103,7 @@ Sensitive to operating voltages.
 |Medium
 |Color
 |TFT LCD
-|SPI	PIC and AVR: Hardware and software SPI
+|SPI  PIC and AVR: Hardware and software SPI
 |Typically operates at VCC 5. Always check voltage specifications
 |Very nice display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
@@ -118,7 +118,7 @@ Sensitive to operating voltages.
 |Large
 |Color
 |TFT LCD
-|16-bit parallel	AVR: Software device specific protocol.
+|16-bit parallel  AVR: Software device specific protocol.
 |Typically operates at VCC 5. Always check voltage specifications
 |Mega2560 shield required.
 |Connectivity requires 20 ports.
@@ -134,7 +134,7 @@ Sensitive to operating voltages.
 |TFT LCD
 |SPI
 |PIC and AVR: Hardware and software SPI
-|Typically operates at VCC 5. Always check voltage specifications	Very nice display.
+|Typically operates at VCC 5. Always check voltage specifications Very nice display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
 |Good for cost and performance
 
@@ -157,14 +157,14 @@ Sensitive to operating voltages.
 |8
 |ILI9486L
 |Help
-|	4inch
-|RPI	 240 * 320
+| 4inch
+|RPI   240 * 320
 |Large
 |Color
 |TFT LCD
 |SPI
 |PIC and AVR: Hardware and software SPI
-|Typically operates at VCC 5. Always check voltage specifications	Great pixel display.
+|Typically operates at VCC 5. Always check voltage specifications Great pixel display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
 |An expensive option
 
@@ -179,7 +179,7 @@ Sensitive to operating voltages.
 |TFT LCD
 |Serial - hardware or software serial is supported.
 |Nextion specfic and GLCD command set
-|Typically operates at VCC 5 with external power supply. Always check voltage specifications	Great command set, you need to learn the GUI and then interface to Great Cow BASIC.
+|Typically operates at VCC 5 with external power supply. Always check voltage specifications  Great command set, you need to learn the GUI and then interface to Great Cow BASIC.
 |2 ports for the read/write serial operations.
 |A very nice option but if you need flexibility then the best!
 
@@ -189,7 +189,7 @@ Sensitive to operating voltages.
 |1.3 inch or 0.96inch
 |128 * 64
 |Small
-|Mono	OLED
+|Mono OLED
 |I2C
 |PIC and AVR: Hardware and software I2C
 |Always at 3.3v. Always check voltage specifications
@@ -208,7 +208,7 @@ Sensitive to operating voltages.
 |I2C and SPI
 |PIC and AVR: Hardware and software I2C, and software SPI
 |RAM for Full Mode GLCD is 1024 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
-Typically operates at VCC 5. Always check voltage specifications	Very good OLED display. Driver supports gaming.	Minimum RAM required is  1024 bytes then add user variables for graphics mode.
+Typically operates at VCC 5. Always check voltage specifications  Very good OLED display. Driver supports gaming. Minimum RAM required is  1024 bytes then add user variables for graphics mode.
 
 Display can operate in text mode only for low RAM microcontrollers
 
@@ -230,7 +230,7 @@ I2C requires 2 ports.
 |PIC and AVR: Hardware and software I2C, and software SPI
 
 |RAM for Full Mode GLCD is 512 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
-Typically operates at VCC 5. Always check voltage specifications	Best small OLED display. Driver supports gaming.	Minimum RAM required is  512 bytes then add user variables for graphics mode, this display can operate in text mode only for low RAM microcontrollers
+Typically operates at VCC 5. Always check voltage specifications  Best small OLED display. Driver supports gaming.  Minimum RAM required is  512 bytes then add user variables for graphics mode, this display can operate in text mode only for low RAM microcontrollers
 
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
 
@@ -244,7 +244,7 @@ I2C requires 2 ports.
 |128 * 64
 |Large
 |Mono
-|LCD typically with backlight	8-bit parallel
+|LCD typically with backlight 8-bit parallel
 |PIC and AVR:  Software device specific protocol.
 |Typically operates at VCC 5. Always check voltage specifications
 |8-bit bus required.  Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
@@ -263,7 +263,7 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |TFT LCD
 |SPI
 |AVR 8 bit bus
-|Typically operates at VCC 5. Always check voltage specifications	Great pixel display.
+|Typically operates at VCC 5. Always check voltage specifications Great pixel display.
 |Controller requires 8 ports plus 5 control ports. Typically 13 in total with an UNO shield.
 |An very nice display
 
@@ -279,9 +279,27 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |PIC and AVR: Hardware and software I2C, and software SPI
 |Typically operates at VCC 5. Always check voltage specifications
 |SPI requires typically 6 in total.
-|Ver good color OLED display, excellent value for money
-|===
+|Very good color OLED display, excellent value for money
 
+
+|16
+|ILI9326
+|Help
+|3.00inch
+|400 * 320
+|Large
+|Color
+|OLED
+|8 bit bus
+|PIC and AVR: 8 bit bus
+|Typically operates at VCC 3.3. Always check voltage specifications
+|Requires typically 13 in total plus 0v, VCC and LED.
+|Good color OLED display, good value for money as it is fast.  But, the rotate is all executed in software and this does slow down processing.
+
+{empty} +
+The LED connected is typically to ground.  You can solder the GND connect to make the backlite permanently on.
+
+|===
 
 *Setup:*
 

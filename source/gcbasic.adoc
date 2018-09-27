@@ -219,6 +219,8 @@ include::glcdoverview.adoc[]
 
 include::hx8347Gcontrollers.adoc[]
 
+include::ili9326controllers.adoc[]
+
 include::ili9340controllers.adoc[]
 
 include::ili9341controllers.adoc[]
