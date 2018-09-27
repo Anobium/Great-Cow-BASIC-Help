@@ -7,8 +7,7 @@ This instructions are for macOS only (not Windows).
 
 You have a choice to make. You can either:
 
-. download a macOS installer which will install a precompiled binary for
-Great Cow BASIC along with support files and some optional components; or
+. download a macOS installer which will install a precompiled binary for Great Cow BASIC along with support files and some optional components; or
 . download, compile and install Great Cow BASIC from the source files.
 
 There are instructions below for both choices.
@@ -19,8 +18,7 @@ There are instructions below for both choices.
  . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from
   [^^ADD LOCATION^^]
 
- . Double click the .dmg file to mount it on your Desktop and a window will
-open which contains the .pkg Installer.
+ . Double click the .dmg file to mount it on your Desktop and a window will open which contains the .pkg Installer.
 
  . Double click the .pkg Installer and follow the prompts.
 
@@ -29,57 +27,47 @@ open which contains the .pkg Installer.
 Complete the following steps to compile and install Great Cow BASIC:
 
 [start=1]
- . Download the FreeBASIC 1.06 macOS 10.4 binary compilation from: 
-http://tmc.castleparadox.com/temp/fbc-1.06-darwin-wip20160505.tar.bz2
+ . Download the FreeBASIC 1.06 macOS 10.4 binary compilation from: http://tmc.castleparadox.com/temp/fbc-1.06-darwin-wip20160505.tar.bz2
 
- . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at 
-https://sourceforge.net/projects/gcbasic/files/
+ . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
 
  . Ensure that the latest Apple Developer Xcode is installed. Xcode is available from the App Store for free. 
 
  . Open a Terminal window (Terminal can be found in Applications > Utilities).
 
- . Ensure that the XCode command line tools are installed by typing the
- following command into the Terminal window:
+ . Ensure that the XCode command line tools are installed by typing the following command in your Terminal window:
 ----
    xcode-select --install.
 ----
 
 [start=6]
- . Move the FreeBASIC compressed tar file from your Downloads directory to
-your home directory by typing:
+ . Move the FreeBASIC compressed tar file from your Downloads directory to your home directory by typing the following command in your Terminal window:
 ----
    mv ~/Downloads/fbc-1.06-darwin-wip20160505.tar.bz2 ~/
 ----
 
 [start=7]
- . Unpack the FreeBASIC compressed tar file by typing these commands in your
-Terminal window:
+ . Unpack the FreeBASIC compressed tar file by typing these commands in your Terminal window:
 ----
    gzcat fbc-1.06-darwin-wip20160505.tar.bz2 | tar xvf -
 ----
-
 which will produce a new directory called fbc-1.06.
 
 [start=8]
- . Move the Great Cow BASIC compressed tar file from your Downloads directory 
-to your home directory by typing:
+ . Move the Great Cow BASIC compressed tar file from your Downloads directory to your home directory by typing the follwoign command in your Terminal window:
 ----
    mv ~/Downloads/GCB-macOS.tar.bz2 ~/
 ----
 
 [start=9]
- . Unpack the Great Cow BASIC compressed tar file by typing these commands in 
- your Termanal window:
+ . Unpack the Great Cow BASIC compressed tar file by typing these commands in your Terminal window:
 ----
    gzcat GCB-macOS.tar.bz2 | tar xvf -
 ----
-
 which will produce a new directory called GreatCowBasic.
 
 [start=10]
- . Change to the ~/GreatCowBasic/Sources directory by typing this command in
- your terminal window:
+ . Change to the ~/GreatCowBasic/Sources directory by typing this command in your Terminal window:
 ----
    cd ~/GreatCowBasic/Sources
 ----
