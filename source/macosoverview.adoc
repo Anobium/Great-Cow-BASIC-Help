@@ -19,10 +19,10 @@ There are instructions below for both choices.
  . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from
   [^^ADD LOCATION^^]
 
- . double click the .dmg file to mount it on your Desktop and a window will
+ . Double click the .dmg file to mount it on your Desktop and a window will
 open which contains the .pkg Installer.
 
- . double click the .pkg Installer and follow the prompts.
+ . Double click the .pkg Installer and follow the prompts.
 
 *Instructions for building your own Great Cow BASIC binary*
 
@@ -35,7 +35,15 @@ http://tmc.castleparadox.com/temp/fbc-1.06-darwin-wip20160505.tar.bz2
  . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at 
 https://sourceforge.net/projects/gcbasic/files/
 
+ . Ensure that the latest Apple Developer Xcode is installed. Xcode is available from the App Store for free. 
+
  . Open a Terminal window (Terminal can be found in Applications > Utilities).
+
+ . Ensure that the XCode command line tools are installed by typing the
+ following command into the Termainl window:
+----
+   xcode-select --install.
+----
 
  . Move the FreeBASIC compressed tar file from your Downloads directory to
 your home directory by typing:
@@ -65,21 +73,13 @@ to your home directory by typing:
 
 which will produce a new directory called GreatCowBasic.
 
- . Change to the ~/GreatCowBasic/Sources directory:
+ . Change to the ~/GreatCowBasic/Sources directory by typing this command in
+ your terminal window:
 ----
-   eg. cd ~/Downloads/GCB@Syn/GreatCowBasic/Sources/GCBASIC
+   cd ~/GreatCowBasic/Sources
 ----
-[start=5]
- . Make sure that `install.sh` is set as executable (ie. `chmod +x install.sh`), and then execute: ./install.sh build
 
-
- . You will need root privileges for this step. You can switch user (su) to root, or optionally use `sudo`.
-----
-   Execute: [sudo] ./install.sh install
-----
-[start=7]
- . If you su'd to root, use `exit` to drop back to your normal user. Then, be sure to follow the instructions given by the script for updating your path.
-
+ . 
 
  . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
 
