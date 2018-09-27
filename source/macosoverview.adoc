@@ -40,16 +40,18 @@ https://sourceforge.net/projects/gcbasic/files/
  . Open a Terminal window (Terminal can be found in Applications > Utilities).
 
  . Ensure that the XCode command line tools are installed by typing the
- following command into the Termainl window:
+ following command into the Terminal window:
 ----
    xcode-select --install.
 ----
+
 [start=6]
  . Move the FreeBASIC compressed tar file from your Downloads directory to
 your home directory by typing:
 ----
    mv ~/Downloads/fbc-1.06-darwin-wip20160505.tar.bz2 ~/
 ----
+
 [start=7]
  . Unpack the FreeBASIC compressed tar file by typing these commands in your
 Terminal window:
@@ -58,12 +60,14 @@ Terminal window:
 ----
 
 which will produce a new directory called fbc-1.06.
+
 [start=8]
  . Move the Great Cow BASIC compressed tar file from your Downloads directory 
 to your home directory by typing:
 ----
    mv ~/Downloads/GCB-macOS.tar.bz2 ~/
 ----
+
 [start=9]
  . Unpack the Great Cow BASIC compressed tar file by typing these commands in 
  your Termanal window:
@@ -72,6 +76,7 @@ to your home directory by typing:
 ----
 
 which will produce a new directory called GreatCowBasic.
+
 [start=10]
  . Change to the ~/GreatCowBasic/Sources directory by typing this command in
  your terminal window:
@@ -80,8 +85,8 @@ which will produce a new directory called GreatCowBasic.
 ----
 
  . 
-[start=11]
 
+[start=11]
  . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
 
 
