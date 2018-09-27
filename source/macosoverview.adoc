@@ -68,33 +68,33 @@ Complete the following steps to compile and install Great Cow BASIC:
    mv ~/Downloads/fbc-1.06-darwin-wip20160505.tar.bz2 ~/
 ----
 
-[start=7]
+[start=11]
  . Unpack the FreeBASIC compressed tar file by typing these commands in your Terminal window:
 ----
    gzcat fbc-1.06-darwin-wip20160505.tar.bz2 | tar xvf -
 ----
 which will produce a new directory called fbc-1.06.
 
-[start=8]
+[start=12]
  . Move the Great Cow BASIC compressed tar file from your Downloads directory to your home directory by typing the following command in your Terminal window:
 ----
    mv ~/Downloads/GCB-macOS.tar.bz2 ~/
 ----
 
-[start=9]
+[start=13]
  . Unpack the Great Cow BASIC compressed tar file by typing these commands in your Terminal window:
 ----
    gzcat GCB-macOS.tar.bz2 | tar xvf -
 ----
 which will produce a new directory called GreatCowBasic.
 
-[start=10]
+[start=14]
  . Change to the ~/GreatCowBasic/Sources directory by typing this command in your Terminal window:
 ----
    cd ~/GreatCowBasic/Sources
 ----
 
-[start=11]
+[start=15]
  . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
 
 
