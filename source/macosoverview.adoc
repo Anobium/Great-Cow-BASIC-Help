@@ -31,16 +31,38 @@ Complete the following steps to compile and install Great Cow BASIC:
 
  . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
 
- . Ensure that the latest Apple Developer Xcode is installed. Xcode is available from the App Store for free. 
+ . Unfortunately Apple replaced gcc compiler with the clang compiler and FreeBASIC needs the real gcc due to a certain use of goto... so, you can compile your own version of gcc following the instructions at: https://bitbucket.org/sol_prog/macos-gcc-binary or you can take the low road and just download the pre-compiled binary version from https://bitbucket.org/sol_prog/macos-gcc-binary/raw/38724f2d24aa5b7944d2227d8098b1d30ac5d7b5/gcc-8.1.tar.bz2
 
  . Open a Terminal window (Terminal can be found in Applications > Utilities).
 
+ . Move gcc-8.1.tar.bz2 from your Downloads directory to your Home directory by typing the follwoing command in your Terminal window:
+----
+   mv ~/Downloads/gcc-8.1.tar.bz2 ~/
+----
+
+[start=6]
+ . Unpack the gcc-8.1.tar.bz2 compressed tar file by typing the follwoing comamnd into your Terminal window: 
+----
+   gzcat gcc-8.1.tar.bz2 | tar xvf -
+----
+
+[start=7]
+ . Move the gcc-8.1 directory to the /usr/local/ directory by typing the follwoing commands into your Termainl window:
+----
+   sudo mv gcc-8.1 /usr/local
+----
+You will be asked for your password to execute the above command.
+
+[start=8]
+ . Ensure that the latest Apple Developer Xcode is installed. Xcode is available from the App Store for free. 
+
+[start=9]
  . Ensure that the XCode command line tools are installed by typing the following command in your Terminal window:
 ----
    xcode-select --install.
 ----
 
-[start=6]
+[start=10]
  . Move the FreeBASIC compressed tar file from your Downloads directory to your home directory by typing the following command in your Terminal window:
 ----
    mv ~/Downloads/fbc-1.06-darwin-wip20160505.tar.bz2 ~/
@@ -71,8 +93,6 @@ which will produce a new directory called GreatCowBasic.
 ----
    cd ~/GreatCowBasic/Sources
 ----
-
- . 
 
 [start=11]
  . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
