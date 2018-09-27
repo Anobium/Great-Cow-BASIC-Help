@@ -51,7 +51,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 ----
    sudo mv gcc-8.1 /usr/local
 ----
- You will be asked for your password to execute the above command.
+Note: You will be asked for your password to execute the above command.
 
 [start=8]
  . Ensure that the latest Apple Developer Xcode is installed. Xcode is available from the App Store for free. 
