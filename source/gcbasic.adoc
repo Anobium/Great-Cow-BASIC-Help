@@ -1040,6 +1040,13 @@ This is the Great Cow BASIC for Linux section of the Help file.  Please refer th
 
 include::linuxoverview.adoc[]
 
+ifdef::backend-pdf[<<<]
+
+== Great Cow BASIC for Apple macOS
+This is the Great Cow BASIC for Apple macOS section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::macosoverview.adoc[]
+
 == Great Cow BASIC Maintenance
 
 This is the Great Cow BASIC maintenance section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
