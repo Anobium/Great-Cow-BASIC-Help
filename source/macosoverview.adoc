@@ -45,7 +45,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 ----
    gzcat gcc-8.1.tar.bz2 | tar xvf -
 ----
-This will produce a gcc-8.1 directory.
+This will produce a new directory called gcc-8.1.
 
 [start=7]
  . Move the gcc-8.1 directory to the /usr/local/ directory by typing the following commands into your Termainl window:
@@ -58,7 +58,7 @@ Note: You will be asked for your password to execute the above command.
  . Ensure that the latest Apple Developer Xcode app is installed. Xcode is available from the App Store for free. 
 
 [start=9]
- . Ensure that the XCode command line tools are installed by typing the following command in your Terminal window:
+ . Ensure that the Xcode command line tools are installed by typing the following command in your Terminal window:
 ----
    xcode-select --install.
 ----
@@ -74,7 +74,7 @@ Note: You will be asked for your password to execute the above command.
 ----
    gzcat fbc-1.06-darwin-wip20160505.tar.bz2 | tar xvf -
 ----
-which will produce a new directory called fbc-1.06.
+This will produce a new directory called fbc-1.06.
 
 [start=12]
  . Move the Great Cow BASIC compressed tar file from your Downloads directory to your home directory by typing the following command in your Terminal window:
