@@ -1,18 +1,23 @@
 === Overview - macOS Great Cow BASIC 
 
-==Table of Contents
+*Table of Contents*
 
-=Introduction
-=Instructions for using the Great Cow BASIC Installer
-=Instructions for building your own Great Cow BASIC binary
-=Programming microcontrollers
-=Help
+Introduction
+
+Instructions for using the Great Cow BASIC Installer
+
+Instructions for building your own Great Cow BASIC binary
+
+Programming microcontrollers
+
+Help
 
 
 *Introduction*
-Great Cow BASIC can be used when using the Apple macOS operatimg system.
 
-This instructions are for macOS only (not Windows).
+Great Cow BASIC can be used with the Apple macOS operatimg system.
+
+This instructions are for Apple macOS only (not Windows).
 
 You have a choice to make. You can either:
 
