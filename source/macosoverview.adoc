@@ -136,6 +136,7 @@ To program your microcontroller with your Great Cow BASIC-created hex file, you 
 
 
 *Help*
+
 Great Cow BASIC Help documentation is installed in the Documentation subdirectory in your GreatCowBasic directory.
 
 If at any time you encounter an issue and need help, you will find it over at the friendly Great Cow BASIC discussion forums at https://sourceforge.net/p/gcbasic/discussion/
