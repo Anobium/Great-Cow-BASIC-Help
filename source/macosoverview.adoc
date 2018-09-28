@@ -45,6 +45,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 ----
    gzcat gcc-8.1.tar.bz2 | tar xvf -
 ----
+This will produce a gcc-8.1 directory.
 
 [start=7]
  . Move the gcc-8.1 directory to the /usr/local/ directory by typing the following commands into your Termainl window:
