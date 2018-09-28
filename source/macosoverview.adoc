@@ -31,7 +31,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 
  . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
 
- . Unfortunately Apple replaced gcc compiler with the clang compiler and FreeBASIC needs the real gcc due to a certain use of goto... so, you can compile your own version of gcc following the instructions at: https://bitbucket.org/sol_prog/macos-gcc-binary or you can take the low road and just download the pre-compiled binary version from https://bitbucket.org/sol_prog/macos-gcc-binary/raw/38724f2d24aa5b7944d2227d8098b1d30ac5d7b5/gcc-8.1.tar.bz2
+ . Unfortunately Apple replaced the gcc compiler with the clang compiler and FreeBASIC needs the real gcc due to a certain use of goto... so, you can compile your own version of gcc following the instructions at: https://bitbucket.org/sol_prog/macos-gcc-binary or you can take the low road and just download the pre-compiled binary version from https://bitbucket.org/sol_prog/macos-gcc-binary/raw/38724f2d24aa5b7944d2227d8098b1d30ac5d7b5/gcc-8.1.tar.bz2
 
  . Open a Terminal window (Terminal can be found in Applications > Utilities).
 
