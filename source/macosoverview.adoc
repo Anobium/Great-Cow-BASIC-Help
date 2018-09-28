@@ -26,7 +26,7 @@ You have a choice to make. You can either:
 
 There are instructions below for both choices. If I was you, I would use the Great Cow BASIC Installer and save valuable programming time :-)
 
-*Instructions for using the Great Cow BASIC Installer*
+=== Instructions for using the Great Cow BASIC Installer
 
 [start=1]
  . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from https://sourceforge.net/projects/gcbasic/files/GCBasic-macOS-Installer.dmg/download
@@ -125,7 +125,7 @@ Note 2: You may need to alter the library and include paths in the build.sh scri
 
 Now you should be able create GCB source files with your favourite editor and compile those files with the gcbasic compiler.
 
-*Programming microcontrollers*
+=== Programming microcontrollers
 
 To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional hardware and software.
 
@@ -134,7 +134,7 @@ To program your microcontroller with your Great Cow BASIC-created hex file, you 
 . For Atmel AVR microcontroller programming, you will need the avrdude programming software. Check here: http://www.nongnu.org/avrdude/ for it.
 
 
-*Help*
+=== Help
 
 Great Cow BASIC Help documentation is installed in the Documentation subdirectory in your GreatCowBasic directory.
 
