@@ -1,6 +1,15 @@
-=== Overview
+=== Overview - macOS Great Cow BASIC 
 
-*Introduction:*
+=Table of Contents=
+
+Introduction
+Instructions for using the Great Cow BASIC Installer
+Instructions for building your own Great Cow BASIC binary
+Programming microcontrollers
+Help
+
+
+*Introduction*
 Great Cow BASIC can be used when using the Apple macOS operatimg system.
 
 This instructions are for macOS only (not Windows).
@@ -20,7 +29,7 @@ There are instructions below for both choices.
 
  . Double click the .dmg file to mount it on your Desktop and a window will open which contains the .pkg Installer.
 
- . Double click the .pkg Installer and follow the prompts.
+ . Double click the .pkg Installer icon and follow the prompts.
 
 *Instructions for building your own Great Cow BASIC binary*
 
@@ -48,14 +57,14 @@ Complete the following steps to compile and install Great Cow BASIC:
 This will produce a new directory called gcc-8.1.
 
 [start=7]
- . Move the gcc-8.1 directory to the /usr/local/ directory by typing the following commands into your Termainl window:
+ . Move the gcc-8.1 directory to the /usr/local/ directory by typing the following commands into your Terminal window:
 ----
    sudo mv gcc-8.1 /usr/local
 ----
 Note: You will be asked for your password to execute the above command.
 
 [start=8]
- . Ensure that the latest Apple Developer Xcode app is installed. Xcode is available from the App Store for free. 
+ . Ensure that the Apple Developer Xcode app is installed. Xcode can be downloaded and installed from the App Store for free. 
 
 [start=9]
  . Ensure that the Xcode command line tools are installed by typing the following command in your Terminal window:
@@ -87,29 +96,40 @@ This will produce a new directory called fbc-1.06.
 ----
    gzcat GCB-macOS.tar.bz2 | tar xvf -
 ----
-which will produce a new directory called GreatCowBasic.
+This will produce a new directory called GreatCowBasic.
 
 [start=14]
- . Change to the ~/GreatCowBasic/Sources directory by typing this command in your Terminal window:
+ . Change to the GreatCowBasic/Sources directory by typing this command in your Terminal window:
 ----
    cd ~/GreatCowBasic/Sources
 ----
 
 [start=15]
- . Confirm proper execution, and the version, of Great Cow BASIC by typing the following command in the Terminal window:
+. Compile the Great Cow BASIC binary (gcbasic) by typing the following command into your Terminal window:
 ----
-   gcbasic /version
+  DarwinBuild/build.sh
+----
+Note 1: If you did not install the various files with the same names as in the instructions above into your Home directory, you will need to edit the build.sh script file and change the file paths and filenames to the appropriate values.
+
+Note 2: You may need to alter the library and include paths in the build.sh script depending on your version of macOS (it is currently setup for the Xcode High Sierra 10.13 and Mohave 10.14 versions of macOS).
+
+[start=16]
+ . Confirm the proper execution, and the version, of Great Cow BASIC by typing the following command in the Terminal window:
+----
+   gcbasic
 ----
 
-Now you can create and compile GCB source files.
+Now you should be able create GCB source files with your favourite editor and compile those files with the gcbasic compiler.
+
+*Programming microcontrollers*
+
+To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional hardware and software.
+
+. For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120 and the programming software pk2cmd v1.2.
+
+. For Atmel AVR microcontroller programming, you will need the avrdude programming software. Check here: http://www.nongnu.org/avrdude/ for it.
 
 
+*Help*
 
-*Programming microcontrollers:*
-
-To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional software.
-
-For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
-
-For Atmel AVR microcontroller programming, you will need `avrdude`. It should be available in your distributions repository. If not, check here: http://www.nongnu.org/avrdude/
-
+If at any time you encounter an issue and need help, you will find it over at the Great Cow BASIC discussion forums at https://sourceforge.net/p/gcbasic/discussion/
