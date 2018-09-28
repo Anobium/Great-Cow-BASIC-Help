@@ -95,10 +95,14 @@ which will produce a new directory called GreatCowBasic.
 ----
 
 [start=15]
- . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
-
+ . Confirm proper execution, and the version, of Great Cow BASIC by typing the following command in the Terminal window:
+----
+   gcbasic /version
+----
 
 Now you can create and compile GCB source files.
+
+
 
 *Programming microcontrollers:*
 
