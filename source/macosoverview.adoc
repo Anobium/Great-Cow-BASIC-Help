@@ -30,7 +30,7 @@ There are instructions below for both choices. If I was you, I would use the Gre
 
 [start=1]
  . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from
-  [^^ADD LOCATION^^]
+  *[^^ADD LOCATION^^]*
 
  . Double click the .dmg file to mount it on your Desktop and a window will open which contains the .pkg Installer.
 
