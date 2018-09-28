@@ -17,14 +17,14 @@ Help
 
 Great Cow BASIC can be used with the Apple macOS operatimg system.
 
-This instructions are for Apple macOS only (not Windows).
+These instructions are for Apple macOS only (not Windows).
 
 You have a choice to make. You can either:
 
 . download a macOS installer which will install a precompiled binary for Great Cow BASIC along with support files and some optional components; or
 . download, compile and install Great Cow BASIC from the source files.
 
-There are instructions below for both choices.
+There are instructions below for both choices. If I was you, I would use the Great Cow BASIC Installer to save valuable programming time :-)
 
 *Instructions for using the Great Cow BASIC Installer*
 
@@ -136,5 +136,6 @@ To program your microcontroller with your Great Cow BASIC-created hex file, you 
 
 
 *Help*
+Great Cow BASIC Help documentation is installed in the Documentation subdirectory in your GreatCowBasic directory.
 
-If at any time you encounter an issue and need help, you will find it over at the Great Cow BASIC discussion forums at https://sourceforge.net/p/gcbasic/discussion/
+If at any time you encounter an issue and need help, you will find it over at the friendly Great Cow BASIC discussion forums at https://sourceforge.net/p/gcbasic/discussion/
