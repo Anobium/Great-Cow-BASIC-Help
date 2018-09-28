@@ -35,7 +35,7 @@ There are instructions below for both choices. If I was you, I would use the Gre
 
  . Double click the .pkg Installer icon and follow the prompts.
 
-*Instructions for building your own Great Cow BASIC binary*
+=== Instructions for building your own Great Cow BASIC binary
 
 Complete the following steps to compile and install Great Cow BASIC:
 
