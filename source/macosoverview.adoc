@@ -1,4 +1,4 @@
-=== Overview - macOS Great Cow BASIC 
+= Overview - macOS Great Cow BASIC 
 
 == Table of Contents
 
