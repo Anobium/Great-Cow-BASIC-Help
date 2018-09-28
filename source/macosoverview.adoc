@@ -1,6 +1,6 @@
 === Overview - macOS Great Cow BASIC 
 
-*Table of Contents*
+== Table of Contents
 
 Introduction
 
