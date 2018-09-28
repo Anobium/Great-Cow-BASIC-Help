@@ -31,9 +31,9 @@ There are instructions below for both choices. If I was you, I would use the Gre
 [start=1]
  . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from https://sourceforge.net/projects/gcbasic/files/GCBasic-macOS-Installer.dmg/download
 
- . Double click the .dmg file to mount it on your Desktop and a window will open which contains the .pkg Installer.
+ . Double click the .dmg file to mount it on your Desktop and a window will open which contains the Installer.
 
- . Double click the .pkg Installer icon and follow the prompts.
+ . Double click the Great Cow BASIC icon and follow the installer prompts.
 
 === Instructions for building your own Great Cow BASIC binary
 
