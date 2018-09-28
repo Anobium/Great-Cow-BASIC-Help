@@ -29,8 +29,7 @@ There are instructions below for both choices. If I was you, I would use the Gre
 *Instructions for using the Great Cow BASIC Installer*
 
 [start=1]
- . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from
-  *[^^ADD LOCATION^^]*
+ . Download the Great Cow BASIC - macOS Installer disk image (.dmg) file from https://sourceforge.net/projects/gcbasic/files/GCBasic-macOS-Installer.dmg/download
 
  . Double click the .dmg file to mount it on your Desktop and a window will open which contains the .pkg Installer.
 
@@ -43,7 +42,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 [start=1]
  . Download the FreeBASIC 1.06 macOS 10.4 binary compilation from: http://tmc.castleparadox.com/temp/fbc-1.06-darwin-wip20160505.tar.bz2
 
- . Download the "Great Cow BASIC - macOS Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
+ . Download the Great Cow BASIC macOS Source Distribution from SourceForge at https://sourceforge.net/projects/gcbasic/files/GCB-macOS-src.tar.bz2
 
  . Unfortunately Apple replaced the gcc compiler with the clang compiler and FreeBASIC needs the real gcc due to a certain use of goto... so, you can compile your own version of gcc following the instructions at: https://bitbucket.org/sol_prog/macos-gcc-binary or you can take the low road and just download the pre-compiled binary version from https://bitbucket.org/sol_prog/macos-gcc-binary/raw/38724f2d24aa5b7944d2227d8098b1d30ac5d7b5/gcc-8.1.tar.bz2
 
