@@ -1,12 +1,12 @@
 === Overview - macOS Great Cow BASIC 
 
-=Table of Contents=
+==Table of Contents
 
-Introduction
-Instructions for using the Great Cow BASIC Installer
-Instructions for building your own Great Cow BASIC binary
-Programming microcontrollers
-Help
+=Introduction
+=Instructions for using the Great Cow BASIC Installer
+=Instructions for building your own Great Cow BASIC binary
+=Programming microcontrollers
+=Help
 
 
 *Introduction*
