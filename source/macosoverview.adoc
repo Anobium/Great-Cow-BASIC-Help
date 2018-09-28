@@ -24,7 +24,7 @@ You have a choice to make. You can either:
 . download a macOS installer which will install a precompiled binary for Great Cow BASIC along with support files and some optional components; or
 . download, compile and install Great Cow BASIC from the source files.
 
-There are instructions below for both choices. If I was you, I would use the Great Cow BASIC Installer to save valuable programming time :-)
+There are instructions below for both choices. If I was you, I would use the Great Cow BASIC Installer and save valuable programming time :-)
 
 *Instructions for using the Great Cow BASIC Installer*
 
