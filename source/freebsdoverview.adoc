@@ -1,0 +1,66 @@
+=== Overview - FreeBSD Great Cow BASIC
+
+*Introduction*
+
+Great Cow BASIC can be used with the FreeBSD operating system.
+
+These instructions are for FreeBSD only (not Windows).
+
+*Instructions for using the Great Cow BASIC install.sh script*
+
+Complete the following steps to compile and install Great Cow BASIC:
+
+[start=1]
+ . Download one of the nightly builds of FreeBASIC 1.06 for the FreeBSD 32 bit or 64 bit binary compilation from: http://users.freebasic-portal.de/stw/builds/freebsd32/ (32 bit) or http://users.freebasic-portal.de/stw/builds/freebsd64/ (64 bit) The filenames are in the format fbc_freebsd[32|64]\_[BuildNumber]_[Date].zip.
+
+ . Download the Great Cow BASIC UNIX Source Distribution from SourceForge at https://sourceforge.net/projects/gcbasic/files/GCB-UNIX-src.tar.bz2/download
+
+ . Move the FreeBASIC ZIP file from your download directory to your home directory.
+
+ . Unzip the FreeBASIC ZIP file which will produce a new directory called `fbc_freebsd[32|64]`. The FreeBASIC compiler `fbc` is in the `bin` subdirectory. You should  add the path to `fbc` to your path so that the installation script can find it.
+
+ . Move the Great Cow BASIC compressed tar file from your download directory to your home directory.
+
+ . Unpack the Great Cow BASIC compressed tar file by typing these commands:
+----
+   gzcat GCB-UNIX.tar.bz2 | tar xvf -
+----
+This will produce a new directory called GreatCowBasic.
+
+[start=7]
+. Change to the `GreatCowBasic/Sources` directory.
+
+. Execute the installation shell script. The install script arguments are:
+
+  * _all_ - will compile *and* install the Great Cow BASIC compiler and its support files.
+  * _build_ - will just compile the binary for the Great Cow BASIC compiler.
+  * _install_ - will install the Great Cow BASIC compiler and its support files.
+
+When choosing _all_ or _install_ you will be prompted for an installation directory. The default is `/usr/local/gcb-[version]` for which you will need to run the installation script as root. Alternatively, you can choose to install in your home directory (eg ``~/bin/gcb`). The installation script will automatically append the Great Cow BASIC version so that directory would become `~/bin/gcb-[version]`
+
+----
+  ../FreeBSDBuild/install.sh [all | build | install]
+----
+
+[start=9]
+ . Add the directory where you installed `gcbasic` to your path, or use the full path to the `gcbasic` installation directory and confirm the proper execution, and the version, of Great Cow BASIC by executing `gcbasic`.
+
+Now you should be able create GCB source files with your favourite editor and compile those files with the Great Cow BASIC compiler.
+
+*Programming microcontrollers*
+
+To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional hardware and software.
+
+. For Microchip PIC microcontroller programming, you might find what you need at: https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120 and the FreeBSD version of the `pk2cmd` v1.2 command line programming software.
+
+. For Atmel AVR microcontroller programming, you will need the `avrdude` programming software. avrdude can be compiled and installed from the FreeBSD ports directory or the precompiled binary and any missing dependancies can be installed using `pkg install avrdude`.
+
+Alternatively, if you use Virtual Machine software such as _Virtual Box_ to run Windows programs, you may be able to use Windows GUI programming software.
+
+* For Microchip, the PICKit 2 and PICkit 3 standalone GUI software or even better the PICkitPlus software (https://sourceforge.net/projects/pickit3plus/) for both the PICkit 2 (https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120) and PICkit 3 (https://www.microchip.com/Developmenttools/ProductDetails/PG164130) which has fixed various bugs in those programs and been updated to program the latest Microchip 8 bit microcontrollers.
+
+*Help*
+
+Great Cow BASIC Help documentation is installed in the Documentation subdirectory in your GreatCowBasic directory.
+
+If at any time you encounter an issue and need help, you will find it over at the friendly Great Cow BASIC discussion forums at https://sourceforge.net/p/gcbasic/discussion/
