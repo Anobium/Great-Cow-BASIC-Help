@@ -24,7 +24,8 @@
 - Updated Library section to inclide complete list of library drivers
 - Added HPWM_CCPTimerN
 - Added ILI9326 GLCD
-- Add Apple macOS section
+- Added Apple macOS section
+- Added optionReserveHighProg section
 
 
 

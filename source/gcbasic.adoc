@@ -967,6 +967,8 @@ include::optionnolatch.adoc[]
 
 include::optionvolatile.adoc[]
 
+include::optionReserveHighProg.adoc[]
+
 ifdef::backend-pdf[<<<]
 == Using Assembler
 
