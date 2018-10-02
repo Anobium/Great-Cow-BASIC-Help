@@ -4,7 +4,7 @@
 ----
     #option ReserveHighProg [words]
 ----
-This option reserves program memory to be kept free at the top end of memory.&#160;&#160;This useful for HEF/SAF or bootloaders
+This option reserves program memory to be kept free at the top end of memory.&#160;&#160;This useful for HEF/SAF or bootloaders.
 
 The option provided a reservation for the memory region that is normally assumed to be available to
 the compiler for the application code storage. In order to avoid any possible conflict (overlapping code
@@ -24,4 +24,3 @@ PIC16F1509 microcontroller) has been removed from the default space available fo
 
 
 ----
-
