@@ -50,6 +50,9 @@ The built-in `#defines` are used to support the `#IFDEF` command set are as foll
 |#IFDEF & Output commands
 |The number of microcontroller pins.
 
+|`ChipReserveHighProg`
+|#Scripts, #IFDEF & Output commands
+|The value of the words reserved
 
 |`ChipRam`
 |Number
