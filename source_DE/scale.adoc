@@ -1,0 +1,47 @@
+==== Scale
+
+*Syntax:*
+[subs="quotes"]
+----
+    integer_variable = Scale (value , fromLow , fromHigh , toLow , toHigh [, calibration] )
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.&#160;&#160;&#160;The parameters are:
+
+`value`: the number to scale. A value between 0 and 0xFFFFF - all values passed will be treated as Word variables.
+
+`fromLow`: the lower bound of the value’s current range. An Integer value between -32767 and 32767.
+
+`fromHigh`: the upper bound of the value’s current range. An Integer value between -32767 and 32767.
+
+`toLow`: the lower bound of the value’s target range. An Integer value between -32767 and 32767.
+
+`toHigh`: the upper bound of the value’s target range. An Integer value between -32767 and 32767.
+
+`calibration`: optional calibration offset value. An Integer value between -32767 and 32767.
+
+
+
+*Explanation:*
+
+Scales, re-maps, a number from one range to another.&#160;&#160;&#160;That is, a value of fromLow would gets scaled to toLow, a value of fromHigh to toHigh, values in-between to values in-between, etc.
+
+The method does not constrain values to within the integer range returned, because out-of-range values are sometimes intended and useful.
+
+Note that the "lower bounds" of either range may be larger or smaller than the "upper bounds" so the scale() method may be used to reverse a range of numbers, for example:
+
+----
+    my_newvalue  = scale ( ReadAD10(An0) , 0, 1023, 135, 270)
+----
+
+The method also handles negative integer numbers well, so that this example:
+
+----
+    my_newvalue = scale(ReadAD(An0), 0, 255, 50, -100);
+----
+
+
+
+This method is similar to the Ardunio Map() function.

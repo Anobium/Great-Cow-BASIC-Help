@@ -1,0 +1,14 @@
+===== ST7920GLCDDisableGraphics
+
+*Syntax:*
+----
+    ST7920GLCDDisableGraphics
+----
+*Explanation:*
+
+This command sets the GCLD display controller to text mode.
+
+*Example usage:*
+----
+    ST7920GLCDDisableGraphics 'Set to text mode
+----

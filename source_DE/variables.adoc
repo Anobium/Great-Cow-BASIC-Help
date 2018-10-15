@@ -1,0 +1,174 @@
+// Edit EvanV 061116
+// Added   #define STRINGSIZE 24 constant information.
+// Added   091116 added String examplkes
+=== Variables
+
+*About Variables*
+
+A variable is an area of memory on the microcontroller that can be used
+to store a number or a series of letters. This is useful for many
+purposes, such as taking a sensor reading and acting on it, or counting
+the number of times the microcontroller has performed a particular task.
+
+Each variable must be given a name, such as "MyVariable" or
+"PieCounter". Choosing a name for a variable is easy - just don't
+include spaces or any symbols (other than _), and make sure that the
+name is at least 2 characters (letters and/or numbers) long.
+
+*Variable Types*
+
+There are several different types of variable, and each type can store a
+different sort of information. These are the variable types that Great
+Cow BASIC can currently use:
+[cols=3, options="header,autowidth",width="80%"]
+|===
+|*Variable type*
+|*Information that this variable can store*
+|*Example uses for this type of variable*
+
+|Bit
+|A bit (0 or 1)
+|Flags to track whether or not a piece of code has run
+
+|Byte
+|A whole number between 0 and 255
+|General purpose storage of data, such as counters
+
+|Word
+|A whole number between 0 and 65535
+|Storage of extra large numbers
+
+|Integer
+|A whole number between -32768 and 32767
+|Anything where a negative number will occur
+
+|Long
+|A whole number between 0 and 2^32^ (4.29 billion)
+|Storing very, very big numbers
+
+|Array
+|A list of whole numbers ranging from 0 to 255
+|Logs of sensor readings
+
+|String
+|A series of letters, numbers and symbols.
+|Messages that are to be shown on a screen
+|===
+*Using Variables*
+
+Byte variables do not need any special commands to set them up - just
+put the name of the variable in to the command where the variable is
+needed.
+
+Other types of variable can be used in a very similar way, except that
+they must be "dimensioned" first. This involves using the DIM command,
+to tell Great Cow BASIC that it is dealing with something other than a
+byte variable.
+
+A key feature of variables is that it is possible the have the
+microcontroller check a variable, and only run a section of code if it
+is a given value. This can be done with the IF command.
+
+*String Variables*
+
+Strings are defined as follows:
+----
+    'Create buffer variables to store received messages
+
+    Dim Buffer As String
+----
+String variables default to the following rules and the RAM constraints
+of a specific chip.
+
+- 10 bytes for chips with less than 16 bytes of RAM.
+- 20 bytes for chips with 16 to 367 bytes of RAM.
+- 40 bytes for devices with more RAM than 367 bytes.
+- For chips that have less RAM then the required RAM to support the user define strings the strings (and therefore the RAM) will be NOT be allocated. Please reduce string size.
+
+
+You cannot store a string 20 characters long in a chip with 16 bytes of RAM.
+
+To change the default string size handled internally by the Great Cow BASIC compiler you add increase/decrease the default string size
+
+----
+    'To define the default string size as the follows constant.
+    #define STRINGSIZE 24
+----
+
+Defining a length for the string is the best way to limit memory usage.
+It is good practice if you need a string of a certain size to set the
+length of a strings, since the default length for a string variable
+changes depending on the amount of memory in the microcontroller (see
+above).
+
+To set the length of a string, see the example below:
+----
+    'Create buffer variables to store received messages as 16 bytes long
+    Dim OutBuffer As String * 16
+----
+
+To place quotation marks (" ") in a string of text. For example:
+----
+    She said, "You deserve a treat!"
+----
+
+Use the following method to show the string with the insertion of two quotation marks in a row as an embedded quotation mark.
+These two examples apply to all output methods like HerPrint, Print etc.
+
+----
+    hserprint "She said, ""You deserve a treat!"" "
+
+    dim myString as string * 39
+    myString = "She said, ""You deserve another treat!"" "
+    hserprint myString
+----
+
+*Variable Aliases*
+
+Some variables are aliases, which are used to refer to memory locations
+used by other variables. These are useful for joining predefined byte
+variable together to form word variables.
+
+Alias are not like pointers in many languages - they must always refer
+to the same variable or variables and cannot be changed.
+
+*Casting*
+
+Casting changes the type of a variable or value. Placing the type that
+the value should be converted to in square brackets will tell the
+compiler to convert it. For example, this will cause two byte variables
+to be treated as word variables by the addition code:
+----
+    Dim MyWord As Word
+    MyWord = [word]ByteVar + AnotherByteVar
+----
+Why do this? If there are no casts, then Great Cow BASIC will add the two values
+using the byte addition code, and then convert the result to a word to
+store in `MyWord`. Suppose that `ByteVar` is 150, and `AnotherByteVar` is 231.
+When added, this will come to 381 - which will overflow, leaving 125 in
+the result. However, when the cast is added, Great Cow BASIC will treat `ByteVar`
+as if it were a word, and so will use the word addition code. This will
+cause the correct result to be calculated.
+
+Often, a cast will be used when calculating an average:
+----
+    MyAverage = ([word]Value1 + Value2) / 2
+----
+It's also possible to cast the second value:
+----
+    MyAverage = (Value1 + [word]Value2) / 2
+----
+The result will be exactly the same.
+
+{empty} +
+Doing things to individual bits of variables see,
+<<_set,Set>>, <<_rotate,Rotate>>
+{empty} +
+{empty} +
+
+Checking variables and doing different things based on their value, see
+<<_if,If>>, <<_do,Do>>, <<_for,For>>, <<_conditions,Conditions>>
+{empty} +
+
+*For more help, see:* <<_dim,Declaring variables with DIM>>,
+<<_setting_variables,Setting Variables>>

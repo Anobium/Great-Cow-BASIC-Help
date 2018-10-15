@@ -1,0 +1,39 @@
+==== Mid
+
+*Syntax:*
+[subs="quotes"]
+----
+    __output__ = Mid(__source__, __start__, __count__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Mid` function is used to extract characters from the middle of a string variable. `_source_` is the variable to extract from, `_start_` is the position of the first character to extract, and `_count_` is the number of characters to extract. If `_count_` is not specified, all characters from `_start_` to the end of the source string will be returned.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "The cat sat on the mat"
+
+    'Extract "cat". The c is at position 5, and 3 letters are needed
+    HSerPrint "The animal is a "
+    HSerPrint Mid(TestData, 5, 3)
+
+    'Extract the action. "sat" starts at position 9.
+    HSerPrint "The animal "
+    HSerPrint Mid(TestData, 9)
+    HSerPrintCRLF
+----
+*See Also* <<_left,Left>>, <<_right,Right>>

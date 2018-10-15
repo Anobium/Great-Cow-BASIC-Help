@@ -1,0 +1,273 @@
+==== InitTimer0
+// BillR 021416
+// Reveiwed EvanV 021316
+// Edit EvanV 031216
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    InitTimer0 source, prescaler
+----
+*Command Availability:*
+
+Available on all microcontrollers with a Timer 0 module.
+
+See also  see: <<_inittimer0_8bit_16bit,InitTimer0 8bit/16bit>> for support for microcontrollers with a 8 bit/16 bit Timer 0 module.
+
+*Explanation:*
+
+`InitTimer0` will set up timer 0.
+
+Parameters are required as detailed in the table below:
+
+[cols=2, options="header,autowidth"]
+
+|===
+
+|Parameter
+|Description
+
+|`_source_`
+|The clock source for this specific timer. Can be either `Osc` or `Ext` where`Osc` is an internal oscillator and `Ext` is an external oscillator.
+{empty} +
+{empty} +
+`Osc` - Selects the clock source in use, as set by the microcontroller specific configuration (fuses or #config).&#160;&#160;This could be an internal clock or an external clock source ( external clock sources are typically attached to the XTAL pins).
+
+`Ext` - Selects the clock source attached to a specific exernal interrupt input port.&#160;&#160;This allows a different clock frequency than the main clock to be used, such as 32.768 kHz crystals commonly used for real time circuits.
+
+|`_prescaler_`
+|The value of the prescaler for this specific timer.  See the tables below for permitted values for Microchip PIC or the Atmel AVR microcontrollers.
+
+|===
+
+When the timer overflows from 255 to 0, a  `Timer0Overflow` interrupt will
+be generated. This can be used in conjunction with `On Interrupt` to run a
+section of code when the overflow occurs.
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+*Microchip PIC microcontrollers:*
+
+On Microchip PIC microcontrollers where the `_prescaler_` rate select bits are in the range of 2 to 256  you should use one of the following constants.  If the `_prescaler_` rate select bits are in the range of 1 to 32768 then see the subsequent table.
+
+[cols="^1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:2
+|`PS0_2`
+|0
+
+|1:4
+|`PS0_4`
+|1
+
+|1:8
+|`PS0_8`
+|2
+
+|1:16
+|`PS0_16`
+|3
+
+|1:32
+|`PS0_32`
+|4
+
+|1:64
+|`PS0_64`
+|5
+
+|1:128
+|`PS0_128`
+|6
+
+|1:256
+|`PS0_256`
+|7
+
+
+|===
+
+These correspond to a prescaler of between 1:2 and 1:256 of the oscillator
+speed where the oscillator speed is (FOSC/4). The prescaler applies to
+both the internal oscillator or the external clock.
+{empty} +
+{empty} +
+{empty} +
+
+*Atmel AVR microcontrollers:*
+
+On Atmel AVR microcontrollers `_prescaler_` must be one of the following constants:
+
+The prescaler will only apply when the timer is driven from the `Osc` the
+internal oscillator - the prescaler has no effect when the external clock
+source is specified.
+
+[cols="^1,1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Secondary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:1
+|`PS_1`
+|`PS_0_1`
+|1
+
+|1:8
+|`PS_8`
+|`PS_0_8`
+|2
+
+|1:64
+|`PS_64`
+|`PS_0_64`
+|3
+
+|1:256
+|`PS_256`
+|`PS_0_256`
+|4
+
+|1:1024
+|`PS_1024`
+|`PS_0_1024`
+|5
+
+|===
+{empty} +
+{empty} +
+{empty} +
+*Example 1 for 8-bit timer 0:*
+
+This code uses Timer 0 and On Interrupt to generate a Pulse Width Modulation
+signal, that will allow the speed of a motor to be easily controlled.
+----
+    #chip 16F88, 8
+    #config osc = int
+
+    #define MOTOR PORTB.0
+
+    'Call the initialisation routine
+    InitMotorControl
+
+    'Main routine
+    Do
+        'Increase speed to full over 2.5 seconds
+        For Speed = 0 to 100
+            MotorSpeed = Speed
+            Wait 25 ms
+        Next
+        'Hold speed
+        Wait 1 s
+        'Decrease speed to zero over 2.5 seconds
+        For Speed = 100 to 0
+            MotorSpeed = Speed
+            Wait 25 ms
+        Next
+        'Hold speed
+        Wait 1 s
+    Loop
+
+    'Setup routine
+    Sub InitMotorControl
+        'Clear variables
+        MotorSpeed = 0
+        PWMCounter = 0
+
+        'Add a handler for the interrupt
+        On Interrupt Timer0Overflow Call PWMHandler
+
+        'Set up the timer using the internal oscillator with a prescaler of 1/2 (Equates to 0)
+        'Timer 0 starts automatically on a Microchip PIC microcontroller, therefore, StartTimer is not required.
+        InitTimer0 Osc, PS0_2
+
+    End Sub
+
+    'PWM sub
+    'This will be called when Timer 0 overflows
+    Sub PWMHandler
+        If MotorSpeed > PWMCounter Then
+            Set MOTOR On
+        Else
+            Set MOTOR Off
+        End If
+        PWMCounter += 1
+        If PWMCounter = 100 Then PWMCounter = 0
+    End Sub
+----
+
+*Example 1 for 18-bit timer 0 operating an 8-bit timer:*
+
+The same example for a 16-bit timer 0 operating as an 8-bit timer.
+
+----
+#chip 16f18855,32
+#option Explicit
+'timer test Program
+
+dim speed, MotorSpeed, PWMCounter as byte
+
+#define MOTOR PORTb.0
+dir MOTOR out
+
+'Call the initialisation routine
+InitMotorControl
+
+'Main routine
+Do
+    'Increase speed to full over 2.5 seconds
+    For Speed = 0 to 100
+        MotorSpeed = Speed
+        Wait 25 ms
+    Next
+    'Hold speed
+    Wait 1 s
+    'Decrease speed to zero over 2.5 seconds
+    For Speed = 100 to 0
+        MotorSpeed = Speed
+        Wait 25 ms
+    Next
+    'Hold speed
+    Wait 1 s
+Loop
+
+'Setup routine
+Sub InitMotorControl
+    'Clear variables
+    MotorSpeed = 0
+    PWMCounter = 0
+
+    'Add a handler for the interrupt
+    On Interrupt Timer0Overflow Call PWMHandler
+
+    InitTimer0(Osc, TMR0_FOSC4 + PRE0_1 , POST0_1)
+    StartTimer 0
+
+End Sub
+
+'PWM sub
+'This will be called when Timer 0 overflows
+Sub PWMHandler
+
+    If MotorSpeed > PWMCounter Then
+        Set MOTOR On
+    Else
+        Set MOTOR Off
+    End If
+    PWMCounter += 1
+    If PWMCounter = 100 Then PWMCounter = 0
+
+End Sub
+
+----
+*Supported in <TIMER.H>*

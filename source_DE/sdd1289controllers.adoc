@@ -1,0 +1,199 @@
+==== SDD1289 Controllers
+
+
+This section covers GLCD devices that use the SDD1289 graphics controller.  The SDD1289 is a 240 x 320 single chip controller driver IC for 262k color (RGB) amorphous TFT LCD.
+
+
+The Great Cow BASIC constants shown below control the configuration of the SDD1289 controller. &#160;&#160;&#160;Great Cow BASIC supports SPI hardware and software connectivity  - this is shown in the tables below.
+
+
+To use the SDD1289 driver simply include the following in your user code.  This will initialise the driver.
+
+----
+
+    #include <glcd.h>
+    #DEFINE GLCD_TYPE GLCD_TYPE_SDD1289
+    'Pin mappings for SDD1289
+    #define GLCD_DC     porta.0           'example port setting
+    #define GLCD_CS     porta.1           'example port setting
+    #define GLCD_RESET  porta.2           'example port setting
+    #define GLCD_DI     porta.3           'example port setting
+    #define GLCD_DO     porta.4           'example port setting
+    #define GLCD_SCK    porta.5           'example port setting
+
+----
+
+The Great Cow BASIC constants for control display characteristics are shown in the table below.
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Default
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_SDD1289`
+|
+
+|`GLCD_DC`
+|Specifies the output pin that is connected to Data/Command IO pin on the GLCD.
+|Required
+
+|`GLCD_CS`
+|Specifies the output pin that is connected to Chip Select (CS)  on the GLCD.
+|Required
+
+|`GLCD_Reset`
+|Specifies the output pin that is connected to Reset pin on the GLCD.
+|Required
+
+|`GLCD_DI`
+|Specifies the output pin that is connected to Data In (GLCD out) pin on the GLCD.
+|Required
+
+|`GLCD_DO`
+|Specifies the output pin that is connected to Data Out (GLCD in) pin on the GLCD.
+|Required
+
+|`GLCD_SCK`
+|Specifies the output pin that is connected to Clock (CLK) pin on the GLCD.
+|Required
+|===
+
+
+
+The Great Cow BASIC constants for control display characteristics are shown in the table below.
+
+
+[cols="3,4,4", options="header,autowidth"]
+|===
+|Constant
+|Purpose
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|Set automatically
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|Set automatically
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|6
+|===
+
+The Great Cow BASIC commands supported for this GLCD are shown in the table below.&#160;&#160;&#160;Always review the appropiate library for the latest full set of supported commands.
+
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Command
+|Purpose
+|Example
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable )`
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable )`
+
+|`Box`
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2,  [Optional In LineColour as 0 or 1]`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2,  [Optional In LineColour 0 or 1] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2,  [Optional In LineColour 0 or 1] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour 0 or 1)`
+
+|`GLCDWriteByte`
+|Set a byte value to the controller, see the datasheet for usage.
+|`GLCDWriteByte ( LCDByte)`
+
+|`GLCDReadByte`
+|Read a byte value from the controller, see the datasheet for usage.
+|`bytevariable = GLCDReadByte`
+
+|`SDD1289_[color]`
+|Specify color as a parameter for many GLCD commands
+|Color constants for this device are shown in the list below. +
+
+ Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
+
+|===
+
+----
+      SSD1289_BLACK   'hexidecimal value 0x0000
+      SSD1289_RED     'hexidecimal value 0xF800
+      SSD1289_GREEN   'hexidecimal value 0x07E0
+      SSD1289_BLUE    'hexidecimal value 0x001F
+      SSD1289_WHITE   'hexidecimal value 0xFFFF
+      SSD1289_PURPLE  'hexidecimal value 0xF11F
+      SSD1289_YELLOW  'hexidecimal value 0xFFE0
+      SSD1289_CYAN    'hexidecimal value 0x07FF
+      SSD1289_D_GRAY  'hexidecimal value 0x528A
+      SSD1289_L_GRAY  'hexidecimal value 0x7997
+      SSD1289_SILVER  'hexidecimal value 0xC618
+      SSD1289_MAROON  'hexidecimal value 0x8000
+      SSD1289_OLIVE   'hexidecimal value 0x8400
+      SSD1289_LIME    'hexidecimal value 0x07E0
+      SSD1289_AQUA    'hexidecimal value 0x07FF
+      SSD1289_TEAL    'hexidecimal value 0x0410
+      SSD1289_NAVY    'hexidecimal value 0x0010
+      SSD1289_FUCHSIA 'hexidecimal value 0xF81F
+
+----
+
+
+
+For a SDD1289 datasheet, please refer http://gcbasic.sourceforge.net/library/DISPLAY/SDD1289.pdf[here]. +
+
+This example shows how to drive a SDD1289 based Graphic LCD module with the built in commands of Great Cow BASIC. +
+
+
+*Example:*
+----
+    ;Chip Settings
+    #chip 16F1937,32
+    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+
+    #include <glcd.h>
+
+    'Defines for SDD1289
+    #define GLCD_TYPE GLCD_TYPE_SDD1289
+    'Pin mappings for SDD1289
+    #define GLCD_DC porta.0
+    #define GLCD_CS porta.1
+    #define GLCD_RESET porta.2
+    #define GLCD_DI porta.3
+    #define GLCD_DO porta.4
+    #define GLCD_SCK porta.5
+
+    GLCDPrint(0, 0, "Test of the SDD1289 Device")
+    end
+----
+{empty} +
+{empty} +
+*For more help, see*
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> OR <<_pset,Pset>>
+
+Supported in <GLCD.H>

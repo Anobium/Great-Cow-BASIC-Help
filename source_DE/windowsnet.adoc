@@ -1,0 +1,3 @@
+=== Windows .NET Support
+
+From Great Cow Graphical BASIC version 0.941 supports use on newer Windows versions without having the pre-requisite of .NET 3.5.

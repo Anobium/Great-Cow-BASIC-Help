@@ -1,0 +1,83 @@
+==== Play
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    Play SoundPlayDataString
+----
+
+You must specify the following include and the port of the sound device.
+
+----
+    #include <songplay.h>
+    #define SOUNDOUT PORTN.N
+----
+
+*Command Availability::*
+Available on all microcontrollers.
+
+
+*Explanation:*
+This command will plays a QBASIC sequence of notes. The SoundPlayDataString is a string representing a musical note or notes to play where Notes are A to G.
+
+[cols=2, options="header,autowidth",width="80%"]
+|===
+
+|Command
+|Description
+
+|A - G
+|May be followed by length: 2 = half note, 4 = quarter, also may be followed by # or + (sharp) or - (flat).
+
+|On
+|Sets current octave. n is octave from 0 to 6
+
+|Pn
+|Pause playing. n is length of rest
+
+|Ln:
+|Set default note length. n = 1 to 8.
+
+|< or >
+|Change down or up an octave
+
+|Tn:
+|Sets tempo in L4s/minute. n = 32 to 255, default 120.
+
+|Nn
+|Play note n. n = 0 to 84, 0 = rest.
+|===
+
+Unsupported QBASIC commands are
+
+[cols=2, options="header,autowidth",width="80%"]
+|===
+
+|Command
+|Description
+
+|M
+|Play mode
+
+|.
+|Changes note length
+
+
+|===
+
+For more information on the QBASIC PLAY command set, see https://en.wikibooks.org/wiki/QBasic/Appendix
+
+
+*Example:*
+----
+    'Sample program to play a string
+    'on PORTB bit 1.
+    #chip 16F877A, 20
+    #include <songplay.h>
+    #define SoundOut PORTB.1
+
+
+    play "C C# C C#"
+
+----
+*For more help, see* <<_sound_overview,Sound Overview>>

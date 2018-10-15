@@ -1,0 +1,47 @@
+==== LCDWriteChar
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    LCDWriteChar _char_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `LCDWriteChar` command will show the specified character on the LCD,
+at the current cursor position.
+
+`_char_` is the ASCII value of the character to show. On most LCDs,
+characters 0 through 7 are user defined, and can be set using the
+`LCDCreateChar` command.
+
+*Example :*
+----
+    'This program draws a smiling face character
+
+    'Create an array to store the character until it is copied
+    Dim CharArray(8)
+
+    'Set the array to hold the character
+    CharArray(1) = b'00011011'
+    CharArray(2) = b'00011011'
+    CharArray(3) = b'00000000'
+    CharArray(4) = b'00000100'
+    CharArray(5) = b'00000000'
+    CharArray(6) = b'00010001'
+    CharArray(7) = b'00010001'
+    CharArray(8) = b'00001110'
+
+    'Copy the character from the array to the LCD
+    LCDCreateChar 0, CharArray()
+
+    'Draw the custom character
+    LCDWriteChar 0
+----
+*For more help, see* <<_lcdcreatechar,LCDCreateChar>>,
+<<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

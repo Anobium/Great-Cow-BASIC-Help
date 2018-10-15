@@ -1,0 +1,157 @@
+=== Lookup Tables
+
+*About Lookup Tables*
+
+A lookup table is a list of values that are stored in the program memory
+of the chip, which can be accessed using the `ReadTable` command.
+
+The advantage of lookup tables is that they are memory efficient,
+compared to an equivalent set of IF statements.
+
+Data tables are defined as
+
+. a single value on each line
+. byte, word, longs and integer values are valid (no strings or decimals!)
+. multiple elements on a single line separated by commas
+. constants and calculations within the single line data table entries are permitted
+. an external data source file
+
+*Defining Tables*
+
+A single value on each line
+----
+    Table TestDataSource as Integer
+        12
+        24
+        36
+        48
+        60
+        72
+    End Table
+----
+Multiple elements on a single line separated by commas:
+----
+    Table TestDataSource as Integer
+        12,  24, 36
+        48,  60, 72
+    End Table
+----
+
+Constants and calculations within the single line:
+----
+#define calculation_constant 2
+
+    Table TestDataSource as Integer
+      1 * calculation_constant
+      2 * calculation_constant
+      4 * calculation_constant
+      8 * calculation_constant
+      16 * calculation_constant
+      32 * calculation_constant
+    End Table
+----
+Data tables can now be loaded directly from a file.  The source file will be read as a hexidecimal raw file.
+----
+Table TestDataSource from "sourcefile.raw"
+----
+
+*Using Lookup Tables*
+
+First, the table must be created. The code to create a lookup table is
+simple - a line that has `Table` and then the name of the table, a list
+of numbers (up to 10,000 elements), and then `End Table`.
+
+For tables with more than 255 elements it is mandated to used a WORD variable to read the size of the table. See below.
+
+Once the table is created, the `ReadTable` command is used to read data
+from it. The `ReadTable` command requires the name of the table it is to
+read, the location of the item to retrieve, and a variable to store the
+retrieved number in.
+
+Lookup tables can store byte, word, longs and integer values. Great Cow BASIC
+will automatically detect the type of the table depending on the values
+in it. Great Cow BASIC can be explicitly instructed to cast the table to a
+variable type, as follows:
+----
+    Table TestDataSource as Integer
+        12
+        24
+        36
+        48
+        60
+        72
+    End Table
+----
+Item 0 of a lookup table stores the size of the table. If the `ReadTable`
+command attempts to read beyond the end of the table, the value 0 will
+be returned.
+
+For tables with more than 255 elements it is *mandatory* to use a WORD variable to read the size of the table. See below.
+----
+    dim lengthoftable  word
+    readtable TestDataSource , 0, lengthoftable
+    print lengthoftable  ; will print the size as a word
+
+    table TestDataSource
+    'a table with more than 255 elements
+    end table
+----
+For tables that are defined using an external file the table data will be read into the TestDataSource table from the external file.
+
+An example file is shown below:
+
+image::lookuptablesb1.PNG[graphic,align="center"]
+
+The following program will import the external data file.
+----
+    #chip 16f877a
+
+    Table TestDataSource from "sourcefile.raw"
+
+    for nn = 1 to 10
+      ReadTable TestDataSource, nn, inc
+      HSerPrint inc
+    next
+----
+And the program will out the following:
+
+image::lookuptablesb2.PNG[graphic,align="center"]
+
+*Advanced use of Lookup Tables*
+
+You can use the `Table` statement to store the data table in EEPROM. If
+the compiler is told to store a data table in "Data" memory, it will
+store it in the EEPROM.
+
+*NOTE*
+The limitation of of using EPPROM tables is that you can only
+store BYTEs. You cannot store WORD values in the EEPROM tables.
+
+Here is some example code:
+----
+    #chip 16F628
+
+    'Read table item
+    'Must use ReadTable and a variable for the index, or the table won't be
+    downloaded to EEPROM
+
+    TableLoc = 2
+    ReadTable TestDataSource, TableLoc, SomeVar
+
+    'Write to table , this is not required
+    EPWrite 1, 45
+
+    'Table of values to write to EEPROM
+    'EEPROM location 0 will store length of table
+    'Subsequent locations will each store a value
+
+    Table TestDataSource Store Data
+        12
+        24
+        36
+        48
+        60
+        72
+    End Table
+----
+*For more help, see* <<_readtable,ReadTable>>

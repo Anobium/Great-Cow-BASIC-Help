@@ -1,0 +1,27 @@
+==== ClearTimer
+
+*Syntax:*
+[subs="quotes"]
+----
+    ClearTimer _TimerNo_
+----
+*Command Availability:*
+
+Available on all Microchip PIC and Atmel AVR microcontrollers with built in timer modules.
+
+*Explanation:*
+
+`ClearTimer` is used to clear the specified timer to a value of 0. 
+
+`Cleartimer` can be used on-the-fly if desired, so there is no requirement to
+stop the timer first.  
+
+*Example:*
+----
+    .....
+    'Clear timer 1
+    ClearTimer 1
+    .....
+----
+
+*See also, <<_inittimer1,InitTimer1>>* article for an example.

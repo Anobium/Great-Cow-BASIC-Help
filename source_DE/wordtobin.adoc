@@ -1,0 +1,24 @@
+==== WordToBin
+
+*Syntax:*
+[subs="quotes"]
+----
+  __stringvar__ = WordToBin(__bytevar__)
+----
+
+*Command Availability:*
+Available on all microcontrollers
+
+*Explanation:*
+
+The `WordToBin` function creates a string of a ANSI (8-byte) characters.
+The function converts a number to a string consisting of ones and zeros that represents the binary value.
+
+*Example:*
+[subs="quotes"]
+----
+    __string__ = WordToBin(1)       ' Returns "0000000000000001"
+
+    __string__ = WordToBin(37654)   ' Returns "1001001100010110"
+----
+*For more help, see* <<_bytetobin,ByteToBin>>

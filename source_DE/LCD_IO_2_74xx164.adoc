@@ -1,0 +1,53 @@
+//190217 Edited backlight reference and link
+===== LCD_IO 2_74xx164
+
+*Using connection mode 2_74XX164:*
+
+Use a Data and a Clock line. This manner is used when the LCD is
+connected through a  shift register IC either using a 74HC164 or a 74LS164,
+as detailed at http://gcbasic.sourceforge.net/library/DIAGRAMS/2-Wire%20LCD/[here].
+This connection method is also called a 2-wire connection.
+
+This is the preferred two wire method to connect via a shift register to an LCD display.
+
+*Relevant Constants:*
+
+Specific constants are used to control settings for the Liquid Crystal Display routines included with Great Cow BASIC.  To set these constants the main program should specific constants to support the connection mode using #define.
+
+When using connection mode 2_74XX164 only three constants must be set - all others are optional or can be ignored.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name*
+|*Controls*
+|*Default Value*
+
+|`LCD_IO`
+|The I/O mode.
+|`2`
+
+|`LCD_DB`
+|The data pin used in 2-bit mode.
+|*Mandated*
+
+|`LCD_CB`
+|The clock pin used in 2- bit mode.
+|*Mandated*
+|===
+
+
+LCD.h supports in connection mode 2_74XX164 via the control of pin 11 of the 74HC164 / 74LS164 the background led/backlight.
+
+How to connect and control the LCD background led: see http://gcbasic.sourceforge.net/help/_lcdbacklight.html
+
+For a code example download http://gcbasic.sourceforge.net/library/DEMO%20CODE/Demo%20code%20for%20lcd/Demo%20mode%202.gcb[Two Wire LCD Example].
+
+See for further code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[Two Wire LCD Solutions].
+
+See the separate sections of the Help file for the specifics of each Connection Mode.
+
+*For more help, see*
+<<_lcd_io_0,LCD_IO 0>>, <<_lcd_io_1,LCD_IO 1>>, <<_lcd_io_2,LCD_IO 2>>,
+<<_lcd_io_2_74xx174,LCD_IO 2_74xx74>>,
+<<_lcd_io_4,LCD_IO 4>>, <<_lcd_io_8,LCD_IO 8>>,
+<<_lcd_io_10,LCD_IO 10>> or <<_lcd_io_12,LCD_IO 12>>

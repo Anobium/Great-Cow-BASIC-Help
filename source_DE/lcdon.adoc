@@ -1,0 +1,15 @@
+==== LCDDisplayOn
+
+[subs="specialcharacters,quotes"]
+*Syntax*:
+----
+    LCDDisplayOn
+----
+
+*Explanation:*
+
+Will turn on (restore) the LCD display
+
+*See also* <<_lcdcursor,LCDCursor>>
+
+*Supported in <LCD.H>*

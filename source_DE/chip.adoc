@@ -1,0 +1,167 @@
+=== #chip
+
+*Syntax:*
+[subs="quotes"]
+----
+    #chip __model__, __frequency__
+----
+*Explanation:*
+
+The `#chip` directive is used to specify the chip model and frequency that Great Cow BASIC will use.
+
+The `_model_` is the specific microcontroller  - examples are "16F819".
+
+The `_frequency_` is the frequency of the chip in MHz, and is required for the delay and PWM routines.
+
+If `frequency` is not present the compiler will select a frequency default frequency that should work for the microcontroller.
+
+ . If the chip has an internal oscillator, the compiler will use that and pick the highest frequency it supports.
+ . If the chip does not have an internal oscillator, then Great Cow BASIC will assume that the chip is being run at its maximum possible clock frequency using an external crystal.
+ . If you are using an external crystal then you must specify a chip frequency.
+
+When using an AVR, there is no need to specify "AT" before the name.
+
+*Examples:*
+----
+    #chip 12F509, 4
+    #chip 18F4550, 48
+    #chip 16F88, 0.125
+    #chip tiny2313, 1
+    #chip mega8, 16
+----
+
+
+*Setting Other Clock frequencies:*
+Some alternative compilers allow value of the clock frequency to be set with the numerical value in Hertz (_i.e._ 24576000). This can be useful when using the clock frequencies other than standard frequencies.
+
+Great Cow BASIC requires clock frequencys to be specified in MHz, but will accept decimal points. For example, if you wanted to run a 16F1827 at 24576000 Hz, you would write the following:
+
+----
+    #chip 16F1827, 24.576
+----
+
+
+*Great Cow BASIC support for microcontrollers:*
+
+Each microcontroller has a microcontroller data file.  This file is located in /GreatCowBasic/chipdata/ folder when installed.
+
+An example is 12F1840.dat
+
+The there are two sections in the microcontroller data file that control the "chip frequency", they are:
+
+    *[ChipData]* and *[ConfigOps]*
+
+
+
+*ChipData section*
+
+The ChipData section for 12F1840 microcontroller. The 12F1840 is used an example
+----
+    [ChipData]
+    Prog=4096
+    EEPROM=256
+    RAM=256
+    I/O=6
+    ADC=4
+    MaxMHz=32
+    IntOsc=32, 16, 8, 4, 2, 1, 0.5, 0.25, 0.125
+    Pins=8
+    Family=15
+    ConfigWords=2
+    PSP=0
+    MaxAddress=4095
+----
+
+The IntOsc line specifies the supported internal clock frequencies.
+
+The 12F1840 microcontroller supports nine internal frequencies (ChipMHz). #Chip is used as follows:
+
+----
+    #chip 12F1840, 32
+----
+
+
+A ChipMHz of 32 does two things.
+
+1.  When using the internal oscillator,  it tells the compiler to set the chip clock frequency (FOSC) to 32MHz
+
+2.  It tells the compiler to calculate all delays (wait times) based upon FOSC of 32 MHz. 
+    Unlike Picaxe Basic (and other compilers) Great Cow delays ("wait") are correct regardless of the setting of FOSC. 
+    If you set the internal oscillator to 4 MHz a "wait 1 ms" will still be 1 ms.
+
+If you set chipMHz to something other than the valid options in the [ChipData] IntOsc section of the microcontroller specific dat file, then, the compiler assumes that you are using an external oscillator and will calculate the delays according to the value you use. The wait times will be incorrect if you are not using an external oscillator at the same frequency as ChipMhz.
+
+----
+    Example:  #chip 12F1840, 12
+----
+
+Since "12" is not a valid internal osc frequency, the microcontroller FOSC will default to 8 MHz because there is no external crystal installed. However, the wait times will be incorrect as they will be calculated by the compiler based upon a 12 Mhz clock.
+
+*ConfigOps section*
+
+The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file. For the 12F1940 is looks like this 
+
+----
+    [ConfigOps]
+    OSC=LP,XT,HS,EXTRC,INTOSC,ECL,ECM,ECH
+    WDTE=OFF,SWDTEN,NSLEEP,ON
+    PWRTE=ON,OFF
+    MCLRE=OFF,ON
+    CP=ON,OFF
+    CPD=ON,OFF
+    BOREN=OFF,SBODEN,NSLEEP,ON
+    CLKOUTEN=ON,OFF
+    IESO=OFF,ON
+    FCMEN=OFF,ON
+    WRT=ALL,HALF,BOOT,OFF
+    PLLEN=OFF,ON
+    STVREN=OFF,ON
+    BORV=HI,LO,19
+    LVP=OFF,ON
+----
+
+`OSC` specifies which oscillator options are available for the specific microcontroller.
+`INTOSC` is the internal oscillator. All others are some form of external clock source.
+`PLLEN` sets the internal Phase Lock Loop either on or off. With this chip the default clock frequency is 8 Mhz. The PLL multiplies this by 4. So to get 32 Mhz the basic internal oscillator will be 8 Mhz then multiplied by 4. For 16 MHz it wil be 4 multiplied by 2. 
+
+GCB sets the PLL automatically, so this option should generally be left alone. IF PLLEN is set to ON, then GCB may not be able to set the correct frewuency of the internal oscillator. Only set PLL = ON if you know what you are doing. 
+
+
+It is always a good practice to set the oscillator source in #config at the beginning of your code. This prevents potential errors. Example:
+
+----
+    #Chip 12F1840, 16
+    #Config OSC = INTOSC
+----
+
+In  this example above, Great Cow BASIC will automatically set the necessary OSC bits for the microcontroller. Frequency bits will be set to 4 MHz and the PLL will be turned on and wait times will be calculated on an FOSC of 16.
+
+You can set the clock to other frequencies but you have to put the PIC into `EC` or `External Clock` mode and then supply that specific clock frequency to the OSC1 pin.
+
+There are three EC modes on the PIC12F1840:
+----
+    ECL - 0 MHz - 0.5 MHz
+    ECM - 0.5 MHz - 4 MHz
+    ECH = 4 MHz - 32MHz
+----
+
+Example: For a 2.1 MHz clock you would need to set the #config and the clock frequency, and, provide the OSC1 pin with a 2.1 MHz signal.
+
+----
+    #chip 12f1840,2.1
+    #config OSC = ECM
+----
+
+*Notes*
+
+When "#config osc=" is not specified in the source code, most microcontrollers will default to an external oscillator source. This means at runtime the chip is expecting an external clock signal.  If the external clock signal is not present, the chip detects a "failure" of the external clock and will  "falls back" to the default internal oscillator setting. 
+
+The PLLEN bit defaults to OFF. The PLL is enabled depending upon the ChipMhz in #Chip xxxxxx, ChipMhz.
+
+The Great Cow BASIC defaults - This is how the bits are set if there is no #config in the source code, Great Cow BASIC does set certain bits.  To examine what bits are set on a particular chip you can omit #config in the source code, thenm compile the code and then use "Open ASM" in the Great Cow BASIC IDE. The bits that are set will be in the config section. All other bits ( those not specifically set) with #Config will be at the POR setting as described below, The `POR` settings are shown in the datasheet for each microcontroller.
+
+Currently Great Cow BASIC sets the `LVP` bit `OFF` by default on many chips. This does not affect normal HV programming like a with a PicKit3.   The default of LVP = OFF  will prevent the microcontroller from being programmed with Low Voltage Programmer. This means that if a PIC microcontroller has previously been programmed with with "LVP =  OFF",  then it must be erased or reprogrammed with LVP = ON using a HVP programmer prior to using certain programming devices e.g. Curiosity development boards, or "NS"  programmers as these  required that LVP = ON. 
+ 
+When LVP = ON, the MCLR pin is automatically set to EXTERNAL MCLR.  This means that the MCLRE pin CANNOT be sue for general purpose I/O functions.  
+
+The native `POR` (Power On Reset) defaults. This is the state of the config bits after Power on if the ASM code has no configuration entries or on a blank factory chip. The only way to power up in this state with GCB code is to use " #option NoConfig" in the Great Cow BASIC source code.

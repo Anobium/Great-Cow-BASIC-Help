@@ -1,0 +1,12 @@
+=== #define
+
+*Syntax:*
+[subs="quotes"]
+----
+    #define _Find_ _Replace_
+----
+*Explanation:*
+
+`#define` will search through the program for `_Find_`, and replace it with the value given for `_Replace_`.
+
+*See Also* <<_constants,Defines>>

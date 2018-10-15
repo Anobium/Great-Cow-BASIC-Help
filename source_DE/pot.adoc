@@ -1,0 +1,52 @@
+==== Pot
+
+*Syntax:*
+[subs="quotes"]
+----
+    Pot _pin, output_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`Pot` makes it possible to measure an analog resistance with a digital port, with the addition of a small capacitor. This is the required circuit:
+
+image:potb1.JPG[graphic,align="center"]
+
+The command works by using the microcontroller pin to discharge the capacitor, then measuring the time taken for the capacitor to charge again through the resistor.
+
+The value for the capacitor must be adjusted depending on the size of the variable resistor. The charging time needs to be approximately 2.5 ms when the resistor is at its maximum value. For a typical 50 k potentiometer or LDR, a 50 nf capacitor is required.
+
+This command should be used carefully. Each time it is inserted, 20 words of program memory are used on the chip, which as a rough guide is more than 15 times the size of the Set command.
+
+`_pin_` is the port connected to the circuit. The direction of the pin will be dealt with by the `Pot` command.
+
+`_output_` is the name of the variable that will receive the value.
+
+*Example:*
+----
+    'This program will beep whenever a shadow is detected
+    'A potentiometer is used to adjust the threshold
+
+    #chip 16F628A, 4
+    #config INTOSC_OSC_NOCLKOUT
+
+    #define ADJUST PORTB.0
+    #define LDR PORTB.1
+    #define SoundOut PORTB.2
+
+    Dir SoundOut Out
+
+    Do
+        Pot ADJUST, Threshold
+        Pot LDR, LightLevel
+        If LightLevel > Threshold Then
+            Tone 1000, 100
+        End If
+    Loop
+----
+
+*See also*  http://ladyada.net/library/rccalc.html[ladyada.net/library/rccalc.html] or http://web.archive.org/web/20100818230450/http://www.cvs1.uklinux.net/cgi-bin/calculators/time_const.cgi[cvs1.uklinux.net/cgi-bin/calculators/time_const.cgi]
+for calculating capacitor value. These sites are not associated with Great Cow BASIC.

@@ -1,0 +1,85 @@
+=== Arrays
+
+*About Arrays*
+
+An array is a special type of variable - one which can store several
+values at once. It is essentially a list of byte numbers in which each one
+can be addressed individually through the use of an "index". The index
+is a value in brackets immediately after the name of the array.
+
+Examples of array names are:
+
+[cols=2, options="header",width="80%"]
+|===
+|*Array/Index*
+|*Meaning*
+
+|`Fish(10)`
+|Definition on an array with 10 elements called `Fish`
+
+|`DataLog(2)`
+|The second element in an array named `DataLog`
+
+|`ButtonList(Temp)`
+|An element in the array `ButtonList` that is selected according to the
+value in the variable `Temp`
+|===
+
+*Defining an array*
+
+Use the DIM command to define an array.
+----
+    DIM array_title ( number_of_elements )
+----
+The number of elements can be number or a constant - not a variable.
+
+The value for the number elements in an array must be a number or constant.
+The compiler allocates RAM for arrays at compile time, and therefore you cannot use a variable because during compilation the value of a variable cannot be determined.
+
+*Setting an entire array at once*
+
+It is possible to set several elements of an array with a single line of
+code. This short example shows how:
+----
+    Dim TestVar(10)
+    TestVar = 1, 2, 3, 4, 5, 6, 7, 8, 9
+----
+When using the method above element 0 of the array TestVar will be set to the number of items in the list, which in this case is 9. Each element of the array will then be loaded with the corresponding value in the list - so in the example, TestVar(1) will be set to 1, TestVar(2) to 2, and so on.  Element 0 will only be set to number of items in the array when using this method up to 48 data elements.
+
+*Array Length*
+Element 0 should not be used to obtain the length of the array. Element 0 will only be a consistent with respect to the length of the array when the array is set as shown above.
+
+The correct method is to use a constant to set the array size and use the constant within your code to obtain the array length.
+----
+    #Define ArraySizeConstant 500
+    Dim TestVar( ArraySizeConstant )
+
+    SerPrint ArraySizeConstant     'or, other usage
+----
+
+*Using Arrays*
+
+To use an array, its name is specified, then the index. Arrays can be
+used everywhere that a normal variable can be used.
+
+The limit on array size varies dependent on the chip type.
+
+. The 12F/16F series of chips the array limit is the physical RAM less a few bytes for array handling.
+. For the Atmel AVR or an 18F there is not limit other than free RAM.
+. However, Great Cow BASIC limits the array size of any array to 10,000 elements.
+
+*Get the most from the available memory*
+
+Array RAM usage is determined by the architecture of the chip type. Getting most out of the available memory is determined by the allocation of the array within the available banks of memory.
+
+
+An example is an array of 6 or 7 bytes when there is only 24 bytes of RAM  and the 24 bytes is split across multiple memory banks.  Assume in this example that 18 bytes have allocated to other variables and there is 29 bytes total available.  An array of 6 bytes will fit into the free space in one bank, but the array of 7 will not.
+
+
+Great Cow BASIC currently cannot split an array over banks, so if there are 6 bytes free in one bank and 5 in another, you cannot have an array of 7 bytes.  This would be very hard to do efficiently on 12F/16F as there would be a series of special function registers in the middle of the array when using a 12F or 16F.   This constraint is not the case on 16F1/18F as linear addressing makes it easy to span banks because the SFRs are not making the problem (as with 12F/16F).
+
+*Using Tables as an alternative.*
+
+If there are many items in the array, it may be better to use a Lookup Table to store the items, and then copy some of the data items into a smaller array as needed.
+
+*For more help, see* <<_dim,Declaring arrays with DIM>>

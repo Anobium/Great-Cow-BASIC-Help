@@ -1,0 +1,18 @@
+==== DS18B20
+
+The DS18B20 is a 1-Wire digital temperature sensor from Maxim IC.
+
+The sensor reports degrees C with 9 to 12-bit precision from -55C to 125C (+/- 0.5C).
+
+Each sensor has a unique 64-Bit Serial number etched into it. This allows for a number of sensors to be used on one data bus. This sensor is used in many data-logging and temperature control projects.
+
+Reading the temperature from a DS18B20 takes up to 750ms(max).
+
+To use the DS18B20 driver the following is required to added to the Great Cow BASIC source file.
+----
+    #include <DS18B20.h>
+----
+Note the Great Cow BASIC commands do not work with the older DS1820 or DS18S20 as they have a different internal resolution.
+
+These commands are not designed to be used with parasitically powered DS18B20 sensors.
+

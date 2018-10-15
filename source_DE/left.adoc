@@ -1,0 +1,35 @@
+==== Left
+
+*Syntax:*
+[subs="quotes"]
+----
+    __output__ = Left(__source__, __count__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Left` function will extract the leftmost `_count_` characters from the input string `_source_`, and return them in a new string.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "Hello, world!"
+
+    'Display the leftmost 5 characters
+    'Will display "Hello"
+    HSerPrint Left(TestData, 5)
+    HSerPrintCRLF
+----
+*See Also* <<_mid,Mid>>, <<_right,Right>>

@@ -1,0 +1,33 @@
+==== HI2CStart
+
+*Syntax:*
+
+----
+    HI2CStart
+----
+
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+If the HI2C routines are operating in Master mode, this command will
+send a start condition. If routines are in Slave mode, it will pause the
+program until a start condition is sent by the master. It should be
+placed at the start of every I2C transmission.
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2Start
+----
+
+*Example:*
+
+Please see <<_hi2csend,HI2CSend>> and <<_hi2creceive,HI2CReceive>> for
+examples.
+
+Supported in <HI2C.H>

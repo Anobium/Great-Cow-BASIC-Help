@@ -1,0 +1,7 @@
+=== #mem
+
+*This directive is obsolete*.
+
+Great Cow BASIC determines the amount of memory on a chip automatically, and will ignore the `#mem` directive.
+
+It is recommended that this directive is removed from all programs.

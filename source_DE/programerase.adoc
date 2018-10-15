@@ -1,0 +1,30 @@
+==== ProgramErase
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    ProgramErase (_location_)
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC microcontrollers with self write capability. Not available on
+Atmel AVR at present.
+
+*Explanation:*
+
+`ProgramErase` erases information from the program memory on chips that
+support this feature. The largest value possible for `_location_` depends
+on the amount of program memory on the Microchip PIC microcontroller, which is given on the
+datasheet.
+
+This command must be called before writing to a block of memory. It is
+slow in comparison to other Great Cow BASIC commands. Note that it erases memory
+in 32-byte blocks - see the relevant Microchip PIC microcontroller datasheet for more information.
+
+This is an advanced command which should only be used by advanced
+developers. Care must be taken with this command, as it can easily erase
+the program that is running on the microcontroller.
+
+*For more help, see <<_programread,ProgramRead>>* and *<<_programwrite,ProgramWrite>>*

@@ -1,0 +1,42 @@
+==== SerReceive
+
+*Syntax:*
+[subs="quotes"] 
+----
+	SerReceive _channel_, _output_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will read a byte from the RS232 channel given by
+`_channel_` according to the rules set using `InitSer`, and store the
+received byte in the variable `_output_`.
+
+*Example:*
+----
+	'This program will read a byte from PORTB.2, and set the LED on if
+	'the byte is more than 50. This can be used with the SerSend
+	'example program.
+
+	#chip 16F88, 8
+	#config Osc = Int
+
+	#define RecAHigh PORTB.2 ON
+	#define RecALow PORTB.2 OFF
+	#define LED PORTB.0
+
+	Dir PORTB.0 Out
+	Dir PORTB.2 In
+
+	InitSer 1, r9600, 1 + WaitForStart, 8, 1, none, normal
+	Do
+		SerReceive 1, Temp
+		If Temp <= 50 Then Set LED Off
+		If Temp > 50 Then Set LED On
+	Loop
+----
+*For more help, see* <<_rs232_software_overview,RS232 Software Overview>>, 
+<<_initser,InitSer>>

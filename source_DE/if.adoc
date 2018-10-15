@@ -1,0 +1,97 @@
+==== If
+
+*Syntax:*
+[subs="quotes"]
+
+----
+*_Short form:_*
+
+    If _condition_ Then _command_
+
+*_Long form:_*
+
+    If _condition_ Then
+    ...
+    _program code_
+    ...
+    End If
+
+*_Using Else:_*
+
+    If _condition_ Then
+      _code to run if true_
+    Else
+      _code to run if false_
+    End If
+
+*_Using If Else:_*
+
+    If _condition_ Then
+      _code to run if true_
+    Else if _nextcondition_ then
+      _code to run if nextcondition true_
+    Else
+      _code to run if false_
+    End If
+
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `If` command is the most common command used to make decisions. If
+`_condition_` is `true`, then `_command_` (short) or `_program code_` (long)
+will be run. If it is `false`, then the microcontroller will skip to the code
+located on the next line (short) or after the `End If` (long form).
+
+If `Else` is used, then the condition between `If` and `Else` will run if the
+condition is `true`, and the code between `Else` and `End If` will run if the
+condition is `false`.
+
+If `Else if` is used, then the condition after the  `Else if` will run if the
+condition is `true`.
+
+
+*Note:*
+`Else` must be on a separate line in the source code.
+
+Supported:
+
+----
+    <instruction> 'is supported
+    Else
+    <instruction>
+----
+
+----
+    <instruction> Else 'Not Supported, but will compile
+    <instruction>
+----
+
+*Example:*
+----
+    'Turn a light on or off depending on a light sensor
+
+    #chip 12F683, 8
+    #config osc = int
+
+    #define LIGHT GPIO.1
+    #define SENSOR AN3
+    #define SENSOR_PORT GPIO.4
+
+    Dir LIGHT Out
+    Dir SENSOR_PORT In
+
+    Do
+    	If ReadAD(SENSOR) > 128 Then
+    		Set LIGHT Off
+    	Else
+    		Set LIGHT On
+    	End If
+    Loop
+----
+
+*For more help, see <<_conditions,Conditions>>*

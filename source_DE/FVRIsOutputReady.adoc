@@ -1,0 +1,36 @@
+==== FVRIsOutputReady
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+
+----
+    user_var = FVRIsOutputReady()
+----
+
+*Command Availability:*
+
+Available on all Microchip microcontrollers with the  Fixed Voltage Reference (FVR) module.
+
+*Explanation:*
+
+The method is a function that returns the state of the FVR.&#160;&#160;&#160;The returned value can be assigned to a variable to used as function.
+
+The method returns 0 or 1.&#160;&#160;&#160;As follows:
+
+0 = Fixed Voltage Reference output is not ready or not enabled
+
+1 = Fixed Voltage Reference output is ready for use
+
+*Example:*
+
+----
+
+    '// use FVR 4096 as Reference
+    FVRInitialize ( FVR_4x )
+    wait while FVRIsOutputReady = false
+    ADVal = ReadAd(AN0)
+
+----
+
+
+*For more help, see* <<_fvrinitialize,FVRInitialize>>

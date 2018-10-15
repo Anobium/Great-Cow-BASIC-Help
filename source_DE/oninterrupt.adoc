@@ -1,0 +1,732 @@
+// Edit EvanV 210117 to add PORTCHANGE
+==== On Interrupt
+
+*Syntax:*
+----
+    On Interrupt event Call handler
+    On Interrupt event Ignore
+----
+
+*Command Availability:*
+
+Available on Microchip PIC and Atmel AVR microcontrollers with interrupt support.
+
+*Explanation:*
+
+On Interrupt will add code to call the subroutine _handler_ whenever the
+interrupt _event_ occurs. When Call is specified, Great Cow BASIC will enable
+the interrupt, and call the interrupt handler when it occurs. When
+Ignore is specified, Great Cow BASIC will disable the interrupt handler and
+prevent it from being called when the event occurs. If the event occurs
+while the handler is disabled, then the handler will be called as soon
+as it is re-enabled. The only way to prevent this from happening is to
+manually clear the flag bit for the interrupt.
+
+There are many possible interrupt events that can occur, and the events
+vary greatly from chip to chip. Great Cow BASIC will display an error if a given
+chip cannot support the specified event.
+
+On Interrupt may require the setting or clearing of the interrupt register bit(s), and, On Interrupt may require setting of explicit enable register bits. You should always consult the device datasheet for these On Interrupt additional specific settings of register bits.  Typically, you will need define the 1) source event register bit(s) in the main program, and, 2) clear or set the register bit at the start of the of the interrupt handler subroutine.
+
+
+Great Cow BASIC has many demonstrations showing how to set and enable appropiate interrupt register bits to support the On Interrupt method.
+
+If On Interrupt is used to handle an event, then the Interrupt()
+subroutine will not be called for that event. However, it will still be
+called for any events not dealt with by On Interrupt.
+
+*Events:*
+
+Great Cow BASIC supports the events shown on the table below. Some events are
+only implemented on a few specialised chips. Events in [gray]#*grey*# are
+supported by Microchip PIC and Atmel AVR microcontrollers, events in [blue]#*blue*# are only supported by some
+Microchip PIC microcontrollers, and events in [red]#*red*# are only supported by Atmel AVR microcontrollers.
+
+Note that Great Cow BASIC doesn't fully support all of the hardware which can
+generate interrupts - some work may be required with various system
+variables to control the unsupported peripherals.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Event Name*
+|*Description*
+|*Supported*
+
+|[gray]#*ADCReady*#
+|The analog/digital converter has finished a conversion
+|Microchip&AVR
+
+|[red]#*BatteryFail*#
+|The battery has failed in some way. This is only implemented on the ATmega406
+|AVR
+
+|[blue]#*CANActivity*#
+|CAN bus activity is taking place
+|Microchip
+
+|[blue]#*CANBadMessage*#
+|A bad CAN message has been received
+|Microchip
+
+|[gray]#*CANError*#
+|Some CAN error has occured
+|Microchip&AVR
+
+|[blue]#*CANHighWatermark*#
+|CAN high watermark reached
+|Microchip
+
+|[blue]#*CANRx0Ready*#
+|New message present in buffer 0
+|Microchip
+
+|[blue]#*CANRx1Ready*#
+|New message present in buffer 1
+|Microchip
+
+|[blue]#*CANRx2Ready*#
+|New message present in buffer 2
+|Microchip
+
+|[blue]#*CANRxReady*#
+|New message present
+|Microchip
+
+|[red]#*CANTransferComplete*#
+|Transfer of data has been completed
+|AVR
+
+|[blue]#*CANTx0Ready*#
+|Buffer 0 has been sent
+|Microchip
+
+|[blue]#*CANTx1Ready*#
+|Buffer 1 has been sent
+|Microchip
+
+|[blue]#*CANTx2Ready*#
+|Buffer 2 has been sent
+|Microchip
+
+|[blue]#*CANTxReady*#
+|Sending has completed
+|Microchip
+
+|[red]#*CCADCAccReady*#
+|CC ADC accumulate conversion finished (ATmega406 only)
+|AVR
+
+|[red]#*CCADCReady*#
+|CC ADC instantaneous conversion finished (ATmega406 only)
+|AVR
+
+|[red]#*CCADCRegular*#
+|CC ADC regular conversion finished (ATmega406 only)
+|AVR
+
+|[blue]#*CCP1*#
+|The CCP1 module has captured an event
+|Microchip
+
+
+|[blue]#*CCP2*#
+|The CCP2 module has captured an event
+|Microchip
+
+|[blue]#*CCP3*#
+|The CCP3 module has captured an event
+|Microchip
+
+|[blue]#*CCP4*#
+|The CCP4 module has captured an event
+|Microchip
+
+|[blue]#*CCP5*#
+|The CCP5 module has captured an event
+|Microchip
+
+|[gray]#*Comp0Change*#
+|The output of comparator 0 has changed
+|Microchip&AVR
+
+|[gray]#*Comp1Change*#
+|The output of comparator 1 has changed
+|Microchip&AVR
+
+|[gray]#*Comp2Change*#
+|The output of comparator 2 has changed
+|Microchip&AVR
+
+|[blue]#*Crypto*#
+|The KEELOQ module has generated an interrupt
+|Microchip
+
+|[gray]#*EEPROMReady*#
+|An EEPROM write has finished
+|Microchip&AVR
+
+|[blue]#*Ethernet*#
+|The Ethernet module has generated an interrupt. This must be dealt within the handler.
+|Microchip
+
+|[gray]#*ExtInt0*#
+|External Interrupt pin 0 has been detected
+|Microchip&AVR
+
+|[gray]#*ExtInt1*#
+|External Interrupt pin 1 has been detected
+|Microchip&AVR
+
+|[gray]#*ExtInt2*#
+|External Interrupt pin 2 has been detected
+|Microchip&AVR
+
+|[gray]#*ExtInt3*#
+|External Interrupt pin 3 has been detected
+|Microchip&AVR
+
+|[red]#*ExtInt4*#
+|External Interrupt pin 4 has been detected
+|AVR
+
+|[red]#*ExtInt5*#
+|External Interrupt pin 5 has been detected
+|AVR
+
+|[red]#*ExtInt6*#
+|External Interrupt pin 6 has been detected
+|AVR
+
+|[red]#*ExtInt7*#
+|External Interrupt pin 7 has been detected
+|AVR
+
+|[blue]#*GPIOChange*#
+|The pins on port GPIO have changed
+|Microchip
+
+|[gray]#*LCDReady*#
+|The LCD is about to draw a segment
+|Microchip&AVR
+
+|[blue]#*LPWU*#
+|The Low Power Wake Up has been detected
+|Microchip
+
+|[blue]#*OscillatorFail*#
+|The external oscillator has failed, and the microcontroller is running from an internal oscillator.
+|Microchip
+
+|[red]#*PinChange*#
+|Logic level of PCINT pin has changed
+|AVR
+
+|[red]#*PinChange0*#
+|Logic level of PCINT0 pin has changed
+|AVR
+
+|[red]#*PinChange1*#
+|Logic level of PCINT1 pin has changed
+|AVR
+
+|[red]#*PinChange2*#
+|Logic level of PCINT2 pin has changed
+|AVR
+
+|[red]#*PinChange3*#
+|Logic level of PCINT3 pin has changed
+|AVR
+
+|[red]#*PinChange4*#
+|Logic level of PCINT4 pin has changed
+|AVR
+
+|[red]#*PinChange5*#
+|Logic level of PCINT5 pin has changed
+|AVR
+
+|[red]#*PinChange6*#
+|Logic level of PCINT6 pin has changed
+|AVR
+
+|[red]#*PinChange7*#
+|Logic level of PCINT7 pin has changed
+|AVR
+
+|[blue]#*PMPReady*#
+|A Parallel Master Port read or write has finished
+|Microchip
+
+|[blue]#*PORTChange*#
+|The pins on ports ABCEDEF have changed.  This is generic port change interrupt.  You must inspect the source to ensure you are handlign the correct interrupt.
+|Microchip
+
+|[blue]#*PORTAChange*#
+|The pins on port A have changed
+|Microchip
+
+|[blue]#*PORTABChange*#
+|The pins on port A and/or B have changed
+|Microchip
+
+|[gray]#*PORTBChange*#
+|The pins on port B have changed
+|Microchip&AVR
+
+|[red]#*PSC0Capture*#
+|The counter for Power Stage Controller 0 matches the value in a compare
+register, the value of the counter has been captured, or a
+synchronisation error has occurred
+|AVR
+
+|[red]#*PSC0EndCycle*#
+|Power Stage Controller 0 has reached the end of its cycle
+|AVR
+
+|[red]#*PSC1Capture*#
+|The counter for Power Stage Controller 1 matches the value in a compare
+register, the value of the counter has been captured, or a
+synchronisation error has occurred
+|AVR
+
+|[red]#*PSC1EndCycle*#
+|Power Stage Controller 1 has reached the end of its cycle
+|AVR
+
+|[red]#*PSC2Capture*#
+|The counter for Power Stage Controller 2 matches the value in a compare
+register, the value of the counter has been captured, or a
+synchronisation error has occurred
+|AVR
+
+|[red]#*PSC2EndCycle*#
+|Power Stage Controller 2 has reached the end of its cycle
+|AVR
+
+|[blue]#*PSPReady*#
+|A Parallel Slave Port read or write has finished
+|Microchip
+
+|[blue]#*PWMTimeBase*#
+|The PWM time base matches the PWM Time Base Period register (PTPER)
+|Microchip
+
+|[red]#*SPIReady*#
+|The SPI module has finished the previous transfer
+|AVR
+
+|[red]#*SPMReady*#
+|A write to program memory by the spm instruction has finished
+|AVR
+
+|[blue]#*SPPReady*#
+|A SPP read or write has finished
+|Microchip
+
+|[blue]#*SSP1Collision*#
+|SSP1 has detected a bus collision
+|Microchip
+
+|[blue]#*SSP1Ready*#
+|The SSP/SSP1/MSSP1 module has finished sending or receiving
+|Microchip
+
+|[blue]#*SSP2Collision*#
+|SSP2 has detected a bus collision
+|Microchip
+
+|[blue]#*SSP2Ready*#
+|The SSP2/MSSP2 module has finished sending or receiving
+|Microchip
+
+|[red]#*Timer0Capture*#
+|An input event on the pin ICP0 has caused the value of Timer 0 to be
+captured in the ICR0 register
+|AVR
+
+|[red]#*Timer0Match1*#
+|Timer 0 matches the Timer 0 output compare register A (OCR0A)
+|AVR
+
+|[red]#*Timer0Match2*#
+|Timer 0 matches the Timer 0 output compare register B (OCR0B)
+|AVR
+
+|[gray]#*Timer0Overflow*#
+|Timer 0 has overflowed
+|Microchip&AVR
+
+|[red]#*Timer1Capture*#
+|An input event on the pin ICP1 has caused the value of Timer 1 to be
+captured in the ICR1 register
+|AVR
+
+|[red]#*Timer1Error*#
+|The Timer 1 Fault Protection unit has been detected by an input on the INT0
+pin
+|AVR
+
+|[red]#*Timer1Match1*#
+|Timer 1 matches the Timer 1 output compare register A (OCR1A) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer1Match2*#
+|Timer 1 matches the Timer 1 output compare register B (OCR1B) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer1Match3*#
+|Timer 1 matches the Timer 1 output compare register C (OCR1C) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer1Match4*#
+|Timer 1 matches the Timer 1 output compare register D (OCR1D) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[gray]#*Timer1Overflow*#
+|Timer 1 has overflowed
+|Microchip&AVR
+
+|[blue]#*Timer2Match*#
+|Timer 2 matches the Timer 2 output compare register (PR2) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|Microchip
+
+
+|[red]#*Timer2Match1*#
+|Timer 2 matches the Timer 2 output compare register A (OCR2A) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer2Match2*#
+|Timer 2 matches the Timer 2 output compare register B (OCR2B) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer2Overflow*#
+|Timer 2 has overflowed
+|AVR
+
+|[red]#*Timer3Capture*#
+|An input event on the pin ICP3 has caused the value of Timer 3 to be
+captured in the ICR3 register
+|AVR
+
+|[red]#*Timer3Match1*#
+|Timer 3 matches the Timer 3 output compare register A (OCR3A) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer3Match2*#
+|Timer 3 matches the Timer 3 output compare register B (OCR3B) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer3Match3*#
+|Timer 3 matches the Timer 3 output compare register C (OCR3C) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[gray]#*Timer3Overflow*#
+|Timer 3 has overflowed
+|Microchip&AVR
+
+|[red]#*Timer4Capture*#
+|An input event on the pin ICP4 has caused the value of Timer 4 to be
+captured in the ICR4 register
+|AVR
+
+|[blue]#*Timer4Match*#
+|Timer 4 matches the Timer 4 output compare register (PR4) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|Microchip
+
+|[red]#*Timer4Match1*#
+|Timer 4 matches the Timer 4 output compare register A (OCR4A) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer4Match2*#
+|Timer 4 matches the Timer 4 output compare register B (OCR4B) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer4Match3*#
+|Timer 4 matches the Timer 4 output compare register C (OCR4C) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer4Overflow*#
+|Timer 4 has overflowed
+|AVR
+
+|[blue]#*Timer5CAP1*#
+|An input on the CAP1 pin has caused the value of Timer 5 to be captured
+in CAP1BUF
+|Microchip
+
+|[blue]#*Timer5CAP2*#
+|An input on the CAP2 pin has caused the value of Timer 5 to be captured
+in CAP2BUF
+|Microchip
+
+|[blue]#*Timer5CAP3*#
+|An input on the CAP3 pin has caused the value of Timer 5 to be captured
+in CAP3BUF
+|Microchip
+
+|[red]#*Timer5Capture*#
+|An input event on the pin ICP5 has caused the value of Timer 5 to be
+captured in the ICR5 register
+|AVR
+
+|[red]#*Timer5Match1*#
+|Timer 5 matches the Timer 5 output compare register A (OCR5A) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer5Match2*#
+|Timer 5 matches the Timer 5 output compare register B (OCR5B) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[red]#*Timer5Match3*#
+|Timer 5 matches the Timer 5 output compare register C (OCR5C) +
+Within the Interrupt handling sub routine ensure the timer reset and cleartimer is set appropriately.
+|AVR
+
+|[gray]#*Timer5Overflow*#
+|Timer 5 has overflowed
+|Microchip&AVR
+
+|[blue]#*Timer6Match*#
+|Timer 6 matches the Timer 6 output compare register (PR6)
+|Microchip
+
+|[blue]#*Timer7Overflow*#
+|Timer 7 has overflowed
+|Microchip
+
+|[blue]#*Timer8Match*#
+|Timer 8 matches the Timer 8 output compare register (PR8)
+|Microchip
+
+|[blue]#*Timer10Match*#
+|Timer 10 matches the Timer 10 output compare register (PR10)
+|Microchip
+
+|[blue]#*Timer12Match*#
+|Timer 12 matches the Timer 12 output compare register (PR12)
+|Microchip
+
+|[gray]#*TWIConnect*#
+|The Atmel AVR has been connected to or disconnected from the TWI (I2C) bus
+|Microchip&AVR
+
+|[gray]#*TWIReady*#
+|The TWI has finished the previous transmission and is ready to send or
+receive more data
+|Microchip&AVR
+
+|[gray]#*UsartRX1Ready*#
+|UART/USART 1 has received data
+|Microchip&AVR
+
+|[gray]#*UsartRX2Ready*#
+|UART/USART 2 has received data
+|Microchip&AVR
+
+|[red]#*UsartRX3Ready*#
+|UART/USART 3 has received data
+|AVR
+
+|[red]#*UsartRX4Ready*#
+|UART/USART 4 has received data
+|AVR
+
+|[gray]#*UsartTX1Ready*#
+|UART/USART 1 is ready to send data
+|Microchip&AVR
+
+|[red]#*UsartTX1Sent*#
+|UART/USART 1 has finished sending data
+|AVR
+
+|[gray]#*UsartTX2Ready*#
+|UART/USART 2 is ready to send data
+|Microchip&AVR
+
+|[red]#*UsartTX2Sent*#
+|UART/USART 2 has finished sending data
+|AVR
+
+|[red]#*UsartTX3Ready*#
+|UART/USART 3 is ready to send data
+|AVR
+
+|[red]#*UsartTX3Sent*#
+|UART/USART 3 has finished sending data
+|AVR
+
+|[red]#*UsartTX4Ready*#
+|UART/USART 4 is ready to send data
+|AVR
+
+|[red]#*UsartTX4Sent*#
+|UART/USART 4 has finished sending data
+|AVR
+
+|[red]#*USBEndpoint*#
+|A USB endpoint has generated an interrupt
+|AVR
+
+|[gray]#*USB*#
+|The USB module has generated an interrupt. This must be dealt with in
+the handler.
+|Microchip&AVR
+
+|[red]#*USIOverflow*#
+|The USI counter has overflowed from 15 to 0
+|AVR
+
+|[red]#*USIStart*#
+|The USI module has detected a start condition
+|AVR
+
+|[blue]#*VoltageFail*#
+|The input voltage has dropped too low
+|Microchip
+
+|[red]#*VoltageRegulator*#
+|An interrupt has been generated by the voltage regulator (ATmega16HVA only)
+|AVR
+
+|[red]#*WakeUp*#
+|The Wake-Up timer has overflowed
+|AVR
+
+|[red]#*WDT*#
+|An interrupt has been generated by the Watchdog Timer
+|AVR
+
+|===
+{empty} +
+{empty} +
+*Example 1:*
+
+----
+    'This program increments a counter every time Timer1 overflows
+    #chip 16F877A, 20
+
+    'LCD connection settings
+    #define LCD_IO 4
+    #define LCD_DB4 PORTD.4
+    #define LCD_DB5 PORTD.5
+    #define LCD_DB6 PORTD.6
+    #define LCD_DB7 PORTD.7
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    InitTimer1 Osc, PS1_1/8
+    StartTimer 1
+    CounterValue = 0
+
+    Wait 100 ms
+    Print "Int Test"
+
+    On Interrupt Timer1Overflow Call IncCounter
+
+    Do
+        CLS
+        Print CounterValue
+        Wait 100 ms
+    Loop
+
+    Sub IncCounter
+        CounterValue ++
+    End Sub
+----
+{empty} +
+{empty} +
+*Example 2:*
+----
+    'This example reflects the input signal on the output port.
+    #chip mega328p, 16
+    #option explicit
+
+    'set out SOURCE interrupt port as an output
+    dir portb.0 in
+
+    'set/enable the mask for the specific input port
+    'this is crutial - for a lot of the On Interrupt methods you will need to specify the interrupt source via a mask.bit.
+    PCINT0 = 1
+
+    'set out signal port as an output
+    dir portB.5 out
+
+    'setup the On Interrupt method
+    On Interrupt PinChange0 Call TogglePin
+
+    'maintain a loop
+    do
+
+    loop
+
+    'handle the output signal
+    'Note. The AVR automatically clears the Interrupt. Please study the datasheet for each specific microcontroller
+
+    sub togglePin
+        portb.5 =  !pinb.5
+    end sub
+----
+{empty} +
+{empty} +
+*Example 3:*
+----
+    'This example reflects the input signal on the output port from the external interrupt port.
+    #Chip mega328p, 16
+    #option explicit
+
+    'Set external interrupt INTO input pin as an input
+    dir portd.2 in
+
+    'set out signal port as an output
+    dir portB.5 out
+
+    'hardware interrupt on Port D2
+    INT0 = 1
+
+    'set interrupt to a failing or rising edge
+    'interrupt on falling edge
+    EICRA = b'00000010'
+        'or, alternatively you can set to a rising edge
+    'EICRA = b'00000011'
+
+    'set out signal port as an output
+    dir portB.5 out
+
+    'setup the On Interrupt method on external interrupt 0
+    On Interrupt EXTINT0 Call togglePin
+
+    'maintain a loop
+    do
+
+    loop
+
+    'handle the output signal
+    'Note. The AVR automatically clears the Interrupt. Please study the datasheet for each specific microcontroller
+
+    sub togglePin
+        portb.5 =  !pinb.5
+    end sub
+----
+
+*For more help, see* <<_inittimer0,InitTimer0>> article contains
+an example of using Timer 0 and On Interrupt to generate a Pulse Width
+Modulation signal to control a motor.
+
+*See also* <<_intoff,IntOff>>, <<_inton,IntOn>>

@@ -1,0 +1,143 @@
+==== LCDCmd
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    LCDCMD _value_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command set LCD specific instructions to the LCD display. As shown
+in the table below.
+[cols="1,^1,^1", options="header,autowidth",width="80%"]
+|===
+|*INSTRUCTION*
+|*Decimal*
+|*Hexadecimal*
+|Scroll display one character right (all lines)
+|28
+|1E
+|Scroll display one character left (all lines)
+|24
+|18
+|Home (move cursor to top/left character position)
+|2
+|2
+|Move cursor one character left
+|16
+|10
+|Move cursor one character right
+|20
+|14
+|Turn on visible underline cursor
+|14
+|0E
+|Turn on visible blinking-block cursor
+|15
+|0F
+|Make cursor invisible
+|12
+|0C
+|Blank the display (without clearing)
+|8
+|08
+|Restore the display (with cursor hidden)
+|12
+|0C
+|Clear Screen
+|1
+|01
+|Set cursor position (DDRAM address)
+|128 + addr
+|80+ addr
+|Set pointer in character-generator RAM (CG RAM address)
+|64 + addr
+|40+ addr
+|===
+*Example :*
+----
+    ;Chip Settings
+    #chip 16F88,8
+    #config osc = intrc
+
+
+    ;Defines (Constants)
+    #define LCD_IO 4
+    #define LCD_RS PORTA.6
+    #define LCD_NO_RW
+    #define LCD_Enable PORTA.7
+    #define LCD_DB4 PORTB.4
+    #define LCD_DB5 PORTB.5
+    #define LCD_DB6 PORTB.6
+    #define LCD_DB7 PORTB.7
+
+    Locate 0,0
+    Print "Reset"
+    wait 1 s
+    cls
+
+    LCD_Command_Tests:
+
+    locate 0,8
+    print "123456"
+    'Scroll display one character right (all lines)       28
+    '
+    lcdcmd 28
+    wait 1 s
+    lcdcmd 28
+    wait 1 s
+    lcdcmd 28
+    wait 1 s
+    lcdcmd 28
+    wait 1 s
+
+    'Scroll display one character left (all lines)        24
+    '
+    lcdcmd 24
+    wait 1 s
+    lcdcmd 24
+    wait 1 s
+    lcdcmd 24
+    wait 1 s
+    lcdcmd 24
+    wait 1 s
+
+
+    'Home (move cursor to top/left character position)    2
+    '
+    lcdcursor flash
+    lcdcmd 2
+    wait 1 s
+
+    'Move cursor one character left                       16
+    '
+    lcdcursor flash
+    locate 0,8
+
+    lcdcmd 16
+    wait 1 s
+    lcdcmd 16
+    wait 1 s
+    lcdcmd 16
+    wait 1 s
+    lcdcmd 16
+    wait 1 s
+
+    'Move cursor one character right                      20
+    '
+    lcdcmd 20
+    wait 1 s
+    lcdcmd 20
+    wait 1 s
+    lcdcmd 20
+    wait 1 s
+    lcdcmd 20
+    wait 1 s
+
+
+----
+*Supported in <LCD.H>*

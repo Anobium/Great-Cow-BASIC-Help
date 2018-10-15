@@ -1,0 +1,85 @@
+=== Constants
+
+*About Constants*
+
+A constant tells the compiler to find a given
+word, and replace it with another word or number. Define directives create constants.
+
+Constants are useful for situations where a routine needs to be easily altered. For example, a
+define could be used to specify the amount of time to run an alarm for
+once triggered.
+
+It is also possible to use defines to specify ports - thus defines can
+be used to aid in the creation of code that can easily be adapted to run
+on a different microcontroller with different ports.
+
+Great Cow BASIC makes considerable use of defines internally. For instance, the
+LCD code uses defines to set the ports that it must use to communicate
+with the LCD.
+
+*About Defines*
+
+To create a define is a matter of using the #define directive. Here are
+some examples of defines:
+----
+    #define Line 34
+    #define Light PORTB.0
+    #define LightOn Set PORTB.0 on
+----
+`Line` is a simple constant - Great Cow BASIC will find `Line` in the program, and
+replace it with the number 34. This could be used in a line following
+program, to make it easier to calibrate the program for different
+lighting conditions.
+
+`Light` is a port - it represents a particular pin on the microcontroller. This
+would be of use if the program had many lines of code that controlled
+the light, and there was a possibility that the port the light was
+attached to would need to change in the future.
+
+`LightOn` is a define used to make the program more readable. Rather than
+typing `Set PORTB.0 on` over and over, it would then be made possible to
+type `LightOn`, and have the compiler do the hard work.
+
+*Great Cow BASIC Defined constants*
+----
+    #define ON 1
+    #define OFF 0
+    #define TRUE 255
+    #define FALSE 0
+
+    'Names for symbols
+    #define AND &
+    #define OR |
+    #define XOR #
+    #define NOT !
+    #define MOD %
+----
+
+*Great Cow BASIC special constant*
+
+`Forever` is a special constant.  For Great Cow Graphical BASIC users think of this as 'false'. For those not using Great Cow Graphical BASIC think of this as a non numeric value that has no value.  You can use `Forever` in a DO-LOOP but not in a REPEAT-END REPEAT loop, as the in the later case the REPEAT will have no value and you will create an error condition.
+
+**Precedence of Constants within Great Cow BASIC.**
+{empty} +
+{empty} +
+The `#define` command creates constants, and, a script can creates constants.
+{empty} +
+{empty} +
+The precedence is as follows:
+{empty} +
+{empty} +
+`#define` in the main program are read first,
+{empty} +
+{empty} +
+then, the `#define` in the include files. Constants defined in the include files will be ignored if they conflict or are different to another constant in the main program,
+{empty} +
+{empty} +
+then, the scripts are processed. Scripts that create constants always override any constant value previously defined.
+{empty} +
+{empty} +
+Scripts are highest priority, then constants in the main program, then constants in include files from the main program, then constants in the standard libraries.
+{empty} +
+{empty} +
+
+
+See *<<__define,#define>>*

@@ -1,0 +1,30 @@
+// Edit EvanV 171016 0,95.010.RC4+
+=== #Option Explicit
+
+*Syntax:*
+----
+    #option explicit
+----
+This option ensures that all variables are dimensioned in the user program.  The scope is the user code only and no other code space like .h or include files.
+
+`#option explicit` requires all variables,including bytes, in the user program to be defined.
+
+Variables can be defined and not used within your user program.  Unused variables will not allocate memory.
+
+*Introduction:*
+
+
+*Example:*
+----
+    'Set chip model
+    #chip 16f877a
+
+    'Example command
+    #option explicit
+
+    dim myuserflag as byte
+
+    myuserflag = true
+----
+
+*For more help, see* <<_variable_lifecycle,Variable Lifecycle>>

@@ -1,0 +1,75 @@
+===== LCD_IO 8
+
+*Using connection mode 8:*
+
+Using connection mode will require `R/W`, `RS`, `Enable` and all 8 data
+lines.
+
+The data lines must all be connected to the same I/O port, in sequential
+order. For example, `DB0` to `PORTB.0`, `DB1` to `PORTB.1` and so on, with `DB7`
+going to `PORTB.7`.
+
+*Relevant Constants:*
+
+These constants are used to control settings for the Liquid Crystal
+Display routines included with Great Cow BASIC. To set them, place a line in the
+main program file that uses `#define` to assign a value to the particular
+constant.
+
+Constants are required for 8-bit mode as follows.
+[cols=3, options="header,autowidth"]
+|===
+|*Constant Name*
+|*Controls*
+|*Default Value*
+
+|`LCD_SPEED`
+|`FAST`, `MEDIUM` or `SLOW`.
+|`MEDIUM`
+
+|`LCD_IO`
+|The I/O mode. Can be 2, 4 or 8.
+|`8`
+
+|`LCD_RS`
+|Specifies the output pin that is connected to Register Select on the
+LCD.
+|*_Must be defined_*
+
+|`LCD_RW`
+|Specifies the output pin that is connected to Read/Write on the LCD. The
+R/W pin can be disabled*.
+|*_Must be defined_* _(unless R/W is disabled)_
+
+|`LCD_Enable`
+|Specifies the output pin that is connected to Read/Write on the LCD.
+|*_Must be defined_*
+
+|`LCD_DATA_PORT`
+|Output port used to interface with LCD data bus
+|*_Must be defined_*
+
+|`LCD_LAT`
+|Drives the port with `LATx` support. Resolves issues with faster Mhz and
+the Microchip PIC read/write/modify feature. See example below.
+|Optional
+|===
+The `R/W` pin can be disabled by setting the `LCD_NO_RW` constant. If this
+is done, there is no need for the `R/W` to be connected to the chip, and
+no need for the `LCD_RW` constant to be set. Ensure that the R/W line on
+the LCD is connected to ground if not used.
+
+For a code example download http://gcbasic.sourceforge.net/library/DEMO%20CODE/Demo%20code%20for%20lcd/Demo%20mode%208.gcb[Eight Wire LCD example].
+
+
+For code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[Eight Wire Examples].
+
+
+See the separate sections of the Help file for the specifics of each
+Connection Mode.
+
+*For more help, see*
+<<_lcd_io_0,LCD_IO 0>>, <<_lcd_io_1,LCD_IO 1>>, <<_lcd_io_2,LCD_IO 2>>,
+<<_lcd_io_2_74xx164,LCD_IO 2_74xx164>>, <<_lcd_io_2_74xx174,LCD_IO 2_74xx174>>,
+<<_lcd_io_4,LCD_IO 4>>,
+<<_lcd_io_10,LCD_IO 10>> or <<_lcd_io_12,LCD_IO 12>>

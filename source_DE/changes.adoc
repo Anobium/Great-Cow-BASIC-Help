@@ -1,0 +1,611 @@
+== Changes
+*Formal Release of <>*
+
+{empty} +
+[cols="^1,^1", options="header",width="60%"]
+|===
+|*Reference*
+|*Time Stamp*
+
+|ASCIIDOCs rendered
+|{localdate} +
+{localtime}
+
+|Master ToC information
+|{docdate} +
+{doctime}
+
+|===
+{empty} +
+
+*Updates to HELP are as follows*::
+- Updated Randomize section
+- Add PCA9685 support to Library section
+- Updated Library section to inclide complete list of library drivers
+- Added HPWM_CCPTimerN
+- Added ILI9326 GLCD
+- Added Apple macOS section
+- Added optionReserveHighProg section
+
+
+
+{empty} +
+{empty} +
+
+*Release 0.98.02*::
+- Updated chip section
+- Correct ReadAD section
+- Corrected Array section
+- Correct Dir section
+- Added SSD1331 section
+- Updated command line parameters sections with /S and /F[O]
+- Updated compiler insights to ASM comments and an update to the command line parameters
+- Updated Converter section to correct state deletetarget=y|n not purge=y|n
+- Added HSerPrintStringCRLF
+- Updated HPWMUpdate section to clarify variable type usage
+- Updated GLCDCLS to show additional parameter for colour GLCD devices
+- Added Scale method
+- Added LCD_WIDTH constant
+- Updated Setting variables
+- Added Nextion section
+- Corrected format information on the Command Line page
+
+
+{empty} +
+{empty} +
+
+*Release 0.98.01*::
+- Updated ILI9341 section for OLED fonts
+- Updated I2C for I2C Module - new constants and commands
+- Updated for Fixed Model PWM
+- Updated for 10-bit PWM with resolution and CCP/PWM with DisableCCPFixedModePWM constant
+- Added PWM 16-bit outline pages
+- Revised ReadTable information
+- Added HX8347 GLCD section
+- Added new GLCDPrintString, GLCDPrintStringLN and GLCDLocateString commands
+
+
+*Release 0.98.00*::
+- Updated #define USART_TX_BLOCKING examples
+- Updated Conditions page with the known constraints of using functions as test conditions
+- Updated SPI section, adding FastHWSPITransfer method
+- Revised GLCD section to support SSD1306 128 * 32 pixels
+- Updated ADC section to support all three read options for ReadAD, ReadAD10 and ReadAD12
+- Updated Input/Output section to clarify AVR support.
+- Added ILI9341 GLCD section.
+- Added ILI9486L GLCD section.
+- Updated Lookup Table section.
+- Updated OtherDirectives section and added improved information on ChipFamily
+- Updated PWM section to reflect support for PWM3 and PWM4 channels.
+- Revised PWM section to improve information
+- Added HPWMUpdate section
+- Updated Subroutine section with 16f memory usage
+- Added 47xxx section with a new Memory sub-section
+- Added PWM for AVR section
+- Updated Other Directives section with the Chips information
+- Added SMT timer section
+- Updated maintenance section
+- Updated timer section, again
+- Updated PWM section to include AVR capabilities
+- Updated On Interrupt section - removing typos and adding more examples
+- Updated GCLD drivers to add color parameter
+- Added FVR section
+- Updated STR to include STR32, STRInteger and another example.
+- Updated VAL to include Val32 and another example.
+- Updated the GLCD section to include SSD1306 low memory configuration and table of the GLCD capabilities.
+- Updated the GLCD section to include SSD1306 and SH1106 low memory configuration and add examples
+- Added Ellipse and FilledEllipse
+- Added Triangle and FilledTriangle
+- Added TO range to Select Case.
+- Updated Concatenated String Constraint
+- Updated LCD_Backlight information for 0, 4, 8 and 404 LCD modes
+- Added OLED information to SSD1306 section only. OLED fonts are only support on the SSD1306 GLCD at this release.
+- Added #SameVar and #SameBit
+- Added [canskip] prefix to SettingVariables
+
+
+
+{empty} +
+{empty} +
+
+*Release 0.97.00*::
+- #Startup section revised to document latest changes to priority of startup subroutines
+- Added maintenance section
+- Revised inittimer 1,3,5 and 7 to reflect additional clock sources
+- Updated all PPS sections to reflect #startup as the recommended method
+- Revised Pulsein and added PulseInInv
+- Added PORTCHANGE to OnInterrupt section.
+- Updated compiler insights for TRISIO cache.
+- Updated HSerGetNum to support Longs and added an example.
+- Revised LCD_IO 2_74xx164 to add the link to the circuit diagram
+- Added output usage to `other Directives`
+- Added SDD1306 support for SPI to GLCD section
+- Added GetUserID section
+- Added Software Serial (optimised) section
+{empty} +
+{empty} +
+
+*Release 0.96.00*::
+- Revised String usage and String examples to show use of quote marks within a string
+- Revised OtherDirectives to include missing constants
+- Added DisplaySegment and revised DisplayChar
+- Revised initimer2/4 and 6 to show revised prescalers
+- Restore Bitwise operations and SetWith to Help
+{empty} +
+{empty} +
+
+*Release 0.95.010*::
+- Added improvements to SerSend and SerPrint
+- Revised 7 Segment Section to provide clarity, improve code and remove errors.
+- Revised CCP and PWM section to include need capabilities
+- Revised ADC section and add ADReadPreReadCommand constant
+{empty} +
+{empty} +
+
+*Release 0.95.009*::
+- Added SH1106 GLCD driver
+{empty} +
+{empty} +
+
+*Release 0.95.008*::
+- Updated version number only.
+{empty} +
+{empty} +
+
+*Release 0.95.007a*::
+- Added #option explicit.
+- Added variable lifecycle explanation.
+- Revised and Improved PlayRTTTL section.
+- Revised Wait and SPIMode sections.
+{empty} +
+{empty} +
+
+*Release 0.95.007*::
+- Added new capabilities to support 16F1885x range of Microcontrollers.
+- New PMW commands - support for hardware PWM
+- New Initimer0 option to support 8bit and 16bit timer modules.
+- New constants available ChipADC and ChipIO.
+- New commands to support PPS.  LOCKPPS and UNLOCKPPS.
+- Added I2CStartoccurred command. Missing from Help.
+- Additional information for Scripts.
+- General removal of typos in Help files.
+- Updated FnLSL section removing error.
+- Removal of SetWith, FnEQUBit and FnNOTBit should now be replaced by built-in compiler operations.
+  Bits are now correctly handled by built-in Not operator.
+- New command #option volatile.  Sensitive pins can be marked as volatile, and native assignment operators will set without glitching, replacing SetWith.
+- Added new sections on ADC and PWM code optimisation
+- Added new I2C command for software I2C - use_i2c_timeout
+{empty} +
+{empty} +
+
+*Release 0.95.006*::
+- Completed rewrite of the Help File. +
+- New Help File in PDF. +
+- New Help File in XML. +
+- New Help File in HTML5. +
+- New Help File in HTML for Web.
+- Revised Linux section
+- Revised SPIMode section
+{empty} +
+{empty} +
+
+*Release 0.95.005a*::
+- Revised RS232 Hardware section to improve readability
+{empty} +
+{empty} +
+
+*Release 0.95.005*::
+- Added LeftPad
+{empty} +
+{empty} +
+
+*Release 0.95.004*::
+- Updated HSerial commands to support AVR 1, 2, 3 and 4.
+{empty} +
+{empty} +
+
+*Release 0.95*::
+- Added weak pullup command set
+- Added RAM usage when defining Array
+- Added new method to use a Constant to define an Array
+- Added information on how to set address on mjkdz I2C LCD 1602 Modules
+- Added new constants ChipWords and ChipEEPROM
+- Added new Table definition method
+- Added new capabilities to Lookup Tables
+- Added new capability to READAD for AVR microcomputers
+- Added instructions to compile Great Cow BASIC under Linux
+- Added new command to invert an KS0108 GLCD display
+- Added new example code - FLASH_LED
+- Added how to set chip speed to non standard speeds
+- Added new command parameter to hardware USART command set
+- Added new command set for second hardware I2C port. The HI2C2 command set
+- Added new command set for second USART port
+- Added new ILI9340 GLCD driver command set
+- Added SDD1289 GLCD driver command set
+- Added example code +
+    Measuring Pulse Width To Sub-Microsecond Resolution +
+    Generating Accurate Pulses using a Macro +
+    How to pass a Port address to routine using a Macro
+- Added .NET support section
+- Revised SPIMode command parameters
+- Added #option NoContextSave
+- Added On Intterupt: The default handler
+- Added new sub-section Compiler Options, moved options from Compiler Directives
+- Added new fonts support for GLCD
+- Added new color support for GLCD
+- Added LCD_IO_1 and changes LCD_IO_2 to support 74xx164 and 74xx174
+- Revised most of the Timer section to support correct information.
+- Added ADS7843 Touch Screen Controller support
+- Added Play and PlayRTTL command set
+- Added DIFFerence command
+- Added three bitwise methods.  FnNotBit, FnLSL and FnLSR
+- Updated FAQ with 'how to set a bit'
+- Added bitwise method FnequBit
+- Added Timer6, Timer7, Timer8, Timer10 and Timer12 details to On Interrupt.
+- Added new On Interrupt Example
+- Added command line /WX
+- Added HI2CWaitMSSP and HI2CWaitMSSPTimeout to the Hardware I2C section.
+- Updated command line parameters
+- Added Fill command
+- Revised Arrays section
+- Added ReadAD12 command
+- Added divide and division explanation
+- Added Str32 and Val32
+- Added Support for USART2. HSerReceive1 and HSerReceive2
+- Added HSerRecieveFrom
+- Added HSerGetNum.HSertGetString
+- Added Single channel measurement mode and Differential Channel Measurement mode to ADC overview.
+{empty} +
+{empty} +
+
+*Release 0.94b*::
+- Added HEFM support
+- Added SSD 1306 GLCD Driver support
+{empty} +
+{empty} +
+
+*Release v0.91*::
+- Added USART_TX_BLOCKING
+- Added LCD_SPEED
+- Improved LCD section
+{empty} +
+{empty} +
+
+*Release v0.9ho*::
+- Updated parameter passing to Sub routines
+- New and revised LCD section to include LCD_IO 10 and 12
+- Remove of LAT where appropiate
+- LAT has been deprecated. The compiler will redirect all I/O pin writes
+from PORTx to LATx registers on PIC 16F1/18F.
+- Use #option nolatch if problems occur.
+- ADFormat changed to deprecated.
+- Add default action to #CHIP when no frequency is specified.
+{empty} +
+{empty} +
+
+*Release v0.9hm*::
+- Correct errors in PWM section and improved examples.
+{empty} +
+{empty} +
+
+*Release v0.9hn*::
+- Changes to Arrays. Number of elements is now limited to 10,000 for 12F
+and 16F devices, or, the available RAM.
+- Lookup tables updated to reflect new methods of populating tables.
+1. a single value on each line
+2. multiple elements on a single line separated by commas
+3. constants and calculations within the single line data table entries
+are permitted
+- Repeat loop changed to support EXIT REPEAT
+- New Pad command. The Pad method is used to create string to a specific
+length that is extended with a specific character
+- Added DS18B20 command set.
+{empty} +
+{empty} +
+
+*v0.9hm*::
+- Updated I2C - software and hardware. Demonstration code now uses Chipino
+demonstration board. Changed to Serial I2C section with these new
+examples.
+- New Functional Commands: +
+ `LCDDisplayOn` +
+ `LCDDisplayOff` +
+ `LCDBackLight ( On | Off )`
+- New Defines to support LCD functionality are: +
+ `LCD_SPEED FAST` +
+ `LCD_SPEED MEDIUM` +
+ `LCD_SPEED SLOW`
+- Revised Functionality
+LCDHex now supports printing of leading zeros when the HEX number is
+less than 0x10. call LCDHex as follows to ensure leading zeros are
+present. +
+`LCDHex byte_value, LeadingZeroActive ; parameter called LeadingZeroActive`
+- New support for GLCD PCD8544 devices. +
+Changed GLCD section of the help to support the new device. +
+
+*v0.9hl*::
+- HSERPRINTCLRF - Added parameter to repeat the number of CRLF sent.
+- Hardware I2C command set added. This is revised functionality to provide
+support the MSSP module.
+{empty} +
+{empty} +
+
+*@0.9hk*::
+- Help file updated to correct Power entry, it was in the incorrect
+section. Moved to Maths section and other minors typos.
+- Correct Timer0 information. Revised to show constants and the timer code
+was corrected.
+{empty} +
+{empty} +
+
+*@v0.9hj*::
+- This information relates to the Hot Release 11 May 2014. Where
+functionality is not supported by earlier versions of GCB please
+upgrade. Some functions will not work in the earlier releases of Great
+Cow Basic.
+- New Functional Commands +
+<<_circle,Circle>>. Draws a circle on the GLCD screen. +
+<<_filledcircle,FilledCircle>>. Fills a circle on the GLCD screen +
+<<_logarithms,Log>> function(s) +
+<<_power,Power>> function.
+- Revised Functional Commands +
+<<_line,Line>>. Now draws lines between any two points on the
+GLCD display. +
+`#define GLCD_PROTECTOVERRUN` . Controls drawing of circles to prevent
+overdraw of the circle at display extremes. +
+`#define Line OldLine`. Adding this define will revert to the old line
+drawing routines. This has been added for backward compatibility.
+- Help File Revisions +
+Added <<_pulsein,PulseIn>> +
+Added <<_infrared_remote,IR_Remote>> header example +
+Added revised <<_graphical_lcd_demonstration,GLCD demonstration>> example +
+Added <<_rgb_led_control,RGB LED Control>> example +
+Added section to show inline documentation method, see
+<<_code_documentation,Code Documentation>>
+{empty} +
+{empty} +
+
+*@ v0.9hk*::
+- Documented method for GCGB documentation. +
+Added MATHS.H +
+Added SQRT function.
+{empty} +
+{empty} +
+
+*@ v0.9hi*::
+- Support for ST7735 documented. Functionality added to GLCD.h
+- Support for ST7920 Graphical LCD 128 * 64 device.
+- Revised GLCD section to include the one new and one undocumented device.
+- New GLCD commands for support of ST7920 GLCD +
+`ST7920GLCDEnableGraphics` +
+`ST7920GLCDDisableGraphics` +
+`ST7920GLCDClearGraphics` +
+`ST7920Locate` +
+`ST7920gTile` +
+`ST7920Tile` +
+`ST7920cTile` +
+`ST7920SetIcon` +
+`ST7920GraphicTest` +
+`ST7920LineHs` +
+`ST7920gLocate` +
+`ST7920lineh` +
+`ST7920linev`
+- Documented support for ST7735 GLCD.
+- Revise GLCD commands with backwards compatibility: +
+`GLCDCLS` +
+`GLCDPrint` - supports LCD and GLCD modes +
+`GLCDDrawString` - support for string handling +
+`GLCDDrawChar` - Optional Colour +
+`Box` +
+`FilledBox` +
+`Line` +
+`PSet` +
+`GLCDReady`
+- InitGLCD, includes fix for startup routine for KS0108 devices +
+Private ST7920 functions but can be used as needed.. +
+`ST7920WriteCommand` +
+`ST7920WriteData` +
+`ST7920WriteByte` +
+`ST7920gReaddata` +
+`ST7920GLCDReadByte` +
+`GLCDTimeDelay`
+- Updated conditional test information.
+- Updated KeyPad information.
+- Updated Lookup table information.
+- Added Macro information.
+- Added new Trig maths section.
+- Added two new Circle examples
+- Added Other Directive information.
+- Added example programs
+- Mid Point Circles
+- Trigonometry Circles
+{empty} +
+{empty} +
+
+*@v0.9hg*::
+- Corrected GLCD Common Anode display pages
+{empty} +
+{empty} +
+
+*@v0.9hf*::
+- Revised 7 Segment section to support Common Cathode. Split 7 Segment
+entry to show the two options available.
+{empty} +
+{empty} +
+
+*@v0.9he*::
+- New commands. Required post March 2014 LCD.h: +
+`LCDHOME`,
+`LCDSPACE`,
+`LCDCreateGraph`,
+`LCDCursor`,
+`LCDCmd`
+- Added Concatenation
+- Updated DisplayValue to show the support for HEX values. Required post
+March 2014 7Segment.h
+- Updated GLCD example code to ensure the example compiled without
+external files.
+- Added Trigonometry and the example application
+- Updated the LCD Overview to include the LATx support for higher clock
+speed. Required post March 2014 LCD.h
+{empty} +
+{empty} +
+
+*@v0.9hd*::
+- Revised Rotate to clarify type supported byte types.
+{empty} +
+{empty} +
+
+*@v0.9hc Mar 2014*::
+- Revised HSERPRINT to show Integers and Longs are supported and changed
+the text to be correct.
+- Added HserPrintByteCRLF and HserPrintCRLF
+- Added Sine Table Example
+- Revised TABLE to show the limitation with respect to using WORDS when
+placing TABLES in EEPROM
+{empty} +
+{empty} +
+
+*@v0.9hb Mar 2014*::
+- Added PulseOutInv
+- I2CRestart
+- Add new variants to use of Comments
+- Added Assembler Section
+{empty} +
+{empty} +
+
+*Jan 14*::
+- New item(s): +
+`Len`,
+`Asc`,
+`Chr`,
+`Trim`,
+`Ltrim`,
+`Rtrim`,
+`Swap4`,
+`Swap`,
+`Abs`,
+`Average`,
+`Trim`,
+`Ltrim`,
+`Rtrim`,
+`Wordtobin`,
+`Bytetobin`,
+`GLCD`,
+`DectoBCD`,
+`BCDtoDec` +
+Using variables +
+More on constants and variables +
+Acknowledgements
+- Changes to: +
+`Str`,
+`Hex`,
+`Poke`,
+`Else`,
+`Readtable`,
+`Exit` (was exitsub) +
+Command line parameters
+Frequently asked questions
+- Fixed typos.
+- Updated REPEAT maximum repeat value.
+- Updated most pages for layout. +
+Fixed links to external pages, again. This time downloaded as full html
+pages, for POT and LC. +
+Added LABEL, Bootloader and revise Select, add READAD10 +
+Fix Double SWAP
+{empty} +
+{empty} +
+
+*@v0.9hg*::
+- Corrected GLCD Common Anode display pages
+{empty} +
+{empty} +
+
+*@v0.9hf*::
+- Revised 7 Segment section to support Common Cathode. Split 7 Segment
+entry to show the two options available.
+{empty} +
+{empty} +
+
+*@v0.9he*::
+- New commands. Required post March 2014 LCD.h: +
+`LCDHOME`,
+`LCDSPACE`,
+`LCDCreateGraph`,
+`LCDCursor`,
+`LCDCmd`
+- Added Concatenation
+- Updated DisplayValue to show the support for HEX values. Required post
+March 2014 7Segment.h
+- Updated GLCD example code to ensure the example compiled without
+external files.
+- Added Trigonometry and the example application
+- Updated the LCD Overview to include the LATx support for higher clock
+speed. Required post March 2014 LCD.h
+{empty} +
+{empty} +
+
+*@v0.9hd*::
+- Revised Rotate to clarify type supported byte types.
+{empty} +
+{empty} +
+
+*@v0.9hc Mar 2014*::
+- Revised HSERPRINT to show Integers and Longs are supported and changed
+the text to be correct.
+- Added HserPrintByteCRLF and HserPrintCRLF
+- Added Sine Table Example
+- Revised TABLE to show the limitation with respect to using WORDS when
+placing TABLES in EEPROM
+{empty} +
+{empty} +
+
+@*v0.9hb Mar 2014*::
+- Added PulseOutInv
+- I2CRestart
+- Add new variants to use of Comments
+- Added Assembler Section
+{empty} +
+{empty} +
+
+*Jan 14*::
+- New item(s): +
+`Len`,
+`sc`,
+`Chr`,
+`Trim`,
+`Ltrim`,
+`Rtrim`,
+`Swap4`,
+`Swap`,
+`Abs`,
+`Average`,
+`Trim`,
+`Ltrim`,
+`Rtrim`,
+`Wordtobin`,
+`Bytetobin`,
+`GLCD`,
+`DectoBCD`,
+`BCDtoDec` +
+Using variables +
+More on constants and variables +
+Acknowledgements
+- Changes to: +
+`Str`,
+`Hex`,
+`Poke`,
+`Else`,
+`Readtable`,
+`Exit` (was exitsub) +
+Command line parameters
+Frequently asked questions
+- Fixed typos.
+- Updated REPEAT maximum repeat value.
+- Updated most pages for layout. +
+Fixed links to external pages, again. This time downloaded as full html
+pages, for POT and LC. +
+Added LABEL, Bootloader and revise Select, add READAD10 +
+Fix Double SWAP
+{empty} +
+{empty} +

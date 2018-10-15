@@ -1,0 +1,14 @@
+==== Box
+
+*Syntax:*
+----
+    Box(LineX1,LineY1, LineX2, LineY2 [, LineColour ] )
+----
+*Explanation:*
+
+Draws a box on a graphic LCD from the upper corner of pixel position X1, Y1 location to
+pixel position X2,Y2 location.
+
+`LineColour` can be specified.  Typical the value is 0 or 1 for GLCDForeGround and GLCDBackGround respectively.
+
+*See also* <<_filledbox,FilledBox>>

@@ -1,0 +1,27 @@
+===== ST7920GLCDReadByte
+
+*Syntax:*
+----
+    byte_variable = ST7920GLCDReadByte
+----
+
+*Explanation:*
+
+This function return the word value (16 bits) of the GLCD display for
+the current XY position.
+
+This is called by the GLCD common routines.
+
+See the data sheet for more information.
+
+*Example usage:*
+----
+    SET GLCD_RS OFF
+
+    ST7920WriteByte( SysCalcPositionY )
+    ST7920WriteByte( SysCalcPositionX )
+    ' read data
+    GLCDDataTempWord = ST7920GLCDReadByte
+    GLCDDataTempWord = ST7920GLCDReadByte
+    GLCDDataTempWord = (GLCDDataTempWord*256) + ST7920GLCDReadByte
+----

@@ -1,0 +1,144 @@
+=== Great Cow BASIC Maintenance
+
+*Introduction:*
+Great Cow BASIC maintenance covers the key processes that the developers use to maintain and build the solution.
+
+These insights are not distribution specific.
+
+*Solution Architecture:*
+These components are key for a complete solution:
+[start=1]
+ . Great Cow BASIC installer
+
+ . Great Cow BASIC chip specific .DAT files
+
+ . Great Cow BASIC Help
+
+ . Great Cow BASIC IDE
+
+
+{empty} +
+{empty} +
+*Great Cow BASIC installers:*
+{empty} +
+{empty} +
+The Windows Great Cow BASIC installer uses the _InnoSoft_ installer with packaging completed using R2Build. +
+
+The process uses a Gold build structure.  The R2Build software creates four packages for Windows and one package for the Linux distribution.  The process is automated with automatic versioning and configuration.
+
+The macOS Great Cow BASIC installer uses the _Packages_ installer (http://s.sudre.free.fr/Software/Packages/about.html) with packaging completed using the Bourne shell script `pkg2dmg.sh` to create a compressed disk image file containing the installer.
+
+{empty} +
+{empty} +
+*Great Cow BASIC chip specific .DAT files:*
+{empty} +
+{empty} +
+What are the .DAT files?
+
+The DAT files are the Great Cow BASIC representation of the capabilities of a specific microcontroller.&#160;&#160;The DAT is based upon a number of vendor sources and corrections/omissions added by the Great Cow BASIC development team.&#160;&#160;The DAT file is exposed to the user program as a set of registers and register bits that can used to configure the program in terms of the microcontroller specifics.
+{empty} +
+{empty} +
+
+The process to create the .DAT file for microcontrollers is as follows:
+[cols="2", options="header,autowidth"]
+|===
+|Step
+|Description
+|1
+|Obtain the MPASM *.INC or the AVR *.XML files to be used. These files determine the scope of registers and register bits.
+
+|2
+|For Microchip only.  Place the source INC files in the ..DAT\incfiles\OrgFiles.
+
+Process the file using 'Preprocess.bat'. &#160;&#160; This is an AWK text processor - you will need AWK.EXE in the executing folder.
+
+This preprocessing will examine all the INC files in the ..DAT\incfiles\OrgFiles folder.&#160;&#160;The resulting files will be placed in the ..DAT\incfiles folder.&#160;&#160;The resulting files will have the 'BITS' section sorted in port priority - this priority ensures the bits are assigned in the target DAT in the same order every time.
+
+|3
+|Update the database of support microcontrollers.&#160;&#160;This database contains the microcontroller configuration that Great Cow BASIC requires as the core information for the DAT files.
+
+The database is called `chipdata.csv` or `avr_chipdata.csv` for Microchip and AVR respectively.
+- These files are comma delimited.&#160;&#160;The first row of data specifies the field name - these field names control the chip conversion program, see later notes.&#160;&#160;
+
+The database fields are controlled by the Great Cow BASIC development team and the specification of the database may change between releases to support new capabilities.
+
+Database fields will have the suffix of `Variant` such as PWMTimerVariant and SMTClockSourceVariant and are microcontroller specific configuration settings to support the various microcontroller settings.&#160;&#160;The values of these `variants` are determined by the examination of the microcontroller datasheets as this information is NOT specified in the source files.&#160;&#160;Variants are exposed in the user program with the prefix of Chip.&#160;&#160;If the variant is called `PWMTimerVariant` a constant called `ChipPWMTimerVariant` will be exposed in the user program.
+
+|4
+|Update the `CriticalChanges.txt` file, if required.&#160;&#160;The `CriticalChanges.txt` file contains changes to the INC file during processing that are corrections or additions to the source files.
+
+The format of each line is the `filename` , `Append (new line) or Replace`, `find`, `replace`.
+
+Each line is comma delimited and spaces are NOT critical.  &#160;&#160;Essentially, the processing with find a partial line and replace or append the whole line.
+
+example:  p16lf1615.inc,R,OSCFIE          EQU  H'0007',OSFIE           EQU  H'0007'&#160;&#160;&#160;&#160;
+- so, when processing p16lf1615.inc find the line OSCFIE          EQU  H'0007' and replace with OSFIE           EQU  H'0007'.
+
+
+|5
+|If required.  &#160;&#160;This is not normally edited. &#160;&#160; Update the `18FDefaultASMConfig.txt` to set the 18f configuration defaults.
+
+|6
+|Maintain the conversion program.&#160;&#160;The conversion program may require maintenance. &#160;&#160;The programs are written in FreeBASIC and therefore require compilation.
+
+An example of maintenance is a new variant field is required.&#160;&#160;The source program will need to be updated to support the new variant - simply edit the source, compile and publish.&#160;&#160;Another example is the addition of a new Interrupt - follow the same process to edit, compile and publish.
+
+
+|7
+|Execute the program to convert the source files to the DAT files for Microchip or AVR.&#160;&#160;There are two programs for each architecture.
+
+Executing the conversion program without a parameter will process ALL the entries in the database (the csv file), passing a single parameter to the conversion program will only convert the single microcontroller.
+
+The conversion program will process as follows:
+
+a) Read the database for the chip specifics
+
+b) If a .DEV file or .INFO file is not present a routine called GuessDefaultConfig is invoked.  This method sets the bit(s).
+
+In all cases the default mask is sometimes specified for a particular config option and that is used for ASMConfig
+
+See the section below for the processing of a .DEV file.
+
+c) For all microcontrollers read the `CriticalChanges.txt` file and process.
+
+d) For 18f microcontrollers read the `18FDefaultASMConfig.txt`.  This simply overwrites all options stated in 18FDefaultASMConfig.TXT  and marks this in the output DAT file.
+
+e) Create the output DAT file.
+
+|8
+|Test and publish the DAT file(s) to the distribution as required.
+|===
+
+
+
+
+
+**An example the processing of a .DEV**.
+
+This is the 18F25K20 example.   For this microcontroller `Disabled` is default:
+
+image::xml2.PNG[graphic,align="center"]
+
+[.text-left]
+{empty} +
+{empty} +
+Where the default is selected from the Info_Type.
+{empty} +
+{empty} +
+
+
+
+**Prog = .  An explanation of the parameter**.
+The Prog value is measured in words. It is the same in the device specific.dat files.
+{empty} +
+
+Microchip in the past have used words, but then they started using bytes on the website instead to make their chips appear to have larger capacity.
+{empty} +
+
+An example: If a device has 8192 words, which is 8192 * 14 = 114688 bits, or 14336 bytes.&#160;&#160;It is an odd measurement because dividing 14336 by 14/8 to see how many instructions you can use is extra maths work within the compiler.
+{empty} +
+
+Great COW BASIC PROGram memory measurements in the compiler are in words.
+{empty} +
+
+{empty} +

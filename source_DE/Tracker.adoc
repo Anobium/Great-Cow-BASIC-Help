@@ -1,0 +1,709 @@
+EVAN
+
+        include::introducingGreat Cow BASIC.adoc[]
+
+        include::gettingstartedwithGreat Cow BASIC.adoc[]
+
+        include::changes.adoc[]
+
+        include::commandlineparameters.adoc[]
+
+        include::frequentlyaskedquestions.adoc[]
+
+        include::acknowledgements.adoc[]
+
+        == microcontroller Fundamentals
+
+        include::inputsoutputs.adoc[]
+
+        include::configuration.adoc[]
+
+        == Syntax
+
+        include::arrays.adoc[]
+
+        include::comments.adoc[]
+
+        include::conditions.adoc[]
+
+        include::constants.adoc[]
+
+        include::functions.adoc[]
+
+        include::labels.adoc[]
+
+        include::lookuptables.adoc[]
+
+        include::casting.adoc[]
+
+        include::readtable.adoc[]
+
+    Reassigned to Bill
+            include::scripts.adoc[]
+    End of Bill
+
+        include::subroutines.adoc[]
+
+        include::variables.adoc[]
+
+        include::converters.adoc[]
+
+        == Command References
+
+        === Analog/Digital conversion
+
+        include::analogdigitialconversionoverview.adoc[]
+
+        include::adformat.adoc[]
+
+        include::adoff.adoc[]
+
+        include::readad.adoc[]
+
+        include::readad10.adoc[]
+
+        include::readad12.adoc[]
+
+        === BITWISE
+
+        include::Bitwiseoperationsoverview.adoc[]
+
+        include::FnEquBit.adoc[]
+
+        include::FnNotBit.adoc[]
+
+        include::FnLsL.adoc[]
+
+        include::FnLSR.adoc[]
+
+        include::SetWith.adoc[]
+
+End of EVAN
+
+MARC
+
+        === EEPROM
+
+        include::epread.adoc[]
+
+        include::epwrite.adoc[]
+
+        include::programerase.adoc[]
+
+        include::programread.adoc[]
+
+        include::programwrite.adoc[]
+
+        === HEFM
+
+				include::hefm.adoc[]
+
+        === Flow control
+
+        include::do.adoc[]
+
+        include::end.adoc[]
+
+        include::exitsub.adoc[]
+
+        include::for.adoc[]
+
+        include::gosub.adoc[]
+
+        include::goto.adoc[]
+
+        include::if.adoc[]
+
+        include::indcall.adoc[]
+
+        include::pause.adoc[]
+
+        include::repeat.adoc[]
+
+        include::select.adoc[]
+
+        include::wait.adoc[]
+
+End Of MARC
+
+MIKE
+		=== RS232 (hardware)
+
+		include::usartrelevantconstants.adoc[]
+
+		include::hsergetnum.adoc[]
+
+		include::hsergetstring.adoc[]
+
+		include::hserprint.adoc[]
+
+		include::hserreceive.adoc[]
+
+		include::hserreceivefrom.adoc[]
+
+		include::hsersend.adoc[]
+
+		include::hserprintbytecrlf.adoc[]
+
+		include::hserprintcrlf.adoc[]
+
+		=== SPI
+
+		include::spimode.adoc[]
+
+		include::spitransfer.adoc[]
+
+End of MIKE
+
+evan
+    === Interrupts
+
+    include::interrupts.adoc[]
+
+    include::intoff.adoc[]
+
+    include::inton.adoc[]
+
+    include::oninterrupt.adoc[]
+
+    include::onintteruptthedefaulthandler.adoc[]
+
+    === Keypad
+
+    include::relevantconstantskeys.adoc[]
+
+    include::keypaddata.adoc[]
+
+    include::keypadraw.adoc[]
+
+
+    === Graphical LCD
+
+    include::glcdoverview.adoc[]
+
+    :leveloffset: +1
+
+    include::ili9340controllers.adoc[]
+
+    include::ks0108controllers.adoc[]
+
+    include::pcd8544controllers.adoc[]
+
+    include::sdd1289controllers.adoc[]
+
+    include::ssd1306controllers.adoc[]
+
+    include::st7735controllers.adoc[]
+
+    include::st7920controllers.adoc[]
+
+    include::st7920glcdcleargraphics.adoc[]
+
+    include::st7920glcddisablegraphics.adoc[]
+
+    include::st7920glcdenablegraphics.adoc[]
+
+    include::st7920graphictest.adoc[]
+
+    include::st7920linehs.adoc[]
+
+    include::st7920locate.adoc[]
+
+    include::st7920tile.adoc[]
+
+    include::st7920ctile.adoc[]
+
+    include::st7920glocate.adoc[]
+
+    include::st7920gtile.adoc[]
+
+    include::st7920lineh.adoc[]
+
+    include::st7920linev.adoc[]
+
+    include::st7920glcdreadbyte.adoc[]
+
+    include::st7920writebyte.adoc[]
+
+    include::st7920writecommand.adoc[]
+
+    include::st7920writedata.adoc[]
+
+    include::st7920greaddata.adoc[]
+
+    :leveloffset: -1
+
+    include::box.adoc[]
+
+    include::circle.adoc[]
+
+    include::filledbox.adoc[]
+
+    include::filledcircle.adoc[]
+
+    include::glcdcls.adoc[]
+
+    include::glcddrawchar.adoc[]
+
+    include::glcddrawstring.adoc[]
+
+    include::glcdprint.adoc[]
+
+    include::glcdreadbyte.adoc[]
+
+    include::glcdtimedelay.adoc[]
+
+    include::glcdwritebyte.adoc[]
+
+    include::initglcd.adoc[]
+
+    include::line.adoc[]
+
+    include::pset.adoc[]
+
+
+    === Liquid Crystal Display
+
+    include::relevantconstantslcd.adoc[]
+
+    include::lcd_i00.adoc[]
+
+    include::lcd_io2.adoc[]
+
+    include::lcd_io4.adoc[]
+
+    include::lcd_io8.adoc[]
+
+    include::lcd_io10.adoc[]
+
+    include::lcd_io10portconfiguration.adoc[]
+
+    include::lcd_io12.adoc[]
+
+    include::lcd_io12portconfiguration.adoc[]
+
+    include::lcd_speed.adoc[]
+
+    include::cls.adoc[]
+
+    include::get.adoc[]
+
+    include::lcdbacklight.adoc[]
+
+    include::lcdcreatechar.adoc[]
+
+    include::lcdcreategraph.adoc[]
+
+    include::lcdcmd.adoc[]
+
+    include::lcdcursor.adoc[]
+
+    include::lcdhex.adoc[]
+
+    include::lcdhome.adoc[]
+
+    include::lcdon.adoc[]
+
+    include::lcdoff.adoc[]
+
+    include::lcdspace.adoc[]
+
+    include::lcdwritechar.adoc[]
+
+    include::locate.adoc[]
+
+    include::print.adoc[]
+
+    include::put.adoc[]
+
+    ==== Examples
+
+    include::twowirelcdexample.adoc[]
+
+    include::fourwirelcdexample.adoc[]
+
+    include::eightwirelcdexample.adoc[]
+
+    include::lcd_io10example.adoc[]
+
+end of evan
+
+evan
+
+    === Pulse with modulation
+
+    include::relevantconstants.adoc[]
+
+    include::pwmout.adoc[]
+
+    include::pwmoff.adoc[]
+
+    include::pwmon.adoc[]
+
+    include::hpwm.adoc[]
+
+
+    === Random Numbers
+
+    include::overview_random.adoc[]
+
+    include::random.adoc[]
+
+    include::randomize.adoc[]
+
+
+    === 7-Segment Displays
+
+    include::7segmentdisplaysoverview.adoc[]
+
+    include::commoncathode.adoc[]
+
+    include::commonanode.adoc[]
+
+    include::displayvalue.adoc[]
+
+    include::displaychar.adoc[]
+
+
+    === One Wire Devices
+
+    include::ds18b20.adoc[]
+
+    include::readdigitaltemp.adoc[]
+
+    include::readtemp.adoc[]
+
+    include::readtemp12.adoc[]
+
+end of EVAN
+
+Mike
+
+=== Serial Communications
+
+==== RS232 (software)
+
+:leveloffset: +1
+
+	include::relevantconstants2.adoc[]
+
+	include::initser.adoc[]
+
+	include::sersend.adoc[]
+
+	include::serreceive.adoc[]
+
+	include::serprint.adoc[]
+
+
+
+=== PS/2
+
+	include::overview_ps2.adoc[]
+
+	include::inkey.adoc[]
+
+	include::ps2setkbleds.adoc[]
+
+	include::ps2readbyte.adoc[]
+
+	include::ps2writebyte.adoc[]
+
+
+
+=== I2C Software
+
+	include::overview.adoc[]
+
+	include::i2cackpollstate.adoc[]
+
+	include::i2cackpoll.adoc[]
+
+	include::i2creceive.adoc[]
+
+	include::i2creset.adoc[]
+
+	include::i2crestart.adoc[]
+
+	include::i2csend.adoc[]
+
+	include::i2cstart.adoc[]
+
+	include::i2cstop.adoc[]
+
+=== I2C/TWI Hardware Module
+
+	include::hi2coverview.adoc[]
+
+	include::hi2cackpollstate.adoc[]
+
+	include::hi2creceive.adoc[]
+
+	include::hi2crestart.adoc[]
+
+	include::hi2csend.adoc[]
+
+	include::hi2cstart.adoc[]
+
+	include::hi2cstartoccurred.adoc[]
+
+	include::hi2cmode.adoc[]
+
+	include::hi2csetaddress.adoc[]
+
+	include::hi2cstop.adoc[]
+
+	include::hi2cstopped.adoc[]
+
+:leveloffset: -1
+
+end of Mike
+evan
+        === Sound
+
+        include::relevantconstantssound.adoc[]
+
+        include::tone.adoc[]
+
+        include::shorttone.adoc[]
+
+end of evan
+Bill
+    === Timers
+
+        include::timeroverview.adoc[]
+
+        include::cleartimer.adoc[]
+
+        include::inittimer0.adoc[]
+
+        include::inittimer1.adoc[]
+
+        include::inittimer2.adoc[]
+
+        include::inittimer3.adoc[]
+
+        include::inittimer4.adoc[]
+
+        include::inittimer6.adoc[]
+
+        include::settimer.adoc[]
+
+        include::starttimer.adoc[]
+
+        include::stoptimer.adoc[]
+
+        include::readingtimers.adoc[]
+
+end Bill
+
+evan
+      === Variables Operations
+
+      include::usingvariables.adoc[]
+
+      include::constantsandmoreonsettingvariables.adoc[]
+
+      include::settingvariables.adoc[]
+
+      include::dim.adoc[]
+
+      include::bcdtodec.adoc[]
+
+      include::dectobcd.adoc[]
+
+      include::rotate.adoc[]
+
+      include::set.adoc[]
+
+      include::swap4.adoc[]
+
+      include::swap.adoc[]
+
+      === String Manipulation
+
+      include::asc.adoc[]
+
+      include::bytetobin.adoc[]
+
+      include::chr.adoc[]
+
+      include::hex.adoc[]
+
+      include::instr.adoc[]
+
+      include::lcase.adoc[]
+
+      include::left.adoc[]
+
+      include::len.adoc[]
+
+      include::ltrim.adoc[]
+
+      include::mid.adoc[]
+
+      include::pad.adoc[]
+
+      include::right.adoc[]
+
+      include::rtrim.adoc[]
+
+      include::str.adoc[]
+
+      include::trim.adoc[]
+
+      include::ucase.adoc[]
+
+      include::val.adoc[]
+
+      include::wordtobin.adoc[]
+
+      include::concatenation.adoc[]
+
+end of evan
+evan
+
+        === Miscellaneous Commands
+
+        include::dir.adoc[]
+
+        include::pot.adoc[]
+
+        include::pulseoutinv.adoc[]
+
+        include::pulsein.adoc[]
+
+        include::pulseout.adoc[]
+
+        include::peek.adoc[]
+
+        include::poke.adoc[]
+
+        include::weakpullups.adoc[]
+
+end of evan
+
+
+evan
+    === Maths
+
+    include::abs.adoc[]
+
+    include::average.adoc[]
+
+    include::logarithms.adoc[]
+
+    :leveloffset: +1
+
+    include::log2.adoc[]
+
+    include::loge.adoc[]
+
+    include::log10.adoc[]
+
+    :leveloffset: -1
+
+    include::power.adoc[]
+
+    include::sqrt.adoc[]
+
+    include::trigonometry.adoc[]
+
+end of evan
+evan
+        == Compiler Directives
+
+        include::chip.adoc[]
+
+        include::config.adoc[]
+
+        include::define.adoc[]
+
+        include::ifpp.adoc[]
+
+        include::ifdef.adoc[]
+
+        include::ifndef.adoc[]
+
+        include::include.adoc[]
+end of evan
+
+Reassiged to Bill
+          include::script.adoc[]
+End of Bill
+
+evan
+            include::startup.adoc[]
+
+            include::mem.adoc[]
+
+            include::otherdirectives.adoc[]
+
+            == Compiler Options
+
+            include::optionbootloader.adoc[]
+
+            include::optionnocontextsave.adoc[]
+
+            include::optionnolatch.adoc[]
+
+            == Using Assembler
+
+            include::assembleroverview.adoc[]
+
+end of evan
+evan
+    == Macros
+
+    include::macrosoverview.adoc[]
+
+    === Example Macros
+
+    include::measuringapulsewidth.adoc[]
+
+    include::implementingmethod.adoc[]
+end of evan
+
+
+evan
+      == Example Programs
+
+      include::flashingledsandaninterrupt.adoc[]
+
+      include::flashingledwithtimingparameters.adoc[]
+
+      include::generateaccuratepulses.adoc[]
+
+      include::graphicallcddemonstration.adoc[]
+
+      include::infraredremote.adoc[]
+
+      include::sonyremoteh.adoc[]
+
+      include::midpointcirclealgorithm.adoc[]
+
+      include::i2cmasterhardware.adoc[]
+
+      include::i2cslavehardware.adoc[]
+
+      include::rgbledcontrol.adoc[]
+
+      include::serialrs232bufferring.adoc[]
+
+      include::sinetables.adoc[]
+
+      include::trigonometrycircles.adoc[]
+
+      include::troubleshooting.adoc[]
+end of evan
+evan
+        == Great Cow Graphical Basic
+
+        include::codedocumentation.adoc[]
+
+        include::windowsnet.adoc[]
+
+        == Great Cow BASIC for Linux
+
+        include::linuxoverview.adoc[]
+end of evan

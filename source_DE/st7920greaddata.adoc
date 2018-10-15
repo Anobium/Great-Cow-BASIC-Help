@@ -1,0 +1,19 @@
+===== ST7920gReaddata
+
+*Syntax:*
+----
+    byte_variable = ST7920gReaddata
+----
+*Explanation:*
+
+This function return the word value (16 bits) of the GLCD display for
+the current XY position.
+
+See the data sheet for more information.
+
+*Example usage:*
+----
+    ...
+    ' Read a word from the display device.
+    word_variable = ST7920GLCDReadData
+----

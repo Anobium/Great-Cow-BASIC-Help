@@ -1,0 +1,130 @@
+==== InitTimer10
+
+*Syntax:*
+[subs="quotes"]
+----
+InitTimer10 _prescaler_, _postscaler_
+----
+*Command Availability:*
+
+Available on Microchip microcontrollers with a Timer 10 module.
+
+{empty} +
+{empty} +
+
+*Explanation:*
+
+Parameters for this timer are detailed in the table below:
+
+[cols=2, options="header,autowidth"]
+
+|===
+
+|Parameter
+|Description
+
+|`_prescaler_`
+|The value of the prescaler for this specific timer.  See the tables below for permitted values.
+
+|`_postscaler_`
+|The value of the postscaler for this specific timer.  See the tables below for permitted values.
+|===
+
+{empty} +
+{empty} +
+
+`prescaler` can be one of the following settings:
+
+[cols="^1,1,^1", options="header,autowidth"]
+|===
+|*Prescaler Value*
+|*Primary GCB Constant*
+|*Constant Equates +
+to value*
+
+|1:1
+|`PS10_1`
+|0
+
+|1:4
+|`PS10_4`
+|1
+
+|1:16
+|`PS10_16`
+|2
+
+|1:64
+|`PS10_64`
+|3
+
+|===
+
+Note that a 1:64 prescale is only avaialable on certain midrange microcontrollers.
+Please refer to the datasheet to determine if a 1:64 prescale is supported by a
+spectific microcontroller.
+
+{empty} +
+{empty} +
+
+
+`_postscaler_` slows the rate of the interrupt generation (or WDT reset) from a
+counter/timer by dividing it down.
+
+On Microchip PIC microcontroller one of the following constants where the Postscaler Rate Select bits are in the range of 1 to 16.
+
+[cols="^1,^1", options="header,autowidth"]
+|===
+|*Postcaler Value*
+|*Use Numeric Constant*
+
+
+|1:1 Postscaler
+|0
+
+|1:2 Postscaler
+|1
+
+|1:3 Postscaler
+|2
+
+|1:4 Postscaler
+|3
+
+|1:5 Postscaler
+|4
+
+|1:6 Postscaler
+|5
+
+|1:7 Postscaler
+|6
+
+|1:8 Postscaler
+|7
+
+|1:9 Postscaler
+|8
+
+|1:10 Postscaler
+|9
+
+|1:11 Postscaler
+|10
+
+|1:12 Postscaler
+|11
+
+|1:13 Postscaler
+|12
+
+|1:14 Postscaler
+|13
+
+|1:15 Postscaler
+|14
+
+|1:16 Postscaler
+|15
+
+|===

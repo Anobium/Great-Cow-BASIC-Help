@@ -1,0 +1,184 @@
+// Edit EvanV 230917 - added samever and samebit directives
+// Edit EvanV 15116 - added new known directives
+// ERV - add output usage
+// ERV corrected the Allof and Oneof sections
+=== Other directives
+
+The built-in `#defines` are used to support the `#IFDEF` command set are as follows. The table also shows which `#defines` are supported as string in HSerPrint, SerPrint and other string related commands.
+
+[cols=4, options="header,autowidth"]
+|===
+|*Directive*
+|*Description*
+|*Output Usage*
+|*Returns*
+
+|`ChipADC`
+|String
+|#IFDEF & Output commands
+|The number of A/D inputs on the current chip
+
+
+|`ChipEEprom`
+|Number
+|#IFDEF & Output commands
+|The number of Bytes in EEPROM memmory
+
+|`ChipIO`
+|String
+|#IFDEF & Output commands
+|The number of general purpose IO pins
+
+
+|`ChipMHz`
+|String
+|#IFDEF & Output commands
+|The microcontroller clock speed
+
+|`ChipName`
+|Number
+|#IFDEF Only
+|The microcontroller type
+
+|`ChipNameStr`
+|String
+|#IFDEF & Output commands
+|The microcontroller name
+
+|`ChipPins`
+|Number
+|#IFDEF & Output commands
+|The number of microcontroller pins.
+
+|`ChipReserveHighProg`
+|Number
+|#Scripts, #IFDEF & Output commands
+|The value of the words reserved
+
+|`ChipRam`
+|Number
+|#IFDEF & Output commands
+|The RAM size
+
+|`ChipFamily`
+|Number
+|#IFDEF & Output commands
+|See the table below
+
+|`ChipWords`
+|Number
+|#IFDEF & Output commands
+|The number of WORDS in Flash memmory
+
+|`Var()`
+|Function
+|Not applicable
+|True if a register is declared (or false if not declared) in the currently specficied microcontroller's .dat file.
+
+Var(register_name)
+
+|`NoVar()`
+|Function
+|Not applicable
+|True if a register is NOT declared (or false if declared) in the currently specficied microcontroller's .dat file.
+
+NoVar(register_name)
+
+|`Bit()`
+|Function
+|Not applicable
+|True if a bit is declared (or false if not declared) in the currently specficied microcontroller's .dat file.
+
+Bit(bit_name)
+
+|`NoBit()`
+|Function
+|Not applicable
+|True if a bit is NOT declared (or false if declared) in the currently specficied microcontroller's .dat file.
+
+NoBit(bit_name)
+
+|`Allof()`
+|Function
+|Not applicable
+|True if all defines are declared:
+
+`AllOf(define1, define2, …)`
+
+|`OneOf()`
+|Function
+|Not applicable
+|True if one of the defines is declared:
+
+`OneOf(define1, define2, …)`
+
+|===
+{empty} +
+{empty} +
+The table below shows two special directives that support the mapping for one variable or bit to anoher variable or bit.  This is useful when creating portable code or libraries to ensure Great Cow BASIC
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+[width="100%",cols="<10%,<45%,<45%"],options="header"]
+|===
+|*Directive*
+|*Explanation*
+|*Usage*
+
+|#samebit
+|The compiler checks each item in the list to see which ones are implemented on the current microcontroller.
+{empty} +
+If any of the bits do not exist, the compiler will create a constant mapping to the  name of the first parameter in the list of parameters that does exist.
+{empty} + If none of the bits exist the no constant is created.
+|&#160;&#160;#samebit PLLEN, SPLLEN, SPLLMULT
+{empty} +
+&#160;&#160;&#160;&#160;Set SPLLEN On
+{empty} +
+
+|#samevar
+|The compiler checks each item in the list to see which ones are implemented on the current microcontroller.
+{empty} +
+If any of the variables do not exist, the compiler will create a constant mapping to the  name of the first parameter in the list of parameters that does exist.
+{empty} + If none of the variables exist the no constant is created.
+|&#160;&#160;#samevar CMCON, CMCON0, CMCONbob +
+&#160;&#160;#ifdef Var(CMCONbob) +
+&#160;&#160;&#160;&#160;&#160;&#160;CMCONbob = 7 +
+&#160;&#160;#endif +
+{empty} +
+&#160;&#160;Compiles to: +
+&#160;&#160;;CMCONbob = 7 +
+&#160;&#160;movlw 7 +
+&#160;&#160;movwf CMCON,ACCESS +
+{empty} +
+|===
+{empty} +
+{empty} +
+
+
+
+This table shows the ChipFamily constants mapped to the microcontroller architecture.
+
+[cols=2, options="header,autowidth"]
+|===
+|*ChipFamily Value*
+|*Microcontroller Characteristics*
+|100
+|AVR core version V0E class microcontrollers
+|110
+|AVR core version V1E class microcontrollers
+|120
+|AVR core version V2E class microcontrollers
+|130
+|AVR core version V3E class microcontrollers but essentially the mega32u6 only
+|12
+|Baseline devices. 12 Bit instruction set
+|15
+|Mid-range core devices. 14 Bit instruction set with enhanced instruction set class
+|15 plus familyVariant=1
+|Mid-range core devices. 14 Bit instruction set with enhanced instruction set  and with large memory capability class
+|16
+|High end core devices. 16 Bit instruction set, memory addressing architecture and an extended instruction set.
+|===
+{empty} +
+{empty} +

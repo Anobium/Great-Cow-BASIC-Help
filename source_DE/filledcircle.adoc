@@ -1,0 +1,24 @@
+==== FilledCircle
+
+*Circle:*
+----
+    FilledCircle(XPixelPosition, YPixelPosition, Radius [,Optional LineColour] )
+----
+
+*Explanation:*
+
+Draws a circle on a GLCD at `XPixelPosition`, `YPixelPosition` with a specific `Radius`.
+
+*Example:*
+----
+    #include <glcd.h>
+
+    filledcircle(10,10,10)  ;upper left
+    filledcircle(117,10,10) ;upper right
+    filledcircle(63,31,10)  ;center
+    filledcircle(63,31,20)  ;center
+    filledcircle(10,53,10)  ;lower left
+    filledcircle(117,53,10) ;lower right
+----
+image::filledcircleb1.PNG[graphic,align="center"]
+

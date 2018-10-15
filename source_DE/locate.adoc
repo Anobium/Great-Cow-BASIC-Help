@@ -1,0 +1,44 @@
+==== Locate
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    Locate _Line, Column_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The Locate command is used to move the cursor on the LCD to the given
+location.
+
+`Line` is line number on the LCD display. A byte value from 0 to 255.
+
+`Column` is column number on the LCD display. A byte value from 0 to 255.
+
+
+*Example :*
+----
+    'A Hello World program for Great Cow BASIC.
+    'Uses Locate to show "World" on the second line
+
+    'General hardware configuration
+    #chip 16F877A, 20
+
+    'LCD connection settings
+    #define LCD_IO 8
+    #define LCD_DATA_PORT PORTC
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    'Main routine
+    Print "Hello"
+    Locate 1, 5
+    Print "World"
+----
+*For more help, see* <<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

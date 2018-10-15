@@ -1,0 +1,102 @@
+==== Measuring a Pulse Width
+
+*Introduction*
+
+The demonstration shows how a macro can be used to optimised code by compiling code inline.
+
+When the measurement of a pulse width to sub-microsecond resolution is required for instance measuring the high or low pulse width of an incoming analog signal a comparator can be combined with a timer to provide the pulse width.
+
+Microchip PIC has published a "Compiled Tips 'N Tricks Guide" that explains how to do certain tasks with Microchip PIC 8-bit microcontrollers.
+
+This guide provides the steps that need to be taken to perform the task of measuring a pulse width.  The guide provides guidance on measuring a pulse width using Timer 1 and the CCP module.  This guidance was used as the basis for the Great Cow BASIC port the shown below.  The guidance was generic and in this example polling the CCP flag bit was more convenient than using an interrupt.
+
+In this demonstration shown below, a 16F1829 microcontroller operating at 32 Mhz uses the internal oscillator. The demonstration code is based on a macro that uses Timer1 and CCP4. However, any of the four CCP modules could be used, the 16F1829 microcontroller has four CCP module.
+
+The timer resolution of this method uses a timer Prescaler of 1:8 and a microcontroller frequency of 32 MHz giving a pulse width resolution is 1ms.  With the timer Prescaler of 1:2 and the microcontroller frequency of 32MHz the resolution is 250 ns.
+
+The accuracy is dependent upon the accuracy of the system clock, but oscilliscope measurements have show an accuracy of +- 1us from 3us to 1000us.
+
+In this demonstration the following was implemented
+
+- Using Great Cow BASIC a macro to ensure the generated assembler is inline to ensure the timing is consistent and no sub routines are called.
+- Another microcontroller was used to generate the pulses to be measured
+- A TEK THS730A oscilliscope was used to measure/verify pulse widths
+- A 4x20 LDC module with an I2C Backpack was used to display the results. However, as an alternative, a serial output +
+to a terminal program to view the data could be used
+
+This demonstration could be improved by adding code to poll the TIMER1 overflow flag. If the timer overflows, then either no
+pulse was detected or the pulse was longer than allowed by the prescaler/OSC settings. In this case, return a value of zero for pulse width.
+
+*Usage:*
+
+To get positive pulse width use:
+----
+    PULSE_IN
+----
+`PULSE_IN` returns a global word variable Pulse_Width
+
+*Demonstration Program:*
+----
+    #Chip 16F1829, 32
+    #CONFIG MCLRE = OFF
+
+    'Setup Software I2C
+    #define I2C_MODE Master
+    #define I2C_DATA PORTA.2
+    #define I2C_CLOCK PORTC.0
+    #define I2C_DISABLE_INTERRUPTS ON
+
+    'Set up LCD
+    #define LCD_IO 10
+    #define LCD_SPEED FAST
+    #define LCD_Backlight_On_State  1
+    #define LCD_Backlight_Off_State 0
+
+    'Note: This example can be improved by adding code to poll the 'TIMER1 overflow flag. IF the timer overflows, then either no 'pulse was detected or the pulse was longer than allowed by the 'prescaler/OSC settings. In this case, return a value of zero 'for pulse width.
+
+    CLS
+    PRINT "Pulse Width Test"
+    DIM PULSE_WIDTH AS WORD
+    DIR PORTC.6 IN
+
+    'Setup timer
+    'Set timer1 using PS1_2 gives 250ns resolution
+    InitTimer1 OSC, PS1_8
+    wait 1 s
+    CLS
+
+    'MAIN PROGRAM LOOP
+    DO
+      PULSE_IN    'Call the Macro to get positive pulse width.
+      Locate 0,0
+      PRINT Pulse_Width
+      PRINT "    "
+      wait 1 s
+    Loop
+
+    MACRO PULSE_IN  'Measure Pulse Width
+      'Configure CCP4  to Capture rising edge
+       CCP4CON = 5   'Set to 00000101
+       StartTimer 1
+       CCP4IF = 0
+
+       do while CCP4IF = 0    'Wait for rising edge
+       loop
+
+       TMR1H = 0: TMR1L = 0   'Clear timer to zero
+       CCP4IF = 0             'Clear flag
+
+
+       'Configure CCP4 to Capture Falling Edge
+       CCP4CON = 4  '00000100'
+
+       do while CCP4IF = 0   'Wait for falling edge
+       loop
+
+       StopTimer 1            'Stop the time
+       Pulse_Width = TIMER1   'Save the timer value
+       CCP4IF = 0             'Clear the CCP4 flag
+    End MACRO
+----
+
+Also see <<_macros_overview,Macros Overview>>

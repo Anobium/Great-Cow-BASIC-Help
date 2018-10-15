@@ -1,0 +1,99 @@
+== Frequently Asked Questions
+
+*Why doesn't anything come up when I run GCBASIC.exe?*
+
+Great Cow BASIC is a command line compiler. To compile a file, you can
+drag and drop it onto the GCBASIC.exe icon. There are also several
+Integrated Development Environments, or IDEs, available for Great Cow BASIC.
+These will give you an area where you can edit your program and a button
+to send the program to the chip. Several are listed on the Great Cow BASIC
+website.
+
+*What Microchip PIC and Atmel AVR microcontrollers does Great Cow BASIC support?*
+
+Hopefully, all 8 bit Microchip PIC and Atmel AVR microcontrollers (those in the PIC10, PIC12, PIC16 and
+PIC18 families). If you find one that Great Cow BASIC does not work with
+properly, please post about it in the Compiler Problems section of the
+Great Cow BASIC forum.
+
+*Is Great Cow BASIC case sensitive?*
+
+No! For example, `Set`, `SET`, `set`, `SeT`, etc are all treated exactly the
+same way by Great Cow BASIC.
+
+*Can I specify the bit of a variable to alter using another variable?*
+
+Setting a  variable with other variable will expected. Great Cow BASIC support bitwise assignments. As follows:
+
+----
+    portc.0 = !porta.1
+----
+You can also use a shift function.  As in other languages, by using the Shift Function FnLSL.  AN example is:
+----
+    MyVar = FnLSL( 1, BitNum)`  is Equivalent to `MyVar = 1<<BitNum`
+----
+
+To set a bit of a port prevent glitches during the output update, use this method.
+----
+    'add this option for a specific port.
+    #option volatile portc.0
+
+    'then in your code
+    portc.0 = !porta.1
+----
+
+You can use this method to set a bit of a port. Encapsulate it in the SetWith method, this also eliminates any glitches during the update, use this method.
+----
+    SetWith(MyPORT, MyPORT OR FnLSL( 1, BitNum))
+----
+
+
+To clear a bit of a port, use this method.
+----
+    MyPORT = MyPORT AND NOT FnLSL( 1, BitNum))
+----
+
+To set a bit within an array, use this method.
+----
+    video_buffer_A1(video_adress) = video_buffer_A1(video_adress) OR FnLSL( 1, BitNum)
+----
+
+See also  <<_set,Set >>, <<_fnlsl, FnLSL >>, <<_fnlsr, FnLSR >> and <<_rotate, Rotate >>
+
+*Why is x feature not implemented?*
+
+Because it hasn't been thought of, or no-one has been able to implement
+it! If there are any features that you would like to see in Great Cow
+BASIC, please post them in the "Open Discussion" section of the Great Cow BASIC
+forum. Or, if you can, have a go at adding the feature yourself!
+
+*When using an include file does this use lots of memory?*
+
+When using include files, in this instance the <ds3231.h> include, if
+you are not using all the functions of the include file, does GCB know
+not to include the non used functions within the include file when
+compiling, or does everything get included anyway. For instance, if I am
+not using the hardware I2C, does all the code related to hardware I2C
+still get compiled in the code? +
+
+Great Cow BASIC only compiles functions and subroutines if they are called.
+Great Cow BASIC starts by compiling the main routine, then anything called from
+there. Each time it finds a new subroutine that is called, it compiles
+it and anything that it calls. If a subroutine is not needed, it does
+not get compiled.
+
+*My LCD will not operate as expected?*
+
+Try adding. `#define LCD_SPEED SLOW`
+
+This will slow the writing to the LCD.
+
+*Atmel AVR memory usage displayed is incorrect?*
+
+Atmel AVR memory values are specified in WORDS in Great Cow BASIC. The Great Cow BASIC compiler uses words, not bytes, for consistency between Microchip PIC and Atmel AVR microcontrollers. This keeps parts of the compiler simpler.
+
+
+*I cannot open the Window Help File?*
+
+See http://digital.ni.com/public.nsf/allkb/B59D2B24D624B823862575FC0056F3D0
+

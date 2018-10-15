@@ -1,0 +1,48 @@
+=== Overview
+
+*Introduction:*
+Great Cow BASIC can be used when using the Linux Operating System.
+
+This instructions are not distribution specific, but are for Linux only (not Windows).
+
+*Instructions:*
+Complete the following steps to compile and install Great Cow BASIC for Linux:
+[start=1]
+ . Install FreeBasic from your distributions repository or http://www.freebasic.net/wiki/CompilerInstalling
+
+
+ . Download the "Great Cow BASIC - Linux Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
+
+
+ . Unrar/unpack GCB@Syn.rar to a location of your choice within your home directory (eg. within Downloads) with either a file manager or from a console.
+
+
+ . From a console, change to the Great Cow BASIC Sources in the unpacked directory:
+----
+   eg. cd ~/Downloads/GCB@Syn/GreatCowBasic/Sources/GCBASIC
+----
+[start=5]
+ . Make sure that `install.sh` is set as executable (ie. `chmod +x install.sh`), and then execute: ./install.sh build
+
+
+ . You will need root privileges for this step. You can switch user (su) to root, or optionally use `sudo`.
+----
+   Execute: [sudo] ./install.sh install
+----
+[start=7]
+ . If you su'd to root, use `exit` to drop back to your normal user. Then, be sure to follow the instructions given by the script for updating your path.
+
+
+ . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
+
+
+Now you can create and compile GCB source files.
+
+*Programming microcontrollers:*
+
+To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional software.
+
+For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
+
+For Atmel AVR microcontroller programming, you will need `avrdude`. It should be available in your distributions repository. If not, check here: http://www.nongnu.org/avrdude/
+

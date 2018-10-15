@@ -1,0 +1,151 @@
+//added function clarification
+=== Conditions
+
+*About Conditions*
+
+In Great Cow BASIC (and most other programming languages) a condition is a
+statement that can be either true or false. Conditions are used when the
+program must make a decision.
+A condition is generally given as a value or variable, a relative
+operator (such as = or >), and another value or variable. Several
+conditions can be combined to form one condition through the use of
+logical operators such as AND and OR.
+
+Great Cow BASIC supports these relative operators:
+[cols="^1,^1", options="header",width="60%"]
+|===
+|*Symbol*
+|*Meaning*
+
+|`=`
+|Equal
+
+|`<>`
+|Not Equal
+
+|`<`
+|Less Than
+
+|`>`
+|Greater Than
+
+|`<=`
+|Less than or equal to
+
+|`>=`
+|Greater than or equal to
+|===
+In addition, these logical operators can be used to combine several
+conditions into one:
+[cols="^1,^1,^1", options="header",width="80%",align="center"]
+|===
+|*Name*
+|*Abbreviation*
+|*Condition true if*
+
+|`AND`
+|`&`
+|both conditions are true
+
+|`OR`
+|`\|`
+|at least one condition is true
+
+|`XOR`
+|`#`
+|one condition is true
+
+|`NOT`
+|`!`
+|the condition is not true
+|===
+NOT is slightly different to the other logical operators, in that it
+only needs one other condition. Other arithmetic operators may be
+combined in conditions, to change values before they are compared, for
+example.
+
+Great Cow BASIC has two built in conditions - TRUE, which is always true, and
+FALSE, which is always false. These can be used to create infinite
+loops.
+
+It is also possible to test individual bits in conditions. To do this,
+specify the bit to test, then 1 or 0 (or ON and OFF respectively).
+Presently there is no way to combine bit tests with other conditions -
+NOT, AND, OR and XOR will not work.
+
+*Example conditions:*
+[cols=2, options="header",width="80%"]
+|===
+|*Condition*
+|*Comments*
+
+|Temp = 0
+|Condition is true if Temp = 0
+
+|Sensor <> 0
+|Condition is true if Sensor is not 0
+
+|Reading1 > Reading2
+|True if Reading1 is more than Reading2
+
+|Mode = 1 AND Time > 10
+|True if Mode is 1 and Time is more than 10
+
+|Heat > 5 OR Smoke > 2
+|True if Heat is more than 5 or Smoke is more than 2
+
+|Light >= 10 AND (NOT Time > 7)
+|True if Light is 10 or more, and Time is 7 or less
+
+|Temp.0 ON
+|True if Temp bit 0 is on
+|===
+
+
+*Constraints when using Conditional Test*
+
+As Great Cow BASIC is very flexible with the use of variables type this can cause issues when testing constants and/or functions.
+
+A few simple rules. *Always put the function or constant first, or, always call the function with the addition of the braces.*
+
+The example code below shows the correct method and an example that does compile but will not work as expected.
+
+----
+    'Example A - works
+    'Call the function by adding the braces
+    '
+    Do
+    Loop While HSerReceive() <> 62
+
+    'Example B - works
+    'Please the constant first - this is the general rule - put the constant first.
+    '
+    Do
+    Loop While 62 <> HSerReceive
+----
+
+
+This fails as the function will not be called
+
+----
+    'Example C - compiles but does not operate as expected
+    Do
+    Loop While HSerReceive <> 62
+----
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+
+
+
+
+
+
+
+
+
+
+

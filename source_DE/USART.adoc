@@ -1,0 +1,48 @@
+
+Looking into the USART issue with respect to the setting for the baud rate for specific microcontrollers.
+
+*The Microchip published algorithm is as follows:*
+
+- For a device with Fosc of 16 MHz, desired baud rate of 9600, Asynchronous mode, and 8-bit BRG:
+- Desired Baud Rate = FOSC/(64 ([SPBRGHx:SPBRGx] + 1))
+- Solving for SPBRGHx:SPBRGx:
+
+    `
+    X = ((FOSC/Desired Baud Rate)/64) – 1
+    = ((16000000/9600)/64) – 1
+    = [25.042] = 25
+`
+Where the calculated Baud Rate is resolved as, using the determined value (of `25` from the previous calculation).
+`
+    = 16000000/(64 (25 + 1))
+    = 9615 ' resulting baud rate with an error rate of of 0.16%
+    '
+
+*Great Cow BASIC algorithm is a follows*
+
+- For a device with Fosc of 16 MHz, desired baud rate of 9600, Asynchronous mode, and 8-bit BRG:
+- Desired Baud Rate = = FOSC/(64 ([SPBRGHx:SPBRGx] + 1))
+- Solving for SPBRGHx:SPBRGx:
+
+    `
+    X =  ChipMHz / USART_BAUD_RATE / 64 * 1000000 - 1
+    = 16 / 9600 / 64 * 100000 - 1
+    = (16 / 9600 / 64 * 100000) - 1  'just adding braces to show maths priority'
+    = [25.042] = 25
+`
+
+
+*Examination of the difference approaches*
+
+    `
+    The two calcs
+    ((16000000/9600)/64) – 1 = (16 / 9600 / 64 * 100000) - 1
+
+    Removal of the -1 from both sides
+    ((16000000/9600)/64) = (16 / 9600 / 64 * 100000)
+
+    Simple move of 10000000 to ChipMHz
+    ((16000000/9600)/64) = (16000000 / 9600 / 64 )
+    `
+
+So, these calculations are the same

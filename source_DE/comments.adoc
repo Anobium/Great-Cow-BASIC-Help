@@ -1,0 +1,35 @@
+=== Comments
+
+*About Comments*
+
+Adding comments to your Great Cow BASIC program is done with an apostrophe before
+the comment line. You can also comment out sections of code if you want
+just by placing an apostrophe, a semi-colon or use the statement REM at
+the beginning of each line. The SynGCB IDE has a feature to do this
+automatically.
+
+Warning: Great Cow Graphical BASIC uses semi-colons to mark comments that it has
+inserted automatically. It does not read these comments when opening a file, so any
+comments in a Great Cow BASIC program starting with a semi-colon will be deleted if the
+program is opened using Great Cow Graphical BASIC.
+
+*Example:*
+----
+    ' The number of pins to flash
+    #define FlashPins 2
+
+    REM You can create a header using an apostrophe before each line
+    REM This is a great way to describe your program
+    REM You can also use it to describe the hardware connections.
+
+    ' You can place comments above the command or on the same line
+    Dir PORTB Out ' Initialise PORTB to all Outputs
+
+    ; The Main loop
+    do
+    PORTB = 0 ' All Pins off
+    Wait 1 S ' Delay 1 second
+    PORTB = 0xFF ' All pins on
+    Wait 1 s ' Delay 1 second
+    Loop
+----

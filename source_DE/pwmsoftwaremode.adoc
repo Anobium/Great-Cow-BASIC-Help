@@ -1,0 +1,20 @@
+==== PWM Software Mode
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    PWMOut _channel, duty cycle, cycles_
+----
+*Command Availability:*
+
+Available on all microcontrollers.  This method does NOT require a PWM module within the microcontroller.
+
+This command uses a software PWM routine within Great Cow BASIC to produce
+a PWM signal on the selected port of the chip.
+
+The method `PWMOut` does not make use of any special hardware within the microcontroller.
+The PWM signal is generated only while the `PWMOut` command is executing - therefore, when the `PWMOut` is not executing
+by moving onto the next command, the PWM signal will stop.
+
+
+*For more help, see* <<_pwmout,PWMOut>>

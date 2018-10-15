@@ -1,0 +1,275 @@
+==== HX8347G Controllers
+
+This section covers GLCD devices that use the HX8347G graphics controller.
+
+HX8347G is a 262,144-color single-chip SoC driver for a-TFT liquid crystal display with resolution of 240&#160;RGB&#160;x&#160;320&#160;
+dots.
+
+The HX8347-G is designed to provide a single-chip solution that combines a gate
+driver, a source driver, power supply circuit for 262,144 colors to drive a TFT panel
+with 240RGBx320 dots at maximum.
+
+The HX8347-G can be operated in low-voltage (1.4V) condition for the interface and
+integrated internal boosters that produce the liquid crystal voltage, breeder resistance
+and the voltage follower circuit for liquid crystal driver. In addition, The HX8347-G also
+supports various functions to reduce the power consumption of a LCD system via
+software control.
+
+The Great Cow BASIC constants shown below control the configuration of the HX8347G controller.
+&#160;&#160;&#160;The Great Cow BASIC constants for control and data line connections are shown
+in the table below.
+
+Connectivity is via an 8-bit bus.  Where 8 pins are connected between the microcontroller and the GLCD to control the
+data bus plus 5 control pins.  This is simple when using an Arduino GLCD Shield.
+
+To use the HX8347G driver simply include the following in your user code.  This will initialise the driver.
+
+{empty} +
+{empty} +
+**8-bit mode**
+----
+    'This GLCD driver supports 8 bit only. UNO ports can be replaced with porta.b constants.
+
+    #include <glcd.h>
+    #include <UNO_mega328p.h >
+    #define GLCD_TYPE GLCD_TYPE_HX8347
+
+    'Pin mappings for SPI - this GLCD driver supports Hardware SPI and Software SPI
+    #define GLCD_RD       ANALOG_0          ' read command line
+    #define GLCD_WR       ANALOG_1          ' write command line
+    #define GLCD_RS       ANALOG_2          ' Command/Data line
+    #define GLCD_CS       ANALOG_3          ' Chip select line
+    #define GLCD_RST      ANALOG_4          ' Reset line
+
+    #define GLCD_DB0       DIGITAL_8
+    #define GLCD_DB1       DIGITAL_9
+    #define GLCD_DB2       DIGITAL_2
+    #define GLCD_DB3       DIGITAL_3
+    #define GLCD_DB4       DIGITAL_4
+    #define GLCD_DB5       DIGITAL_5
+    #define GLCD_DB6       DIGITAL_6
+    #define GLCD_DB7       DIGITAL_7
+
+----
+{empty} +
+{empty} +
+
+The Great Cow BASIC constants for the interface to the controller are shown in the table below.
+{empty} +
+{empty} +
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Options
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_HX8347`
+|
+
+
+|`GLCD_DB0..7`
+|Specifies the  pin that is connected to DB0..7 IO pin on the GLCD (8 bit DBI).
+|Required
+
+|`GLCD_RST`
+|Specifies the output pin that is connected to Reset IO pin on the GLCD.
+|Required
+
+|`GLCD_CS`
+|Specifies the output pin that is connected to Chip Select (CS)  on the GLCD.
+|Required
+
+|`GLCD_RS`
+|Specifies the output pin that is connected to Data/Command pin on the GLCD.
+|Required
+
+|`GLCD_WR`
+|Specifies the output pin that is connected to Data In (RW or WDR) pin on the GLCD.
+|Required
+
+|`GLCD_RD`
+|Specifies the output pin that is connected to Data Out (RD or RDR) pin on the GLCD.
+|Required
+
+|===
+
+{empty} +
+{empty} +
+The Great Cow BASIC constants for control display characteristics are shown in the table below.
+{empty} +
+{empty} +
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Constants
+|Controls
+|Default
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|`320`
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|`480`
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|`6` for GCB fonts, and `5` for OLED fonts.
+
+
+|`GLCD_OLED_FONT`
+|Specifies the use of the optional OLED font set.
+
+The GLCDfntDefaultsize can be set to 1 or 2 only.
+
+`GLCDfntDefaultsize=  1`.   A small 8 height pixel font with variable width.
+`GLCDfntDefaultsize=  2`.   A larger 10 width * 16 height pixel font.
+
+|Optional
+|===
+{empty} +
+{empty} +
+
+The Great Cow BASIC commands supported for this GLCD are shown in the table below.&#160;&#160;&#160;Always review the appropiate library for the latest full set of supported commands.
+{empty} +
+{empty} +
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|Command
+|Purpose
+|Example
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS  [,Optional LineColour]`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable )`
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode [,Optional LineColour] )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable [,Optional LineColour] )`
+
+|`Box`
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour]`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2  [,Optional LineColour] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2 [,Optional LineColour] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour)`
+
+|`GLCDWriteByte`
+|Set a byte value to the controller, see the datasheet for usage.
+|`GLCDWriteByte ( LCDByte)`
+
+|`GLCDReadByte`
+|Read a byte value from the controller, see the datasheet for usage.
+|`bytevariable = GLCDReadByte`
+
+|`GLCDRotate`
+|Rotate the display
+|`LANDSCAPE`, `PORTRAIT_REV`, `LANDSCAPE_REV` and `PORTRAIT` are supported
+
+|`HX8347G_[color]`
+|Specify color as a parameter for many GLCD commands
+|Color constants for this device are shown in the list below. +
+
+
+ Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
+|===
+
+{empty} +
+{empty} +
+----
+    HX8347G_BLACK   'hexidecimal value 0x0000
+    HX8347G_RED     'hexidecimal value 0xF800
+    HX8347G_GREEN   'hexidecimal value 0x0400
+    HX8347G_BLUE    'hexidecimal value 0x001F
+    HX8347G_WHITE   'hexidecimal value 0xFFFF
+    HX8347G_PURPLE  'hexidecimal value 0xF11F
+    HX8347G_YELLOW  'hexidecimal value 0xFFE0
+    HX8347G_CYAN    'hexidecimal value 0x07FF
+    HX8347G_D_GRAY  'hexidecimal value 0x528A
+    HX8347G_L_GRAY  'hexidecimal value 0x7997
+    HX8347G_SILVER  'hexidecimal value 0xC618
+    HX8347G_MAROON  'hexidecimal value 0x8000
+    HX8347G_OLIVE   'hexidecimal value 0x8400
+    HX8347G_LIME    'hexidecimal value 0x07E0
+    HX8347G_AQUA    'hexidecimal value 0x07FF
+    HX8347G_TEAL    'hexidecimal value 0x0410
+    HX8347G_NAVY    'hexidecimal value 0x0010
+    HX8347G_FUCHSIA 'hexidecimal value 0xF81F
+----
+{empty} +
+{empty} +
+
+
+These examples show how to drive a HX8347G based Graphic LCD module with the built in commands of Great Cow BASIC.  The 8 bit DBI example uses a UNO shield, this can easily adapted to Microchip architecture.  The 16 bit DBI
+example uses a Mega2560 board.
+
+{empty} +
+{empty} +
+*Example:*
+----
+
+    #chip mega328p, 16
+    #option explicit
+
+
+    #include <glcd.h>
+    #include <UNO_mega328p.h >
+
+    #define GLCD_TYPE GLCD_TYPE_HX8347
+    #define GLCD_OLED_FONT
+
+    'Pin mappings for SPI - this GLCD driver supports Hardware SPI and Software SPI
+    #define GLCD_RD       ANALOG_0          ' read command line
+    #define GLCD_WR       ANALOG_1          ' write command line
+    #define GLCD_RS       ANALOG_2          ' Command/Data line
+    #define GLCD_CS       ANALOG_3          ' Chip select line
+    #define GLCD_RST      ANALOG_4          ' Reset line
+
+
+
+    #define GLCD_DB0       DIGITAL_8
+    #define GLCD_DB1       DIGITAL_9
+    #define GLCD_DB2       DIGITAL_2
+    #define GLCD_DB3       DIGITAL_3
+    #define GLCD_DB4       DIGITAL_4
+    #define GLCD_DB5       DIGITAL_5
+    #define GLCD_DB6       DIGITAL_6
+    #define GLCD_DB7       DIGITAL_7
+
+
+    GLCDRotate ( Portrait )
+    GLCDCLS HX8347_RED
+    GLCDPrint(0, 0, "Test of the HX8347G Device")
+    end
+
+----
+
+{empty} +
+{empty} +
+
+*For more help, see*
+<<_glcdcls,GLCDCLS>>,  <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
+{empty} +
+{empty} +
+Supported in <GLCD.H>

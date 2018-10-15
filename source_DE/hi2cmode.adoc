@@ -1,0 +1,26 @@
+==== HI2CMode
+
+*Syntax:*
+
+----
+    HI2CMode Master | Slave
+----
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+Sets the microcontroller to either a Master device or a Slave device.
+
+Only used in slave mode
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2Mode Master | Slave
+----
+
+Supported in <HI2C.H>

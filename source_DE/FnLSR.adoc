@@ -1,0 +1,55 @@
+==== FnLSR
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    BitsOut = FnLSR(BitsIn, NumBits)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`FnLSR` (Logical Shift Right) will perform a Bitwise right shift. `FnLSR` will return BitsIn shifted NumBits to the right, it is equivalent to the 'C' operation:
+
+----
+    BitsOut = BitsIn >> NumBits
+----
+
+Each right shift is the equivalent of dividing BitsIn by 2.
+
+BitsIn and NumBits may be may be a variable and of  type: Bit, Byte, Word, Long, Constant or another Function.
+
+Zeros are shifted in from the left, Bits that are shifted out are lost.
+
+It is useful for mathematical and logical operations, as well as creating serial data streams or manipulating I/O ports.
+
+*Example:*
+
+----
+    ' This program will shift the LEDs on the Microchip PIC Low Pin Count Demo Board
+    ' from Right to Left, that is DS4(RC3) to DS1(RC0) and repeat.
+
+    #chip    16f690        ' declare the target Device
+
+    #define  LEDPORT PORTC ' LEDs on pins 16, 15, 14 and 7
+
+    Dim LEDMask as Byte    ' Pattern to be displayed
+    LEDMask = 0b1000       ' Initialise the Patten
+    Dir LEDPORT Out        ' Enable the LED Port.
+
+    Do
+      LEDPORT = LEDMask    ' Display the Pattern
+      wait 500 ms
+      LEDMask = FnLSR(LEDMask, 1) & 0x0F ' Mask the lower 4 bits
+      if LEDPORT.0 then LEDMask.3 = 1    ' Restart the sequence
+    Loop
+    End
+
+----
+
+*See Also <<_bitwise_operations_overview, Bitwise Operations Overview>>* and *<<_conditions, Conditions>>*
+

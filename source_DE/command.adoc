@@ -1,0 +1,45 @@
+==== Command Name
+:imagesdir: ./images
+
+*Syntax:*
+[subs="specialcharacters,quotes"] 
+----
+Command  _var1_ = _var2_ To _var3_ [Step _var4_]
+ ...
+_program code_
+ ...
+<__condition__> Exit Command
+ ...
+Next
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Command` command is doing ...
+
+When the `Command` is first executed, `_var1_` is set to `_start_`...
+This is *bold*, this is _italic_ and this *_bod and italic_*.
+
+Now we are going to create a 2 x 3 table
+[cols=3, options="header,autowidth"]
+|====
+|*Label col 1*
+|*Label col 2*
+|*Label col 3*
+
+| li 1 col 1
+| li 1 col 2
+| li 1 col 3
+
+| li 2 col 1
+| li 2 col 2
+| li 2 col 3
+|====
+
+How to include a cow... 
+image:cow.jpg[]
+
+How to make a link with <<_command_name,Command Name>>

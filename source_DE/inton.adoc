@@ -1,0 +1,20 @@
+==== IntOn
+
+*Syntax:*
+----
+    IntOn
+----
+*Command Availability:*
+
+Available on Microchip PIC and Atmel AVR microcontrollers with interrupt support. Will
+be automatically removed on chips without interrupts.
+
+*Explanation:*
+
+`IntOn` is used to enable interrupts on the microcontroller after `IntOff`
+has disabled them. It should be used at the end of code which is
+timing-sensitive.
+
+`IntOn` will be removed from the assembler if no interrupts are used.
+
+*See also* <<_intoff,IntOff>>, <<_interrupts_overview,Interrupts>>

@@ -1,0 +1,24 @@
+===== LCD_SPEED
+
+*Using LCD_SPEED:*
+
+The communication performance of a LCD display can be controlled via a `#DEFINE`.
+This method allows the timing to be optimised.
+
+*Example*
+
+ #DEFINE LCD_SPEED  FAST
+
+[cols=2, options="header,autowidth"]
+|===
+|Define
+|Required Connections
+
+|`LCD_SPEED`
+|Options are: +
+`FAST`   - The speed is approximately 20,000 CPS. +
+`MEDIUM` - The speed is approximately 15,000 CPS. +
+`SLOW`   - The speed is approximately 10,000 CPS. +
+|===
+
+If `LCD_SPEED` is not defined, the speed defaults to `SLOW`

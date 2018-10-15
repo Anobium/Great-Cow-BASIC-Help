@@ -1,0 +1,43 @@
+//
+==== HPWMOff
+
+*Syntax:*
+----
+    HPWMOff ( channel )   'selectively turn off the CCP channel
+
+    HPWMOff               'turn off CCP channel 1 only
+----
+
+*Command Availability:*
+
+Only available on Microchip PIC microcontrollers with Capture&Compare/PWM (CCP) modules.
+
+
+*Explanation:*
+
+This command will disable the output of the CCP1/PWM module on the Microchip PIC chip.
+
+*Example:*
+----
+
+    'Select chip model and speed
+    #chip 16F877A, 20
+
+    'Set the CCP1 pin to output mode
+    DIR PORTC.2 out
+
+    'Main code
+    do
+        'Turn up brightness over 2.5 seconds
+        For Bright = 1 to 255
+            HPWM 1, 40, Bright
+            wait 10 ms
+        next
+
+        wait 1 s
+        HPWMOff ( 1 )' turn off the PWM channel
+
+    loop
+
+----
+*For more help, see* <<_hpwmoff,HPWMOff>>

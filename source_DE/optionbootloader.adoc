@@ -1,0 +1,29 @@
+// Edit EvanV 171016
+=== #Option Bootloader
+
+*Syntax:*
+[subs="quotes"]
+----
+    #option bootloader __address__
+----
+
+*Explanation:*
+
+`#option bootloader` prevents the overwriting of any pre-loaded bootloader code, vectors, etc. below the `_address_` and have all Great Cow BASIC code start at `_address_`.
+
+A bootloader is a program that stays in the microcontroller and communicates with the PC, typically through the serial interface. The bootloader receives a user program from the PC and writes it in the flash memory, then launches this program in execution. Bootloaders can only be used with those microcontrollers that can write their flash memory through software.
+
+The bootloader itself must be written into the flash memory with an external programmer.
+
+In order for the bootloader to be launched after each reset, a `goto bootloader` instruction must exist somewhere in the first 4 instructions; There are two types of bootloaders, some that require that the user reallocate the code and others that by themselves reallocate the first 4 instructions of the user program to another location and execute them when the bootloader exits.
+
+The diagram below shows the architecture of a bootloader. The left hand is the operation of the instructions without a bootloader. The right hand shows the initial instruction of goto the bootoader, then, when the bootloader has initialised the execution of the start code.
+
+image::optionbootloaderb1.PNG[graphic,align="center"]
+
+See https://sourceforge.net/projects/tinypicbootload/files/[example bootload software.]
+
+*Example:*
+----
+    #option bootloader 0x800
+----

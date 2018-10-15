@@ -1,0 +1,14 @@
+=== #ifndef
+
+*Syntax:*
+[subs="quotes"]
+----
+    #ifndef __Constant__ | __Constant Value__ | Var(__VariableName__)
+      ...
+    #endif
+----
+*Explanation:*
+
+The `#ifndef` directive is used to selectively enable sections of code. It is the opposite of the `#ifdef` directive - it will delete code in cases where `#ifdef` would leave it, and will leave code where `#ifdef` would delete it.
+
+*See* the <<__ifdef,#ifdef>> article for more information.

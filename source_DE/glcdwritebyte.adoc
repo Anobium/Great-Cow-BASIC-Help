@@ -1,0 +1,9 @@
+==== GLCDWriteByte
+
+*Syntax:*
+----
+    GLCDWriteByte (LCDByte)
+----
+*Explanation:*
+
+Writes a byte of data to the Graphic LCD memory

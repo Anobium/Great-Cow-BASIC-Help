@@ -1,0 +1,14 @@
+===== ST7920gTile
+
+*Syntax:*
+----
+    ST7920gTile ( byte variable , byte variable)
+----
+*Explanation:*
+
+Tile LCD screen with two bytes in Graphic Mode.
+
+*Example usage:*
+----
+    ST7920gTile (0x55, 0x85) ‘tile the screen with an odd cross hatch
+----

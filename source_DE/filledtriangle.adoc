@@ -1,0 +1,21 @@
+==== FilledTriangle
+
+*FilledTriangle:*
+----
+    FilledTriangle( XPixelPosition1, YPixelPosition1, XPixelPosition2, YPixelPosition2, XPixelPosition3, YPixelPosition3 [,Optional LineColour] )
+----
+*Explanation:*
+
+Draws a FilledTriangle on a GLCD at `XPixelPositionN`, `YPixelPositionN`.
+
+The constant `GLCD_PROTECTOVERRUN` can be added to prevent FilledTriangles from
+re-drawing at the screen edges. Ensure the `GLCD_Width` and `GLCD_HEIGHT`
+constants are set correctly when using this additional constant.
+
+*Example:*
+----
+    #include <glcd.h>
+
+    FilledTriangle(0, 0, 31, 63, 127, 0 )
+
+----

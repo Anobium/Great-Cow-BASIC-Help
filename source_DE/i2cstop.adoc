@@ -1,0 +1,25 @@
+==== I2CStop
+
+*Syntax:*
+----
+    I2CStop
+----
+*Command Availability:*
+
+Available on all microcontrollers except 12 bit instruction microcontrollers (10F,
+12F5xx, 16F5xx chips)
+
+*Explanation:*
+
+When in Master mode, this command will send an I2C stop condition, and
+re-enable interrupts if `I2CStart` disabled them. In Slave mode, it will
+re- enable interrupts.
+
+`I2CStop` should be called at the end of every I2C transmission.
+
+*Example:*
+
+Please see <<_i2csend,I2CSend>> and <<_i2creceive,I2CReceive>>
+for an example.
+
+Supported in <I2C.H>

@@ -1,0 +1,147 @@
+//Edit EvanV 261116 Added GPASM
+== Command Line Parameters
+
+*About the Command Line Parameters*
+[subs="quotes"]
+----
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:\{C|A}] [/V] [/L] [/NP] _filename_
+
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/NP] _filename_
+
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX] [/S:Use.ini] [/NP] _filename_
+
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/S:Use.ini] [/F[O]] [/NP] _filename_
+
+    GCBASIC /version
+
+----
+[cols="20%,40%,20%", options="header"]
+|===
+|*Switch*
+|*Description*
+|*Default*
+
+|`/O:__filename__`
+|Sets the name of the assembly file generated to `_filename_`.
+|Same name as the input file, but with a `.asm` extension.
+
+|`/A:assembler`
+|Batch file used to call assembler^(1)^. If `/A:GCASM` is given, Great Cow BASIC will use its internal assembler.
+|The program will not be assembled
+
+|`/P:programmer`
+|Batch file used to call programmer^(1)^. This parameter is ignored if the program is not assembled.
+|The program will not be downloaded.
+
+|`/K:[C\|A]`
+|Keep original code in assembly output. `/K:C` will save comments, `/K:A` will preserve all input code.
+|No original code left in output.
+
+|`/V[:[0\|F][1\|T]`
+|Verbose mode - compiler gives more detailed information about its activities.
+/Vx will overide any configuration in the user ini file.
+|-
+
+
+|`/L`
+|Show license and exit.
+|-
+
+|`/NP`
+|Do not pause on errors. Use with IDEs.
+|Pause when an error occurs, and wait for the user to press a key.
+
+|`/WX`
+|Force compiler to ensure all include files are valid.
+|
+
+|`/version`
+|Shown build date and version of the compiler.
+|
+
+|`/S`
+|Load the settings from a specified file, rather than use the defaults.
+| /S:use.ini
+
+
+|`/F[:[0\|F][1\|T]`
+|Used to bypass compilation when not needed, compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
+ Skip compilation if the hex file is up to date and has correct config.
+/F:x ( F or 0) to force a fresh compile regardless of what ini specifies.
+|
+
+|`/FO`
+|Used to bypass compilation and program only.  Compiler will verify that config settings in the already compiled file match those required for the programmer. If not, a recompilation will be forced.
+|
+
+
+|`filename`
+|The file to compile.
+|-
+|===
+[small]#^(1)^ For the `/A:` and `/P:` switches, there are special options available. If
+`%FILENAME%` is present, it will be replaced by the name of the `.asm` file.
+`%FN_NOEXT%` will be replaced by the name of the `.asm` file but without an
+extension, and `%CHIPMODEL%` will be replaced with the name of the chip.
+The name of the chip will be the same as that on the chip data file.#
+
+A batch file to load the `ASM` from Great Cow BASIC into `MPASM`. Command line should be like this:
+----
+    C:\progra~1\microc~1\mpasms~1\MPASMWIN /c- /o- /q+ /l- /x- /w1 %code%.asm
+----
+
+
+A batch file to compile in Great Cow BASIC then load the `ASM` from Great Cow BASIC into `GPASM`. Command line should be like this:
+----
+    gcbasic.exe %1 /NP /K:A /A:"..\gputils\bin\gpasm.exe %~d1%~p1%~n1.asm"
+----
+
+To instruct MAKEHEX.BAT to use `GPASM`.   You have GPUTILS installed.  The batch file should be edited as follows:
+----
+    REM Create the ASM
+    gcbasic.exe /NP /K:A %1
+    REM Use GPASM piping to the GCB error log
+    gpasm.exe "%~d1%~p1%~n1.asm" -k -i -w1 >> errors.txt
+----
+
+
+To summarise, you can use any of the following:
+
+----
+    gcbasic.exe filetocompile.gcb /A:GCASM /P:"icprog -L%FILENAME%" /V /O:compiled.asm
+----
+
+Great Cow BASIC will compile the file, then assemble the program, and run this command:
+----
+    `icprog -Lcompiled.hex`
+----
+You can also create/edit the gcbasic.ini file :
+
+----
+    'Assembler settings
+    Assembler = C:\Program Files\Microchip\MPASM Suite\mpasmwin
+    AssemblerParams = /c- /o- /q+ /l+ /x- /w1 "%FileName%"
+
+    'Programmer settings
+    Programmer = C:\Program Files\WinPic\Winpic.exe
+    ProgrammerParams = /device=PIC%ChipModel% /p "%FileName%"
+----
+
+This example will use MPASM to assemble the program. It will run the program specified in the assembler = line, and give it these parameters:
+
+----
+    `/c- /o- /q+ /l+ /x- /w1 "compiled.asm"`
+----
+Then, it will run the programmer, and give it these parameters when it calls it:
+
+----
+    `/device=PIC16F88 /p "compiled.hex"`
+----
+`%ChipModel%` will get replaced with the chip you are using, so this the chip Great Cow BASIC will pass to WinPIC.
+
+*Errors.txt*
+
+The compiler only produces the file errors.txt if there is an error. The creation of the errors.txt file makes it easier for IDEs to detect if the program compiled successfully - if the file was not produced then the IDE would be unalbe to present the error message to the user.
+
+The file error.txt is always produced in the same folder as the compiler.  Typically: C:\GCB@Syn\GreatCowBasic\Errors.txt
+

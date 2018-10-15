@@ -1,0 +1,389 @@
+==== HI2C Overview
+
+*Introduction:*
+
+These methods allow Great Cow BASIC programs to send and receive Inter- Integrated Circuit (I2C™) messages via:
+
+* Master Synchronous Serial Port (MSSP) module of the microcontroller for the Microchip PIC architecture, or
+* ATMEL 2-wire Serial Interface (TWI) for the Atmel AVR microcontroller architecture.
+
+These methods are serial interfaces that are useful for communicating with other peripheral or microcontroller devices.
+These peripheral devices may be serial EEPROMs, shift registers, display drivers, A/D converters, etc.
+
+The method can operate in one of two operational modes:
+
+* Master Mode, or
+* Slave mode (with general address call)
+
+These methods fully implement all the I2C master and slave functions (including general call support) and
+supports interrupts on start and stop bits in hardware to determine a free bus (multi-master function).
+
+These methods implement the standard mode specifications as well as 7-bit and 10-bit addressing.
+A “glitch” filter is built into the SCL and SDA pins when the pin is an input.  This filter operates in both
+the 100 KHz and 400 KHz modes. In the 100 KHz mode, when these pins are an output, there
+is a slew rate control of the pin that is independent of device frequency.
+
+A hardware I2C/TWI module within the microcontroller is required for these methods.
+
+The driver supports two hardware I2C ports.  The second port is addressed by the suffix HI2C2.  All HI2C commands are applicable to the second HI2C2 port.
+
+The method supports the following frequencies:
+
+[cols=3, options="header,autowidth"]
+|===
+|*Frequency*
+|*Description*
+|*Support*
+
+|Up to 400 kbits/s
+|I2C/TWI `fast mode`: Defined as transfer rates up to 400 kbit/s.
+|Supported
+
+|Up to 100 kbit/s.
+|I2C/TWI `standard mode`:  Defined as transfer rates up to 100 kbit/s.
+|Supported
+
+|Up to 1 Mbit/s.
+|I2C `fast-mode plus`: Allowing up to 1 Mbit/s.
+|Supported on I2C Module Only
+
+Requires alternative clock source to be set.
+
+|Up to 3.4 Mbit/s.
+|I2C `high speed`: Allowing up to 3.4 Mbit/s.
+|Supported on I2C Module Only
+
+Requires alternative clock source to be set.
+
+|===
+
+
+*Relevant Constants:*
+
+These constants control the setup of the hardware I2C methods:
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Controls*
+|*Usage*
+
+|`Master`
+|Operational mode of the microcontroller
+|`HI2CMode ( _Master_ )`
+
+|`Slave`
+|Operational mode of the microcontroller
+|`HI2CMode ( _Slave_ )`
+
+|`HI2C_BAUD_RATE`
+|Operational speed of the microcontroller. Defaults to 100 kbit/s
+|For Microchip SSP or MSSP modules and AVR microcontrollers:
+
+`#define HI2C_BAUD_RATE 400`   or  +
+`#define HI2C_BAUD_RATE 100.` +
+Where  `#define HI2C_BAUD_RATE 100` is the default value and therefore does need to be specified.
+
+For Microchip I2C module:
+
+'define HI2C_BAUD_RATE 125' is the default.  You can override this value if you set up an alternative clock source.
+
+|`HI2CITSCLWaitPeriod`
+
+|Sets the TSCL period to Zero as the Stop condition must be held for TSCL after Stop transition.
+Default to 70, some solutions can use this set to 0. The clock source and clock method must be reviewed before changing this setting.
+|#define HI2CITSCLWaitPeriod 70
+
+|===
+*Port Settings:*
+
+The settings of the pin direction is critical to the operation of these
+methods.
+{empty} +
+For the Microchip SSP/MSSP modules both ports *must* be set as *input*.
+{empty} +
+For the  Microchip I2C module bith ports *must* be set as *output*.  And, configure the pins as open-drain and set the I2C levels - see example below for usage.
+{empty} +
+In all case the data and clock line *must * be pulled up with an
+appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
+{empty} +
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Controls*
+|*Default Value*
+
+|`HI2C_DATA`
+|Pin on microcontroller connected to I2C data
+|Must be defined
+|`HI2C_CLOCK`
+|Pin on microcontroller connected to I2C clock)
+|Must be defined
+|===
+{empty} +
+*Microchip I2C modules Specific Support*
+
+Clock Sources: The Microchip I2C can select one of ten clocks sources as shown in the table below.  I2C1Clock_MFINTOSC is the default which support 125hz.
+{empty} +
+To change the clock source, change the constant as follows:
+----
+        #define I2C1ClockSource  I2C1Clock_MFINTOSC
+----
+Clock Constants
+[cols=3, options="header,autowidth"]
+|===
+|*Constant*
+|*Clock Source*
+|*Default Value*
+
+| I2C1Clock_SMT1
+|SMT
+|0x09
+| I2C1Clock_Timer6PSO
+|Timer 6 Postscaler
+|0x08
+| I2C1Clock_Timer4PSO
+|Timer 4 Postscaler
+|0x07
+| I2C1Clock_Timer2PSO
+|Timer 2 Postscaler
+|0x06
+| I2C1Clock_Timer0Overflow
+|Timer 0 Overflow
+|0x05
+| I2C1Clock_ReferenceOut
+|Reference clock out
+|0x04
+| I2C1Clock_MFINTOSC
+|MFINTOSC
+|0x03 (default)
+| I2C1Clock_HFINTOSC
+|HFINTOSC
+|0x02
+| I2C1Clock_FOSC
+|FOSC
+|0x01
+| I2C1Clock_FOSC4
+|FOSC/4
+|0x00
+|===
+{empty} +
+{empty} +
+Alternative Clock Source:  Using SMTClock source as the clock spurce, the following methods implement the SMT as the clock source.  The defintion of the constant, the include, setting of the SMT period, initialisation and starting of the clock source are ALL required.
+{empty} +
+----
+    #define I2C1ClockSource I2C1Clock_SMT1
+    #Include <SMT_Timers.h>
+
+    '400 KHZ @ 64MHZ
+    SETSMT1PERIOD ( 39 )
+      ' 100 KHZ @ 64MHZ
+      ' SETSMT1PERIOD ( 158 )
+    InitSMT1(SMT_FOSC,SMTPres_1)
+    StartSMT1
+----
+For other clock sources refer to the appropriate datasheet.
+{empty} +
+{empty} +
+Error Codes: This module has extensive error reporting. For the standard error report refer to the appropriate datasheet.  Great Cow BASIC also exposes the following error messages to enable the user code to handle the errors appropriately.  These are exposed via the variable `HI2C1lastError` - the bits of the `HI2C1lastError` are set as in the table shown below.
+[cols=2, options="header,autowidth"]
+|===
+|*Constant*
+|*Error Value/Bit*
+|I2C1_GOOD
+|0
+|I2C1_FAIL_TIMEOUT
+|1
+|I2C1_TXBE_TIMEOUT
+|2
+|I2C1_START_TIMEOUT
+|4
+|I2C1_RESTART_TIMEOUT
+|8
+|I2C1_RXBF_TIMEOUT
+|16
+|I2C1_ACK_TIMEOUT
+|32
+|I2C1_MDR_TIMEOUT
+|64
+|I2C1_STOP_TIMEOUT
+|128
+|===
+
+{empty} +
+Shown below are two examples of using Hardware I2C with Great Cow BASIC.
+
+{empty} +
+*Example 1:*
+{empty} +
+This example examines the IC2 modules using the Microchip SSP/MSSP module and the AVR microcontrollers.  This will display the result on a serial terminal.
+This code will require adaption but the code shows an approach to
+discover the IC2 devices.
+----
+    #chip mega328p, 16
+    #config MCLRE_ON
+
+    ' Define I2C settings
+    #define HI2C_BAUD_RATE 400
+    #define HI2C_DATA PORTC.5
+    #define HI2C_CLOCK PORTC.4
+    'I2C pins need to be input for SSP module when used on Microchip PIC device
+    Dir HI2C_DATA in
+    Dir HI2C_CLOCK in
+
+    'MASTER MODE
+    HI2CMode Master
+
+    'USART/SERIAL PORT WORKS WITH max232 THEN TO PC Terminal
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    Dir PORTc.6 Out
+    #define USART_DELAY 10 ms
+
+    HSerPrintCRLF 2
+    HSerPrint "Hardware I2C Discover using the "
+    HSerPrint CHipNameStr
+    HSerPrintCRLF 2
+
+    for deviceID = 0 to 255
+      HI2CStart
+      HI2CSend ( deviceID )
+
+      if HI2CAckPollState = false then
+
+         if (( deviceID & 1 ) = 0 ) then
+         HSerPrint "W"
+        else
+         HSerPrint "R"
+        end if
+        HSerSend 9
+        HSerPrint   "ID: 0x"
+        HSerPrint   hex(deviceID)
+        HSerSend 9
+        HSerPrint "(d)"+str(deviceID)
+        HSerPrintCRLF
+        HI2CSend ( 0 )
+
+      end if
+
+      HI2CStop
+    next
+    HSerPrintCRLF
+    HSerPrint   "End of Device Search"
+    HSerPrintCRLF 2
+----
+{empty} +
+{empty} +
+This example examines the IC2 devices and displays on a serial terminal for the I2C module only.
+{empty} +
+This code will require adaption but the code shows an approach to discover the IC2 devices.
+{empty} +
+This code will only operate on the Microchip I2C module.
+{empty} +
+
+----
+    #chip 18f25k42, 16
+    #option Explicit
+    #config mclr=on, LVP=on
+
+    #startup InitPPS, 85
+
+    Sub InitPPS
+
+          RC4PPS =      0x22   'RC4->I2C1:SDA1
+          RC3PPS =      0x21   'RC3->I2C1:SCL1
+          I2C1SCLPPS =  0x13   'RC3->I2C1:SCL1
+          I2C1SDAPPS =  0x14   'RC4->I2C1:SDA1
+
+          'Module: UART1
+          RC6PPS = 0x0013     'TX1 > RC6
+          U1RXPPS = 0x0017    'RC7 > RX1
+
+    End Sub
+
+    'Template comment at the end of the config file
+
+    'Setup Serial port
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    ' Define I2C settings
+    #define HI2C_BAUD_RATE 125
+    #define HI2C_DATA PORTC.4
+    #define HI2C_CLOCK PORTC.3
+    'Initialise I2C - note for the I2C module the ports need to be set to Output.
+    Dir HI2C_DATA out
+    Dir HI2C_CLOCK out
+    RC3I2C.TH0=1   'Port specific controls may be required - see the datasheet
+    RC4I2C.TH0=1   'Port specific controls may be required - see the datasheet
+
+    'For this solution we can set the TSCL period to Zero as the Stop condition must be held for TSCL after Stop transition
+    #define HI2CITSCLWaitPeriod 0
+
+    '*****************************************************************************************************
+    'Main program commences here.. everything before this is setup for the board.
+
+    dim DeviceID as byte
+    Dim DISPLAYNEWLINE as Byte
+
+     do
+
+        HSerPrintCRLF
+        HSerPrint "Hardware I2C "
+        HSerPrintCRLF 2
+
+          ' Now assumes Serial Terminal is operational
+          HSerPrintCRLF
+          HSerPrint "   "
+          'Create a horizontal row of numbers
+          for DeviceID = 0 to 15
+            HSerPrint hex(deviceID)
+            HSerPrint " "
+          next
+
+          'Create a vertical column of numbers
+          for DeviceID = 0 to 255
+            DisplayNewLine = DeviceID % 16
+            if DisplayNewLine = 0 Then
+              HSerPrintCRLF
+              HserPrint hex(DeviceID)
+              if DisplayNewLine > 0 then
+                HSerPrint " "
+              end if
+            end if
+            HSerPrint " "
+
+            'Do an initial Start
+            HI2CStart
+            if HI2CWaitMSSPTimeout <> True then
+
+              'Send to address to device
+              HI2CSend ( deviceID )
+
+              'Did device fail to respond?
+              if HI2CAckPollState = false then
+                HI2CSend ( 0 )
+                HSerPrint   hex(deviceID)
+              Else
+                HSerPrint "--"
+              end if
+              'Do a stop.
+              HI2CStop
+
+            Else
+              HSerPrint "! "
+            end if
+
+          next
+
+          HSerPrintCRLF 2
+          HSerPrint   "End of Search"
+          HSerPrintCRLF 2
+          wait 1 s
+          wait while SwitchIn = On
+      loop
+----
+{empty} +
+{empty} +
+
+Supported in <HI2C.H>

@@ -1,0 +1,52 @@
+==== Gosub
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    Gosub _label_
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Gosub` command is used to jump to a label as a subroutine, in a
+similar way to `Goto`. The difference is that `Return` can then be used to
+return to the line of code after the `Goto`.
+
+*NOTE*
+
+`Gosub` should NOT be used if it can be avoided. It is not
+required to call a subroutine that has been defined using
+<<_subroutines,Sub>>, just write the name of the subroutine.
+
+*Example:*
+
+----
+    'This program will flash an LED on portb bit 0 and play a beep on
+    'porta bit 4. until the microcontroller is turned off.
+
+    #chip 16F628A, 4 'Change this to suit your circuit
+
+    #define SOUNDOUT PORTA.4
+    #define LIGHT PORTB.0
+    Dir LIGHT Out
+
+    Do
+    	'Flash Light
+    	PulseOut LIGHT, 1 s
+    	Wait 1 s
+    	'Beep
+    	Gosub PlayBeep
+    Loop
+
+    PlayBeep:
+    Tone 200, 10
+    Tone 100, 10
+    Return
+----
+
+*For more help, see <<_goto,Goto>>* and *<<_labels,Labels>>*

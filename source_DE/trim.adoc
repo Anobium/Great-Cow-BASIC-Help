@@ -1,0 +1,19 @@
+==== Trim
+
+*Syntax:*
+[subs="quotes"]
+----
+  __stringvar__ = Trim(__stringvar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Trim` function will trim the 7-bit ASCII space character (value 32) from text.
+
+`Trim` removes all spaces from text except for single spaces between words. Use `Trim` on text that you have received from another source that may have irregular spacing at the left or right hand ends of the string.
+
+*See Also* <<_ltrim,Ltrim>>, <<_rtrim,Rtrim>>

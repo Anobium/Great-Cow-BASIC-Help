@@ -1,0 +1,27 @@
+==== IntOff
+
+*Syntax:*
+----
+    IntOff
+----
+*Command Availability:*
+
+Available on Microchip PIC and Atmel AVR microcontrollers with interrupt support. Will
+be automatically removed on chips without interrupts.
+
+*Explanation:*
+
+`IntOff` is used to disable interrupts on the microcontroller. It should
+be used at the start of code which is timing-sensitive, and which would
+not function correctly if paused and restarted.
+
+It is essential that `IntOn` is used to turn interrupts on again after the
+timing-sensitive code has finished running. If not, no interrupts will
+be handled.
+
+It is recommended that IntOff be placed before all code that is timing
+sensitive, in case interrupts are implemented later.
+
+`IntOff` will be removed from the assembler if no interrupts are used.
+
+*See also* <<_inton,IntOn>>, <<_interrupts,Interrupts>>

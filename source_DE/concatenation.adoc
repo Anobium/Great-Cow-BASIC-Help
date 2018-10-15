@@ -1,0 +1,57 @@
+==== Concatenation
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = variable1 + variable2
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The method joins two variables into another variable.
+
+This method does not change the existing strings, but returns a *new* string containing the text of the joined variables, see Concatenated String Constraint below.
+
+Concatenation joins the elements of a specified values using the specified separator between each variable.
+
+
+*Example:*
+[subs="quotes"]
+----
+    timevariable = 999
+    __stringvar__ = "Time = " + timevariable ' Returns Time = 999
+----
+{empty} +
+{empty} +
+
+*Note: Concatenated String Constraint @v0.98.00 and prior versions*
+
+When concatenating a string you cannot assign a string to itself.&#160;&#160;You must assign the result of string concatenation to another string. See below.
+
+*Example to resolve string handling constraint:*
+[subs="quotes"]
+----
+    dim outstring1, tmpstring as string * 16
+    dim outnumber as byte
+    
+    outnumber = 24
+    outstring1 = "Result = "
+    'This concatenation will yield an incorrect string 
+    outstring1 = outstring1 +str(outnumber) 
+    
+    'This concatenation will yield an the correct string. With tmpstring1 containing the correct concatenated string 
+    tmpstring1 = outstring1 +str(outnumber) 
+    
+    
+----
+{empty} +
+To resolve the constraint simply assign the source string to another string.
+
+{empty} +
+{empty} +
+
+
+

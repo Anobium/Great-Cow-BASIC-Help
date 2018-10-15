@@ -1,0 +1,156 @@
+// Edit EvanV 171016
+==== ReadAD10
+
+*Syntax:*
+[subs="quotes"]
+For a normal ( also called a Single Channel )  read use.
+----
+    user_variable = ReadAD10( ANX )
+----
+
+For a Differential Channel read use the following.&#160;&#160;Where ANpX is the positive port, and ANnY is the negative port.
+----
+    user_variable = ReadAD10( ANpX , ANnY )
+----
+
+To obtain a 10-bit value from an AD Channel use the following to force a 10 bit AD Channel to respond with the correct value, in terms of the range [0 to 1023]
+----
+    user_variable = ReadAD10( ANX , TRUE )
+----
+
+
+*Command Availability:*
+
+When using *ReadAD10* ( ANX ) the returned value is the *full range* of the ADC module.&#160;&#160;Therefore, the method will return an 8 bit value [0-255], or an 10 bit value [0-1023] or an 12 bit value [0-4095].&#160;&#160; This is dependent on the microcontrollers capabilities.&#160;&#160;  For a 10 bit value [0-1023] always to be returned use  user_variable = ReadAD10( ANX , TRUE )
+
+The user variable can be a word, integer or long.
+
+
+When using *ReadAD10* ( ANpX , ANnY ), for differential ADC reading, the returned value is an integer as negative values can be returned.
+
+ReadAD10 is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include.&#160;&#160;The port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use.&#160;&#160;Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc.&#160;&#160;Refer to the datasheet for the microcontroller chip to find the number of ports available.&#160;&#160;(Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
+
+Other functions that are similar are *ReadAD* and *ReadAD12*.&#160;&#160;See the relevant Help page for the specific usage of each function.
+
+
+*AD_Delay* controls is the acquisition delay.&#160;&#160; The default value is 20 us.&#160;&#160;This can be changed to a longer acquisition delay by adding the following constant.
+----
+    #define AD_Delay 4 10us
+----
+
+*ADSpeed*( controls the source of the clock for the ADC module.&#160;&#160; It varies from one chip to another.&#160;&#160; InternalClock is a microcontroller only option that will drive the ADC from an internal RC oscillator.&#160;&#160;The default value is 128.
+
+----
+    'default value
+    #define ADSpeed MediumSpeed
+
+
+    'pre-defined constants
+    #define HighSpeed 255
+    #define MediumSpeed 128
+    #define LowSpeed 0
+----
+
+
+*AD_Acquisition_Time_Select_bits* also controls the Acquisition Time Select bits.&#160;&#160; Acquisition time is the duration that the AD charge
+holding capacitor remains connected to AD channel from the instant the read is commenced is set until conversions begins.
+
+
+The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, where all three ACQT bits will be set.&#160;&#160;To change use the following.
+----
+    'change the default value
+    #define AD_Acquisition_Time_Select_bits 0b001    'this will only set ACQT bit 0, ACQT bits 1 and 2 will be cleared.
+
+----
+
+
+
+*Example 1 - Read 10-bit ADC*
+
+----
+    #chip 16F819, 8
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+
+
+    'Print 255 reading
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and show it
+        Print str(ReadAD10(AN0))
+
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+    Next
+----
+
+*Example 2 - Reading Reference Voltages:*
+
+
+When selecting the  reference source for ADC on ATmega328 Great Cow BASIC will overwrite anything that you put into te ADMUX register - but this option allow you change the ADC reference source on Atmel AVR microcontrollers.&#160;&#160; You can set the AD_REF_SOURCE constant to whatever you want to use.&#160;&#160; It defaults to the VCC pin, as example you can set the Atmel AVR to use the 1.1V reference with this:
+*#define AD_REF_SOURCE AD_REF_256* where 256 refers to the 2.56V reference on some older AVRs, but the same code will select the 1.1V reference on an ATmega328p
+----
+    ' Dynamically switching reference.
+    #define AD_REF_SOURCE ADRefSource
+    #define AD_VREF_DELAY 5 ms
+    AdRefSource = AD_REF_AVCC
+    HSerPrint ReadAD10(AN1)
+    HSerPrint ", "
+    AdRefSource = AD_REF_256
+    HSerPrint ReadAD10(AN1)
+----
+
+The example above sets the AD_REF_SOURCE to a variable, and then changes the value of the variable to select the source.&#160;&#160; With this approach, we also need to allow time to charge the reference capacitor to the correct voltage.
+
+
+*Example 3 - Read 10-bit ADC forcing a 10-bit value to be returned*
+
+----
+    #chip 16F1789, 8
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+
+
+    'Print 255 reading
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and show it
+        Print str(ReadAD10(AN0), TRUE)
+
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+    Next
+----
+
+*Example 4*
+
+This example used the diffential capabilities of ADC port and writes the output to the EEPROM.&#160;&#160;The output value will be in the range of [-1023 to 1023].
+
+AN0 and AN2 are used for the diffential ADC reading.
+----
+    #chip 16F1789, 8
+
+    'USART settings
+    #define USART_BAUD_RATE 9600  'Initializes USART port with 9600 baud
+    #define USART_TX_BLOCKING ' wait for tx register to be empty
+    wait 100 ms
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+    Dir PORTA.2 In
+
+    'Loop to take readings until the EEPROM is full
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and log it
+        HSerPrint ReadAD10( AN0, AN2 )
+        HserPrintCRLF
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+
+    Next
+----
+
+*See Also* <<_readad,ReadAD>>, <<_readad12,ReadAD12>>

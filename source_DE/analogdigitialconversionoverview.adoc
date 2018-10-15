@@ -1,0 +1,94 @@
+==== Analog/Digital Conversion Overview
+
+*About Analog to Digital Conversion*
+
+The analog to digital converter (ADC or A/D) module support is implemented by Great Cow BASIC to provide 8-bit, 10-bit and 12-bit Single channel measurement mode and Differential Channel Measurement mode.
+
+Great Cow BASIC configures the analog to digital converter clock source, the programmed acquisition time and justification of the response byte, word or integer (as defined in the Great Cow BASIC method).
+
+*Normal or Single channel measurement mode*
+
+The Single channel measurement mode is the default method for reading the ADC port.  The positive input is attached to suitable device (a light sensor or adjustable resistor) and the command ReadADC, ReadADC10, ReadADC12 with return a byte, word or word value respectively.
+
+
+image::adcoverviewb1.PNG[graphic,align="center"]
+
+
+The A/D module on most microcontrollers only supports single-ended mode. Single channel mode uses a single A/D port and the returned Value represents the difference between the voltage on the analog pin and a fixed negative reference which is usually ground or Vss.
+
+
+The syntax for single-ended A/D is Returned_Value = ReadAD(Port)
+
+Example
+----
+  Print ReadAD10(AN3)
+----
+
+*Differential channel measurement mode*
+
+Some of the in the Microchip PIC family of devices also support differential analog to digital conversion. With differential conversion, the differential voltage between two channels is measured and converted to a digital value.  The returned value can be either positive or negative (therefore an integer value).
+
+image::adcoverviewb2.PNG[graphic,align="center"]
+
+
+When configured to differential channel measurement mode, the positive channel is connected to the defined positive analog pin (ANx), and the negative channel is connected to the defined negative analog pin. These two pins are internally connected (within the microcontroller) to a unity gain differential amplifier and once the amplifier has completed the comparison the result is returned as an integer.
+
+The positive channel Input is selected using the CHSx bits and the negative channel input is selected using the CHSNx bits.  These bits are managed by Great Cow BASIC.  The programmer only needs to supply the correct analog pin designators in the ReadADx commands.
+
+image::adcoverviewb3.PNG[graphic,align="center"]
+
+The 12-bit returned result is available on the ADRESH and ADRESL registers which is returned by the Great Cow BASIC methods as an integer variable.
+
+Some Microchip PIC microcontrollers have differential A/D modules and support differential Mode as well as 12-Bit A/D. With DIfferential mode the returned value can be either a positive or negative number that represents the voltage differential between the two A/D ports.
+
+The syntax for differential A/D is ReadAD( PositiveANPort , NegativeANPort ).  Note: if "negative port" is omitted readAd() will perform a single-ended read on the positive AN port.
+
+Example
+----
+  Print ReadAD12( AN3, An4 )
+----
+
+*Optimising Great Cow BASIC Code*
+
+Great Cow BASIC supports a wide range of A/D modules and the supporting library addresses up to 34 channels.
+To reduce the size of the code produced you can define which channels are specifically supported.  See <<_analog_digital_conversion_code_optimisation, Optimising ADC code>> for more details.
+
+
+See also <<_readad, ReadAD>>, <<_readad10, ReadAD10>> and <<_readad12, ReadAD12>>
+
+The Microchip PIC microcontrollers that support Differential and 12-bit A/D are listed below. Dated December 2015.
+
+----
+    16f1782  16lf1782
+    16f1783  16lf1783
+    16f1784  16lf1784
+    16f1786  16lf1786
+    16f1787  16lf1787
+    16f1788  16lf1788
+    16f1789  16lf1789
+
+
+    18f65k22
+    18f66k22
+    18f67k22
+    18f85k22
+    18f86k22
+    18f86k22
+
+
+    18f25k80 18lf25k80
+    18f26k80 18lf26k80
+    18f45k80 18lf45k80
+    18f46k80 18lf46k80
+    18f65k80 18lf65k80
+    18f66k80 18lf66k80
+
+
+    18f65k90
+    18f66k90
+    18f67k90
+    18f85k90
+    18f86k90
+    18f87k22
+    18f87k90
+----

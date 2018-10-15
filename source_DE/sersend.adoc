@@ -1,0 +1,48 @@
+==== SerSend
+
+*Syntax:*
+[subs="quotes"]
+----
+  SerSend _channel_, _data_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will send a byte given by `_data_` using the RS232 channel
+referred to as `_channel_` according to the rules set using `InitSer`.
+
+*Example:*
+----
+  'This program will send a byte using PORTB.2, the value of which
+  'depends on whether a button is pressed. This can be used with the example for SerReceive.
+
+  #chip 16F819, 8
+  #config Osc = Int
+
+  #define RS232Out PORTB.2
+  #define RS232In  PORTB.1
+
+  Dir RS232Out Out
+  Dir RS232In In
+
+  'Config Software-UART
+  #define SendAHigh Set RS232Out ON
+  #define SendALow Set RS232Out OFF
+  #define RecAHigh Set RS232In ON
+  #define RecALow Set RS232In OFF
+
+  Dir Button In
+
+  InitSer 1, r9600, 1+WaitForStart, 8, 1, none, normal
+  Do
+    If Button = On Then Temp = 100
+    If Button = Off Then Temp = 0
+    SerSend 1, Temp
+    Wait 100 ms
+  Loop
+----
+*For more help, see* <<_rs232_software_overview,RS232 Software Overview>>,
+<<_initser,InitSer>>

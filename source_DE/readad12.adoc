@@ -1,0 +1,137 @@
+// Edit EvanV 171016
+==== ReadAD12
+
+*Syntax:*
+[subs="quotes"]
+For a normal ( also called a Single Channel )  read use.
+----
+    user_variable = ReadAD12( ANX )
+----
+
+For a Differential Channel read use the following.&#160;&#160;Where ANpX is the positive port, and ANnY is the negative port.
+----
+    user_variable = ReadAD12( ANpX , ANnY )
+----
+
+To obtain a 12-bit value from an AD Channel use the following to force a 12 bit AD Channel to respond with the correct value, in terms of the range of [0 to 4095]
+----
+    user_variable = ReadAD12( ANX , TRUE )
+----
+
+
+*Command Availability:*
+
+When using *ReadAD12* ( ANX ) the returned value is an 12 bit number [0-4095].&#160;&#160;The user variable can be a word, integer or long.
+
+When using *ReadAD12* ( ANpX , ANnY ) the returned value is an integer as negative values can be returned.
+
+*ReadAD12*  is a function that can be used to read the built-in analog to digital converter that many microcontroller chips include.&#160;&#160;Port should be specified as AN0, AN1, AN2, etc., up to the number of analog inputs available on the chip that is in use.&#160;&#160;Those familiar with Atmel AVR microcontrollers can also refer to the ports as ADC0, ADC1, etc.&#160;&#160;Refer to the datasheet for the microcontroller chip to find the number of ports available.&#160;&#160;(Note: it's perfectly acceptable to use ANx on AVR, or ADCx on the microcontroller.)
+
+Other functions that are similar are *ReadAD* and *ReadAD10*.&#160;&#160;See the relevant Help page for the specific usage of each function.
+
+
+*AD_Delay* controls is the acquisition delay.&#160;&#160; The default value is 20 us.&#160;&#160;This can be changed to a longer acquisition delay by adding the following constant.
+----
+    #define AD_Delay 4 10us
+----
+
+*ADSpeed*( controls the source of the clock for the ADC module.&#160;&#160; It varies from one microcontroller to another.&#160;&#160; InternalClock is a Microchip PIC microcontroller only option that will drive the ADC from an internal RC oscillator.&#160;&#160;The default value is 128.
+
+----
+    'default value
+    #define ADSpeed MediumSpeed
+
+
+    'pre-defined constants
+    #define HighSpeed 255
+    #define MediumSpeed 128
+    #define LowSpeed 0
+----
+
+
+*AD_Acquisition_Time_Select_bits* also controls the Acquisition Time Select bits.&#160;&#160; Acquisition time is the duration that the AD charge
+holding capacitor remains connected to AD channel from the instant the read is commenced is set until conversions begins.
+
+
+The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, where all three ACQT bits will be set.&#160;&#160;To change use the following.
+----
+    'change the default value
+    #define AD_Acquisition_Time_Select_bits 0b001    'this will only set ACQT bit 0, ACQT bits 1 and 2 will be cleared.
+
+----
+
+
+
+*Example 1  - Read 12-bit ADC*
+
+----
+    #chip 16F1788, 8
+    #config osc = int
+
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+
+
+    'Print 255 readings
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and show it
+        Print str(ReadAD12(AN0))
+
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+    Next
+----
+
+*Example 2  - Force a 12-bit value to be returned*
+
+----
+    #chip 16F1788, 8
+
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+
+
+    'Print 255 readings
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and show it
+        Print str(ReadAD12(AN0), TRUE)
+
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+    Next
+----
+
+*Example 3*
+
+This example used the diffential capabilities of ADC port and writes the output to the EEPROM.&#160;&#160;The output value will be in the range of [-4095 to 4095].
+
+AN0 and AN2 are used for the diffential ADC reading.
+----
+    #chip 16F1789, 8
+
+    'USART settings
+    #define USART_BAUD_RATE 9600  'Initializes USART port with 9600 baud
+    #define USART_TX_BLOCKING ' wait for tx register to be empty
+    wait 100 ms
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+    Dir PORTA.2 In
+
+    'Loop to take readings until the EEPROM is full
+    For CurrentAddress = 0 to 255
+
+        'Take a reading and log it
+        HSerPrint ReadAD12( AN0, AN2 )
+        HserPrintCRLF
+        'Wait 10 minutes before getting another reading
+        Wait 10 min
+
+    Next
+----
+
+*See Also* <<_readad,ReadAD>>, <<_readad10,ReadAD10>>

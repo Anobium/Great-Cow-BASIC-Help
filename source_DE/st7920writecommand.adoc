@@ -1,0 +1,19 @@
+===== ST7920WriteCommand
+
+*Syntax:*
+----
+    ST7920GWriteCommand ( byte_variable)
+----
+*Explanation:*
+
+This command writes a command to the controller.
+
+See the data sheet for more information.
+
+*Example usage:*
+----
+    ...
+    ST7920WriteCommand(0x36) ' set the graphics mode on
+    GLCD_TYPE_ST7920_GRAPHICS_MODE = true
+    ...
+----

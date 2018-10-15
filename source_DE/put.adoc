@@ -1,0 +1,54 @@
+==== Put
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    Put _Line_, _Column_, _Character_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The Put command writes the given ASCII character code to the current location on
+the LCD.
+
+`Line` is line number on the LCD display. A byte value from 0 to 255.
+
+`Column` is column number on the LCD display. A byte value from 0 to 255.
+
+`Character` is the requried ASCII code.  A byte value from 0 to 255.
+
+*Example :*
+----
+    'A scrolling star for Great Cow BASIC
+
+    'Misc Settings
+    #define SCROLL_DELAY 250 ms
+
+    'General hardware configuration
+    #chip 16F877A, 20
+
+    'LCD connection settings
+    #define LCD_IO 8
+    #define LCD_DATA_PORT PORTC
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    'Main routine
+    For StarPos = 0 To 16
+        If StarPos = 0 Then
+            Put 0, 16, 32
+            Put 0, 0, 42
+        Else
+            Put 0, StarPos - 1, 32
+            Put 0, StarPos, 42
+        End If
+        Wait SCROLL_DELAY
+    Next
+----
+*For more help, see* <<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

@@ -1,0 +1,47 @@
+==== LCDHome
+
+*Syntax:*
+----
+    LCDHome
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `LCDHome` command will return the cursor to home position.
+
+The currentcontents of the LCD screen will be retained.
+
+
+*Example:*
+----
+    ;Chip Settings
+    #chip 16F88,8
+    #config osc = intrc
+
+    ;Defines (Constants)
+    #define LCD_IO 4
+    #define LCD_RS PORTA.6
+    #define LCD_NO_RW
+    #define LCD_Enable PORTA.7
+    #define LCD_DB4 PORTB.4
+    #define LCD_DB5 PORTB.5
+    #define LCD_DB6 PORTB.6
+    #define LCD_DB7 PORTB.7
+
+    Locate 0,0
+    Print "Reset"
+    wait 1 s
+    ClS
+
+    Cursor_Home_Tests:
+
+    cls
+    lcdcursor flash
+    print "Test Home Cmd"
+    LCDHome
+    wait 3 s
+----
+*Supported in <LCD.H>*

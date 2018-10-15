@@ -1,0 +1,311 @@
+// Edit EvanV 171016
+// Edited MLO 251016
+==== 7 Segment Displays Overview
+
+*Introduction*
+
+The Great Cow BASIC 7 segment display methods make it easier for Great Cow BASIC programs to
+display numbers and letters on 7 segment LED displays.
+[subs="specialcharacters,quotes"]
+The Great Cow BASIC methods support up to four digit 7 segment display devices, common anode/cathode and inversion of the port logic to support driving the device(s) via a transistor.
+
+There are three ways that the 7 segment display routines can be set up.
+
+[cols=2, options="header,autowidth"]
+|===
+|*Method*
+|*Description*
+|1
+|Connect the microcontroller to the 7 segment display (via suitable resistors) using  any eight output bits.
+
+Use `DISP_SEG_x` and `DISP_SEL_x` constants to specify the outpout ports and the select port(s) to be used.
+|2
+|Connect the microcontroller to the 7 segment display (via suitable resistors) using whole port (8 bits) of the microcontroller.
+
+This implies the connections are consectutive in terms of the 8 output bits of the port.
+
+Use the `DISPLAYPORTn` and `DISPSELECTn` constants to specify the whole port and the select port(s) to be used.
+
+This method will generate the most efficient code.
+
+|3
+|Connect the microcontroller to the 7 segment display (via suitable resistors) using whole port (8 bits) of the microcontroller.
+
+This implies the connections are consectutive in terms of the 8 output bits of the port.
+
+Use the `DISPLAYPORTn` and `DISP_SEL_n` constants to specify the whole port and the select port(s) to be used.
+|===
+
+
+The Great Cow BASIC methods  assume the 7 segment display(s) is to be connected to a common
+parallel bus with a Common Cathode.   See the sections
+<<_common_cathode,Common Cathode>> and
+<<_common_anode,Common Anode>> for examples of using Great Cow BASIC code to
+control these different configurations
+
+Shown below are the differing constants that must be set for the three connectivity options.
+
+
+[cols=5, options="header,autowidth"]
+|===
+|*Index*
+|*Method*
+|*Description*
+|*Constants*
+|*Default Value*
+|1
+|`DISP_SEG_x` & `DISP_SEL_x`
+|
+|
+|
+|
+|
+|`DISP_SEG_x`
+|Specifies the output pin (output bit) used to control a specific segment of the 7 segment display.
+
+There are seven constants that must be specified.
+
+`DISP_SEG_A` through `DISP_SEG_G`. One
+must be set for each segment.
+
+Typical commands are:
+
+`#define DISP_SEG_A portA.0`
+
+`#define DISP_SEG_B portA.1`
+
+`#define DISP_SEG_C portA.2`
+
+`#define DISP_SEG_D portA.3`
+
+`#define DISP_SEG_E portA.4`
+
+`#define DISP_SEG_F portA.5`
+
+`#define DISP_SEG_G portA.6`
+
+|Must be specified to use this connectivity option.
+
+|
+|
+|`DISP_SEG_DOT`
+|Specifies the output pin (output bit) used to control the decimal point on the
+7 segment display.
+
+Typical commands are:
+
+`#define DISP_SEG_DOT portA.7`
+
+|Optional.
+
+|
+|
+|`DISP_SEL_x`
+|Specifies the output pin (output bit) used to control a specific 7 segment display.
+
+These constants are used to control the specific 7 segment display being addresses.
+
+Typical commands are:
+
+`#define DISP_SEL_1 portA.0`
+
+`#define DISP_SEL_2 portA.1`
+
+
+|A valid output pin (output bit) must be specified.  Must be specified to use this connectivity option.
+
+|2
+|`DISPLAYPORTn` & `DISPSELECTn`
+|
+|
+|
+
+|
+|
+|`DISPLAYPORTn`
+|Specifies the output port used to control the 7 segment display.
+
+Port.bit >> Segment
+
+port.0      >>   A
+
+port.1     >>   B
+
+port.2     >>   C
+
+port.3     >>   D
+
+port.4     >>   E
+
+port.5     >>   F
+
+port.6     >>   G
+
+|Can be `DISPLAYPORTA` and/or `DISPLAYPORTB` and/or `DISPLAYPORTC` and/or `DISPLAYPORTD`
+
+Where `DISPLAYPORTn` can be A, B, C or D which corresponding to displays 1, 2, 3 and 4, respectively.
+
+Must be specified to use this connectivity option.
+|
+|
+|`DISPSELECTn`
+|Specifies the output command used to *select* a specific 7 segment display addressed by `DISPLAYPORT_n`.
+
+Used to control output pin (output bit) when several displays are multiplexed.
+
+Typical commands are:
+    `#define DispSelectA Set portA.0 on`
+
+    `#define DispSelectB Set portA.1 on`
+
+
+|Can be `DISPSELECTA` and/or `DISPSELECTB` and/or `DISPSELECTC` and/or `DISPSELECTD`
+
+Must be specified to use this connectivity option.
+
+|
+|
+
+|`DISPDESELECTn`
+|An optional command to specify the output command used to *deselect* a specific 7 segment display addressed by `DISPLAYPORT_n`.
+
+Used to control output pin (output bit) when several displays are multiplexed.
+
+Typical commands are:
+
+    `#define DispDeSelectA Set portA.0 off`
+
+    `#define DispDeSelectB Set portA.1 off`
+
+
+|Can be `DISPDESELECTA` and/or `DISPDESELECTB` and/or `DISPDESELECTC` and/or `DISPDESELECTD`
+
+
+
+|3
+|`DISPLAYPORTn` & `DISP_SEL_n`
+|
+|
+|
+
+|
+|
+|`DISPLAYPORTn`
+|Specifies the output port used to control the 7 segment display.
+
+Port.bit >> Segment
+
+port.0      >>   A
+
+port.1     >>   B
+
+port.2     >>   C
+
+port.3     >>   D
+
+port.4     >>   E
+
+port.5     >>   F
+
+port.6     >>   G
+
+|Can be `DISPLAYPORTA` and/or `DISPLAYPORTB` and/or `DISPLAYPORTC` and/or `DISPLAYPORTD`
+
+Where `DISPLAYPORTn` can be A, B, C or D which corresponding to displays 1, 2, 3 and 4, respectively.
+
+Must be specified to use this connectivity option.
+
+|
+|
+|`DISP_SEL_n`
+|Specifies the output command used to select a specific 7 segment display addressed by `DISPLAYPORTn`.
+
+Typical commands are:
+
+    `#define DISP_SEL_1 portA.0`
+
+    `#define DISP_SEL_2 portA.1`
+
+|Must be specified to use this connectivity option.
+
+Can be specified as `DISP_SEL_1` and/or `DISP_SEL_2` and/or `DISP_SEL_3` and/or `DISP_SEL_4`
+
+
+
+|===
+
+*Example 1:*
+
+----
+ 'A Common Cathode 7 Segment display  2 digit example
+
+ #chip 16F886, 8
+
+    'support for Common Anode
+    '#define 7Seg_CommonAnode
+
+    'support for pfet or pnp high side drivers
+    '#define 7Seg_HighSide
+
+' ----- Constants
+	  ' You need to specify the port settings
+	  ' by one of the following three methods
+	  'The Directions of the ports are automaically set according to the defines
+	'''METHOD 1  Define individual port pins for segments and selects
+	  #define DISP_SEG_A PORTB.0
+	  #define DISP_SEG_B PORTB.1
+	  #define DISP_SEG_C PORTB.2
+	  #define DISP_SEG_D PORTB.3
+	  #define DISP_SEG_E PORTB.4
+	  #define DISP_SEG_F PORTB.5
+	  #define DISP_SEG_G PORTB.6
+	  #define DISP_SEG_DOT PORTB.7 '' available on some displays as dp or colon
+
+	  #define DISP_SEL_1 PORTC.5
+	  #define DISP_SEL_2 PORTC.4
+
+	'''METHOD 2  Define DISPLAYPORTA (B,C,D) for up to 4 digit display segments
+				''Define DISPSELECTA (B,C,D) for up to 4 digit display selects
+	  '#define DISPLAYPORTA PORTB   ' same port name can be assigned
+	  '#define DISPLAYPORTB PORTB
+
+	  '#define DispSelectA Set portC.5 off
+	  '#define DispSelectB Set portC.4 off
+	  '#define DispDeSelectA Set portC.5 on
+	  '#define DispDeSelectB Set portC.4 on
+
+	'''METHOD 3  Define DISPLAYPORTA (B,C,D) for up to 4 digit display segments
+				''Define port pins for the digit display  selects
+	  '#define DISPLAYPORTA PORTB
+	  '#define DISPLAYPORTB PORTB
+
+	  '#define DISP_SEL_1 PORTC.5
+	  '#define DISP_SEL_2 PORTC.4
+
+
+
+		Dim Message As String
+		Message = " HAPPY HOLIDAYS  "
+		Do
+		For Counter = 1 to len(Message)-1
+			Repeat 50
+				Displaychar 1, Message(Counter)
+				wait 3 ms
+				DisplayChar 2, Message(Counter+1)
+				wait 3 ms
+
+			  end Repeat
+
+
+			Wait 100 ms
+		Next
+		Loop
+----
+
+image::CC_4dig_7seg_16F886_Schem.jpg[graphic,align="center"]
+
+image::CA_2Dig_7seg_16F886_schem.jpg[graphic,align="center"]
+
+
+*Also, see* <<_displaychar,DisplayChar>>,
+<<_displayvalue,DisplayValue>>

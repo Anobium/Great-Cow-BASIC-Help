@@ -1,0 +1,425 @@
+== Libraries Overview
+
+*About Libraries*
+[subs="quotes"]
+Great Cow BASIC (as with most other microcontroller programming languages) supports libraries.
+
+
+
+You can create you own device specific library, you are not limited to those shown below.  If you create a new device specific library - please submit for inclusion in the next release via the Great Cow BASIC forum.
+
+
+Maintenance of these libraries is completed by the Great Cow BASIC development team.  If you wish to adapt these libraries you should create a local copy, edit and save within your development file structure.  The development team may update these libraries as part of a release and we do not want you to lose your local changes.
+
+To use a library, simple inlcude the following in your user code
+
+----
+    #include <3PI.H>    'this will include the 3PI capabilities within your program
+----
+
+To use a local copy of a library, simple inlcude the following in your user code
+
+----
+    #include "C:\mydev\library\3pi.h"    'this will include a local copy of the the 3PI capabilities within your program
+----
+
+
+Great Cow BASIC supports the following device libraries.
+
+
+[cols=3, options="header,autowidth",width="80%"]
+|===
+|*Library*
+|*Class*
+|*Usage*
+|3PI
+|Polulu 3pi robot
+|A library that interfaces the switch and the motors.
+
+|47XXX_EERAM.H
+|I2C EERAM memory
+|A device specific library for the Microchip EERAM device classs
+
+|ALPS-EC11
+|Rotary Encoder
+|A device specific library for a rotary encoder.
+
+|ADS7843
+|Touch Shield
+|A library that interfaces with the ADS7843 touch screen.
+
+|BME280
+|Temp, Humidity and Pressure sensor
+|A library that interfaces with the BME280 and the BMP280 sensor.
+
+
+|CHIPINO
+|Shield
+|A library that interfaces the Chipino board with Arduino like port addresses.
+
+|DHT
+|Temperature and Humidity
+|A library that supports the DHT22 and the DHT11 Temperature and Humidity sensors.
+
+|DS1307
+|Clock
+|A library that supports the timer clock and NVRAM functions.
+
+|DS1672
+|Clock
+|A library that supports the timer clock and NVRAM functions.
+
+|DS18B20
+|Temperature
+|A library that supports the temperature functions.
+
+|DS18SB0MultiPort
+|Temperature
+|A library that supports the temperature functions with devices attached to multiple ports.
+
+
+|DS18S20
+|Temperature
+|A library that supports the temperature functions.
+
+
+
+|DS2482
+|Clock
+|A library that supports the I2C to Dallas OneWire functions.
+
+|DS3231
+|Clock
+|A library that supports the timer clock and NVRAM functions.
+
+|DUEMILANOVE
+|Shield
+|A library that interfaces the Duemilanove board with Arduino like port addresses.
+
+|EMC1001
+|Temperature
+|A library that supports the temperature functions and the other device capabilities.
+
+
+|FRAM
+|I2C Eeprom
+|A library that supports memory functions.
+
+|GETUSERID
+|Microchip read ID
+|A library that supports the identification of Microchip microcontrollers.
+
+|GLCD
+|Graphical LCD
+|A core library for Graphical LCD support.
+
+|GLCD_HX8347
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ILI9340
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ILI9341
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ILI9481
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ILI9486L
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_IMAGESANDFONTS_ADDIN3
+|Graphical LCD
+|A library to increase the capabilities of the Graphical LCDs.
+
+|GLCD_KS0108
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_NEXTION
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_PCD8544
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_SH1106
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_SSD1289
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_SSD1306
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_SSD1331
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ST7735
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|GLCD_ST7920
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
+|HEFLASH
+|HEF Memory Driver
+|A library that supports the HEF memory functions.
+
+|HMC5883L
+|Triple-axis Magnetometer
+|A library that supports the magnetometer functions.
+
+|HWI2C_ISR_HANDLER
+|I2C Slave Driver
+|A library that supports the use of a Microchip microcontroller as an I2C slave.
+
+|HWI2C_MESSAGEINTERFACE
+|I2C Slave
+|A support library that supports the use of a Microchip microcontroller as an I2C slave.
+
+
+|HWI2C_ISR_HANDLERKMODE
+|I2C Slave Driver
+|A library that supports the use of a Microchip microcontroller as an I2C slave.
+
+|HWI2C_MESSAGEINTERFACEKMODE
+|I2C Slave
+|A support library that supports the use of a Microchip microcontroller as an I2C slave.
+
+
+|I2CEEPROM
+|I2C EEProm memory
+|A library that supports memory functions.
+
+|LCD2SERIALREDIRECT
+|LCD to Serial Handler
+|A library that supports the use of a serial and PC terminal as a psuedo LCD.
+
+|LEGO-PF
+|Lego Mindstorms shield
+|A library that supports the Lego Mindstorms robot
+
+|LEGO
+|Lego Mindstorms shield
+|A library that supports the Lego Mindstorms robot
+
+|MATHS
+|Maths routines
+|A library that supports maths functions such as logs, power and atan.
+
+|MAX6675
+|Temperature
+|A library that supports the temperature functions.
+
+|MAX7219_ledmatrix_driver
+|LED 8*8 Matrix driver
+|A library that supports the MAX7219 8*8 LED matrixes
+
+|MCP23008
+|i2C to serial
+|A library that supports the I2C to serial functions.
+
+|MCP23017
+|i2C to serial
+|A library that supports the I2C to serial functions.
+
+
+|MCP4XXXDIGITALPOT
+|Digital Pot
+|A library that supports the MCPxxxx range of digital potentiometers.
+
+|MCP7940N
+|Clock
+|A library that supports the timer clock and NVRAM functions.
+
+
+|NUNCHUCK
+|Game controller
+|A library that supports the NunChuck game controller.
+
+|PCA9685
+|PWM
+|A device specific library for the 16channel PWM driver.  See the demonstrations for example on usage.
+Support up to four devices via the I2C bus.
+
+|PCF8574
+|GLCD
+|A device specific library for an Graphical LCD.
+
+|SD
+|SD Card
+|A device specific library for an SD Card.
+
+|SMT_Timers
+|Signal Measurment Timer
+|A library for Signal Measurment Timer for specific Microchip microcontrollers.
+
+|SOFTSERIAL
+|Serial
+|A library for software serial.
+
+|SOFTSERIALCH1
+|Serial
+|A library for software serial.
+
+|SOFTSERIALCH2
+|Serial
+|A library for software serial.
+
+|SOFTSERIALCH3
+|Serial
+|A library for software serial.
+
+|SONGLAY
+|Music
+|A library for play music. Supports QBASIC and RTTTL format.
+
+
+|SONYREMOTE
+|Infrared
+|A library that supports the functions of a Sony remote control.
+
+|SRF02
+|Distance Sensor
+|A library that supports the SRF02 ultrasonic sensor.
+
+|SRF04
+|Distance Sensor
+|A library that supports the SRF04 ultrasonic sensor.
+
+|TEA5767
+|I2C Radio
+|A library that supports the TEA5767 radio.
+
+
+|TRIG2PLACES
+|Maths functions
+|A maths library that supports trignometry to two places.
+
+|TRIG3PLACES
+|Maths functions
+|A maths library that supports trignometry to three places
+
+|TRIG4PLACES
+|Maths functions
+|A maths library that supports trignometry to four places
+
+|UNO_MEGA328P
+|Shield
+|A library that interfaces the shield with Arduino like port addresses.
+
+|USB
+|USB Supoort
+|A library that interfaces the USB for 16f and 18f microcontrollers.
+
+|===
+
+
+
+
+{empty} +
+
+{empty} +
+Great Cow BASIC supports the following core libraries.   These libraries are automatically included in your user program therefore you do not need to use '#include' to access the libraries capabilities.
+
+[cols=3, options="header,autowidth",width="80%"]
+|===
+|*Library*
+|*Class*
+|*Usage*
+
+|7SEGMENT
+|7 Segment LED display
+|A library that interfaces the device.
+
+|A-D
+|Analog to Digital
+|A library that supports the ADC functionality.
+
+|EEPROM
+|EEProm
+|A library that supports I2C eeprom devices.
+
+|HWI2C
+|I2C
+|A library that supports the MSSP and TWI hardware modules of I2C
+
+|HWI2C2
+|I2C
+|A library that supports the MSSP and TWI hardware modules of I2C on channel two
+
+|HWSPI
+|SPI
+|A library that supports the MSSP and TWI hardware modules of SPI
+
+|I2C
+|I2C
+|A library that supports software I2C
+
+|KEYPAD
+|KeyPad
+|A library that supports a keypad.
+
+|PS2
+|I2C
+|A library that supports keyboard functionality
+
+|LCD
+|LCD
+|A library that supports LCD functionality, library supports many different communications methods.
+
+|PWM
+|Pulse Width Modulation
+|A library supports PWM functionality.
+
+|RANDOM
+|Random Numbers
+|A library supports random number functionality.
+
+|REMOTE
+|Infrared
+|A library that supports the functions of a NEC remote control.
+
+|RS232
+|Serial
+|A library for serial communications.
+
+|SOUND
+|Tones
+|A library for sound and tone generation
+
+|STDBASIC
+|Utility Functions
+|The library that contains many of the utility methods.
+
+|STRING
+|String
+|The library that contains the string methods.
+
+|SYSTEM
+|System
+|The library that contains the system methods.
+
+|TIMER
+|Timers
+|The library that contains the timer methods.
+
+|USART
+|Serial
+|The library that contains the hardware serial methods that use the MSSP or AVR equivilent hardware module.
+
+|===
+{empty} +
+{empty} +

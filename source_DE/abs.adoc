@@ -1,0 +1,20 @@
+==== Abs
+
+*Syntax:*
+[subs="quotes"]
+----
+    integer_variable = Abs( integer_variable )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Abs` function will compute the absolute value of a integer number therefore in the range of −32767 to +32767.
+
+*Example:*
+----
+    absolute_value = Abs( -127 )  ' Will return 127
+    absolute_value = Abs( 127 )   ' Will return 127 also. :-)
+----

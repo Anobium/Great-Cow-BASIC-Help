@@ -1,0 +1,208 @@
+=== Inputs/Outputs
+
+*About Inputs and Outputs*
+
+Most general purpose pins on a microcontroller can function in one of
+two modes: input mode, or output mode.
+
+When acting as an input, the general purpose input/output pin will be placed in a high impedance state.
+The microcontroller will then sense the general purpose input/output pin, and the program can read
+the state of the general purpose input/output pin and make decisions based on it.
+
+When in output mode, the microcontroller will connect the general purpose input/output pin to either
+Vcc (the positive supply), or Vss (ground, or the negative supply). The
+program can then set the state of the general purpose input/output pin to either high or low.
+
+Great Cow BASIC will attempt to determine the direction of each general purpose input/output pin, and set it
+appropriately, when possible. Great Cow BASIC will try to set the direction of the general purpose input/output pin.
+However, if the general purpose input/output pin is read from and written to in your program, then
+the general purpose input/output pin must be configured to input or output mode by the program, using
+the appropriate <<_dir,Dir>> commands.
+
+Example of `dir` commands.
+
+----
+
+    'The port address is microcontroller specific.  Portx.x is a general case for PICs and AVRs
+    dir portb.0 in
+    dir portb.1 out
+
+    'The port address is microcontroller specific.  gpiox.x is a general case for some PICs
+    dir gpio.0 in
+    dir gpio.1 Out
+
+    'Set the whole port as an output
+    dir portb out
+    dir gpio out
+
+    'Set the whole port as an input
+    dir portc in
+    dir gpio in
+----
+
+*Microchip specifics for read/write operations*
+
+For the specific ports and general purpose input/output pins available for a specific microcontroller please refer to the datasheet.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Port*
+|*Purpose*
+|*Example*
+
+|PORTx maps to the microcontrollers digital pins 0 to 7. Where x can be a,b,c,d,e,f or g
+|Read:
+
+PORTx the port data register for a  read operation.
+|uservar=PORTA
+
+uservar=PORTA.1
+
+|PORTx maps to microcontrollers digital pins 0 to 7. Where x can be a,b,c,d,e,f or g
+|Write:
+
+PORTx the port data register for a  write operation, and, where LATx is not required as Great Cow BASIC will implement LATx when needed.
+
+See <<__option_nolatch,Option NoLatch>> for more information on LAT registers and how to disable this automatic function.
+
+|PORTA=255
+
+PORTA.1=1
+
+|===
+
+To read a general purpose input/output pin, you need to ensure the direction is correct `DIR Portx IN` is set (default is IN) or a specific set of port bits.
+Where `uservar = PORTx.n` can be used.
+
+
+Examples:
+
+----
+    uservar = PORTb.0
+    uservar = PORTb
+----
+
+
+To write to a general purpose input/output pin, you need to ensure the direction is correct `DIR Portx OUT` for port or a specific set of port bits.
+Where  `PORTx.n = uservar` can be used.
+
+
+Examples:
+
+----
+    PORTb.0 = uservar
+    PORTb = uservar
+----
+
+
+*ATMEL specifics for read/write operations*
+
+Using a Mega328p as a general the following provides insights for the AVR devices.  For the specific ports and general purpose input/output pins available for a specific microcontroller please refer to the datasheet.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Port*
+|*Write operation*
+|*Read operation*
+
+|PORTD maps to Mega328p (and, the AVR microcontrollers) digital pins 0 to 7
+|PORTD - The Port D Data Register - write operation  (a read operation to a port will provide the pull-up status)
+|PIND - The Port D Input Pins Register - read only
+
+|PORTB maps to Mega328p (and, the AVR microcontrollers) digital pins 8 to 13. The two high bits (6 & 7) map to the crystal pins and are not usable
+|PORTB - The Port B Data Register - write operation  (a read operation to a port will provide the pull-up status)
+|PINB - The Port B Input Pins Register - read only
+
+|PORTC maps to Mega328p (and, the AVR microcontrollers) analog pins 0 to 5. Pins 6 & 7 are only accessible on the Mega328p (and, the AVR microcontrollers) Mini
+|PORTC - The Port C Data Register - write operation (a read operation to a port will provide the pull-up status)
+|PINC - The Port C Input Pins Register - read only
+
+|===
+
+To read a general purpose input/output pin, you need to ensure the direction is correct `DIR Portx IN` is set (default is IN) or a specific set of port bits.
+Where `uservar = PINx.n` can be used and therefore to read data port use `uservar = PINx`.
+
+
+Examples:
+
+----
+    uservar = PINb.0
+    uservar = PINb
+----
+
+
+To write to a general purpose input/output pin you need to ensure the direction is correct `DIR Portx OUT` for port or a specific set of port bits.
+Where `PORTx.n = uservar` can be used and therefore to write to a data port use `PORTx = uservar`.
+
+
+Examples:
+
+----
+    PORTb.0 = uservar
+    PORTb = uservar
+----
+{empty} +
+{empty} +
+*Setting Ports and Port.bit*
+
+You can set a port as shown above with a variable, or, you can set with a constant or any combination using the bitwise and logical operators.
+
+----
+    #define InitStateofPort 0b11110000
+    PORTb = InitStateofPort               'will unconditionally set bits 4:7
+
+    PORTb = 0b11110000                    'will unconditionally set bits 4:7
+
+    PORTb = uservar OR 0b11110000         'will OR bits 4:7 to ensure bits 4:7 are set
+----
+
+The following is also valid - read a port.bit and then set port.bit with a variable or port value. As shown below.
+
+----
+    dir portb out
+
+    portb.0 = NOT  portb.0
+----
+The user code above may cause issues with glitches when the read and write operations occurs.  Let us look at the generated assembler.
+
+----
+    ;portb.0 = NOT  portb.0
+      banksel SYSTEMP1
+      clrf  SysTemp1
+      btfsc PORTB,0
+      incf  SysTemp1,F
+      comf  SysTemp1,F
+      bcf PORTB,0
+      btfsc SysTemp1,0
+      bsf PORTB,0
+----
+To resolve any glitches add `#option Volatile` to your user code.
+
+----
+    #option Volatile portb.0
+
+    dir portb out
+
+    portb.0 = NOT  portb.0
+----
+This option provides the following assembler resolving the glitch issue.
+
+----
+    ;portb.0 = NOT  portb.0
+      banksel SYSTEMP1
+      clrf  SysTemp1
+      btfsc PORTB,0
+      incf  SysTemp1,F
+      comf  SysTemp1,F
+      btfsc SysTemp1,0
+      bsf PORTB,0
+      btfss SysTemp1,0
+      bcf PORTB,0
+----
+{empty} +
+{empty} +
+
+*See also*  <<_dir,Dir>>, <<__option_volatile,#Option Volatile>>
+
+{empty} +
+{empty} +

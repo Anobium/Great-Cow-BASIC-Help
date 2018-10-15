@@ -1,0 +1,43 @@
+==== EPWrite
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    EPWrite _location_, _data_
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC and Atmel AVR microcontrollers with EEPROM data memory.
+
+*Explanation:*
+
+`EPWrite` is used to write information to the EEPROM data storage, so that
+it can be accessed later by a programmer on the PC, or by the `EPRead`
+command. `_location_` represents the location to read data from, and varies
+from one chip to another. `_data_` is the data that is to be written to the
+EEPROM, and can be a value or a variable.
+
+*Example:*
+
+----
+    #chip 16F819, 8
+    #config osc = int
+
+    'Set the input pin direction
+    Dir PORTA.0 In
+
+    'Loop to take readings until the EEPROM is full
+    For CurrentAddress = 0 to 255
+
+    'Take a reading and log it
+    EPWrite CurrentAddress, ReadAD(AN0)
+
+    'Wait 10 minutes before getting another reading
+    Wait 10 min
+
+    Next
+----
+
+*For more help, see <<_epread,EPRead>>*

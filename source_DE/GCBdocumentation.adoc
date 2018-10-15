@@ -1,0 +1,540 @@
+= GCBasic documentation maintenance
+Jacques Nilo
+v1.0, 2015-07-06
+:imagesdir: ./images
+
+== Introduction
+
+GCBasic documentation is maintained through http://asciidoctor.org/[asciidoctor] a fast text processor
+ and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5 (or 4.5) and other formats.
+Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.
+
+Since http://asciidoctor.org/[asciidoctor] is written in Ruby it can run very easily under windows without 
+the need to install a https://www.virtualbox.org/[linux virtual machine] or a
+https://www.cygwin.com/[cygwin environment].
+
+Derived from and mostly compatible with the original http://www.methods.co.nz/asciidoc/[asciidoc] language, 
+asciidoctor can convert human readable text files created with a simple editor into all sorts of formats. 
+It's software companion, asciidoctor-pdf, converts your files into pdf with a single command. 
+Finally you can also generates Docbook 5 or 4.5 xml files and apply to them a large set of available stylesheets.
+
+The main advantages of using asciidoctor to maintain GCBasic documentation are:
+
+- A very simple language inserted into plain text files which remains fully readable
+- Yet specifically designed to write documentation and especially software one
+- Those text files can the be transformed into xml, html, pdf, chm very easily
+
+ifdef::backend-pdf[<<<]
+== Installation of the environnement
+
+The following steps are only required once and describe the production environment required for the
+documentation administrator. A Windows environment is assumed. 
+
+Contributors only require a Windows 
+text editor and are then all set to edit the documentation following the tips provided in the second 
+chapter of this documentation <<_creating_gcb_documentation,Creating GCB documentation>>.
+
+=== Step 1: install a Windows text editor
+
+The choice is yours, but you definitively do not want to use Windows original Notepad !
+My favorite one in the Windows environment is https://notepad-plus-plus.org/[Notepad++].
+Make sure UTF-8 encoding (without BOM) is default.
+
+=== Step 2: install Ruby Installer for Windows
+
+Asciidoctor being written in https://www.ruby-lang.org/en/[Ruby] you need to 
+http://rubyinstaller.org/downloads/[install it].
+
+Choose the latest (i.e. 2.2.2) version corresponding to your machine (32 or 64 bits).
+By default Ruby will be installed either in `c:\ruby22` or `c:\ruby22-x64` directory depending 
+on the version you selected.
+
+Include the directory at the end of your `PATH` environment variable as described 
+http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/[here]. 
+
+Insert `C:\Ruby22\bin` or `C:\Ruby22-x64\bin` using `";"` as a delimiter at the end of your current `PATH` string.
+
+You can now check that `ruby` is present and running by typing:
+----
+ruby --version
+----
+That should display the installed Ruby version:
+----
+C:\>ruby --version
+ruby 2.2.2p95 (2015-04-13 revision 50295) [x64-mingw32]
+C:\>
+----
+
+=== Step 3: install Asciidoctor Ruby packages
+
+You cannow install the asciidoc & asciidoc-pdf packages. The Ruby `gem` command makes it very easy !
+
+- http://asciidoctor.org/[Asciidoctor]. From a Windows `cmd.exe` console type:
++
+ gem install asciidoctor
+
+- http://asciidoctor.org/docs/convert-asciidoc-to-pdf/[Asciidoctor-pdf]. From a Windows `cmd.exe` console type:
++
+----
+gem --pre install asciidoctor-pdf
+----
+`asciidoctor-pdf` is still alpha (hence the `--pre` parameter ) but working already nicely. 
+Dependant packages will be automatically installed.
+
+- http://coderay.rubychan.de/[Coderay]. From a Windows `cmd.exe` console type:
++
+ gem install coderay
+
+Assuming all the required gems are properly installed, verify you can run asciidoctor and asciidoctor-pdf:
+----
+asciidoctor -v
+asciidoctor-pdf -v
+----
+That should display the installed Asciidoctor and Asciidoctor-pdf versions:
+----
+C:\>asciidoctor -v
+Asciidoctor 1.5.2 [http://asciidoctor.org]
+Runtime Environment (ruby 2.2.2p95 (2015-04-13 revision 50295) [x64-mingw32]) (l
+c:CP850 fs:Windows-1252 in:- ex:CP850)
+
+C:\>asciidoctor-pdf -v
+Asciidoctor PDF 1.5.0.alpha.8 using Asciidoctor 1.5.2 [http://asciidoctor.org]
+Runtime Environment (ruby 2.2.2p95 (2015-04-13 revision 50295) [x64-mingw32]) (l
+c:CP850 fs:Windows-1252 in:- ex:CP850)
+----
+If you see a result as above, you’re ready to use Asciidoctor and Asciidoctor-pdf !
+
+=== Step 4: install docbook-xsl-ns stylesheets
+
+`asciidoctor` can easily generates Docbook 5.0 xml documents. For example, a simple command like:
+----
+asciidoctor -b docbook mysample.adoc
+----
+will automatically create a Docbook 5.0 `mysample.xml` file.
+
+In order to process those `xml` generated files you need the 
+http://www.docbook.org/docs/howto/#processing[DocBook XSL-NS stylesheets] from the docbook-xsl-ns
+package. It contains the recommended XSLT 1.0 stylesheets to use for transforming namespaced (DocBook V5.0) documents.
+Those stylesheets will then be processed - together with the input xml file - with an xslt processor. 
+In our case `Saxon` (see step 7 below).
+
+Unzip http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.1/docbook-xsl-ns-1.78.1.zip/download[this file]
+and install it under `c:\docbook-xsl-ns`
+
+Now you need to apply a patch in order to be able to use the `webhelp.xsl` and the `htmlhelp.xsl` stylesheets
+on the xml files generated by `asciidoctor` in order to convert specific `asciidoctor` tags.
+
+1. Edit `c:\docbook-xsl-ns\webhelp\xsl\webhelp-common.xsl` and insert a the top of it
+(_i.e._ right before the `<xsl:param name="chunker.output.method">` line) the following 3 lines of code:
++
+----
+<xsl:template match="processing-instruction('asciidoc-br')"> 
+  <br/> 
+</xsl:template>
+----
+2. Edit `c:\docbook-xsl-ns\htmlhelp\xsl\htmlhelp.xsl` and insert a the top of it
+the same 3 lines of code.
+
+We also want our favorite Cow to appear on the GCB web site. Therefore replace the original  
+`c:\docbook-xsl-ns\webhelp\template\common\images\logo.png` with link:common\images\logo.png[this one].
+
+Finally replace the `build.properties` file in the `c:\docbook-xsl-ns\webhelp`
+directory with the one provided  in the `..\GCBdoc\source\images` directory and
+available link:images/build.properties[here].
+
+=== Step 5: install Java
+
+There is a strong probability that Java is already installed on your machine. To check it type:
+----
+java -version
+----
+That should display the running Java version.
+
+If you have not installed Java yet, you can download the Java Run Time Environment corresponding to your
+machine from the https://java.com/en/[Java Web site].
+
+=== Step 6: install Apache Ant
+
+http://ant.apache.org/[Apache Ant] is a Java library and command-line tool whose mission is to drive processes described in build
+files as targets and extension points dependent upon each other. 
+The main known usage of Ant is the build of Java applications.
+
+Download the latest binary ditribution (1.9.6 at the time of this writing) from
+https://www.apache.org/dist/ant/binaries/[here]. 
+
+Unzip the file to a convenient location (e.g. `c:\ant`). 
+
+Set the environment variable `PATH_ANT` to this directory.
+
+Set `%PATH_ANT%\bin` to your `PATH` variable. Check it's there with `ECHO %PATH%`.
+
+Goto any directory and make sure `ant` is running:
+----
+ant -version
+----
+The `ant` version should show up.
+
+=== Step 7: install Saxon (6-5-x)
+
+The http://sourceforge.net/projects/saxon/?source=navbar[Saxon] package is a collection of tools for 
+processing XML documents.
+
+You need to download the 
+http://sourceforge.net/projects/saxon/files/saxon6/6.5.5/saxon6-5-5.zip/download[6.5.5 version].
+
+Unzip the file to a convenient location (e.g. `C:\saxon6-5-5`).
+
+=== Step 8: install the Microsoft HTML Help Workshop
+
+Microsoft HTML Help Workshop (`hhw.exe`) is an executable program designed to help you create help systems
+using source files based on Hypertext Markup Language (HTML). With HTML Help Workshop, 
+you can create help systems for distribution with a software program or as stand-alone systems on a Web site.
+
+This is a plain vanilla Windows program that you can download
+https://www.microsoft.com/en-us/download/details.aspx?id=21138[here].
+
+We are going to use this program trough `hhc.exe` the command line version of Windows `hhw.exe`.
+We must therefore declare its directory in the 
+`PATH` variable. On a 64 bit machine `PATH` do not like spaces in directory names. Unfortunately the program
+is installed in `C:\Program Files (x86)\HTML Help Workshop\`...
+
+Therefore one will have to add at the end of the `PATH` variable the original DOS directory name: +
+`C:\Progra\~2\HTMLHE~1`
+
+Make sure you can run `hhc` program by typing `hhc` from the console line. You should get:
+----
+C:\>hhc -h
+
+Usage:   hhc <filename>
+    where <filename> = an HTML Help project file
+Example: hhc filename.hhp
+----
+
+ifdef::backend-pdf[<<<]
+== Creating GCB documentation
+
+GCBasic documentation is splitted in small `sectioname.adoc` text files which are then merged in a `master.adoc`
+one. 
+
+The syntax used in GCB `master.adoc` file is as follows:
+[subs="specialcharacters,quotes"] 
+....
+= GCBasic documentation
+GCB team                                    (1)
+:toc: 								
+:toclevels: 4                               (2)						
+:imagesdir: ./images                        (3)
+
+include::introducinggcbasic.adoc[]          (4)
+
+include::gettingstartedwithgcbasic.adoc[]   (4)
+
+include::changes.adoc[]                     (4)
+
+...
+
+Comments:
+(1) Author's name
+(2) Maximum level of documentation depth
+(3) Directory where the images are located relative to the current one
+(4) Inclusion of a file
+....
+The syntax to be used in a `sectioname.adoc` file is:
+
+[subs="specialcharacters,quotes"] 
+....
+==== Command Name
+
+\*Syntax:*
+[subs="specialcharacters,quotes"] 
+----
+Command  _var1_ = _var2_ To _var3_ [Step _var4_]
+ ...
+_program code_
+ ...
+<__condition__> Exit Command
+ ...
+Next
+----
+\*Command Availability:*
+
+Available on all microcontrollers.
+
+\*Explanation:*
+
+The `Command` command is doing ...
+
+When the \`Command` is first executed, \`\_var1_` is set to \`\_start_`...
+This is \*bold*, this is \_italic_ and this \*\_bold and italic_*.
+
+Now we are going to create a 2 x 3 table
+[cols=3, options="header,autowidth"]
+|====
+|\*Label col 1*
+|\*Label col 2*
+|\*Label col 3*
+
+| li 1 col 1
+| li 1 col 2
+| li 1 col 3
+
+| li 2 col 1
+| li 2 col 2
+| li 2 col 3
+|====
+
+How to include a cow...
+image:cow.jpg[Included Cow !]
+
+How to make a link with <<_command_name,Command Name>>
+....
+The command
+----
+asciidoctor command.adoc
+----
+generates the following result:
+image:command.png[]
+
+ifdef::backend-pdf[<<<]
+== Generating GCB documentation files
+
+=== Introduction
+
+The GCB documentation directory is organized as follow:
+----
+GCBdoc
+   |------ source
+   |        |-------images
+   |
+   |------ output
+            |------- chm
+            |------- html
+            |------- html5
+            |------- pdf
+            |------- web
+            |------- xml
+----	
+The `GCBdoc` directory contains two subdirs: `source` and `output`.
+
+The `source` subdir contains all the `*.adoc` files including `master.adoc`. It also
+contains:
+
+1. an `images` subdir which includes all the image files used in the documentation.
+2. a `gcbdoc.bat` file (see appendix) used to generate all sorts of output format in the
+`GCBdoc\output` subdirs. The syntax is as follows:
++
+[subs="quotes"] 
+----
+gcbdoc _filename_ _conversion_type_
+----
+`_filename_` is the prefix of the `_filename.adoc_` file that you want to convert. +
+`_conversion_type_` is the desired type of conversion among `html`, `pdf`, `xml`, `chm`, `html5`, `web` or `all`.
+
+The `output` subdir is where we are going to store our converted documentation files.
+
+=== HTML output
+
+From your `..\GCBdoc\source` subdir type:
+----
+gcbdoc filename html
+----
+This will generate the `filename.html` file in the  `...\GCBdoc\ouput\html\` directory.
+
+=== PDF output
+
+From your `..\GCBdoc\source` subdir type:
+----
+gcbdoc filename pdf
+----
+This will generate the `filename.pdf` file in the  `...\GCBdoc\ouput\pdf\` directory.
+
+=== XML output
+
+From your `..\GCBdoc\source` subdir type:
+----
+gcbdoc filename xml
+----
+This will generate the `filename.xml` file in the  `...\GCBdoc\ouput\xml\` directory.
+
+=== CHM (Microsoft Help File) output
+
+From your `..\GCBdoc\source` subdir type:
+----
+gcbdoc filename chm
+----
+This will create a Microsoft `filename.chm` help file in the `..\GCBdoc\output\chm` directory. 
+
+=== Htmlhelp output
+
+The most "basic" web based documentation can be generated with the `htmlhelp.xsl` stylesheet.
+
+From the `...\GCBdoc\source` subdir type:
+----
+gcbdoc filename html5
+----
+This will generate the `filename.html` file in the  `...\GCBdoc\ouput\html5\` directory.
+
+=== Webhelp output
+
+We are now going to use the `webhelp.xsl` stylesheet in order to generate our web site. Among other things
+the site will include complete navigation tools and also a search facility.
+
+From the `...\GCBdoc\source` subdir type:
+----
+gcbdoc filename web
+----
+Your full Webhelp based documentation is now ready in 
+`..\GCBdoc\output\web\filename` directory !
+
+=== Automate the whole process !
+
+You can guess it ! It's as simple as issuing:
+[subs="quotes"] 
+----
+gcbdoc _filename_ _conversion_type_
+----
+`_filename_` is the prefix of the `_filename.adoc_` file that you want to convert.
+
+`_conversion_type_` is the desired type of conversion among `html`, `pdf`, `xml`, `chm`, `html5`, `web` or `all`.
+
+=== Working on your documentation
+
+When editing a new documentation chapter, the `filename.adoc` file will be tested with:
+----
+gcbdoc filename html
+----
+And the result checked with your browser at address `..\GCBdoc\output\html\filename.html`
+
+Once you are happy with the result, the documentation can be translated in the whole different formats
+with a simple command:
+----
+gcbdoc filename all
+----
+Happy documentation writing !
+
+ifdef::backend-pdf[<<<]
+== Appendix
+
+The `gcbdoc.bat` batch file is located in the `...\GCBdoc\source` directory. 
+You need to check and adapt the environnement variables (look for the SET commands)
+and the directories given as parameters if you have redefined installation directories.
+----
+@echo off
+
+set GCBstyleHTML=C:\docbook-xsl-ns\htmlhelp\htmlhelp.xsl
+set GCBstyleWEBH=C:\docbook-xsl-ns\webhelp\webhelp.xsl
+set GCBoutputdoc=\users\Pascal\Documents\GCBdoc\output
+
+if -%1-==-- goto :ERR1
+if -%2-==-- goto :ERR2
+if not exist %1.adoc goto :ERR3
+
+if /I %2 == pdf   goto  :pdf
+if /I %2 == chm   goto  :chm
+if /I %2 == xml   goto  :xml
+if /I %2 == html  goto  :html
+if /I %2 == html5 goto  :html5
+if /I %2 == all   goto  :all
+if /I %2 == web   goto  :web
+echo ERROR  Invalid %2 argument for %0 conversion_type. Should be pdf, chm, xml, html, html5, web or all.
+echo SYNTAX gcbdoc filename conversion_type
+goto :END
+
+:CHM
+echo . 
+echo Generating chm file...
+call asciidoctor -b docbook  %1.adoc
+xcopy .\images ..\output\chm\images /I /Y > NUL
+cd ..\output\chm
+if ERRORLEVEL 1 goto :ERROR
+set CLASSPATH=c:\saxon6-5-5\saxon.jar;c:\docbook-xsl-ns\extensions\saxon65.jar
+call java com.icl.saxon.StyleSheet ..\..\source\%1.xml %GCBstyleHTML% 
+if ERRORLEVEL 1 goto :ERROR
+call hhc htmlhelp.hhp
+if exist %1.chm del %1.chm
+rename htmlhelp.chm %1.chm
+del *.html
+del *.hh*
+cd ..\..\source
+del %1.xml
+set CLASSPATH=
+if /I %2 == chm goto :END
+
+:XML
+echo .
+echo Generating xml file...
+call asciidoctor -b docbook -D %GCBoutputdoc%\xml\ %1.adoc
+if ERRORLEVEL 1 goto :ERROR
+if /I %2 == xml goto :END
+
+:HTML
+echo .
+echo Generating html file...
+xcopy .\images ..\output\html\images /I /Y > NUL
+call asciidoctor -D %GCBoutputdoc%\html\ %1.adoc
+if ERRORLEVEL 1 goto :ERROR
+if /I %2 == html goto :END
+
+:HTML5
+echo .
+echo Generating html5 file...
+xcopy .\images ..\output\html5\images /I /Y > NUL
+call asciidoctor -b html5 -a toc2 -a theme=flask -D %GCBoutputdoc%\html5\ %1.adoc
+if ERRORLEVEL 1 goto :ERROR
+if /I %2 == html5 goto :END
+
+:WEB
+echo .
+echo Generating webhelp file...
+call asciidoctor -b docbook %1.adoc
+if ERRORLEVEL 1 goto :ERROR
+echo ^<project^> 																		>  build.xml
+echo   ^<property name="input-xml" value="%1.xml"/^> 									>> build.xml
+echo   ^<property name="tools.dir" value="/xerces-2_11_0"/^>							>> build.xml
+echo   ^<property name="input-images-dirs" value="images/** figures/** graphics/**"/^>	>> build.xml
+echo   ^<property name="output-dir" value="../output/web/%1"/^>	    					>> build.xml
+echo   ^<import file="/docbook-xsl-ns/webhelp/build.xml"/^>								>> build.xml
+echo ^</project^>																		>> build.xml
+call ant webhelp
+if ERRORLEVEL 1 goto :ERROR
+del %1.xml
+del build.xml
+if /I %2 == web goto :END
+
+:PDF
+echo .
+echo Generating pdf file...
+call asciidoctor-pdf -D %GCBoutputdoc%\pdf\ %1.adoc
+if ERRORLEVEL 1 goto :ERROR
+goto :END
+
+:ALL
+echo .
+echo Generating all files...
+goto :CHM
+
+:ERR1
+echo ERROR first parameter missing
+echo SYNTAX gcbdoc filename conversion_type
+goto :END
+
+:ERR2
+echo ERROR second parameter missing
+echo SYNTAX gcbdoc filename conversion_type
+goto :END
+
+:ERR3
+echo ERROR file %1.adoc does not exists
+echo SYNTAX gcbdoc filename conversion_type
+goto :END
+
+:ERROR
+echo ERROR running %0 trying conversion to %2 from %1.adoc file
+echo SYNTAX gcbdoc filename conversion_type
+ 
+:END
+set GCBstyleHTML=
+set GCBstyleWEBH=
+set GCBoutputdoc=
+----
+

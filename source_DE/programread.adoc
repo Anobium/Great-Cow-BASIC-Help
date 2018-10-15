@@ -1,0 +1,30 @@
+==== ProgramRead
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    ProgramRead (_location, store_)
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC microcontrollers with self write capability. Not available on
+Atmel AVR at present.
+
+*Explanation:*
+
+`ProgramRead` reads information from the program memory on chips that
+support this feature. `_location_` and `_store_` are both word variables,
+meaning that they can store values over 255.
+
+The largest value possible for `_location_` depends on the amount of
+program memory on the Microchip PIC microcontroller, which is given on the datasheet. `_store_` is
+14 bits wide, and thus can store values up to `16383`.
+
+This is an advanced command which should only be used by advanced
+developers.
+
+*Example:*
+
+*For more help, see <<_programerase,ProgramErase>>* and *<<_programwrite,ProgramWrite>>*

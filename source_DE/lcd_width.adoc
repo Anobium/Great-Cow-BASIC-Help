@@ -1,0 +1,24 @@
+===== LCD_WIDTH
+
+
+*Using LCD_WIDTH:*
+
+This constant changes the width characteristics of a LCD display.  &#160;&#160;&#160;The standard width is assumed to be 20 characters.
+
+This constant allows the width to be optimised for specific LCD chipsets.
+
+*Example*
+
+ #DEFINE LCD_WIDTH  16
+
+[cols=2, options="header,autowidth"]
+|===
+|Define
+|Required Connections
+
+|`LCD_WIDTH`
+|Default is 20 +
+`16`   - Set the WIDTH 16 characters +
+|===
+
+If `LCD_WIDTH` is not defined, the WIDTH defaults to `20`

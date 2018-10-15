@@ -1,0 +1,485 @@
+==== GLCD Overview
+
+The GLCD commands are used to control a Graphical Liquid Crystal Display (GLCD)
+based on the a number of GLCD chipsets. These are often 128x64 pixel displays but the size can vary.
+GLCD devices draw graphical elements by enabling or disabling pixels.
+
+A GLCD is an upgrade from the
+popular 16x2 LCDs (see <<_lcd_overview,Liquid Crystal
+Display Overview>> ) but the GLCD allows full graphical control of the
+display.
+
+
+Typical displays are
+
+- Color or mono displays
+- Low power white LED, OLED with or without back-light
+- Driven by on-board interface chipsets or SPI interface controllers
+- The GLCDs are very common and well documente
+- Typically with viewing area is 71mmx39mm (2.8" x 1.5")
+- Typically requires a 36-pin 0.1" header and 10K contrast pot
+- Typically have back-lit pixels
+- Require memory in the microcontroller to support graphial operations or can be used in text and jpg mode only.
+
+
+Great Cow BASIC makes this type of device easier to control with the
+commands for the GLCD.
+
+*Microcontroller Requirements:*
+Specific GLCDs require different configurations of a microcontroller.  Parameters include
+
+- Communications protocol: These incldue 8 wire bus, I2C, SPI etc
+- Operating votlage: These are typically 3.3v or 5.v
+- Memory required: For full GLCD capabilites you will require 1k or more, for text only and JPG mode low memory devices are supported
+
+Review your choice of microcontroller and GLCD carefully before commencing your project.
+
+[cols=13, options="header,autowidth"]
+|===
+|*#*
+|*ChipSet*
+|*Docs*
+|*Size*
+|*Pixels*
+|*Depth*
+|*Type*
+|*I/O*
+|*Support*
+|*Operating*
+|*Comments*
+|*Requirements*
+|*Assessment*
+
+
+|1
+|KS0108
+|Help
+|2.9 inch and less.. various sizes
+|128 * 64
+|Large
+|Mono
+|LCD typically with backlight
+|8-bit parallel PIC and AVR: Software device specific protocol
+|Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
+|Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
+|Requires 12 ports/connections.
+|These are low cost mono devices..
+
+
+|2
+|ILI9481
+|Help
+|3.2inch
+|320 * 240
+|Large
+|Color
+|TFT LCD  8-bit parallel
+|PIC: Set per bit. AVR: via Shield set via AND PORT command
+|+VCC from 2.7 to  5. Always check voltage specifications
+|UNO shield is excellent. Very fast display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good GLCD with very good GLCD performance.
+
+|3
+|PCD8544
+|Help
+|1.77inch
+|Nokia 3310 or 5110
+|160 * 128
+|Small  Mono  LCD with LED
+|SPI
+|PIC and AVR: Device specific SPI command, all in software.
+|Display can operate in text mode only for low RAM microcontrollers as full GLCD capabilities requires 512bytes of RAM. +VCC 3.3.  Always check voltage specifications  Nice display.
+Sensitive to operating voltages.
+|Minimum RAM required is 512 bytes then add user variables for graphics mode, this display can operate in text mode only for low RAM microcontrollers.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good for cost and performance
+
+|4
+|ILI9341
+|Help
+|2.8 Inch or 3.2 Inch
+|320 * 240
+|Medium
+|Color
+|TFT LCD
+|SPI  PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications
+|Very nice display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good  for cost and performance
+
+
+|5
+|SSD1289
+|Help
+|3.2inch
+|240 * 320
+|Large
+|Color
+|TFT LCD
+|16-bit parallel  AVR: Software device specific protocol.
+|Typically operates at VCC 5. Always check voltage specifications
+|Mega2560 shield required.
+|Connectivity requires 20 ports.
+|Good for Mega2560 type shields
+
+|6
+|ST7735
+|Help
+|1.8 Inch
+|128 * 64
+|Large
+|Color
+|TFT LCD
+|SPI
+|PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications Very nice display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good for cost and performance
+
+
+|7
+|ILI9340
+|Help
+|2.2 Inch
+|240 * 320
+|Medium
+|Mono
+|TFT LCD
+|SPI
+|PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good for cost and performance
+
+
+|8
+|ILI9486L
+|Help
+| 4inch
+|RPI   240 * 320
+|Large
+|Color
+|TFT LCD
+|SPI
+|PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications Great pixel display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|An expensive option
+
+|9
+|Nexion
+|Help
+|ITEAD Nexion
+|240 * 320 to
+800 * 480
+|Large - 2.4 to 7inches
+|Color
+|TFT LCD
+|Serial - hardware or software serial is supported.
+|Nextion specfic and GLCD command set
+|Typically operates at VCC 5 with external power supply. Always check voltage specifications  Great command set, you need to learn the GUI and then interface to Great Cow BASIC.
+|2 ports for the read/write serial operations.
+|A very nice option but if you need flexibility then the best!
+
+|10
+|SH1106
+|Help
+|1.3 inch or 0.96inch
+|128 * 64
+|Small
+|Mono OLED
+|I2C
+|PIC and AVR: Hardware and software I2C
+|Always at 3.3v. Always check voltage specifications
+|RAM for Full Mode GLCD is 1024 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
+|I2C requires 2 ports.
+|Good OLED display, excellent value for money
+
+|11
+|SDD1306
+|Help
+|0.96inch
+|128 * 64
+|Small
+|Mono
+|OLED
+|I2C and SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|RAM for Full Mode GLCD is 1024 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
+Typically operates at VCC 5. Always check voltage specifications  Very good OLED display. Driver supports gaming. Minimum RAM required is  1024 bytes then add user variables for graphics mode.
+
+Display can operate in text mode only for low RAM microcontrollers
+
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+
+I2C requires 2 ports.
+|Good OLED display, excellent value for money
+
+
+|12
+|SDD1306_32
+|Help
+|0.96inch
+|128 * 32
+|Very small
+|Mono
+|OLED
+|I2C and SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+
+|RAM for Full Mode GLCD is 512 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
+Typically operates at VCC 5. Always check voltage specifications  Best small OLED display. Driver supports gaming.  Minimum RAM required is  512 bytes then add user variables for graphics mode, this display can operate in text mode only for low RAM microcontrollers
+
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+
+I2C requires 2 ports.
+|Good OLED display, excellent value for money
+
+|13
+|ST7920
+|Help
+|2.9inch
+|128 * 64
+|Large
+|Mono
+|LCD typically with backlight 8-bit parallel
+|PIC and AVR:  Software device specific protocol.
+|Typically operates at VCC 5. Always check voltage specifications
+|8-bit bus required.  Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
+
+This looks like a KS0108 but it is NOT! Supports Chinese font set.
+|Requires 12 ports.
+|A very slow device.
+
+|14
+|HX8347G
+|Help
+|2.2inch
+|240 * 320
+|Large
+|Color
+|TFT LCD
+|SPI
+|AVR 8 bit bus
+|Typically operates at VCC 5. Always check voltage specifications Great pixel display.
+|Controller requires 8 ports plus 5 control ports. Typically 13 in total with an UNO shield.
+|An very nice display
+
+|15
+|SDD1331
+|Help
+|0.96inch
+|96 * 48
+|Small
+|Color
+|OLED
+|SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|Typically operates at VCC 5. Always check voltage specifications
+|SPI requires typically 6 in total.
+|Very good color OLED display, excellent value for money
+
+
+|16
+|ILI9326
+|Help
+|3.00inch
+|400 * 320
+|Large
+|Color
+|OLED
+|8 bit bus
+|PIC and AVR: 8 bit bus
+|Typically operates at VCC 3.3. Always check voltage specifications
+|Requires typically 13 in total plus 0v, VCC and LED.
+|Good color OLED display, good value for money as it is fast.  But, the rotate is all executed in software and this does slow down processing.
+
+{empty} +
+The LED connected is typically to ground.  You can solder the GND connect to make the backlite permanently on.
+
+|===
+
+*Setup:*
+
+You *must* include the `glcd.h` file at the top of your program. The file
+needs to be in brackets as shown below.
+----
+    #include <GLCD.h>
+----
+
+*Defines:*
+
+There are several connections that must be defined to use the GLCD
+commands with a GLCD display. The _I/O pin_ is the pin on the Microchip PIC or the Atmel AVR microcontroller
+that is connected to that specific pin on the graphical LCD.
+[subs="quotes"]
+
+*Example: KS0108 connectivity*
+----
+    #define GLCD_RW   _I/O pin_ ‘Read/Write pin connection
+    #define GLCD_RESET  _I/O pin_ ‘Reset pin connection
+    #define GLCD_CS1  _I/O pin_ ‘CS1 pin connection
+    #define GLCD_CS2  _I/O pin_ ‘CS2 pin connection
+    #define GLCD_RS   _I/O pin_ ‘RS pin connection
+    #define GLCD_ENABLE _I/O pin_ ‘Enable pin Connection
+    #define GLCD_DB0  _I/O pin_ ‘Data pin 0 Connection
+    #define GLCD_DB1  _I/O pin_ ‘Data pin 1 Connection
+    #define GLCD_DB2  _I/O pin_ ‘Data pin 2 Connection
+    #define GLCD_DB3  _I/O pin_ ‘Data pin 3 Connection
+    #define GLCD_DB4  _I/O pin_ ‘Data pin 4 Connection
+    #define GLCD_DB5  _I/O pin_ ‘Data pin 5 Connection
+    #define GLCD_DB6  _I/O pin_ ‘Data pin 6 Connection
+    #define GLCD_DB7  _I/O pin_ ‘Data pin 7 Connection
+    #define GLCD_PROTECTOVERRUN 'prevent screen overdrawing     'SSD1306 GLCD only
+    #define GLCDDirection       'Invert GLCD Y axis             'KS0108 GCD only
+
+----
+Common commands supported across the range of supported GLCDs are:
+[cols=3, options="header,autowidth"]
+|===
+|*Command*
+|*Purpose*
+|*Example*
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable` )
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable )`
+
+|`Box`
+
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour as 0 or 1] )`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the
+foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour 0 or 1] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the
+specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour 0 or 1] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the
+specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour 0 or 1)`
+|===
+
+{empty} +
+{empty} +
+
+
+Public variable supported across the range of supported GLCDs are shown in the table below.
+These variables control the user definable parameters of a specific GLCD.
+[cols=3, options="header,autowidth"]
+|===
+|*Variable*
+|*Purpose*
+|*Type*
+
+|`GLCDBackground`
+|Color of GLCD background.
+|Can be monochrome or color. +
+For mono GLCDs the default is White or 0x0001.
+For color GLCDs the default is White or 0xFFFF.
+
+|`GLCDForeground`
+|Color of GLCD foreground.
+|Can be monochrome or color. +
+For mono GLCDs the default is non-white or 0x0000.
+For color GLCDs the default is Black or 0x0000.
+
+|`GLCDFontWidth`
+|Width of the current GLCD font.
+|Default is 6 pixels.
+
+|`GLCDfntDefault`
+|Size of the current GLCD font.
+|Default is 0.+
+This equates to the standard GCB font set.
+
+|`GLCDfntDefaultsize`
+|Size of the current GLCD font.
+|Default is 1.+
+This equates to the 8 pixel high.
+
+|===
+
+
+*For more help, see* <<_ks0108_controllers,KS 0108 controllers>>,
+<<_st7735_controllers,ST7735 Controllers>> and
+<<_st7920_controllers,ST7920 Controllers>>
+
+This example shows how to drive a KS0108 based Graphic LCD module with
+the built in commands of Great Cow BASIC. See
+http://www.greatcowbasic.com/sample-projects.html[Graphic LCD] for
+details, this is an external web site.
+
+*Example:*
+----
+    ;Chip Settings
+    #chip 16F886,16
+    '#config MCLRE = on 'enable reset switch on CHIPINO
+    #include <GLCD.h>
+
+    ;Defines (Constants)
+    #define GLCD_RW PORTB.1  'D9 to pin 5 of LCD
+    #define GLCD_RESET PORTB.5 'D13 to pin 17 of LCD
+    #define GLCD_CS1 PORTB.3 'D12 to actually since CS1, CS2 can be inverted
+    #define GLCD_CS2 PORTB.4 'D11 to actually since CS1, CS2 can be inverted
+    #define GLCD_RS PORTB.0  'D8 to pin 4 D/I pin on LCD
+    #define GLCD_ENABLE PORTB.2 'D10 to Pin 6 on LCD
+    #define GLCD_DB0 PORTC.7 'D0 to pin 7 on LCD
+    #define GLCD_DB1 PORTC.6 'D1 to pin 8 on LCD
+    #define GLCD_DB2 PORTC.5 'D2 to pin 9 on LCD
+    #define GLCD_DB3 PORTC.4 'D3 to pin 10 on LCD
+    #define GLCD_DB4 PORTC.3 'D4 to pin 11 on LCD
+    #define GLCD_DB5 PORTC.2 'D5 to pin 12 on LCD
+    #define GLCD_DB6 PORTC.1 'D6 to pin 13 on LCD
+    #define GLCD_DB7 PORTC.0 'D7 to pin 14 on LCD
+
+    Start:
+    GLCDCLS
+    GLCDPrint 0,10,"Hello"        'Print Hello
+    wait 5 s
+    GLCDPrint 0,10, "ASCII #:"    'Print ASCII #:
+    Box 18,30,28,40               'Draw Box Around ASCII Character
+    for char = 15 to 129          'Print 0 through 9
+      GLCDPrint 17, 20 , Str(char)+"  "
+      GLCDdrawCHAR 20,30, char
+      wait 125 ms
+    next
+    line 0,50,127,50               'Draw Line using line command
+    for xvar = 0 to 80             'Draw line using Pset command
+        pset xvar,63,on                    '
+    next                                        '
+    Wait 1 s
+    GLCDPrint 0,10,"End  "          'Print Hello
+    wait 1 s
+    Goto Start
+----
+
+*For more help, see*
+<<_graphical_lcd_demonstration,Graphical LCD Demonstration>>,
+<<_glcdcls,GLCDCLS>>,
+<<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>,
+<<_glcdreadbyte,GLCDReadByte>>,
+<<_glcdwritebyte,GLCDWriteByte>>, <<_pset,Pset>>

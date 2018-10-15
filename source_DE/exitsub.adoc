@@ -1,0 +1,51 @@
+==== Exit
+
+*Syntax options:*
+[subs="quotes"]
+
+----
+    Exit Sub | Exit Function | Exit Do | Exit For | Exit Repeat
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will make the program exit the routine it is currently in,
+as it would if it came to the end of the routine.
+
+Applies to Subroutines, Functions, For-Next loops, Do-Loop loops and
+Repeat loops.
+
+*Example:*
+
+----
+    #chip tiny13, 1
+
+    #define SENSOR PORTB.0
+    #define BUZZER PORTB.1
+    #define LIGHT PORTB.2
+    Dir SENSOR In
+    Dir BUZZER Out
+    Dir LIGHT Out
+
+    Do
+      Burglar
+    Loop
+
+    'Burglar Alarm subroutine
+    Sub Burglar
+      If SENSOR = 0 Then
+        Set BUZZER Off
+        Set LIGHT Off
+        Exit Sub
+      End If
+      Set BUZZER On
+      Set LIGHT On
+    End Sub
+----
+
+*For more help, see <<_do,Do >>, <<_for,For>>, <<_subroutines,Sub >>,
+<<_functions,Functions >>* and *<<_repeat,Repeat>>*

@@ -1,0 +1,58 @@
+==== EPRead
+
+*Syntax:*
+[subs="quotes"]
+----
+    EPRead _location, store_
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC and Atmel AVR microcontrollers with EEPROM data memory.
+
+*Explanation:*
+
+`EPRead` is used to read information from the EEPROM data storage that many microcontroller chips are equipped with. 
+`_location_` represents the location to read data from, and varies from one chip to another.
+`_store_` is the variable in which to store the data after it has been read from EEPROM.
+
+*Example:*
+
+----
+    'Program to turn a light on and off
+    'Will remember the last status
+
+    #chip tiny2313, 1
+    #define Button PORTB.0
+    #define Light PORTB.1
+
+    Dir Button In
+    Dir Light Out
+
+    'Load saved status
+    EPRead 0, LightStatus
+
+    If LightStatus = 0 Then
+      Set Light Off
+    Else
+      Set Light On
+    End If
+
+    Do
+      'Wait for the button to be pressed
+      Wait While Button = On
+      Wait While Button = Off
+      'Toggle value, record
+      LightStatus = !LightStatus
+      EPWrite 0, LightStatus
+
+      'Update light
+      If LightStatus = 0 Then
+        Set Light Off
+      Else
+        Set Light On
+      End If
+    Loop
+----
+
+*For more help, see <<_epwrite,EPWrite>>*

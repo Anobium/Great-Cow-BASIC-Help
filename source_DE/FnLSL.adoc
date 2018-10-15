@@ -1,0 +1,57 @@
+==== FnLSL
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    BitsOut = FnLSL(BitsIn, NumBits)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`FnLSL` (Logical Shift Left) will perform a Bitwise left shift.
+`FnLSL` will return BitsIn shifted NumBits to the left, it is equivalent to the 'C' operation:
+
+----
+    BitsOut = BitsIn << NumBits
+----
+
+Each left shift is the equivalent of multiplying BitsIn by 2.
+BitsIn and NumBits may be may be a variable and of  type: Bit, Byte, Word, Long, Constant or another Function.
+Zeros are shifted in from the right, Bits that are shifted out are lost.
+
+It is useful for mathematical and logical operations, as well as creating serial data streams or manipulating I/O ports.
+
+
+
+*Example:*
+
+----
+    ' This program will shift the LEDs on the Microchip PIC Low Pin
+    ' Count Demo Board from Right to Left, that is DS1(RC0) to
+    ' DS4(RC3) and repeat
+
+    #chip    16f690        ' declare the target Device
+
+    #define  LEDPORT PORTC ' LEDs on pins 16, 15, 14 and 7
+
+    Dim LEDMask as Byte    ' Pattern to be displayed
+    LEDMask = 0b0001       ' Initialise the Patten
+    Dir LEDPORT Out        ' Enable the LED Port.
+
+    Do
+        LEDMask = FnLSL(LEDMask, 1) & 0x0F    ' Mask the lower 4 bits
+        if LEDPORT.3 then LEDMask.0 = 1       ' Restart the sequence
+        LEDPORT = LEDMask                     ' Display the Pattern
+        wait 500 ms
+    Loop
+    End
+
+----
+
+*See Also <<_bitwise_operations_overview, Bitwise Operations Overview>>* and *<<_conditions, Conditions>>*
+

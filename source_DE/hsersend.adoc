@@ -1,0 +1,46 @@
+==== HSerSend
+
+*Syntax:*
+[subs="quotes"]
+----
+    HSerSend _user_byte_ [,1|2|3|4] 	'Choose comport with optional parameter
+	                                    'Default comport is 1
+----
+*Command Availability:*
+
+Available on all microcontrollers with a USART or UART module.
+
+Microchip PIC supports USART1 and 2. +
+Atmel AVR supports USART 1,2,3 and 4.
+
+*Explanation:*
+
+This command will send a byte given by _user_byte_ using the hardware RS232
+module.
+
+*Example:*
+----
+	'This program will send the status of PORTB through the hardware
+	'serial module.
+
+	#chip 16F877A, 20
+
+	'USART settings
+	#define USART_BAUD_RATE 9600	'Initializes USART port with 9600 baud
+	'#define USART_BLOCKING		' Both of these blocking statements will
+	#define USART_TX_BLOCKING	' wait for tx register to be empty
+								' use only one of the two
+	'Set PORTB to input
+	Dir PORTB In
+	'Set USART transmit pin to output
+	Dir PORTC.6 Out
+
+	'Main loop
+	Do
+		'Send PORTB value through USART
+		HSerSend PORTB
+		HSerSend(13)		' sends a CR
+		'Short delay for receiver to process message
+		Wait 10 ms			'probably not necessary with blocking statement
+	Loop
+----

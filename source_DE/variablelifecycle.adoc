@@ -1,0 +1,77 @@
+﻿==== Variable Lifecycle
+
+*Explanation*
+
+Within Great Cow BASIC you can use variables. This section details the Variable Lifecycle when using variables.
+
+*Variable rules - with #Option Explicit*
+
+As shown below in the rule without #Option Explicit but ALL variables MUST be defined including bytes variables.
+
+*Variable rules - without #Option Explicit*
+
+Scope - every variable is global from an addressing/usage point of view.
+
+Once a variable is defined, and then the variable it is used the variable persists.
+
+Aliasing - You can reduce memory usage by Aliasing.  Remember all variables are global so you must be careful.
+
+If there are two variables with the same name, they will be placed in the same memory location. You can reuse the same variable name in two subs/functions, and you can make the variables different types, but writing to the variable in one sub will overwrite the value from the other sub, see the example below.
+
+As a general guide define any shared variables near the start of the program for easier readability.
+
+All variables should be initialised with a desired initialisation value.  Do not assume the initialisation value is Zero.
+
+Variables local to particular subroutines are not implemented.
+
+*Specific rules to spefic variable types*
+
+All variables are global.  Bit variables defined in subs/function are global.
+
+Byte variables do not need to be defined using the DIM statement.  See #Option Explicit above.  Just to clarify byte is default type, this means:
+----
+    Dim MainVar As Byte is unnecessary.
+    MainVar = 128    automatic defines the MainVar variable
+----
+
+Bit, Word, Longs, Integers and Strings variables must be defined.
+
+All variables are global, but, if they are defined inside a particular subroutine then their type is not, see the example below:
+
+Example code:
+
+----
+    Dim MainVar As Byte
+    Dim OtherVar As Word
+
+    MainVar = 128
+    OtherVar = 514
+
+    DemoSub
+    'At this point:
+    'MainVar is a byte, value 128
+    'OtherVar is a word, value 514
+    'Counter is a byte, value 2
+    '(Byte is default type, but location shared with that of Counter in DemoSub. High byte ignored)
+
+    Sub DemoSub
+        Dim Counter As Word
+        Counter = 2050
+        'At this point:
+        'MainVar and OtherVar as byte and word, as in main routine
+        'Counter is a word, value 2050
+    End Sub
+----
+In DemoSub, Counter is a word. But anywhere else in the program it is a byte unless otherwise specified.   If the variable is used/read in the main routine, it will be treated as a byte, and only the low 8 bits will be returned. In this example the low 8 bits of 2050 are 2.
+
+The main reason for keeping the type inside the subroutine was for the following scenario:
+A subroutine uses a temporary variable of type byte, and relies on it overflowing.
+
+Another subroutine uses a temporary variable of the same name, but of word type.
+
+If the first subroutine is already in the program, and then the second one is added, the behaviour of the first one will not change at all due to the addition of the second one.
+
+The handling of variable types using this method minimises the size of the generated assembly code.
+
+
+*For more help, see* <<__option_explicit,Option Explicit>>

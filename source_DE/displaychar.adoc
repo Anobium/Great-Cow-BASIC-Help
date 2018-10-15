@@ -1,0 +1,92 @@
+// Edit EvanV 171016
+==== DisplayChar
+
+*Syntax:*
+[subs="quotes"]
+----
+    DisplayChar (_display, character, dot_)
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+This command will display the given ASCII character on a seven segment
+LED display.
+
+`_display_` is the number of the display to use. Up to 4 digits. +
+
+`_character_` is the ASCII character to be shown.
+
+`_dot_` is an optional parameter. When it is 1 then the decimal point for that digit  is turned on.
+
+This example below is a Common Cathode configuration.
+
+*Example 1:*
+----
+   'This program will show " Hello  " on a LED display
+    'The display should be connected to PORTB and the Enable on PORTA.0
+
+    #chip 16F877A, 20
+
+    #define DISPLAYPORTA PORTB
+    #define DISP_SEL_1 PORTA.0
+
+
+    Dim Message As String
+    Message = " Hello  "
+  Do
+    For Counter = 1 to len(Message)
+      DisplayChar 1, Message(Counter)
+      Wait 250 ms
+    Next
+  Loop
+
+----
+This is a Common Anode example
+There are three different methods for port specification
+Note the ports are specified bit by bit in this case but
+could be specified like Example 1
+See Overview for further explanation.
+
+*Example 2:*
+----
+  'This program will show amessage on a LED display
+  'This is a Dual digit Common anode with driver transistors example
+   #chip 16F886, 8
+
+    'support for Common Anode
+    #define 7Seg_CommonAnode
+
+    'support for pfet or pnp high side drivers
+    #define 7Seg_HighSide
+
+  ' Constants
+  ' You need to specify the port settings
+    #define DISP_SEG_A PORTB.0
+    #define DISP_SEG_B PORTB.1
+    #define DISP_SEG_C PORTB.2
+    #define DISP_SEG_D PORTB.3
+    #define DISP_SEG_E PORTB.4
+    #define DISP_SEG_F PORTB.5
+    #define DISP_SEG_G PORTB.6
+
+    #define DISP_SEL_1 PORTC.5
+    #define DISP_SEL_2 PORTC.4
+
+    Dim Message As String
+    Message = " Happy Holidays  "
+    Do
+    For Counter = 1 to len(Message)-2
+      Repeat 50
+        Displaychar 1, Message(Counter)
+        wait 3 ms
+        DisplayChar 2, Message(Counter+1)
+        wait 3 ms
+        end Repeat
+      Wait 100 ms
+    Next
+    Loop
+----
+*Also, see* <<_7_segment_displays_overview,7 Degment Display Overview>>, <<_displayvalue,DisplayValue>>, <<_displaysegment,DisplaySegment>>

@@ -1,0 +1,28 @@
+==== HI2CStartOccurred
+
+*Syntax:*
+
+----
+    HI2CStartOccurred
+----
+
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+Check if a start condition has occurred since the last run of this
+function
+
+Only used in slave mode.
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2StartOccurred
+----
+
+Supported in <HI2C.H>

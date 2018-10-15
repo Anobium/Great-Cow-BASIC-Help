@@ -1,0 +1,12 @@
+==== FilledBox
+
+*Syntax:*
+----
+    FilledBox(LineX1,LineY1, LineX2, LineY2, Optional LineColour = 1)
+----
+*Explanation:*
+
+Draws a filled box on a graphic LCD from the upper corner of pixel X1, Y1
+location to pixel X2,Y2 location. +
+
+*See also* <<_box,Box>>

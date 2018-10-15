@@ -1,0 +1,16 @@
+===== ST7920LineHs
+
+*Syntax:*
+----
+    ST7920LineHs ( Xpos, Ypos, XLength, Style)
+----
+
+*Explanation:*
+
+This command draws a line with a specific style. The style is based on
+the bits value of the byte passed to the routine.
+
+*Example usage:*
+----
+    ST7920LineHs ( 0, 31,128 , 0x55) ‘will draw a dashed line
+----

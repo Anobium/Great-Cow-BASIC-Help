@@ -1,0 +1,58 @@
+==== Implementing a method with a Pin name as a parameter
+
+*Introduction*
+
+A constant such as a Pin name cannot be passed to a sub routine or a function.  This is a constraint of Great Cow BASIC.
+
+A macro can be used to implement a method of passing a constant to reusable code section.
+
+The example shown below implements a button press routine and takes an input port constant and prints the result on an LCD display.
+
+*Note:*
+A macro will use more program memory as the macro will be compiled as inline code. Therefore, for every use of the macro will use additional program memory - the same amount of program memory for each call to the macro.
+
+*Demonstration Program:*
+----
+    #chip 16F877a, 16
+    #define Button PORTC.1    ' Switch on PIN 14 via 10K pullup resistor
+    DIR Button In
+    wait 1 sec
+
+    'USART settings
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+    ;======== MAIN PROGRAM LOOP ================
+    HSerPrint "Button Test"
+    HSerPrintCRLF 2
+    Do
+       Test_button ( button )
+    Loop
+    ;==========================================
+
+    Macro Test_button (Button)
+       if Button = ON then
+          wait 10 ms          'debounce
+          ButtonCount = 0
+
+
+           Do While Button = On
+               Wait 10 ms
+               ButtonCount += 1
+           Loop
+
+
+           if ButtonCount > 5  then
+               if ButtonCount > 50 then   'Long push
+                   hserprint "Long push"
+               else                       'Short push
+                   hserprint "Short push"
+               end if
+               HSerPrintCRLF
+           end if
+           wait 1 s
+       end if
+    End Macro
+----
+
+Also see <<_macros_overview,Macros Overview>>

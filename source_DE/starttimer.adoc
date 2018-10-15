@@ -1,0 +1,63 @@
+==== StartTimer
+
+*Syntax:*
+[subs="quotes"]
+----
+    StartTimer _TimerNo_
+----
+*Command Availability:*
+
+Available on all microcontrollers with a Timer module.
+
+*Explanation:*
+
+`StartTimer` is used to start the specified timer.
+
+*Timer 0:*
+
+Please refer to the datasheet to determine if Timer 0 on specific Microchip PIC microcontroller
+can be started and stopped with `starttimer` and `stoptimer`. If the Microchip PIC microcontroller
+has a register named "T0CON"  then it supports `stoptimer` and `starttimer`.
+
+On Microchip PIC 18(L)Fxxx microcontrollers Timer 0 can be started  with `starttimer`. +
+On Microchip PIC baseline and midrange microcontrollers `starttimer` (and `stoptimer`) has no effect upon Timer 0.
+
+
+{empty} +
+{empty} +
+{empty} +
+*Example:*
+
+This example will measure that time that a switch is depressed (or on) and will write the results to the EEPROM.
+
+
+----
+    #chip 16F819, 20
+    #define Switch PORTA.0
+
+    Dir Switch In
+    DataCount = 0
+
+    'Initilise Timer 1
+    InitTimer1 Osc, PS1_8
+
+    Dim TimerValue As Word
+
+    Do
+        ClearTimer 1
+        Wait Until Switch = On
+        StartTimer 1
+        Wait Until Switch = Off
+        StopTimer 1
+
+        'Read the timer
+        TimerValue = Timer1
+
+        'Log the timer value
+        EPWrite(DataCount, TimerValue_H)
+        EPWrite(DataCount + 1, TimerValue)
+        DataCount += 2
+    Loop
+----
+
+*Supported in <TIMER.H>*

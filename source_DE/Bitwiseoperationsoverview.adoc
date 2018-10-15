@@ -1,0 +1,29 @@
+//14122016 ERV reverted Setwith
+==== Bitwise Operations Overview
+
+*About Bitwise Operations*
+[subs="quotes"]
+Great Cow BASIC (as with most other microcontroller programming languages) supports bitwise operations.
+
+Bitwise operations are performed on one or more bit patterns at the level of their individual bits.
+
+Great Cow BASIC supports the following methods.
+
+
+[cols=2, options="header,autowidth",width="80%"]
+|===
+|*Method*
+|*Meaning*
+|Set
+|Assigns a Bit value of On or Off
+|SetWith
+|Evaluates an expression and assigns the result
+|FnLSL
+|Performs a Bitwise LEFT shift
+|FnLSR
+|Performs a Bitwise RIGHT shift
+|Rotate
+|Performs a rotation of a variable of one bit in a specified direction
+|===
+
+*For more help, see: <<_set, Set>>, <<_setwith, SetWith>>, <<_fnlsl, FnLSL>>, <<_fnlsr,FnLSR>> and <<_rotate, Rotate>>*

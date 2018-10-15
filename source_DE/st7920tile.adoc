@@ -1,0 +1,16 @@
+===== ST7920Tile
+
+*Syntax:*
+----
+    ST7920Tile ( word variable )
+----
+*Explanation:*
+
+This command tiles the screen with the word value provided.
+
+*Example usage:*
+----
+    Dim tileValue as word
+    tileValue = (0x55 * 256 ) + 0x55
+    ST7920Tile (tileValue) ‘tile the screen with a nice cross hatch
+----

@@ -1,0 +1,35 @@
+==== LCase
+
+*Syntax:*
+[subs="quotes"]
+----
+    __output__ = LCase(__source__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `LCase` function will convert all of the letters in the string `_source_` to lower case, and return the result.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "Hello, world!"
+
+    'Display the string in lower case
+    'Will display "hello, world!"
+    HSerPrint LCase(TestData)
+    HSerPrintCRLF
+----
+*See Also* <<_ucase,UCase>>

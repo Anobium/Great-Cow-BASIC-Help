@@ -1,0 +1,22 @@
+==== Pause
+
+*Syntax:*
+[subs="quotes"]
+
+----
+*_Fixed Length Delay:_*
+    Pause time_ms
+----
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The Pause command will cause the program to pause for a specified time in milliseconds.
+The only unit of time permitted is milliseconds.
+
+Please use the `wait` command to use other units of time.
+
+*For more help, see <<_wait,Wait>>*

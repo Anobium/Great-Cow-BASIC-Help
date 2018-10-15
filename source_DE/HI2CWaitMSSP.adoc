@@ -1,0 +1,25 @@
+==== HI2CWaitMSSP
+
+*Syntax:*
+----
+    HI2CWaitMSSP
+----
+*Command Availability:*
+
+Only available for microcontrollers with the hardware I2C or TWI module.
+
+*Explanation:*
+
+The methods sets the global byte variable _HI2CWaitMSSPTimeout_ to 255 ( or True ) if the MSSP module has timeout during operations.
+
+_HI2CWaitMSSPTimeout_ can tested for the status of the I2C bus.
+
+*Note:*
+
+This command is also available on microcontrollers with a second hardware I2C port.
+
+----
+    HI2C2WaitMSSP
+----
+
+Supported in <HI2C.H>

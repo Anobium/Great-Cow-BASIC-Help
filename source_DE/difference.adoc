@@ -1,0 +1,21 @@
+==== Difference
+
+*Syntax:*
+[subs="quotes"]
+----
+    `Difference ( word_variable1 , word_variable2 )` or
+    `Difference ( byte_variable1 , byte_variable2 )`
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+A function that returns the difference between of two numbers. This only supports byte or word variables.
+
+*Example:*
+----
+    Difference( 8 ,4 ) ' Will return 4
+    Difference( 0xff01 , 0xfffa ) ' Will return 0xf9 or 249d
+----

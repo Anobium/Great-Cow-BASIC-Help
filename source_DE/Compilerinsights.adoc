@@ -1,0 +1,90 @@
+//290117 - Erv added new info on TRISIO
+== Compiler Insights
+
+This section will provide some insights into what the compiler does
+
+*How does the compiler cope with read only registers in the Chip Family 12 range?*
+
+Within this chip range the Option register is a write only register. Reading the register is not permitted.
+
+Great Cow BASIC needs to update this when the user wants to change the configuration - the Sleep process is an example of a user change.
+
+The compiler handles this by the creation of the Option_reg byte variable. This byte is created by the compiler to manage the required write process.
+
+The Option_reg variable is a cache that compiler will create if any bits of option_reg have been set manually.
+
+If the user changes any of the bits in a program, then the compiler will find any uses of the option instruction and insert a "movwf OPTION_REG" immediately before the option instruction to cache the value in the buffer.
+
+If Option_reg bits aren't set individually anywhere, then option_reg doesn't get created, and nothing special is done with the option instruction.
+
+Essentially the compiler maintains a special variable and manages the whole process without the user being aware.
+
+*How does the compiler cope with the TRIS register in the 10f products?*
+
+The compiler ensures that a TRIS cache matches the actual TRIS register.  The TRIS cache is a byte variable called TRISIO.  The TRISIO cache is required as TRIS is a write-only register.
+
+All ports default to input ( where all TRIS bits to 1) on reset.  Therefore, this is assummed to be the value 255.
+
+TRISIO is updated when required by the user code and then used in the writing to the correct register.
+
+The example user code and the assiocated assembly shows TRISIO cache in use.  This method complies with datasheet.
+
+User Code
+
+    'set as input
+    dir gpio.0 in
+    gpio0State = gpio.0
+    'set as output this will require TRIS GPIO to be set using the TRISIO cache.
+    dir gpio.0 out
+    gpio.0 = 1
+
+
+ASM
+
+    ;dir gpio.0 in
+      bsf TRISIO,0
+      movf  TRISIO,W
+      tris  GPIO
+    ;gpio0State = gpio.0
+      clrf  GPIO0STATE
+      btfsc GPIO,0
+      incf  GPIO0STATE,F
+    ;dir gpio.0 out
+      bcf TRISIO,0
+      movf  TRISIO,W
+      tris  GPIO
+    ;gpio.0 = 1
+      bsf GPIO,0
+
+
+Anywhere that an individual TRIS bit is set/cleared by change the port direction, the bit in the cache is changed and then that gets written to the TRIS register.
+
+*Forcing the ASM to contain comments*
+
+It may be useful to force comments into the ASM file.  The verbose mode of creating the ASM will include ALL the source program as comments but it may be useful to have specific comments in the ASM to aid the understanding of code or to support debugging.
+
+To force an assembly comment use the following:
+
+----
+    asm showdebug  `comment`
+----
+
+Where the `comment` will be placed into the ASM file.
+
+Example.
+
+The source file contains the following, where the comment text is `OSCCON type is 100`
+
+----
+    asm showdebug OSCCON type is 100
+    OSCCON1 = 0x60
+----
+
+The generated assembly will be as following - this assumes verbose mode is not selected.
+
+----
+    INITSYS
+    ;osccon type is 100
+      movlw 96
+      banksel OSCCON1
+----

@@ -1,0 +1,51 @@
+==== Print
+
+*Syntax:*
+[subs="quotes"]
+----
+    Print _string_
+    Print _byte_
+    Print _word_
+    Print _long_
+    Print _integer_
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The Print command will show the contents of a variable on the LCD. It
+can display string, word, byte, long or integer variables.
+
+*Example:*
+----
+    'A Light Meter program.
+
+    'General hardware configuration
+    #chip 16F877A, 20
+    #define LightSensor AN0
+
+    'LCD connection settings
+    #define LCD_IO 8
+    #define LCD_DATA_PORT PORTC
+    #define LCD_RS PORTD.0
+    #define LCD_RW PORTD.1
+    #define LCD_Enable PORTD.2
+
+    CLS
+    Print "Light Meter"
+    Locate 1,2
+    Print "A GCBASIC Demo"
+    Wait 2 s
+
+    Do
+        CLS
+        Print "Light Level: "
+        Print ReadAD(LightSensor)
+        Wait 250 ms
+    Loop
+----
+*For more help, see* <<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

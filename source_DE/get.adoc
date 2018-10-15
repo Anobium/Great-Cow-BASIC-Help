@@ -1,0 +1,21 @@
+==== Get
+
+*Syntax:*
+----
+    var = Get(Line, Column)
+----
+*Command Availability:*
+
+Available on all microcontrollers with the LCD R/W line (pin 5) connected and if the following constant definition is used;
+`#define LCD_RW`. Not available if the LCD is connected using the 0 or 2 bit mode or if the constant definition
+`#define LCD_NO_RW` is used.
+
+*Explanation:*
+
+The `Get` function reads the ASCII character code at a given location on
+the LCD.
+
+*For more help, see* <<_put,Put >>,
+<<_lcd_overview,LCD Overview>>
+
+*Supported in <LCD.H>*

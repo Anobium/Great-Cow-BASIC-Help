@@ -1,0 +1,1056 @@
+= Great Cow BASIC documentation
+The Great Cow BASIC development team @ 2018
+
+
+
+:toc:
+:toclevels: 5
+:imagesdir: ./images
+
+include::introducinggcbasic.adoc[]
+
+include::gettingstartedwithgcbasic.adoc[]
+
+ifdef::backend-pdf[<<<]
+include::changes.adoc[]
+
+include::commandlineparameters.adoc[]
+
+ifdef::backend-pdf[<<<]
+include::frequentlyaskedquestions.adoc[]
+
+ifdef::backend-pdf[<<<]
+include::troubleshooting.adoc[]
+
+
+ifdef::backend-pdf[<<<]
+include::Compilerinsights.adoc[]
+
+ifdef::backend-pdf[<<<]
+include::libraries.adoc[]
+
+
+
+ifdef::backend-pdf[<<<]
+include::acknowledgements.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Microcontroller Fundamentals
+
+include::inputsoutputs.adoc[]
+
+include::configuration.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Syntax
+
+include::arrays.adoc[]
+
+include::comments.adoc[]
+
+include::conditions.adoc[]
+
+include::constants.adoc[]
+
+include::functions.adoc[]
+
+include::labels.adoc[]
+
+include::lookuptables.adoc[]
+
+include::casting.adoc[]
+
+include::readtable.adoc[]
+
+include::scripts.adoc[]
+
+include::subroutines.adoc[]
+
+include::variables.adoc[]
+
+// include::referencing.adoc[]
+
+include::converters.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Command References
+
+ifdef::backend-pdf[<<<]
+=== Analog/Digital conversion
+
+This is the Analog/Digital conversion section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::analogdigitialconversionoverview.adoc[]
+
+include::adformat.adoc[]
+
+include::adoff.adoc[]
+
+include::readad.adoc[]
+
+include::readad10.adoc[]
+
+include::readad12.adoc[]
+
+include::analogdigitialconversionoptimisation.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Bitwise
+
+This is the Bitwise section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::Bitwiseoperationsoverview.adoc[]
+
+include::FnLsL.adoc[]
+
+include::FnLSR.adoc[]
+
+include::SetWith.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+=== Memory Devices
+This is the Memory section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+:leveloffset: +1
+=== Eeprom
+This is the Eeprom section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::epread.adoc[]
+
+include::epwrite.adoc[]
+
+include::programerase.adoc[]
+
+include::programread.adoc[]
+
+include::programwrite.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+=== Hefm
+This is the Hefm section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::hefm.adoc[]
+
+=== EERAM
+This is the EERAM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::47XXX.adoc[]
+
+:leveloffset: -1
+
+ifdef::backend-pdf[<<<]
+=== Flow control
+
+This is the Flow control section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::do.adoc[]
+
+include::end.adoc[]
+
+include::exitsub.adoc[]
+
+include::for.adoc[]
+
+include::gosub.adoc[]
+
+include::goto.adoc[]
+
+include::if.adoc[]
+
+include::indcall.adoc[]
+
+include::pause.adoc[]
+
+include::repeat.adoc[]
+
+include::select.adoc[]
+
+include::wait.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+
+===  Fixed Voltage Reference
+
+This is the  Fixed Voltage Reference section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::FVRInitialize.adoc[]
+
+include::FVRIsOutputReady.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+=== Interrupts
+
+This is the Interrupt section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::interrupts.adoc[]
+
+include::intoff.adoc[]
+
+include::inton.adoc[]
+
+include::oninterrupt.adoc[]
+
+include::onintteruptthedefaulthandler.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Keypad
+
+This is the Keypad section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::relevantconstantskeys.adoc[]
+
+include::keypaddata.adoc[]
+
+include::keypadraw.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Graphical LCD
+
+This is the GLCD section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::glcdoverview.adoc[]
+
+:leveloffset: +1
+
+include::hx8347Gcontrollers.adoc[]
+
+include::ili9326controllers.adoc[]
+
+include::ili9340controllers.adoc[]
+
+include::ili9341controllers.adoc[]
+
+include::ili9481controllers.adoc[]
+
+include::ili9486Lcontrollers.adoc[]
+
+include::ks0108controllers.adoc[]
+
+include::nextioncontrollers.adoc[]
+
+include::pcd8544controllers.adoc[]
+
+include::sdd1289controllers.adoc[]
+
+include::sh1106controllers.adoc[]
+
+include::ssd1306controllers.adoc[]
+
+include::ssd1331controllers.adoc[]
+
+include::st7735controllers.adoc[]
+
+include::st7920controllers.adoc[]
+
+include::st7920glcdcleargraphics.adoc[]
+
+include::st7920glcddisablegraphics.adoc[]
+
+include::st7920glcdenablegraphics.adoc[]
+
+include::st7920graphictest.adoc[]
+
+include::st7920linehs.adoc[]
+
+include::st7920locate.adoc[]
+
+include::st7920tile.adoc[]
+
+include::st7920ctile.adoc[]
+
+include::st7920glocate.adoc[]
+
+include::st7920gtile.adoc[]
+
+include::st7920lineh.adoc[]
+
+include::st7920linev.adoc[]
+
+include::st7920glcdreadbyte.adoc[]
+
+include::st7920writebyte.adoc[]
+
+include::st7920writecommand.adoc[]
+
+include::st7920writedata.adoc[]
+
+include::st7920greaddata.adoc[]
+
+:leveloffset: -1
+
+include::box.adoc[]
+
+include::circle.adoc[]
+
+include::ellipse.adoc[]
+
+include::filledbox.adoc[]
+
+include::filledcircle.adoc[]
+
+include::filledellipse.adoc[]
+
+include::filledtriangle.adoc[]
+
+include::glcdcls.adoc[]
+
+include::glcddrawchar.adoc[]
+
+include::glcddrawstring.adoc[]
+
+include::glcdprint.adoc[]
+
+include::glcdlocatestring.adoc[]
+
+include::glcdprintstring.adoc[]
+
+include::glcdprintstringln.adoc[]
+
+include::glcdrotate.adoc[]
+
+include::glcdreadbyte.adoc[]
+
+include::glcdtimedelay.adoc[]
+
+include::glcdwritebyte.adoc[]
+
+include::line.adoc[]
+
+include::pset.adoc[]
+
+include::triangle.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Touch Screen
+
+This is the Touch Screen section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::ADS7843SerialDriver.adoc[]
+
+
+ifdef::backend-pdf[<<<]
+=== Liquid Crystal Display
+
+This is the LCD section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::relevantconstantslcd.adoc[]
+
+include::lcd_i00.adoc[]
+
+include::lcd_i01.adoc[]
+
+include::LCD_IO_2_74xx164.adoc[]
+
+include::lcd_io2.adoc[]
+
+include::LCD_IO_2_74xx174.adoc[]
+
+include::lcd_io4.adoc[]
+
+include::lcd_io8.adoc[]
+
+include::lcd_io10.adoc[]
+
+include::lcd_io10portconfiguration.adoc[]
+
+include::lcd_io12.adoc[]
+
+include::lcd_io12portconfiguration.adoc[]
+
+include::lcd_speed.adoc[]
+
+include::lcd_width.adoc[]
+
+include::cls.adoc[]
+
+include::get.adoc[]
+
+include::lcdbacklight.adoc[]
+
+include::lcdcreatechar.adoc[]
+
+include::lcdcreategraph.adoc[]
+
+include::lcdcmd.adoc[]
+
+include::lcdcursor.adoc[]
+
+include::lcdhex.adoc[]
+
+include::lcdhome.adoc[]
+
+include::lcdon.adoc[]
+
+include::lcdoff.adoc[]
+
+include::lcdspace.adoc[]
+
+include::lcdwritechar.adoc[]
+
+include::locate.adoc[]
+
+include::print.adoc[]
+
+include::put.adoc[]
+
+ifdef::backend-pdf[<<<]
+==== Examples
+
+include::twowirelcdexample.adoc[]
+
+include::fourwirelcdexample.adoc[]
+
+include::eightwirelcdexample.adoc[]
+
+include::lcd_io10example.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Pulse width modulation
+
+This is the Pulse width modulation section of the Help file.  Please refer the sub-sections for details using the contents/folder view for the MicroChip PIC PWM capabilities and the ATMEL AVR PWM capabilities.
+
+
+include::relevantconstants.adoc[]
+
+:leveloffset: +1
+
+include::pwmsoftwaremode.adoc[]
+
+:leveloffset: +1
+include::pwmout.adoc[]
+:leveloffset: -1
+
+include::hpwmCCP.adoc[]
+:leveloffset: +1
+
+include::HWpwmoffCCP.adoc[]
+
+:leveloffset: -1
+
+
+include::hpwmCCPN.adoc[]
+:leveloffset: +1
+
+include::HWpwmoffCCP.adoc[]
+
+:leveloffset: -1
+
+include::hpwm10Bit.adoc[]
+
+:leveloffset: +1
+
+include::HWpwmupdate.adoc[]
+
+include::HWpwmoff.adoc[]
+
+:leveloffset: -1
+
+include::hpwm16Bit.adoc[]
+
+
+include::fixedmodepwm.adoc[]
+
+:leveloffset: +1
+
+include::pwmon.adoc[]
+
+include::pwmoff.adoc[]
+
+:leveloffset: -1
+
+include::hpwmoptimisation.adoc[]
+
+:leveloffset: -1
+
+include::ATMELAVRPWMOverview.adoc[]
+
+:leveloffset: +1
+
+include::hpwmOCRnx.adoc[]
+
+include::fixedmodepwmAVR.adoc[]
+
+:leveloffset: +1
+
+include::pwmonAVR.adoc[]
+
+include::pwmoffAVR.adoc[]
+
+:leveloffset: -2
+
+
+ifdef::backend-pdf[<<<]
+=== Random Numbers
+
+This is the Random Numbers section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::overview_random.adoc[]
+
+include::random.adoc[]
+
+include::randomize.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== 7-Segment Displays
+
+This is the 7-Segment Displays section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::7segmentdisplaysoverview.adoc[]
+
+:leveloffset: +1
+
+include::commoncathode.adoc[]
+
+include::commonanode.adoc[]
+
+:leveloffset: -1
+
+include::displayvalue.adoc[]
+
+include::displaychar.adoc[]
+
+include::displaysegment.adoc[]
+
+
+ifdef::backend-pdf[<<<]
+=== One Wire Devices
+
+This is the One Wire Devices section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::ds18b20.adoc[]
+
+include::readdigitaltemp.adoc[]
+
+include::readtemp.adoc[]
+
+include::readtemp12.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Serial Communications
+
+This is the Serial Communications section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+==== RS232 (software)
+
+This is the Software Serial Communications section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+:leveloffset: +1
+
+include::relevantconstants2.adoc[]
+
+include::initser.adoc[]
+
+include::sersend.adoc[]
+
+include::serreceive.adoc[]
+
+include::serprint.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+:leveloffset: -1
+
+==== RS232 (software optimised)
+
+This is the Software Serial Communications section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+:leveloffset: +1
+
+include::relevantconstants3.adoc[]
+
+include::SerNsend.adoc[]
+
+include::SerNprint.adoc[]
+
+include::SerNreceive.adoc[]
+
+
+ifdef::backend-pdf[<<<]
+
+:leveloffset: -1
+
+==== RS232 (hardware)
+
+:leveloffset: +1
+
+This is the RS232 (hardware) section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::usartrelevantconstants.adoc[]
+
+include::hsergetnum.adoc[]
+
+include::hsergetstring.adoc[]
+
+include::hserprint.adoc[]
+
+include::HSerPrintStringCRLF.adoc[]
+
+include::hserreceive.adoc[]
+
+include::hserreceivefrom.adoc[]
+
+include::hsersend.adoc[]
+
+include::hserprintbytecrlf.adoc[]
+
+include::hserprintcrlf.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+:leveloffset: -1
+
+=== PS/2
+
+This is the PS/2 section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::overview_ps2.adoc[]
+
+include::inkey.adoc[]
+
+include::ps2setkbleds.adoc[]
+
+include::ps2readbyte.adoc[]
+
+include::ps2writebyte.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== SPI
+
+This is the Serial Peripheral Interface section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::spimodeoverview.adoc[]
+
+include::spimode.adoc[]
+
+include::spitransfer.adoc[]
+
+include::FastHWSPITransfer.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== I2C Software
+
+This is the I2C Software section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::overview.adoc[]
+
+include::i2cackpollstate.adoc[]
+
+include::i2cackpoll.adoc[]
+
+include::i2creceive.adoc[]
+
+include::i2creset.adoc[]
+
+include::i2crestart.adoc[]
+
+include::i2csend.adoc[]
+
+include::i2cstart.adoc[]
+
+include::i2cstartoccurred.adoc[]
+
+include::i2cstop.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== I2C/TWI Hardware Module
+
+This is the I2C/TWI section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::hi2coverview.adoc[]
+
+include::hi2cackpollstate.adoc[]
+
+include::hi2creceive.adoc[]
+
+include::hi2crestart.adoc[]
+
+include::hi2csend.adoc[]
+
+include::hi2cstart.adoc[]
+
+include::hi2cstartoccurred.adoc[]
+
+include::hi2cmode.adoc[]
+
+include::hi2csetaddress.adoc[]
+
+include::hi2cstop.adoc[]
+
+include::hi2cstopped.adoc[]
+
+include::HI2CWaitMSSP.adoc[]
+
+
+
+ifdef::backend-pdf[<<<]
+=== Sound
+
+This is the Sound section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::relevantconstantssound.adoc[]
+
+include::tone.adoc[]
+
+include::shorttone.adoc[]
+
+include::play.adoc[]
+
+include::playRTTTL.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Timers
+
+This is the Timers section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::timeroverview.adoc[]
+
+include::cleartimer.adoc[]
+
+include::inittimer0.adoc[]
+
+include::inittimer0_16bit.adoc[]
+
+include::inittimer1.adoc[]
+
+include::inittimer2.adoc[]
+
+include::inittimer3.adoc[]
+
+include::inittimer4.adoc[]
+
+include::inittimer5.adoc[]
+
+include::inittimer6.adoc[]
+
+include::inittimer7.adoc[]
+
+include::inittimer8.adoc[]
+
+include::inittimer10.adoc[]
+
+include::inittimer12.adoc[]
+
+include::settimer.adoc[]
+
+include::starttimer.adoc[]
+
+include::stoptimer.adoc[]
+
+include::readingtimers.adoc[]
+
+include::smt.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Variables Operations
+
+This is the Variables Operations section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::usingvariables.adoc[]
+
+include::constantsandmoreonsettingvariables.adoc[]
+
+include::settingvariables.adoc[]
+
+include::variablelifecycle.adoc[]
+
+include::dim.adoc[]
+
+include::bcdtodec.adoc[]
+
+include::dectobcd.adoc[]
+
+include::rotate.adoc[]
+
+include::set.adoc[]
+
+include::swap4.adoc[]
+
+include::swap.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== String Manipulation
+
+This is the String Manipulation section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+//Revised erv 19/12/2016
+
+<<_asc,Asc>>,
+<<_bytetobin, bytetobin>>,
+<<_chr,chr>>,
+<<_fill,fill>>,
+<<_hex,hex>>,
+<<_instr,instr>>,
+<<_lcase,lcase>>,
+<<_left,left>>,
+<<_leftpad,leftpad>>,
+<<_len,len>>,
+<<_mid,mid>>,
+<<_pad,pad>>,
+<<_right,right>>,
+<<_rtrim,rtrim>>,
+<<_str,str>>,
+<<_trim,trim>>,
+<<_ucase,ucase>>,
+<<_val,val>>,
+<<_wordtobin,wordtobin>> or
+<<_concatenation,concatenation>>
+
+
+
+include::asc.adoc[]
+
+include::bytetobin.adoc[]
+
+include::chr.adoc[]
+
+include::fill.adoc[]
+
+include::hex.adoc[]
+
+include::instr.adoc[]
+
+include::lcase.adoc[]
+
+include::left.adoc[]
+
+include::leftpad.adoc[]
+
+include::len.adoc[]
+
+include::ltrim.adoc[]
+
+include::mid.adoc[]
+
+include::pad.adoc[]
+
+include::right.adoc[]
+
+include::rtrim.adoc[]
+
+include::str.adoc[]
+
+include::trim.adoc[]
+
+include::ucase.adoc[]
+
+include::val.adoc[]
+
+include::wordtobin.adoc[]
+
+include::concatenation.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Miscellaneous Commands
+
+This is the Miscellaneous Commands section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::dir.adoc[]
+
+include::getuserid.adoc[]
+
+include::pot.adoc[]
+
+include::pulseout.adoc[]
+
+include::pulseoutinv.adoc[]
+
+include::pulsein.adoc[]
+
+include::pulseininv.adoc[]
+
+include::peek.adoc[]
+
+include::poke.adoc[]
+
+include::weakpullups.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Maths
+
+This is the Maths section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::abs.adoc[]
+
+include::average.adoc[]
+
+include::difference.adoc[]
+
+include::logarithms.adoc[]
+
+:leveloffset: +1
+
+include::log2.adoc[]
+
+include::loge.adoc[]
+
+include::log10.adoc[]
+
+:leveloffset: -1
+
+include::power.adoc[]
+
+include::scale.adoc[]
+
+
+include::sqrt.adoc[]
+
+include::trigonometry.adoc[]
+
+include::trigonometryatan.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Peripheral Pin Select
+
+This is the Peripheral Pin Select section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+
+include::ppsintro.adoc[]
+
+include::UNLOCKPPS.adoc[]
+
+include::lockpps.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+
+== Compiler Directives
+
+This is the Compiler Directives section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::chip.adoc[]
+
+include::config.adoc[]
+
+include::define.adoc[]
+
+include::ifpp.adoc[]
+
+include::ifdef.adoc[]
+
+include::ifndef.adoc[]
+
+include::include.adoc[]
+
+include::script.adoc[]
+
+include::startup.adoc[]
+
+include::mem.adoc[]
+
+include::otherdirectives.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Compiler Options
+
+This is the Compiler Options section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::optionexplicit.adoc[]
+
+include::optionnoconfig.adoc[]
+
+include::optionbootloader.adoc[]
+
+include::optionnocontextsave.adoc[]
+
+include::optionnolatch.adoc[]
+
+include::optionvolatile.adoc[]
+
+include::optionReserveHighProg.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Using Assembler
+
+This is the Using Assembler section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+
+include::assembleroverview.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Macros
+
+This is the Macros section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::macrosoverview.adoc[]
+
+ifdef::backend-pdf[<<<]
+=== Example Macros
+
+This is the Example Macros section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::measuringapulsewidth.adoc[]
+
+include::implementingmethod.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Example Programs
+
+include::flashingledsandaninterrupt.adoc[]
+
+include::flashingledwithtimingparameters.adoc[]
+
+include::generateaccuratepulses.adoc[]
+
+include::graphicallcddemonstration.adoc[]
+
+include::infraredremote.adoc[]
+
+include::sonyremoteh.adoc[]
+
+include::midpointcirclealgorithm.adoc[]
+
+include::i2cmasterhardware.adoc[]
+
+include::i2cslavehardware.adoc[]
+
+include::rgbledcontrol.adoc[]
+
+include::serialrs232bufferring.adoc[]
+
+include::trigonometrycircles.adoc[]
+
+
+
+ifdef::backend-pdf[<<<]
+== Great Cow Graphical BASIC
+
+This is the Great Cow Graphical BASIC section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+
+include::codedocumentation.adoc[]
+
+include::windowsnet.adoc[]
+
+ifdef::backend-pdf[<<<]
+== Great Cow BASIC for Linux
+
+This is the Great Cow BASIC for Linux section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::linuxoverview.adoc[]
+
+ifdef::backend-pdf[<<<]
+
+== Great Cow BASIC for Apple macOS
+This is the Great Cow BASIC for Apple macOS section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::macosoverview.adoc[]
+
+== Great Cow BASIC Maintenance
+
+This is the Great Cow BASIC maintenance section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::maintenance.adoc[]

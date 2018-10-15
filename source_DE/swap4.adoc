@@ -1,0 +1,29 @@
+==== SWAP4
+
+*Syntax:*
+----
+    SWAP4( VariableA)
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+Support Bytes only.
+
+*Explanation:*
+
+A function that swaps (or exchanges) nibbles (or the 8 bits of a byte in nibbles).
+
+*Example:*
+----
+    dim ByteVariable as Byte
+
+    ' Set variable to  0x12
+    ByteVariable = 0x12
+
+    ByteVariable = Swap4( ByteVariable )
+
+    HSerPrint hex(ByteVariable)
+
+    ' Would return 0x21
+----

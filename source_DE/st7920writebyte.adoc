@@ -1,0 +1,29 @@
+===== ST7920WriteByte
+
+*Syntax:*
+----
+    ST7920GLCDWriteByte
+----
+*Explanation:*
+
+This command write to the appropriate location as specified by the
+current XY position.
+
+This is called by the GLCD common routines.
+
+See the data sheet for more information.
+
+*Example usage:*
+----
+    ...
+
+    SET GLCD_RS OFF
+
+    ST7920WriteByte( SysCalcPositionY )
+    ST7920WriteByte( SysCalcPositionX )
+    ' read data
+    GLCDDataTempWord = ST7920GLCDReadByte
+    GLCDDataTempWord = ST7920GLCDReadByte
+    GLCDDataTempWord = (GLCDDataTempWord*256) + ST7920GLCDReadByte
+    ...
+----

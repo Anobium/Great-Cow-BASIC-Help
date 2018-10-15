@@ -1,0 +1,23 @@
+==== Loge
+
+*Syntax:*
+[subs="quotes"]
+----
+    returned_word_variable = Loge ( __word_value__ )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The `Loge` command will return the base-e logarithm, to 2 decimal places.
+
+The values returned are fixed-point numbers, with two decimal places assumed on the right. or if you prefer, think of the values as being scaled up by 100.
+
+*Example:*
+----
+    dim log_value as word
+    log_value = loge ( 10 )
+----
+*Supported in <MATHS.H>*

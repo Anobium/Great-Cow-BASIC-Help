@@ -1,0 +1,50 @@
+==== HSerReceiveFrom
+
+*Syntax:*
+[subs="quotes"]
+----
+	_user_byte_ = HSerReceiveFrom [,1 | 2 | 3 | 4]
+	_user_byte_ = HSerReceiveFrom         'Defaults to USART1
+
+	'other Receive functions
+	_user_byte_ = HSerReceive1		'from USART1
+	_user_byte_ = HSerReceive2		'from USART2
+
+----
+*Command Availability:*
+
+Available on all microcontrollers with a USART or UART module. +
+
+Microchip PIC supports USART1 and 2. +
+Atmel AVR supports USART 1,2,3 and 4.
+
+*Explanation:*
+
+This command will read a byte from the hardware RS232 module. It can be only be used as a function. It will return the received value.
+
+
+*Example:*
+----
+	'This program will read a value from the USART, and display it on PORTB.
+
+	#chip 16F877A, 20
+
+	'USART settings
+	#define USART_BAUD_RATE 9600
+	#define USART_BLOCKING
+	#define USART_TX_BLOCKING
+
+
+	'Set PORTB to input
+	Dir PORTB Out
+	'Set USART receive pin to input
+	Dir PORTC.7 In
+
+	'Main loop
+	Do
+		'Get byte value
+		bytein = HSerReceiveFrom (2)
+		'do something useful
+	Loop
+----
+*See also* <<_hserreceive,HSerReceive>>

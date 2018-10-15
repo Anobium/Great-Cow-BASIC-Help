@@ -1,0 +1,17 @@
+===== ST7920linev
+
+*Syntax:*
+----
+    ST7920lineh ( Xpos, Ypos, xUnitsStyle, )
+----
+*Explanation:*
+
+This command draws a vertical line with the specific style. The style
+can be ON or OFF. Default is ON
+
+This is called by the GLCD common routines.
+
+*Example usage:*
+----
+    ST7920lineh ( 0, 31,128 , ON) ‘will draw a line
+----

@@ -1,0 +1,24 @@
+===== ST7920WriteData
+
+*Syntax:*
+----
+    ST7920GWriteData ( byte_variable)
+----
+*Explanation:*
+
+This command writes data to the controller.
+
+See the data sheet for more information.
+
+*Example usage:*
+----
+    ...
+    for yy = 0 to ( GLCD_HEIGHT - 1 )
+      ST7920gLocate(0, yy)
+      for xx = 0 to ( GLCD_COLS -1 )
+        ST7920WriteData( 0x55 )
+        T7920WriteData( 0x55 )
+      next
+    next
+    ...
+----

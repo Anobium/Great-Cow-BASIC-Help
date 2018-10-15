@@ -1,0 +1,34 @@
+==== LCDSpace
+
+*Syntax:*
+[subs="specialcharacters,quotes"]
+----
+    LCDSpace value
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+The LCDSpace command will print the required number of spaces on the LCD
+display
+
+`value` is a byte value from 1 to 255. Where the `value` is the number of spaces required.
+
+*Example :*
+----
+    Locate 0,0
+    Print "Reset"
+    wait 1 s
+    cls
+
+    LCD_Space_Tests:
+
+    lcdcursor flash
+
+    lcdspace 12
+
+    print "*"
+----
+*Supported in <LCD.H>*

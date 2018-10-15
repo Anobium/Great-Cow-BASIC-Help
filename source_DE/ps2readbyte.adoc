@@ -1,0 +1,24 @@
+==== PS2ReadByte
+
+*Syntax:*
+[subs="quotes"]
+----
+    output = PS2ReadByte
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+`PS2ReadByte` will read a byte from the PS/2 bus. It will return the byte,
+or 0 if no data was returned by the PS/2 device.
+
+The PS/2 bus will normally be held in the inhibit state. `PS2ReadByte`
+will uninhibit the bus for 25 ms. If a response is received, it will be
+read. Then, the bus will be placed back in the inhibit state.
+
+*Example:*
+
+For an example, please refer to the `InKey` function.
+<<_inkey,PS2 Inkey>>

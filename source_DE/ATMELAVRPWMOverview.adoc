@@ -1,0 +1,33 @@
+==== ATMEL AVR PWM Overview
+
+*Introduction:*
+
+The methods described in this section allow the generation of Pulse
+Width Modulation (PWM) signals. PWM signals enables the microcontroller to control
+items like the speed of a motor, or the brightness of a LED or lamp. +
+
+The methods can also be used to generate the appropriate frequency signal to drive an
+infrared LED for remote control applications. +
+
+Great Cow BASIC support the methods described in this section.
+
+*Hardware PWM using a Timer/Counter with a OCRnx module*
+
+The AVR devices use a Timer/Counter and OCRnx module that has a variable period register.  The
+Hardware PWM is available through the OCnx pin.
+
+The method uses three parameters to setup the HPWM.
+
+    'HPWM channel, frequency, duty cycle
+    HPWM  2, 100, 50
+
+*Relevant Constants:*
+
+A number of constants are used to control settings for PWM hardware module of the microcontroller.
+To set them, place a line in the main program file that uses #define to assign a value to the particular constant.
+
+&#160; +
+&#160; +
+&#160; +
+
+*See* <<_hpwm_avr_ocrnx,HPWM AVR OCRnx>>

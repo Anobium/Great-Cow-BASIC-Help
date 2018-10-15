@@ -1,0 +1,71 @@
+I2CReceive
+
+'''''
+
+*Syntax:*
+HI2CReceive _data_
+ +
+HI2CReceive _data_, _ACK_
+HI2CReceive _data_, N_ACK_
+ +
+ +
+*Command Availability:*
+Only available in GCB HI2C.h with release after 6/2014
+ +
+Only available for microcontrollers with the hardware I2C or TWI module.
+ +
+*Explanation:*
+The HI2CReceive command will send _data_ through the I2C connection. If
+_ack_ is TRUE, or no value is given for _ack_, then I2CReceive will send
+an ack to the I2C bus.
+ +
+If in master mode, I2CReceive will read the data immediately. If in
+slave mode, I2CReceive will wait for the master to send the data before
+reading.
+ +
+*Example:*
+'This program reads an I2C register and sets an LED if it is over 100.
+ +
+'It will read from I2C device with an address of 83, register 1.
+' Change the processor
+#chip 16F1937, 32
+#config Osc = intOSC, MCLRE_ON, PLLEN_ON, VCAPEN_OFF
+ +
+ +
+' Define I2C settings
+#define HI2C_BAUD_RATE 400
+ +
+#define HI2C_DATA PORTC.4
+#define HI2C_CLOCK PORTC.3
+ +
+'I2C pins need to be input for SSP module
+Dir HI2C_DATA in
+Dir HI2C_CLOCK in
+ +
+'MASTER I2C Device
+HI2CMode Master
+ +
+'Misc settings
+#define LED PORTB.0
+ +
+'Main loop
+Do
+'Send start
+HI2CStart
+'Request value
+HI2CSend 83
+HI2CSend 1
+ +
+'Read value
+*HI2CReceive ValueIn*
+**
+'Send stop
+HI2CStop
+'Turn on LED if received value > 100
+Set LED Off
+If ValueIn > 100 Then Set LED On
+'Delay
+Wait 20 ms
+Loop
+ +
+Supported in <HI2C.H>

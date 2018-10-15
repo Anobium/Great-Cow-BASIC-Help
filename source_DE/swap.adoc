@@ -1,0 +1,15 @@
+==== SWAP
+
+*Syntax:*
+----
+    SWAP( VariableA, VariableB)
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+Support Bytes and Words only.
+
+*Explanation:*
+
+A function that swaps (or exchanges) one byte or word for another. SWAP support the use of byte and word variables.

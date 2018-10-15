@@ -1,0 +1,516 @@
+==== ST7920 Controllers
+
+This section covers GLCD devices that use the ST7920 graphics controller.
+
+
+The Great Cow BASIC constants for control of the connectivity are shown
+in the table below. The only connectivity option the 8-bit mode where 8
+pins are connected between the microcontroller and the GLCD to control the
+data bus. +
+
+The ST7920 GLCD is graphica and character mixed mode display. +
+
+ST7920 LCD controller/driver IC can display alphabets, numbers, Chinese
+fonts and self-defined characters.&#160;&#160;&#160;It supports 3 kinds of bus interface,
+namely 8-bit, 4-bit and serial.&#160;&#160;&#160;Great Cow BASIC is currently supports
+8-bit only. For LCD only operations (text characters only) you can use
+the Great Cow BASIC LCD routines. +
+
+All functions, including display RAM, Character Generation ROM, LCD
+display drivers and control circuits are all in a one-chip solution.
+With a minimum system configuration, a Chinese character display system
+can be easily achieved. +
+
+The ST7920 includes character ROM with 8192 16x16 dots Chinese fonts and
+126 16x8 dots half-width alphanumerical fonts.&#160;&#160;&#160;It supports 64x256 dots
+graphic display area for graphic display (GDRAM).&#160;&#160;&#160;Mix-mode display with
+both character and graphic data is possible.&#160;&#160;&#160;ST7920 has built-in CGRAM
+and provide 4 sets software programmable 16x16 fonts. +
+
+
+To use the ST7920 driver simply include the following in your user code.  This will initialise the driver. +
+
+----
+    #include <glcd.h>
+    #DEFINE GLCD_TYPE GLCD_TYPE_ST7920
+
+    #define GLCD_Enable     PORTA.1           'example port setting
+    #define GLCD_RS         PORTa.0           'example port setting
+    #define GLCD_RW         PORTA.2           'example port setting
+    #define GLCD_RESET      PORTA.3           'example port setting
+    #define GLCD_DATA_PORT  PORTD             'example port setting
+
+
+----
+
+
+The Great Cow BASIC constants for the interface to the controller are shown in the table below.
+
+
+
+[cols=3, options="header,autowidth"]
+|===
+|*Constants*
+|*Controls*
+|*Options*
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_ST7920`
+|Required
+
+|`GLCD_DATA_PORT`
+|Specifies the output port that is connected between the microcontroller
+and the GLCD.
+|Required
+
+|`GLCD_RS`
+|Specifies the output pin that is connected to Register Select on the
+GLCD.
+|Required
+
+|`GLCD_RW`
+|Specifies the output pin that is connected to Read/Write on the GLCD.
+The R/W pin can be disabled*.
+|*_Must be defined_* _unless R/W is disabled), see_ `GLCD_NO_RW`
+
+|`GLCD_RESET`
+|Specifies the output pin that is connected to Reset on the GLCD.
+|Required
+
+|`LCD_ENABLE`
+|Specifies the output pin that is connected to Enable on the GLCD.
+|Required
+
+|`ST7920WriteDelay`
+|Set the time delay between data transmissions.
+|Required, set to `20 us` for `32Mhz` support. Can be reduced for slower chip
+speeds.
+
+|`GLCD_NO_RW`
+|Disables read/write inspection of the device during read/write
+operations
+|Optional, but recommend NOT to set.
+The R/W pin can be disabled by setting the `GLCD_NO_RW` constant. If this
+is done, there is no need for the `R/W` to be connected to the chip, and
+no need for the `LCD_RW` constant to be set. Ensure that the `R/W` line on
+the LCD is connected to ground if not used.
+|===
+
+
+
+
+The Great Cow BASIC constants for control display characteristics are shown in the table below.  +
+
+[cols="1,1,^1", options="header,autowidth"]
+|===
+|*Constants*
+|*Controls*
+|*Default*
+
+|`GLCD_WIDTH`
+|The width parameter of the GLCD
+|`128` +
+ Cannot be changed.
+
+|`GLCD_HEIGHT`
+|The height parameter of the GLCD
+|`64` +
+Cannot be changed.
+
+|`GLCDFontWidth`
+|Specifies the font width of the Great Cow BASIC font set.
+|`6`
+|===
+
+The Great Cow BASIC commands supported for this GLCD are shown in the
+table below. For device specific see the commands with the prefix of
+ST7920*.
+
+[cols=3, options="header,autowidth"]
+|===
+|*Command*
+|*Purpose*
+|*Example*
+
+|`GLCDCLS`
+|Clear screen of GLCD
+|`GLCDCLS`
+
+|`GLCDPrint`
+|Print string of characters on GLCD using GCB font set
+|`GLCDPrint( Xposition, Yposition, Stringvariable )`
+
+|`GLCDDrawChar`
+|Print character on GLCD using GCB font set
+|`GLCDDrawChar( Xposition, Yposition, CharCode )`
+
+|`GLCDDrawString`
+|Print characters on GLCD using GCB font set
+|`GLCDDrawString( Xposition, Yposition, Stringvariable )`
+
+|`Box`
+|Draw a box on the GLCD to a specific size
+|`Box ( Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour as 0 or 1] )`
+
+|`FilledBox`
+|Draw a box on the GLCD to a specific size that is filled with the
+foreground colour.
+|`FilledBox (Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour 0 or 1] )`
+
+|`Line`
+|Draw a line on the GLCD to a specific length that is filled with the
+specific attribute.
+|`Line ( Xposition1, Yposition1, Xposition2, Yposition2, [Optional In
+LineColour 0 or 1] )`
+
+|`PSet`
+|Set a pixel on the GLCD at a specific position that is set with the
+specific attribute.
+|`PSet(Xposition, Yposition, Pixel Colour 0 or 1)`
+
+|`GLCDWriteByte`
+|Set a byte value to the controller, see the datasheet for usage.
+|`GLCDWriteByte (LCDByte)`
+
+|`GLCDReadByte`
+|Read a byte value from the controller, see the datasheet for usage.
+|`bytevariable = GLCDReadByte`
+|===
+
+For a TS7920 datasheet, please refer
+http://www.crystalfontz.com/controllers/ST7920.pdf[here.]
+
+This example shows how to drive a ST7920 based Graphic LCD module with
+the built in commands of Great Cow BASIC. See
+http://www.greatcowbasic.com/sample-projects.html[Graphic LCD] for
+details, this is an external web site.
+
+*Example 1:*
+----
+    ;Chip Settings
+    #chip 16F1937,32
+    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+
+    #include <glcd.h>
+
+    #define GLCD_TYPE GLCD_TYPE_ST7920
+    #define GLCD_IO 8
+    #define GLCD_WIDTH 128
+    #define GLCD_HEIGHT 160
+    #define GLCDFontWidth 6
+
+    ' read delay of 25 is required at 32mhz, this can be reduced to 0 for slower clock speeds
+    #define ST7920ReadDelay 25
+    ' write delay of 2 is required at 32mhz.  this can be reduced to 1 for slower clock speeds
+    #define ST7920WriteDelay 2
+
+    #define GLCD_RS PORTa.0
+    #define GLCD_Enable PORTA.1
+    #define GLCD_RW PORTA.2
+    #define GLCD_RESET PORTA.3
+    #define GLCD_DATA_PORT PORTD
+
+    ST7920GLCDEnableGraphics
+    ST7920GLCDClearGraphics
+    GLCDPrint 0, 1, "Great Cow BASIC "
+    wait 1 s
+
+    GLCDCLS
+    ST7920GLCDClearGraphics
+
+    rrun = 0
+    dim msg1 as string * 16
+
+    dim  xradius, yordinate , radiusErr, incrementalxradius, orginalxradius, orginalyordinate as Integer
+
+
+    Do forever
+        GLCDCLS
+        ST7920GLCDClearGraphics          ;clear screen
+        GLCDDrawString 30,0,"ChipMhz@"    ;print string
+        GLCDDrawString 78,0, str(ChipMhz) ;print string
+        Circle(10,10,10,0)            ;upper left
+        Circle(117,10,10,0)           ;upper right
+        Circle(63,31,10,0)            ;center
+        Circle(63,31,20,0)            ;center
+        Circle(10,53,10,0)            ;lower left
+        Circle(117,53,10,0)           ;lower right
+        GLCDDrawString 30,54,"PIC16F1937" ;print string
+        wait 1 s                  ;wait
+        FilledBox( 0,0,128,63)          ;create box
+        for ypos = 0 to 63              ;draw row by row
+             ST7920lineh 0,ypos,128, 0      ;draw line
+        next
+        wait 1 s                  ;wait
+        ST7920GLCDClearGraphics          ;clear
+    loop
+
+
+----
+
+*Example 2:*
+
+----
+    ;Chip Settings
+    #chip 16F1937,32
+    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+
+    #include <glcd.h>
+
+    #define GLCD_TYPE GLCD_TYPE_ST7920
+    #define GLCD_IO 8
+    #define GLCD_WIDTH 128
+    #define GLCD_HEIGHT 160
+    #define GLCDFontWidth 6
+
+    ' read delay of 25 is required at 32mhz, this can be reduced to 0 for slower clock speeds
+    #define ST7920ReadDelay 25
+    ' write delay of 2 is required at 32mhz.  this can be reduced to 1 for slower clock speeds
+    #define ST7920WriteDelay 2
+
+    #define GLCD_RS PORTa.0
+    #define GLCD_Enable PORTA.1
+    #define GLCD_RW PORTA.2
+    #define GLCD_RESET PORTA.3
+    #define GLCD_DATA_PORT PORTD
+
+    WAIT 1 S
+    ST7920GLCDEnableGraphics
+    ST7920GLCDClearGraphics
+    ST7920Tile "A"
+    GLCDPrint 0, 1, "Great Cow BASIC "
+
+    GLCDCLS
+
+    rrun = 0
+    dim msg1 as string * 16
+
+    do forever
+
+    ST7920GLCDEnableGraphics
+    ST7920GLCDClearGraphics
+    ST7920gTile 0x55, 0x55
+    wait 1 s
+
+    ST7920GLCDClearGraphics
+    ST7920Lineh(0, 0, GLCD_WIDTH)
+    ST7920Lineh(0, GLCD_HEIGHT - 1, GLCD_WIDTH)
+    ST7920LineV(0, 0, GLCD_HEIGHT)
+    ST7920LineV(GLCD_WIDTH - 1, 0, GLCD_HEIGHT)
+
+    Box 18,30,28,40
+
+    WAIT 2 S
+
+    FilledBox 18,30,28,40
+
+    ST7920GLCDClearGraphics
+
+    Start:
+
+    GLCDDrawString 0,10,"Hello" 'Print Hello
+    wait 1 s
+    GLCDDrawString 0,10, "ASCII #:" 'Print ASCII #:
+    Box 18,30,28,40 'Draw Box Around ASCII Character
+    for char = 0x30 to 0x39        'Print 0 through 9
+          GLCDDrawString 16, 20 , Str(char)+"  "
+          GLCDdrawCHAR 20, 30, char
+          wait 250 ms
+    next
+    line 0,50,127,50    'Draw Line using line command
+    for xvar = 0 to 80  'draw line using Pset command
+            pset xvar,63,on                    '
+    next
+    FilledBox 18,30,28,40 'Draw Box Around ASCII Character
+    Wait 1 s
+    ST7920GLCDClearGraphics
+    GLCDDrawString 0,10,"End  "
+    wait 1 s
+    ST7920GLCDClearGraphics
+
+    workingGLCDDrawChar:
+    ST7920GLCDEnableGraphics
+    dim gtext as string
+    gtext = "ST7920 @QC12864B"
+
+    for xchar = 1 to gtext(0)  'Print 0 through 9
+          xxpos = (1+(xchar*6)-6)
+          GLCDDrawChar xxpos , 0 , gtext(xchar)
+    next
+
+    GLCDDrawString  1, 9, "Great Cow BASIC @2014"
+    GLCDDrawString  1, 18,"GLCD 128*64"
+    GLCDDrawString  1, 27,"Using GLCD.H from GCB"
+    GLCDDrawString  1, 37,"Using GLCD.H GCB@2014"
+    GLCDDrawString  1, 45,"GLCDDrawChar method"
+    'GLCDDrawString  1, 54,"ST7920 @QC12864B"
+    GLCDDrawString  1, 54,"Test Routines"
+    wait 1 s
+
+    ST7920GLCDClearGraphics
+    ST7920GLCDDisableGraphics
+    GLCDCLS
+
+    msg1 = "Run = " +str(rrun)
+    rrun++
+    GLCDPrint 0, 0, "ST7920 @QC12864B"
+    GLCDPrint 0, 1, "Great Cow BASIC "
+    GLCDPrint 0, 2, "GLCD 128*64"
+    GLCDPrint 0, 3, msg1
+    wait 5 s
+    GLCDCLS
+
+    ' show all chars... takes some time!
+    ST7920CallBuiltinChar
+
+    ST7920Tile ( 0xa9  )
+    wait 1 s
+    GLCDCLS
+
+    ' See http://www.khngai.com/chinese/charmap/tblbig.php?page=0
+    ' and see https://sourceforge.net/projects/vietunicode/files/hannom/hannom%20v2005/ for the FONTS!!
+
+    dim BIG5code as word
+
+    'ST7920 can display half-width HCGROM fonts, user- defined CGRAM fonts and full 16x16 CGROM fonts. The
+    'character codes in 0000H~0006H will use user- defined fonts in CGRAM. The character codes in 02H~7FH will use
+    'half-width alpha numeric fonts. The character code larger than A1H will be treated as 16x16 fonts and will be
+    'combined with the next byte automatically. The 16x16 BIG5 fonts are stored in A140H~D75FH while the 16x16 GB
+    'fonts are stored in A1A0H~F7FFH. In short:
+    '1. To display HCGROM fonts:
+    'Write 2 bytes of data into DDRAM to display two 8x16 fonts. Each byte represents 1 character.
+    'The data is among 02H~7FH.
+    '2. To display CGRAM fonts:
+    'Write 2 bytes of data into DDRAM to display one 16x16 font.
+    'Only 0000H, 0002H, 0004H and 0006H are acceptable.
+    '3. To display CGROM fonts:
+    'Write 2 bytes of data into DDRAM to display one 16x16 font.
+    'A140H~D75FH are BIG5 code, A1A0H~F7FFH are GB code.
+
+    for BIG5code = 0xA140 to 0xA1CF
+        ST7920cTile ( BIG5code  )
+        wait 5 ms
+      next
+    GLCDCLS
+
+    'To display HCGROM fonts
+    ' Write 2 bytes of data into DDRAM to display two 8x16 fonts. Each byte represents 1 character.
+    ' The data is among 02H~7FH.
+    ' The english characters set...
+    for HCGROM = 0x2h to 0x7f
+        ST7920Tile ( HCGROM  )
+        ST7920Tile ( HCGROM  )
+        wait 5 ms
+    next
+    GLCDCLS
+
+    linetest1:
+
+      ST7920GLCDEnableGraphics
+
+      ST7920gTile(0x55, 0x55)
+      wait 1 s
+      ST7920GLCDClearGraphics
+
+    'linehtest:
+    '
+    ST7920LineH(0, 0, GLCD_WIDTH)
+    ST7920LineH(0, GLCD_HEIGHT - 1, GLCD_WIDTH)
+    ST7920LineV(0, 0, GLCD_HEIGHT)
+    ST7920LineV(GLCD_WIDTH - 1, 0, GLCD_HEIGHT)
+
+    box test
+    ST7920LineH(10 ,0 , 118 )
+    ST7920LineH(0 ,8 , 128)
+    ST7920LineH(16 ,16 , 96 )
+    ST7920LineH(10 ,32 , 108 )
+    ST7920LineH(0, 16, GLCD_WIDTH)
+    ST7920LineH(0, 24, GLCD_WIDTH)
+    ST7920LineH(0, 32, GLCD_WIDTH)
+    ST7920LineH(0, 40, GLCD_WIDTH)
+    ST7920LineH(0, 48, GLCD_WIDTH)
+    ST7920LineH(0, 56, GLCD_WIDTH)
+    ST7920LineH(0, 63, GLCD_WIDTH)
+    ST7920LineV(16, 0, GLCD_HEIGHT)
+    ST7920LineV(17, 0, GLCD_HEIGHT)
+    ST7920LineV(15, 0, GLCD_HEIGHT)
+
+    ST7920LineV(46, 0, GLCD_HEIGHT)
+    ST7920LineV(47, 0, GLCD_HEIGHT)
+    ST7920LineV(48, 0, GLCD_HEIGHT)
+
+    ST7920LineV(46, 0, GLCD_HEIGHT)
+    ST7920LineV(47, 0, GLCD_HEIGHT)
+    ST7920LineV(48, 0, GLCD_HEIGHT)
+
+    ST7920LineV(96, 0, GLCD_HEIGHT)
+    ST7920LineV(97, 0, GLCD_HEIGHT)
+    ST7920LineV(98, 0, GLCD_HEIGHT
+
+    for HCGROM = 0 to GLCD_WIDTH step 8
+        ST7920LineV(HCGROM, 0, GLCD_HEIGHT)
+    next
+
+    GraphicTestPlace:
+
+      ST7920GLCDClearGraphics
+      ST7920GraphicTest
+      ST7920GLCDClearGraphics
+
+      ' Test draw a line
+      for yrowpos = 0 to 63 step 4
+        ST7920LineH(0, yrowpos, GLCD_WIDTH)
+      next
+
+      ST7920GLCDClearGraphics
+      ST7920GLCDDisableGraphics
+      GLCDCLS
+
+      ST7920SetIcon( 1, 0x55 )
+
+    loop
+
+    sub ST7920CallBuiltinChar
+        ' 0xA140 ~ 0xA15F
+          for ii = 0 to 31
+
+              ST7920WriteData( 0xA1)
+              ST7920WriteData( 0x40 + ii)
+
+          next
+
+          wait 1 s
+
+          GLCDCLS
+
+          ' 0xA140 ~ 0xA15F
+          for ii = 0 to 31
+
+              ST7920WriteData( 0xA1)
+              ST7920WriteData( 0xb0 + ii)
+
+          next
+          wait 1 s
+          GLCDCLS
+
+          ' 0xA140 ~ 0xA15F
+          for ii = 0 to 31
+
+              ST7920WriteData( 0xA4)
+              ST7920WriteData( 0x40 + ii)
+
+          next
+          wait 1 s
+          GLCDCLS
+    end sub
+----
+
+
+
+
+*For more help, see*
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
+
+Supported in <GLCD.H>

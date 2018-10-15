@@ -1,0 +1,113 @@
+=== Referencing
+
+This is an advance subject. Please see <<_variables, Variables>> for a more general introduction to variables.
+
+*About referencing variables and SFRs*
+
+A variable or SFR is an memory location on the microcontroller. These memory locations are used
+to store a numeric values in terms of a variable or the state of a register in terms of the SFR.
+
+A paragraph of stuff....
+
+*Variable Types*
+
+More paragraphs of stuff....
+Always use Great Cow BASIC  and the term microcontroller NOT PIC, a table follows 3 columns, each row needs 3 bits of info:
+
+[cols=3, options="header,autowidth",width="80%"]
+|===
+|*Type*
+|*Range*
+|*Comment*
+
+|Variable
+|A byte of 0 to 255
+|Information that this variable can store
+
+|SFR
+|A byte of 0 to 255
+|Values of the states of ports,etc.
+
+|===
+
+*Using bla bla*
+
+A paragraph of stuff....
+
+A paragraph of stuff....
+
+A paragraph of stuff....
+
+An example piece of code always has 4 dashes, and, ends with 4 dashes
+
+----
+    'Create buffer variables to store received messages
+
+    Dim Buffer As String
+----
+A paragraph of stuff.... a single dash give a bullet
+
+- 10 bytes for chips with less than 16 bytes of RAM.
+- 20 bytes for chips with 16 to 367 bytes of RAM.
+- 40 bytes for devices with more RAM than 367 bytes.
+- For chips that have less RAM then the required RAM to support the user define strings the strings (and therefore the RAM) will be NOT be allocated. Please reduce string size.
+You cannot store a string 20 characters long in a chip with 16 bytes of RAM.
+
+Defining a length for the string is the best way to limit memory usage.
+It is good practice if you need a string of a certain size to set the
+length of a strings, since the default length for a string variable
+changes depending on the amount of memory in the microcontroller (see
+above).
+
+To set the length see the example below:
+----
+    'Create buffer variables to store received messages as 16 bytes long
+    Dim OutBuffer As String * 16
+----
+*Variable Aliases*
+
+Some variables are aliases, which are used to refer to memory locations
+used by other variables. These are useful for joining predefined byte
+variable together to form word variables.
+
+Alias are not like pointers in many languages - they must always refer
+to the same variable or variables and cannot be changed.
+
+*Casting*
+
+Casting changes the type of a variable or value. Placing the type that
+the value should be converted to in square brackets will tell the
+compiler to convert it. For example, this will cause two byte variables
+to be treated as word variables by the addition code:
+----
+    Dim MyWord As Word
+    MyWord = [word]ByteVar + AnotherByteVar
+----
+Why do this? If there are no casts, then Great Cow BASIC will add the two values
+using the byte addition code, and then convert the result to a word to
+store in `MyWord`. Suppose that `ByteVar` is 150, and `AnotherByteVar` is 231.
+When added, this will come to 381 - which will overflow, leaving 125 in
+the result. However, when the cast is added, Great Cow BASIC will treat `ByteVar`
+as if it were a word, and so will use the word addition code. This will
+cause the correct result to be calculated.
+
+Often, a cast will be used when calculating an average:
+----
+    MyAverage = ([word]Value1 + Value2) / 2
+----
+It's also possible to cast the second value:
+----
+    MyAverage = (Value1 + [word]Value2) / 2
+----
+The result will be exactly the same.
+
+Always end with the following!! Delete this line.
+
+*For more help, see:* <<_dim,Declaring variables with DIM>>,
+<<_variables, Variables>>, <<_setting_variables,Setting Variables>>
+
+Doing things to individual bits of variables see,
+<<_set,Set>>, <<_rotate,Rotate>>
+
+Checking variables and doing different things based on their value, see
+<<_if,If>>, <<_do,Do>>, <<_for,For>>, <<_conditions,Conditions>>

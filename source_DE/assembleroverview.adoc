@@ -1,0 +1,22 @@
+=== Assembler Overview
+
+*Introduction:*
+
+You can use microcontroller assembler code within your Great Cow BASIC code.
+
+You can put the assembler code inline in with your source code. The assembler code will be passed through to the assembly file associated with your project.
+
+Great Cow BASIC should recognise all of the commands in the microcontroller datasheet.
+
+The commands should be in lower case, this is good practice, and have a space or tab in front of the command.
+
+Even if the mnemonics are not being formatted properly, `gputils/MPASM` should still be capable of assembling the source code.
+
+Format commands as follows:
+
+*Example:*
+
+----
+  btfsc STATUS,Z
+  bsf PORTB,1
+----

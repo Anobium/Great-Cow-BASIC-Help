@@ -1,0 +1,33 @@
+==== Right
+
+*Syntax:*
+[subs="quotes"]
+----
+    __output__ = Right(__source__, __count__)
+----
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `Right` function will extract the rightmost `_count_` characters from the input string `_source_`, and return them in a new string.
+
+*Example:*
+----
+    'Set chip model
+    #chip 16F1936
+
+    'Set up hardware serial connection
+    #define USART_BAUD_RATE 9600
+    #define USART_BLOCKING
+
+    'Fill a string with a message
+    Dim TestData As String
+    TestData = "Hello, world!"
+
+    'Display the rightmost 6 characters
+    'Will display "world!"
+    HSerPrint Right(TestData, 6)
+    HSerPrintCRLF
+----
