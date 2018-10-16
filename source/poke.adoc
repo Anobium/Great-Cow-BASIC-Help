@@ -31,6 +31,8 @@ This command should not normally be used, as it will make the porting of code to
     ;Chip Settings
     #chip 16F88
 
+    Dir PORTB out
+
     Do Forever
         FlashPin @PORTB, 8
         Wait 1 s
