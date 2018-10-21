@@ -68,9 +68,8 @@ Great Cow BASIC has two built in conditions - TRUE, which is always true, and
 FALSE, which is always false. These can be used to create Conditional tests and infinite
 loops.
 
-The condition bit_variable = TRUE is treated as TRUE if the bit is on.  Any non-zero value will be treated as equal to a high bit.
-The condition bit_variable  = other_type_of_variable generates a warning.
-
+The condition bit_variable = TRUE is treated as TRUE if the bit is on.&#160;&#160;Any non-zero value will be treated as equal to a high bit.
+The condition bit_variable  = other_type_of_variable generates a warning.&#160;&#160;If the byte_variable is set to TRUE and then compared to the bit, it will always be FALSE because the high bit will be treated as a 1.&#160;&#160;But the new warning will be generated, "Comparison will fail if %nonbit% is any value other than 0 or 1"
 
 It is also possible to test individual bits in conditions. To do this,
 specify the bit to test, then 1 or 0 (or ON and OFF respectively).
@@ -141,7 +140,6 @@ This fails as the function will not be called
 {empty} +
 {empty} +
 {empty} +
-
 
 
 
