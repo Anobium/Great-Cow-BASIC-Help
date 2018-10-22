@@ -1,4 +1,4 @@
-del D:\Great-Cow-BASIC-Help\trunk\output\chm\gcbasic.chm
+del D:\Great-Cow-BASIC-Help.git\trunk\output\chm\gcbasic.chm
 svn up d:\great*
 call all
 :jump1
