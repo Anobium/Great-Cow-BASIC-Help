@@ -13,7 +13,7 @@ Complete the following steps to compile and install Great Cow BASIC:
 [start=1]
  . Download one of the nightly builds of FreeBASIC 1.06 for the FreeBSD 32 bit or 64 bit binary compilation from: http://users.freebasic-portal.de/stw/builds/freebsd32/ (32 bit) or http://users.freebasic-portal.de/stw/builds/freebsd64/ (64 bit) The filenames are in the format fbc_freebsd[32|64]\_[BuildNumber]_[Date].zip.
 
- . Download the Great Cow BASIC UNIX Source Distribution from SourceForge at https://sourceforge.net/projects/gcbasic/files/GCB-UNIX-src.tar.bz2/download
+ . Download the Great Cow BASIC UNIX Source Distribution from SourceForge at https://sourceforge.net/projects/gcbasic/files/GreatCowBASIC-UNIX-v0_98_03.rar/download
 
  . Move the FreeBASIC ZIP file from your download directory to your home directory.
 
@@ -23,24 +23,26 @@ Complete the following steps to compile and install Great Cow BASIC:
 
  . Unpack the Great Cow BASIC compressed tar file by typing these commands:
 ----
-   gzcat GCB-UNIX.tar.bz2 | tar xvf -
+   unrar x GreatCowBASIC-UNIX-v0_98_03.rar
 ----
-This will produce a new directory called GreatCowBasic.
+This will produce a new directory called GreatCowBasic. *Note:* If you do not already have the unrar program installed you can either compile it from the ports collection or use the pkg command to install the binary and any required dependancies.
 
 [start=7]
 . Change to the `GreatCowBasic/Sources` directory.
 
-. Execute the installation shell script. The install script arguments are:
+. Execute the FreeBSDBuild/build.sh shell script from the Sources directory.
+
+----
+  ../FreeBSDBuild/install.sh [all | build | install]
+----
+
+The build script arguments are:
 
   * _all_ - will compile *and* install the Great Cow BASIC compiler and its support files.
   * _build_ - will just compile the binary for the Great Cow BASIC compiler.
   * _install_ - will install the Great Cow BASIC compiler and its support files.
 
 When choosing _all_ or _install_ you will be prompted for an installation directory. The default is `/usr/local/gcb-[version]` for which you will need to run the installation script as root. Alternatively, you can choose to install in your home directory (eg ``~/bin/gcb`). The installation script will automatically append the Great Cow BASIC version so that directory would become `~/bin/gcb-[version]`
-
-----
-  ../FreeBSDBuild/install.sh [all | build | install]
-----
 
 [start=9]
  . Add the directory where you installed `gcbasic` to your path, or use the full path to the `gcbasic` installation directory and confirm the proper execution, and the version, of Great Cow BASIC by executing `gcbasic`.
