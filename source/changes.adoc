@@ -27,6 +27,7 @@
 - Added Apple macOS section
 - Added optionReserveHighProg section
 - Added TRUE conditional tests
+- Added LCD_IO_3
 
 
 

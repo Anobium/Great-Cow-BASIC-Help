@@ -348,6 +348,8 @@ include::LCD_IO_2_74xx164.adoc[]
 
 include::lcd_io2.adoc[]
 
+include::lcd_io3.adoc[]
+
 include::LCD_IO_2_74xx174.adoc[]
 
 include::lcd_io4.adoc[]
