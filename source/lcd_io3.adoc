@@ -9,7 +9,7 @@ This connection method is also called a 3-wire connection.
 
 The diagram below shows a method to connect the LCD  to a microcontroller.
 
-image:lcd_io3.JPG[graphic]
+image:lcd_io3.jpg[graphic]
 
 *Relevant Constants:*
 
