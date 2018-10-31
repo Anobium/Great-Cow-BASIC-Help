@@ -30,7 +30,7 @@ This will produce a new directory called GreatCowBasic. *Note:* If you do not al
 [start=7]
 . Change to the `GreatCowBasic/Sources` directory.
 
-. Execute the FreeBSDBuild/build.sh shell script from the Sources directory.
+. Execute the FreeBSDBuild/install.sh shell script from the Sources directory.
 
 ----
   sh FreeBSDBuild/install.sh [all | build | install]
