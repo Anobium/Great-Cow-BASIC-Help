@@ -30,9 +30,9 @@ This method is similar to the methods for EEPROM but this method supports Word v
 *Example 1:*
 ----
     #chip 18F24k42
-    'The following example stores in the word variable “value” the
-    'HEFM word variable located a position 34 with the value of 0x1234
-    HEFWrite( 0x1234, 126 )
+    'The following example stores in the word variable value
+    'HEFM located a position 34 with the value of 0x1234
+    HEFWrite( 0x1234, 34 )
 ----
 
 {empty} +
@@ -49,9 +49,9 @@ For more information on the Great Cow BASIC constants that supprt the HEF operat
 
 *Example 2:*
 ----
-    'This example will populate the 256 words of HEF memory with a value that is same as the HEFM location
-    HEFWriteWORD (16, 0xAA01)   'location 16, in this device, eqaute to 0x3F10
-    HEFWriteWord (18, 0xBB02)   'location 18, in this device, eqaute to 0x3F12
+    'This example will write two word values to two specific locations.
+    HEFWriteWORD (16, 0xAA01)   'location 16, in this device, equates to 0x3F10
+    HEFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x3F12
 ----
 {empty} +
 {empty} +
