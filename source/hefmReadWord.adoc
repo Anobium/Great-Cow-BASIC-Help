@@ -1,0 +1,85 @@
+//erv 04110218
+==== HEFMReadWord
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    'as a subroutine
+    HEFMReadWord ( location, data_word_variable )
+
+    'as a function
+    data_word_variable = HEFMReadWord ( location )
+----
+*Command Availability:*
+
+Available on all PIC microcontrollers with HEFM memory
+
+*Explanation:*
+{empty} +
+{empty} +
+HEFMReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
+{empty} +
+{empty} +
+`location` represents the location to read to - the location will range from location 0 to 255.
+{empty} +
+`data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
+A word value.&#160;&#160;&#160;
+This can be a word value or a word variable.
+{empty} +
+{empty} +
+This method reads information to the HEFM given its relative number in the HEFM data storage.&#160;&#160;&#160;
+{empty} +
+{empty} +
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+
+{empty} +
+{empty} +
+
+*Example 1:*
+----
+
+    'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values.
+
+    dim data_word_variable as word
+    HEFWriteWord(  64, 0x1234 )
+    HEFWriteWord( 254, 4660 )
+
+    HEFReadWord( 254, data_word_variable )
+    HSerPrint "Value = "
+    HSerPrint data_word_variable
+    HSerPrintCRLF
+
+----
+{empty} +
+{empty} +
+If example 3 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+
+----
+    Value = 4660
+----
+{empty} +
+These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
+This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropiate HEFM page.
+{empty} +
+{empty} +
+*Example 2:*
+----
+
+    'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values using a function.
+
+    dim data_word_variable as word
+    HEFWriteWord(  64, 0x4321 )
+    HEFWriteWord( 254, 17185 )
+
+    data_word_variable = HEFReadWord( 254 )
+    HSerPrint "Value = "
+    HSerPrint data_word_variable
+    HSerPrintCRLF
+
+----
+
+
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>

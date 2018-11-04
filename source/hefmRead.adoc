@@ -69,7 +69,8 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 ----
 
 
-    'code preamble to select part and setup serial
+    'lots code preamble to select part
+    'lots of code to setup serial
 
     Dim index, test1, test, row_h, MemLocation as Byte
 
