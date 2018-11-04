@@ -25,9 +25,8 @@ This method writes information to the HEFM given its relative number in the HEFM
 This method is similar to the methods for EEPROM.
 {empty} +
 {empty} +
+
 *Example 1:*
-{empty} +
-{empty} +
 ----
     #chip 18F24k42
     'The following example stores in the byte variable “value” the
@@ -37,7 +36,8 @@ This method is similar to the methods for EEPROM.
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from `location` and Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropiately handles the management of the HEFM data storage by calcualting the correct HEFM page, reading, updating and restoring the HEFM page.
+The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
+{empty} +
 {empty} +
 For more information on the Great Cow BASIC constants that supprt the HEF operations see <<_hefmoverview, HEF Memory Overview>>
 
@@ -47,8 +47,6 @@ For more information on the Great Cow BASIC constants that supprt the HEF operat
 
 
 *Example 2:*
-{empty} +
-{empty} +
 ----
     'This example will populate the 256 bytes of HEF memory with a value that is same as the HEFM location
     Dim HEFaddress as Byte
