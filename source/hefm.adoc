@@ -17,8 +17,8 @@ If you wish to store data here, you must reserve the HEF memory by using the com
 ----
     #option ReserveHighProg 128
 ----
-HEF memory is a block of 128 locations found at the top of the Flash program memory.&#160;&#160;&#160;
-Each location can only be used to hold a variable, either a byte or a word dependent on [what?].&#160;&#160;&#160;
+HEF memory is a block of memory locations found at the top of the Flash program memory.&#160;&#160;&#160;
+Each memory location can only be used to hold a variable, either a byte or a word dependent on *[what?]*.&#160;&#160;&#160;
 The main difference between HEF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the HEF memory does not.&#160;&#160;&#160;
 With HEF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
 The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
@@ -54,5 +54,5 @@ The library establishs a set constants that are specific to the device.
 Whenever you update the hex file of your Microchip PIC microcontroller with your programmer you MAY erase the data that are stored in HEF memory.&#160;&#160;&#160;
 If you want to avoid that you will have to flash your Microchip PIC microcontroller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
-Enter Start and End address` of your HEFM).&#160;&#160;&#160;Or, simple use PICkitPlus suite of software to preserve HEF memory during programming.
+Enter Start and End address` of your HEFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve HEF memory during programming.
 
