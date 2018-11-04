@@ -21,7 +21,8 @@ Available on all PIC microcontrollers with HEFM memory
 HEFMReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
-`location` represents the location to read to - the location will range from location 0 to 255.
+`location` represents the location to read to - the location will range from location 0 to HEF_BYTES - 1.&#160;&#160;&#160;
+HEF_BYTES is Great Cow BASIC defined constant.
 {empty} +
 `data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
 A word value.&#160;&#160;&#160;
