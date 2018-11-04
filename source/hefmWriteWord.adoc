@@ -12,20 +12,20 @@
 Available on all PIC microcontrollers with HEFM memory
 
 *Explanation:*
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 HEFMWriteWord is used to write information, word values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 `location` represents the location to write to - the location will range from location 0 to 255.
-        {empty} +
+{empty} +
 `data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 This method writes information to the HEFM given its relative number in the HEFM data storage .
-This method is similar to the methods for EEPROM.
-        {empty} +
-        {empty} +
+This method is similar to the methods for EEPROM but this method supports Word values.
+{empty} +
+{empty} +
 
 *Example 1:*
 ----
@@ -35,16 +35,16 @@ This method is similar to the methods for EEPROM.
     HEFWrite( 0x1234, 126 )
 ----
 
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 For more information on the Great Cow BASIC constants that supprt the HEF operations see <<_hefmoverview, HEF Memory Overview>>
 
 
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 
 
 *Example 2:*
@@ -52,11 +52,9 @@ For more information on the Great Cow BASIC constants that supprt the HEF operat
     'This example will populate the 256 words of HEF memory with a value that is same as the HEFM location
     HEFWriteWORD (16, 0xAA01)   'location 16, in this device, eqaute to 0x3F10
     HEFWriteWord (18, 0xBB02)   'location 18, in this device, eqaute to 0x3F12
-
-
 ----
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show, were `--` is the existing value.
 
 ----
@@ -66,6 +64,6 @@ If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     3F20   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     3F30   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----
-        {empty} +
-        {empty} +
+{empty} +
+{empty} +
 See also <<lots of other stuff,lots of other stuff,>>
