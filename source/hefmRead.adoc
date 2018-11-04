@@ -42,8 +42,7 @@ This method is similar to the methods for EEPROM.
 ----
 
 {empty} +
-{empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
+These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
 This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropiate HEFM page.
 {empty} +
 {empty} +
@@ -56,16 +55,11 @@ This method appropiately handles the management of the HEFM data storage by calc
 ----
 
 {empty} +
-{empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropiate HEFM page.
-{empty} +
-{empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
 
 
 {empty} +
-{empty} +
+
 
 
 
@@ -127,7 +121,7 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 ----
 {empty} +
 {empty} +
-If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 3 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Show HEFM
@@ -167,7 +161,7 @@ If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     3FE8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
     3FF0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
     3FF8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    ----
+----
 {empty} +
 {empty} +
 See also <<lots of other stuff,lots of other stuff,>>
