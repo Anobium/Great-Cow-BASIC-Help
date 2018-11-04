@@ -37,10 +37,11 @@ This method is similar to the methods for EEPROM.
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from `location` and Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;For more information on the Great Cow BASIC constants that supprt the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+The method will compute the row number and the offset in the row from `location` and Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropiately handles the management of the HEFM data storage by calcualting the correct HEFM page, reading, updating and restoring the HEFM page.
 {empty} +
-{empty} +
-It will then call the HEFWriteBlock subroutine to store the byte data.
+For more information on the Great Cow BASIC constants that supprt the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+
+
 {empty} +
 {empty} +
 
