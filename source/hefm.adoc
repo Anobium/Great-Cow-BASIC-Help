@@ -2,25 +2,41 @@
 
 *Introduction:*
 
-Several members of the Microchip PIC microcontroller family, including the 16F14xx, 16F15xx and 16F17xx have replaced the
-data EEPROM present on older models with a block of Flash memory that is designed to provide the same high
-endurance (100K erase/write cycles).
+Some enhanced mid-range Microchip PIC devices support High-Endurance Flash Memory (HEF), some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
+Instead, they implement an equivalent amount of special flash memory, called HEFM, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
+This HEF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
+{empty} +
+{empty} +
+As with all flash memory, data must be erased before it can be written and writing this memory will stall the device.&#160;&#160;&#160;
+Methods to read, write and erase the HEF memory are included in Great Cow BASIC and they are described in this inroduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (HEF) Block.
+{empty} +
+{empty} +
+Note that by default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
+If you wish to store data here, you must reserve the HEF memory by using the —ROM compiler option, for example:
 
-This high endurance flash memory (HEFM) is a block of 128 locations found at the top of the Flash program memory.
-Each location can only be used to hold a byte variable (whereas the standard Flash memory for a mid-range Microchip PIC microcontroller
-will typically hold 14 bits of information).
+----
+    #option ReserveHighProg 128
+----
+{empty} +
+{empty} +
 
-The main difference between EEPROM and HEFM is that the former does allow byte-by-byte erase whereas the latter
-does not. With HEFM data must be erased before a write and this can only be performed in blocks
-(also referred to as rows) of a fixed size associated with the chip design.
-
-The `heflash.h` library uses as an input the following variables which are available from the chips *.dat files supporting HEFM.
+HEF memory is a block of 128 locations found at the top of the Flash program memory.&#160;&#160;&#160;
+Each location can only be used to hold a variable, either a byte or a word dependent on [what?].&#160;&#160;&#160;
+The main difference between HEF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the HEF memory does not.&#160;&#160;&#160;
+With HEF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
+The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160
+{empty} +
+{empty} +
+The `hefsaf.h` library supports HEF operations.
+{empty} +
+{empty} +
+The library establishs a set constants that are specific to the device.
 
 [cols="2,^1,3",width="80%"]
 |===
-|Variable Name
+|Constant
 |Type
-|Content
+|Usage
 
 |`HEFLASH_ROWSIZE`
 |Byte
@@ -36,152 +52,10 @@ The `heflash.h` library uses as an input the following variables which are avail
 |===
 
 
-*Caution*
+*Warning*
 
-Whenever you update the hex file of your Microchip PIC microcontroller with your programmer you will erase the data that are stored in HEFM.
-If you want to avoid that you will have to flash your Microchip PIC microcontroller with software that allows memory exclusion when flashing.
+Whenever you update the hex file of your Microchip PIC microcontroller with your programmer you MAY erase the data that are stored in HEF memory.&#160;&#160;&#160
+If you want to avoid that you will have to flash your Microchip PIC microcontroller with software that allows memory exclusion when flashing.&#160;&#160;&#160
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
-Enter Start and End address` of your HEFM).
+Enter Start and End address` of your HEFM).&#160;&#160;&#160
 
-==== HEFreadBlock
-
-*Syntax:*
-[subs="quotes"]
-
-----
-    HEFreadBlock(_buffer()_, _Flash_row_, _count_)
-----
-
-
-
-*Command availability:*
-
-Available on specific Microchip PIC microcontrollers only. Check your datasheet.
-
-*Explanation:*
-
-`_Buffer()_` is the destination byte array (must be sufficiently large) +
-`_Flash_row_` is the HEFM relative location (i.e. the row number) +
-`_Count_` is the number of bytes to be retrieved
-
-HEFreadBlock reads information from the HEFM on chips that support this feature. `buffer` is a byte array of length equal to `count`.
-Reading starts at the beginning of given row number.
-
-*Example:*
-
-----
-    #chip 16F1509, 8
-    'The following example reads a byte vector
-    'from row 0 of the HEFM of the 16F1509
-    dim data(32)
-    HEFreadBlock(data,0,HEFLASH_ROWSIZE)
-----
-
-==== HEFRead
-
-*Syntax:*
-[subs="quotes"]
-
-----
-    HEFRead(_HEFaddress_, _HEFDataValue_)
-----
-
-*Command availability:*
-
-Available on specific Microchip PIC microcontrollers only. Check your datasheet.
-
-*Explanation:*
-
-`_HEFaddress_` is the HEFM relative location in the whole HEFM area (i.e. a number generally comprised between 0 and 127) +
-`_HEFDataValue_` is the byte data being retrieved
-
-This subroutine reads information from the HEFM given its relative number in the whole HEFM area.
-It is the equivalent of the <<_epread,EPRead>> subroutine for EEPROM.
-The subroutine will compute the row number and the offset in the row from HEFaddress and HEFLASH_ROWSIZE.
-It will then call the HEFreadBlock subroutine to retrieve the byte data.
-
-*Example:*
-
-----
-    #chip 16F1509, 8
-    'The following example stores in the byte variable “value” the
-    'HEFM byte variable located in row 1 at offset 2
-    HEFRead(34,value)
-----
-
-==== HEFwriteBlock
-
-*Syntax:*
-[subs="quotes"]
-
-----
-    HEFwriteBlock(_Flash_row_, _buffer()_, _count_)
-----
-
-*Command availability:*
-
-Available on specific Microchip PIC microcontrollers only. Check your datasheet.
-
-*Explanation:*
-
-`_Flash_row_` is the HEFM relative location (i.e. the row number) +
-`_Buffer()_` is the source byte array +
-`_Count_` is the number of bytes to be copied
-
-HEFwriteBlock writes information to the HEFM on chips that support this feature. `buffer` is a byte array of length equal to `count`.
-Writing starts at the beginning of the given row number.
-
-*WARNING:*
-
-Be aware that this subroutine will first erase whatever data are present on the destination row.
-If you want to preserve them check the HEFwrite subroutine.
-
-*Example:*
-
-----
-    #chip 16F1509, 8
-    'The following example generates a byte vector and stores it
-    'in row 0 of the HEFM of the 16F1509
-    dim data(32)
-    for index = 1 to 32
-      data(index)=index
-    next
-    HEFwriteBlock(0,data,HEFLASH_ROWSIZE)
-
-    'Now we store a string in row 1
-    Dim Hello as String
-    Hello="Hello GCB World!"
-    HEFwriteBlock(1,Hello,len(Hello))
-----
-
-==== HEFWrite
-
-*Syntax:*
-[subs="quotes"]
-
-----
-    HEFWrite(_HEFaddress_, _HEFDataValue_)
-----
-
-*Command availability:*
-
-Available on specific Microchip PIC microcontrollers only. Check your datasheet.
-
-*Explanation:*
-
-`_HEFaddress_` is the HEFM relative location in the whole HEFM area (i.e. a number generally comprised between 0 and 127) +
-`_HEFDataValue_` is the byte data being retrieved
-
-This subroutine writes information to the HEFM given its relative number in the whole HEFM area.
-It is the equivalent of the <<_epwrite,EPWrite>> subroutine for EEPROM.
-The subroutine will compute the row number and the offset in the row from `HEFaddress` and HEFLASH_ROWSIZE.
-It will then call the HEFWriteBlock subroutine to store the byte data.
-
-*Example:*
-
-----
-    #chip 16F1509, 8
-    'The following example stores in the byte variable “value” the
-    'HEFM byte variable located in row 1 at offset 2
-    HEFWrite(34,value)
-----
