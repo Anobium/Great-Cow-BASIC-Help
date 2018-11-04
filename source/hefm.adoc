@@ -39,28 +39,42 @@ The library provides a set of methods to support use of HEF memory.
 |Usage
 
 |`HEFWrite`
-|location, value
-|bla bla
+|a subroutine with the paramers: location, value
+|
 
-|`HEFWrite`
-|location, value
-|bla bla
+|`HEFWriteWord`
+|a subroutine with the paramers: location, value
+|HEFRead ( location, out_byte_variable  )
 
-|`HEFWrite`
-|location, value
-|bla bla
+|`HEFRead`
+|a function with the paramers: location, value
+|byte_variable = HEFRead ( location  )
 
-|`HEFWrite`
-|location, value
-|bla bla
+|`HEFRead`
+|a subroutine with the paramers: location, value
+|
 
-|`HEFWrite`
-|location, value
-|bla bla
+|`HEFReadWord`
+|a function with the paramers: location, value
+| word_variable = HEFReadWord ( location  )
 
-|`HEFWrite`
-|location, value
-|bla bla
+
+|`HEFReadWord`
+|a subroutine with the paramers: location, value
+|HEFReadWord ( location, out_word_variable  )
+
+|`HEFEraseBlock`
+|a subroutine with the paramers: location, value
+|
+
+|`HEFWriteBlock`
+|a subroutine with the paramers: location, value
+|
+
+|`HEFReadBlock`
+|a subroutine with the paramers: location, value
+|
+
 
 |===
 
