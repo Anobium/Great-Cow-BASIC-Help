@@ -39,7 +39,7 @@ The library provides a set of methods to support use of HEF memory.
 |Usage
 
 |`HEFWrite`
-|a subroutine with the paramers: location, value
+|a subroutine with the paramers: location, byte value
 |
 
 |`HEFWriteWord`
@@ -47,7 +47,7 @@ The library provides a set of methods to support use of HEF memory.
 |HEFRead ( location, out_byte_variable  )
 
 |`HEFRead`
-|a function with the paramers: location, value
+|a function with the paramers: location returns a value
 |byte_variable = HEFRead ( location  )
 
 |`HEFRead`
@@ -55,7 +55,7 @@ The library provides a set of methods to support use of HEF memory.
 |
 
 |`HEFReadWord`
-|a function with the paramers: location, value
+|a function with the paramers: location returns a value
 | word_variable = HEFReadWord ( location  )
 
 
