@@ -2,8 +2,8 @@
 
 *Introduction:*
 
-Some enhanced mid-range Microchip PIC devices support High-Endurance Flash Memory (HEF), some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
-Instead, they implement an equivalent amount of special flash memory, called HEFM, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
+Some enhanced mid-range Microchip PIC devices support High-Endurance Flash (HEF) memory, some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
+Instead, they implement an equivalent amount of special flash memory, called HEF memory, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
 This HEF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
 {empty} +
 {empty} +
@@ -12,13 +12,13 @@ Methods to read, write and erase the HEF memory are included in Great Cow BASIC 
 {empty} +
 {empty} +
 Note that by default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
-If you wish to store data here, you must reserve the HEF memory by using the compiler option, as shown below to reserve 128 words of HEF memory:
+If you wish to store data here, you should reserve the HEF memory by using the compiler option, as shown below to reserve 128 words of HEF memory:
 
 ----
     #option ReserveHighProg 128
 ----
 HEF memory is a block of memory locations found at the top of the Flash program memory.&#160;&#160;&#160;
-Each memory location can only be used to hold a variable, either a byte or a word dependent on *[what?]*.&#160;&#160;&#160;
+Each memory location can be used to hold a variable value, either a byte or a word dependent on *[what?]*.&#160;&#160;&#160;
 The main difference between HEF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the HEF memory does not.&#160;&#160;&#160;
 With HEF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
 The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
