@@ -49,12 +49,13 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     HEFWriteWord( 254, 4660 )
 
     HEFReadWord( 254, data_word_variable )
+
     HSerPrint "Value = "
     HSerPrint data_word_variable
     HSerPrintCRLF
 
 ----
-{empty} +
+
 {empty} +
 If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
@@ -73,12 +74,13 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     HEFWriteWord( 254, 17185 )
 
     data_word_variable = HEFReadWord( 254 )
+
     HSerPrint "Value = "
     HSerPrint data_word_variable
     HSerPrintCRLF
 
 ----
-{empty} +
+
 {empty} +
 If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
