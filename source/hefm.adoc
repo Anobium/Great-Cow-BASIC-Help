@@ -12,7 +12,7 @@ Methods to read, write and erase the HEF memory are included in Great Cow BASIC 
 {empty} +
 {empty} +
 Note that by default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
-If you wish to store data here, you must reserve the HEF memory by using the —ROM compiler option, for example:
+If you wish to store data here, you must reserve the HEF memory by using the compiler option, as shown below to reserve 128 words of HEF memory:
 
 ----
     #option ReserveHighProg 128
