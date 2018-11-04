@@ -1,4 +1,4 @@
-==== HEFMWrite Overview
+==== HEFMWrite
 
 
 *Syntax:*
@@ -13,7 +13,7 @@ Available on all microcontrollers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFMWrite is used to write information to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
+HEFMWrite is used to write information, byte values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
 {empty} +
 {empty} +
 `location` represents the location to write to - the location will range from location 0 to 255.
@@ -21,7 +21,7 @@ HEFMWrite is used to write information to the HFEM data storage, so that it can 
 `data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A byte value.&#160;&#160;&#160;This can be a byte value or a byte variable.
 {empty} +
 {empty} +
-This method writes information to the HEFM given its relative number in the HEFM date storage .
+This method writes information to the HEFM given its relative number in the HEFM data storage .
 This method is similar to the methods for EEPROM.
 {empty} +
 {empty} +
