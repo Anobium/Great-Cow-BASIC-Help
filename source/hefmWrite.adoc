@@ -17,11 +17,12 @@ HEFMWrite is used to write information to the HFEM data storage, so that it can 
 {empty} +
 {empty} +
 `location` represents the location to write to - the location will range from location 0 to 255.
+{empty} +
 `data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A byte value.&#160;&#160;&#160;This can be a byte value or a byte variable.
 {empty} +
 {empty} +
 This method writes information to the HEFM given its relative number in the HEFM date storage .
-This method is simimar to the methods for EEPROM.
+This method is similar to the methods for EEPROM.
 {empty} +
 {empty} +
 *Example 1:*
@@ -36,7 +37,7 @@ This method is simimar to the methods for EEPROM.
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from `HEFaddress` and HEFLASH_ROWSIZE.
+The method will compute the row number and the offset in the row from `location` and Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;For more information on the Great Cow BASIC constants that supprt the HEF operations see <<HEF Memory Overview, _hefmoverview>>
 {empty} +
 {empty} +
 It will then call the HEFWriteBlock subroutine to store the byte data.
