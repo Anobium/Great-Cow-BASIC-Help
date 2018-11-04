@@ -25,10 +25,52 @@ The blocks, also called rows, are a fixed size associated with the specific devi
 {empty} +
 {empty} +
 The `hefsaf.h` library supports HEF operations for Great Cow BASIC.
-{empty} +
-{empty} +
-The library establishs a set constants that are specific to the device.
 
+
+{empty} +
+{empty} +
+The library provides a set of methods to support use of HEF memory.
+{empty} +
+{empty} +
+[cols="2,^1,3",width="80%"]
+|===
+|Method
+|Parameters
+|Usage
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|`HEFWrite`
+|location, value
+|bla bla
+
+|===
+
+
+{empty} +
+{empty} +
+The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
+These may be useful in the user program.
+{empty} +
+{empty} +
 [cols="2,^1,3",width="80%"]
 |===
 |Constant
