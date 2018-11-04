@@ -55,7 +55,6 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     HSerPrintCRLF
 
 ----
-
 {empty} +
 If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
@@ -80,7 +79,6 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     HSerPrintCRLF
 
 ----
-
 {empty} +
 If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
