@@ -17,7 +17,8 @@ Available on all PIC microcontrollers with HEFM memory
 HEFMWrite is used to write information, byte values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
 {empty} +
 {empty} +
-`location` represents the location to write to - the location will range from location 0 to 255.
+`location` represents the location to write to - the location will range from location 0 to HEF_BYTES - 1.&#160;&#160;&#160;
+HEF_BYTES is Great Cow BASIC defined constant.
 {empty} +
 `data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A byte value.&#160;&#160;&#160;This can be a byte value or a byte variable.
 {empty} +
