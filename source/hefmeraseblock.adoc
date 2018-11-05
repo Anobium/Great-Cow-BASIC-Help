@@ -17,7 +17,7 @@ HEFEraseBlock is used to erase the information within the HEFM data storage bloc
 Once the buffer is erased it can be accessed for re-use within a user program.
 {empty} +
 {empty} +
-The paramete is as follows:
+The single parameter is as follows:
 
 `block_number` represents the block to be erased.&#160;&#160;&#160;
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
