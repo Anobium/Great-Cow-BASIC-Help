@@ -26,14 +26,14 @@ HEF_WORDS is Great Cow BASIC defined constant.
 {empty} +
 `data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
 A word value.&#160;&#160;&#160;
-This can be a word value or a word variable.
+This must be a variable.
 {empty} +
 {empty} +
-This method reads information to the HEFM given its relative number in the HEFM data storage.&#160;&#160;&#160;
+This method reads information to the HEFM given its relative location in the HEFM data storage.&#160;&#160;&#160;
 {empty} +
 {empty} +
 These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropriate HEFM page.&#160;&#160;&#160;
+This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading the word value from the appropriate HEFM page.&#160;&#160;&#160;
 {empty} +
 {empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
