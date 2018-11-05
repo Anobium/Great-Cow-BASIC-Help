@@ -40,40 +40,34 @@ The library provides a set of methods to support use of HEF memory.
 
 |`HEFWrite`
 |a subroutine with the paramers: location, byte value
-|
+|HEFWrite ( location, byte_variable )
 
 |`HEFWriteWord`
-|a subroutine with the paramers: location, value
-|HEFRead ( location, out_byte_variable  )
+|a subroutine with the paramers: location, word_value
+|HEFWriteWord ( location, word_variable  )
 
 |`HEFRead`
-|a function with the paramers: location returns a value
-|byte_variable = HEFRead ( location  )
-
-|`HEFRead`
-|a subroutine with the paramers: location, value
-|
+|a function with the paramers: location returns a word value
+|word_variable = HEFRead ( location  )
 
 |`HEFReadWord`
-|a function with the paramers: location returns a value
-| word_variable = HEFReadWord ( location  )
-
-
-|`HEFReadWord`
-|a subroutine with the paramers: location, value
-|HEFReadWord ( location, out_word_variable  )
+|a subroutine with the paramers: location, word_value
+|HEFRead ( location , word_variable )
 
 |`HEFEraseBlock`
-|a subroutine with the paramers: location, value
-|
+|a subroutine with the paramers: block_number - 0 | 1 | 2 | 3 etc
+|HEFEraseBlock ( 0 )
 
 |`HEFWriteBlock`
-|a subroutine with the paramers: location, value
-|
-
+|a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
+|HEFWriteBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String
++
+The Array or a String will contain the values to be wrttin to the HEFM.
 |`HEFReadBlock`
-|a subroutine with the paramers: location, value
-|
+|a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
+|HEFReadBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String.
++
+The Array or a String will contain the values from the HEFM.
 
 
 |===
@@ -111,4 +105,3 @@ Whenever you update the hex file of your Microchip PIC microcontroller with your
 If you want to avoid that you will have to flash your Microchip PIC microcontroller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
 Enter Start and End address` of your HEFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve HEF memory during programming.
-
