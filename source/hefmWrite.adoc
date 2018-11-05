@@ -24,7 +24,7 @@ HEF_WORDS is Great Cow BASIC defined constant.
 This can be a byte value or a byte variable.
 {empty} +
 {empty} +
-This method writes information to the HEFM given its relative number in the HEFM data storage .
+This method writes information to the HEFM given the specific location in the HEFM data storage .
 This method is similar to the methods for EEPROM.
 {empty} +
 {empty} +
@@ -42,7 +42,7 @@ This method is similar to the methods for EEPROM.
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriate handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
+The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriate handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and writing the HEFM page.
 {empty} +
 {empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
