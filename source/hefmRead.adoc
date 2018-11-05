@@ -25,11 +25,10 @@ HEFMRead is used to read information, byte values, from the HFEM data storage, s
 HEF_WORDS is Great Cow BASIC defined constant.
 {empty} +
 `data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
-A byte value.&#160;&#160;&#160;
-This can be a byte value or a byte variable.
+A byte value only.
 {empty} +
 {empty} +
-This method reads information to the HEFM given its relative number in the HEFM data storage.&#160;&#160;&#160;
+This method reads data from the HEFM given the specific location the HEFM data storage.&#160;&#160;&#160;
 This method is similar to the methods for EEPROM.
 {empty} +
 {empty} +
@@ -46,7 +45,7 @@ This method is similar to the methods for EEPROM.
 
 {empty} +
 These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropriate HEFM page.
+This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading the byte from the appropriate HEFM page.
 {empty} +
 {empty} +
 *Example 2:*
