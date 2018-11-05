@@ -1,5 +1,5 @@
 //erv 04110218
-==== HEFMWriteWordWord
+==== HEFMWriteWord
 
 
 *Syntax:*
