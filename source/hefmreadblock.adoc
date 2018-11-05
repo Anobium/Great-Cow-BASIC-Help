@@ -34,18 +34,14 @@ This parameter  is not normally required as the default is set to the Great Cow 
 
 *Example 1:*
 ----
-    #chip 18F24k42
+    '... code preamble to select part
+    '... code to setup serial
 
+
+     ; Save data previously stored data from block 2 into a buffer
+     HEFReadBlock( 2 , buffer() )
 ----
 
-{empty} +
-{empty} +
-If example 1 where displayed on a serial terminal.&#160;&#160;&#160;
-The result would show:
-----
-    Show HEFM
-
-----
 {empty} +
 {empty} +
 See also <<lots of other stuff,lots of other stuff,>>

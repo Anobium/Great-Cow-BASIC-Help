@@ -32,6 +32,9 @@ This method is similar to the methods for EEPROM.
 *Example 1:*
 ----
     #chip 18F24k42
+    '... code preamble to select part
+    '... code to setup serial
+
     'The following example stores in the byte variable “value” the
     'HEFM byte variable located a position 34 with the value of 126
     HEFWrite(34,126 )
@@ -51,6 +54,9 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 
 *Example 2:*
 ----
+    '... code preamble to select part
+    '... code to setup serial
+
     'This example will populate the 256 bytes of HEF memory with a value that is same as the HEFM location
     Dim HEFaddress as Byte
     For HEFaddress = 0 to 255

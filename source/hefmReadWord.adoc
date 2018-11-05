@@ -42,6 +42,8 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 
 *Example 1:*
 ----
+    '... code preamble to select part
+    '... code to setup serial
 
     'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values.
 
@@ -66,6 +68,8 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 {empty} +
 *Example 2:*
 ----
+    '... code preamble to select part
+    '... code to setup serial
 
     'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values using a function.
 

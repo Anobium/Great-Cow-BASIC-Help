@@ -36,7 +36,9 @@ This method is similar to the methods for EEPROM.
 
 *Example 1:*
 ----
-    #chip 18F24k42
+    '... code preamble to select part
+    '... code to setup serial
+
     'The following example reads the HEM value into the byte variable “byte_value”.
     'HEFM byte information is located a position 34.
     HEFread( 34, byte_value )
@@ -49,7 +51,10 @@ This method appropriately handles the management of the HEFM data storage by cal
 {empty} +
 *Example 2:*
 ----
-    #chip 18F24k42
+    '... code preamble to select part
+    '... code to setup serial
+
+
     'The following example reads the HEM value into the byte variable “byte_value” using a function.
     'HEFM byte information is located a position 34.
     byte_value = HEFread( 34 )
@@ -70,8 +75,8 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 ----
 
 
-    'lots code preamble to select part
-    'lots of code to setup serial
+    '... code preamble to select part
+    '... code to setup serial
 
     Dim index, test1, test, row_h, MemLocation as Byte
 

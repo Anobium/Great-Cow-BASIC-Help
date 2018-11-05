@@ -29,7 +29,9 @@ The block_number parameter is used to calculate the physical memory location(s) 
 
 Erase a specific block of HEFM.
 ----
-    #chip 18F24k42
+    '... code preamble to select part
+    '... code to setup serial
+
 
     'Erase block 2 of HEFM
     HEFEraseBlock ( 2)
