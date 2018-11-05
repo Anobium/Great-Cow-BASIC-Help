@@ -47,16 +47,29 @@ The library provides a set of methods to support use of HEF memory.
 |HEFWriteWord ( location, word_variable  )
 
 |`HEFRead`
+|a function with the paramers: location returns a byte value
+|byte_variable = HEFRead ( location  )
+
+|`HEFRead`
+|a subroutine with the paramers: location, byte_value
+|HEFRead ( location , out_byte_variable )
+
+
+
+|`HEFReadWord`
 |a function with the paramers: location returns a word value
 |word_variable = HEFRead ( location  )
 
 |`HEFReadWord`
 |a subroutine with the paramers: location, word_value
-|HEFRead ( location , word_variable )
+|HEFRead ( location , out_word_variable )
 
 |`HEFEraseBlock`
-|a subroutine with the paramers: block_number a value of 0,1,2,3 etc.
+|a subroutine with the paramers: block_number
 |HEFEraseBlock ( 0 )
+{empty} +
+{empty} +
+A value of 0,1,2,3 etc.
 
 |`HEFWriteBlock`
 |a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
@@ -79,7 +92,8 @@ The Array or a String will contain the values from the HEFM.
 {empty} +
 {empty} +
 The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
-These may be useful in the user program.
+These may be useful in the user program.&#160;&#160;&#160;
+These constants are used by the library but a user may use these public constants.
 {empty} +
 {empty} +
 [cols="2,^1,3",width="80%"]
@@ -88,17 +102,36 @@ These may be useful in the user program.
 |Type
 |Usage
 
-|`HEFLASH_ROWSIZE`
+|`HEF_ROWSIZE_BYTES`
 |Byte
 |Size of an HEFM block in words
 
-|`HEFLASH_START`
+|HEF_WORDS | HEF_BYTES
+|Word or a Byte
+|ChipHEFMemWords parameter from the device .dat file
+
+|`HEF_START_ADDR`
 |Word
 |Starting address of HEFM
 
-|`HEFLASH_END`
+|`HEF_NUM_BLOCKS`
+|Byte
+|Number of block of HEFM
+
+
+|Chipwords
 |Word
-|Ending address of HEFM
+|Device specific constant for the total flash size
+
+|ChipHEFMemWords
+|Word
+|Device specific constant for the number of HEFM words avaialable
+
+
+|ChipEraseRowSizeWords
+|Word
+|Device specific constant for the number of HEFM in an erase row
+
 |===
 
 
