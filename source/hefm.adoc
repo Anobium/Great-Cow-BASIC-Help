@@ -61,12 +61,15 @@ The library provides a set of methods to support use of HEF memory.
 |`HEFWriteBlock`
 |a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
 |HEFWriteBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String
-+
+{empty} +
+{empty} +
 The Array or a String will contain the values to be wrttin to the HEFM.
+
 |`HEFReadBlock`
 |a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
 |HEFReadBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String.
-+
+{empty} +
+{empty} +
 The Array or a String will contain the values from the HEFM.
 
 
