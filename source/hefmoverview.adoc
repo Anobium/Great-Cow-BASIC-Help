@@ -4,7 +4,8 @@
 
 Some enhanced mid-range Microchip PIC devices support High-Endurance Flash (HEF) memory, some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
 Instead, they implement an equivalent amount of special flash memory, called HEF memory, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
-This HEF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
+HEF memory can be erased and written 100,000 times.&#160;&#160;&#160;
+HEF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
 {empty} +
 {empty} +
 As with all flash memory, data must be erased before it can be written and writing this memory will stall the device.&#160;&#160;&#160;
@@ -14,7 +15,7 @@ Methods to read, write and erase the HEF memory are included in Great Cow BASIC 
 The `hefsaf.h` library supports HEF operations for Great Cow BASIC.
 {empty} +
 {empty} +
-Note that by default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
+Note:  By default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
 If you wish to store data here, you should reserve the HEF memory by using the compiler option, as shown below to reserve 128 words of HEF memory:
 
 ----
