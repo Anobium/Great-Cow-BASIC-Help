@@ -55,7 +55,7 @@ The library provides a set of methods to support use of HEF memory.
 |HEFRead ( location , word_variable )
 
 |`HEFEraseBlock`
-|a subroutine with the paramers: block_number - 0 | 1 | 2 | 3 etc
+|a subroutine with the paramers: block_number a value of 0,1,2,3 etc.
 |HEFEraseBlock ( 0 )
 
 |`HEFWriteBlock`
