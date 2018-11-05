@@ -11,6 +11,9 @@ As with all flash memory, data must be erased before it can be written and writi
 Methods to read, write and erase the HEF memory are included in Great Cow BASIC and they are described in this inroduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (HEF) Block.
 {empty} +
 {empty} +
+The `hefsaf.h` library supports HEF operations for Great Cow BASIC.
+{empty} +
+{empty} +
 Note that by default, Great Cow BASIC will use HEF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
 If you wish to store data here, you should reserve the HEF memory by using the compiler option, as shown below to reserve 128 words of HEF memory:
 
@@ -24,7 +27,10 @@ With HEF memory data must be erased before a write and the erase can only be per
 The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
 {empty} +
 {empty} +
-The `hefsaf.h` library supports HEF operations for Great Cow BASIC.
+Great Cow BASIC handles the erase operation automatically.&#160;&#160;&#160;
+When a write operation is used by a user the Great Cow BASIC library reads to a cache, updates the cache, erase the block and finally write the caches.&#160;&#160;&#160;
+The complexity of using HEF memory is reduced with the automatical handling of these operations.&#160;&#160;&#160;
+
 
 
 {empty} +
@@ -93,7 +99,8 @@ The Array or a String will contain the values from the HEFM.
 {empty} +
 The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
 These may be useful in the user program.&#160;&#160;&#160;
-These constants are used by the library but a user may use these public constants.
+These constants are used by the library.&#160;&#160;&#160;
+A user may use these public constants.
 {empty} +
 {empty} +
 [cols="2,^1,3",width="80%"]
@@ -119,21 +126,26 @@ These constants are used by the library but a user may use these public constant
 |Number of block of HEFM
 
 
-|`Chipwords`
+|`CHIPWORDS`
 |Word
 |Device specific constant for the total flash size
 
-|`ChipHEFMemWords`
+|`CHIPHEFMEMWORDS`
 |Word
 |Device specific constant for the number of HEFM words avaialable
 
 
-|`ChipEraseRowSizeWords`
+|`CHIPERASEROWSIZEWORDS`
 |Word
 |Device specific constant for the number of HEFM in an erase row
 
 |===
 
+{empty} +
+{empty} +
+
+{empty} +
+{empty} +
 
 *Warning*
 
