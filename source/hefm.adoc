@@ -18,7 +18,7 @@ If you wish to store data here, you should reserve the HEF memory by using the c
     #option ReserveHighProg 128
 ----
 HEF memory is a block of memory locations found at the top of the Flash program memory.&#160;&#160;&#160;
-Each memory location can be used to hold a variable value, either a byte or a word dependent on *[what?]*.&#160;&#160;&#160;
+Each memory location can be used to hold a variable value, either a byte or a word dependent on *[BILL]*.&#160;&#160;&#160;
 The main difference between HEF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the HEF memory does not.&#160;&#160;&#160;
 With HEF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
 The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
@@ -106,7 +106,7 @@ These constants are used by the library but a user may use these public constant
 |Byte
 |Size of an HEFM block in words
 
-|HEF_WORDS | HEF_BYTES
+|`HEF_WORDS` and `HEF_BYTES`
 |Word or a Byte
 |ChipHEFMemWords parameter from the device .dat file
 
@@ -119,16 +119,16 @@ These constants are used by the library but a user may use these public constant
 |Number of block of HEFM
 
 
-|Chipwords
+|`Chipwords`
 |Word
 |Device specific constant for the total flash size
 
-|ChipHEFMemWords
+|`ChipHEFMemWords`
 |Word
 |Device specific constant for the number of HEFM words avaialable
 
 
-|ChipEraseRowSizeWords
+|`ChipEraseRowSizeWords`
 |Word
 |Device specific constant for the number of HEFM in an erase row
 
