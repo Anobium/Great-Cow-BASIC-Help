@@ -1,0 +1,156 @@
+==== SAFM Overview
+
+*Introduction:*
+
+Some enhanced mid-range Microchip PIC devices support Storage-Area Flash (SAF) memory, some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
+Instead, they implement an equivalent amount of special flash memory, called SAF memory, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
+SAF memory can be erased and written 1000,000 times.&#160;&#160;&#160;
+SAF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
+{empty} +
+{empty} +
+As with all flash memory, data must be erased before it can be written and writing this memory will stall the device.&#160;&#160;&#160;
+Methods to read, write and erase the SAF memory are included in Great Cow BASIC and they are described in this introduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (SAF) Block.
+{empty} +
+{empty} +
+The `SAFsaf.h` library supports SAF operations for Great Cow BASIC.
+{empty} +
+{empty} +
+Note:  By default, Great Cow BASIC will use SAF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
+If you wish to store data here, you should reserve the SAF memory by using the compiler option, as shown below to reserve 128 words of SAF memory:
+
+----
+    #option ReserveHighProg 128
+----
+SAF memory is a block of memory locations found at the top of the Flash program memory.&#160;&#160;&#160;
+Each memory location can be used to hold a variable value, either a byte or a word dependent on the specific device.&#160;&#160;&#160;
+The main difference between SAF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the SAF memory does not.&#160;&#160;&#160;
+With SAF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
+The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
+{empty} +
+{empty} +
+Great Cow BASIC handles the erase operation automatically.&#160;&#160;&#160;
+When a write operation is used by a user the Great Cow BASIC library reads to a cache, updates the cache, erase the block and finally write the caches.&#160;&#160;&#160;
+The complexity of using SAF memory is reduced with the automatically handling of these operations.&#160;&#160;&#160;
+
+
+
+{empty} +
+{empty} +
+The library provides a set of methods to support use of SAF memory.
+{empty} +
+{empty} +
+[cols="2,^1,3",width="80%"]
+|===
+|Method
+|Parameters
+|Usage
+
+|`SAFWrite`
+|a subroutine with the parameters: location, byte value
+|SAFWrite ( location, byte_variable )
+
+|`SAFWriteWord`
+|a subroutine with the parameters: location, word_value
+|SAFWriteWord ( location, word_variable  )
+
+|`SAFRead`
+|a function with the parameters: location returns a byte value
+|byte_variable = SAFRead ( location  )
+
+|`SAFRead`
+|a subroutine with the paramers: location, byte_value
+|SAFRead ( location , out_byte_variable )
+
+
+
+|`SAFReadWord`
+|a function with the parameters: location returns a word value
+|word_variable = SAFRead ( location  )
+
+|`SAFReadWord`
+|a subroutine with the parameters: location, word_value
+|SAFRead ( location , out_word_variable )
+
+|`SAFEraseBlock`
+|a subroutine with the parameters: block_number
+|SAFEraseBlock ( 0 )
+{empty} +
+{empty} +
+A value of 0,1,2,3 etc.
+
+|`SAFWriteBlock`
+|a subroutine with the parameters: block_number, buffer() [, SAF_ROWSIZE_BYTES ]
+|SAFWriteBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String
+{empty} +
+{empty} +
+The Array or a String will contain the values to be wrttin to the SAFM.
+
+|`SAFReadBlock`
+|a subroutine with the parameters: block_number, buffer() [, SAF_ROWSIZE_BYTES ]
+|SAFReadBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String.
+{empty} +
+{empty} +
+The Array or a String will contain the values from the SAFM.
+
+
+|===
+
+
+{empty} +
+{empty} +
+The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
+These may be useful in the user program.&#160;&#160;&#160;
+These constants are used by the library.&#160;&#160;&#160;
+A user may use these public constants.
+{empty} +
+{empty} +
+[cols="2,^1,3",width="80%"]
+|===
+|Constant
+|Type
+|Usage
+
+|`SAF_ROWSIZE_BYTES`
+|Byte
+|Size of an SAFM block in words
+
+|`SAF_WORDS` and `SAF_BYTES`
+|Word or a Byte
+|ChipSAFMemWords parameter from the device .dat file
+
+|`SAF_START_ADDR`
+|Word
+|Starting address of SAFM
+
+|`SAF_NUM_BLOCKS`
+|Byte
+|Number of block of SAFM
+
+
+|`CHIPWORDS`
+|Word
+|Device specific constant for the total flash size
+
+|`CHIPSAFMEMWORDS`
+|Word
+|Device specific constant for the number of SAFM words available
+
+
+|`CHIPERASEROWSIZEWORDS`
+|Word
+|Device specific constant for the number of SAFM in an erase row
+
+|===
+
+{empty} +
+{empty} +
+
+{empty} +
+{empty} +
+
+*Warning*
+
+Whenever you update the hex file of your Microchip PIC micro-controller with your programmer you MAY erase the data that are stored in SAF memory.&#160;&#160;&#160;
+If you want to avoid that you will have to flash your Microchip PIC micro-controller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
+This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
+Enter Start and End address` of your SAFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve SAF memory during programming.

@@ -1,0 +1,43 @@
+==== SAFEraseBlock
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    SAFEraseBlock ( block_number )
+----
+*Command Availability:*
+
+Available on all PIC micro-controllers with SAFM memory.
+
+*Explanation:*
+{empty} +
+{empty} +
+SAFEraseBlock is used to erase the information within the SAFM data storage block to the default value of the device.&#160;&#160;&#160;
+Once the buffer is erased it can be accessed for re-use within a user program.
+{empty} +
+{empty} +
+The single parameter is as follows:
+
+`block_number` represents the block to be erased.&#160;&#160;&#160;
+The block_number parameter is used to calculate the physical memory location(s) that are updated.
+
+{empty} +
+{empty} +
+
+*Example 1:*
+
+Erase a specific block of SAFM.
+----
+    '... code preamble to select part
+    '... code to setup serial, if needed
+
+
+    'Erase block 2 of SAFM
+    SAFEraseBlock ( 2)
+
+----
+
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>

@@ -1,0 +1,47 @@
+==== SAFReadBlock
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    SAFReadBlock ( block_number,  buffer(), [, SAF_ROWSIZE_BYTES] )
+----
+*Command Availability:*
+
+Available on all PIC micro-controllers with SAFM memory.
+
+*Explanation:*
+{empty} +
+{empty} +
+SAFReadBlock is used to read information from the HFEM data storage to the buffer.&#160;&#160;&#160;
+Once the buffer is populated it can be accessed for use within a user program.
+{empty} +
+{empty} +
+The parameters are as follows:
+
+`block_number` represents the block to be written to.&#160;&#160;&#160;
+The block_number parameter is used to calculate the physical memory location(s) that are updated.
+
+`buffer()` represents any valid array or string.&#160;&#160;&#160;
+The `buffer()` will be used as the data target for the block read operation.&#160;&#160;&#160;
+The  `buffer()`, an array or string, is handled as a buffer of bytes values.&#160;&#160;&#160;
+SAFReadBlock operation will treat as a buffer as a serial of bytes and the user program must handle the use of the buffer as Byte, Word or String values as appropriate.
+
+`SAF_ROWSIZE_BYTES`, an optional parameter, is used to specify the row size to be used during the write operation.&#160;&#160;&#160;
+This parameter  is not normally required as the default is set to the Great Cow BASIC constant `SAF_ROWSIZE_BYTES`.
+{empty} +
+{empty} +
+
+*Example 1:*
+----
+    '... code preamble to select part
+    '... code to setup serial
+
+
+     ; Save data previously stored data from block 2 into a buffer
+     SAFReadBlock( 2 , buffer() )
+----
+
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>

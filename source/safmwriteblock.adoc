@@ -1,0 +1,103 @@
+==== SAFWriteBlock
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    SAFWriteBlock ( block_number,  buffer(), [, SAF_ROWSIZE_BYTES] )
+----
+*Command Availability:*
+
+Available on all PIC micro-controllers with SAFM memory.
+
+*Explanation:*
+{empty} +
+{empty} +
+SAFWriteBlock is used to write information from the buffer to the HFEM data storage.&#160;&#160;&#160;
+Once the block is written  it can be accessed for use within a user program.
+{empty} +
+{empty} +
+The parameters are as follows:
+
+`block_number` represents the block to be written to.&#160;&#160;&#160;
+The block_number parameter is used to calculate the physical memory location(s) that are updated.
+
+`buffer()` represents any valid array or string.&#160;&#160;&#160;
+The `buffer()` will be used as the data source that is written to.&#160;&#160;&#160;
+The  `buffer()`, an array or string, is handled as a buffer of bytes values.&#160;&#160;&#160;
+You can use Word values or Byte value to populate the array (or string) but the SAFWriteBlock operation will treat as a buffer of bytes.&#160;&#160;&#160;
+The `buffer()` cannot exceed the device specific SAF_ROWSIZE_BYTES.&#160;&#160;&#160;If the `buffer()` exceeds the device specific SAF_ROWSIZE_BYTES the excess data will not be handled and the buffer will be truncated at the SAF_ROWSIZE_BYTES limit.
+
+`SAF_ROWSIZE_BYTES`, an optional parameter, is used to specify the row size to be used during the write operation.&#160;&#160;&#160;
+This parameter  is not normally required as the default is set to the Great Cow BASIC constant `SAF_ROWSIZE_BYTES`.
+{empty} +
+{empty} +
+
+*Example 1:*
+----
+    '... code preamble to select part
+    '... code to setup serial
+
+    HSerPrintStringCRLF "SAFMWriteBlock - write string to Block 2"
+
+    Dim HelloWorld as String
+    HelloWorld="Hello GCB World!"
+
+    'SAFwriteBlock operation!!
+    SAFwriteBlock( 2 , HelloWorld , len(HelloWorld) )       'Hello string copied to row 2
+
+    'A utility method to show the contents of the SAFM.  See SAFMRead()
+    SAFM_Dump
+
+----
+
+{empty} +
+{empty} +
+If example 1 where displayed on a serial terminal.&#160;&#160;&#160;
+The result would show. Note the value display at the start of block 2 @ 0x3F80.
+----
+
+
+    SAFMWriteBlock - write string to Block 2
+
+            0     1     2     3     4     5     6     7
+    3F00  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F08  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F10  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F18  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F20  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F28  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F30  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F38  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+            0     1     2     3     4     5     6     7
+    3F40  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F48  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F50  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F58  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F60  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F68  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F70  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F78  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+            0     1     2     3     4     5     6     7
+    3F80  0048  0065  006C  006C  006F  0020  0047  0043
+    3F88  0042  0020  0057  006F  0072  006C  0064  0021
+    3F90  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3F98  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FA0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FA8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FB0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FB8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+            0     1     2     3     4     5     6     7
+    3FC0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FC8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FD0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FD8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FE0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FE8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FF0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+    3FF8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+
+----
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>
