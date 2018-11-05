@@ -132,7 +132,22 @@ ifdef::backend-pdf[<<<]
 === Hefm
 This is the Hefm section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
-include::hefm.adoc[]
+include::hefmoverview.adoc[]
+
+include::hefmRead.adoc[]
+
+include::hefmReadWord.adoc[]
+
+include::hefmWrite.adoc[]
+
+include::hefmWriteWord.adoc[]
+
+include::hefmReadBlock.adoc[]
+
+include::hefmWriteBlock.adoc[]
+
+include::hefmEraseBlock.adoc[]
+
 
 === EERAM
 This is the EERAM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.

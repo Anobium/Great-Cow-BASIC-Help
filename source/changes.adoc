@@ -28,6 +28,9 @@
 - Added optionReserveHighProg section
 - Added TRUE conditional tests
 - Added LCD_IO_3
+- Added new HEFM section
+- Added new SAFM section
+
 
 
 
