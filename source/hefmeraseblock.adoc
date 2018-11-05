@@ -14,7 +14,7 @@ Available on all PIC micro-controllers with HEFM memory.
 {empty} +
 {empty} +
 HEFEraseBlock is used to erase the information within the HEFM data storage block to the default value of the device.&#160;&#160;&#160;
-Once the buffer is erased it can be accessed for re-used within a user program.
+Once the buffer is erased it can be accessed for re-use within a user program.
 {empty} +
 {empty} +
 The parameters are as follows:
