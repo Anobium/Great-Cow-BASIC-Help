@@ -13,7 +13,7 @@
 ----
 *Command Availability:*
 
-Available on all PIC microcontrollers with HEFM memory
+Available on all PIC micro-controllers with HEFM memory
 
 *Explanation:*
 {empty} +
@@ -33,7 +33,7 @@ This method reads information to the HEFM given its relative number in the HEFM 
 {empty} +
 {empty} +
 These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropiate HEFM page.&#160;&#160;&#160;
+This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropriate HEFM page.&#160;&#160;&#160;
 {empty} +
 {empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>

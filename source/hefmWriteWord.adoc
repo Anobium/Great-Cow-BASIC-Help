@@ -9,7 +9,7 @@
 ----
 *Command Availability:*
 
-Available on all PIC microcontrollers with HEFM memory
+Available on all PIC micro-controllers with HEFM memory
 
 *Explanation:*
 {empty} +
@@ -38,10 +38,10 @@ This method is similar to the methods for EEPROM but this method supports Word v
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
+The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that supprt the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
 
 
 {empty} +
@@ -51,7 +51,7 @@ For more information on the Great Cow BASIC constants that supprt the HEF operat
 *Example 2:*
 ----
     'This example will write two word values to two specific locations.
-    HEFWriteWORD (16, 0xAA01)   'location 16, in this device, equates to 0x3F10
+    HEFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x3F10
     HEFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x3F12
 ----
 {empty} +

@@ -13,7 +13,7 @@
 ----
 *Command Availability:*
 
-Available on all PIC microcontrollers with HEFM memory
+Available on all PIC micro-controllers with HEFM memory
 
 *Explanation:*
 {empty} +
@@ -44,7 +44,7 @@ This method is similar to the methods for EEPROM.
 
 {empty} +
 These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropiately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropiate HEFM page.
+This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading from the appropriate HEFM page.
 {empty} +
 {empty} +
 *Example 2:*

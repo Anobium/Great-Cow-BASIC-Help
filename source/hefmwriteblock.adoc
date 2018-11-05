@@ -1,0 +1,51 @@
+==== HEFWriteBlock
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    HEFWriteBlock ( block_number,  buffer(), [, HEF_ROWSIZE_BYTES] )
+----
+*Command Availability:*
+
+Available on all PIC micro-controllers with HEFM memory.
+
+*Explanation:*
+{empty} +
+{empty} +
+HEFWriteBlock is used to write information from the buffer to the HFEM data storage.&#160;&#160;&#160;
+Once the block is written  it can be accessed for use within a user program.
+{empty} +
+{empty} +
+The parameters are as follows:
+
+`block_number` represents the block to be written to.&#160;&#160;&#160;
+The block_number parameter is used to calculate the physical memory location(s) that are updated.
+
+`buffer()` represents any valid array or string.&#160;&#160;&#160;
+The `buffer()` will be used as the data source that is written to.&#160;&#160;&#160;
+The  `buffer()`, an array or string, is handled as a buffer of bytes values.&#160;&#160;&#160;
+You can use Word values or Byte value to populate the array (or string) but the HEFWriteBlock operation will treat as a buffer of bytes.
+
+`HEF_ROWSIZE_BYTES`, an optional parameter, is used to specify the row size to be used during the write operation.&#160;&#160;&#160;
+This parameter  is not normally required as the default is set to the Great Cow BASIC constant `HEF_ROWSIZE_BYTES`.
+{empty} +
+{empty} +
+
+*Example 1:*
+----
+    #chip 18F24k42
+
+----
+
+{empty} +
+{empty} +
+If example 1 where displayed on a serial terminal.&#160;&#160;&#160;
+The result would show:
+----
+    Show HEFM
+
+----
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>

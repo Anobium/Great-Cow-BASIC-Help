@@ -1,0 +1,41 @@
+==== HEFEraseBlock
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    HEFEraseBlock ( block_number )
+----
+*Command Availability:*
+
+Available on all PIC micro-controllers with HEFM memory.
+
+*Explanation:*
+{empty} +
+{empty} +
+HEFEraseBlock is used to erase the information within the HEFM data storage block to the default value of the device.&#160;&#160;&#160;
+Once the buffer is erased it can be accessed for re-used within a user program.
+{empty} +
+{empty} +
+The parameters are as follows:
+
+`block_number` represents the block to be erased.&#160;&#160;&#160;
+The block_number parameter is used to calculate the physical memory location(s) that are updated.
+
+{empty} +
+{empty} +
+
+*Example 1:*
+
+Erase a specific block of HEFM.
+----
+    #chip 18F24k42
+
+    'Erase block 2 of HEFM
+    HEFEraseBlock ( 2)
+
+----
+
+{empty} +
+{empty} +
+See also <<lots of other stuff,lots of other stuff,>>

@@ -8,7 +8,7 @@ This HEF memory appears in the regular program memory space and can be used for 
 {empty} +
 {empty} +
 As with all flash memory, data must be erased before it can be written and writing this memory will stall the device.&#160;&#160;&#160;
-Methods to read, write and erase the HEF memory are included in Great Cow BASIC and they are described in this inroduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (HEF) Block.
+Methods to read, write and erase the HEF memory are included in Great Cow BASIC and they are described in this introduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (HEF) Block.
 {empty} +
 {empty} +
 The `hefsaf.h` library supports HEF operations for Great Cow BASIC.
@@ -21,7 +21,7 @@ If you wish to store data here, you should reserve the HEF memory by using the c
     #option ReserveHighProg 128
 ----
 HEF memory is a block of memory locations found at the top of the Flash program memory.&#160;&#160;&#160;
-Each memory location can be used to hold a variable value, either a byte or a word dependent on *[BILL]*.&#160;&#160;&#160;
+Each memory location can be used to hold a variable value, either a byte or a word dependent on the specific device.&#160;&#160;&#160;
 The main difference between HEF memory and EEPROM is that EEPROM allows byte-by-byte erase whereas the HEF memory does not.&#160;&#160;&#160;
 With HEF memory data must be erased before a write and the erase can only be performed in blocks of memory.&#160;&#160;&#160;
 The blocks, also called rows, are a fixed size associated with the specific device.&#160;&#160;&#160;
@@ -29,7 +29,7 @@ The blocks, also called rows, are a fixed size associated with the specific devi
 {empty} +
 Great Cow BASIC handles the erase operation automatically.&#160;&#160;&#160;
 When a write operation is used by a user the Great Cow BASIC library reads to a cache, updates the cache, erase the block and finally write the caches.&#160;&#160;&#160;
-The complexity of using HEF memory is reduced with the automatical handling of these operations.&#160;&#160;&#160;
+The complexity of using HEF memory is reduced with the automatically handling of these operations.&#160;&#160;&#160;
 
 
 
@@ -45,15 +45,15 @@ The library provides a set of methods to support use of HEF memory.
 |Usage
 
 |`HEFWrite`
-|a subroutine with the paramers: location, byte value
+|a subroutine with the parameters: location, byte value
 |HEFWrite ( location, byte_variable )
 
 |`HEFWriteWord`
-|a subroutine with the paramers: location, word_value
+|a subroutine with the parameters: location, word_value
 |HEFWriteWord ( location, word_variable  )
 
 |`HEFRead`
-|a function with the paramers: location returns a byte value
+|a function with the parameters: location returns a byte value
 |byte_variable = HEFRead ( location  )
 
 |`HEFRead`
@@ -63,29 +63,29 @@ The library provides a set of methods to support use of HEF memory.
 
 
 |`HEFReadWord`
-|a function with the paramers: location returns a word value
+|a function with the parameters: location returns a word value
 |word_variable = HEFRead ( location  )
 
 |`HEFReadWord`
-|a subroutine with the paramers: location, word_value
+|a subroutine with the parameters: location, word_value
 |HEFRead ( location , out_word_variable )
 
 |`HEFEraseBlock`
-|a subroutine with the paramers: block_number
+|a subroutine with the parameters: block_number
 |HEFEraseBlock ( 0 )
 {empty} +
 {empty} +
 A value of 0,1,2,3 etc.
 
 |`HEFWriteBlock`
-|a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
+|a subroutine with the parameters: block_number, buffer() [, HEF_ROWSIZE_BYTES ]
 |HEFWriteBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String
 {empty} +
 {empty} +
 The Array or a String will contain the values to be wrttin to the HEFM.
 
 |`HEFReadBlock`
-|a subroutine with the paramers: block_number, buffer_to_used() [, HEF_ROWSIZE_BYTES ]
+|a subroutine with the parameters: block_number, buffer() [, HEF_ROWSIZE_BYTES ]
 |HEFReadBlock( 0, myMemoryBuffer ) 'where myMemoryBuffer is an Array or a String.
 {empty} +
 {empty} +
@@ -132,7 +132,7 @@ A user may use these public constants.
 
 |`CHIPHEFMEMWORDS`
 |Word
-|Device specific constant for the number of HEFM words avaialable
+|Device specific constant for the number of HEFM words available
 
 
 |`CHIPERASEROWSIZEWORDS`
@@ -149,7 +149,7 @@ A user may use these public constants.
 
 *Warning*
 
-Whenever you update the hex file of your Microchip PIC microcontroller with your programmer you MAY erase the data that are stored in HEF memory.&#160;&#160;&#160;
-If you want to avoid that you will have to flash your Microchip PIC microcontroller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
+Whenever you update the hex file of your Microchip PIC micro-controller with your programmer you MAY erase the data that are stored in HEF memory.&#160;&#160;&#160;
+If you want to avoid that you will have to flash your Microchip PIC micro-controller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
 Enter Start and End address` of your HEFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve HEF memory during programming.
