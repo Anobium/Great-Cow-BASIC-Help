@@ -9,10 +9,10 @@ SAF memory appears in the regular program memory space and can be used for any p
 {empty} +
 {empty} +
 As with all flash memory, data must be erased before it can be written and writing this memory will stall the device.&#160;&#160;&#160;
-Methods to read, write and erase the SAF memory are included in Great Cow BASIC and they are described in this introduction.&#160;&#160;&#160;Also see Microchip application note AN1673, Using the PIC16F1XXX High-Endurance Flash (SAF) Block.
+Methods to read, write and erase the SAF memory are included in Great Cow BASIC and they are described in this introduction.
 {empty} +
 {empty} +
-The `SAFsaf.h` library supports SAF operations for Great Cow BASIC.
+The `hefsaf.h` library supports SAF operations for Great Cow BASIC.
 {empty} +
 {empty} +
 Note:  By default, Great Cow BASIC will use SAF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
