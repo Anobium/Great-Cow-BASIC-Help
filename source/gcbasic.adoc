@@ -129,8 +129,8 @@ include::programwrite.adoc[]
 
 ifdef::backend-pdf[<<<]
 
-=== Hefm
-This is the Hefm section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+=== HEFM
+This is the HEFM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
 include::hefmoverview.adoc[]
 
@@ -153,6 +153,25 @@ include::hefmEraseBlock.adoc[]
 This is the EERAM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
 include::47XXX.adoc[]
+
+=== SAFM
+This is the SAFM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::SAFmoverview.adoc[]
+
+include::SAFmRead.adoc[]
+
+include::SAFmReadWord.adoc[]
+
+include::SAFmWrite.adoc[]
+
+include::SAFmWriteWord.adoc[]
+
+include::SAFmReadBlock.adoc[]
+
+include::SAFmWriteBlock.adoc[]
+
+include::SAFmEraseBlock.adoc[]
 
 :leveloffset: -1
 
