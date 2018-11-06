@@ -1,15 +1,15 @@
 //erv 04110218
-==== HEFMRead
+==== HEFRead
 
 
 *Syntax:*
 [subs="quotes"]
 ----
     'as a subroutine
-    HEFMRead ( location, data )
+    HEFRead ( location, data )
 
     'as a function
-    data = HEFMRead ( location )
+    data = HEFRead ( location )
 ----
 *Command Availability:*
 
@@ -18,7 +18,7 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFMRead is used to read information, byte values, from the HFEM data storage, so that it can be accessed for use in a user program.
+HEFRead is used to read information, byte values, from the HFEM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
@@ -60,7 +60,7 @@ This method appropriately handles the management of the HEFM data storage by cal
 ----
 
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
 
 
 {empty} +
@@ -170,4 +170,12 @@ If example 3 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 ----
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_hefm_overview,HEFM Overview>>,
+<<_hefread,HEFRead>>,
+<<_hefreadword,HEFReadWord>>,
+<<_hefwrite,HEFWrite>>,
+<<_hefwriteword,HEFWriteWord>>,
+<<_hefreadblock,HEFReadBlock>>,
+<<_hefwriteblock,HEFWriteBlock>>,
+<<_heferaseblock,HEFEraseBlock>>

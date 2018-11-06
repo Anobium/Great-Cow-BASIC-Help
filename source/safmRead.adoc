@@ -1,15 +1,15 @@
 //erv 04110218
-==== SAFMRead
+==== SAFRead
 
 
 *Syntax:*
 [subs="quotes"]
 ----
     'as a subroutine
-    SAFMRead ( location, data )
+    SAFRead ( location, data )
 
     'as a function
-    data = SAFMRead ( location )
+    data = SAFRead ( location )
 ----
 *Command Availability:*
 
@@ -18,7 +18,7 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFMRead is used to read information, byte values, from the HFEM data storage, so that it can be accessed for use in a user program.
+SAFRead is used to read information, byte values, from the HFEM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
@@ -60,7 +60,7 @@ This method appropriately handles the management of the SAFM data storage by cal
 ----
 
 {empty} +
-For more information on the Great Cow BASIC constants that support the SAF operations see <<_SAFmoverview, SAF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_safm_overview, SAF Memory Overview>>
 
 
 {empty} +
@@ -170,4 +170,23 @@ If example 3 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 ----
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_safm_overview,SAFM Overview>>,
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>
+{empty} +
+{empty} +
+See also
+<<_safm_overview,SAFM Overview>>,
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>

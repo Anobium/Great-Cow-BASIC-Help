@@ -38,7 +38,7 @@ This parameter  is not normally required as the default is set to the Great Cow 
     '... code preamble to select part
     '... code to setup serial
 
-    HSerPrintStringCRLF "SAFMWriteBlock - write string to Block 2"
+    HSerPrintStringCRLF "SAFWriteBlock - write string to Block 2"
 
     Dim HelloWorld as String
     HelloWorld="Hello GCB World!"
@@ -46,7 +46,7 @@ This parameter  is not normally required as the default is set to the Great Cow 
     'SAFwriteBlock operation!!
     SAFwriteBlock( 2 , HelloWorld , len(HelloWorld) )       'Hello string copied to row 2
 
-    'A utility method to show the contents of the SAFM.  See SAFMRead()
+    'A utility method to show the contents of the SAFM.  See SAFRead()
     SAFM_Dump
 
 ----
@@ -58,7 +58,7 @@ The result would show. Note the value display at the start of block 2 @ 0x3F80.
 ----
 
 
-    SAFMWriteBlock - write string to Block 2
+    SAFWriteBlock - write string to Block 2
 
             0     1     2     3     4     5     6     7
     3F00  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
@@ -100,4 +100,12 @@ The result would show. Note the value display at the start of block 2 @ 0x3F80.
 ----
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_safm_overview,SAFM Overview>>,
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>

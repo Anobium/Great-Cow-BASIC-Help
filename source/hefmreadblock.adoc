@@ -44,4 +44,13 @@ This parameter  is not normally required as the default is set to the Great Cow 
 
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_hefm_overview,HEFM Overview>>,
+<<_hefread,HEFRead>>,
+<<_hefreadword,HEFReadWord>>,
+<<_hefwrite,HEFWrite>>,
+<<_hefwriteword,HEFWriteWord>>,
+<<_hefreadblock,HEFReadBlock>>,
+<<_hefwriteblock,HEFWriteBlock>>,
+<<_heferaseblock,HEFEraseBlock>>
+

@@ -40,4 +40,12 @@ Erase a specific block of SAFM.
 
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_safm_overview,SAFM Overview>>,
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>

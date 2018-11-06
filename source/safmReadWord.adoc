@@ -1,15 +1,15 @@
 //erv 04110218
-==== SAFMReadWord
+==== SAFReadWord
 
 
 *Syntax:*
 [subs="quotes"]
 ----
     'as a subroutine
-    SAFMReadWord ( location, data_word_variable )
+    SAFReadWord ( location, data_word_variable )
 
     'as a function
-    data_word_variable = SAFMReadWord ( location )
+    data_word_variable = SAFReadWord ( location )
 ----
 *Command Availability:*
 
@@ -18,7 +18,7 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFMReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
+SAFReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
@@ -36,7 +36,7 @@ These methods will compute the row number and the offset in the row from the par
 This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page and reading the word value from the appropriate SAFM page.&#160;&#160;&#160;
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that support the SAF operations see <<_SAFmoverview, SAF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_safm_overview, SAF Memory Overview>>
 {empty} +
 {empty} +
 
@@ -93,4 +93,12 @@ If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_safm_overview,SAFM Overview>>,
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>

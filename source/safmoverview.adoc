@@ -39,7 +39,7 @@ The complexity of using SAF memory is reduced with the automatically handling of
 The library provides a set of methods to support use of SAF memory.
 {empty} +
 {empty} +
-[cols="2,^1,3",width="80%"]
+[cols="2,1,3",width="80%"]
 |===
 |Method
 |Parameters
@@ -104,7 +104,7 @@ These constants are used by the library.&#160;&#160;&#160;
 A user may use these public constants.
 {empty} +
 {empty} +
-[cols="2,^1,3",width="80%"]
+[cols="2,1,3",width="80%"]
 |===
 |Constant
 |Type
@@ -154,3 +154,14 @@ Whenever you update the hex file of your Microchip PIC micro-controller with you
 If you want to avoid that you will have to flash your Microchip PIC micro-controller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
 Enter Start and End address` of your SAFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve SAF memory during programming.
+
+{empty} +
+{empty} +
+See also
+<<_safread,SAFRead>>,
+<<_safreadword,SAFReadWord>>,
+<<_safwrite,SAFWrite>>,
+<<_safwriteword,SAFWriteWord>>,
+<<_safreadblock,SAFReadBlock>>,
+<<_safwriteblock,SAFWriteBlock>>,
+<<_saferaseblock,SAFEraseBlock>>

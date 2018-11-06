@@ -1,11 +1,11 @@
 //erv 04110218
-==== HEFMWrite
+==== HEFWrite
 
 
 *Syntax:*
 [subs="quotes"]
 ----
-    HEFMWrite ( location, data )
+    HEFWrite ( location, data )
 ----
 *Command Availability:*
 
@@ -14,7 +14,7 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFMWrite is used to write information, byte values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
+HEFWrite is used to write information, byte values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
 {empty} +
 {empty} +
 `location` represents the location to write to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
@@ -45,7 +45,7 @@ This method is similar to the methods for EEPROM.
 The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriate handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and writing the HEFM page.
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefmoverview, HEF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
 
 
 {empty} +
@@ -97,4 +97,13 @@ If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 ----
 {empty} +
 {empty} +
-See also <<lots of other stuff,lots of other stuff,>>
+See also
+<<_hefm_overview,HEFM Overview>>,
+<<_hefread,HEFRead>>,
+<<_hefreadword,HEFReadWord>>,
+<<_hefwrite,HEFWrite>>,
+<<_hefwriteword,HEFWriteWord>>,
+<<_hefreadblock,HEFReadBlock>>,
+<<_hefwriteblock,HEFWriteBlock>>,
+<<_heferaseblock,HEFEraseBlock>>
+
