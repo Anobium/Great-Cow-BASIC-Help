@@ -18,13 +18,13 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
+HEFReadWord is used to read information, word values, from the HEFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
 HEF_WORDS is Great Cow BASIC defined constant.
 {empty} +
-`data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
+`data` is the data that is to be read from the HEFM data storage.&#160;&#160;&#160;
 A word value.&#160;&#160;&#160;
 This must be a variable.
 {empty} +
@@ -102,4 +102,3 @@ See also
 <<_hefreadblock,HEFReadBlock>>,
 <<_hefwriteblock,HEFWriteBlock>>,
 <<_heferaseblock,HEFEraseBlock>>
-

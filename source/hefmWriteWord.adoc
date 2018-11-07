@@ -14,13 +14,13 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFWriteWord is used to write information, word values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
+HEFWriteWord is used to write information, word values, to the HEFM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
 {empty} +
 {empty} +
 `location` represents the location to write to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
 HEF_WORDS is Great Cow BASIC defined constant.
 {empty} +
-`data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
+`data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
 {empty} +
 {empty} +
 This method writes information to the HEFM given the specific location in the HEFM data storage .
@@ -81,4 +81,3 @@ See also
 <<_hefreadblock,HEFReadBlock>>,
 <<_hefwriteblock,HEFWriteBlock>>,
 <<_heferaseblock,HEFEraseBlock>>
-

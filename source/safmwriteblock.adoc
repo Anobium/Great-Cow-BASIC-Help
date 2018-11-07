@@ -13,7 +13,7 @@ Available on all PIC micro-controllers with SAFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-SAFWriteBlock is used to write information from the buffer to the HFEM data storage.&#160;&#160;&#160;
+SAFWriteBlock is used to write information from the buffer to the SAFM data storage.&#160;&#160;&#160;
 Once the block is written  it can be accessed for use within a user program.
 {empty} +
 {empty} +

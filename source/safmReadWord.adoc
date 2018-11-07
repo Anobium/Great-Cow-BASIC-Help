@@ -18,13 +18,13 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFReadWord is used to read information, word values, from the HFEM data storage, so that it can be accessed for use in a user program.
+SAFReadWord is used to read information, word values, from the SAFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
 SAF_WORDS is Great Cow BASIC defined constant.
 {empty} +
-`data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
+`data` is the data that is to be read from the SAFM data storage.&#160;&#160;&#160;
 A word value.&#160;&#160;&#160;
 This must be a variable.
 {empty} +
@@ -36,7 +36,7 @@ These methods will compute the row number and the offset in the row from the par
 This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page and reading the word value from the appropriate SAFM page.&#160;&#160;&#160;
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_safm_overview, SAF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the SAF operations see <<_safm_overview, SAF Memory Overview>>
 {empty} +
 {empty} +
 

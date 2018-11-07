@@ -18,13 +18,13 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFRead is used to read information, byte values, from the HFEM data storage, so that it can be accessed for use in a user program.
+SAFRead is used to read information, byte values, from the SAFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location to read to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
 SAF_WORDS is Great Cow BASIC defined constant.
 {empty} +
-`data` is the data that is to be read from the HFEM data storage.&#160;&#160;&#160;
+`data` is the data that is to be read from the SAFM data storage.&#160;&#160;&#160;
 A byte value only.
 {empty} +
 {empty} +
@@ -60,7 +60,7 @@ This method appropriately handles the management of the SAFM data storage by cal
 ----
 
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_safm_overview, SAF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the SAF operations see <<_safm_overview, SAF Memory Overview>>
 
 
 {empty} +
@@ -179,4 +179,3 @@ See also
 <<_safreadblock,SAFReadBlock>>,
 <<_safwriteblock,SAFWriteBlock>>,
 <<_saferaseblock,SAFEraseBlock>>
-

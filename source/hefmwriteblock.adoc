@@ -13,7 +13,7 @@ Available on all PIC micro-controllers with HEFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-HEFWriteBlock is used to write information from the buffer to the HFEM data storage.&#160;&#160;&#160;
+HEFWriteBlock is used to write information from the buffer to the HEFM data storage.&#160;&#160;&#160;
 Once the block is written  it can be accessed for use within a user program.
 {empty} +
 {empty} +
@@ -109,4 +109,3 @@ See also
 <<_hefreadblock,HEFReadBlock>>,
 <<_hefwriteblock,HEFWriteBlock>>,
 <<_heferaseblock,HEFEraseBlock>>
-

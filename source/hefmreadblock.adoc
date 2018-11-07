@@ -13,7 +13,7 @@ Available on all PIC micro-controllers with HEFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-HEFReadBlock is used to read information from the HFEM data storage to the buffer.&#160;&#160;&#160;
+HEFReadBlock is used to read information from the HEFM data storage to the buffer.&#160;&#160;&#160;
 Once the buffer is populated it can be accessed for use within a user program.
 {empty} +
 {empty} +
@@ -53,4 +53,3 @@ See also
 <<_hefreadblock,HEFReadBlock>>,
 <<_hefwriteblock,HEFWriteBlock>>,
 <<_heferaseblock,HEFEraseBlock>>
-

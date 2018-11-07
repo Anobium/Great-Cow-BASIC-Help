@@ -13,7 +13,7 @@ Available on all PIC micro-controllers with SAFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-SAFReadBlock is used to read information from the HFEM data storage to the buffer.&#160;&#160;&#160;
+SAFReadBlock is used to read information from the SAFM data storage to the buffer.&#160;&#160;&#160;
 Once the buffer is populated it can be accessed for use within a user program.
 {empty} +
 {empty} +

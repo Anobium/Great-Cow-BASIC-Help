@@ -14,13 +14,13 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFWriteWord is used to write information, word values, to the HFEM data storage, so that it can be accessed later by a programmer on a Personal, or by the SAFRead commands.
+SAFWriteWord is used to write information, word values, to the SAFM data storage, so that it can be accessed later by a programmer on a Personal, or by the SAFRead commands.
 {empty} +
 {empty} +
 `location` represents the location to write to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
 SAF_WORDS is Great Cow BASIC defined constant.
 {empty} +
-`data` is the data that is to be written to the HFEM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
+`data` is the data that is to be written to the SAFM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
 {empty} +
 {empty} +
 This method writes information to the SAFM given the specific location in the SAFM data storage .
@@ -43,7 +43,7 @@ This method is similar to the methods for EEPROM but this method supports Word v
 The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant SAFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page, reading, updating and restoring the SAFM page.
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_safm_overview, SAF Memory Overview>>
+For more information on the Great Cow BASIC constants that support the SAF operations see <<_safm_overview, SAF Memory Overview>>
 
 
 {empty} +
