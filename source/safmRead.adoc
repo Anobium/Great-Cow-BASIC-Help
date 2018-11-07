@@ -179,14 +179,4 @@ See also
 <<_safreadblock,SAFReadBlock>>,
 <<_safwriteblock,SAFWriteBlock>>,
 <<_saferaseblock,SAFEraseBlock>>
-{empty} +
-{empty} +
-See also
-<<_safm_overview,SAFM Overview>>,
-<<_safread,SAFRead>>,
-<<_safreadword,SAFReadWord>>,
-<<_safwrite,SAFWrite>>,
-<<_safwriteword,SAFWriteWord>>,
-<<_safreadblock,SAFReadBlock>>,
-<<_safwriteblock,SAFWriteBlock>>,
-<<_saferaseblock,SAFEraseBlock>>
+
