@@ -41,7 +41,7 @@ The complexity of using HEF memory is reduced with the automatically handling of
 
 {empty} +
 {empty} +
-The `hefsaf.h` library provides a set of methods to support use of HEF memory.
+The `hefsaf.h` library provides a set of methods to support the use of HEF memory.
 {empty} +
 {empty} +
 [cols="2,1,3",width="80%"]
