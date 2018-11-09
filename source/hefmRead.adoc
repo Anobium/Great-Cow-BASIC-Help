@@ -95,7 +95,9 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 
     ; This subroutine displays the High Endurance Flash Memory on a terminal
     sub HEFM_Dump
-        
+       
+       BlockNum = 0
+       NVM_Address = HEF_START_ADDR 'Start of HEF/SAF 
        Repeat  HEF_WORDS     ;128
 
           If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
