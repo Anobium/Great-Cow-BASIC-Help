@@ -118,13 +118,14 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 
           Rel_Addr = (NVM_ADDRESS - HEF_START_ADDR)
 
+          'Read the Data!!
           HEFRead(Rel_addr, DataWord)
 
           hserprint hex(DataWord_H)
           hserprint hex(DataWord)
           hserprint "  "
 
-          NVM_Address++ ' Next "WORD" for 16F"
+          NVM_Address++ ' Next "WORD" for 16F
 
        End Repeat
        HSerPrintCRLF
