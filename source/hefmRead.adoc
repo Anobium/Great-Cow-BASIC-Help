@@ -78,10 +78,9 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     '... code preamble to select part
     '... code to setup serial
 
-    Dim Rel_Addr, BlockNum, DataByte as Byte
-    Dim ii, TmpWord, DataWord as Word
-    DIM TMP_LONG as LONG
-    Dim NVM_Address as Long
+    Dim Rel_Address, DataByte,Index as Byte
+    Dim NVM_Address as Long  ' Absolute Address
+    Dim DataWord as Word
     
    'Write some data to HEFM 
     HEFWrite (0, 34)
@@ -92,7 +91,6 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     
     'Call the HEFM_Dump subroutine to read and show the data.
     HEFM_Dump
- 
     End
 
     ; This subroutine displays the High Endurance Flash Memory on a terminal
