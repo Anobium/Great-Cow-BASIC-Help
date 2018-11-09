@@ -2,7 +2,7 @@
 
 *Introduction:*
 
-Some enhanced mid-range Microchip PIC devices support High-Endurance Flash (HEF) memory, some of these devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
+Some enhanced mid-range Microchip PIC devices support High-Endurance Flash (HEF) memory. These devices lack the data EEPROM found on other devices.&#160;&#160;&#160;
 Instead, they implement an equivalent amount of special flash memory, called HEF memory, that can provide an endurance comparable to that of a traditional data EEPROM.&#160;&#160;&#160;
 HEF memory can be erased and written 100,000 times.&#160;&#160;&#160;
 HEF memory appears in the regular program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160;
