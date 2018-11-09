@@ -78,8 +78,8 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     '... code preamble to select part
     '... code to setup serial
 
-    Dim Rel_Address, DataByte,Index as Byte
-    Dim NVM_Address as Long  ' Absolute Address
+    Dim Rel_Address, DataByte, Index as Byte
+    Dim NVM_Address as Long    ;Absolute Address
     Dim DataWord as Word
     
    'Write some data to HEFM 
@@ -97,7 +97,7 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     sub HEFM_Dump
        
        BlockNum = 0
-       NVM_Address = HEF_START_ADDR 'Start of HEF/SAF 
+       NVM_Address = HEF_START_ADDR   ;Start of HEF/SAF 
        Repeat  HEF_WORDS     ;128
 
           If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
