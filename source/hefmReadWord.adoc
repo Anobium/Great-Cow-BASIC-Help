@@ -21,25 +21,16 @@ Available on all PIC micro-controllers with HEFM memory
 HEFReadWord is used to read information, word values, from the HEFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
-`location` represents the location to read to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
-HEF_WORDS is Great Cow BASIC defined constant.
+`location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
 {empty} +
 `data` is the data that is to be read from the HEFM data storage.&#160;&#160;&#160;
 A word value.&#160;&#160;&#160;
-This must be a variable.
+This must be a word variable.
 {empty} +
 {empty} +
-This method reads information to the HEFM given its relative location in the HEFM data storage.&#160;&#160;&#160;
+This method reads data from HEFM given the specific relative location.&#160;&#160;&#160;
 {empty} +
 {empty} +
-These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page and reading the word value from the appropriate HEFM page.&#160;&#160;&#160;
-{empty} +
-{empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
-{empty} +
-{empty} +
-
 *Example 1:*
 ----
     '... code preamble to select part
@@ -48,7 +39,6 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values.
 
     dim data_word_variable as word
-    HEFWriteWord(  64, 0x1234 )
     HEFWriteWord( 254, 4660 )
 
     HEFReadWord( 254, data_word_variable )
@@ -71,10 +61,9 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the HEFM value into the word variable “data_word_variable” by initially writing some word values using a function.
+    'The following example uses a function to read the HEFM value into the word variable “data_word_variable”.
 
     dim data_word_variable as word
-    HEFWriteWord(  64, 0x4321 )
     HEFWriteWord( 254, 17185 )
 
     data_word_variable = HEFReadWord( 254 )
