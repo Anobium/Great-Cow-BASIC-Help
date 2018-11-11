@@ -21,15 +21,15 @@ Available on all PIC micro-controllers with HEFM memory
 HEFRead is used to read information, byte values, from the HEFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
-`location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a GCB constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
+`location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
 {empty} +
 {empty} +
 `data` is the data that is to be read from the HEFM data storage area.&#160;&#160;&#160;
 A byte value only.
 {empty} +
 {empty} +
-This method reads data from the HEFM given the specific location the HEFM data storage.&#160;&#160;&#160;
-This method is similar to the methods for EEPROM.
+This method reads data from the HEFM given the specific location in HEFM.&#160;&#160;&#160;
+This method is similar to the EPRead method for EEPROM.
 {empty} +
 {empty} +
 
@@ -40,7 +40,8 @@ This method is similar to the methods for EEPROM.
 
     'The following example reads the HEM value at location 34 into the byte variable “byte_value”.
     'HEFM byte information is located a position 34.
-    HEFread( 34, byte_value )
+
+     HEFread( 34, byte_value )
 ----
 
 {empty} +
@@ -56,30 +57,24 @@ This method appropriately handles the management of the HEFM data storage by cal
 
     'The following example reads the HEM value into the byte variable “byte_value” using a function.
     'HEFM byte information is located a position 34.
-    byte_value = HEFread( 34 )
+    
+     byte_value = HEFread( 34 )
 ----
 
 {empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
 
-
 {empty} +
-
-
-
-
-
 
 *Example 3:*
 ----
 
-
     '... code preamble to select part
     '... code to setup serial
 
-    Dim Rel_Address, DataByte, Index as Byte
-    Dim NVM_Address as Long    ;Absolute Address
-    Dim DataWord as Word
+   Dim Rel_Address,DataByte, Index as Byte
+   Dim NVM_Address as Long  ' Absolute Address
+   Dim  DataWord, as Word
     
    'Write some data to HEFM 
     HEFWrite (0, 34)
@@ -92,43 +87,46 @@ For more information on the Great Cow BASIC constants that support the HEF opera
     HEFM_Dump
     End
 
-    ; This subroutine displays the High Endurance Flash Memory on a terminal
-    sub HEFM_Dump
-       
-       BlockNum = 0
-       NVM_Address = HEF_START_ADDR   ;Start of HEF/SAF 
-       Repeat  HEF_WORDS     ;128
+; This subroutine displays the High Endurance Flash Memory on a terminal
+; Words in reverse byte order relative to address
+; HEF data resides in the low byte of each  14bit program memory word
+; The high byte is not HEF and should read "3F". 
+sub HEFM_Dump
 
-          If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
-             If BlockNum > 0 then   HSERPRINTCRLF
-             HSerprintCRLF
-             HserPrint "Block"
-             HSerprint BlockNum
-             HSerprint "     0     1     2     3     4     5     6     7"
-             BlockNum++
-          End if
+    Dim Blocknum as Byte
+    NVM_Address  = HEF_START_ADDR
+    BlockNum = 0
 
-          IF NVM_Address  % 8 = 0 then
-             HSerPrintCRLF
-             hserprint hex(NVM_Address_H)
-            hserprint hex(NVM_ADDRESS)
-            hserprint "     "
-          End if
+    Repeat  HEF_WORDS  ;128
 
-          Rel_Addr = (NVM_ADDRESS - HEF_START_ADDR)
+        If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
+            If BlockNum > 0 then   HSERPRINTCRLF
+           HSerprintCRLF
+           HserPrint "Block"
+           HSerprint BlockNum
+           HSerprint "     0     1     2     3     4     5     6     7"
+           BlockNum++
+        End if
 
-          'Read the Data!!
-          HEFRead(Rel_addr, DataWord)
+        IF NVM_Address  % 8 = 0 then
+           HSerPrintCRLF
+           hserprint hex(NVM_Address_H)
+           hserprint hex(NVM_ADDRESS)
+           hserprint "     "
+        end if
 
-          hserprint hex(DataWord_H)
-          hserprint hex(DataWord)
-          hserprint "  "
+        Rel_Address = (NVM_ADDRESS - HEF_START_ADDR)
+        HEFRead(Rel_Address, DataWord)
 
-          NVM_Address++ ' Next "WORD" for 16F
+        hserprint hex(DataWord_H)
+        hserprint hex(DataWord)
+        hserprint "  "
 
-       End Repeat
-       HSerPrintCRLF
-    End Sub
+        NVM_Address++  'Next "WORD" for 16F"
+    End Repeat
+ HserPrintCRLF
+
+End sub
 
 ----
 {empty} +
@@ -161,8 +159,6 @@ Block3     0     1     2     3     4     5     6     7
 3FE8     3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  
 3FF0     3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  
 3FF8     3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  
-
-
 
 ----
 {empty} +
