@@ -21,9 +21,8 @@ Available on all PIC micro-controllers with HEFM memory
 HEFRead is used to read information, byte values, from the HEFM data storage, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
-`location` represents the location or relative address to read.  The location will range from location 0 to HEF_WORDS - 1 or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes or HEF Memory. &#160;&#160;&#160;
+`location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a GCB constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
 {empty} +
-HEF_WORDS is Great Cow BASIC defined constant.
 {empty} +
 `data` is the data that is to be read from the HEFM data storage area.&#160;&#160;&#160;
 A byte value only.
