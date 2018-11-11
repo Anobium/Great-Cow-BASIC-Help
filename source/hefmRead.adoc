@@ -77,10 +77,10 @@ This method is similar to the EPRead method for EEPROM.
     HEFM_Dump
     End
 
-  ; This subroutine displays the High Endurance Flash Memory on a terminal
-  ; Words in reverse byte order relative to address
-  ; HEF data resides in the low byte of each  14bit program memory word
-  ; The high byte is not HEF and should read "3F".
+  ; This subroutine displays the High Endurance Flash Memory on a terminal.
+  ; Words are in reverse byte order relative to address.
+  ; HEF data resides in the low byte of each  14bit program memory word.
+  ; The high byte is not HEF and should always read "3F".
 
   Sub HEFM_Dump
 
@@ -88,7 +88,7 @@ This method is similar to the EPRead method for EEPROM.
       NVM_Address  = HEF_START_ADDR
       BlockNum = 0
 
-      Repeat  HEF_BYTES  ;128
+      Repeat  HEF_BYTES    '128
 
          If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
              If BlockNum > 0 then   HSERPRINTCRLF
@@ -113,8 +113,8 @@ This method is similar to the EPRead method for EEPROM.
          hserprint hex(DataWord)
          hserprint "  "
 
-         NVM_Address++  'Next "WORD" for 16F"
-      End Repeat
+         NVM_Address++ 
+    End Repeat
     HserPrintCRLF
 End sub
 ----
