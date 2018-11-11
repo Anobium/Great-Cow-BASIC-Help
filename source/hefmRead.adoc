@@ -44,10 +44,6 @@ This method is similar to the EPRead method for EEPROM.
 ----
 {empty} +
 {empty} +
-These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEF_ROWSIZE_WORDS.&#160;&#160;&#160;
-This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM row/block and reading the byte from the appropriate HEFM row/block.
-{empty} +
-{empty} +
 *Example 2:*
 ----
     '... code preamble to select part
@@ -59,7 +55,6 @@ This method appropriately handles the management of the HEFM data storage by cal
      byte_value = HEFread( 34 )
 ----
 {empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
 {empty} +
 *Example 3:*
 ----
