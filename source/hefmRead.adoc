@@ -43,29 +43,24 @@ This method is similar to the EPRead method for EEPROM.
 
      HEFread( 34, byte_value )
 ----
-
+{empty} +
 {empty} +
 These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEF_ROWSIZE_WORDS.&#160;&#160;&#160;
 This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM row/block and reading the byte from the appropriate HEFM row/block.
-{empty} +
 {empty} +
 *Example 2:*
 ----
     '... code preamble to select part
     '... code to setup serial
 
-
     'The following example reads the HEM value into the byte variable “byte_value” using a function.
     'HEFM byte information is located a position 34.
     
      byte_value = HEFread( 34 )
 ----
-
 {empty} +
 For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
-
 {empty} +
-
 *Example 3:*
 ----
 
@@ -90,14 +85,15 @@ For more information on the Great Cow BASIC constants that support the HEF opera
 ; This subroutine displays the High Endurance Flash Memory on a terminal
 ; Words in reverse byte order relative to address
 ; HEF data resides in the low byte of each  14bit program memory word
-; The high byte is not HEF and should read "3F". 
-sub HEFM_Dump
+; The high byte is not HEF and should read "3F".
+
+Sub HEFM_Dump
 
     Dim Blocknum as Byte
     NVM_Address  = HEF_START_ADDR
     BlockNum = 0
 
-    Repeat  HEF_WORDS  ;128
+    Repeat  HEF_BYTES  ;128
 
         If NVM_Address % HEF_ROWSIZE_BYTES = 0 then
             If BlockNum > 0 then   HSERPRINTCRLF
@@ -127,14 +123,13 @@ sub HEFM_Dump
  HserPrintCRLF
 
 End sub
-
 ----
 {empty} +
 {empty} +
 If example 3 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
-    Show HEFM
+Show HEFM
    
 Block0     0     1     2     3     4     5     6     7
 3F80     3F22  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  3FFF  
