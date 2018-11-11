@@ -18,7 +18,7 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFRead is used to read information, byte values, from the HEFM data storage, so that it can be accessed for use in a user program.
+HEFRead is used to read information, byte values, from HEFM, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
@@ -28,7 +28,7 @@ HEFRead is used to read information, byte values, from the HEFM data storage, so
 A byte value only.
 {empty} +
 {empty} +
-This method reads data from the HEFM given the specific location in HEFM.&#160;&#160;&#160;
+This method reads data from HEFM given the specific relative location.&#160;&#160;&#160;
 This method is similar to the EPRead method for EEPROM.
 {empty} +
 {empty} +
@@ -37,8 +37,8 @@ This method is similar to the EPRead method for EEPROM.
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the HEM value at location 34 into the byte variable “byte_value”.
-    'HEFM byte information is located a position 34.
+    'The following example reads the data at HEFM location 34 into the byte variable “byte_value”.
+    'HEFM byte information is in HEFM location 34.
 
      HEFread( 34, byte_value )
 ----
@@ -49,8 +49,8 @@ This method is similar to the EPRead method for EEPROM.
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the HEM value into the byte variable “byte_value” using a function.
-    'HEFM byte information is located a position 34.
+    'The following example reads the data at HEFM location 34 into the byte variable “byte_value” using a function.
+    'HEFM byte information is in HEFM location 34.
     
      byte_value = HEFread( 34 )
 ----
