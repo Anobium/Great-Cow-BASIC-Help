@@ -24,8 +24,7 @@ HEFReadWord is used to read information, word values, from the HEFM data storage
 `location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
 {empty} +
 `data` is the data that is to be read from the HEFM data storage.&#160;&#160;&#160;
-A word value.&#160;&#160;&#160;
-This must be a word variable.
+This must be a word variable.&#160;&#160;&#160;
 {empty} +
 {empty} +
 This method reads data from HEFM given the specific relative location.&#160;&#160;&#160;
@@ -49,7 +48,7 @@ This method reads data from HEFM given the specific relative location.&#160;&#16
 
 ----
 {empty} +
-If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 1 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Value = 4660
@@ -74,7 +73,7 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 
 ----
 {empty} +
-If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Value = 17185
