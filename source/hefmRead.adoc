@@ -31,6 +31,7 @@ A byte value only.
 This method reads data from the HEFM given the specific location in HEFM.&#160;&#160;&#160;
 This method is similar to the EPRead method for EEPROM.
 {empty} +
+{empty} +
 *Example 1:*
 ----
     '... code preamble to select part
@@ -119,14 +120,13 @@ Sub HEFM_Dump
 
         NVM_Address++  'Next "WORD" for 16F"
     End Repeat
- HserPrintCRLF
-
+    HserPrintCRLF
 End sub
 ----
 {empty} +
 {empty} +
 If example 3 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
-
+{empty} +
 ----
 Show HEFM
    
