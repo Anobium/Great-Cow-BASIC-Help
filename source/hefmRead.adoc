@@ -25,7 +25,7 @@ HEFRead is used to read information, byte values, from HEFM, so that it can be a
 {empty} +
 {empty} +
 `data` is the data that is to be read from the HEFM data storage area.&#160;&#160;&#160;
-This must be a byte value.
+This can be a byte value or a byte variable.
 {empty} +
 {empty} +
 This method reads data from HEFM given the specific relative location.&#160;&#160;&#160;
