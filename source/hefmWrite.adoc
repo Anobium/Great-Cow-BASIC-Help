@@ -59,8 +59,13 @@ This method is similar to the EPWrite method for EEPROM.
     
     End
     
-  Sub HEFM_Dump
-
+  ; This subroutine displays the High Endurance Flash Memory on a terminal.
+  ; Words are in reverse byte order relative to address.
+  ; HEF data resides in the low byte of each 14bit program memory word.
+  ; The high byte is not HEF and should always read "3F".
+  
+  Sub HEFM_DUMP
+    
     Dim Blocknum as Byte
     NVM_Address  = HEF_START_ADDR
     BlockNum = 0
