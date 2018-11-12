@@ -4,7 +4,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    HEFReadBlock ( block_number,  buffer(), [, HEF_ROWSIZE_BYTES] )
+    HEFWriteBlock ( block_number,  buffer(), [, num_bytes] )
 ----
 *Command Availability:*
 
@@ -13,22 +13,27 @@ Available on all PIC micro-controllers with HEFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-HEFReadBlock is used to read information from the HEFM data storage to the buffer.&#160;&#160;&#160;
+HEFReadBlock is used to read information from the HEFM data storage into the buffer.&#160;&#160;&#160;
 Once the buffer is populated it can be accessed for use within a user program.
 {empty} +
 {empty} +
 The parameters are as follows:
-
+{empty} +
+{empty} +
 `block_number` represents the block to be written to.&#160;&#160;&#160;
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
-
-`buffer()` represents any valid array or string.&#160;&#160;&#160;
-The `buffer()` will be used as the data target for the block read operation.&#160;&#160;&#160;
-The  `buffer()`, an array or string, is handled as a buffer of bytes values.&#160;&#160;&#160;
-HEFReadBlock operation will treat as a buffer as a serial of bytes and the user program must handle the use of the buffer as Byte, Word or String values as appropriate.
-
-`HEF_ROWSIZE_BYTES`, an optional parameter, is used to specify the row size to be used during the write operation.&#160;&#160;&#160;
-This parameter  is not normally required as the default is set to the Great Cow BASIC constant `HEF_ROWSIZE_BYTES`.
+{empty} +
+{empty} +
+`buffer()` represents an array or string.&#160;&#160;&#160;
+The buffer will be used as the data target for the block read operation.&#160;&#160;&#160;
+The  buffer is handled as a buffer of bytes values.&#160;&#160;&#160;
+In most cases the buffer should be the same size as a row/block of HEFM.&#160;&#160;&#160;
+For most PIC Microcontrollers this will be 32 bytes.&#160;&#160;&#160;
+For PIC microcontrollers with 2KW or less of Flash Program Memory this will be 16 Bytes.&#160;&#160;&#160;
+Once data is read into the buffer from HEFM, the user program must handle the data as Byte, Word or String values, as appropriate.
+{empty} +
+{empty} +
+num_bytes` is an optional parameter, and can be used to specify numeber of bytes to read from HEFM, starting at the first location in the selected HEFM block.&#160;&#160;&#160;
 {empty} +
 {empty} +
 
@@ -37,11 +42,25 @@ This parameter  is not normally required as the default is set to the Great Cow 
     '... code preamble to select part
     '... code to setup serial
 
-
-     ; Save data previously stored data from block 2 into a buffer
-     HEFReadBlock( 2 , buffer() )
+     ;Write some data to HEF Block 2
+      Dim My_Buffer(HEF_ROWSIZE_BYTES)
+      Dim index as byte 
+      
+      ;Write some data to Block 2
+      My_Buffer = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+      HEFWriteBlock(2, My_Buffer())
+      
+      ;Read the data back from HEFM using HEFReadBock
+      HEFReadBlock( 2 , My_buffer() )
+     
+     ;Send the data to a terminal in decimal format
+      index = 1  
+      Repeat(HEF_ROWSIZE_BYTES)  
+          Hserprint(My_Buffer(index)
+          Hsersend " "  
+     End Repeat
+     
 ----
-
 {empty} +
 {empty} +
 See also
