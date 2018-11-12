@@ -14,10 +14,10 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFWrite is used to write information, byte values, to HEFM so that it can be accessed later for use in a user program. 
+SAFWrite is used to write information, byte values, to SAFM so that it can be accessed later for use in a user program. 
 {empty} +
 {empty} +
-`location` represents the location or relative address to write. The location will range from location 0 to SAF_BYTES - 1, or for all practical purposes 0-255 since all PIC Microcontrollers with HEF support 256 bytes of SAF Memory.&#160;&#160;&#160;
+`location` represents the location or relative address to write. The location will range from location 0 to SAF_BYTES - 1, or for all practical purposes 0-255 since all PIC Microcontrollers with SAFM support 256 bytes of SAF Memory.&#160;&#160;&#160;
 HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of SAF Memory.    
 {empty} +
 {empty} +
@@ -43,7 +43,7 @@ This method is similar to the EPWrite method for EEPROM.
 *Example 2:*
 ----
     #chip 18F24K42, 16
-     '... code to setup PPS
+    '... code to setup PPS
     '... code to setup serial
 
     'This example will populate the 256 bytes of SAF memory with a value that is same as the SAFM location
