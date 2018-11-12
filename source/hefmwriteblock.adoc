@@ -4,7 +4,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    HEFWriteBlock ( block_number,  buffer(), [, HEF_ROWSIZE_BYTES] )
+    HEFWriteBlock ( block_number,  buffer(), [, NumberOfBytes] )
 ----
 *Command Availability:*
 
@@ -13,22 +13,21 @@ Available on all PIC micro-controllers with HEFM memory.
 *Explanation:*
 {empty} +
 {empty} +
-HEFWriteBlock is used to write information from the buffer to the HEFM data storage.&#160;&#160;&#160;
+HEFWriteBlock is used to write information from a user buffer to HEFM.&#160;&#160;&#160;
 Once the block is written  it can be accessed for use within a user program.
 {empty} +
 {empty} +
 The parameters are as follows:
-
+{empty} +
 `block_number` represents the block to be written to.&#160;&#160;&#160;
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
-
+{empty} +
 `buffer()` represents any valid array or string.&#160;&#160;&#160;
-The `buffer()` will be used as the data source that is written to.&#160;&#160;&#160;
+The `buffer()` will be used as the data source that is written to the HEFM block .&#160;&#160;&#160;
 The  `buffer()`, an array or string, is handled as a buffer of bytes values.&#160;&#160;&#160;
-You can use Word values or Byte value to populate the array (or string) but the HEFWriteBlock operation will treat as a buffer of bytes.&#160;&#160;&#160;
-The `buffer()` cannot exceed the device specific HEF_ROWSIZE_BYTES.&#160;&#160;&#160;If the `buffer()` exceeds the device specific HEF_ROWSIZE_BYTES the excess data will not be handled and the buffer will be truncated at the HEF_ROWSIZE_BYTES limit.
-
-`HEF_ROWSIZE_BYTES`, an optional parameter, is used to specify the row size to be used during the write operation.&#160;&#160;&#160;
+The `buffer()` should be the same size as a row/block of HEFM.  For most PIC Microcontrollers this will be 32 bytes. For PIC microcontrollers with 2KW or less of Program Memory this will be 16 Bytes. Best practice is to size the buffer using the HEF_ROWSIZE_BYTES constant. If the size of the `buffer()` exceeds the device specific HEF_ROWSIZE_BYTES, the excess data will not be handled and the buffer will be truncated at the HEF_ROWSIZE_BYTES limit.&#160;&#160;&#160;
+{empty} +
+NumberOfBytes`, an optional parameter, is used to specify numeber of bytes to write, starting at the first location in the HEFM block. &#160;&#160;&#160;
 This parameter  is not normally required as the default is set to the Great Cow BASIC constant `HEF_ROWSIZE_BYTES`.
 {empty} +
 {empty} +
