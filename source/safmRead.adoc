@@ -40,6 +40,8 @@ This method is similar to the EPRead method for EEPROM.
 
     'The following example reads the SAFM data value into the byte variable “byte_value” using a subroutine.
     
+    Dim data_byte as byte
+    
     ;Write a byte of data to SAF Location 34
     SAFWrite( 34, 144)
     
@@ -60,6 +62,8 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup PPS
 
     'The following example reads the SAFM data value into the byte variable “byte_value” using a function.
+    
+    Dim data_byte as byte
     
     ;Write a byte of Data to SAF Location 34
     SAFWrite( 34, 144)
