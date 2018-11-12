@@ -56,7 +56,7 @@ This parameter is not normally required as the default is set to the Great Cow B
 For HEFM_Dump code, see <<_hefread,HEFRead>>
 {empty} +
 {empty} +
-If example 1 were displayed on a serial terminal.&#160;&#160;&#160;
+If example 1 were displayed on a serial terminal using HEFM_Dump.&#160;&#160;&#160;
 The result would show. Note the value display at the start of block 2 @ 0x3F80.
 ----
 Block0     0     1     2     3     4     5     6     7
