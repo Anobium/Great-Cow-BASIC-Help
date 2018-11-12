@@ -38,10 +38,18 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup serial
     '... code to setup PPS
 
-    'The following example reads the data at SAF location 34 into the byte variable “byte_value”.
-    'SAFM byte information is in SAF location 34.
+    'The following example reads the data at SAF location 34 into the byte variable “byte_value” using a subroutine.
+    
+    ;Write a byte of data to SAF Location 34
+    SAFWrite( 34, 144)
+    
+    ;Read the byte back from SAF location 34   
+    byte_value = SAFread( 34 )
+    
+    ;Display the data on a terminal
+    HserPrint "byte_value = "
+    Hserprint byte_value
 
-     SAFRead( 34, byte_value )
 ----
 {empty} +
 {empty} +
@@ -51,101 +59,17 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup serial
     '... code to setup PPS
 
-
     'The following example reads the HEM value into the byte variable “byte_value” using a function.
-    'SAFM byte information is located a position 34.
-    byte_value = SAFread( 34 )
-----
-{empty} +
-{empty} +
-*Example 3:*
-----
-
-    '... code preamble to select part
-    '... code to setup serial
-    '... code to setup PPS
-
-    Dim Rel_Address,DataByte, Index as Byte
-    Dim NVM_Address as Long  ' Absolute Address
-    Dim  DataWord, as Word
-    Dim MyBuffer(SAF_ROWSIZE_BYTES)
     
-    HSerPrintCRLF
-    HSerPrint "Show SAFM"
-    'Call the SAFM_Dump subroutine to read and show the data.
-    SAFM_Dump
-    End
-
-   ; This subroutine displays the Storage Area Memory of PIC 18F24K42 on a terminal.
-   ; Words are in reverse byte order relative to address.
-       
-    sub SAFM_Dump
-
-    Dim Blocknum as Byte
-    NVM_Address  = SAF_START_ADDR
-    BlockNum = 0
-
-    Repeat SAF_BYTE_WORDS    
-        If NVM_Address % SAF_ROWSIZE_BYTES = 0 then
-           If BlockNum > 0 then   HSERPRINTCRLF
-           HSerprintCRLF
-
-           HserPrint "Block"
-           HSerprint BlockNum
-           HSerprint "  1 0   3 2   5 4   7 6   9 8   B A   D C   F E"
-           BlockNum++
-        End if
-
-        IF NVM_Address  % 16 = 0 then
-           HSerPrintCRLF
-           hserprint hex(NVM_Address_H)
-           hserprint hex(NVM_Address)
-           hserprint "    "
-        end if
-
-        Rel_Address = NVM_ADDRESS - SAF_START_ADDR
-        SAFReadWord(Rel_Address,DataWord)
-
-        hserprint hex(DataWord_H)
-        hserprint hex(DataWord)
-        hserprint "  "
-
-        NVM_Address+=2 ' Next "WORD"
-    End Repeat
-
- HserPrintCRLF
-
-End sub
-----
-{empty} +
-{empty} +
-If example 3 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
-
-----
-    Show SAFM
-Block0  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F00    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F10    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F20    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F30    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-
-Block1  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F40    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F50    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F60    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F70    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-
-Block2  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F80    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F90    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FA0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FB0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-
-Block3  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7FC0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FD0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FE0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FF0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+    ;Write a byte of Data to SAF Location 34
+    SAFWrite( 34, 144)
+    
+    ;Read the byte back from SAF location 34   
+    byte_value = SAFread( 34 )
+    
+    ;Display the data on a terminal
+    HserPrint "byte_value = "
+    Hserprint byte_value
 ----
 {empty} +
 {empty} +
