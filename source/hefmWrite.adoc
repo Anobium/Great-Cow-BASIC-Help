@@ -17,7 +17,7 @@ Available on all PIC micro-controllers with HEFM memory
 HEFWrite is used to write information, byte values, to HEFM, so that it can be accessed later for use in a user program. 
 {empty} +
 {empty} +
-`location` represents the location or relative address to read. The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.    
+`location` represents the location or relative address to write. The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.    
 {empty} +
 {empty} +
 `data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;
