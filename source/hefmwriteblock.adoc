@@ -33,7 +33,7 @@ Best practice is to size the buffer using the HEF_ROWSIZE_BYTES constant.&#160;&
 If the size of the buffer exceeds the device specific HEF_ROWSIZE_BYTES, the excess data will not be handled and the buffer will be truncated at the HEF_ROWSIZE_BYTES limit.&#160;&#160;&#160;
 {empty} +
 {empty} +
-'Num_Bytes`, an optional parameter, is used to specify numeber of bytes to write to HEFM, starting at the first location in the selected HEFM block. &#160;&#160;&#160;
+'num_bytes` is an optional parameter, and can be used to specify numeber of bytes to write to HEFM, starting at the first location in the selected HEFM block. &#160;&#160;&#160;
 This parameter is not normally required as the default is set to the Great Cow BASIC constant `HEF_ROWSIZE_BYTES`.
 {empty} +
 {empty} +
