@@ -33,7 +33,7 @@ For PIC microcontrollers with 2KW or less of Flash Program Memory this will be 1
 Once data is read into the buffer from HEFM, the user program must handle the data as Byte, Word or String values, as appropriate.
 {empty} +
 {empty} +
-num_bytes` is an optional parameter, and can be used to specify numeber of bytes to read from HEFM, starting at the first location in the selected HEFM block.&#160;&#160;&#160;
+`num_bytes` is an optional parameter, and can be used to specify numeber of bytes to read from HEFM, starting at the first location in the selected HEFM block.&#160;&#160;&#160;
 {empty} +
 {empty} +
 
