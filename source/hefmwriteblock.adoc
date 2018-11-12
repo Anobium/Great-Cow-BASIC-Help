@@ -19,6 +19,7 @@ Once the block is written  it can be accessed for use within a user program.
 {empty} +
 The parameters are as follows:
 {empty} +
+{empty} +
 `block_number` represents the block to be written to.&#160;&#160;&#160;
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
 {empty} +
@@ -49,7 +50,7 @@ This parameter is not normally required as the default is set to the Great Cow B
     'HEFwriteBlock operation!!
     HEFwriteBlock(2, My_Buffer)
 
-    'A utility method to show the contents of the HEFM.  See HEFMRead()
+    'A utility method to show the contents of HEFM.  See <<_hefread,HEFRead>>
     HEFM_Dump
 ----
 
