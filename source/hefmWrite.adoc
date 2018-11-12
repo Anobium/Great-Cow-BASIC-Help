@@ -95,7 +95,7 @@ This method is similar to the EPWrite method for EEPROM.
         hserprint hex(DataWord)
         hserprint "  "
 
-        NVM_Address++  'Next "WORD" for 16F"
+        NVM_Address++ 
     End Repeat
     HserPrintCRLF
 End sub
