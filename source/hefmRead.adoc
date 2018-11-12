@@ -37,7 +37,7 @@ This method is similar to the EPRead method for EEPROM.
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the data at HEFM location 34 into the byte variable “byte_value”.
+    'The following example reads the data at HEFM location 34 into the byte variable “byte_value” using a subroutine.
     'HEFM byte information is in HEFM location 34.
 
      HEFread( 34, byte_value )
