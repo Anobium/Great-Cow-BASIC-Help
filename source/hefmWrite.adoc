@@ -34,9 +34,9 @@ This method is similar to the EPWrite method for EEPROM.
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example stores in the byte variable “value” the
-    'HEFM byte variable located a position 34 with the value of 126
-    HEFWrite(34,126 )
+    'The following example writes a byte value of 126 into HEFM location 34 
+    
+     HEFWrite( 34, 126 )
 ----
 {empty} +
 {empty} +
@@ -45,7 +45,7 @@ This method is similar to the EPWrite method for EEPROM.
     '... code preamble to select part
     '... code to setup serial
 
-    'This example will populate the 128 bytes of HEF memory with a value that is same as the HEFM location
+    'This example will populate all 128 bytes of HEF memory with a value that is same as the HEFM location
     
      Dim Rel_Address, DataByte as Byte
      Dim NVM_Address as Long  
