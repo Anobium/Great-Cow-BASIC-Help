@@ -18,155 +18,134 @@ Available on all PIC micro-controllers with SAFM memory
 *Explanation:*
 {empty} +
 {empty} +
-SAFRead is used to read information, byte values, from the SAFM data storage, so that it can be accessed for use in a user program.
+SAFRead is used to read information, byte values, from SAFM, so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
-`location` represents the location to read to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
-SAF_WORDS is Great Cow BASIC defined constant.
-{empty} +
-`data` is the data that is to be read from the SAFM data storage.&#160;&#160;&#160;
-A byte value only.
+`location` represents the location or relative address to read.  The location will range from location 0 to SAF_BYTES - 1. This cab be from 0-127 or 0-255m depending upon the specific device. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of SAF Memory.&#160;&#160;&#160;
 {empty} +
 {empty} +
-This method reads data from the SAFM given the specific location the SAFM data storage.&#160;&#160;&#160;
-This method is similar to the methods for EEPROM.
+`data` is the data that is to be read from the SAFM data storage area.&#160;&#160;&#160;
+This can be a byte value or a byte variable.
 {empty} +
 {empty} +
-
+This method reads data from SAFM given the specific relative location.&#160;&#160;&#160;
+This method is similar to the EPRead method for EEPROM.
+{empty} +
+{empty} +
 *Example 1:*
 ----
     '... code preamble to select part
     '... code to setup serial
+    '... code to setup PPS
 
-    'The following example reads the HEM value into the byte variable “byte_value”.
-    'SAFM byte information is located a position 34.
-    SAFread( 34, byte_value )
+    'The following example reads the data at SAF location 34 into the byte variable “byte_value”.
+    'SAFM byte information is in SAF location 34.
+
+     SAFRead( 34, byte_value )
 ----
-
-{empty} +
-These methods will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant SAFLASH_ROWSIZE.&#160;&#160;&#160;
-This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page and reading the byte from the appropriate SAFM page.
 {empty} +
 {empty} +
 *Example 2:*
 ----
     '... code preamble to select part
     '... code to setup serial
+    '... code to setup PPS
 
 
     'The following example reads the HEM value into the byte variable “byte_value” using a function.
     'SAFM byte information is located a position 34.
     byte_value = SAFread( 34 )
 ----
-
 {empty} +
-For more information on the Great Cow BASIC constants that support the SAF operations see <<_safm_overview, SAF Memory Overview>>
-
-
 {empty} +
-
-
-
-
-
-
 *Example 3:*
 ----
 
-
     '... code preamble to select part
     '... code to setup serial
+    '... code to setup PPS
 
-    Dim index, test1, test, row_h, MemLocation as Byte
-
+    Dim Rel_Address,DataByte, Index as Byte
+    Dim NVM_Address as Long  ' Absolute Address
+    Dim  DataWord, as Word
+    Dim MyBuffer(SAF_ROWSIZE_BYTES)
+    
     HSerPrintCRLF
     HSerPrint "Show SAFM"
     'Call the SAFM_Dump subroutine to read and show the data.
     SAFM_Dump
-
-
     End
 
-    ; This subroutine displays the High Endurance Flash Memory on a terminal
+   ; This subroutine displays the Storage Area Memory of PIC 18F24K42 on a terminal.
+   ; Words are in reverse byte order relative to address.
+       
     sub SAFM_Dump
-        dim MemLocationValue,row, index as word
 
-        for index = 0 to SAF_WORDS - 1
-          test=index%8
-          test1=index%SAF_ROWSIZE_BYTES
-          row=SAF_START_ADDR+index
-          if test1 = 0 then
-              HSerPrintCRLF
-              hserprint "        0"
-              hserprint "     1"
-              hserprint "     2"
-              hserprint "     3"
-              hserprint "     4"
-              hserprint "     5"
-              hserprint "     6"
-              hserprint "     7"
-          end if
-          if test = 0 then
-              HSerPrintCRLF
-              hserprint hex(row_h)
-              hserprint hex(row)
-              hserprint "  "
-          end if
+    Dim Blocknum as Byte
+    NVM_Address  = SAF_START_ADDR
+    BlockNum = 0
 
-          'READ THE VALUE!!
-          MemLocationValue = SAFRead(row)
+    Repeat SAF_BYTE_WORDS    
+        If NVM_Address % SAF_ROWSIZE_BYTES = 0 then
+           If BlockNum > 0 then   HSERPRINTCRLF
+           HSerprintCRLF
 
-          hserprint hex(MemLocationValue_H)
-          hserprint hex(MemLocationValue)
-          hserprint "  "
-        next
+           HserPrint "Block"
+           HSerprint BlockNum
+           HSerprint "  1 0   3 2   5 4   7 6   9 8   B A   D C   F E"
+           BlockNum++
+        End if
 
-        HSerPrintCRLF
-    end sub
+        IF NVM_Address  % 16 = 0 then
+           HSerPrintCRLF
+           hserprint hex(NVM_Address_H)
+           hserprint hex(NVM_Address)
+           hserprint "    "
+        end if
 
+        Rel_Address = NVM_ADDRESS - SAF_START_ADDR
+        SAFReadWord(Rel_Address,DataWord)
+
+        hserprint hex(DataWord_H)
+        hserprint hex(DataWord)
+        hserprint "  "
+
+        NVM_Address+=2 ' Next "WORD"
+    End Repeat
+
+ HserPrintCRLF
+
+End sub
 ----
 {empty} +
 {empty} +
-If example 3 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 3 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Show SAFM
-            0     1     2     3     4     5     6     7
-    3F00  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F08  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F10  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F18  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F20  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F28  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F30  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F38  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-            0     1     2     3     4     5     6     7
-    3F40  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F48  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F50  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F58  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F60  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F68  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F70  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F78  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-            0     1     2     3     4     5     6     7
-    3F80  0048  0065  006C  006C  006F  0020  0047  0043
-    3F88  0042  0020  0057  006F  0072  006C  0064  0021
-    3F90  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3F98  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FA0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FA8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FB0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FB8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-            0     1     2     3     4     5     6     7
-    3FC0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FC8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FD0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FD8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FE0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FE8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FF0  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
-    3FF8  00FF  00FF  00FF  00FF  00FF  00FF  00FF  00FF
+Block0  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
+7F00    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F10    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F20    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F30    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+
+Block1  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
+7F40    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F50    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F60    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F70    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+
+Block2  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
+7F80    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7F90    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7FA0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7FB0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+
+Block3  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
+7FC0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7FD0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7FE0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
+7FF0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
 ----
 {empty} +
 {empty} +
