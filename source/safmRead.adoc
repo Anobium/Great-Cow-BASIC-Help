@@ -38,7 +38,7 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup serial
     '... code to setup PPS
 
-    'The following example reads the data at SAF location 34 into the byte variable “byte_value” using a subroutine.
+    'The following example reads the SAFM data value into the byte variable “byte_value” using a subroutine.
     
     ;Write a byte of data to SAF Location 34
     SAFWrite( 34, 144)
@@ -59,7 +59,7 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup serial
     '... code to setup PPS
 
-    'The following example reads the HEM value into the byte variable “byte_value” using a function.
+    'The following example reads the SAFM data value into the byte variable “byte_value” using a function.
     
     ;Write a byte of Data to SAF Location 34
     SAFWrite( 34, 144)
