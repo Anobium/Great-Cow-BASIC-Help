@@ -42,8 +42,7 @@ This parameter is not normally required as the default is set to the Great Cow B
 ----
     '... code preamble to select part
     '... code to setup serial
-
-     ;Write some data to HEF Block 2
+    
       Dim My_Buffer(HEF_ROWSIZE_BYTES)
       Dim index as byte 
       
