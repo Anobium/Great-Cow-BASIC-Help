@@ -24,12 +24,12 @@ The parameters are as follows:
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
 {empty} +
 {empty} +
-`buffer()` represents any valid array or string.&#160;&#160;&#160;
+`buffer()` represents an array or string.&#160;&#160;&#160;
 The buffer will be used as the data source that is written to the HEFM block.&#160;&#160;&#160;
-The buffer, an array (or string), is handled as a buffer of bytes values.&#160;&#160;&#160;
-in most cases the buffer should be the same size as a row/block of HEFM.&#160;&#160;&#160;
+The buffer is handled as a buffer of bytes values.&#160;&#160;&#160;
+In most cases the buffer should be the same size as a row/block of HEFM.&#160;&#160;&#160;
 For most PIC Microcontrollers this will be 32 bytes.&#160;&#160;&#160;
-For PIC microcontrollers with 2KW or less of Program Memory this will be 16 Bytes.&#160;&#160;&#160;
+For PIC microcontrollers with 2KW or less of Flash Program Memory this will be 16 Bytes.&#160;&#160;&#160;
 Best practice is to size the buffer using the HEF_ROWSIZE_BYTES constant.&#160;&#160;&#160;
 If the size of the buffer exceeds the device specific HEF_ROWSIZE_BYTES, the excess data will not be handled and the buffer will be truncated at the HEF_ROWSIZE_BYTES limit.&#160;&#160;&#160;
 {empty} +
