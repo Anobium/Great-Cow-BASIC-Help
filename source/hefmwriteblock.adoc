@@ -53,8 +53,7 @@ This parameter is not normally required as the default is set to the Great Cow B
     'A utility method to show the contents of HEFM.
      HEFM_Dump
 ----
-{empty} +
-For HEFM_Dump Code, See <<_hefread,HEFRead>>
+For HEFM_Dump code, see <<_hefread,HEFRead>>
 {empty} +
 {empty} +
 If example 1 were displayed on a serial terminal.&#160;&#160;&#160;
