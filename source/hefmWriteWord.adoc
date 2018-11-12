@@ -14,13 +14,12 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFWriteWord is used to write information, word values, to the HEFM data storage, so that it can be accessed later by a programmer on a Personal, or by the HEFMRead commands.
+HEFWriteWord is used to write information, word values, to HEFM, so that it can be accessed in a user program via the HEFReadWord command.
 {empty} +
 {empty} +
-`location` represents the location to write to - the location will range from location 0 to HEF_WORDS - 1.&#160;&#160;&#160;
-HEF_WORDS is Great Cow BASIC defined constant.
+`location` presents the location or relative address to write read. A data Word requires 2 HEF Locations, therefore the location will range from 0 to 126 in steps of 2. 
 {empty} +
-`data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
+`data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;This can be a word value or a word variable.
 {empty} +
 {empty} +
 This method writes information to the HEFM given the specific location in the HEFM data storage .
@@ -33,38 +32,28 @@ This method is similar to the methods for EEPROM but this method supports Word v
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example stores in the word variable value
-    'HEFM located a position 34 with the value of 0x1234
-    HEFWrite( 0x1234, 34 )
+    'The following example stores a word value in HEFM location 0
+       
+    HEFWrite( 0, 0x1234)
 ----
 
 {empty} +
 {empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant HEFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriately handles the management of the HEFM data storage by calculating the correct HEFM page, reading, updating and restoring the HEFM page.
-{empty} +
-{empty} +
-For more information on the Great Cow BASIC constants that support the HEF operations see <<_hefm_overview, HEF Memory Overview>>
-
-
-{empty} +
-{empty} +
-
-
 *Example 2:*
 ----
     '... code preamble to select part
     '... code to setup serial
 
     'This example will write two word values to two specific locations.
-    HEFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x3F10
-    HEFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x3F12
+    HEFWriteWord (16, 0xAA01)   
+    HEFWriteWord (18, 0xBB02)  
 ----
 {empty} +
 {empty} +
-If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
+If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
 
 ----
-     Block 0     HEF/SAF Memory View
+    Block0  
     3F00   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     3F10   01 AA 02 BB -- -- -- -- -- -- -- -- -- -- -- --
     3F20   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
