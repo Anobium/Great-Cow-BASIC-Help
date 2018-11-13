@@ -78,7 +78,7 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
 
 ----
 {empty} +
-If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Value = 17185
