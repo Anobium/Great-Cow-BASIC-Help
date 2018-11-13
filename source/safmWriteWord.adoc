@@ -53,11 +53,11 @@ This method is similar to the methods for EEPROM but this method supports Word v
 If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
 
 ----
-  Block0  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-  7F00    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-  7F10    AA01  BB02  -- -- -- -- -- -- -- -- -- -- -- -- 
-  7F20    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-  7F30    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  Block0  
+  7F00    ----  ----  ----  ----  ----  ----  ----  ----
+  7F10    AA01  BB02  ----  ----  ----  ----  ----  ---- 
+  7F20    ----  ----  ----  ----  ----  ----  ----  ----
+  7F30    ----  ----  ----  ----  ----  ----  ----  ----
 ----
 {empty} +
 {empty} +
