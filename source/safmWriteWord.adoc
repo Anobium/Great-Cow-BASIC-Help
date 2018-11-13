@@ -17,7 +17,8 @@ Available on all PIC micro-controllers with SAFM memory
 SAFWriteWord is used to write information, word values, to the SAFM data storage, so that it can be accessed later by a programmer on a Personal, or by the SAFRead commands.
 {empty} +
 {empty} +
-`location` presents the location or relative address to write. A data Word requires 2 SAF Locations, therefore the location will range from 0 to 254 in steps of 2. 
+`location` presents the location or relative address to write. The location will range from 0 to SAF_BYTES -1.&#160;&#160;&#160; 
+Each data Word requires 2 SAF Locations, therefore the location will range from either 0 to 254 or 0 to 126 (in steps of 2),  depending upon the device. 
 {empty} +
 {empty} +
 `data` is the data that is to be written to the SAFM location.&#160;&#160;&#160;This can be a word value or a word variable.
