@@ -6,6 +6,7 @@ Some Advanced (18F) and some Enhanced Mid-Range (16F) Microchip PIC devices supp
 SAF memory is not High Endurance, meaning it does not have an endurance of 100K write cyces.&#160;&#160;&#160;
 SAF has the same endurance as regular flash memmory, usually specified as 10K write cycles.&#160;&#160;&#160;
 {empty} +
+{empty} +
 SAF memory appears in the regular at the top of program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160; 
 Storage Area Flash is intended to be used to store data, such a device calibration data, RF device register setting, adn oter data tha cne be read frequently.&#160;&#160;&#160; It is not intended to be written frequently like EEPROM. If non-volatile memory need to be written frequenyly, it is best to use EEPROM on these devices.     
 {empty} +
