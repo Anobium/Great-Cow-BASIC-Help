@@ -7,8 +7,8 @@ SAF memory is not High Endurance, meaning it does not have an endurance of 100K 
 SAF has the same endurance as regular flash memmory, usually specified as 10K write cycles.&#160;&#160;&#160;
 {empty} +
 {empty} +
-SAF memory appears in the regular at the top of program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160; 
-Storage Area Flash is intended to be used to store data, such a device calibration data, RF device register settings, and oter data tha cae be read as frequently as becessary.&#160;&#160;&#160; It is not intended to be written frequently like EEPROM. If non-volatile memory need to be written frequenly, it is best to use the EEPROM on these devices.     
+SAF memory appears at the top of program memory space and can be used for any purpose, like regular flash program memory.&#160;&#160;&#160; 
+Storage Area Flash is intended to be used to store data, such a device calibration data, RF device register settings, and other data. SAFEM can be Read as frequently as necessary.&#160;&#160;&#160; However,  it is not intended to be written frequently like EEPROM. If non-volatile memory need to be written frequenily, it is best to use the EEPROM on these devices.     
 {empty} +
 {empty} +
 As with all flash memory, data must be erased before it can be written and writing this memory will stall the device fopr a few ms. &#160;&#160;&#160;
