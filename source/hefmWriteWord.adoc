@@ -20,7 +20,7 @@ HEFWriteWord is used to write information, word values, to HEFM, so that it can 
 `location` presents the location or relative address to write write. A data Word requires 2 HEF Locations, therefore the location will range from 0 to 126 in steps of 2. 
 {empty} +
 {empty} +
-`data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;This can be a word value or a word variable.
+`data` is the data that is to be written to the HEFM ;ocation.&#160;&#160;&#160;This can be a word value or a word variable.
 {empty} +
 {empty} +
 This method writes information to the HEFM given the specific location in the HEFM data storage .
