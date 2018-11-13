@@ -52,7 +52,7 @@ This method is similar to the methods for EEPROM, but supports Word values.
 ----
 {empty} +
 {empty} +
-If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
+If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `----` is the existing value.
 
 ----
   Block0  
