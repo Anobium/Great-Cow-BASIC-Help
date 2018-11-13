@@ -17,17 +17,16 @@ Available on all PIC micro-controllers with SAFM memory
 SAFWriteWord is used to write information, word values, to the SAFM data storage, so that it can be accessed later by a programmer on a Personal, or by the SAFRead commands.
 {empty} +
 {empty} +
-`location` represents the location to write to - the location will range from location 0 to SAF_WORDS - 1.&#160;&#160;&#160;
-SAF_WORDS is Great Cow BASIC defined constant.
-{empty} +
-`data` is the data that is to be written to the SAFM data storage.&#160;&#160;&#160;A word value.&#160;&#160;&#160;This can be a word value or a word variable.
+`location` presents the location or relative address to write. A data Word requires 2 SAF Locations, therefore the location will range from 0 to 254 in steps of 2. 
 {empty} +
 {empty} +
-This method writes information to the SAFM given the specific location in the SAFM data storage .
+`data` is the data that is to be written to the SAFM location.&#160;&#160;&#160;This can be a word value or a word variable.
+{empty} +
+{empty} +
+This method writes information to SAMM given the specific location in the HEFM data storage .
 This method is similar to the methods for EEPROM but this method supports Word values.
 {empty} +
 {empty} +
-
 *Example 1:*
 ----
     '... code preamble to select part
@@ -43,32 +42,26 @@ This method is similar to the methods for EEPROM but this method supports Word v
 The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant SAFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page, reading, updating and restoring the SAFM page.
 {empty} +
 {empty} +
-For more information on the Great Cow BASIC constants that support the SAF operations see <<_safm_overview, SAF Memory Overview>>
-
-
-{empty} +
-{empty} +
-
-
 *Example 2:*
 ----
-    '... code preamble to select part
+    #chip 18F24K42, 16
+    '... code to setup PPS
     '... code to setup serial
 
     'This example will write two word values to two specific locations.
-    SAFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x3F10
-    SAFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x3F12
+    SAFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x7F10
+    SAFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x7F12
 ----
 {empty} +
 {empty} +
-If example 2 where displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
+If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `--` is the existing value.
 
 ----
-     Block 0     SAF/SAF Memory View
-    3F00   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    3F10   01 AA 02 BB -- -- -- -- -- -- -- -- -- -- -- --
-    3F20   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    3F30   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  Block0  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
+  7F00    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  7F10    AA01  BB02  -- -- -- -- -- -- -- -- -- -- -- -- 
+  7F20    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  7F30    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----
 {empty} +
 {empty} +
