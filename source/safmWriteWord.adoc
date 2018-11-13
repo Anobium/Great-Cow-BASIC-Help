@@ -38,7 +38,6 @@ This method is similar to the methods for EEPROM but this method supports Word v
 ----
 {empty} +
 {empty} +
-
 *Example 2:*
 ----
     #chip 18F24K42, 16
