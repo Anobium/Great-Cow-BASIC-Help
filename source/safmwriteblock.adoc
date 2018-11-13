@@ -52,8 +52,6 @@ This parameter is not normally required as the default is set to the Great Cow B
     'A utility method to show the contents of HEFM.
      SAFEM_Dump
 ----     
-{empty} +
-{empty} +
 For SAFEM_Dump routine,  see <<_safread,SAFRead>>
 {empty} +
 {empty} +
