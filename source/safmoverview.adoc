@@ -109,7 +109,7 @@ A user may use these public constants.
 
 |`SAF_ROWSIZE_BYTES`
 |Byte
-|Size of an SAFM block in words
+|Size of an SAFM block in bytes
 
 |`SAF_WORDS` and `SAF_BYTES`
 |Word or a Byte
@@ -123,7 +123,6 @@ A user may use these public constants.
 |Byte
 |Number of block of SAFM
 
-
 |`CHIPWORDS`
 |Word
 |Device specific constant for the total flash size
@@ -131,7 +130,6 @@ A user may use these public constants.
 |`CHIPSAFMEMWORDS`
 |Word
 |Device specific constant for the number of SAFM words available
-
 
 |`CHIPERASEROWSIZEWORDS`
 |Word
