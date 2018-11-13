@@ -18,7 +18,7 @@ Available on all PIC micro-controllers with HEFM memory
 *Explanation:*
 {empty} +
 {empty} +
-HEFReadWord is used to read information, word values, from the HEFM data storage, so that it can be accessed for use in a user program.
+HEFReadWord is used to read information, word values, from HEFM so that it can be accessed for use in a user program.
 {empty} +
 {empty} +
 `location` represents the location or relative address to read.  The location will range from location 0 to HEF_BYTES - 1, or for all practical purposes 0-127 since all PIC Microcontrollers with HEF support 128 bytes of HEF Memory. HEF_BYTES is a Great Cow BASIC constant that represents the number of bytes of HEF Memory.&#160;&#160;&#160;
