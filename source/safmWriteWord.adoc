@@ -32,16 +32,13 @@ This method is similar to the methods for EEPROM but this method supports Word v
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example stores in the word variable value
-    'SAFM located a position 34 with the value of 0x1234
+    'The following example stores in the word value of 0x1234 as SAFM location 34
+    
     SAFWrite( 0x1234, 34 )
 ----
+{empty} +
+{empty} +
 
-{empty} +
-{empty} +
-The method will compute the row number and the offset in the row from the parameter `location` and the Great Cow BASIC constant SAFLASH_ROWSIZE.&#160;&#160;&#160;This method appropriately handles the management of the SAFM data storage by calculating the correct SAFM page, reading, updating and restoring the SAFM page.
-{empty} +
-{empty} +
 *Example 2:*
 ----
     #chip 18F24K42, 16
