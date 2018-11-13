@@ -42,7 +42,7 @@ This method reads information to the SAFM given its relative location in the SAF
     dim data_word_variable as word
     
     ;Write a word to SAF location 64
-    SAFWriteWord(  64, 0x4321 )
+    SAFWriteWord(  64, 0x1234 )
     
     ; Read the Word from SAF location 64
     SAFReadWord ( 64, data_word_variable  )
