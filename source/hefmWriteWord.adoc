@@ -17,7 +17,7 @@ Available on all PIC micro-controllers with HEFM memory
 HEFWriteWord is used to write information, word values, to HEFM, so that it can be accessed in a user program via the HEFReadWord command.
 {empty} +
 {empty} +
-`location` presents the location or relative address to write read. A data Word requires 2 HEF Locations, therefore the location will range from 0 to 126 in steps of 2. 
+`location` presents the location or relative address to write write. A data Word requires 2 HEF Locations, therefore the location will range from 0 to 126 in steps of 2. 
 {empty} +
 {empty} +
 `data` is the data that is to be written to the HEFM data storage.&#160;&#160;&#160;This can be a word value or a word variable.
