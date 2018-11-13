@@ -38,21 +38,22 @@ This method reads information to the SAFM given its relative location in the SAF
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the SAFM value into the word variable “data_word_variable” by initially writing some word values.
+    'The following example uses a subroutine to read an SAFM location into a word variable.
 
     dim data_word_variable as word
-    SAFWriteWord(  64, 0x1234 )
-    SAFWriteWord( 254, 4660 )
-
-    SAFReadWord( 254, data_word_variable )
-
+    
+    ;Write a word to SAF location 64
+    SAFWriteWord(  64, 0x4321 )
+    
+    ; Read the Word from SAF location 64
+    SAFReadWord ( 64, data_word_variable  )
+    
     HSerPrint "Value = "
     HSerPrint data_word_variable
     HSerPrintCRLF
-
 ----
 {empty} +
-If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result would show:
+If example 1 were displayed on a serial terminal.&#160;&#160;&#160;The result would show:
 
 ----
     Value = 4660
@@ -64,13 +65,15 @@ If example 1 where displayed on a serial terminal.&#160;&#160;&#160;The result w
     '... code preamble to select part
     '... code to setup serial
 
-    'The following example reads the SAFM value into the word variable “data_word_variable” by initially writing some word values using a function.
+    'The following example uses a function to read an SAFM location into a word variable.
 
     dim data_word_variable as word
+    
+    ;Write a word to SAF location 64
     SAFWriteWord(  64, 0x4321 )
-    SAFWriteWord( 254, 17185 )
-
-    data_word_variable = SAFReadWord( 254 )
+    
+    ; Read the Word from SAF location 64
+    data_word_variable = SAFReadWord ( 64 )
 
     HSerPrint "Value = "
     HSerPrint data_word_variable
