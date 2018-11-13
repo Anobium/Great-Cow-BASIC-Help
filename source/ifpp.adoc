@@ -11,7 +11,7 @@
 
 The `#if` directive is used to prevent a section of code from compiling unless `_Condition_` is true.
 
-`_Condition_` has the same syntax as the condition in a normal Great Cow BASIC if command. The only difference is that it uses constants instead of variables.
+`_Condition_` has the same syntax as the condition in a normal Great Cow BASIC if command. The only difference is that it uses constants instead of variables and does not use "then".
 
 *Example:*
 ----
