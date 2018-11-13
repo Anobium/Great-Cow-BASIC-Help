@@ -137,8 +137,8 @@ A user may use these public constants.
 
 |===
 {empty} +
-{empty} +
 *Warning*
+{empty} +
 {empty} +
 Whenever you update the hex file of your Microchip PIC micro-controller with your programmer you MAY erase the data that are stored in SAF memory.&#160;&#160;&#160;
 If you want to avoid that you will have to flash your Microchip PIC micro-controller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
