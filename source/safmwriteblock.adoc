@@ -40,48 +40,27 @@ This parameter is not normally required as the default is set to the Great Cow B
 *Example 1:*
 ----
     #chip 18F24K42, 16
-    '... code to setup PPS
+    '... code preamble to setup PPS
     '... code to setup serial
 
-   Dim My_Buffer(SAF_ROWSIZE_BYTES)
-   My_Buffer = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+      Dim My_Buffer(HEF_ROWSIZE_BYTES)
+      Dim index as byte
 
-    'SAFWriteBlock operation!!
-    SAFWriteBlock(2, My_Buffer)
+      ;Write some data to Block 2
+      My_Buffer = 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32
+      SAFWriteBlock(2, My_Buffer())
 
-    'A utility method to show the contents of HEFM.
-     SAFEM_Dump
+      ;Read the data back from SAFM using SAFReadBock
+      SAFReadBlock( 2 , My_buffer() )
+
+     ;Send the data to a terminal in decimal format
+      index = 1
+      Repeat SAF_ROWSIZE_BYTES
+          Hserprint(My_Buffer(index))
+          HserPrint " "
+          index++
+     End Repeat
 ----     
-For SAFEM_Dump routine,  see <<_safread,SAFRead>>
-{empty} +
-{empty} +
-If example 1 were displayed on a serial terminal using HEFM_Dump.&#160;&#160;&#160;
-The result would show. Note the value display at the start of block 2 @ 0x7F80.
-----
- Block0  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F00    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F10    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F20    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F30    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-
-Block1  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F40    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F50    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F60    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7F70    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-
-Block2  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7F80    0201  0403  0605  0807  0A09  0C0B  0E0D  100F  
-7F90    1211  1413  1615  1817  1A19  1C1B  1E1D  201F  
-7FA0    2120  2322  2524  2726  2928  2B2A  2D2C  2F2E  
-7FB0    3130  3332  3534  3736  3938  3B3A  3D3C  3F3E  
-
-Block3  1 0   3 2   5 4   7 6   9 8   B A   D C   F E
-7FC0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FD0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FE0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-7FF0    FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  FFFF  
-----
 {empty} +
 {empty} +
 See also
