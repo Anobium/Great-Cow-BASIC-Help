@@ -55,7 +55,7 @@ This parameter is not normally required as the default is set to the Great Cow B
      
      ;Send the data to a terminal in decimal format
       index = 1  
-      Repeat(HEF_ROWSIZE_BYTES)  
+      Repeat HEF_ROWSIZE_BYTES  
           Hserprint(My_Buffer(index))
           Hsersend " "  
      End Repeat
