@@ -23,8 +23,8 @@ SAFWriteWord is used to write information, word values, to the SAFM data storage
 `data` is the data that is to be written to the SAFM location.&#160;&#160;&#160;This can be a word value or a word variable.
 {empty} +
 {empty} +
-This method writes information to SAMM given the specific location in the HEFM data storage .
-This method is similar to the methods for EEPROM but this method supports Word values.
+This method writes information to SAFM given the specific location in SAFM.&#160;&#160;&#160;
+This method is similar to the methods for EEPROM, but supports Word values.
 {empty} +
 {empty} +
 *Example 1:*
