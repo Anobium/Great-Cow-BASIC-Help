@@ -9,35 +9,33 @@
 *Command Availability:*
 
 Available on all PIC micro-controllers with SAFM memory.
-
 *Explanation:*
 {empty} +
 {empty} +
-SAFEraseBlock is used to erase the information within the SAFM data storage block to the default value of the device.&#160;&#160;&#160;
-Once the buffer is erased it can be accessed for re-use within a user program.
+SAFEraseBlock is used to erase all data locations within the SAFM block.&#160;&#160;&#160; HEFM data within the HEFM block to the erase state value of the device.&#160;&#160;&#160;
+This Value is 0xFF for each location and will read 0xFFFF if the program memory word is displayed. 
+Use Caution. Once the SAFM block is erased, the SAFEM data is gone forever and cannot be recovered unless it was previpusly saved. 
 {empty} +
 {empty} +
 The single parameter is as follows:
 
 `block_number` represents the block to be erased.&#160;&#160;&#160;
 The block_number parameter is used to calculate the physical memory location(s) that are updated.
-
 {empty} +
 {empty} +
 
 *Example 1:*
 
-Erase a specific block of SAFM.
+Erase a specific block of SAFEM.
 ----
     '... code preamble to select part
+    '... code to setup PPS, if needed
     '... code to setup serial, if needed
 
-
-    'Erase block 2 of SAFM
-    SAFEraseBlock ( 2)
+    'Erase block 2 of HEFM
+    HEFEraseBlock ( 2)
 
 ----
-
 {empty} +
 {empty} +
 See also
