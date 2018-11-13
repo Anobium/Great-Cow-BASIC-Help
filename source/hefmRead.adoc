@@ -38,7 +38,7 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup PPS
      '... code to setup serial
     
-    'The following example reads the SAFM data value into the byte variable “byte_value” using a subroutine.
+    'The following example reads the HEFM data value into the byte variable “byte_value” using a subroutine.
 
     Dim data_byte as byte
 
@@ -61,14 +61,14 @@ This method is similar to the EPRead method for EEPROM.
     '... code to setup PPS
      '... code to setup serial
      
-    'The following example reads the SAFM data value into the byte variable “byte_value” using a function.
+    'The following example reads the HEFM data value into the byte variable “byte_value” using a function.
 
     Dim data_byte as byte
 
-    ;Write a byte of data to SAF Location 34
+    ;Write a byte of data to HEF Location 34
     HEFWrite( 34, 144)
 
-    ;Read the byte back from SAF location 34
+    ;Read the byte back from HEF location 34
     byte_value = HEFread( 34 )
 
     ;Display the data on a terminal
