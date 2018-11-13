@@ -19,8 +19,7 @@ The `hefsaf.h` library supports SAF operations for Great Cow BASIC.
 {empty} +
 {empty} +
 Note:  By default, Great Cow BASIC will use SAF memory for regular executable code unless it is told otherwise.&#160;&#160;&#160;
-If you wish to store data here, you should reserve the SAF memory by using the compiler option, as shown below to reserve 128 words of SAF memory:
-
+If you wish to store data here, you should reserve the SAF memory by using the compiler option, as shown below to reserve 128 Words of SAF memory:&#160;&#160;&#160;This equates to 256 bytes on PIC 18F microcontrollers and 128 Bytes on PIC 16F microcontrollers 
 ----
     #option ReserveHighProg 128
 ----
