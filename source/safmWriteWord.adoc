@@ -35,7 +35,7 @@ This method is similar to the methods for EEPROM, but supports Word values.
 
     'The following example stores in the word value of 0x1234 as SAFM location 34
     
-    SAFWrite( 0x1234, 34 )
+    SAFWriteWord( 34, 0x1234 )
 ----
 {empty} +
 {empty} +
@@ -46,20 +46,34 @@ This method is similar to the methods for EEPROM, but supports Word values.
     '... code to setup serial
 
     'This example will write two word values to two specific locations.
+     
+     dim Word_Variable1 as Word
+     dim Word_Variable2 as Word
     
-    SAFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x7F10
-    SAFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x7F12
+    ;Write the data
+    SAFWriteWord (16, 0x1234)   'location 16, in this device, equates to 0x7F10
+    SAFWriteWord (18, 0x4321)   'location 18, in this device, equates to 0x7F12
+    
+   ;Read the data and send to terminal
+    SAFReadWord(16, Word_Variable1 ) 
+    SAFReadWord(18, Word_Variable2 ) 
+   
+   HserPrint "Word_Variable1 = "
+   Hserprint Word_Variable1
+   HSerPrintCRLF
+   HserPrint "Word_Variable2 = "
+   Hserprint Word_Variable2
+   HSerPrintCRLF 
+  
 ----
 {empty} +
 {empty} +
 If example 2 were displayed on a serial terminal.&#160;&#160;&#160;The result would show, where `----` is the existing value.
-
 ----
-  Block0  
-  7F00    ----  ----  ----  ----  ----  ----  ----  ----
-  7F10    AA01  BB02  ----  ----  ----  ----  ----  ---- 
-  7F20    ----  ----  ----  ----  ----  ----  ----  ----
-  7F30    ----  ----  ----  ----  ----  ----  ----  ----
+
+Word_Variable1 = 4660
+Word_Variable2 = 17185
+
 ----
 {empty} +
 {empty} +
