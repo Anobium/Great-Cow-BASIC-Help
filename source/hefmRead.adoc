@@ -42,10 +42,10 @@ This method is similar to the EPRead method for EEPROM.
 
     Dim data_byte as byte
 
-    ;Write a byte of data to SAF Location 34
+    ;Write a byte of data to HEFM Location 34
     HEFWrite( 34, 144)
 
-    ;Read the byte back from SAF location 34
+    ;Read the byte back from HEFM location 34
     HEFread( 34, byte_value )
 
     ;Display the data on a terminal
