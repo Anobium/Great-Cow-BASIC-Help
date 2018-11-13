@@ -35,9 +35,9 @@ This method is similar to the EPRead method for EEPROM.
 *Example 1:*
 ----
     '... code preamble to select part
-    '... code to setup serial
     '... code to setup PPS
-
+     '... code to setup serial
+    
     'The following example reads the SAFM data value into the byte variable “byte_value” using a subroutine.
 
     Dim data_byte as byte
@@ -58,9 +58,9 @@ This method is similar to the EPRead method for EEPROM.
 *Example 2:*
 ----
     '... code preamble to select part '... code preamble to select part
-    '... code to setup serial
     '... code to setup PPS
-
+     '... code to setup serial
+     
     'The following example reads the SAFM data value into the byte variable “byte_value” using a function.
 
     Dim data_byte as byte
