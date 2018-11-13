@@ -25,8 +25,7 @@ SAFReadWord is used to read information, word values, from SAFM so that it can b
 Each data Word requires 2 SAF Locations, therefore the location will range from either 0 to 254 or 0 to 126 (in steps of 2),  depending upon the device. 
 {empty} +
 {empty} +
-`data` is the data that is to be read from the SAFM data storage.&#160;&#160;&#160;
-A word value.&#160;&#160;&#160;
+`data` is the word data that is to be read from the SAFM location.&#160;&#160;&#160;
 This must be a word variable.
 {empty} +
 {empty} +
