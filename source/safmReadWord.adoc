@@ -29,7 +29,7 @@ Each data Word requires 2 SAF Locations, therefore the location will range from 
 This must be a word variable.
 {empty} +
 {empty} +
-This method reads information to the SAFM given its relative location in the SAFM data storage.&#160;&#160;&#160;
+This method reads word information from SAFM given the relative location in SAFM.&#160;&#160;&#160;
 {empty} +
 {empty} +
 *Example 1:*
