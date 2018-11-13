@@ -4,7 +4,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    HEFWriteBlock ( block_number,  buffer(), [, num_bytes] )
+    HEFReadBlock ( block_number,  buffer(), [, num_bytes] )
 ----
 *Command Availability:*
 
