@@ -45,6 +45,7 @@ This method is similar to the methods for EEPROM but this method supports Word v
     '... code to setup serial
 
     'This example will write two word values to two specific locations.
+    
     SAFWriteWord (16, 0xAA01)   'location 16, in this device, equates to 0x7F10
     SAFWriteWord (18, 0xBB02)   'location 18, in this device, equates to 0x7F12
 ----
