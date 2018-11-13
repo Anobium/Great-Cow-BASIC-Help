@@ -11,7 +11,7 @@ SAF memory appears at the top of program memory space and can be used for any pu
 Storage Area Flash is intended to be used to store data, such a device calibration data, RF device register settings, and other data. SAFEM can be Read as frequently as necessary.&#160;&#160;&#160; However,  it is not intended to be written frequently like EEPROM. If non-volatile memory need to be written frequenily, it is best to use the EEPROM on these devices.     
 {empty} +
 {empty} +
-As with all flash memory, data must be erased before it can be written and writing this memory will stall the device fopr a few ms. &#160;&#160;&#160;
+As with all flash memory, data must be erased before it can be written and writing this memory will stall the device for a few ms. &#160;&#160;&#160;
 Methods to read, write and erase the SAF memory are included in Great Cow BASIC and they are described in this introduction.
 {empty} +
 {empty} +
