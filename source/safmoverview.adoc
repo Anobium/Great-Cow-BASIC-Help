@@ -136,20 +136,14 @@ A user may use these public constants.
 |Device specific constant for the number of SAFM in an erase row
 
 |===
-
 {empty} +
 {empty} +
-
-{empty} +
-{empty} +
-
 *Warning*
-
+{empty} +
 Whenever you update the hex file of your Microchip PIC micro-controller with your programmer you MAY erase the data that are stored in SAF memory.&#160;&#160;&#160;
 If you want to avoid that you will have to flash your Microchip PIC micro-controller with software that allows memory exclusion when flashing.&#160;&#160;&#160;
 This is the case with Microchip PIC MPLAB IPE (Go to `Advanced Mode/Enter password/Select Memory/Tick “Preserve Flash on Program”/
 Enter Start and End address` of your SAFM).&#160;&#160;&#160;Or, simply use the PICkitPlus suite of software to preserve SAF memory during programming.
-
 {empty} +
 {empty} +
 See also
