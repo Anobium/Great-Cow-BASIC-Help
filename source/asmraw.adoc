@@ -9,9 +9,11 @@
 *Explanation:*
 
 The `#asmraw` directive is used to specify the assembly that Great Cow BASIC will use.&#160;&#160;&#160;
+
 Anything following this directive will be inserted into ASM source file with no changes other than trimming spaces - no replacement of constants.&#160;&#160;&#160;
 
-
+{empty} +
+{empty} +
 Assembly is a programming language you may use to develop the source code for your application.&#160;&#160;&#160;
 The directive must conform to the following basic guidelines.&#160;&#160;&#160;
 Each line of the source file may contain up to four types of information:&#160;&#160;&#160;
@@ -25,14 +27,20 @@ Each line of the source file may contain up to four types of information:&#160;&
 • Comments
 
 The order and position of these are important. For ease of debugging, it is recommended that labels start in column one and mnemonics start in column two or
-beyond.&#160;&#160;&#160;Operands follow the mnemonic.&#160;&#160;&#160;
+beyond.&#160;&#160;&#160;
+Operands follow the mnemonic.&#160;&#160;&#160;
+
 Comments may follow the operands, mnemonics or labels, and can start in any column. The maximum column width is 255 characters.&#160;&#160;&#160;
+
 White space or a colon must separate the label and the mnemonic, and white space must separate the mnemonic and the operand(s).&#160;&#160;&#160;
 Multiple operands must beseparated by commas.&#160;&#160;&#160;
-White space is one or more spaces or tabs. White space is used to separate pieces of a source line.
-&#160;&#160;&#160;
+
+White space is one or more spaces or tabs. White space is used to separate pieces of a source line.&#160;&#160;&#160;
 White space should be used to make your code easier for people to read.&#160;&#160;&#160;
-Unless within character constants, any white space means the same as exactly one space.
+
+{empty} +
+{empty} +
+
 
 *Example*
 ----
@@ -42,7 +50,8 @@ Unless within character constants, any white space means the same as exactly one
          #asmraw sts TCCR0B, SysValueCopy
 
 ----
-
+{empty} +
+{empty} +
 This example will generate the following in the ASM source file.
 ----
         lds SysValueCopy,TCCR0B
