@@ -33,7 +33,7 @@ Operands follow the mnemonic.&#160;&#160;&#160;
 Comments may follow the operands, mnemonics or labels, and can start in any column. The maximum column width is 255 characters.&#160;&#160;&#160;
 
 White space or a colon must separate the label and the mnemonic, and white space must separate the mnemonic and the operand(s).&#160;&#160;&#160;
-Multiple operands must beseparated by commas.&#160;&#160;&#160;
+Multiple operands must be separated by commas.&#160;&#160;&#160;
 
 White space is one or more spaces or tabs. White space is used to separate pieces of a source line.&#160;&#160;&#160;
 White space should be used to make your code easier for people to read.&#160;&#160;&#160;
