@@ -25,7 +25,7 @@ Each line of the source file may contain up to four types of information:&#160;&
 • Comments
 
 The order and position of these are important. For ease of debugging, it is recommended that labels start in column one and mnemonics start in column two or
-beyond. Operands follow the mnemonic.&#160;&#160;&#160;
+beyond.&#160;&#160;&#160;Operands follow the mnemonic.&#160;&#160;&#160;
 Comments may follow the operands, mnemonics or labels, and can start in any column. The maximum column width is 255 characters.&#160;&#160;&#160;
 White space or a colon must separate the label and the mnemonic, and white space must separate the mnemonic and the operand(s).&#160;&#160;&#160;
 Multiple operands must beseparated by commas.&#160;&#160;&#160;
