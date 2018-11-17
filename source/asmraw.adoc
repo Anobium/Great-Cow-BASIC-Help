@@ -15,10 +15,15 @@ Anything following this directive will be inserted into ASM source file with no 
 Assembly is a programming language you may use to develop the source code for your application.&#160;&#160;&#160;
 The directive must conform to the following basic guidelines.&#160;&#160;&#160;
 Each line of the source file may contain up to four types of information:&#160;&#160;&#160;
-• Labels
-• Mnemonics, Directives and Macros
-• Operands
-• Comments
+
+â€¢ Labels
+
+â€¢ Mnemonics, Directives and Macros
+
+â€¢ Operands
+
+â€¢ Comments
+
 The order and position of these are important. For ease of debugging, it is recommended that labels start in column one and mnemonics start in column two or
 beyond. Operands follow the mnemonic.&#160;&#160;&#160;
 Comments may follow the operands, mnemonics or labels, and can start in any column. The maximum column width is 255 characters.&#160;&#160;&#160;
