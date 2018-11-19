@@ -54,7 +54,7 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |1
 |KS0108
 |Help
-|2.9 inch and less.. various sizes
+|2.9 inch and less. various sizes
 |128 * 64
 |Large
 |Mono
@@ -63,7 +63,7 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
 |Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
 |Requires 12 ports/connections.
-|These are low cost mono devices..
+|These are low cost mono devices.
 
 
 |2
@@ -298,6 +298,23 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 
 {empty} +
 The LED connected is typically to ground.  You can solder the GND connect to make the backlite permanently on.
+
+
+|1
+|NT7108C
+|Help
+|2.9 inch and less. various sizes
+|128 * 64
+|Large
+|Mono
+|LCD typically with backlight
+|8-bit parallel PIC and AVR: Software device specific protocol
+|Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
+|Look similar to KS0108.. but, it is NOT that same device.
+|Requires 12 ports/connections.
+|These are medium cost mono devices.
+
+
 
 |===
 

@@ -7,7 +7,7 @@ The KS0108 is an LCD is driven by on-board 5V parallel interface chipset KS0108 
 
 The Great Cow BASIC constants shown below control the configuration of the KS0108 controller. &#160;&#160;&#160;The only connectivity option is the 8-bit mode where 8 connections (for the data) are required between the microcontroller and the GLCD to control the data bus.
 
-The SH1106 is a monochrome device.
+The KS0108 is a monochrome device.
 
 To use the KS0108 driver simply include the following in your user code.  This will initialise the driver.
 
