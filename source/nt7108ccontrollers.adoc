@@ -106,13 +106,13 @@ This constant cannot be changed
 
 |`NT7108CReadDelay`
 |Read delay
-|Default is   9
+|Default is 5
 
 Can be set to improve overall performance.
 
 |`NT7108CWriteDelay`
 |Write delay
-|Default is   1
+|Default is 1
 
 Can be set to improve performance.
 
