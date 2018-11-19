@@ -56,9 +56,8 @@ GLCD.
 
 |`GLCD_RW`
 |Specifies the output pin that is connected to Read/Write on the GLCD.
-The R/W pin can be disabled.
-|*_Must be defined_* _(unless R/W is disabled) +
-see_ `GLCD_NO_RW`
+
+|Required
 
 |`GLCD_CS1`
 |Specifies the output pin that is connected to `CS1` on the GLCD.
