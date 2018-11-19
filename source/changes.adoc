@@ -30,6 +30,7 @@
 - Added LCD_IO_3
 - Added new HEFM section
 - Added new SAFM section
+- Added new NT7108C section
 
 
 

@@ -61,7 +61,7 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 |LCD typically with backlight
 |8-bit parallel PIC and AVR: Software device specific protocol
 |Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
-|Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.
+|Bit 7 of the bus is read/write – this could cause potential lockup – this is low risk.&#160;&#160;&#160;Uses the KS0107B (or NT7107C) a 64-channel common driver which generates the timing signal to control the two KS0108B segment drivers.
 |Requires 12 ports/connections.
 |These are low cost mono devices.
 
@@ -300,7 +300,7 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 The LED connected is typically to ground.  You can solder the GND connect to make the backlite permanently on.
 
 
-|1
+|17
 |NT7108C
 |Help
 |2.9 inch and less. various sizes
@@ -310,7 +310,7 @@ The LED connected is typically to ground.  You can solder the GND connect to mak
 |LCD typically with backlight
 |8-bit parallel PIC and AVR: Software device specific protocol
 |Typically operates at VCC 5. Always check voltage specifications 8-bit bus required.
-|Look similar to KS0108.. but, it is NOT that same device.
+|Look similar to KS0108, but, it is NOT the same, hence this driver.&#160;&#160;&#160;Uses the Winstar’s WDG0151-TMI module, which is a 128×64 pixel monochromatic display.&#160;&#160;&#160;This uses two Neotic display controller chips:&#160;NT7108C and NT7107C. The WDG0151 module contains two sets of it to drive 128 segments.&#160;&#160;&#160;On the other hand, the KS0107B (or NT7107C) is a 64-channel common driver which generates the timing signal to control the two KS0108B segment drivers.
 |Requires 12 ports/connections.
 |These are medium cost mono devices.
 

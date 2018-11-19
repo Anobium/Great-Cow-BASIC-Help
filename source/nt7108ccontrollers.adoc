@@ -1,20 +1,26 @@
 ==== NT7108C Controllers
 
 This section covers GLCD devices that use the NT7108C graphics controller.
-
+{empty} +
+{empty} +
 The NT7108C is an GLCD is driven by on-board 5V parallel interface chipset NT7108C.&#160;&#160;&#160;They are similar to the KS0108.
-
+{empty} +
+{empty} +
 The GLCD controller is the Winstar WDG0151-TMI module, which is a 128×64 pixel monochromatic display.&#160;&#160;&#160;
 It uses two Neotic display controller chips: NT7108C and NT7107C, which are similar with Samsung KS0108B and KS0107B controllers.&#160;&#160;&#160;
 The controller uses a dot matrix LCD segment driver with 64 channel output, and therefore, the WDG0151 module contains two sets of it to drive 128 segments.
-
-The Great Cow BASIC constants shown below control the configuration of the NT7108C controller. &#160;&#160;&#160;
+{empty} +
+{empty} +
+The Great Cow BASIC constants shown below control the configuration of the NT7108C controller.&#160;&#160;&#160;
 The only connectivity option is the 8-bit full port mode where a full data port (for the data) are required between the microcontroller and the GLCD to control the data bus.
-
+{empty} +
+{empty} +
 The NT7108C is a monochrome device.
-
+{empty} +
+{empty} +
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
-
+{empty} +
+{empty} +
 
 ----
     #include <glcd.h>
@@ -204,8 +210,7 @@ For a NT7108C datasheet, please refer
 http://www.farnell.com/datasheets/1878006.pdf[here.]
 
 This example shows how to drive a NT7108C based Graphic LCD module with
-the built in commands of Great Cow BASIC. See
-https://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/blob/master/GLCD_Solutions/GLCD_Simple_Demonstration_Solutions/GLCD_Simple_Demonstation_16F1939_for_NT7108C%4032.gcb[Graphic LCD] for
+the built in commands of Great Cow BASIC. See https://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/[Graphic LCD] for
 details, this is an external web site.
 
 

@@ -267,6 +267,8 @@ include::ks0108controllers.adoc[]
 
 include::nextioncontrollers.adoc[]
 
+include::nt7108ccontrollers.adoc[]
+
 include::pcd8544controllers.adoc[]
 
 include::sdd1289controllers.adoc[]
