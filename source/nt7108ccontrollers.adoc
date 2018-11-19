@@ -12,7 +12,7 @@ The controller uses a dot matrix LCD segment driver with 64 channel output, and 
 {empty} +
 {empty} +
 The Great Cow BASIC constants shown below control the configuration of the NT7108C controller.&#160;&#160;&#160;
-The only connectivity option is the 8-bit full port mode where a full data port (for the data) are required between the microcontroller and the GLCD to control the data bus.
+The only connectivity option is the 8-bit full port mode where a full data port (for the data) is required between the microcontroller and the GLCD to control the data bus.
 {empty} +
 {empty} +
 The NT7108C is a monochrome device.
