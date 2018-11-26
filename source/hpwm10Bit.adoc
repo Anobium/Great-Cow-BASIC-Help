@@ -20,7 +20,7 @@ This command sets up the hardware PWM module of the Microchip PIC microcontrolle
 a PWM waveform of the given frequency and duty cycle. Once this command
 is called, the PWM will be emitted until PWMOff is called.
 
-`_channel_` is 1, 2, 3, 4, 5, 6 or 7. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6 or HPWM7
+`_channel_` is 1, 2, 3, 4, 5, 6, 7 or 8. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6, HPWM7 or HPWM8
 respectively. +
 The 10-bit PWM channel *MUST* be supported by the microcontroller.   Check the microcontroller specific datasheet for the available channel.
 

@@ -21,7 +21,10 @@ The NT7108C is a monochrome device.
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
 {empty} +
 {empty} +
-
+The NT7108C is very sensitive to clock timings.&#160;&#160;&#160;
+You may to adjust the clock timing to ensure the display operates correctly.
+{empty} +
+{empty} +
 ----
     #include <glcd.h>
     #DEFINE GLCD_TYPE GLCD_TYPE_NT7108C
@@ -106,19 +109,19 @@ This constant cannot be changed
 
 |`NT7108CReadDelay`
 |Read delay
-|Default is 5
+|Default is 7
 
 Can be set to improve overall performance.
 
 |`NT7108CWriteDelay`
 |Write delay
-|Default is 1
+|Default is 7
 
 Can be set to improve performance.
 
 |`NT7108CClockDelay`
 |Clock Delay
-|Default is 1
+|Default is 7
 
 Can be set to improve performance.
 |===
@@ -233,7 +236,7 @@ details, this is an external web site.
    #define GLCD_RESET PORTC.2
 
    GLCDPrint ( 4,   1, "Great Cow BASIC 2018")                                ; Print some text
-   
+
    Box  0, 0, 127, 10
    Line 63, 10, 63, 63
    Line 0, 37, 127, 37
@@ -248,4 +251,3 @@ details, this is an external web site.
 <<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
 
 Supported in <GLCD.H>
-

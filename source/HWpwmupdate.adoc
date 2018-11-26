@@ -25,7 +25,7 @@ The command only supports the hardware PWM module of the Microchip PIC microcont
 a PWM waveform at the previously defined frequency and timer source.
 
 
-`_channel_` is 3, 4, 5, 6 or 7. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6 or HPWM7
+`_channel_` is 3, 4, 5, 6, 7 or 8. These corresponds to the HPWM3, HPWM4, HPWM5, HPWM6, HPWM7 or HPWM8
 respectively.&#160;&#160;The channel *MUST* be supported by the microcontroller.&#160;&#160;&#160;Check the microcontroller specific datasheet for the available channel.
 
 `_duty cycle_` specifies the desired duty cycle of the PWM signal, and

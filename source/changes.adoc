@@ -19,6 +19,12 @@
 {empty} +
 
 *Updates to HELP are as follows*::
+- Added new NT7108C section
+
+{empty} +
+{empty} +
+
+*Release 0.98.04*::
 - Updated Randomize section
 - Add PCA9685 support to Library section
 - Updated Library section to inclide complete list of library drivers
@@ -30,10 +36,6 @@
 - Added LCD_IO_3
 - Added new HEFM section
 - Added new SAFM section
-- Added new NT7108C section
-
-
-
 
 {empty} +
 {empty} +
