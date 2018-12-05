@@ -24,7 +24,7 @@
 {empty} +
 {empty} +
 
-*Release 0.98.04*::
+*Release 0.98.03*::
 - Updated Randomize section
 - Add PCA9685 support to Library section
 - Updated Library section to inclide complete list of library drivers
