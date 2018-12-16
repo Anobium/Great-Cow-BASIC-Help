@@ -20,6 +20,7 @@
 
 *Updates to HELP are as follows*::
 - Added new NT7108C section
+- Revised GLCD ST7735 section to remove colors, added TFT colors to the GLCD overview section.
 
 {empty} +
 {empty} +

@@ -150,10 +150,7 @@ specific attribute.
 
 |`ST7735_[color]`
 |Specify color as a parameter for many GLCD commands
-|Color constants for this device are shown in the list below. +
-
-
- Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF., see http://www.barth-dev.de/online/rgb565-color-picker/ for a wider range of color parameters.
+|Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF., see http://www.barth-dev.de/online/rgb565-color-picker/ for a wider range of color parameters.
 |===
 
 
