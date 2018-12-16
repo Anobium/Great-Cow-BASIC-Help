@@ -16,7 +16,7 @@ Using this command will ensure the special sequence of Microchip assembler is ha
 
 *Command Availability:*
 
-Available on all Microchip microcontrollers only. 
+Available on all Microchip microcontrollers only.
 
 
 
@@ -28,7 +28,7 @@ Available on all Microchip microcontrollers only.
     'Set the PPS of the I2C and the RS232 ports.
     #startup InitPPS, 85
     Sub InitPPS
-      LOCKPPS
+      UNLOCKPPS
         RC0PPS = 0x0010       'RC0->EUSART:TX;
         RXPPS  = 0x0011       'RC1->EUSART:RX;
 
@@ -36,7 +36,7 @@ Available on all Microchip microcontrollers only.
         SSP1DATPPS = 0x13     'RC4->MSSP1:SDA1;
         RC3PPS = 0x15         'RC3->MSSP1:SCL1;
         RC4PPS = 0x14         'RC4->MSSP1:SDA1;
-      UnLockPPS
+      LOCKPPS
     End Sub
 ----
 

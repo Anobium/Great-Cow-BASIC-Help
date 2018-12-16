@@ -8,15 +8,15 @@ To use the ST7735 driver simply include the following in your user code.  This w
 
 ----
     #include <glcd.h>
-    #DEFINE GLCD_TYPE GLCD_TYPE_ST7735
+GLCD_TYPE GLCD_TYPE_ST7735
 
     'Pin mappings for ST7735
-    #define GLCD_DC     porta.0           'example port setting
-    #define GLCD_CS     porta.1           'example port setting
-    #define GLCD_RESET  porta.2           'example port setting
-    #define GLCD_DI     porta.3           'example port setting
-    #define GLCD_DO     porta.4           'example port setting
-    #define GLCD_SCK    porta.5           'example port setting
+GLCD_DC     porta.0           'example port setting
+GLCD_CS     porta.1           'example port setting
+GLCD_RESET  porta.2           'example port setting
+GLCD_DI     porta.3           'example port setting
+GLCD_DO     porta.4           'example port setting
+GLCD_SCK    porta.5           'example port setting
 
 ----
 
@@ -153,20 +153,9 @@ specific attribute.
 |Color constants for this device are shown in the list below. +
 
 
- Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
+ Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF., see http://www.barth-dev.de/online/rgb565-color-picker/ for a wider range of color parameters.
 |===
 
-
-----
-   ST7735_BLACK   'hexidecimal value 0x0000
-   ST7735_BLUE    'hexidecimal value 0xF800
-   ST7735_RED     'hexidecimal value 0x001F
-   ST7735_GREEN   'hexidecimal value 0x07E0
-   ST7735_CYAN    'hexidecimal value 0xFFE0
-   ST7735_MAGENTA 'hexidecimal value 0xF81F
-   ST7735_YELLOW  'hexidecimal value 0x07FF
-   ST7735_WHITE   'hexidecimal value 0xFFFF
-----
 
 For a ST7735 datasheet, please refer
 http://www.crystalfontz.com/controllers/ST7735_V2.1_20100505.pdf[here.]
@@ -181,14 +170,14 @@ http://www.crystalfontz.com/controllers/ST7735_V2.1_20100505.pdf[here.]
     #include <glcd.h>
 
     'Defines for ST7735
-    #define GLCD_TYPE GLCD_TYPE_ST7735
+GLCD_TYPE GLCD_TYPE_ST7735
     'Pin mappings for ST7735
-    #define GLCD_DC porta.0
-    #define GLCD_CS porta.1
-    #define GLCD_RESET porta.2
-    #define GLCD_DI porta.3
-    #define GLCD_DO porta.4
-    #define GLCD_SCK porta.5
+GLCD_DC porta.0
+GLCD_CS porta.1
+GLCD_RESET porta.2
+GLCD_DI porta.3
+GLCD_DO porta.4
+GLCD_SCK porta.5
 
     GLCDPrint(0, 0, "Test of the ST7735 Device")
     end
