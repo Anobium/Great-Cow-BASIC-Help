@@ -13,7 +13,7 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
 {empty} +
 {empty} +
  - The IDE Tools... commands (function keys F5 - F8) starts a Great Cow BASIC utility which calls the batchfiles for compiling sourcecode and programming
-   ("flashing")[small]#^(1)^# the target microcontroller.   You have to select the appropriate programmer in “Edit Programmer Preferences” ( IDE Tools / GCB tools / Edit Programmer Preferences or by pressing Ctrl+Alt+E ).  Find your programmer in the list and drag it to the top beneath the heading “Programmers to use (in order)”. GCB will now attempt to flash the microcontroller with that programmer first when you click on "Make HEX and FLASH" ( F5 ) or "FLASH previous made hexfile" ( F8 ).
+   ("flashing")[small]#^(1)^# the target microcontroller.   You have to select the appropriate programmer in “Edit Programmer Preferences” ( IDE Tools / GCB tools / Edit Programmer Preferences or by pressing Ctrl+Alt+E ).  Find your programmer in the list and drag it to the top beneath the heading “Programmers to use (in order)”. Great Cow BASIC will now attempt to flash the microcontroller with that programmer first when you click on "Make HEX and FLASH" ( F5 ) or "FLASH previous made hexfile" ( F8 ).
 {empty} +
 {empty} +
  - In the unlikely event that your programmer is not listed you can add it by pressing “Add…” in “Edit Programmer Preferences”.  You would have to know the working directory and command line options etc. for the programmer.  See the help tips at the bottom by clicking on the fields.
@@ -22,7 +22,7 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
  - For project-specific flashing you can edit the current programmers in “Edit Programmer Preferences” to suit your needs by clicking on “Edit…”. Use the “Use If:” parameter to choose programmer preferences. See the help tips. The chip model is autodetected by the IDE for use in “Use IF:” or in command line options etc.
 {empty} +
 {empty} +
- - Some programmers use a .hex file to "flash" the microcontroller.  By selecting "Make HEX" ( F5 ), GCB will compile the program and make a .hex file in the same directory as the GCB file.  This method can also be used to check for errors in the GCB program before flashing. 
+ - Some programmers use a .hex file to "flash" the microcontroller.  By selecting "Make HEX" ( F5 ), Great Cow BASIC will compile the program and make a .hex file in the same directory as the Great Cow BASIC file.  This method can also be used to check for errors in the Great Cow BASIC program before flashing. 
 {empty} +
 {empty} +
    - Included programmer software is:
