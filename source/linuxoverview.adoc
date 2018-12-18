@@ -36,7 +36,7 @@ Complete the following steps to compile and install Great Cow BASIC for Linux:
  . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
 
 
-Now you can create and compile GCB source files.
+Now you can create and compile Great Cow BASIC source files.
 
 *Programming microcontrollers:*
 
