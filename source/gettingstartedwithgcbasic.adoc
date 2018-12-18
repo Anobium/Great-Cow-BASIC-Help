@@ -9,21 +9,20 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
  - The installer will automatically start the IDE.
 {empty} +
 {empty} +
- - When a Great Cow BASIC sourcefile is opened, check out the IDE Tools menu - through this menu you can access the oneclick commands.
- Try right mousebutton - this will access the same options.
+ - When a Great Cow BASIC source file is opened, check out the “GCB tools” menu ( IDE Tools / GCB tools ) - through this menu you can access the oneclick commands. Or try the right mouse button - this will access the same options.
 {empty} +
 {empty} +
  - The IDE Tools... commands (function keys F5 - F8) starts a Great Cow BASIC utility which calls the batchfiles for compiling sourcecode and programming
-   ("flashing")[small]#^(1)^# the target microcontroller.   By default these batchfiles are called flashAVR.bat (when the chipmodel is an AVR) and flashPIC.bat (when the chipmodel is a PIC) and a batch file to create and program your microcontroller called makeHEX.bat.  The chipmodel is autodetected by the IDE.
+   ("flashing")[small]#^(1)^# the target microcontroller.   You have to select the appropriate programmer in “Edit Programmer Preferences” ( IDE Tools / GCB tools / Edit Programmer Preferences or by pressing Ctrl+Alt+E ).  Find your programmer in the list and drag it to the top beneath the heading “Programmers to use (in order)”. GCB will now attempt to flash the microcontroller with that programmer first when you click on "Make HEX and FLASH" ( F5 ) or "FLASH previous made hexfile" ( F8 ).
 {empty} +
 {empty} +
- - By editing these batchfiles you can configure the programmer software for
-   your own needs. All the programmers are located in the G+Stools subfolder.
+ - In the unlikely event that your programmer is not listed you can add it by pressing “Add…” in “Edit Programmer Preferences”.  You would have to know the working directory and command line options etc. for the programmer.  See the help tips at the bottom by clicking on the fields.
 {empty} +
 {empty} +
- - If there is a batchfile "FlashThis.bat" present in the same folder as
-   the sourcefile, this batchfile is used for flashing. This may be useful
-   for project-specific flashing.
+ - For project-specific flashing you can edit the current programmers in “Edit Programmer Preferences” to suit your needs by clicking on “Edit…”. Use the “Use If:” parameter to choose programmer preferences. See the help tips. The chip model is autodetected by the IDE for use in “Use IF:” or in command line options etc.
+{empty} +
+{empty} +
+ - Some programmers use a .hex file to "flash" the microcontroller.  By selecting "Make HEX" ( F5 ), GCB will compile the program and make a .hex file in the same directory as the GCB file.  This method can also be used to check for errors in the GCB program before flashing. 
 {empty} +
 {empty} +
    - Included programmer software is:
@@ -36,8 +35,12 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
 {empty} +
     -- TinyBootLoader+
 {empty} +
+    -- Arduino
+{empty} +
+    -- Northern Software Programmer
+{empty} +
     -- Microchip Xpress Board and many, many more.
 
 
 [small]#^(1)^ You need a suitable programmer to do this, and instructions should be
-included with the programmer on how to download to the microcontroller.#
+included with the programmer on how to download and connect the hardware to the microcontroller.#
