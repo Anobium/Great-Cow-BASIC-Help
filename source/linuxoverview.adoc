@@ -40,7 +40,7 @@ Now you can create and compile GCB source files.
 
 *Programming microcontrollers:*
 
-To program your microcontroller with your Great Cow BASIC-created hex file, you will need additional software.
+To program your microcontroller with your Great Cow BASIC created hex file, you will need additional programming and programmer software.
 
 For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
 
