@@ -133,6 +133,10 @@ Great Cow BASIC supports the following device libraries.
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
+|GLCD_NT7108C
+|Graphical LCD
+|A device specific library for an Graphical LCD.
+
 |GLCD_IMAGESANDFONTS_ADDIN3
 |Graphical LCD
 |A library to increase the capabilities of the Graphical LCDs.
