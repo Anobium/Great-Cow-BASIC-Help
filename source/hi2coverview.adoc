@@ -237,7 +237,7 @@ discover the IC2 devices.
     #define USART_BAUD_RATE 9600
     #define USART_TX_BLOCKING
     Dir PORTc.6 Out
-    #define USART_DELAY 10 ms
+    #define USART_DELAY 0 ms
 
     HSerPrintCRLF 2
     HSerPrint "Hardware I2C Discover using the "
