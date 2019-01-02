@@ -69,7 +69,7 @@ This code will require adaption but the code shows an approach to discover the I
   #define USART_TX_BLOCKING
 
   Dir PORTc.6 Out
-  #define USART_DELAY 5 ms
+  #define USART_DELAY 0 ms
 
   HSerPrintCRLF 2
   HSerPrint "I2C Discover using the ChipIno"
