@@ -227,10 +227,13 @@ can be sent or received.
 |`USART4_TX_BLOCKING`
 |If defined, this constant will cause the Transmit USART routines to wait until Transmit register is empty before writing the next byte which prevents over running the register and losing data.
 | No parameter needed. Use “#defining” it implement the action.
-
+{empty} +
+{empty} +
 |`USART_DELAY`
 |This is the delay between characters.
 |`1 ms`
+
+To disable this delay between characters ...  Use #define  USART_DELAY  0 MS
 
 |`SerPrintCR` | Causes a Carriage return to be sent after every HserPrint automatically. | No parameter needed. User “#defining” it implements the action
 
