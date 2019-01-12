@@ -1,5 +1,5 @@
 = Great Cow BASIC documentation
-The Great Cow BASIC development team @ 2018
+The Great Cow BASIC development team @ 2019
 
 
 

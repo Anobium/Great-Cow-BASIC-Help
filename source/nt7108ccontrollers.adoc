@@ -235,7 +235,7 @@ details, this is an external web site.
    #define GLCD_RW PORTc.3
    #define GLCD_RESET PORTC.2
 
-   GLCDPrint ( 4,   1, "Great Cow BASIC 2018")                                ; Print some text
+   GLCDPrint ( 4,   1, "Great Cow BASIC 2019")                                ; Print some text
 
    Box  0, 0, 127, 10
    Line 63, 10, 63, 63

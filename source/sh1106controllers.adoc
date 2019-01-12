@@ -262,7 +262,7 @@ Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to 
     GLCDCLS
     GLCD_Open_PageTransaction 0,7
        GLCDPrint 0, 0, "Great Cow BASIC"
-       GLCDPrint (0, 16, "Anobium 2018")
+       GLCDPrint (0, 16, "Anobium 2019")
     GLCD_Close_PageTransaction
     wait 3 s
     GLCDCLS

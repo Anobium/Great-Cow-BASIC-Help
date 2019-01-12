@@ -406,7 +406,7 @@ Note the use of `GLCD_Open_PageTransaction` and `GLCD_Close_PageTransaction` to 
     'But it is allowed to use GLCD_Open_PageTransaction 0,7 to show the full screen update
     GLCD_Open_PageTransaction 0,7
        GLCDPrint 0, 0, "Great Cow BASIC"
-       GLCDPrint (0, 16, "Anobium 2018")
+       GLCDPrint (0, 16, "Anobium 2019")
     GLCD_Close_PageTransaction
     wait 3 s
     DO forever
@@ -527,7 +527,7 @@ This example shows how to drive a SSD1306 based Graphic I2C LCD module with 128 
 
     GLCDCLS
     GLCDPrint 0, 0, "Great Cow BASIC"
-    GLCDPrint (0, 16, "Anobium 2018")
+    GLCDPrint (0, 16, "Anobium 2019")
 
 ----
 {empty} +

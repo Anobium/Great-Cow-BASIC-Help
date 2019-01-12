@@ -208,7 +208,7 @@ Complete code would like this - this not optimised - this shows the use of the e
 This outputs the following - where #20 is the current build and the date/time is correct for build time.
 
 ----
-    Max7219 build20@01-06-2018 08:00:21
+    Max7219 build20@01-06-2019 08:00:21
     Commence main program
 ----
 
@@ -220,4 +220,3 @@ The converter requires the following files - these are included within your Inst
     GCBVersionStamp.exe - the utility called by the converter capability.
     cnt2gcb.ini - the supporting ini file used by the compiler to handle this converter.
 ----
-
