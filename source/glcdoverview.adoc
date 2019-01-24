@@ -155,17 +155,19 @@ Sensitive to operating voltages.
 
 
 |8
-|ILI9486L
+|ILI9486L or ILI9486
 |Help
 | 4inch
 |RPI   240 * 320
 |Large
 |Color
 |TFT LCD
-|SPI
+|SPI and 8Bit Bus
 |PIC and AVR: Hardware and software SPI
+AVR: 8Bit Bus.  PIC: No support for 8bit Bus.
 |Typically operates at VCC 5. Always check voltage specifications Great pixel display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
+8Bit Bus requires 8 ports plus 4 control ports. Typically 12 in total using an UNO GLCD shield.
 |An expensive option
 
 |9
