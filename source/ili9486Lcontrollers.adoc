@@ -62,8 +62,8 @@ The Great Cow BASIC constants for the communicaton protocol for the controller a
 [cols="2,4,4", options="header,autowidth"]
 |===
 |`Communications Options`
-|SELECT ONLY ONE OF THE FOLLLOWING
 |
+|SELECT ONLY ONE OF THE FOLLLOWING
 
 |No communications option defined, assumes software SPI.
 |Specifies that software SPI will be used
@@ -78,13 +78,13 @@ The Great Cow BASIC constants for the communicaton protocol for the controller a
 
 |`UNO_8bit_Shield`
 |Specifies that a UNO shield will be used
-|The shield will use 13 ports.  These ports are defined by the shield
+|The shield will use 13 ports.  These ports are pre-defined by the shield. These ports must be specified.
 
     *#define UNO_8bit_Shield*
 
 |`GLCD_DataPort`
 |Specifies that a full 8 port will be used
-|The microcontroller will use 13 ports.  These port is defined as 8 contigous bits.
+|The microcontroller will use 13 ports.  These port is defined as 8 contigous bits. These control port and the data port must be specified.
 
     *#define GLCD_DataPort portb*
 
