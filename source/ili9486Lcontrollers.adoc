@@ -27,7 +27,7 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 |Options
 
 |`GLCD_TYPE`
-|`GLCD_TYPE_ILI9486L`
+|`GLCD_TYPE_ILI9486L` or `GLCD_TYPE_ILI9486`
 |
 
 |`GLCD_DC`
@@ -53,6 +53,42 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 |`GLCD_SLK`
 |Specifies the output pin that is connected to Clock (CLK) pin on the GLCD.
 |Required
+|`Communications Options`
+|SELECT ONLY ONE OF THE FOLLLOWING
+|
+
+|1. No Communications Options
+|Specifies that software SPI will be used
+|SPI ports MUST be defined
+
+
+|2. `ILI9486L_HardwareSPI`
+|Specifies that hardware SPI will be used
+|SPI ports MUST be defined that match the SPI module for each specific microcontroller
+
+    #define ILI9486L_HardwareSPI
+
+|3. `UNO_8bit_Shield`
+|Specifies that a UNO shield will be used
+|The shield will use 12 ports.  These ports are defined by the shield
+
+    #define UNO_8bit_Shield
+
+|4. `GLCD_DataPort`
+|Specifies that a full 8 port will be used
+|The microcontroller will use 12 ports.  These port is defined as 8 contigous bits.
+
+    #define GLCD_DataPort portb
+
+
+
+
+
+
+
+
+
+
 |===
 
 

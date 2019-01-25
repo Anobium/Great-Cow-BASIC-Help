@@ -164,10 +164,10 @@ Sensitive to operating voltages.
 |TFT LCD
 |SPI and 8Bit Bus
 |PIC and AVR: Hardware and software SPI
-AVR: 8Bit Bus.  PIC: No support for 8bit Bus.
+AVR: 8Bit Bus using an UNO Shield.  PIC: 8bit port suppported.
 |Typically operates at VCC 5. Always check voltage specifications Great pixel display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
-8Bit Bus requires 8 ports plus 4 control ports. Typically 12 in total using an UNO GLCD shield.
+8Bit Bus requires 8 ports plus 4 control ports. Typically 12 in total using an 8bit bus solution.
 |An expensive option
 
 |9
