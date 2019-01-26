@@ -1,16 +1,16 @@
-==== ILI9486L Controllers
+==== ILI9486(L) Controllers
 
 
-This section covers GLCD devices that use the ILI9486L graphics controller.
+This section covers GLCD devices that use the ILI9486(L) graphics controller.
 
-The ILI9486L is a 262,144-color single-chip SoC driver for a-Si TFT liquid crystal display with resolution of
+The ILI9486(L) is a 262,144-color single-chip SoC driver for a-Si TFT liquid crystal display with resolution of
 320RGBx480 dots, comprising a 960-channel source driver, a 480-channel gate driver, 345,600bytes GRAM for
 graphic data of 320RGBx480 dots.
 
-The Great Cow BASIC constants shown below control the configuration of the ILI9486L controller. &#160;&#160;&#160;Great Cow BASIC supports SPI hardware and software connectivity  - this is shown in the tables below.
+The Great Cow BASIC constants shown below control the configuration of the ILI9486(L) controller. &#160;&#160;&#160;Great Cow BASIC supports 1) SPI using the SPI hardware module, 2) software SPI, 3) UNO shields and 4) an 8bit port bus - this is detailed in the tables below.
 
 
-To use the ILI9486L driver simply include the following in your user code.  This will initialise the driver.
+To use the ILI9486(L) driver simply include the following in your user code.  This will initialise the driver.
 
 ----
     #include <glcd.h>
@@ -189,24 +189,24 @@ The Great Cow BASIC commands supported for this GLCD are shown in the table belo
 
 
 ----
-    ILI9486L_BLACK   'hexidecimal value 0x0000
-    ILI9486L_RED     'hexidecimal value 0xF800
-    ILI9486L_GREEN   'hexidecimal value 0x07E0
-    ILI9486L_BLUE    'hexidecimal value 0x001F
-    ILI9486L_WHITE   'hexidecimal value 0xFFFF
-    ILI9486L_PURPLE  'hexidecimal value 0xF11F
-    ILI9486L_YELLOW  'hexidecimal value 0xFFE0
-    ILI9486L_CYAN    'hexidecimal value 0x07FF
-    ILI9486L_D_GRAY  'hexidecimal value 0x528A
-    ILI9486L_L_GRAY  'hexidecimal value 0x7997
-    ILI9486L_SILVER  'hexidecimal value 0xC618
-    ILI9486L_MAROON  'hexidecimal value 0x8000
-    ILI9486L_OLIVE   'hexidecimal value 0x8400
-    ILI9486L_LIME    'hexidecimal value 0x07E0
-    ILI9486L_AQUA    'hexidecimal value 0x07FF
-    ILI9486L_TEAL    'hexidecimal value 0x0410
-    ILI9486L_NAVY    'hexidecimal value 0x0010
-    ILI9486L_FUCHSIA 'hexidecimal value 0xF81F
+    TFT_BLACK   'hexidecimal value 0x0000
+    TFT_RED     'hexidecimal value 0xF800
+    TFT_GREEN   'hexidecimal value 0x07E0
+    TFT_BLUE    'hexidecimal value 0x001F
+    TFT_WHITE   'hexidecimal value 0xFFFF
+    TFT_PURPLE  'hexidecimal value 0xF11F
+    TFT_YELLOW  'hexidecimal value 0xFFE0
+    TFT_CYAN    'hexidecimal value 0x07FF
+    TFT_D_GRAY  'hexidecimal value 0x528A
+    TFT_L_GRAY  'hexidecimal value 0x7997
+    TFT_SILVER  'hexidecimal value 0xC618
+    TFT_MAROON  'hexidecimal value 0x8000
+    TFT_OLIVE   'hexidecimal value 0x8400
+    TFT_LIME    'hexidecimal value 0x07E0
+    TFT_AQUA    'hexidecimal value 0x07FF
+    TFT_TEAL    'hexidecimal value 0x0410
+    TFT_NAVY    'hexidecimal value 0x0010
+    TFT_FUCHSIA 'hexidecimal value 0xF81F
 ----
 
 For a ILI9486L datasheet, please refer to Google.

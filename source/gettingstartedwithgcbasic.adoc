@@ -22,7 +22,7 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
  - For project-specific flashing you can edit the current programmers in “Edit Programmer Preferences” to suit your needs by clicking on “Edit…”. Use the “Use If:” parameter to choose programmer preferences. See the help tips. The chip model is autodetected by the IDE for use in “Use IF:” or in command line options etc.
 {empty} +
 {empty} +
- - Some programmers use a .hex file to "flash" the microcontroller.  By selecting "Make HEX" ( F5 ), Great Cow BASIC will compile the program and make a .hex file in the same directory as the Great Cow BASIC file.  This method can also be used to check for errors in the Great Cow BASIC program before flashing. 
+ - Some programmers use a .hex file to "flash" the microcontroller.  By selecting "Make HEX" ( F5 ), Great Cow BASIC will compile the program and make a .hex file in the same directory as the Great Cow BASIC file.  This method can also be used to check for errors in the Great Cow BASIC program before flashing.
 {empty} +
 {empty} +
    - Included programmer software is:
@@ -44,3 +44,13 @@ Need to compile a program with Great Cow BASIC, but don't know where to begin? T
 
 [small]#^(1)^ You need a suitable programmer to do this, and instructions should be
 included with the programmer on how to download and connect the hardware to the microcontroller.#
+{empty} +
+{empty} +
+
+*Programmer Preferences*
+{empty} +
+The “Programmer Preferences” is a software tool to control and set-up the different programmers.  Review the GIF for instructions.
+{empty} +
+{empty} +
+image:PPtool.gif[graphic,width=640,height=480]
+{empty} +

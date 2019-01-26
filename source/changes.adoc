@@ -19,11 +19,12 @@
 {empty} +
 
 *Updates to HELP are as follows*::
-- Added new NT7108C section
+- Added new NT7108C section.
 - Revised GLCD ST7735 section to remove colors, added TFT colors to the GLCD overview section.
-- Added support for PMW channel 8
-- Clarified PWM section with respect the potential PWMN channels
-- Revised ST7735 GLCD to support OLED
+- Added support for PMW channel 8.
+- Clarified PWM section with respect the potential PWMN channels.
+- Revised ST7735 GLCD to support OLED.
+- Revised GLCD section to provide detail on new ILI9486(l) capabilities.
 
 
 
