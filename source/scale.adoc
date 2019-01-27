@@ -24,7 +24,7 @@ Available on all microcontrollers.&#160;&#160;&#160;The parameters are:
 {empty} +
 {empty} +
 
-The is an overloaded method where you can also use word variables to provide a returned result of 0-65535.
+This is also an overloaded method.  You can also use word variables to provide a returned result of 0-65535.
 {empty} +
 ----
     word_variable = Scale (value_word , fromLow_word , fromHigh_word , toLow_wordr , toHigh_word [, calibration_integer] )
