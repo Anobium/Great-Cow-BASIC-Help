@@ -25,6 +25,7 @@
 - Clarified PWM section with respect the potential PWMN channels.
 - Revised ST7735 GLCD to support OLED.
 - Revised GLCD section to provide detail on new ILI9486(l) capabilities.
+- Added Scale with word values to return a range of  0 to 65535
 
 
 

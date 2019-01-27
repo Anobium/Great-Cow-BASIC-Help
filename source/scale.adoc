@@ -3,7 +3,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    integer_variable = Scale (value , fromLow , fromHigh , toLow , toHigh [, calibration] )
+    integer_variable = Scale (value_word , fromLow_integer , fromHigh_integer , toLow_integer , toHigh_integer [, calibration_integer] )
 ----
 
 *Command Availability:*
@@ -21,9 +21,29 @@ Available on all microcontrollers.&#160;&#160;&#160;The parameters are:
 `toHigh`: the upper bound of the value’s target range. An Integer value between -32767 and 32767.
 
 `calibration`: optional calibration offset value. An Integer value between -32767 and 32767.
+{empty} +
+{empty} +
 
+The is an overloaded method where you can also use word variables to provide a returned result of 0-65535.
+{empty} +
+----
+    integer_variable = Scale (value_word , fromLow_word , fromHigh_word , toLow_wordr , toHigh_word [, calibration_integer] )
+----
+Available on all microcontrollers.&#160;&#160;&#160;The parameters are:
 
+`value`: the number to scale. A value between 0 and 0xFFFFF - all values passed will be treated as Word variables.
 
+`fromLow`: the lower bound of the value’s current range. A word value.
+
+`fromHigh`: the upper bound of the value’s current range. A word value.
+
+`toLow`: the lower bound of the value’s target range.  A word value.
+
+`toHigh`: the upper bound of the value’s target range.  A word value.
+
+`calibration`: optional calibration offset value. An Integer value between -32767 and 32767.
+{empty} +
+{empty} +
 *Explanation:*
 
 Scales, re-maps, a number from one range to another.&#160;&#160;&#160;That is, a value of fromLow would gets scaled to toLow, a value of fromHigh to toHigh, values in-between to values in-between, etc.
