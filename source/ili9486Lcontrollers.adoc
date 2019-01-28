@@ -228,7 +228,7 @@ This example shows how to drive a ILI9486L based Graphic LCD module with the bui
     'Pin mappings for SPI - this GLCD driver supports Hardware SPI and Software SPI
     #define GLCD_DC       DIGITAL_8           ' Data command line
     #define GLCD_CS       DIGITAL_10          ' Chip select line
-    #define GLCD_RESET    DIGITAL_9           ' Reset line
+    #define GLCD_RST      DIGITAL_9           ' Reset line
 
     #define GLCD_DI       DIGITAL_13          ' Data in | MISO
     #define GLCD_DO       DIGITAL_11          ' Data out | MOSI
