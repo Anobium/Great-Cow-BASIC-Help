@@ -262,6 +262,11 @@ Support up to four devices via the I2C bus.
 |GLCD
 |A device specific library for an Graphical LCD.
 
+
+|PCF85X3
+|Clock
+|A library that supports the timer clock and alarms.
+
 |SD
 |SD Card
 |A device specific library for an SD Card.
@@ -423,6 +428,12 @@ Great Cow BASIC supports the following core libraries.   These libraries are aut
 |USART
 |Serial
 |The library that contains the hardware serial methods that use the MSSP or AVR equivilent hardware module.
+
+
+|XPT2046
+|Touch Shield
+|A library that interfaces with the APT2026 and the ADS7843 touch sensors.
+
 
 |===
 {empty} +
