@@ -317,6 +317,9 @@ include::st7920writedata.adoc[]
 
 include::st7920greaddata.adoc[]
 
+include::t6963controllers.adoc[]
+
+
 :leveloffset: -1
 
 include::box.adoc[]
