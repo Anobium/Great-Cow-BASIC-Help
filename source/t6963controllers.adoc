@@ -265,6 +265,9 @@ To use add the following to you user program.&#160;&#160;&#160;See the demonstra
 {empty} +
 {empty} +
 *Other methods and constants*
+{empty} +
+{empty} +
+
 There are many other methods and constants that support this device.&#160;&#160;&#160;Reviewing the library will assist in understanding how these private methods and constants support the overal solution for this library.
 {empty} +
 {empty} +
