@@ -161,10 +161,26 @@ The Great Cow BASIC constants control the memory configuration of the T6963 cont
 The Great Cow BASIC library supports the following capabilities.&#160;&#160;&#160;Please refer to the relevant Help section and the device specific demonstrations.
 {empty} +
 {empty} +
+*Command Supported*
+{empty} +
+{empty} +
+
 The GLCD command set: GLCDCLS, Line, Circle and all the GLCD methods.
 The LCD command set: CLS, Locate, Print, LCDHEX and all the LCD methods.
 BMP loading via external data sources.
 GLCD and LCD page swapping.
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|*Commands*
+|*Usage*
+
+|
+|
+
+|===
+
+
 {empty} +
 {empty} +
 *GLCD and LCD page swapping*
@@ -207,6 +223,7 @@ To use add the following to you user program.&#160;&#160;&#160;See the demonstra
     'Select the LCD page 2 memory
     SelectLCDPage ( LCDPage2_T6963 )
 ----
+
 
 *For more help, see*
 <<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>> or <<_pset,Pset>>
