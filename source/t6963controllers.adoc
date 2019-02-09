@@ -264,6 +264,61 @@ To use add the following to you user program.&#160;&#160;&#160;See the demonstra
 ----
 {empty} +
 {empty} +
+
+The `SelectLCDPage` and `SelectLCDPage` and "Set Text Home Address" methods change the screen being viewed on the device.
+
+The key is to establish what you want your memory map to look like.  &#160;&#160;&#160; Below is a map for one of my 240 x 64 pixel  device.   &#160;&#160;&#160; The default is for 10 screen pages (some newer LCD's may have more RAM for more screens). &#160;&#160;&#160; If you write the appropriate value (0x1000, or 0x11b0, or 0x1360, etc) to the text home address, the display will instantly change to that screen - using `SelectLCDPage` and `SelectLCDPage` method with the appropiate constant as parameter.
+
+You can write your screens "ahead of time", in my case during the "splash screen" delay interval, and instantly change to them later as desired. &#160;&#160;&#160; You can do this by setting **current_grh_home_addr** to the appropiate page. &#160;&#160;&#160;And, then execute the GLCD commands you would normal use.
+
+The graphic and text screens are independant but can be overlaid for a variety of useful effects.
+
+Although, not tested,  the LCD text screens can be scrolled 1 full text line at a time, while the GLCD screens can be scrolled 1 pixel row at a time, provided you've set up your memory map accordingly with adequate RAM for the graphic area.
+
+{empty} +
+{empty} +
+*Default Memory Map*
+{empty} +
+{empty} +
+
+----
+            '
+            '*******************************************************
+            '
+            ' LCD MEMORY MAP
+            '
+            '*******************************************************
+            '
+            ' 
+            '
+            ' -------------------- 
+            ' |                  | 0x0000
+            ' |                  |
+            ' | TEXT RAM AREA    | Each page has the numnbers of bytes + extra  
+            ' | ( 10 SCREENs )   | few bytes need to attributes. This is 
+            ' |                  | mentioned in the datasheet but imperical 
+            ' |                  | testing shows... you need the extra bytes 
+            ' -------------------- 
+            ' |                  | 
+            ' | xx bytes unused  | 
+            ' |                  | 
+            ' -------------------- 
+            ' |                  | 0x3fff
+            ' |                  | 
+            ' |                  | 
+            ' |  GCLD RAM AREA   | 
+            ' |  ( 10 SCREENS )  | 
+            ' |                  | 
+            ' |                  | 
+            ' |					 | 
+            ' -------------------- 
+            ' |                  | 0x77ff
+            ' |   CG RAM AREA    | (Sacrosanct)
+            ' |                  | 
+            ' -------------------- 0x7ffff
+            '
+----
+
 *Other methods and constants*
 {empty} +
 There are many other methods and constants that support this device.&#160;&#160;&#160;Reviewing the library will assist in understanding how these private methods and constants support the overal solution for this library.
