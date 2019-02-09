@@ -1,11 +1,214 @@
 ==== T6963 Controllers
 
-This section covers GLCD devices that use the T6963 graphics controller.
+This section covers Graphical Liquid Crystal Display (GLCD) devices that use the Toshiba T6963 graphics controller.&#160;&#160;&#160;The T6963 is a monochrome device that typically is blue or white.&#160;&#160;&#160;The GLCD can be provided in a number of pixels sizes - 240 * 64 or 240 * 128.
+{empty} +
+{empty} +
+The Toshiba T6963 is a very popular LCD controller for use in small graphics modules. It is capable of controlling displays with a resolution up to 240x128. Because of its low power and
+small outline it is most suitable for mobile applications such as PDAs, MP3 players or mobile measurement equipment.
+{empty} +
+{empty} +
+A number of GLCD  modules have this controller built-in these include the SP12N002 & SP14N001. Although this controller is small, it has the capability of displaying
+and merging text and graphics and it manages all the interfacing signals to the displays Row and Column drivers.&#160;&#160;&#160;The Great Cow BASIC library supports the complex capabilities of the T6963.
+{empty} +
+{empty} +
+The T6963 is an LCD is driven by on-board 5V parallel interface chipset T6963.&#160;&#160;&#160;For the specific operating voltage always verify the operating voltages in the device specific datasheet.
+{empty} +
+The only connectivity option is the 8-bit mode where 8 connections (for the data) are required between the microcontroller and the GLCD to control the data bus.
+{empty} +
+{empty} +
+To use the T6963 driver simply include the following in your user code.  This will initialise the driver.
+{empty} +
+{empty} +
+----
 
+    #chip 16f1939,32
+    #option explicit
 
+    '***********************************************************************************************
+    'Specify this GLCD - a 240 x 64 pixels display
+    #include <glcd.h>
+     #define GLCD_TYPE GLCD_TYPE_T6963_64
 
+    '***********************************************************************************************
+    'define the connectivity - the ports
+     #define GLCD_DATA_PORT PORTD             'Library only support contigous 8-bit port
+     #define GLCD_CS        PORTa.7           'Chip Enable (Active Low)
+     #define GLCD_CD        PORTa.0           'Command or Data conrol line port
+     #define GLCD_RD        PORTA.1           'Read control line  port
+     #define GLCD_WR        PORTA.2           'Write control line port
+     #define GLCD_RESET     PORTA.3           'Reset port
+     #define GLCD_FS        PORTA.5           'FS port
+     #define GLCD_FS_SELECT 1                 'FS1 Font Select port. 6x8 font: FS1=“High”=1 8x8 font FS1=“Low”=0 for GLCD_FS_SELECT
+
+    '***********************************************************************************************
+    '*
+    '* Note    :   The T6963 controller's RAM address space from $0000 - $7FFF, total 32kbyte RAM, or it could be 64kbyte RAM best check!!
+    '*
+    '***********************************************************************************************
+     #define TEXT_HOME_ADDR      0x0000                                                         'This is specific to the GLCD display
+     #define GRH_HOME_ADDR       0x3FFF                                                         'This is specific to the GLCD display
+     #define CG_HOME_ADDR        0x77FF                                                         'This is specific to the GLCD display
+     #define COLUMN              40    'Set column number to be 40 , 32, 30 etc.                 This is specific to the GLCD display
+     #define MAX_ROW_PIXEL       64    'MAX_ROW_PIXEL the physical matrix length (y direction)   This is specific to the GLCD display
+     #define MAX_COL_PIXEL       240   'MAX_COL_PIXEL the physical matrix width (x direction)    This is specific to the GLCD display
+
+    '***********************************************************************************************
+    '* End of configuration
+    '***********************************************************************************************
+
+----
+
+{empty} +
+{empty} +
+
+The Great Cow BASIC constants shown below control the configuration of the T6963 controller.
+
+The Great Cow BASIC constants for the interface to the controller are shown in the table below.
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|*Constants*
+|*Controls*
+|*Options*
+
+|`GLCD_TYPE`
+|`GLCD_TYPE_TYPE_T6963_64` or `GLCD_TYPE_T6963_128`
+|
+
+|`GLCD_DATA_PORT`
+|A full 8-bit port.  8 contigous input/outputs.
+|
+
+|`GLCD_CS`
+|Specifies the output pin that is connected to Chip Select on the
+GLCD.
+|Required
+
+|`GLCD_CD`
+|Specifies the output pin that is connected to Command/Data on the GLCD.
+|Required
+
+|`GLCD_RD`
+|Specifies the output pin that is connected to Read on the GLCD.
+|Required
+
+|`GLCD_WR`
+|Specifies the output pin that is connected to Write on the GLCD.
+|Required
+
+|`GLCD_RESET`
+|Specifies the output pin that is connected to Reset on the GLCD.
+|Required
+
+|`GLCD_FS`
+|Specifies the output pin that is connected to FS  on the GLCD.  The FS specifies the font size.  Please set to 6 setting  GLCD_FS_SELECT = 1
+|Required
+
+|`GLCD_FS_SELECT`
+|Specifies the output pin that is connected to FS  on the GLCD.  The FS specifies the font size.  Please set to 6 setting  GLCD_FS_SELECT = 1
+|Required.  Can be 1 or 0.  Default setting is 1.
+
+|===
+
+{empty} +
+{empty} +
+
+The T6963 differs from most other GLCD controllers in its use of the display RAM.&#160;&#160;&#160; Where a fixed area
+of memory is normally allocated for text, graphics and the external character generator, but with
+the T6963 the size for each area *MUST* be set by software commands.&#160;&#160;&#160; This means that the area for
+text, graphics and external character generator can be freely allocated within the external
+memory, up to 64 kByte.&#160;&#160;&#160;Check the specific device for the amount of memory available.&#160;&#160;&#160;This can range from 4 kbyte to 64 kbyte.
+
+{empty} +
+{empty} +
+For more information on memory management refer the device specific datasheet.
+{empty} +
+{empty} +
+The Great Cow BASIC constants control the memory configuration of the T6963 controller.
+
+[cols="2,4,4", options="header,autowidth"]
+|===
+|*Constants*
+|*Value*
+|*Comments*
+
+|`TEXT_HOME_ADDR`
+|0x0000
+|This is specific to the GLCD display
+
+|`GRH_HOME_ADDR`
+|0x3FFF
+|This is specific to the GLCD display
+
+|`CG_HOME_ADDR`
+|0x77FF
+|This is specific to the GLCD display
+
+|`COLUMN`
+|40
+|Set column number to be 40 , 32, 30 etc.  This is specific to the GLCD display
+
+|`MAX_ROW_PIXEL`
+|64
+|MAX_ROW_PIXEL the physical matrix length (y direction)   This is specific to the GLCD display
+
+|`MAX_COL_PIXEL`
+|240
+|MAX_COL_PIXEL the physical matrix width (x direction)    This is specific to the GLCD display
+
+|===
+{empty} +
+{empty} +
+The Great Cow BASIC library supports the following capabilities.&#160;&#160;&#160;Please refer to the relevant Help section and the device specific demonstrations.
+{empty} +
+{empty} +
+The GLCD command set: GLCDCLS, Line, Circle and all the GLCD methods.
+The LCD command set: CLS, Locate, Print, LCDHEX and all the LCD methods.
+BMP loading via external data sources.
+GLCD and LCD page swapping.
+
+{empty} +
+{empty} +
+*GLCD and LCD page swapping*
+{empty} +
+To support GLCD and LCD page swapping - this can be used to support fixed pages of information, BMPs or scrolling the following constants have are available to the user.
+{empty} +
+For GLCD memory addressing
+----
+  GLCDPage0_T6963
+  GLCDPage1_T6963
+  GLCDPage2_T6963
+  ...
+  GLCDPage10_T6963
+----
+{empty} +
+Ten pages are automatically created but the number of pages available is constrained by the memory configuration.
+{empty} +
+For LCD memory addressing
+----
+  LCDPage0_T6963
+  LCDPage1_T6963
+  LCDPage2_T6963
+  ...
+  LCDPage10_T6963
+----
+{empty} +
+Ten pages are automatically created but the number of pages available is constrained by the memory configuration.
+{empty} +
+To use add the following to you user program.&#160;&#160;&#160;See the demonstration programs for more detailed usage.&#160;&#160;&#160;After calling the `SelectGLCDPage` or `SelectLCDPage` methods all GLCD or LCD commands will be applied to the current GLCD or LCD page.
+
+----
+    'Select the GLCD page 1 memory
+    SelectGLCDPage ( GLCDPage1_T6963 )
+
+    'Select the LCD page 2 memory
+    SelectLCDPage ( LCDPage2_T6963 )
+----
 
 *For more help, see*
-<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>> or <<_pset,Pset>>
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>> or <<_pset,Pset>>
 
 Supported in <GLCD.H>
+
+
+&#160;&#160;&#160;

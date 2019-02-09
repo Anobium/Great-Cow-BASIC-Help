@@ -177,6 +177,14 @@ Great Cow BASIC supports the following device libraries.
 |Graphical LCD
 |A device specific library for an Graphical LCD.
 
+|GLCD_T6963_64
+|Graphical T6963 LCD with 240 x 64 pixels
+|A device specific library for an Graphical LCD.
+
+|GLCD_T6963_128
+|Graphical T6963 LCD with 240 x 64 pixels
+|A device specific library for an Graphical LCD.
+
 |HEFLASH
 |HEF Memory Driver
 |A library that supports the HEF memory functions.
