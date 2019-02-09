@@ -206,7 +206,7 @@ The table below shows the specific implementations of the command set for this d
 
 |LCDCursor
 |Send specific commands to the device to control the cursor
-|===
+
 
 |GLCDCLS
 |Clear the screen of the current GLCD page
@@ -219,7 +219,7 @@ The table below shows the specific implementations of the command set for this d
 
 |SelectLCDPage_T6963
 |Select a specific LCD page.
-
+|===
 {empty} +
 {empty} +
 *GLCD and LCD page swapping*
