@@ -39,7 +39,7 @@ To use the T6963 driver simply include the following in your user code.  &#160;&
      #define GLCD_WR        PORTA.2           'Write control line port
      #define GLCD_RESET     PORTA.3           'Reset port
      #define GLCD_FS        PORTA.5           'FS port
-     #define GLCD_FS_SELECT 1                 'FS1 Font Select port. 6x8 font: FS1=ìHighî=1 8x8 font FS1=ìLowî=0 for GLCD_FS_SELECT
+     #define GLCD_FS_SELECT 1                 'FS1 Font Select port. 6x8 font: FS1=‚ÄúHigh‚Äù=1 8x8 font FS1=‚ÄúLow‚Äù=0 for GLCD_FS_SELECT
 
     '***********************************************************************************************
     '*
@@ -161,25 +161,64 @@ The Great Cow BASIC constants control the memory configuration of the T6963 cont
 The Great Cow BASIC library supports the following capabilities.&#160;&#160;&#160;Please refer to the relevant Help section and the device specific demonstrations.
 {empty} +
 {empty} +
-*Command Supported*
+*Commands Supported for the LCD and GLCD*
 {empty} +
 {empty} +
 
-The GLCD command set: GLCDCLS, Line, Circle and all the GLCD methods.
-The LCD command set: CLS, Locate, Print, LCDHEX and all the LCD methods.
-BMP loading via external data sources.
-GLCD and LCD page swapping.
+The GLCD command set covers the standard GLCDCLS, Line, Circle and all the GLCD methods and the  LCD command set: CLS, Locate, Print, LCDHEX etc.  The demonstrations show how to load BMP loading via external data sources and GLCD and LCD page swapping.
+{empty} +
+{empty} +
+The table below shows the specific implementations of the command set for this device.&#160;&#160;&#160;Refer to the GLCD and LCD in the Help for the generic GLCD and LCD commands.
+{empty} +
+{empty} +
 
 [cols="2,4,4", options="header,autowidth"]
 |===
 |*Commands*
 |*Usage*
 
-|
-|
+|CLS
+|Clear the screen of the current LCD page
 
+|LOCATE
+|Locate the cursor at a specific screen position
+
+|PRINT
+|Print numbers or strings
+
+|PUT
+|Put a specific ASCII code at a specific screen position
+
+|LCDHOME
+|Set output position of 0, 0
+
+|LCDcmd
+|Send specific command to the device to control the device.
+
+|LCDdata
+|Send specific data to the device to control the device.
+
+|LCDHex
+|Print Hex value of a number to the LCD screen
+
+|LCDSpace
+|Print a number of space to the LCD screen
+
+|LCDCursor
+|Send specific commands to the device to control the cursor
 |===
 
+|GLCDCLS
+|Clear the screen of the current GLCD page
+
+|GLCDRotate
+|Rotate the GLCD screen. Only Landscape rotation is supported.
+
+|SelectGLCDPage_T6963
+|Select a specific GLCD page.
+
+|SelectLCDPage_T6963
+|Select a specific LCD page.
 
 {empty} +
 {empty} +
@@ -223,6 +262,12 @@ To use add the following to you user program.&#160;&#160;&#160;See the demonstra
     'Select the LCD page 2 memory
     SelectLCDPage ( LCDPage2_T6963 )
 ----
+{empty} +
+{empty} +
+*Other methods and constants*
+There are many other methods and constants that support this device.&#160;&#160;&#160;Reviewing the library will assist in understanding how these private methods and constants support the overal solution for this library.
+{empty} +
+{empty} +
 
 
 *For more help, see*
