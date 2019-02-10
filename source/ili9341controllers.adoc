@@ -59,6 +59,15 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 |`GLCD_SCK`
 |Specifies the output pin that is connected to Clock (CLK) pin on the GLCD.
 |Required
+
+|
+|
+|
+
+|`HWSPIMode`
+|User can specify the hardware SPI mode.  Must be one of MasterSlow, Master, Masterfast
+|Optional. Defaults to Masterfast when chipMhz is less than 64mhz
+
 |===
 
 
@@ -93,7 +102,6 @@ The GLCDfntDefaultsize can be set to 1 or 2 only.
 `GLCDfntDefaultsize=  2`.   A larger 10 width * 16 height pixel font.
 
 |Optional
-
 
 
 |===

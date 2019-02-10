@@ -59,6 +59,15 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 |Specifies the output pin that is connected to Clock (CLK) pin on the GLCD.
 #define GLCD_SCK    porta.5           'example port setting
 |Required
+
+|
+|
+|
+
+|`HWSPIMode`
+|User can specify the hardware SPI mode.  Must be one of MasterSlow, Master, Masterfast
+|Optional. Defaults to Masterfast when chipMhz is less than 64mhz
+
 |===
 
 
