@@ -31,8 +31,19 @@ To use the T6963 driver simply include the following in your user code.  &#160;&
      #define GLCD_TYPE GLCD_TYPE_T6963_64
 
     '***********************************************************************************************
-    'define the connectivity - the ports
-     #define GLCD_DATA_PORT PORTD             'Library only support contigous 8-bit port
+    'define the connectivity - the 8bit port
+    #define GLCD_DATA_PORT PORTD             'Library support contigous 8-bit port
+
+  '  or
+  '  #define GLCD_DB0      PORTD.0            'chip specific configuration where the ibrary supports 8-bit port defined via 8 constants
+  '  #define GLCD_DB1      PORTD.1            'chip specific configuration
+  '  #define GLCD_DB2      PORTD.2            'chip specific configuration
+  '  #define GLCD_DB3      PORTD.3            'chip specific configuration
+  '  #define GLCD_DB4      PORTD.4            'chip specific configuration
+  '  #define GLCD_DB5      PORTD.5            'chip specific configuration
+  '  #define GLCD_DB6      PORTD.6            'chip specific configuration
+  '  #define GLCD_DB7      PORTD.7            'chip specific configuration
+
      #define GLCD_CS        PORTa.7           'Chip Enable (Active Low)
      #define GLCD_CD        PORTa.0           'Command or Data conrol line port
      #define GLCD_RD        PORTA.1           'Read control line  port
@@ -76,7 +87,11 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 
 |`GLCD_DATA_PORT`
 |A full 8-bit port.  8 contigous input/outputs.
-|Required
+|or use GLCD_DB0..GLCD_DB7
+
+|`GLCD_DB0..7`
+|A 8-bit port using 8 input/outputs.
+|or use GLCD_DATA_PORT
 
 |`GLCD_CS`
 |Specifies the output pin that is connected to Chip Select on the
@@ -289,32 +304,32 @@ Although, not tested,  the LCD text screens can be scrolled 1 full text line at 
             '
             '*******************************************************
             '
-            ' 
             '
-            ' -------------------- 
+            '
+            ' --------------------
             ' |                  | 0x0000
             ' |                  |
-            ' | TEXT RAM AREA    | Each page has the numnbers of bytes + extra  
-            ' | ( 10 SCREENs )   | few bytes need to attributes. This is 
-            ' |                  | mentioned in the datasheet but imperical 
-            ' |                  | testing shows... you need the extra bytes 
-            ' -------------------- 
-            ' |                  | 
-            ' | xx bytes unused  | 
-            ' |                  | 
-            ' -------------------- 
+            ' | TEXT RAM AREA    | Each page has the numnbers of bytes + extra
+            ' | ( 10 SCREENs )   | few bytes need to attributes. This is
+            ' |                  | mentioned in the datasheet but imperical
+            ' |                  | testing shows... you need the extra bytes
+            ' --------------------
+            ' |                  |
+            ' | xx bytes unused  |
+            ' |                  |
+            ' --------------------
             ' |                  | 0x3fff
-            ' |                  | 
-            ' |                  | 
-            ' |  GCLD RAM AREA   | 
-            ' |  ( 10 SCREENS )  | 
-            ' |                  | 
-            ' |                  | 
-            ' |					 | 
-            ' -------------------- 
+            ' |                  |
+            ' |                  |
+            ' |  GCLD RAM AREA   |
+            ' |  ( 10 SCREENS )  |
+            ' |                  |
+            ' |                  |
+            ' |          |
+            ' --------------------
             ' |                  | 0x77ff
             ' |   CG RAM AREA    | (Sacrosanct)
-            ' |                  | 
+            ' |                  |
             ' -------------------- 0x7ffff
             '
 ----
