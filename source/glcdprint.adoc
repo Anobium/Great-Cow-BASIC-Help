@@ -12,7 +12,7 @@
 {empty} +
 `PrintLocX` is the X corrdinate location for the data +
 `PrintLocY` is the Y coordinate location for the data +
-`PrintData` is a String or String variable of the data to display
+`PrintData` is a variable or constant to be displayed
 {empty} +
 {empty} + 
 *Explanation:*
