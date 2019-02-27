@@ -25,7 +25,7 @@ To display an integer use:
 {empty} +
 {empty} +
 ----
-    GLCDPrint(PrintLocX, PrintLocY, str(integer_value) )
+    GLCDPrint(PrintLocX, PrintLocY, strinteger(integer_value) )
 ----
 {empty} +
 {empty} +
