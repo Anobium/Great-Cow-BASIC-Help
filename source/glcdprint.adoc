@@ -21,7 +21,7 @@
 Prints data values (byte, word, long or string) at a specified location on the GLCD screen.
 {empty} +
 {empty} +
-To print an integer use: 
+To display an integer use: 
 {empty} +
 {empty} +
 ----
