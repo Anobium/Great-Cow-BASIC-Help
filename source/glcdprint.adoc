@@ -2,11 +2,11 @@
 
 *Syntax:*
 ----
-    GLCDPrint(PrintLocX, PrintLocY, PrintData_Byte )    ',or
-    GLCDPrint(PrintLocX, PrintLocY, PrintData_Word )    ',or
-    GLCDPrint(PrintLocX, PrintLocY, PrintData_Long )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Byte [, Optional Colour] )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Word [, Optional Colour] )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Long [, Optional Colour] )    ',or
     
-    GLCDPrint(PrintLocX, PrintLocY, PrintData_String )
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_String [, Optional Colour] )
 ----
 {empty} +
 {empty} +
