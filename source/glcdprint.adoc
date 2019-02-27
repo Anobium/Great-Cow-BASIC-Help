@@ -2,17 +2,17 @@
 
 *Syntax:*
 ----
-    GLCDPrint(PrintLocX, PrintLocY, Print_Byte )    ',or
-    GLCDPrint(PrintLocX, PrintLocY, Print_Word )    ',or
-    GLCDPrint(PrintLocX, PrintLocY, Print_Long )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Byte )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Word )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_Long )    ',or
     
-    GLCDPrint(PrintLocX, PrintLocY, Print_String )
+    GLCDPrint(PrintLocX, PrintLocY, PrintData_String )
 ----
 {empty} +
 {empty} +
 `PrintLocX` is the X corrdinate location for the data +
 `PrintLocY` is the Y coordinate location for the data +
-`PrintData` is a variable or constant to be displayed
+`PrintData_[type]` is a variable or constant to be displayed
 {empty} +
 {empty} + 
 *Explanation:*
