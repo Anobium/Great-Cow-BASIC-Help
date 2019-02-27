@@ -2,16 +2,23 @@
 
 *Syntax:*
 ----
-    GLCDPrint(PrintLocX, PrintLocY, PrintData)
+    GLCDPrint(PrintLocX, PrintLocY, Print_Byte )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, Print_Word )    ',or
+    GLCDPrint(PrintLocX, PrintLocY, Print_Long )    ',or
+    
+    GLCDPrint(PrintLocX, PrintLocY, Print_String )
 ----
++
 `PrintLocX` is the X corrdinate location for the data +
 `PrintLocY` is the Y coordinate location for the data +
 `PrintData` is a String or String variable of the data to display
-
++ 
 *Explanation:*
-
-Prints string character(s) at a specified location on the GLCD screen.
-
-On a 128x64 GLCD display : +
-X is typically 0 to 128 +
-Y is typically 0 to 64
++ 
+Prints data values (byte, word, long or string) at a specified location on the GLCD screen.
++ 
+To print an integer use: 
++ 
+----
+    GLCDPrint(PrintLocX, PrintLocY, str(integer_value) )
+----
