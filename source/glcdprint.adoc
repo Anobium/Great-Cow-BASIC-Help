@@ -8,17 +8,24 @@
     
     GLCDPrint(PrintLocX, PrintLocY, Print_String )
 ----
- +
+{empty} +
+{empty} +
 `PrintLocX` is the X corrdinate location for the data +
 `PrintLocY` is the Y coordinate location for the data +
 `PrintData` is a String or String variable of the data to display
- +
+{empty} +
+{empty} + 
 *Explanation:*
- +
+{empty} +
+{empty} +
 Prints data values (byte, word, long or string) at a specified location on the GLCD screen.
- +
+{empty} +
+{empty} +
 To print an integer use: 
- +
+{empty} +
+{empty} +
 ----
     GLCDPrint(PrintLocX, PrintLocY, str(integer_value) )
 ----
+{empty} +
+{empty} +
