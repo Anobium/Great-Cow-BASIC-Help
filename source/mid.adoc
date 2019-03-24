@@ -11,13 +11,11 @@ Available on all microcontrollers
 
 *Explanation:*
 
-The `Mid` function is used to extract characters from the middle of a string variable.
+The `Mid` function returns a string variable containing a specified number of characters from a source string.
 
 `_source_` is the variable to extract from.
 {empty} +
-{empty} +
 `_start_` is the position of the first character to extract
-{empty} +
 {empty} +
 `_count_` is the number of characters to extract. If `_count_` is not specified, all characters from `_start_` to the end of the source string will be returned.
 
