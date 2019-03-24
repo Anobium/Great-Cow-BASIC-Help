@@ -3,7 +3,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    __output__ = Mid(__source__, __start__, __count__)
+    __output__ = Mid(__source__, __start__[, __count__])
 ----
 *Command Availability:*
 
@@ -11,7 +11,11 @@ Available on all microcontrollers
 
 *Explanation:*
 
-The `Mid` function is used to extract characters from the middle of a string variable. `_source_` is the variable to extract from, `_start_` is the position of the first character to extract, and `_count_` is the number of characters to extract. If `_count_` is not specified, all characters from `_start_` to the end of the source string will be returned.
+The `Mid` function is used to extract characters from the middle of a string variable.
+
+`_source_` is the variable to extract from.
+`_start_` is the position of the first character to extract
+`_count_` is the number of characters to extract. If `_count_` is not specified, all characters from `_start_` to the end of the source string will be returned.
 
 *Example:*
 ----
