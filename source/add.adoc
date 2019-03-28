@@ -1,53 +1,51 @@
-== Frequent errors.
+== Frequent errors
 
-[red]#Frequent errors that are committed during the initial phases and not only.#
+[red]#Frequent errors that may happen, from the initial creation of a program and onwards.#
 
-* Declared oscillator frequency, different from the one actually used.
+* Strange timings:  You declared an oscillator frequency, different from the oscillator actually attached to the micrcontroller.
 
-* Keep in mind that, besides the frequency, you must also set the type of oscillator, internal or external.
+* No oscillator:  Keep in mind that, besides the frequency, you must also set the type of oscillator, internal or external.
 
-* If not declared GCB uses a preset frequency suitable for operating the microcontroller.
+* No Great Cow BASIC frequency stated:  If not declared in your source program - Great Cow BASIC uses a preset frequency suitable for operating the microcontroller as the fastest practical.
 
-* To use the internal oscillator, it must be explicitly stated, if not stated it is intended externally.
+* External oscillators:  It must be explicitly stated, if not stated Great Cow BASIC  will attempt to setup the internal oscillator.
 
-* If the external oscillator is not present, GCB uses the internal one if, the used chip is provided with it.
+* Ports:  Great Cow BASIC will set the ports automatically but you may need to set the ports outputs or inputs when needed.
 
-* The ports set as outputs when they must function as inputs and vice versa.
+* Analog levels:   When applied on the ports defined as digital inputs. can cause current consumption in the input buffer, which is outside the device specifications. Beware.
 
-* Analog levels, applied on the pins defined as digital inputs. can cause current consumption in the input buffer, which is outside the device specifications.
+* Current drawn:  Current taken from the microcontroller outputs, exceeding the maximum allowed (not all pins supply the same current).  Beware of drawing to much current.
 
-* Current taken from the microcontroller outputs, exceeding the maximum allowed (not all pins supply the same current).
+* Watchdog Timer (WDT):  The WDT is a useful timer.  Enable to reset the microcontroller when processing can get stuck in a loop.
 
-* The Watchdog Timer (WDT) enabled and then not used or not reset in time.
+* Interrupts:  A badly controlled interrupt (in some cases) will prevent the execution of the entire program.
 
-* A badly controlled interrupt (in some cases prevents the execution of the entire program).
+* No action:  The circuit is not powered.
 
-* The circuit is not powered.
+* Still no action:  The microcontroller is not present or different from the device you expected.
 
-* The microcontroller is not present or different from the established one.
+* Still no action:  The microcontroller inserted incorrectly in the appropriate socket.
 
-* The microcontroller inserted incorrectly in the appropriate socket.
+* Cannot program:  Incorrect programmer, Incorrect programmer parameters or circuit connections are incorrect.
 
-* Incorrect programmer and circuit connections.
+* Still Cannot program:  Values of excessively incorrect circuit resistances.
 
-* Values of excessively incorrect circuit resistances.
+* Serial Communcations:  The TX and RX pins of the serial port are exchanged, and/or the connections with the level converter, ttl / rs232 or ttl / usb.
 
-* Exchange of the TX and RX pins of the serial port, in the connections with the level converter, ttl / rs232 or ttl / usb.
+* Stlll no Serial Communcations:  Serial speed, different from the one set in the circuit with which it is intended to communicate or vice versa.
 
-* Serial speed, different from the one set in the circuit with which it is intended to communicate or vice versa.
+* No I2C/TWI:   SDL and/or SCL pin exchanged on the I2C/TWI bus connection, and/or no pull-up resistors, and/or no common 0 voltage.
 
-* SDL SCL pin exchange, in TWI bus connections.
+* Incorrect timing:  Calculation of any timings related to the frequency of the external oscillator, without taking into account the division by 4.
 
-* Calculation of any timings related to the frequency of the external oscillator, without taking into account the division by 4.
-
-* The variables declared are insufficient to contain the values ​​to be processed.
+* Strange Numeric Values:  The variables declared are insufficient to contain the values ​​to be processed.
 
 
 
 
 
-== Glossary
- 
+== A Glossary
+
 
 [red]#ADC:# analogue digital converter.
 
@@ -63,11 +61,11 @@
 
 [red]#Binary:# numeric system with base 2, in which there are only two possible values for each digit: 0 and 1.
 
-[red]#Bit:# the smallest element of computer memory. It is a single digit in a binary number (0 or 1). Bit is also a type of variable in GCB.
+[red]#Bit:# the smallest element of computer memory. It is a single digit in a binary number (0 or 1). Bit is also a type of variable in Great Cow BASIC.
 
 [red]#Bitwise:# dealing with bits and binary states instead of numbers or logic.
 
-[red]#Byte:# 8-bit variable, value from 0 to 255 (2^ 8-1). Is also a type of variable in GCB.
+[red]#Byte:# 8-bit variable, value from 0 to 255 (2^ 8-1). Is also a type of variable in Great Cow BASIC.
 
 [red]#Boolean:# related to a combinatorial system designed by George Boole, which combines propositions with the logical operators AND, OR and IF THEN, except NOT.
 
@@ -79,7 +77,7 @@
 
 [red]#Comment:# reminder notes placed in the program.
 
-[red]#Compiler:# PC software application, which converts a high level language like BASIC into assembly language. In this guide "Compiler" refers to GCB.
+[red]#Compiler:# PC software application, which converts a high level language like BASIC into assembly language. In this guide "Compiler" refers to Great Cow BASIC.
 
 [red]#Compile-Time:# acts during compilation, and is not executed as a command when the program is running on the microcontroller.
 
@@ -87,7 +85,7 @@
 
 [red]#D:# Digital.
 
-[red]#Data Space:# is a memory space in a PIC or AVR that is intended for the storage of values ​​(EEPROM memory on chip). Data is accessible in GCB using the EpRead and EpWrite commands for reading and writing.
+[red]#Data Space:# is a memory space in a PIC or AVR that is intended for the storage of values ​​(EEPROM memory on chip). Data is accessible in Great Cow BASIC using the EpRead and EpWrite commands for reading and writing.
 
 [red]#Dw:# referring to a button or actions for the variation of any value, is intended as "decrease".
 
@@ -99,7 +97,7 @@
 
 [red]#Directive:# instruction intended for the compiler or assembler. It is not a command or a compiler statement.
 
-[red]#Emdedded System:#	device controlled by a program, able to independently perform even complex functions, communicate with other similar devices and different architecture, with the personal computer, with a local network and directly via the web.	
+[red]#Emdedded System:# device controlled by a program, able to independently perform even complex functions, communicate with other similar devices and different architecture, with the personal computer, with a local network and directly via the web.
 
 [red]#EPROM:# erasable programmable read only memory.
 
@@ -121,13 +119,13 @@
 
 [red]#I / O:# input / output.
 
-[red]#Integer:# 32-bit variable, whose value varies from -32768 to 32767. Is also a type of variable in GCB.
+[red]#Integer:# 32-bit variable, whose value varies from -32768 to 32767. Is also a type of variable in Great Cow BASIC.
 
 [red]#Interrupt:# the use of a predefined signal or condition that interrupts normal execution, in favor of a special procedure with high priority.
 
 [red]#Kbit / s:# one thousand bits per second.
 
-[red]#Keywords:# keywords for GCB.
+[red]#Keywords:# keywords for Great Cow BASIC.
 
 [red]#Label:# word that marks a position in a program.
 
@@ -145,7 +143,7 @@
 
 [red]#Low level:# no voltage, voltage close to zero.
 
-[red]#Long:# numeric entity composed of 32 binary bits, value from 0 to 4294967295 (2^32-1).Is also a type of variable in GCB.
+[red]#Long:# numeric entity composed of 32 binary bits, value from 0 to 4294967295 (2^32-1).Is also a type of variable in Great Cow BASIC.
 
 [red]#FLASH MEMORY:# non-volatile memory, electrically rewritable numerous times, also called flash / rom.
 
@@ -156,10 +154,10 @@
 [red]#ms:# milliseconds.
 
 [red]#Modifier:# keyword that somehow changes the interpretation or behavior associated with a command or variable that is written before or after the modifier.
-            
+
 [red]#Most-significant:# in reference to binary numbers, the bit or group of bits that include the bit that indicates the maximum power of two. The leftmost bit or group of bits when a number is written in binary.
 
-[red]#Nibble:# a 4-bit binary quantity, can often be used to refer to the 4 most significant or least significant bits of 8-bit bytes. A single hexadecimal digit represents a binary nibble. It is not a variable type in GCB.
+[red]#Nibble:# a 4-bit binary quantity, can often be used to refer to the 4 most significant or least significant bits of 8-bit bytes. A single hexadecimal digit represents a binary nibble. It is not a variable type in Great Cow BASIC.
 
 [red]#ns:# nanoseconds.
 
@@ -188,7 +186,7 @@
 [red]#Programmer:# you. The person who writes the program.
 
 [red]#RAM:# the memory area in a PIC MCU that is used to contain the variables. Access to RAM is faster than other memory areas, RAM values ​are lost when the power is turned off.
- 
+
 [red]#Register:# an 8-bit memory location that performs a special function in a microcontroller. Registers that (Microchip calls SFR) are integrated in the microcontroller and their functions are described in the technical data sheet published for the device.
 
 [red]#ROM:# Read Only Memory (read-only memory, can only be written once).
@@ -199,8 +197,8 @@
 
 [red]#SFR:# registers with special function. Able to represent or process negative and positive numbers.
 
-[red]#String:# able to deal with number, letters and symbols. Is also a type of variable in GCB.
- 
+[red]#String:# able to deal with number, letters and symbols. Is also a type of variable in Great Cow BASIC.
+
 [red]#TMR or tmr:# timer.
 
 [red]#TWI:# I²C Bus.

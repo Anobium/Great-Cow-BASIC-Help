@@ -16,6 +16,8 @@ include::changes.adoc[]
 
 include::commandlineparameters.adoc[]
 
+include::add.adoc[]
+
 ifdef::backend-pdf[<<<]
 include::frequentlyaskedquestions.adoc[]
 
