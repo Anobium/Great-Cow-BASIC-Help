@@ -1,0 +1,226 @@
+== Frequent errors.
+
+[red]#Frequent errors that are committed during the initial phases and not only.#
+
+* Declared oscillator frequency, different from the one actually used.
+
+* Keep in mind that, besides the frequency, you must also set the type of oscillator, internal or external.
+
+* If not declared GCB uses a preset frequency suitable for operating the microcontroller.
+
+* To use the internal oscillator, it must be explicitly stated, if not stated it is intended externally.
+
+* If the external oscillator is not present, GCB uses the internal one if, the used chip is provided with it.
+
+* The ports set as outputs when they must function as inputs and vice versa.
+
+* Analog levels, applied on the pins defined as digital inputs. can cause current consumption in the input buffer, which is outside the device specifications.
+
+* Current taken from the microcontroller outputs, exceeding the maximum allowed (not all pins supply the same current).
+
+* The Watchdog Timer (WDT) enabled and then not used or not reset in time.
+
+* A badly controlled interrupt (in some cases prevents the execution of the entire program).
+
+* The circuit is not powered.
+
+* The microcontroller is not present or different from the established one.
+
+* The microcontroller inserted incorrectly in the appropriate socket.
+
+* Incorrect programmer and circuit connections.
+
+* Values of excessively incorrect circuit resistances.
+
+* Exchange of the TX and RX pins of the serial port, in the connections with the level converter, ttl / rs232 or ttl / usb.
+
+* Serial speed, different from the one set in the circuit with which it is intended to communicate or vice versa.
+
+* SDL SCL pin exchange, in TWI bus connections.
+
+* Calculation of any timings related to the frequency of the external oscillator, without taking into account the division by 4.
+
+* The variables declared are insufficient to contain the values ​​to be processed.
+
+
+
+
+
+== Glossary
+ 
+
+[red]#ADC:# analogue digital converter.
+
+[red]#Negative power supply:# reference to the common point of the circuit power supply, called circuit ground.
+
+[red]#Alias:# alternative name assigned to a pre-existing entity.
+
+[red]#Array:# variable able to handle numbers from 0 to 255.
+
+[red]#ASCII:# acronym for the American Standard Code for information interchange. ASCII is a code for the representation of English characters as numbers.
+
+[red]#Assembler:# PC software application that converts assembly language into machine language.
+
+[red]#Binary:# numeric system with base 2, in which there are only two possible values for each digit: 0 and 1.
+
+[red]#Bit:# the smallest element of computer memory. It is a single digit in a binary number (0 or 1). Bit is also a type of variable in GCB.
+
+[red]#Bitwise:# dealing with bits and binary states instead of numbers or logic.
+
+[red]#Byte:# 8-bit variable, value from 0 to 255 (2^ 8-1). Is also a type of variable in GCB.
+
+[red]#Boolean:# related to a combinatorial system designed by George Boole, which combines propositions with the logical operators AND, OR and IF THEN, except NOT.
+
+[red]#CC:# direct current.
+
+[red]#Machine cycle:# oscillator frequency / 4, for PIC (do not forget the PLL where present).
+
+[red]#Code:# the memory area in a PIC MCU or AVR that contains the program code.
+
+[red]#Comment:# reminder notes placed in the program.
+
+[red]#Compiler:# PC software application, which converts a high level language like BASIC into assembly language. In this guide "Compiler" refers to GCB.
+
+[red]#Compile-Time:# acts during compilation, and is not executed as a command when the program is running on the microcontroller.
+
+[red]#Constant:# a name that stands for a value defined in the program. The value is replaced instead of the name when the program is compiled and assembled. It is not stored in RAM and cannot be changed during program execution.
+
+[red]#D:# Digital.
+
+[red]#Data Space:# is a memory space in a PIC or AVR that is intended for the storage of values ​​(EEPROM memory on chip). Data is accessible in GCB using the EpRead and EpWrite commands for reading and writing.
+
+[red]#Dw:# referring to a button or actions for the variation of any value, is intended as "decrease".
+
+[red]#Debug:# used to locate errors, to solve problems encountered when the program is run.
+
+[red]#Decimal:# numerical system with base 10, composed of 10 numbers from 0 to 9 inclusive. The "point" in a number with base 10 separates the whole part from the bottom to 1.
+
+[red]#Device programmer:# it is a tool that "writes" the code in machine language in the PIC or AVR microcontroller.
+
+[red]#Directive:# instruction intended for the compiler or assembler. It is not a command or a compiler statement.
+
+[red]#Emdedded System:#	device controlled by a program, able to independently perform even complex functions, communicate with other similar devices and different architecture, with the personal computer, with a local network and directly via the web.	
+
+[red]#EPROM:# erasable programmable read only memory.
+
+[red]#EEPROM:# a type of memory that stores data even in the absence of voltage, can be deleted and rewritten about 100,000 times.
+
+[red]#Expression:# a variable, constant, or combination that represents a stored or calculated value.
+
+[red]#Firmware:# program compiled and assembled, suitable to be loaded into the program memory, of a programmable device.
+
+[red]#Fosc:# oscillator frequency.
+
+[red]#f.s.:# full scale.
+
+[red]#Hex:# extension of the assembled file.
+
+[red]#IDE:# integrated development environment, software environment that acts as a code editor, and controls the various programming tools to implement software development.
+
+[red]#Set:# write in a register or variable, the condition required by the function to be performed.
+
+[red]#I / O:# input / output.
+
+[red]#Integer:# 32-bit variable, whose value varies from -32768 to 32767. Is also a type of variable in GCB.
+
+[red]#Interrupt:# the use of a predefined signal or condition that interrupts normal execution, in favor of a special procedure with high priority.
+
+[red]#Kbit / s:# one thousand bits per second.
+
+[red]#Keywords:# keywords for GCB.
+
+[red]#Label:# word that marks a position in a program.
+
+[red]#Least-significant:# in reference to binary numbers, a bit or groups of bits that include the "proper" bit. The rightmost bit or bit group, when a number is written in binary.
+
+[red]#Assembly language:# the programming language that corresponds more closely with machine language codes.
+
+[red]#Voltage levels:# in this guide we refer to TTL levels, so about 0 Volts for the low level and about 5 Volts or the Vcc of the microcontroller for the high level.
+
+[red]#Level 0:# equivalent to the low level.
+
+[red]#Level 1:# equivalent to the high level.
+
+[red]#High level:# presence of voltage, referring to the particular one is talking about.
+
+[red]#Low level:# no voltage, voltage close to zero.
+
+[red]#Long:# numeric entity composed of 32 binary bits, value from 0 to 4294967295 (2^32-1).Is also a type of variable in GCB.
+
+[red]#FLASH MEMORY:# non-volatile memory, electrically rewritable numerous times, also called flash / rom.
+
+[red]#Microchip:# company that produces PIC microcontrollers, now also AVR
+
+[red]#Mips:# Mega instructions per second.
+
+[red]#ms:# milliseconds.
+
+[red]#Modifier:# keyword that somehow changes the interpretation or behavior associated with a command or variable that is written before or after the modifier.
+            
+[red]#Most-significant:# in reference to binary numbers, the bit or group of bits that include the bit that indicates the maximum power of two. The leftmost bit or group of bits when a number is written in binary.
+
+[red]#Nibble:# a 4-bit binary quantity, can often be used to refer to the 4 most significant or least significant bits of 8-bit bytes. A single hexadecimal digit represents a binary nibble. It is not a variable type in GCB.
+
+[red]#ns:# nanoseconds.
+
+[red]#NC:# not connected or, normally closed (depending on the context).
+
+[red]#Overflow:# the event that occurs when a value in a variable is increased beyond the capacity of the variable type, resulting in an incorrect result.
+
+[red]#PC or pc:# program counter.
+
+[red]#Port:# microcontroller port
+
+[red]#Porta:# Port a.
+
+[red]#Portb:# Port b.
+
+[red]#Portc:# Port c.
+
+[red]#Portd:# Port d.
+
+[red]#Porte:# Port e.
+
+[red]#Pos or pos:# postscaler.
+
+[red]#Ps or ps:# Prescaler
+
+[red]#Programmer:# you. The person who writes the program.
+
+[red]#RAM:# the memory area in a PIC MCU that is used to contain the variables. Access to RAM is faster than other memory areas, RAM values ​are lost when the power is turned off.
+ 
+[red]#Register:# an 8-bit memory location that performs a special function in a microcontroller. Registers that (Microchip calls SFR) are integrated in the microcontroller and their functions are described in the technical data sheet published for the device.
+
+[red]#ROM:# Read Only Memory (read-only memory, can only be written once).
+
+[red]#Run-time:# executed by the microcontroller when the program is executed (when it is running).
+
+[red]#Save to context:# save and restore in the context of the interrupt, important variables in the SFR registers.
+
+[red]#SFR:# registers with special function. Able to represent or process negative and positive numbers.
+
+[red]#String:# able to deal with number, letters and symbols. Is also a type of variable in GCB.
+ 
+[red]#TMR or tmr:# timer.
+
+[red]#TWI:# I²C Bus.
+
+[red]#Two'complement:# (complement of 2) a system that allows negative numbers to be represented in binary.
+
+[red]#Typecasting:# specify a type of variable for the compiler.
+
+[red]#Tp:# test point.
+
+[red]#Up:# referred to a button or actions to change any value, it is intended as "increase".
+
+[red]#Underflow:# the event that occurs when a value in an unsigned variable decreases below zero (negative number), or when a variable is decreased below the limit value in a negative sense, resulting in an incorrect result.
+
+[red]#Unsigned:# only able to represent or transform positive numbers. Negative numbers are not valid in integer variables.
+
+[red]#Variable:# a name that is a synonym of a value that is stored in RAM and can be read and modified during program execution.
+
+[red]#Word:# a numeric entity composed of 16 binary bits. Value from 0 to 65535 (2^16-1)
+
+[red]#V / I:# voltage / current.
+
+[red]#µs or us:# microseconds.
