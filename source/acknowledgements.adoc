@@ -28,16 +28,15 @@ Russ Hensel - Great Cow BASIC Notes.
 
 Chuck Hellebuyck - His documentation for the GLCD and other pieces, see http://www.elproducts.com.
 
-Frank Steinberg - GCB@SYN IDE for Great Cow BASIC, see
-http://sourceforge.net/projects/gcbasic/files/IDE/GCB%40Syn/GCB%40Syn.zip.
+Frank Steinberg - GCB@SYN IDE for Great Cow BASIC.
 
-Alexy T. - SynWrite IDE used for GCB IDE, see http://www.uvviewsoft.com/synwrite.
+Alexy T. - SynWrite IDE used for GCB IDE, see http://www.uvviewsoft.com/synwrite
 
 Thomas Henry for the Select Case and the Sine Table examples.
 
 William Roth for the LCD code and supporting diagrams.
 
-Theo Loermans for the revised LCD sections and the library.
+Theo Loermans for the revised LCD sections and the serial library.
 
 Chris Roper for the bitwise methods including the library including FnEquBit, FnNotBit, FnlslBit, FnlsrBit, SetWith and 47xxx.
 
