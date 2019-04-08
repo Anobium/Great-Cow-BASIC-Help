@@ -2,28 +2,26 @@
 
 *Introduction*
 
-Great Cow BASIC can be used with the FreeBSD operating system.
-
-These instructions are for FreeBSD only (not Windows).
+The Great Cow BASIC compiler can be used with the FreeBSD operating system.
 
 *Instructions for using the Great Cow BASIC install.sh script*
 
-Complete the following steps to compile and install Great Cow BASIC:
+Complete the following steps to compile and install the Great Cow BASIC compiler for FreeBSD:
 
 [start=1]
  . Download one of the nightly builds of FreeBASIC 1.06 for the FreeBSD 32 bit or 64 bit binary compilation from: http://users.freebasic-portal.de/stw/builds/freebsd32/ (32 bit) or http://users.freebasic-portal.de/stw/builds/freebsd64/ (64 bit) The filenames are in the format fbc_freebsd[32|64]\_[BuildNumber]_[Date].zip.
 
- . Download the Great Cow BASIC UNIX Source Distribution from SourceForge at https://sourceforge.net/projects/gcbasic/files/GreatCowBASIC-UNIX-v0_98_03.rar/download
+ . Download the Great Cow BASIC UNIX Source Distribution from SourceForge at https://gcbasic.sourceforge.net/Typesetter/index.php/Download
 
  . Move the FreeBASIC ZIP file from your download directory to your home directory.
 
- . Unzip the FreeBASIC ZIP file which will produce a new directory called `fbc_freebsd[32|64]`. The FreeBASIC compiler `fbc` is in the `bin` subdirectory. You should  add the path to `fbc` to your path so that the installation script can find it.
+ . Unzip the FreeBASIC ZIP file which will produce a new directory called `fbc_freebsd[32|64]`. The FreeBASIC compiler `fbc` is in the `bin` subdirectory. You should add the path to `fbc` to your path so that the installation script can find it.
 
  . Move the Great Cow BASIC compressed tar file from your download directory to your home directory.
 
- . Unpack the Great Cow BASIC compressed tar file by typing these commands:
+ . Unpack the Great Cow BASIC compressed tar file by typing the command below. *Note*: the version number (v0_98_05) in the filename may change before these instructions are updated - adjust depending on the version number of the file you downloaded.
 ----
-   unrar x GreatCowBASIC-UNIX-v0_98_03.rar
+   unrar x GreatCowBASIC-UNIX-v0_98_05.rar
 ----
 This will produce a new directory called GreatCowBasic. *Note:* If you do not already have the unrar program installed you can either compile it from the ports collection or use the pkg command to install the binary and any required dependancies.
 
