@@ -1094,6 +1094,11 @@ This is the Great Cow BASIC for Apple macOS section of the Help file.  Please re
 
 include::macosoverview.adoc[]
 
+== Great Cow BASIC for FreeBSD
+This is the Great Cow BASIC for FreeBSD OS section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::freebsdoverview.adoc[]        
+
 == Great Cow BASIC Maintenance
 
 This is the Great Cow BASIC maintenance section of the Help file.  Please refer the sub-sections for details using the contents/folder view.

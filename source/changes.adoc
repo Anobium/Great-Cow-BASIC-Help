@@ -28,7 +28,7 @@
 - Added Scale with word values to return a range of  0 to 65535
 - Added T6963 GLCD device section
 - Added HWSPIMode constant usage to ILI9340 and ILI9341 sections
-
+- Added FreeBSD section
 
 
 
