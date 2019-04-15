@@ -14,7 +14,7 @@
 `PrintLocY` is the Y coordinate location for the data +
 `PrintData_[type]` is a variable or constant to be displayed +
 `FontSize` is the GLCD fontsize.{nbsp}{nbsp} Typical values are 1, 2 or 3 +
-`Color` is an option to change the color the GLCD printed text.
+`Color` is an optional parameter to change the color the GLCD printed text.
 {empty} +
 {empty} +
 *Explanation:*
