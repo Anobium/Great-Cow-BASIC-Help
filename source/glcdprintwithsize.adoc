@@ -3,10 +3,10 @@
 *Syntax:*
 ----
     GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Byte , FontSize [, Color ] )    ',or
-    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Word , FontSize [, Color ])    ',or
-    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Long , FontSize [, Color ])    ',or
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Word , FontSize [, Color ] )    ',or
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Long , FontSize [, Color ] )    ',or
 
-    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_String , FontSize [, Color ])
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_String , FontSize [, Color ] )
 ----
 {empty} +
 {empty} +
