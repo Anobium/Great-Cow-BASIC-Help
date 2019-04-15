@@ -1,0 +1,32 @@
+==== GLCDPrintWithSize
+
+*Syntax:*
+----
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Byte , FontSize )    ',or
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Word , FontSize )    ',or
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_Long , FontSize )    ',or
+
+    GLCDPrintWithSize(PrintLocX, PrintLocY, PrintData_String , FontSize )
+----
+{empty} +
+{empty} +
+`PrintLocX` is the X corrdinate location for the data +
+`PrintLocY` is the Y coordinate location for the data +
+`PrintData_[type]` is a variable or constant to be displayed
+`FontSize` is the GLCD fontsize, type 1, 2 or 3
+{empty} +
+{empty} +
+*Explanation:*
+{empty} +
+{empty} +
+Prints data values (byte, word, long or string) at a specified location on the GLCD screen with a specific font size.
+{empty} +
+{empty} +
+To display a string using font size two use:
+{empty} +
+{empty} +
+----
+    GLCDPrintWithSize(PrintLocX, PrintLocY, "Using font size #2", 2 )
+----
+{empty} +
+{empty} +

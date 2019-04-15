@@ -346,6 +346,8 @@ include::glcddrawstring.adoc[]
 
 include::glcdprint.adoc[]
 
+include::glcdprintwithsize.adoc[]
+
 include::glcdlocatestring.adoc[]
 
 include::glcdprintstring.adoc[]
@@ -1097,7 +1099,7 @@ include::macosoverview.adoc[]
 == Great Cow BASIC for FreeBSD
 This is the Great Cow BASIC for FreeBSD OS section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
-include::freebsdoverview.adoc[]        
+include::freebsdoverview.adoc[]
 
 == Great Cow BASIC Maintenance
 
