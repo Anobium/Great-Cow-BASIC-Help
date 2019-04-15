@@ -12,7 +12,7 @@
 {empty} +
 `PrintLocX` is the X corrdinate location for the data +
 `PrintLocY` is the Y coordinate location for the data +
-`PrintData_[type]` is a variable or constant to be displayed
+`PrintData_[type]` is a variable or constant to be displayed +
 `FontSize` is the GLCD fontsize, type 1, 2 or 3
 {empty} +
 {empty} +
