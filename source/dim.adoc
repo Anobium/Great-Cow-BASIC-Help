@@ -56,4 +56,4 @@ When multiple variables are included on the one line, Great Cow BASIC will set t
 
     dim stringvariable as string
 ----
-*For more help, see:*<<_serprint,SerPrint>> articles as these articales show how to use Dim to create string variables and <<_variables,Variables>> for more details in creating and managing strings lengths.
+*For more help, see:{nbsp}{nbsp}*<<_serprint,SerPrint>> articles as these articales show how to use Dim to create string variables and <<_variables,Variables>> for more details in creating and managing strings lengths.
