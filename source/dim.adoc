@@ -17,13 +17,13 @@
 
 *Explanation:*
 
-Dim has two uses, both of which involve large variables. It can be used to define arrays, bit variables and all variables larger than 1 byte.
+Dim has two uses:{nbsp}{nbsp}It can be used to define 1) variables of many types and 2) arrays.
 
 *Command Availability:*
 
 Available on all microcontrollers.
 
-The `Dim` variable command is used to inform Great Cow BASIC of variables that are larger than 1 byte, or to create alternate names for other variables.
+The `Dim` variable command is used to instruct Great Cow BASIC to allocate variables or to create alternate names for existing  variables (using Alias) or to create variables at a specific memory location (using At).
 
 The `Dim array` command also sets up array variables. The maximum array size is determined by the parameter `_size_` is dynamically allocated by the compiler and depends on the specific chip used, as well as the complexity of the program.
 
