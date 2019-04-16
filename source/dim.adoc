@@ -33,9 +33,9 @@ The limit on array size varies dependent on the chip type. The 12F/16F series of
 
 When multiple variables are included on the one line, Great Cow BASIC will set them all to the type that is specified at the end of the line. If there is no type specified, then Great Cow BASIC will make the variable a byte.
 
-`Alias` creates a variable using the same memory location as one or more other variables. It is mainly used internally in Great Cow BASIC to treat system variables as a word. For example, this command is used to create a word variable, made up from the two memory locations used to store the result of an A/D conversion.{nbsp}`Alias` is mutually exclusive to `At` and therefore `Alias` and `At` on the same declaration line will cause an compiler error.
+`Alias` creates a variable using the same memory location as one or more other variables. {nbsp}{nbsp}It is mainly used internally in Great Cow BASIC to treat system variables as a word.{nbsp}{nbsp} For example, this command is used to create a word variable, made up from the two memory locations used to store the result of an A/D conversion.{nbsp}{nbsp}`Alias` is mutually exclusive to `At` and therefore `Alias` and `At` on the same declaration line will cause an compiler error.
 
-`AT` a variable can be placed at a specific location in the data memory of the chip using the At option. `_location_` will be used whether it is a valid location or not, but a warning will be generated if Great Cow BASIC has already allocated the memory, or if the memory does not appear to be valid. This can be used for peripherals that have multi byte buffers in RAM.{nbsp}`At` is mutually exclusive to `Alias` and therefore `At` and `Alias` on the same declaration line will cause an compiler error.
+`AT` a variable can be placed at a specific location in the data memory of the chip using the At option. {nbsp}{nbsp}`_location_` will be used whether it is a valid location or not, but a warning will be generated if Great Cow BASIC has already allocated the memory, or if the memory does not appear to be valid. {nbsp}{nbsp}This can be used for peripherals that have multi byte buffers in RAM.{nbsp}{nbsp}`At` is mutually exclusive to `Alias` and therefore `At` and `Alias` on the same declaration line will cause an compiler error.
 
 
 
