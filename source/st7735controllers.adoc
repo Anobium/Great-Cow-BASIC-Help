@@ -8,15 +8,16 @@ To use the ST7735 driver simply include the following in your user code.  This w
 
 ----
     #include <glcd.h>
-GLCD_TYPE GLCD_TYPE_ST7735
-
+    #define GLCD_TYPE GLCD_TYPE_ST7735
+    #define ST7735TABCOLOR ST7735_BLACKTAB  ; can also be ST7735_GREENTAB or ST7735_REDTAB
+ 
     'Pin mappings for ST7735
-GLCD_DC     porta.0           'example port setting
-GLCD_CS     porta.1           'example port setting
-GLCD_RESET  porta.2           'example port setting
-GLCD_DI     porta.3           'example port setting
-GLCD_DO     porta.4           'example port setting
-GLCD_SCK    porta.5           'example port setting
+    #define GLCD_DC     porta.0           'example port setting
+    #define GLCD_CS    porta.1           'example port setting
+    #define GLCD_RESET  porta.2           'example port setting
+    #define GLCD_DI     porta.3           'example port setting
+    #define GLCD_DO     porta.4           'example port setting
+    #define GLCD_SCK    porta.5           'example port setting
 
 ----
 
