@@ -29,6 +29,7 @@
 - Added T6963 GLCD device section
 - Added HWSPIMode constant usage to ILI9340 and ILI9341 sections
 - Added FreeBSD section
+- Updated ST7735 section for ST7735TABCOLOR
 
 
 
