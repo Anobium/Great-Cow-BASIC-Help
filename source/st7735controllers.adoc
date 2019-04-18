@@ -33,6 +33,10 @@ The Great Cow BASIC constants for control display characteristics are shown in t
 |`GLCD_TYPE_ST7735`
 |
 
+|`ST7735TABCOLOR`
+|Specifies the type of ST7735 chipset.  The default is `ST7735_BLACKTAB`
+|Options are `ST7735_BLACKTAB`, `ST7735_GREENTAB` or `ST7735_REDTAB`.  Each tab is a different ST7735 configuration. If you do not know  your type try each constant and test.
+
 |`GLCD_DATA_PORT`
 |Not Available for this controller.
 |Not applicable.
