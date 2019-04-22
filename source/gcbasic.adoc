@@ -346,6 +346,8 @@ include::glcddrawstring.adoc[]
 
 include::glcdprint.adoc[]
 
+include::glcdprintlargefont.adoc[]
+
 include::glcdprintwithsize.adoc[]
 
 include::glcdlocatestring.adoc[]

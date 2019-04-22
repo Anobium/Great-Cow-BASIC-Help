@@ -4,7 +4,7 @@
 ----
     GLCDPrintLargeFont( PrintLocX, PrintLocY, PrintData_String [, Optional Colour] )
 ----
-Support a fixed font of 13 pixels.{nbsp}{nbsp}  This method supports strings only.
+GLCD supports for a larger fixed font of 13 pixels.{nbsp}{nbsp}  GLCDPrintLargeFont supports strings only.
 
 {empty} +
 {empty} +
@@ -23,7 +23,7 @@ To display an integer use:
 {empty} +
 {empty} +
 ----
-    GLCDPrintLargeFont(PrintLocX, PrintLocY, "13 Pixels Fixed Font" )
+    GLCDPrintLargeFont( 0, 0, "13 Pixels Fixed Font" )
 ----
 {empty} +
 {empty} +
