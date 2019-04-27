@@ -6,7 +6,15 @@
     #define _Find_ _Replace_
 ----
 *Explanation:*
-
+{empty} +
+{empty} +
 `#define` will search through the program for `_Find_`, and replace it with the value given for `_Replace_`.
+{empty} +
+{empty} +
+The compiler replaces a constant with the value, it then searches the line for constants again and will make any more replacements needed.{nbsp}{nbsp}
+It will do this up to 100 times on a line, then it will stop replacing and show an error. {nbsp}{nbsp}The limitation of 100 iteractions is to prevent something like "#define Const_A Const_B" and then "#define Const_B Const_A" from causing an infinite loop in the compiler.
+
+{empty} +
+{empty} +
 
 *See Also* <<_constants,Defines>>
