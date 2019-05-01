@@ -30,10 +30,10 @@ Concatenation joins the elements of a specified values using the specified separ
 
 *Example 2:*
 [subs="quotes"]
-An example to show how to assign a string escape characters for an ASCII terminal.
+An example showing how to set a string to an escape sequence for an ANSI terminal.
 {empty} +
 {empty} +
-You can `Dim`ension a string and then assign the elements like an array.&#160;&#160; *Note*.&#160;The first element of the string is the length, so, using this method ensures the length of the string variable is not changed.
+You can `Dim`ension a string and then assign the elements like an array.&#160;&#160;
 
 {empty} +
 {empty} +
