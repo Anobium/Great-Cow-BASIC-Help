@@ -28,7 +28,6 @@ Concatenation joins the elements of a specified values using the specified separ
 {empty} +
 {empty} +
 
-
 *Example 2:*
 [subs="quotes"]
 An example to show how to assign a string escape characters for an ASCII terminal.
@@ -49,7 +48,6 @@ Will send the following to the terminal.
 
 {empty} +
 {empty} +
-
 
 
 *Note: Concatenated String Constraint @v0.98.00 and prior versions*
