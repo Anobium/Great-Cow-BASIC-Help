@@ -18,14 +18,38 @@ This method does not change the existing strings, but returns a *new* string con
 Concatenation joins the elements of a specified values using the specified separator between each variable.
 
 
-*Example:*
+*Example 1:*
 [subs="quotes"]
 ----
+
     timevariable = 999
-    __stringvar__ = "Time = " + timevariable ' Returns Time = 999
+    __stringvar__ = "Time = " + str(timevariable) ' Convert the __timevariable__ to a String.  This operation returns *Time = 999*
 ----
 {empty} +
 {empty} +
+
+
+*Example 2:*
+[subs="quotes"]
+An example to show hoe to concate or join a string escape characters for an ASCII terminal.
+{empty} +
+{empty} +
+You can `Dim`ension a string and then assign the elements like an array.{nbsp}{nbsp}  *Note*.The first element of the string is the length, so, use this method to ensure you do not overwrite the string length.
+{empty} +
+{empty} +
+
+----
+    dim line2 as string
+    line2 =  27, "[", "2", "H", 27, "[","K"
+    HSerPrint line2
+----
+Will send the following to the terminal.
+[2H[K
+
+{empty} +
+{empty} +
+
+
 
 *Note: Concatenated String Constraint @v0.98.00 and prior versions*
 
@@ -36,22 +60,21 @@ When concatenating a string you cannot assign a string to itself.&#160;&#160;You
 ----
     dim outstring1, tmpstring as string * 16
     dim outnumber as byte
-    
+
     outnumber = 24
     outstring1 = "Result = "
-    'This concatenation will yield an incorrect string 
-    outstring1 = outstring1 +str(outnumber) 
-    
-    'This concatenation will yield an the correct string. With tmpstring1 containing the correct concatenated string 
-    tmpstring1 = outstring1 +str(outnumber) 
-    
-    
+    'This concatenation will yield an incorrect string
+    outstring1 = outstring1 +str(outnumber)
+
+    'This concatenation will yield an the correct string. With tmpstring1 containing the correct concatenated string
+    tmpstring1 = outstring1 +str(outnumber)
+
+
 ----
 {empty} +
 To resolve the constraint simply assign the source string to another string.
 
 {empty} +
 {empty} +
-
 
 
