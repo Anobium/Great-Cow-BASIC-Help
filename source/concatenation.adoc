@@ -34,7 +34,7 @@ Concatenation joins the elements of a specified values using the specified separ
 An example to show hoe to concate or join a string escape characters for an ASCII terminal.
 {empty} +
 {empty} +
-You can `Dim`ension a string and then assign the elements like an array.{nbsp}{nbsp}  *Note*.The first element of the string is the length, so, use this method to ensure you do not overwrite the string length.
+You can `Dim`ension a string and then assign the elements like an array.{nbsp}{nbsp} *Note*.The first element of the string is the length, so, use this method to ensure you do not overwrite the string length.
 {empty} +
 {empty} +
 
