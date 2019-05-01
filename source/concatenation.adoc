@@ -35,6 +35,7 @@ An example to show how to concate or join a string escape characters for an ASCI
 {empty} +
 {empty} +
 You can `Dim`ension a string and then assign the elements like an array.&#160;&#160; *Note*.The first element of the string is the length, so, use this method to ensure you do not overwrite the string length.
+
 {empty} +
 {empty} +
 
