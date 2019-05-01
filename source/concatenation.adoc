@@ -44,7 +44,7 @@ You can `Dim`ension a string and then assign the elements like an array.{nbsp}{n
     HSerPrint line2
 ----
 Will send the following to the terminal.
-[2H[K
+<esc>[2H<esc>[K
 
 {empty} +
 {empty} +
