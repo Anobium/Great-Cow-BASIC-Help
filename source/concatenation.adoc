@@ -25,6 +25,7 @@ Concatenation joins the elements of a specified values using the specified separ
     timevariable = 999
     __stringvar__ = "Time = " + str(timevariable) ' Convert the __timevariable__ to a String.  This operation returns *Time = 999*
 ----
+
 {empty} +
 {empty} +
 
@@ -48,7 +49,6 @@ Will send the following to the terminal.
 
 {empty} +
 {empty} +
-
 
 *Note: Concatenated String Constraint @v0.98.00 and prior versions*
 
