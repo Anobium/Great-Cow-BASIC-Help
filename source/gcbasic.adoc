@@ -475,6 +475,9 @@ include::pwmout.adoc[]
 include::hpwmCCP.adoc[]
 :leveloffset: +1
 
+include::HWpwmupdateCCP.adoc[]
+
+
 include::HWpwmoffCCP.adoc[]
 
 :leveloffset: -1
