@@ -18,6 +18,7 @@
 |===
 
 {empty} +
+
 *Release 0.98.05*::
 - Added new NT7108C section
 
