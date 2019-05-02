@@ -16,9 +16,15 @@
 {doctime}
 
 |===
+
+{empty} +
+*Updates to HELP are as follows*::
+- Revised String handling section[s] to include setting string using elements
+
+{empty} +
 {empty} +
 
-*Updates to HELP are as follows*::
+*Release 0.98.05*::
 - Added new NT7108C section
 - Revised GLCD ST7735 section to remove colors, added TFT colors to the GLCD overview section
 - Added support for PMW channel 8
@@ -31,9 +37,6 @@
 - Added FreeBSD section
 - Updated ST7735 section for ST7735TABCOLOR
 - Added GLCDPrinLargeFont section
-
-
-
 
 {empty} +
 {empty} +
