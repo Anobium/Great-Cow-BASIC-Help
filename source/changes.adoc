@@ -18,8 +18,8 @@
 |===
 
 {empty} +
-**Release 0.98.06*::
-- Revised String handling sections to include setting string using elements
+*Release 0.98.05*::
+- Added new NT7108C section
 
 {empty} +
 {empty} +
