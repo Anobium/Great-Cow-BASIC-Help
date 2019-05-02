@@ -19,8 +19,7 @@
 
 {empty} +
 *Updates to HELP are as follows*::
-
-- Revised String handling section[s] to include setting string using elements
+- Revised String handling sections to include setting string using elements
 
 {empty} +
 {empty} +
