@@ -830,24 +830,25 @@ This is the String Manipulation section of the Help file.  Please refer the sub-
 //Revised erv 19/12/2016
 
 <<_asc,Asc>>,
-<<_bytetobin, bytetobin>>,
-<<_chr,chr>>,
-<<_fill,fill>>,
-<<_hex,hex>>,
-<<_instr,instr>>,
-<<_lcase,lcase>>,
-<<_left,left>>,
-<<_leftpad,leftpad>>,
-<<_len,len>>,
-<<_mid,mid>>,
-<<_pad,pad>>,
-<<_right,right>>,
-<<_rtrim,rtrim>>,
-<<_str,str>>,
-<<_trim,trim>>,
-<<_ucase,ucase>>,
-<<_val,val>>,
-<<_wordtobin,wordtobin>> or
+<<_bytetobin, Bytetobin>>,
+<<_chr,Chr>>,
+<<_fill,Fill>>,
+<<_hex,Hex>>,
+<<_instr,Instr>>,
+<<_lcase,Lcase>>,
+<<_left,Left>>,
+<<_leftpad,Leftpad>>,
+<<_len,Len>>,
+<<_mid,Mid>>,
+<<_pad,Pad>>,
+<<_right,Right>>,
+<<_rtrim,Rtrim>>,
+<<_str,Str>>,
+<<_trim,Trim>>,
+<<_ucase,Ucase>>,
+<<_val,Val>>,
+<<_wordtobin,Wordtobin>>,
+<<_setting_variables, Setting Variables>> or
 <<_concatenation,concatenation>>
 
 
