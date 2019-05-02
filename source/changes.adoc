@@ -20,7 +20,7 @@
 {empty} +
 
 *Changes in this release*::
-- Added new NT7108C section
+- Revised String handling section[s] to include setting string using elements
 
 {empty} +
 {empty} +
