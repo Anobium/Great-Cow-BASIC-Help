@@ -193,6 +193,22 @@ This example shows how the error handler compares to not have the `[canskip]` pr
 ----
 
 {empty} +
+*Setting String - set a string with Escape characters*
+[subs="quotes"]
+An example showing how to set a string to an escape sequence for an ANSI terminal.&#160;&#160;You can `Dim`ension a string and then assign the elements similar to setting array elements.
 
+{empty} +
+{empty} +
+
+----
+    dim line2 as string
+    line2 =  27, "[", "2", "H", 27, "[","K"
+    HSerPrint line2
+----
+Will send the following to the terminal.
+<esc>[2H<esc>[K
+
+{empty} +
+{empty} +
 
 *For more help, see:* <<Variables,Variables>>
