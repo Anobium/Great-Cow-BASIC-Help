@@ -19,7 +19,7 @@
 
 {empty} +
 
-*Release 0.98.05*::
+*Changes in this release*::
 - Added new NT7108C section
 
 {empty} +
