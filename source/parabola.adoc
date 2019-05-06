@@ -37,7 +37,7 @@ or the minimum y value when alined along y (in pixel positions)
 
 *Example:*
 ----
-	A 240x320 pixels GLCD is referred to
+A 240x320 pixels GLCD is referred to
 
     #include <glcd.h>
 
