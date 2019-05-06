@@ -25,6 +25,7 @@ or the minimum y value when alined along y (in pixel positions)
 `p_factor`{nbsp}{nbsp}he factor such that y^2=2*p_factor*x is the equation of the parabola
 
 `Type`{nbsp}{nbsp}Type=1 the parabola is aligned along x axis
+
 {nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}Type=2 the parabola is aligned along y axis
 	  
 `ModeStop`{nbsp}{nbsp}ModeStop=1 drawing stops when a display border is encountered by a parabola branch.
