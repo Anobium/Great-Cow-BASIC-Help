@@ -366,6 +366,10 @@ include::glcdwritebyte.adoc[]
 
 include::line.adoc[]
 
+include::hellypse.adoc[]
+
+include::parabola.adoc[]
+
 include::pset.adoc[]
 
 include::triangle.adoc[]
