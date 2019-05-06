@@ -1,6 +1,7 @@
-====
+==== Parabola:
 
-*Parabola:*
+*Syntax:*
+[subs="quotes"]
 ----
     Parabola (x_0,  y_0,  p_factor,  type, ModeStop, optional LineColour=GLCDForeground)
 ----
