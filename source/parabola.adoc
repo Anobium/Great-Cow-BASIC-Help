@@ -17,7 +17,8 @@ Drawing parabola on the screen can be stopped by following two different criteri
 	- both branches have reached the display border
 For a parabola centered on the display these criteria are equivalent.
 
-Input parameters:
+*Input parameters:*
+
 `(x_0, y_0)`{nbsp}{nbsp}coordinates (x, y) of the parabola vertex  (i.e., the minimum x value when alined along x
 or the minimum y value when alined along y (in pixel positions)
 
