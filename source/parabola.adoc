@@ -30,7 +30,7 @@ or the minimum y value when alined along y (in pixel positions)
 	  
 `ModeStop`{nbsp}{nbsp}ModeStop=1 drawing stops when a display border is encountered by a parabola branch.
 
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}ModeStop=2 drawing stops when all the reachable display borders are encountered by both the parabola  branches
+{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}ModeStop=2 drawing stops when all the reachable display borders are encountered by both the parabola  branches
 			
 `LineColour`{nbsp}{nbsp}Color of the Hyperbole drawing
 
