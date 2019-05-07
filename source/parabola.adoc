@@ -28,15 +28,13 @@ For a parabola centered on the display these criteria are equivalent.
 |*Parameter*
 |*Controls*
 
-|`x`
-|X of the parabola vertex  or the minimum X value when alined along X. {nbsp}{nbsp}in pixel positions
-
-|`y`
-|Y of the parabola vertex  or the minimum y value when alined along Y. {nbsp}{nbsp}in pixel positions
+|`x, y`
+|X, Y coordinates of the parabola vertex.  X is the minimum x value of the parabola when alined along X.
+					   Y is the minimum y value of the parabola when alined along y {nbsp}{nbsp}in pixel positions
 
 
 
-The x or y coordinates can be a Byte of Word value.
+The x or y coordinates are Word value, p_factor is word value, type and ModeStop are byte values .
 
 |`p_factor`
 |The factor such that y^2=2*p_factor*x is the equation of the parabola
@@ -49,7 +47,7 @@ type=2 the parabola is aligned along y axis
 |`modestop`
 |modestop=1 drawing stops when a display border is encountered by a parabola branch.
 {empty} +
-modestop=2 drawing stops when all the reachable display borders are encountered by both the parabola  branches
+modestop=2 drawing stops when all the parabolla branches encountered a border
 
 |`LineColour`
 |Color of the parabola
