@@ -8,7 +8,7 @@
 
 *Explanation:*
 
-Draws on a GLCD an hyperbole with equation (x^2)/(a^2)-(y^2)/(b^2)=1, centered at  pixel positions (x, y)  with axis a and b.
+Draws on a GLCD an hyperbole with equation (x/(a)^2-(y/(b)^2=1, centered at  pixel positions (x, y)  with axis a and b.
 
 The hyperbole can be aligned either along the x axis or along the y axis.
 
