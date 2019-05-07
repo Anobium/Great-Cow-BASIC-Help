@@ -3,45 +3,66 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    Parabola (x_0,  y_0,  p_factor,  type, ModeStop, optional LineColour=GLCDForeground)
+    Parabola (x_0,  y_0,  p_factor,  type, modestop, optional LineColour=GLCDForeground)
 ----
 *Explanation:*
 
 Draws on a GLCD a parabola with equation y^2=2*p_factor*x, centered at  pixel positions (x_0, y_0) .
 
+The parabola is an unbounded curve.
+
 The parabola can be alined either along the x axis or along the y axis.
 
-The parabola is an unbounded curve.
-Drawing parabola on the screen can be stopped by following two different criteria:
-	-  a branch has reached a border of the display
-	- both branches have reached the display border
+
+Drawing parabola on the screen can be constrained by following two different criteria:
+	- a branch has reached a border of the display.
+	- both branches have reached the display border.
+
 For a parabola centered on the display these criteria are equivalent.
 
 *Input parameters:*
 
-`(x_0, y_0)`{nbsp}{nbsp}coordinates (x, y) of the parabola vertex  (i.e., the minimum x value when alined along x
+[cols=2, options="header,autowidth"]
+|===
+
+|*Parameter*
+|*Controls*
+
+
+|`x_0, y_0`
+|coordinates (x, y) of the parabola vertex  (i.e., the minimum x value when alined along x
 or the minimum y value when alined along y (in pixel positions)
 
-`p_factor`{nbsp}{nbsp}he factor such that y^2=2*p_factor*x is the equation of the parabola
+|`p_factor`
+|The factor such that y^2=2*p_factor*x is the equation of the parabola
 
-`Type`{nbsp}{nbsp}Type=1 the parabola is aligned along x axis
+|`type`
+|type=1 the parabola is aligned along x axis
+{empty} +
+type=2 the parabola is aligned along y axis
 
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}Type=2 the parabola is aligned along y axis
-	  
-`ModeStop`{nbsp}{nbsp}ModeStop=1 drawing stops when a display border is encountered by a parabola branch.
+|`modestop`
+|modestop=1 drawing stops when a display border is encountered by a parabola branch.
+{empty} +
+modestop=2 drawing stops when all the reachable display borders are encountered by both the parabola  branches
 
-{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}{nbsp}ModeStop=2 drawing stops when all the reachable display borders are encountered by both the parabola  branches
-			
-`LineColour`{nbsp}{nbsp}Color of the Hyperbole drawing
+|`LineColour`
+|Color of the parabola
+
+|===
+
+
+
+
 
 
 *Example:*
 ----
-A 240x320 pixels GLCD is referred to
+    'Example for a 240x320 pixels GLCD
 
     #include <glcd.h>
 
-    Parabola(120, 160, 20, 1, 2, GLCDForeground)   ;   centered, p_factor=20, x_axis alined, stops when all branches have reached a a border
+    Parabola(120, 160, 20, 1, 2, GLCDForeground)   ;  centered, p_factor=20, x_axis alined, stops when all branches have reached a a border
     Parabola(120, 160 ,20, 1, 1, GLCDForeground)   ; centered, p_factor=20, x_axis alined, stops when a border is reached
     Parabola(120, 160, 20, 2, 1, GLCDForeground)   ; centered, p_factor=20, y_axis alined, stops when a border is reached,
 
@@ -50,3 +71,5 @@ A 240x320 pixels GLCD is referred to
 
     Parabola(180, 80, 20, 2, 1, GLCDForeground)   ; upper right, p_factor=20, y_axis alined, stops when a border is touched,
     Parabola(60, 240, 20, 2, 2, GLCDForeground)   ; lower left, p_factor=20, y_axis alined, stops when all branches have reached a border
+----
+

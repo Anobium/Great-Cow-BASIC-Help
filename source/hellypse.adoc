@@ -1,9 +1,11 @@
-====
+==== Hyperbole
 
-*Hyperbole:*
+*Syntax:*
+[subs="quotes"]
 ----
     Hyperbole (x_0,  y_0,  a_axis,  b_axis,  type, ModeStop, optional LineColour=GLCDForeground)
 ----
+
 *Explanation:*
 
 Draws on a GLCD an hyperbole with equation x^2/a^2-y^2/b^2=1, centered at  pixel positions (x_0, y_0)  with axes a and b.
@@ -14,25 +16,25 @@ Both cases a_axis>=b:axis and a_axis<b_axis are accepted.
 
 The hyperbole is an unbounded curve made by two branches
 Drawing Hyperbole on the screen can be stopped by following two different criteria:
-	-  a branch has reached a border of the display
-	- all branches have reached the display border
+  -  a branch has reached a border of the display
+  - all branches have reached the display border
 For an Hyperbole centered on the display these criteria are equivalent.
 
 '** Input paramters:
 '**       (x_0, y_0) = coordinates (x, y) of hyperbole center (in pixel positions)
 '**       a_axis, b_axis = a, b axes of the hyperbole
 '**       Type :
-			Type=1 the hyperbole is aligned along x axis
-			Type=2 the hyperbole is aligned along y axis
-'**	  ModeStop:
-			ModeStop=1 drawing stops when a display border is encountered by an hyperbole branch.
-'**		    	ModeStop=2 drawing stops when all the reachable display borders are encountered by all the hyperbole branches
-'**	  LineColour: Color of the Hyperbole drawing
+      Type=1 the hyperbole is aligned along x axis
+      Type=2 the hyperbole is aligned along y axis
+'**   ModeStop:
+      ModeStop=1 drawing stops when a display border is encountered by an hyperbole branch.
+'**         ModeStop=2 drawing stops when all the reachable display borders are encountered by all the hyperbole branches
+'**   LineColour: Color of the Hyperbole drawing
 
 
 *Example:*
 ----
-	A 240x320 pixels GLCD is referred to
+  A 240x320 pixels GLCD is referred to
 
     #include <glcd.h>
 
@@ -45,3 +47,4 @@ For an Hyperbole centered on the display these criteria are equivalent.
 
     Hyperbole(180, 80, 40,20, 2, 1, GLCDForeground)   ; upper right, a=40, b=20, y_axis alined, stops when a border is touched,
     Hyperbole(60, 240, 40,20, 2, 2, GLCDForeground)   ; lower left, a=40, b=20, y_axis alined, stops when all branches have reached a border
+----
