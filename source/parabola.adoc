@@ -3,11 +3,11 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    Parabola (x_0,  y_0,  p_factor,  type, modestop, optional LineColour=GLCDForeground)
+    Parabola (x,  y,  p_factor,  type, modestop, optional LineColour=GLCDForeground)
 ----
 *Explanation:*
 
-Draws on a GLCD a parabola with equation y^2=2*p_factor*x, centered at  pixel positions (x_0, y_0) .
+Draws on a GLCD a parabola with equation y^2=2*p_factor*x, centered at  pixel positions (x, y) .
 
 The parabola is an unbounded curve.
 
@@ -29,9 +29,11 @@ For a parabola centered on the display these criteria are equivalent.
 |*Controls*
 
 
-|`x_0, y_0`
+|`x, y`
 |coordinates (x, y) of the parabola vertex  (i.e., the minimum x value when alined along x
 or the minimum y value when alined along y (in pixel positions)
+
+The x or y coordinates can a be a Byte of Word value.
 
 |`p_factor`
 |The factor such that y^2=2*p_factor*x is the equation of the parabola
