@@ -3,38 +3,67 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    Hyperbole (x_0,  y_0,  a_axis,  b_axis,  type, ModeStop, optional LineColour=GLCDForeground)
+    Hyperbole (x,  y,  a_axis,  b_axis,  type, ModeStop, optional LineColour=GLCDForeground)
 ----
 
 *Explanation:*
 
-Draws on a GLCD an hyperbole with equation x^2/a^2-y^2/b^2=1, centered at  pixel positions (x_0, y_0)  with axes a and b.
+Draws on a GLCD an hyperbole with equation x^2/a^2-y^2/b^2=1, centered at  pixel positions (x, y)  with axis a and b.
 
-The hyperbole can be alined either along the x axis or along the y axis.
+The hyperbole can be aligned either along the x axis or along the y axis.
 
 Both cases a_axis>=b:axis and a_axis<b_axis are accepted.
 
 The hyperbole is an unbounded curve made by two branches
-Drawing Hyperbole on the screen can be stopped by following two different criteria:
+
+
+Drawing hyperbole on the screen can be stopped by following two different criteria:
   -  a branch has reached a border of the display
   - all branches have reached the display border
-For an Hyperbole centered on the display these criteria are equivalent.
 
-'** Input paramters:
-'**       (x_0, y_0) = coordinates (x, y) of hyperbole center (in pixel positions)
-'**       a_axis, b_axis = a, b axes of the hyperbole
-'**       Type :
-      Type=1 the hyperbole is aligned along x axis
-      Type=2 the hyperbole is aligned along y axis
-'**   ModeStop:
-      ModeStop=1 drawing stops when a display border is encountered by an hyperbole branch.
-'**         ModeStop=2 drawing stops when all the reachable display borders are encountered by all the hyperbole branches
-'**   LineColour: Color of the Hyperbole drawing
+For an hyperbole centered on the display these criteria are equivalent.
+
+*Input parameters:*
+
+[cols=2, options="header,autowidth"]
+|===
+
+|*Parameter*
+|*Controls*
+
+
+|`x, y`
+|coordinates (x, y) of hyperbole center (in pixel positions)
+
+The x or y coordinates can be a Byte of Word value.
+
+|`a_axis`
+|The a axis of the hyperbole
+
+|`b_axis`
+|The b axis of the hyperbole
+
+
+|`type`
+|type=1 the hyperbole is aligned along x axis
+{empty} +
+type=2 the hyperbole is aligned along y axis
+
+|`modestop`
+|modestop=1 drawing stops when a display border is encountered by a hyperbole branch.
+{empty} +
+modestop=2 drawing stops when all the reachable display borders are encountered by all the hyperbole branches
+
+|`LineColour`
+|Color of the hyperbole
+
+|===
+
 
 
 *Example:*
 ----
-  A 240x320 pixels GLCD is referred to
+    'Example for a 240x320 pixels GLCD
 
     #include <glcd.h>
 
