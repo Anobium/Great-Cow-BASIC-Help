@@ -22,6 +22,7 @@
 *Changes in this release*::
 - Revised String handling section[s] to include setting string using elements
 - Revised HPWMUpdate to explain CCP usage
+- Added hyperbole and parabole GLCD commands and sections
 
 {empty} +
 {empty} +
