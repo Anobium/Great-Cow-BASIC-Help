@@ -31,9 +31,12 @@ For an hyperbole centered on the display these criteria are equivalent.
 |*Parameter*
 |*Controls*
 
+|`x`
+|X coordinates  of hyperbole center (in pixel positions)
 
-|`x, y`
-|coordinates (x, y) of hyperbole center (in pixel positions)
+|`y`
+|Y coordinates  of hyperbole center (in pixel positions)
+
 
 The x or y coordinates can be a Byte of Word value.
 
