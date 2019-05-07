@@ -28,11 +28,6 @@ For a parabola centered on the display these criteria are equivalent.
 |*Parameter*
 |*Controls*
 
-
-|`x, y`
-|coordinates (x, y) of the parabola vertex  (i.e., the minimum x value when alined along x
-or the minimum y value when alined along y (in pixel positions)
-
 |`x`
 |X of the parabola vertex  or the minimum X value when alined along X. {nbsp}{nbsp}in pixel positions
 
