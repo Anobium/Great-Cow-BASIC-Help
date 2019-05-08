@@ -366,7 +366,7 @@ include::glcdwritebyte.adoc[]
 
 include::line.adoc[]
 
-include::hellypse.adoc[]
+include::hyperbole.adoc[]
 
 include::parabola.adoc[]
 

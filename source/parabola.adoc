@@ -1,4 +1,4 @@
-==== Parabola:
+==== Parabola
 
 *Syntax:*
 [subs="quotes"]
@@ -15,8 +15,8 @@ The parabola can be alined either along the x axis or along the y axis.
 
 
 Drawing parabola on the screen can be constrained by following two different criteria:
-	- a branch has reached a border of the display.
-	- both branches have reached the display border.
+  - a branch has reached a border of the display.
+  - both branches have reached the display border.
 
 For a parabola centered on the display these criteria are equivalent.
 
@@ -30,7 +30,7 @@ For a parabola centered on the display these criteria are equivalent.
 
 |`x, y`
 |X, Y coordinates of the parabola vertex.  X is the minimum x value of the parabola when alined along X.
-					   Y is the minimum y value of the parabola when alined along y {nbsp}{nbsp}in pixel positions
+             Y is the minimum y value of the parabola when alined along y {nbsp}{nbsp}in pixel positions
 
 
 
@@ -75,4 +75,3 @@ modestop=2 drawing stops when all the parabolla branches encountered a border
     Parabola(180, 80, 20, 2, 1, GLCDForeground)   ; upper right, p_factor=20, y_axis alined, stops when a border is touched,
     Parabola(60, 240, 20, 2, 2, GLCDForeground)   ; lower left, p_factor=20, y_axis alined, stops when all branches have reached a border
 ----
-
