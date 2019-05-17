@@ -3,12 +3,14 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    _stringvar_ = Str(_number_)     'supports Byte and Word
+    _stringvar_ = Str(_number_)     'supports decimal byte and word strings only.
 
-    'Use the following to support Long and Integer numbers
-    _stringvar_ = Str32(_long number_)     'supports Long number
+    'Use the following to support decimal long number strings.
+    _stringvar_ = Str32(_long number_)     'supports  decimal long number strings.
 
-    _stringvar_ = StrInteger(_integer number_)     'supports Integer number
+    'Use the following to support decimal integer number strings.
+    _stringvar_ = StrInteger(_integer number_)     ' decimal integer number strings.
+
 
 ----
 *Command Availability:*
@@ -24,6 +26,7 @@ The string variable `_stringvar_` will contain the same number, represented as a
 This function is especially useful if a number needs to added to the end of a string, or if a custom data sending routine has been created but only supports the output of string variables.
 {empty} +
 {empty} +
+These methods will not support  conversion of hexadecimal number strings.
 {empty} +
 {empty} +
 *Example1:*
