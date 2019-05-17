@@ -3,7 +3,7 @@
 *Syntax:*
 [subs="quotes"]
 ----
-    var = Val(__string__)   'Supports Byte and Word numbers
+    var = Val(__string__)   'Supports decimal byte and word strings only.
 
     'use the following for strings that represent Long numbers
     var = Val32(__string__)   'Supports Long numbers
@@ -20,7 +20,9 @@ The `Val` function will extract a number from a string variable, and store it in
 {empty} +
 The `Val32` function will extract a long number from a string variable, and store it in a long variable.
 
-
+{empty} +
+{empty} +
+The `Val` function will not extract a value from a hexadecimal string.
 {empty} +
 {empty} +
 
