@@ -50,8 +50,8 @@ SER3_TXPORT
 Sample:  #define SER1_TXPORT PortB
 
 |PORTA - PORTx
-|No Default
-Must be defined for sending
+|No default defined.
+An appropiate constant must be defined.
 
 |SER1_TXPIN,
 SER2_TXPIN,
@@ -60,18 +60,17 @@ SER3_TXPIN
 |These are used to define the pin (the corresponding bit) for sending on serial channels 1, 2 and 3 respectively.
 Sample:  #define SER1_TXPIN 0
 |0 - 7
-|No Default
-Must be defined
-for sending
+|No default defined.
+An appropiate constant must be defined to enable the TX port.
 
 |SER1_RXPORT,
 SER2_RXPORT,
 SER3_RXPORT
 |These are used to define the port for receiving on serial channels 1, 2 and 3 respectively. Note, that we also have to define a PortPin (see next line). It is not necessary to define this, if we want to receive only.
 Sample:  #define SER1_RXPORT PortA
-|PORTA - PORTx  No Default
-|Must be defined
-for receiving
+|PORTA - PORTx  
+|No default defined.
+An appropiate constant must be defined to enable the TX port.
 
 |SER1_RXPIN,
 SER2_RXPIN,
@@ -79,9 +78,8 @@ SER3_RXPIN
 |These are used to define the pin (the corresponding bit) for receiving on serial channels 1, 2 and 3 respectively. It is not necessary to define this, if we want to send only.
 Sample:  #define SER1_RXPIN 5
 |0 - 7
-|No Default
-Must be defined
-for receiving
+|No default defined.
+An appropiate constant must be defined to enable the RX port.
 
 |SER1_BAUD,
 SER2_BAUD,
@@ -90,8 +88,8 @@ SER3_BAUD
 |These are used to define the baudrate for sending and receiving on serial channels 1, 2 and 3 respectively. It is not necessary to define this, if we want to send only.
 Sample:  #define SER1_BAUD 19200
 |75 - 512000
-|No Default
-Must be defined
+|No default defined.
+An appropiate constant must be defined to enable the RX port.
 
 |SER1_DATABITS,
 SER2_DATABITS,
