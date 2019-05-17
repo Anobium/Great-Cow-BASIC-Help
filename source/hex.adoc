@@ -37,12 +37,4 @@ The `Hex` function will convert a number into hexadecimal format. The input `_nu
     Next
 ----
 
-When using the functions `Hex()` do not leave space between the function call and the left brace. You will get a compiler error that is meaningless.
-
-----
-    ' use this, note this is no space between the Hex and the left brace!
-    Hex(number_variable)
-    ' do not use, note the space!
-    Hex (number_variable)
-----
 *See Also* <<_str,Str>>, <<_val,Val>>
