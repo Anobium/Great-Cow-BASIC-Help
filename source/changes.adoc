@@ -23,6 +23,7 @@
 - Revised String handling section[s] to include setting string using elements
 - Revised HPWMUpdate to explain CCP usage
 - Added hyperbole and parabole GLCD commands and sections
+- Updated nt7108ccontrollers section to detail eigth port.bit mode
 
 {empty} +
 {empty} +
