@@ -20,9 +20,6 @@ The connectivity options are as follows, This is required between the microcontr
 
 {empty} +
 {empty} +
-The NT7108C is a monochrome device.
-{empty} +
-{empty} +
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
 {empty} +
 {empty} +
