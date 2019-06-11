@@ -21,8 +21,6 @@ The connectivity options are as follows, This is required between the microcontr
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
 {empty} +
 {empty} +
-{empty} +
-{empty} +
 ----
     ;Full port mode
     #include <glcd.h>
