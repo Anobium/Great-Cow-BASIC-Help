@@ -17,8 +17,6 @@ The connectivity options are as follows, This is required between the microcontr
 
 - A  full port mode.{nbsp}{nbsp} Where a full data port therefore eight contiguous port.bits.{nbsp}{nbsp}  The port is used the data communications.
 - Eight port.bits mode.{nbsp}{nbsp}  This option allows for greater flexibility with the configuration but will operate slower then the full port mode.{nbsp}{nbsp}    These port.bits are used the data communications.
-
-{empty} +
 {empty} +
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
 {empty} +
