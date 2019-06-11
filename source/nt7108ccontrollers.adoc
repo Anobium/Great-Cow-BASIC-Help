@@ -21,8 +21,6 @@ The connectivity options are as follows, This is required between the microcontr
 To use the NT7108C driver simply include the following in your user code.  This will initialise the driver.
 {empty} +
 {empty} +
-The NT7108C is very sensitive to clock timings.&#160;&#160;&#160;
-You may to adjust the clock timing to ensure the display operates correctly.
 {empty} +
 {empty} +
 ----
@@ -129,7 +127,8 @@ GLCD_DB7
 
 
 
-The Great Cow BASIC constants defined for the controller type are shown in the table below.
+The Great Cow BASIC constants defined for the controller type are shown in the table below.  The NT7108C is very sensitive to clock timings.&#160;&#160;&#160;You may to adjust the clock timing to ensure the display operates correctly.
+
 
 
 
