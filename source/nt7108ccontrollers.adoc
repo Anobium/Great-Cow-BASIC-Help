@@ -36,9 +36,10 @@ You may to adjust the clock timing to ensure the display operates correctly.
     #DEFINE GLCD_TYPE GLCD_TYPE_NT7108C
 
 
+   #define GLCD_DATA_PORT PORTD       'Data Port
+
    #define GLCD_CS1 PORTC.1           'CS1 control line
    #define GLCD_CS2 PORTC.0           'CS2 control line
-   #define GLCD_DATA_PORT PORTD       'Data Port
    #define GLCD_RS PORTe.0            'RS control line
    #define GLCD_Enable PORTe.2        'Enable control line
    #define GLCD_RW PORTc.3            'RW control line
@@ -56,22 +57,23 @@ or
 
     ;Defines (Constants)
     ;Define port as 8 port,bit(s)
-    #define GLCD_DB0 PORTA.2 'DB0 to pin 17
-    #define GLCD_DB1 PORTC.0 'DB1 to pin 16
-    #define GLCD_DB2 PORTC.1 'DB2 to pin 15
-    #define GLCD_DB3 PORTC.2 'DB3 to pin 14
-    #define GLCD_DB4 PORTB.4 'DB4 to pin 13
-    #define GLCD_DB5 PORTB.5 'DB5 to pin 12
-    #define GLCD_DB6 PORTB.6 'DB6 to pin 11
-    #define GLCD_DB7 PORTB.7 'DB7 to pin 10
+    #define GLCD_DB0 PORTA.2    'Data Port.bit 0
+    #define GLCD_DB1 PORTC.0    'Data Port.bit 1
+    #define GLCD_DB2 PORTC.1    'Data Port.bit 2
+    #define GLCD_DB3 PORTC.2    'Data Port.bit 3
+    #define GLCD_DB4 PORTB.4    'Data Port.bit 4
+    #define GLCD_DB5 PORTB.5    'Data Port.bit 5
+    #define GLCD_DB6 PORTB.6    'Data Port.bit 6
+    #define GLCD_DB7 PORTB.7    'Data Port.bit 7
     ;End of define as 8 port,bit(s)
-    #define GLCD_CS1 PORTC.7 'CS1 to pin 9
-    #define GLCD_CS2 PORTC.6 'CS2 to pin 8
-    #define GLCD_RESET PORTC.3 'RST to pin 7
-    #define GLCD_RW PORTC.4   'RW to pin 6
-    #define GLCD_RS PORTC.5  'RS to pin 5
-    #define GLCD_ENABLE PORTA.4 'Enable to pin 3
-
+    
+    #define GLCD_CS1 PORTC.7    'CS1 control line
+    #define GLCD_CS2 PORTC.6    'CS2 control line
+    #define GLCD_RS PORTC.5     'RS control line
+    #define GLCD_ENABLE PORTA.4 'Enable control line
+    #define GLCD_RW PORTC.4     'RW control line
+    #define GLCD_RESET PORTC.3  'Reset control line
+    
 ----
 
 
