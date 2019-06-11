@@ -13,10 +13,10 @@ The controller uses a dot matrix LCD segment driver with 64 channel output, and 
 {empty} +
 {empty} +
 The Great Cow BASIC constants shown below control the configuration of the NT7108C controller.&#160;&#160;&#160;
-The connectivity options are as follows:
+The connectivity options are as follows, This is required between the microcontroller and the GLCD to control the data bus.:
 
-8-bit full port mode where a full data port (for the data) is required between the microcontroller and the GLCD to control the data bus.
-
+- A  full port mode.{nbsp}{nbsp} Where a full data port therefore eight contiguous port.bits.{nbsp}{nbsp}  The port is used the data communications.
+- Eight port.bits mode.{nbsp}{nbsp}  This option allows for greater flexibility with the configuration but will operate slower then the full port mode.{nbsp}{nbsp}    These port.bits are used the data communications.
 
 {empty} +
 {empty} +
@@ -31,6 +31,7 @@ You may to adjust the clock timing to ensure the display operates correctly.
 {empty} +
 {empty} +
 ----
+    ;Full port mode
     #include <glcd.h>
     #DEFINE GLCD_TYPE GLCD_TYPE_NT7108C
 
@@ -44,6 +45,35 @@ You may to adjust the clock timing to ensure the display operates correctly.
    #define GLCD_RESET PORTC.2         'Reset control line
 
 ----
+
+or
+
+----
+    ;Eight port.bits mode
+    #include <glcd.h>
+    #DEFINE GLCD_TYPE GLCD_TYPE_NT7108C
+
+
+    ;Defines (Constants)
+    ;Define port as 8 port,bit(s)
+    #define GLCD_DB0 PORTA.2 'DB0 to pin 17
+    #define GLCD_DB1 PORTC.0 'DB1 to pin 16
+    #define GLCD_DB2 PORTC.1 'DB2 to pin 15
+    #define GLCD_DB3 PORTC.2 'DB3 to pin 14
+    #define GLCD_DB4 PORTB.4 'DB4 to pin 13
+    #define GLCD_DB5 PORTB.5 'DB5 to pin 12
+    #define GLCD_DB6 PORTB.6 'DB6 to pin 11
+    #define GLCD_DB7 PORTB.7 'DB7 to pin 10
+    ;End of define as 8 port,bit(s)
+    #define GLCD_CS1 PORTC.7 'CS1 to pin 9
+    #define GLCD_CS2 PORTC.6 'CS2 to pin 8
+    #define GLCD_RESET PORTC.3 'RST to pin 7
+    #define GLCD_RW PORTC.4   'RW to pin 6
+    #define GLCD_RS PORTC.5  'RS to pin 5
+    #define GLCD_ENABLE PORTA.4 'Enable to pin 3
+
+----
+
 
 The Great Cow BASIC constants for the interface to the controller are shown in the table below.
 
@@ -79,9 +109,24 @@ GLCD.
 |Specifies the output pin that is connected to `Enable` on the GLCD.
 |Required
 
+|Full port mode
+|
+|
+
 |`GLCD_DATA_PORT`
 |Specifies the port that is connected to 8 connections on the GLCD.
-|Required
+|Required when using full port mode
+
+|Eight port.bits mode
+|
+|
+
+|GLCD_DB0 +
+GLCD_DB1 +
+.. +
+GLCD_DB7
+|Specifies the port.bit that is connected to a single connection on the GLCD.
+|Required when using eight port.bits mode
 
 |===
 
