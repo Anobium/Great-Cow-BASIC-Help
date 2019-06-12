@@ -114,10 +114,10 @@ GLCD.
 |
 |
 
-|GLCD_DB0 +
-GLCD_DB1 +
+|`GLCD_DB0` +
+`GLCD_DB1` +
 .. +
-GLCD_DB7
+`GLCD_DB7`
 |Specifies the port.bit that is connected to a single connection on the GLCD.
 |Required when using eight port.bits mode
 
