@@ -117,7 +117,7 @@ And the program will out the following:
 
 image::lookuptablesb2.PNG[graphic,align="center"]
 
-*Advanced use of Lookup Tables*
+*Advanced use of Lookup Tables - using EEPROM*
 
 You can use the `Table` statement to store the data table in EEPROM. If
 the compiler is told to store a data table in "Data" memory, it will
