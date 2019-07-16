@@ -9,7 +9,7 @@
 
 *Explanation:*
 
-`#option bootloader` prevents the overwriting of any pre-loaded bootloader code, vectors, etc. below the `_address_` and have all Great Cow BASIC code start at `_address_`.
+`#option bootloader` prevents the overwriting of any pre-loaded bootloader code, vectors, etc. below the specified address. The Great Cow BASIC code will start at specified `_address_`.
 
 A bootloader is a program that stays in the microcontroller and communicates with the PC, typically through the serial interface. The bootloader receives a user program from the PC and writes it in the flash memory, then launches this program in execution. Bootloaders can only be used with those microcontrollers that can write their flash memory through software.
 
