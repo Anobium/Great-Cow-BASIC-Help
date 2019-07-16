@@ -1,4 +1,6 @@
 // Edit EvanV 171016
+// Edit EvanV 1760719 - corrected first paragraph
+
 === #Option Bootloader
 
 *Syntax:*
