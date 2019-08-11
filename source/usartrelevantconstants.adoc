@@ -55,7 +55,7 @@ To receive number characters via usart2 use.
 
 `HSerGetNum` ( mynum, 2 )
 
-|Serially receive characters as a string.  | |
+|*Serially receive characters as a string.*  | |
 |`HSerGetString` |User_string_variable [,optional usart address]
 
 The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. | This subroutine ensures that the characters treated as a string.  When a carriage return (CR or ASCII code 13) is received this signifies the end of the character stream. Great Cow BASIC will determine the default buffering size for strings. See here for more help on string sizes. Defaults to usart1.
@@ -66,7 +66,7 @@ To receive a string use. +
 To a string via usart2 use. +
 `HserGetString` ( mystring, 2 )
 
-|Serially receive a character using a subroutine. | |
+|*Serially receive a character using a subroutine.* | |
 |`HSerReceive` |byte_variable | This subroutine handles the incoming characters as raw ASCII values.
 
 The subroutine receives a single byte value in the range of 0 to 255.
@@ -103,7 +103,7 @@ To receive an ASCII byte value via usart 4 using non-blocking mode use. Ensure #
 Comport = 4 +
 `HSerReceive` ( user_byte_variable )
 
-|Serially receive a character using a function specifically via usart1. | |
+|*Serially receive a character using a function specifically via usart1.* | |
 |`HSerReceive1` |none |This function handles the incoming characters as raw ASCII values.
 
 The function receives a single byte value in the range of 0 to 255.
@@ -123,7 +123,7 @@ To receive an ASCII byte value use in non-blocking mode use. Ensure #define USAR
 
 user_number_variable = `HSerReceive1`
 
-|Serially receive a character using a function specifically via usart2 | |
+|*Serially receive a character using a function specifically via usart2*| |
 |`HSerReceive2` |none |This function handles the incoming characters as raw ASCII values.
 
 The function receives a single byte value in the range of 0 to 255.
@@ -143,7 +143,7 @@ To receive an ASCII byte value use in non-blocking mode use. Ensure #define USAR
 
 user_byte_variable = `HSerReceive2`
 
-|Serially receive a character using a function from either usart ports using a parameter to select the usart. | |
+|*Serially receive a character using a function from either usart ports using a parameter to select the usart.* | |
 |`HSerReceiveFrom` |Usart_number, +
  Default is 1 |This function handles the incoming characters as raw ASCII values.
 
@@ -165,7 +165,7 @@ To receive an ASCII byte value use in non-blocking mode use. Ensure #define USAR
 'Chosen_usart = 2 +
 user_byte_variable = `HSerReceiveFrom` (2)
 
-|Serially send a byte using any of the usart ports | |
+|*Serially send a byte using any of the usart ports.* | |
 |`HSerSend` |Byte or byte_variable   [,optional usart address]  + The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a byte value to usart 1. No additional parameter for the usart number is used.
 
 `HSerSend`( user_byte )
@@ -174,12 +174,12 @@ To print a variable value to usart 2. Note the additional parameter for the usar
 
 `HSerSend` ( user_byte, 2 )
 
-|Serially send a byte and a CR&LF using any of the usart ports | |
+|*Serially send a byte and a CR&LF using any of the usart ports*| |
 |`HSerPrintByteCRLF` |Byte or byte_variable +  [,optional usart address] The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a byte value to usart 1.
 
 `HserPrintCRLF` users_byte,2
 
-|Serially send  CR&LF (can be multiple) using any of the usart ports | |
+|*Serially send  CR&LF (can be multiple) using any of the usart ports*| |
 |`HSerPrintCRLF` |Number of CR&LF to be sent + [,optional usart address] The optional usart address is microcontroller specific buy can be 1, 2, 3 or 4. |This subroutine sends a CR&LF to port 2.
 
 
