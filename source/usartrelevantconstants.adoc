@@ -1,3 +1,5 @@
+//Adding USART_DELAY OFF information
+
 ==== RS232 Hardware Overview
 
 *Introduction*
@@ -233,7 +235,9 @@ can be sent or received.
 |This is the delay between characters.
 |`1 ms`
 
-To disable this delay between characters ...  Use #define  USART_DELAY  0 MS
+To disable this delay between characters ...  Use #define  `USART_DELAY  0 MS`, or,
+To disable this delay between characters ...  Use #define  `USART_DELAY  OFF`
+
 
 |`SerPrintCR` | Causes a Carriage return to be sent after every HserPrint automatically. | No parameter needed. User “#defining” it implements the action
 
