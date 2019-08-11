@@ -29,7 +29,7 @@ The following table explains the methods that can be implemented when using the 
 |===
 |*Command* |*Parameters* |*Example*
 
-|Serially print numbers (byte, word, long) or  strings. | |
+|*Serially print numbers (byte, word, long) or  strings.* | |
 
 |`HSerPrint` |Number_constant or number_variable or string [,optional usart address]
 
@@ -41,7 +41,7 @@ To print a variable value to usart 2. Note the additional parameter for the usar
 
 `HSerprint` ( mynum, 2 )
 
-|Serially receive ascii number characters and assign to a word variable | |
+|*Serially receive ascii number characters and assign to a word variable.* | |
 
 |`HSerGetNum` |Number_variable [,optional usart address]
 
