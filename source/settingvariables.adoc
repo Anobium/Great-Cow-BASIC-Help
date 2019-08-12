@@ -55,6 +55,35 @@ There are several modes in which variables can be set. Great Cow BASIC will auto
 {empty} +
 {empty} +
 
+*And with other operations*
+
+The order of operations, comparison operations have a higher precedence than boolean operations.&#160;&#160;Great Cow BASIC behaves the same way as most other languages.&#160;&#160;Source code like this (randomly taken from glcd_ili9326.h) works.
+----
+if GLCDfntDefaultSize = 2 and CurrCharRow = 7 then
+----
+
+It is an easy mistake to compare values and get the precendent incorrect.&#160;&#160;Generally, if you can use an individual bit check, that is generally the best way to go. These are a lot simpler for the compiler to deal with and result in much nicer assembly.
+
+This works using the correct order of precendence.
+----
+    if (H_Byte & 0x10) = 0x10 Then ...
+
+    'or, using the individual bit check to do the same
+    if H_Byte.4 Then
+----
+
+This will fail as the order of precendence as shown below.
+----
+    if H_Byte & 0x10 = 0x10 Then ...
+
+    'the code above equates. This is not achieve the testing of the H_byte.4
+    if H_Byte & ( 0x10 = 0x10 ) Then ...
+
+----
+
+
+
+
 *Divide or division*
 
 Great Cow BASIC support division.
