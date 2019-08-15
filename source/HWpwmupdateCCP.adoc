@@ -14,10 +14,11 @@ Available on Microchip PIC microcontrollers with the CCP module.
 This command updates the **duty cycle only**.
 
 - You **MUST** have previously called the HPWM CCP command using the full command to set the channel specific settings for frequency and timer source.&#160;&#160;See the example below for the usage.
+- You **MUST** specify the constant #define `HPWM_FAST` to support HPWMUpdate when using CCP module.
 
 This command only supports the previously called HPWM CCP command, or, if you have set more than one HPWM CCP channel then to use the command you must have set the channel to the same frequency.
 
-The command only supports the CCO module of the Microchip PIC microcontroller to generate
+The command only supports the CCP module of the Microchip PIC microcontroller to generate
 a PWM waveform at the previously defined frequency and timer source.
 
 
@@ -39,6 +40,7 @@ ranges from 0 to 255 where 255 is 100% duty cycle.
     'Set the direction of the CCP/PWM port
     DIR portc.2 Out
 
+    #define HPWM_FAST           'Required to support HPWMUpdate when using CCP module
     HPWM 1, 40, dutyvalue
 
     do
