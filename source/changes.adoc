@@ -24,6 +24,8 @@
 - Revised HPWMUpdate to explain CCP usage
 - Added hyperbole and parabole GLCD commands and sections
 - Updated nt7108ccontrollers section to detail eigth port.bit mode
+- Updated USART use of USART_DELAY equals OFF or a timed value
+
 
 {empty} +
 {empty} +
