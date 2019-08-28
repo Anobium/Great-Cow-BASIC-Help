@@ -4,9 +4,9 @@ Welcome to Great Cow BASIC.&#160;&#160;This document is especially important for
 
 As a PIC user most of us are conditioned, regardless of the Assembler or Compiler, to reach for the devices data sheet first and try to work out how to setup the Oscillator, interrupt vectors and Configuration bits.
 
-do not DO IT - read this document first as it will give you some great insights. &#160;&#160; For the basic operation the only setup and configuration required for a Great Cow BASIC program is the name of the target Device i.e. `#Chip 16f1619`.  &#160;&#160;   That is it, honestly, Great Cow BASIC will do the rest and will determine the optimal Oscillator settings, interrupt vectors, Configuration bits etc
+Do not DO IT - read this document first as it will give you some great insights. &#160;&#160; For the basic operation the only setup and configuration required for a Great Cow BASIC program is the name of the target Device i.e. `#Chip 16f1619`.  &#160;&#160;   That is it, honestly, Great Cow BASIC will do the rest and will determine the optimal Oscillator settings, interrupt vectors, Configuration bits etc
 
-Next we would  start deciding on and including the Device files and libraries that we intend to use - STOP - Let Great Cow BASIC decide. &#160;&#160; Great Cow BASIC is creating Portable Code, it doesnít care if you use a PIC12, PIC18 or an ATmega328.&#160;&#160;  You write in BASIC and at compile time Great Cow BASIC will decide which core libraries to include based on the instructions you have used and the target device you specified in the #chip statement.
+Next we would  start deciding on and including the Device files and libraries that we intend to use - STOP - Let Great Cow BASIC decide. &#160;&#160; Great Cow BASIC is creating Portable Code, it doesn‚Äôt care if you use a PIC12, PIC18 or an ATmega328.&#160;&#160;  You write in BASIC and at compile time Great Cow BASIC will decide which core libraries to include based on the instructions you have used and the target device you specified in the #chip statement.
 
 Finally we would decide on the pins to use, their port names, which register bits are needed to make them inputs or outputs and override any Analog function if a digital function is desired.
 
@@ -31,6 +31,6 @@ That is it. If you have an LED attached to PortC.0 (LED DS1 on the Low Pin Count
 
 To change target device or family just change the #Chip Entry along with the Pin you have the LED on and recompile - it Really IS as Simple as that to get started in Great Cow BASIC.
 
-You can manually override Great Cow BASIC and set every register, every flag, every BIT, every Configuration ëFuseí and every vector if you wish, but why bother doing it upfront? &#160;&#160;Rather get your code working with the default settings and then adjust from there, if needed, as your confidence grows.
+You can manually override Great Cow BASIC and set every register, every flag, every BIT, every Configuration ‚ÄòFuse‚Äô and every vector if you wish, but why bother doing it upfront? &#160;&#160;Rather get your code working with the default settings and then adjust from there, if needed, as your confidence grows.
 
-One final bit of advice, the IDE tool bar has a ìView Demosî button, use it, there are examples of all of the most common programming challenges and many different devices which, along with the Help files, will answer most of your questions. The Forum is a friendly place too, so do not be shy to introduce yourself and ask for help.
+One final bit of advice, the IDE tool bar has a ‚ÄúView Demos‚Äù button, use it, there are examples of all of the most common programming challenges and many different devices which, along with the Help files, will answer most of your questions. The Forum is a friendly place too, so do not be shy to introduce yourself and ask for help.
