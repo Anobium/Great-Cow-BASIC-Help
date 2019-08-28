@@ -1,11 +1,11 @@
-= GCBasic documentation Howto
+= Great Cow BASIC documentation Howto
 Jacques Nilo
 v1.1, 2015-07-12
 :imagesdir: ./images
 
 == Introduction
 
-GCBasic documentation is maintained through http://asciidoctor.org/[asciidoctor] a fast text processor
+Great Cow BASIC documentation is maintained through http://asciidoctor.org/[asciidoctor] a fast text processor
  and publishing toolchain for converting AsciiDoc content to HTML5, DocBook 5 (or 4.5) and other formats.
 Asciidoctor is written in Ruby, packaged as a RubyGem and published to RubyGems.org.
 
@@ -18,7 +18,7 @@ asciidoctor can convert human readable text files created with a simple editor i
 It's software companion, asciidoctor-pdf, converts your files into pdf with a single command.
 Finally you can also generates Docbook 5 or 4.5 xml files and apply to them a large set of available stylesheets.
 
-The main advantages of using asciidoctor to maintain GCBasic documentation are:
+The main advantages of using asciidoctor to maintain Great Cow BASIC documentation are:
 
 - A very simple language inserted into plain text files which remains fully readable
 - Yet specifically designed to write documentation and especially software one
@@ -227,7 +227,7 @@ Example: hhc filename.hhp
 ifdef::backend-pdf[<<<]
 == Creating GCB documentation
 
-GCBasic documentation is splitted in small `sectioname.adoc` text files which are then merged in a `gcbasic.adoc`
+Great Cow BASIC documentation is splitted in small `sectioname.adoc` text files which are then merged in a `gcbasic.adoc`
 one.
 
 The syntax used in GCB `gcbasic.adoc` file is as follows:
@@ -501,13 +501,13 @@ echo .
 echo Generating webhelp file...
 call asciidoctor -b docbook %1.adoc
 if ERRORLEVEL 1 goto :ERROR
-echo ^<project^> 																		>  build.xml
-echo   ^<property name="input-xml" value="%1.xml"/^> 									>> build.xml
-echo   ^<property name="tools.dir" value="/xerces-2_11_0"/^>							>> build.xml
-echo   ^<property name="input-images-dirs" value="images/** figures/** graphics/**"/^>	>> build.xml
-echo   ^<property name="output-dir" value="../output/web/%1"/^>	    					>> build.xml
-echo   ^<import file="/docbook-xsl-ns/webhelp/build.xml"/^>								>> build.xml
-echo ^</project^>																		>> build.xml
+echo ^<project^>                                    >  build.xml
+echo   ^<property name="input-xml" value="%1.xml"/^>                  >> build.xml
+echo   ^<property name="tools.dir" value="/xerces-2_11_0"/^>              >> build.xml
+echo   ^<property name="input-images-dirs" value="images/** figures/** graphics/**"/^>  >> build.xml
+echo   ^<property name="output-dir" value="../output/web/%1"/^>               >> build.xml
+echo   ^<import file="/docbook-xsl-ns/webhelp/build.xml"/^>               >> build.xml
+echo ^</project^>                                   >> build.xml
 call ant webhelp
 if ERRORLEVEL 1 goto :ERROR
 del %1.xml

@@ -69,7 +69,7 @@ to a terminal, these commands should follow every `HSerPrint` :
   'Show test messages
   Print "Serial Tester"
   Wait 1 s
-  HSerPrint "GCBASIC RS232 Test"
+  HSerPrint "Great Cow BASIC RS232 Test"
   HSerSend 13
   HSerSend 10
   Wait 1 s

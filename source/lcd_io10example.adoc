@@ -77,7 +77,7 @@ The demonstrates reading a DS18B20 and showing the results on the LCD.
 
         Case 1
           CLS
-          print "GCBasic 2015"
+          print "Great Cow BASIC 2015"
           locate 1,0
           print "DS18B20 Demo"
 

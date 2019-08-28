@@ -78,7 +78,7 @@ to a terminal, these commands should follow `SerPrint`.
       'Show test messages
       Print "Serial Tester"
       Wait 1 s
-      SerPrint 1, "GCBASIC RS232 Test"
+      SerPrint 1, "Great Cow BASIC RS232 Test"
       SerSend 1, 13
       SerSend 1, 10
       Wait 1 s
