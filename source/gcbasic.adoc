@@ -11,6 +11,8 @@ include::introducinggcbasic.adoc[]
 
 include::gettingstartedwithgcbasic.adoc[]
 
+include::newtoGreatCowBASIC.adoc[]
+
 ifdef::backend-pdf[<<<]
 include::changes.adoc[]
 

@@ -59,6 +59,7 @@
 - Added LCD_IO_3
 - Added new HEFM section
 - Added new SAFM section
+- Added PIC users and Beginners - Start Here section
 
 {empty} +
 {empty} +
