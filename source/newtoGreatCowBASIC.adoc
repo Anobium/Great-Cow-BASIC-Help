@@ -10,7 +10,7 @@ Next we would  start deciding on and including the Device files and libraries th
 
 Finally we would decide on the pins to use, their port names, which register bits are needed to make them inputs or outputs and override any Analog function if a digital function is desired.
 
-Again,  I say let Great Cow BASIC DO IT......... `Dir PortC.0` In - will set Pin RC0 to a Digital Input. &#160;&#160; There is no need to manually set the TRIS register or see if there is an associated ADCON bit to set or clear.
+Again,  I say let Great Cow BASIC DO IT......... `Dir PortC.0 In` - will set Pin RC0 to a Digital Input. &#160;&#160; There is no need to manually set the TRIS register or see if there is an associated ADCON bit to set or clear.
 
 Putting it all together: An example Great Cow BASIC program.
 
