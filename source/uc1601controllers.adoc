@@ -11,7 +11,7 @@ The UC1601 library supports 132 * 22 pixels.&#160;&#160;  The UC1601 library  su
 
 image:UC1601.gif[graphic,width=396,height=66]
 
-The UC1601 can operate in three modes.&#160;&#160; Full GLCD mode, Low Memory GLCD mode or Text/JPG mode the full GLCD mode requires a minimum of 396k bytes or 128 bytes for the respective modes.&#160;&#160;For microcontrollers with limited memory the third mode of operation - Text mode.  These can be selected by setting the correct constant.
+The UC1601 can operate in three modes.&#160;&#160; Full GLCD mode, Low Memory GLCD mode or Text/JPG mode the full GLCD mode requires a minimum of 396 bytes or 128 bytes for the respective modes.&#160;&#160;For microcontrollers with limited memory the third mode of operation - Text mode.  These can be selected by setting the correct constant.
 
 To use the UC1601 driver simply include the following in your user code.  This will initialise the driver.
 

@@ -351,6 +351,25 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |Requires 12 ports/connections.
 |These are medium cost mono devices.
 
+|21
+|UC1601
+|Help
+|4.00inch
+|132 * 22
+|Medium
+|Mono
+|OLED
+|I2C and SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|RAM for Full Mode GLCD is 396 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
+Typically operates at VCC 2.8v. Always check voltage specifications  Very good display. Driver supports gaming. Minimum RAM required is 396 bytes then add user variables for graphics mode.
+
+Display can operate in text mode only for low RAM microcontrollers
+
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+
+I2C requires 2 ports.
+|Good display, excellent value for money
 
 |===
 
