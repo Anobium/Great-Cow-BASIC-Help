@@ -323,6 +323,9 @@ include::st7920greaddata.adoc[]
 
 include::t6963controllers.adoc[]
 
+include::uc1601controllers.adoc[]
+
+
 
 :leveloffset: -1
 
