@@ -224,7 +224,7 @@ The Great Cow BASIC specific commands for this GLCD are shown in the table below
 |`Stopscroll_UC1601`
 |Stops all scrolling
 
-|`Startscrollright_UC1601 ( start  )`
+|`Startscroll_UC1601 ( start  )`
 |Activates a vertical scroll for rows start.
 
 |`GLCDSetContrast ( contrast_state )`
