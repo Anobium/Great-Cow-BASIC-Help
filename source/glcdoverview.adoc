@@ -364,6 +364,22 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |RAM for Full Mode GLCD is 396 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
 Typically operates at VCC 2.8v. Always check voltage specifications  Very good display. Driver supports gaming. Minimum RAM required is 396 bytes then add user variables for graphics mode.
 
+|22
+|SDD1351
+|Help
+|1.50inch
+|128 * 128
+|Small
+|Color
+|OLED
+|SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|Typically operates at VCC 3.3 or 5. Always check voltage specifications
+|SPI requires typically 6 in total.
+|Very good color OLED display, excellent value for money
+
+
+
 Display can operate in text mode only for low RAM microcontrollers
 
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
