@@ -283,6 +283,8 @@ include::ssd1306controllers.adoc[]
 
 include::ssd1331controllers.adoc[]
 
+include::ssd1351controllers.adoc[]
+
 include::st7735controllers.adoc[]
 
 include::st7920controllers.adoc[]
