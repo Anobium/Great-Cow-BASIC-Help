@@ -2,6 +2,8 @@
 
 This section covers GLCD devices that use the ST7735 graphics controller.  The ST7735 is a single-chip controller/driver for 262K-color, graphic type TFT-LCD.
 
+Great Cow BASIC supports 65K-color mode operations.
+
 The Great Cow BASIC constants shown below control the configuration of the ILI9340 controller. &#160;&#160;&#160;Great Cow BASIC supports an 8 bit bus connectivity. The 8 bit must be a single port of consective bits  - this is shown in the tables below.
 
 To use the ST7735 driver simply include the following in your user code.  This will initialise the driver.
@@ -10,7 +12,7 @@ To use the ST7735 driver simply include the following in your user code.  This w
     #include <glcd.h>
     #define GLCD_TYPE GLCD_TYPE_ST7735
     #define ST7735TABCOLOR ST7735_BLACKTAB  ; can also be ST7735_GREENTAB or ST7735_REDTAB
- 
+
     'Pin mappings for ST7735
     #define GLCD_DC     porta.0           'example port setting
     #define GLCD_CS    porta.1           'example port setting

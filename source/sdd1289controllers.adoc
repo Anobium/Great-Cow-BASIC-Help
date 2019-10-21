@@ -3,9 +3,9 @@
 
 This section covers GLCD devices that use the SDD1289 graphics controller.  The SDD1289 is a 240 x 320 single chip controller driver IC for 262k color (RGB) amorphous TFT LCD.
 
-
 The Great Cow BASIC constants shown below control the configuration of the SDD1289 controller. &#160;&#160;&#160;Great Cow BASIC supports SPI hardware and software connectivity  - this is shown in the tables below.
 
+Great Cow BASIC supports 65K-color mode operations.
 
 To use the SDD1289 driver simply include the following in your user code.  This will initialise the driver.
 

@@ -2,6 +2,7 @@
 
 This section covers GLCD devices that use the ILI9340 graphics controller.  The ILI9340 is a TFT LCD Single Chip Driver with 240RGBx320 Resolution and 262K colors.
 
+Great Cow BASIC supports 65K-color mode operations.
 
 The Great Cow BASIC constants shown below control the configuration of the ILI9340 controller. &#160;&#160;&#160;Great Cow BASIC supports SPI hardware and software connectivity  - this is shown in the tables below.
 

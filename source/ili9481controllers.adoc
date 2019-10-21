@@ -2,8 +2,10 @@
 
 This section covers GLCD devices that use the ILI9481 graphics controller.
 
-ILI9481 is a 262,144-color single-chip SoC driver for a-TFT liquid crystal display with resolution of 320&#160;RGB&#160;x&#160;480&#160;
+ILI9481 is a 262k-color single-chip SoC driver for a-TFT liquid crystal display with resolution of 320&#160;RGB&#160;x&#160;480&#160;
 dots, comprising a 960-channel source driver, a 480-channel gate driver, 345,600 bytes GRAM for graphic data.
+
+Great Cow BASIC supports 65K-color mode operations.
 
 The Great Cow BASIC constants shown below control the configuration of the ILI9481controller.
 &#160;&#160;&#160;The Great Cow BASIC constants for control and data line connections are shown

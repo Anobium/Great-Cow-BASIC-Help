@@ -2,12 +2,14 @@
 
 This section covers GLCD devices that use the HX8347G graphics controller.
 
-HX8347G is a 262,144-color single-chip SoC driver for a-TFT liquid crystal display with resolution of 240&#160;RGB&#160;x&#160;320&#160;
+HX8347G is a 262k-color single-chip SoC driver for a-TFT liquid crystal display with resolution of 240&#160;RGB&#160;x&#160;320&#160;
 dots.
 
 The HX8347-G is designed to provide a single-chip solution that combines a gate
-driver, a source driver, power supply circuit for 262,144 colors to drive a TFT panel
+driver, a source driver, power supply circuit for 262k colors to drive a TFT panel
 with 240RGBx320 dots at maximum.
+
+Great Cow BASIC supports 65K-color mode operations.
 
 The HX8347-G can be operated in low-voltage (1.4V) condition for the interface and
 integrated internal boosters that produce the liquid crystal voltage, breeder resistance

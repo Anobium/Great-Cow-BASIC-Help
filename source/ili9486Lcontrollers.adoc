@@ -3,12 +3,13 @@
 
 This section covers GLCD devices that use the ILI9486(L) graphics controller.
 
-The ILI9486(L) is a 262,144-color single-chip SoC driver for a-Si TFT liquid crystal display with resolution of
+The ILI9486(L) is a 262kcolor single-chip SoC driver for a-Si TFT liquid crystal display with resolution of
 320RGBx480 dots, comprising a 960-channel source driver, a 480-channel gate driver, 345,600bytes GRAM for
 graphic data of 320RGBx480 dots.
 
 The Great Cow BASIC constants shown below control the configuration of the ILI9486(L) controller. &#160;&#160;&#160;Great Cow BASIC supports 1) SPI using the SPI hardware module, 2) software SPI, 3) UNO shields and 4) an 8bit port bus - this is detailed in the tables below.
 
+Great Cow BASIC supports 65K-color mode operations.
 
 To use the ILI9486(L) driver simply include the following in your user code.  This will initialise the driver.
 

@@ -2,6 +2,7 @@
 
 This section covers GLCD devices that use the ILI9326 graphics controller.  The ILI9326 is a TFT LCD Single Chip Driver with 400RGBx320 Resolution and 262K colors.
 
+Great Cow BASIC supports 65K-color mode operations.
 
 The Great Cow BASIC constants shown below control the configuration of the ILI9326 controller. &#160;&#160;&#160;Great Cow BASIC supports 8 bit bus connectivity  - this is shown in the tables below.
 

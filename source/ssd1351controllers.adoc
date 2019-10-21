@@ -4,6 +4,8 @@ This section covers GLCD devices that use the SSD1351 graphics controller.  The 
 
 The Great Cow BASIC constants shown below control the configuration of the SSD1351 controller. &#160;&#160;&#160;Great Cow BASIC supports SPI, hardware and software SPI, connectivity. This is shown in the tables below.
 
+Great Cow BASIC supports 65K-color mode operations.
+
 To use the SSD1351 driver simply include the following in your user code.  This will initialise the driver.
 
 ----
