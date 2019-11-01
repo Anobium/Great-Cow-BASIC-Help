@@ -65,17 +65,17 @@ As you can see that eliminates the conflict between Word Size and the Size of a 
 
 
 A lot of  confusion comes from the Type definitions of the chosen language, in this case GCBASIC  these are:
-~~~
-Byte (8 Bit)
-Integer / Word (16 Bit)
-Long (32 Bit)
-~~~
+----
+    Byte (8 Bit)
+    Integer / Word (16 Bit)
+    Long (32 Bit)
+----
 All 4 of the above are Integers in that they are representations of a non fractional number:
-~~~
-8  Bits - 0 to 255
-16 Bits - 0 to 65535
-32 Bits - 0 to 43294967295
-~~~
+----
+    8  Bits - 0 to 255
+    16 Bits - 0 to 65535
+    32 Bits - 0 to 43294967295
+----
 But they can only represent positive numbers. In Mathematics we need an Integer that can be Positive, Negative, or Zero. Note that Zero is a Positive Whole Number.
 
 
@@ -86,31 +86,31 @@ They also differ in the declaration of signed vs unsigned Integers.
 
 
 In order to avoid confusion modern languages now encourage the use of  more specific types such as:
-~~~
-Int8_t
-Int16_t
-Int32_t
-Int64_t
-~~~
+----
+    Int8_t
+    Int16_t
+    Int32_t
+    Int64_t
+----
 And the Unsigned Equivalents
-~~~
-Uint8_t
-Uint16_t
-Uint32_t
-Uint64_t
-~~~
+----
+    Uint8_t
+    Uint16_t
+    Uint32_t
+    Uint64_t
+----
 Such descriptive types help when porting and debugging code.
 
 
 To correlate the GCBASIC variable Type when porting code between Arduino and GCBASIC here is a list of Equivalents that you may use:
-~~~
-#define Uint8_t  Byte
-#define Uint16_t Word
-#define Uint32_t Long
+----
+    #define Uint8_t  Byte
+    #define Uint16_t Word
+    #define Uint32_t Long
 
 
-#define Int16_t  Integer
-~~~
+    #define Int16_t  Integer
+----
 
 
 **There are always Negatives**
@@ -146,30 +146,30 @@ The increment has two effects, it avoids the possible creation of a negative zer
 
 
 In the above if MyVar contained a value of 1 in an 8 Bit ALU that would be:
-~~~
-00000001
-~~~
+----
+    00000001
+----
 The NOT will make it
-~~~
-11111110
-~~~
+----
+    11111110
+----
 Note that the Most significant Bit is now 1 so the value is negative.
 
 
 The increment will result in a value of:
-~~~
-11111111
-~~~
+----
+  11111111
+----
 So Minus one using an 8 Bit ALU in Two's Complement notation is 11111111
 
 
 Let's test it by adding -1 to plus 3
-~~~
-11111111    -1
-00000011 +   3
---------
-00000010     2
-~~~
+----
+    11111111    -1
+    00000011 +   3
+    --------
+    00000010     2
+----
 We have successfully subtracted 1 from 3 by adding Minus 1 to 3 and obtaining a result of 2.
 
 
@@ -180,11 +180,11 @@ Notice that whilst a Byte is normally used to represent 0 < 255 by making the MS
 
 
 The benefit of the two's complement method is that it works for any size of variable:
-~~~
-MyByte = NOT MyByte +1
-MyWord = NOT MyWord +1
-MyLong = NOT MyLong +1
-~~~
+----
+    MyByte = NOT MyByte +1
+    MyWord = NOT MyWord +1
+    MyLong = NOT MyLong +1
+----
 All of the above will result in a Negated version of the original contents.
 
 
