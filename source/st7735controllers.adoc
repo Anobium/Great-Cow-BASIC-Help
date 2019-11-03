@@ -1,17 +1,17 @@
 ==== ST7735 Controllers
 
-This section covers GLCD devices that use the ST7735 graphics controller.  The ST7735 is a single-chip controller/driver for 262K-color, graphic type TFT-LCD.
+This section covers GLCD devices that use the ST7735 graphics controller.  The ST7735 or ST7735R is a single-chip controller/driver for 262K-color, graphic type TFT-LCD.
 
 Great Cow BASIC supports 65K-color mode operations.
 
-The Great Cow BASIC constants shown below control the configuration of the ILI9340 controller. &#160;&#160;&#160;Great Cow BASIC supports an 8 bit bus connectivity. The 8 bit must be a single port of consective bits  - this is shown in the tables below.
+The Great Cow BASIC constants shown below control the configuration of the ST7735 or ST7735R controller. &#160;&#160;&#160;Great Cow BASIC supports an 8 bit bus connectivity. The 8 bit must be a single port of consective bits  - this is shown in the tables below.
 
 To use the ST7735 driver simply include the following in your user code.  This will initialise the driver.
 
 ----
     #include <glcd.h>
-    #define GLCD_TYPE GLCD_TYPE_ST7735
-    #define ST7735TABCOLOR ST7735_BLACKTAB  ; can also be ST7735_GREENTAB or ST7735_REDTAB
+    #define GLCD_TYPE GLCD_TYPE_ST7735R
+    #define ST7735TABCOLOR ST7735_BLACKTAB  ; can also be ST7735_GREENTAB or ST7735_REDTAB or GLCD_TYPE_ST7735R_160_80
 
     'Pin mappings for ST7735
     #define GLCD_DC     porta.0           'example port setting
@@ -33,7 +33,7 @@ The Great Cow BASIC constants for control display characteristics are shown in t
 |*Options*
 
 |`GLCD_TYPE`
-|`GLCD_TYPE_ST7735`
+|`GLCD_TYPE_ST7735` or `GLCD_TYPE_ST7735R` or `GLCD_TYPE_ST7735R_160_80`
 |
 
 |`ST7735TABCOLOR`
@@ -164,6 +164,9 @@ specific attribute.
 For a ST7735 datasheet, please refer
 http://www.crystalfontz.com/controllers/ST7735_V2.1_20100505.pdf[here.]
 
+For a ST7735R datasheet, please refer
+https://cdn-shop.adafruit.com/datasheets/ST7735R_V0.2.pdf[here.]
+
 *Example:*
 
 ----
@@ -174,7 +177,7 @@ http://www.crystalfontz.com/controllers/ST7735_V2.1_20100505.pdf[here.]
     #include <glcd.h>
 
     'Defines for ST7735
-GLCD_TYPE GLCD_TYPE_ST7735
+GLCD_TYPE GLCD_TYPE_ST7735R
     'Pin mappings for ST7735
 GLCD_DC porta.0
 GLCD_CS porta.1
