@@ -72,6 +72,21 @@ the GLCD.
 |Specifies the output pin that is connected to Clock (CLK) pin on the
 GLCD.
 |Required
+
+|
+|
+|
+
+|`ST7735_XSTART`
+|Specifies the adjustment made to the X axis when writing to the GLCD.  This is used to correct any geometry correction required for specific GLCDs.
+|Optional.  Defaults are set for each specific GLCD.
+
+|`ST7735_XSTART`
+|Specifies the adjustment made to the X axis when writing to the GLCD.  This is used to correct any geometry correction required for specific GLCDs.
+|Optional.  Defaults are set for each specific GLCD.
+
+
+
 |===
 
 The Great Cow BASIC constants for control display characteristics are shown in the table below. +
