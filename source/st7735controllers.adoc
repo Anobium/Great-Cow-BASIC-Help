@@ -81,8 +81,8 @@ GLCD.
 |Specifies the adjustment made to the X axis when writing to the GLCD.  This is used to correct any geometry correction required for specific GLCDs.
 |Optional.  Defaults are set for each specific GLCD.
 
-|`ST7735_XSTART`
-|Specifies the adjustment made to the X axis when writing to the GLCD.  This is used to correct any geometry correction required for specific GLCDs.
+|`ST7735_YSTART`
+|Specifies the adjustment made to the Y axis when writing to the GLCD.  This is used to correct any geometry correction required for specific GLCDs.
 |Optional.  Defaults are set for each specific GLCD.
 
 
