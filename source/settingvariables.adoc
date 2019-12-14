@@ -138,38 +138,6 @@ Great Cow BASIC supports the method setting a specific bit of a variable or regi
 
 {empty} +
 
-To set more than one bit in one command Great Cow BASIC supports the bits method.
-{empty} +
-
-Great Cow BASIC also supports setting specific bits of a variable or register.  Use the following method:
-{empty} +
-----
-    'variable.bitS method
-    SPLLEN, IRCF3, IRCF2, IRCF1, IRCF0 = b'01111'
-    ' would generate ASM [for your specific microcontroller] similar to the following.
-    ' bcf OSCTUNE,PLLEN,ACCESS
-    ' bsf OSCCON,IRCF2,ACCESS
-    ' bsf OSCCON,IRCF1,ACCESS
-    ' bsf OSCCON,IRCF0,ACCESS
-
-----
-
-{empty} +
-This method is limited to literal values.  You cannot use value from another variable as the setting value (at v0.98.00).
-
-*Setting Explicit Bits of a Variable/Register:*
-{empty} +
-{empty} +
-Great Cow BASIC supports the method setting a specific bit of a variable or register.  Use the following method:
-{empty} +
-----
-    'variable.bit method
-    myByteVariable.0 = 1   'will set bit 0 to 1
-    myByteVariable.1 = 0   'will set bit 1 to 0
-    myByteVariable.2 = 1   'will set bit 2 to 1
-----
-
-{empty} +
 
 To set more than one bit in one command Great Cow BASIC supports the bits method.
 {empty} +
