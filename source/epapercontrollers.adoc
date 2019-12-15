@@ -275,11 +275,11 @@ specific attribute.
 |`PSet(Xposition, Yposition, Pixel Colour 0 or 1)`
 
 |`GLCD_Open_PageTransaction`
-|Commence a series of GLCD commands when in low memory mode.  Must be followed a  `GLCD_Close_PageTransaction` command.
-|`GLCD_Close_PageTransaction`. Parameters may be passed where two parameters are the range of pages to be updated
+|Commence a series of GLCD commands with memory buffer management.  Must be followed a  `GLCD_Close_PageTransaction` command.
+|`GLCD_Close_PageTransaction`. Parameters may be passed where the two parameters are the range of pages to be updated
 
 |`GLCD_Close_PageTransaction`
-|Commence a series of GLCD commands when in low memory mode.  Must follow a `GLCD_Open_PageTransaction` command.
+|Terminate a series of GLCD commands.  Must follow a `GLCD_Open_PageTransaction` command.
 |
 
 
