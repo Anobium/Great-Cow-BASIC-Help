@@ -38,6 +38,7 @@ To furhter improve memory. The e-paper libraries support the use of SRAM.   SRAM
 
 When using SRAM for the e-paper buffer it is still remcommend to use GLCDTransaction as this ensure the SRAM buffer is correctly initialised.
 
+
 *Optional GLCD_Open_Transaction parameters*
 
 *Syntax:*
