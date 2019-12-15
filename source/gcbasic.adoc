@@ -379,6 +379,9 @@ include::glcdreadbyte.adoc[]
 
 include::glcdtimedelay.adoc[]
 
+include::glcdtransaction.adoc[]
+
+
 include::glcdwritebyte.adoc[]
 
 include::line.adoc[]
