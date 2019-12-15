@@ -19,12 +19,41 @@ Each of the memory options uses different amount RAM.&#160;&#160;
 The greater the amount of RAM used the faster the process of updating the e-paper display.&#160;&#160;
 Conversely, the smaller the amount of RAM used the slower the process of updating the e-paper display.&#160;&#160;
 
+*GLCD Page Transactions*
+
+To make the operation of the library seamless - the library supports GLCD Transaction.&#160;&#160;
+GLCD Transaction automatically manages the methods to update the e-paper via the buffer, where the buffer can be small.&#160;&#160;
+The process of transaction send GLCD commands to the e-paper display on a page and page basis.&#160;&#160;
+Each page is the size of the buffer and for a large e-paper display the number of pages may be equivilent to the numbers of pixels high (height).
+
+Transaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the update to the display.  
+
+To use transaction use the followng methods.
+
+----
+        GLCD_Open_PageTransaction
+            ....
+            glcd commands
+            .....
+        
+        GLCD_Close_PageTransaction
+----
+
+It recommended to use GLCDtransactions at all times.&#160;&#160;These methods remove the complexity of the e-paper update process.
+
+When using GLCDtransation you must use `GLCD_Open_PageTransaction` then a series of GLCD commands and then `GLCD_Close_PageTransaction`.
+WHen using GLCDtransactions as the number of buffer pages may be must greater then 1, then, process of variables and calls to non-GLCD methods must be considered carefully.  As the number of pages may be greater than one the process will increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDtransaction operations with this is mind.
+
+*Use of SRAM as the e-paper buffer*
+
 To improve memory usage the e-paper libraries support the use of SRAM.&#160;&#160;
 SRAM can be used as an alternative to minimize the amount of allocation RAM.&#160;&#160;
 Using SRAM does have a small performance impact but free up the critical resource of the microcontrollers RAM.&#160;&#160;
 The use of SRAM within the e-paper library is transparent to the user.&#160;&#160;
 To use SRAM as the e-paper buffer you will need to set-up the SRAM library.&#160;&#160;
 See the SRAM library for more details on SRAM usage. &#160;&#160;
+
+When using SRAM for the e-paper buffer it is still remcommend to use GLCDTransaction as this ensure the SRAM buffer is correctly initialised.
 
 *Refresh mode*
 
@@ -244,6 +273,15 @@ LineColour 0 or 1] )`
 specific attribute.
 |`PSet(Xposition, Yposition, Pixel Colour 0 or 1)`
 
+|`GLCD_Open_PageTransaction`
+|Commence a series of GLCD commands when in low memory mode.  Must be followed a  `GLCD_Close_PageTransaction` command.
+|`GLCD_Close_PageTransaction`. Parameters may be passed where two parameters are the range of pages to be updated
+
+|`GLCD_Close_PageTransaction`
+|Commence a series of GLCD commands when in low memory mode.  Must follow a `GLCD_Open_PageTransaction` command.
+|
+
+
  Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
 |===
 
@@ -291,11 +329,11 @@ GLCDBackground=TFT_WHITE
 
 
  GLCD_Open_PageTransaction
-GLCDPrintStringLN ("Great Cow BASIC")
-GLCDPrintStringLN ("")
-GLCDPrintStringLN ("Test of the e-Paper")
-GLCDPrintStringLN ("")
-GLCDPrintStringLN ("December 2019")
+    GLCDPrintStringLN ("Great Cow BASIC")
+    GLCDPrintStringLN ("")
+    GLCDPrintStringLN ("Test of the e-Paper")
+    GLCDPrintStringLN ("")
+    GLCDPrintStringLN ("December 2019")
  GLCD_Close_PageTransaction
  GLCDDisplay Off
 
