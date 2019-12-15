@@ -355,6 +355,8 @@ include::filledtriangle.adoc[]
 
 include::glcdcls.adoc[]
 
+include::glcddisplay.adoc[]
+
 include::glcddrawchar.adoc[]
 
 include::glcddrawstring.adoc[]

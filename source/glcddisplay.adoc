@@ -1,0 +1,19 @@
+==== GLCDDisplay
+
+*Syntax:*
+----
+
+    GLCDDisplay Off | On
+
+----
+*Explanation:*
+
+Places the e-paper display in sleep mode or enables the e-paper display for normal operations.
+
+
+The options are:
+----
+    OFF
+    ON
+----
+

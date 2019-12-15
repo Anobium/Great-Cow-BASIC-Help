@@ -30,6 +30,7 @@
 - Added SRAM section
 - Added e-Paper section
 - Updated GLCD overview section to include e-Paper devices
+- Added GLCDDisplay section
 
 
 {empty} +
