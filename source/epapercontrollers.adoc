@@ -81,7 +81,8 @@ The recommended method is:
 
 
 
-To use the e-Paper driver for a specific simply include the following in your user code.This will initialise the driver.
+To use the e-Paper driver for a specific simply include the following in your user code.&#160;&#160;
+This will initialise the driver.&#160;&#160;
 
 ----
     'Setup for the e-Paper

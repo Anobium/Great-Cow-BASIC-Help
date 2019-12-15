@@ -27,6 +27,9 @@
 - Updated USART use of USART_DELAY equals OFF or a timed value
 - Added 'New to Great Cow BASIC' section
 - Added UC1306 GLCD section
+- Added SRAM section
+- Added e-Paper section
+- Updated GLCD overview section to include e-Paper devices
 
 
 {empty} +

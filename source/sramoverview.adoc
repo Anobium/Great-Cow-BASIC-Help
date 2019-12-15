@@ -2,29 +2,83 @@
 
 *Introduction:*
 
+Serial SRAM is a standalone volatile memory that provides an easy and inexpensive way to add more RAM to application.&#160;&#160;These are 8-pin low-power devices.&#160;&#160;
+They are high-performance devices have unlimited endurance and zero write times, making them ideal for applications involving continuous data transfer, buffering, data logging, audio, video, internet, graphics and other math and data-intensive functions.&#160;&#160;
+
+These devices are available from 64 Kbit up to 1 Mbit in density and support SPI, SDI and SQI™ bus modes.&#160;&#160;
+
+The Great Cow BASIC library only supports SPI bus mode.&#160;&#160;
+
+
+To use the SRAM libray simply include the following in your user code.&#160;&#160;
+
+This will initialise the driver.&#160;&#160;
+
+----
+
+    #include <spisram.h>
+    #define SPISRAM_CS      Porta.2      'Also known as SS, or Slave Select
+    #define SPISRAM_SCK     Portc.3      'Also known as CLK
+    #define SPISRAM_DO      Portc.5      'Also known as MOSI
+    #define SPISRAM_DI      Portc.4      'Also known as MISO
+
+    #define SPISRAM_HARDWARESPI
+    #define SPISRAM_TYPE     SRAM_23LC1024
+
+----
+
 SRAM memory operations.&#160;&#160;&#160;
 
 {empty} +
 {empty} +
-The library provides a set of methods to support use of SAF memory.
+The library requires a set of constants to support use of SRAM memory.
 {empty} +
 {empty} +
 [cols="2,1,3",width="80%"]
 |===
-|Method
+|Constant
 |Parameters
 |Usage
 
+|SPISRAM_TYPE
+|Specifies the type of SRAM.
+|Required
+SRAM_23LC1024,SRAM_23LCV1024,SRAM_23LC1024, SRAM_23A1024, SRAM_23LCV512, SRAM_23LC512, SRAM_23A512, SRAM_23K256, SRAM_23A256, SRAM_23A640 or SRAM_23K640
+
+|SPISRAM_CS
+|Specifies the port for the chip select port.
+|Required
+
+|SPISRAM_SCK
+|Specifies the port for the SPI clock port.
+|Required
+
+
+|SPISRAM_DO
+|Specifies the port for the SPI data out, or MOSI, port.
+|Required
+
+
+|SPISRAM_DI
+Specifies the port for the data in, or MISO, port.
+|Required
+
+|SPISRAM_HARDWARESPI
+|Instructs the library to use hardware SPI, remove or comment out if you want to use software SPI.
+|Optional
 
 |===
 
 
 {empty} +
 {empty} +
-The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
+The library also exposes a constant that is specific to the device.&#160;&#160;&#160;
+
 These may be useful in the user program.&#160;&#160;&#160;
-These constants are used by the library.&#160;&#160;&#160;
-A user may use these public constants.
+
+This constant is used by the library.&#160;&#160;&#160;
+
+A user may use this public constant.
 {empty} +
 {empty} +
 [cols="2,1,3",width="80%"]
@@ -33,6 +87,227 @@ A user may use these public constants.
 |Type
 |Usage
 
+|SPISRAM_CAPACITY
+|Long value
+|Use to determine the size of the SRAM device
 
 |===
 
+*Examples*
+
+
+----
+    #include <uno_mega328p.h>
+    #option explicit
+
+   ' USART settings
+    #define USART_BAUD_RATE 57600
+    #define USART_DELAY 0 ms
+    #define USART_BLOCKING
+    #define USART_TX_BLOCKING
+
+
+    'SD card attached to SPI bus as follows:
+    '
+    'UNO:    MOSI - pin 11, MISO - pin 12, CLK - pin 13, CS - pin 4 (CS pin can be changed) and pin #10 (SS) must be an output
+    'Mega:   MOSI - pin 51, MISO - pin 50, CLK - pin 52, CS - pin 4 (CS pin can be changed) and pin #52 (SS) must be an output
+    'Leonardo: Connect to hardware SPI via the ICSP header
+
+    #include <spisram.h>
+    #define SPISRAM_CS      DIGITAL_5     'Also known as SS, or Slave Select
+    #define SPISRAM_SCK      DIGITAL_13    'Also known as CLK
+    #define SPISRAM_DO      DIGITAL_11    'Also known as MOSI
+    #define SPISRAM_DI      DIGITAL_12    'Also known as MISO
+
+    #define SPISRAM_HARDWARESPI
+    #define SPISRAM_TYPE     SRAM_23LC1024
+
+    #define HWSPIMode MASTERULTRAFAST       'MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST
+
+
+  '********************************************************************************
+
+  'Main program
+
+    'Wait 2 seconds to open the serial terminal
+    wait 2 s
+
+    HSerPrintCRLF 2
+    HSerPrint "Writing..."
+    HSerPrintCRLF
+    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+     SPISRAM_wr_byte ( [long]EPD_Ind_raw, EPD_Ind_raw and 255 )
+    Next
+
+
+    dim spirambyteread as Byte
+    spirambyteread = 11
+    HSerPrintCRLF 2
+    dim EPD_Ind_raw as long
+    HSerPrint "Reading..."
+    HSerPrintCRLF
+    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+     'choose one....
+     'SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+    'or, as a function
+     spirambyteread = SPISRAM_rd_byte ( EPD_Ind_raw )
+
+     if spirambyteread = ( EPD_Ind_raw and 255 ) then
+       HSerPrint hex(spirambyteread)
+     else
+       HSerPrint "**"
+     end if
+     HSerPrint ":"
+    Next
+    HSerPrintCRLF
+    HSerPrint "Wait..."
+    HSerPrintCRLF
+    Wait 2 s
+
+    HSerPrint "Rewriting to 0x00 ..."
+    HSerPrintCRLF
+    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+     SPISRAM_wr_byte ( [long]EPD_Ind_raw, 0 )
+    Next
+
+    Dim errorcount as long
+    errorcount = 0
+    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+     SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+     if spirambyteread <> 0 then
+       errorcount++
+     end if
+    Next
+    HSerPrint "Error Count (should be 0) = "
+    HSerPrint errorcount
+    HSerPrintCRLF
+    HSerPrint "End..."
+    HSerPrintCRLF
+    end
+----
+
+or, for a PIC
+
+----
+    'Chip Settings.
+   #chip 18F47k42, 64
+   #config MCLRE = ON
+   #option explicit
+
+
+   'PPS Tool version: 0.0.5.27
+   'PinManager data: v1.78
+   'Generated for 18F47K42
+   '
+   'Template comment at the start of the config file
+   '
+   #startup InitPPS, 85
+   #define PPSToolPart 18F47K42
+
+   Sub InitPPS
+      'This has been added to turn off PPS SPI when in SPI software mode
+       #ifdef SPISRAM_HARDWARESPI
+         'Module: SPI1
+         RC3PPS = 0x001E  'SCK1 > RC3
+         SPI1SCKPPS = 0x0013  'RC3 > SCK1 (bi-directional)
+         RC5PPS = 0x001F  'SDO1 > RC5
+         SPI1SDIPPS = 0x0014  'RC4 > SDI1
+         'Module: UART pin directions
+       #endif
+       'Module: UART pin directions
+       Dir PORTC.6 Out  ' Make TX1 pin an output
+       'Module: UART1
+       RC6PPS = 0x0013  'TX1 > RC6
+   End Sub
+   'Template comment at the end of the config file
+
+
+   ' USART settings
+   #define USART_BAUD_RATE 57600
+   #define USART_DELAY 0 ms
+   #define USART_BLOCKING
+   #define USART_TX_BLOCKING
+
+   #include <spisram.h>
+   #define SPISRAM_CS      Porta.2      'Also known as SS, or Slave Select
+   #define SPISRAM_SCK      Portc.3      'Also known as CLK
+   #define SPISRAM_DO      Portc.5      'Also known as MOSI
+   #define SPISRAM_DI      Portc.4      'Also known as MISO
+
+   #define SPISRAM_HARDWARESPI
+   #define SPISRAM_TYPE     SRAM_23LC1024
+
+   'This is specific to the K42 chips
+   #define SPI_BAUD_RATE_REGISTER 7
+
+   '********************************************************************************
+
+   'Main program
+
+   'Wait 2 seconds to open the serial terminal
+   wait 2 s
+   dim sizeofSPIRAM as long
+   sizeofSPIRAM = SPISRAM_CAPACITY
+   HSerPrintCRLF 2
+   HSerPrint "Writing...SPISRAM_CAPACITY = 0x"
+   HSerPrint hex(sizeofSPIRAM_U)
+   HSerPrint hex(sizeofSPIRAM_H)
+   HSerPrint hex(sizeofSPIRAM)
+   HSerPrintCRLF
+   wait 100 ms
+
+   dim EPD_Ind_raw as long
+   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+    SPISRAM_wr_byte ( [long]EPD_Ind_raw, EPD_Ind_raw and 255 )
+   Next
+
+
+   dim spirambyteread as Byte
+   spirambyteread = 11 'could be any number....
+   HSerPrintCRLF 2
+
+   HSerPrint "Reading..."
+   HSerPrintCRLF
+   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+    'choose one....
+    'SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+   'or, as a function
+    spirambyteread = SPISRAM_rd_byte ( EPD_Ind_raw )
+
+    if spirambyteread = ( EPD_Ind_raw and 255 ) then
+      HSerPrint hex(spirambyteread)
+    else
+      HSerPrint "**"
+    end if
+    HSerPrint ":"
+   Next
+   HSerPrintCRLF
+   HSerPrint "Wait..."
+   HSerPrintCRLF
+   Wait 2 s
+
+   HSerPrint "Rewriting to 0x00 ..."
+   HSerPrintCRLF
+   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+    SPISRAM_wr_byte ( [long]EPD_Ind_raw, 0 )
+   Next
+
+   Dim errorcount as long
+   errorcount = 0
+   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+    SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+    if spirambyteread <> 0 then
+      errorcount++
+    end if
+   Next
+   HSerPrint "Error Count (should be 0) = "
+   HSerPrint errorcount
+   HSerPrintCRLF
+   HSerPrint "End..."
+   HSerPrintCRLF
+
+   do
+
+   loop
+
+----
