@@ -1,0 +1,38 @@
+==== SRAM Overview
+
+*Introduction:*
+
+SRAM memory operations.&#160;&#160;&#160;
+
+{empty} +
+{empty} +
+The library provides a set of methods to support use of SAF memory.
+{empty} +
+{empty} +
+[cols="2,1,3",width="80%"]
+|===
+|Method
+|Parameters
+|Usage
+
+
+|===
+
+
+{empty} +
+{empty} +
+The library also defines a set constants that are specific to the device.&#160;&#160;&#160;
+These may be useful in the user program.&#160;&#160;&#160;
+These constants are used by the library.&#160;&#160;&#160;
+A user may use these public constants.
+{empty} +
+{empty} +
+[cols="2,1,3",width="80%"]
+|===
+|Constant
+|Type
+|Usage
+
+
+|===
+

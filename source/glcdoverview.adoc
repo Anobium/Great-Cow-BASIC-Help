@@ -34,11 +34,10 @@ Specific GLCDs require different configurations of a microcontroller.  Parameter
 
 Review your choice of microcontroller and GLCD carefully before commencing your project.
 
-[cols=13, options="header,autowidth"]
+[cols=12, options="header,autowidth"]
 |===
 |*#*
 |*ChipSet*
-|*Docs*
 |*Size*
 |*Pixels*
 |*Depth*
@@ -53,7 +52,6 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 
 |1
 |KS0108
-|Help
 |2.9 inch and less. various sizes
 |128 * 64
 |Large
@@ -68,7 +66,6 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 
 |2
 |ILI9481
-|Help
 |3.2inch
 |320 * 240
 |Large
@@ -82,7 +79,6 @@ Review your choice of microcontroller and GLCD carefully before commencing your 
 
 |3
 |PCD8544
-|Help
 |1.77inch
 |Nokia 3310 or 5110
 |160 * 128
@@ -97,7 +93,6 @@ Sensitive to operating voltages.
 
 |4
 |ILI9341
-|Help
 |2.8 Inch or 3.2 Inch
 |320 * 240
 |Medium
@@ -112,7 +107,6 @@ Sensitive to operating voltages.
 
 |5
 |SSD1289
-|Help
 |3.2inch
 |240 * 320
 |Large
@@ -126,7 +120,6 @@ Sensitive to operating voltages.
 
 |6
 |ST7735
-|Help
 |1.8 Inch
 |128 * 64
 |Large
@@ -138,10 +131,36 @@ Sensitive to operating voltages.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
 |Good for cost and performance
 
-
 |7
+|ST7735R
+|1.8 Inch
+|128 * 160
+|Large
+|Color
+|TFT LCD
+|SPI
+|PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications Very nice display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good for cost and performance
+
+|8
+|ST7735R_160_80
+|1.8 Inch
+|160 * 80
+|Large
+|Color
+|TFT LCD
+|SPI
+|PIC and AVR: Hardware and software SPI
+|Typically operates at VCC 5. Always check voltage specifications Very nice display.
+|SPI requires 4 ports plus 2 ports. Typically 6 in total.
+|Good for cost and performance
+
+
+
+|9
 |ILI9340
-|Help
 |2.2 Inch
 |240 * 320
 |Medium
@@ -154,9 +173,8 @@ Sensitive to operating voltages.
 |Good for cost and performance
 
 
-|8
+|10
 |ILI9486L or ILI9486
-|Help
 | 4inch
 |RPI   240 * 320
 |Large
@@ -170,9 +188,8 @@ AVR: 8Bit Bus using an UNO Shield.  PIC: 8bit port suppported.
 8Bit Bus requires 8 ports plus 4 control ports. Typically 13 in total using an 8bit bus solution.
 |An expensive option
 
-|9
+|11
 |Nexion
-|Help
 |ITEAD Nexion
 |240 * 320 to
 800 * 480
@@ -185,9 +202,8 @@ AVR: 8Bit Bus using an UNO Shield.  PIC: 8bit port suppported.
 |2 ports for the read/write serial operations.
 |A very nice option but if you need flexibility then the best!
 
-|10
+|12
 |SH1106
-|Help
 |1.3 inch or 0.96inch
 |128 * 64
 |Small
@@ -199,9 +215,8 @@ AVR: 8Bit Bus using an UNO Shield.  PIC: 8bit port suppported.
 |I2C requires 2 ports.
 |Good OLED display, excellent value for money
 
-|11
+|13
 |SDD1306
-|Help
 |0.96inch
 |128 * 64
 |Small
@@ -220,9 +235,8 @@ I2C requires 2 ports.
 |Good OLED display, excellent value for money
 
 
-|12
+|14
 |SDD1306_32
-|Help
 |0.96inch
 |128 * 32
 |Very small
@@ -239,9 +253,8 @@ Typically operates at VCC 5. Always check voltage specifications  Best small OLE
 I2C requires 2 ports.
 |Good OLED display, excellent value for money
 
-|13
+|15
 |ST7920
-|Help
 |2.9inch
 |128 * 64
 |Large
@@ -255,9 +268,8 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |Requires 12 ports.
 |A very slow device.
 
-|14
+|16
 |HX8347G
-|Help
 |2.2inch
 |240 * 320
 |Large
@@ -269,9 +281,8 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |Controller requires 8 ports plus 5 control ports. Typically 13 in total with an UNO shield.
 |An very nice display
 
-|15
+|17
 |SDD1331
-|Help
 |0.96inch
 |96 * 48
 |Small
@@ -284,9 +295,8 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 |Very good color OLED display, excellent value for money
 
 
-|16
+|18
 |ILI9326
-|Help
 |3.00inch
 |400 * 320
 |Large
@@ -302,9 +312,8 @@ This looks like a KS0108 but it is NOT! Supports Chinese font set.
 The LED connected is typically to ground.  You can solder the GND connect to make the backlite permanently on.
 
 
-|17
+|19
 |NT7108C
-|Help
 |2.9 inch and less. various sizes
 |128 * 64
 |Large
@@ -319,9 +328,8 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |Requires 12 ports/connections.
 |These are medium cost mono devices.
 
-|19
+|20
 |T6963_64
-|Help
 |4inches by 2inches
 |240 * 64
 |Large
@@ -335,9 +343,8 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |Requires 12 ports/connections.
 |These are medium cost mono devices.
 
-|20
+|21
 |T6963_128
-|Help
 |4inches by 2inches
 |240 * 128
 |Large
@@ -351,9 +358,8 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |Requires 12 ports/connections.
 |These are medium cost mono devices.
 
-|21
+|22
 |UC1601
-|Help
 |4.00inch
 |132 * 22
 |Medium
@@ -363,10 +369,11 @@ The NT7108C is very sensitive with respect to clock timing.&#160;&#160;&#160;You
 |PIC and AVR: Hardware and software I2C, and software SPI
 |RAM for Full Mode GLCD is 396 bytes or Low Memory GLCD is 128 bytes or 0 bytes for Text GLCD Mode then add user variables for graphics mode.
 Typically operates at VCC 2.8v. Always check voltage specifications  Very good display. Driver supports gaming. Minimum RAM required is 396 bytes then add user variables for graphics mode.
+|Requires up to 5 ports/connections.
+|Low cost device
 
-|22
+|23
 |SDD1351
-|Help
 |1.50inch
 |128 * 128
 |Small
@@ -379,15 +386,29 @@ Typically operates at VCC 2.8v. Always check voltage specifications  Very good d
 |Very good color OLED display, excellent value for money
 
 
+|24
+|Waveshare e-Paper
+|Various Size from 2.13 to 7.5 inches
+|104 * 112 to 640 * 384
+|Small to very large
+|Black and White
+|Microencapsulated Electrophoretic Display
+|SPI
+|PIC and AVR: Hardware and software I2C, and software SPI
+|Typically operates at VCC 3.3. Always check voltage specifications
+|SPI requires typically 6 in total.
+|Very good color e-Paper displays, excellent value for money
+Display can operate in text mode only for low RAM microcontrollers using SRAM solution.
 
-Display can operate in text mode only for low RAM microcontrollers
-
-|SPI requires 4 ports plus 2 ports. Typically 6 in total.
-
-I2C requires 2 ports.
-|Good display, excellent value for money
 
 |===
+
+
+
+//#define GLCD_TYPE_SSD1351 26
+//#define GLCD_TYPE_EPD_EPD2in13D     27
+
+//#define GLCD_TYPE_EPD_EPD7in5  29
 
 *Setup:*
 

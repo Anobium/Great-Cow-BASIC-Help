@@ -177,6 +177,12 @@ include::SAFmWriteBlock.adoc[]
 
 include::SAFmEraseBlock.adoc[]
 
+=== SRAM
+This is the SRAM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::SRAMoverview.adoc[]
+
+
 :leveloffset: -1
 
 ifdef::backend-pdf[<<<]
@@ -254,6 +260,8 @@ This is the GLCD section of the Help file.  Please refer the sub-sections for de
 include::glcdoverview.adoc[]
 
 :leveloffset: +1
+
+include::epapercontrollers.adoc[]
 
 include::hx8347Gcontrollers.adoc[]
 
