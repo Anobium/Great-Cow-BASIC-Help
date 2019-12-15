@@ -1,0 +1,25 @@
+
+
+o make the operation of the library seamless - the library supports GLCDTransaction.   GLCDTransaction automatically manages the methods to update the e-paper via the buffer, where the buffer can be small.   The process of transaction send GLCD commands to the e-paper display on a page and page basis.   Each page is the size of the buffer and for a large e-paper display the number of pages may be equivilent to the numbers of pixels high (height).
+
+GLCDTransaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the update to the display.
+
+To use GLCDTransaction use the followng methods.
+
+        GLCD_Open_PageTransaction
+            ....
+            glcd commands
+            .....
+
+        GLCD_Close_PageTransaction
+It recommended to use GLCDTransactions at all times.  These methods remove the complexity of the e-paper update process.
+
+When using GLCDTransaction you must use GLCD_Open_PageTransaction then a series of GLCD commands and then GLCD_Close_PageTransaction.
+
+WHen using GLCDtransactions as the number of buffer pages may be must greater then 1, then, process of variables and calls to non-GLCD methods must be considered carefully. As the number of pages may be greater than one the process will increment variables and call non-GLCD methods the same number of times as the number of pages.  THerefore, design GLCDTransaction operations with this is mind.
+
+Use of SRAM as the e-paper buffer
+
+To improve memory usage the e-paper libraries support the use of SRAM.   SRAM can be used as an alternative to minimize the amount of allocation RAM.   Using SRAM does have a small performance impact but free up the critical resource of the microcontrollers RAM.   The use of SRAM within the e-paper library is transparent to the user.   To use SRAM as the e-paper buffer you will need to set-up the SRAM library.   See the SRAM library for more details on SRAM usage.   
+
+When using SRAM for the e-paper buffer it is still remcommend to use GLCDTransaction as this ensure the SRAM buffer is correctly initialised.
