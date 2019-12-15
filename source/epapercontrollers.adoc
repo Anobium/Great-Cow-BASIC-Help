@@ -21,14 +21,14 @@ Conversely, the smaller the amount of RAM used the slower the process of updatin
 
 *GLCD Page Transactions*
 
-To make the operation of the library seamless - the library supports GLCD Transaction.&#160;&#160;
-GLCD Transaction automatically manages the methods to update the e-paper via the buffer, where the buffer can be small.&#160;&#160;
+To make the operation of the library seamless - the library supports GLCDTransaction.&#160;&#160;
+GLCDTransaction automatically manages the methods to update the e-paper via the buffer, where the buffer can be small.&#160;&#160;
 The process of transaction send GLCD commands to the e-paper display on a page and page basis.&#160;&#160;
 Each page is the size of the buffer and for a large e-paper display the number of pages may be equivilent to the numbers of pixels high (height).
 
-Transaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the update to the display.  
+GLCDTransaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the update to the display.  
 
-To use transaction use the followng methods.
+To use GLCDTransaction use the followng methods.
 
 ----
         GLCD_Open_PageTransaction
@@ -39,10 +39,11 @@ To use transaction use the followng methods.
         GLCD_Close_PageTransaction
 ----
 
-It recommended to use GLCDtransactions at all times.&#160;&#160;These methods remove the complexity of the e-paper update process.
+It recommended to use GLCDTransactions at all times.&#160;&#160;These methods remove the complexity of the e-paper update process.
 
-When using GLCDtransation you must use `GLCD_Open_PageTransaction` then a series of GLCD commands and then `GLCD_Close_PageTransaction`.
-WHen using GLCDtransactions as the number of buffer pages may be must greater then 1, then, process of variables and calls to non-GLCD methods must be considered carefully.  As the number of pages may be greater than one the process will increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDtransaction operations with this is mind.
+When using GLCDTransaction you must use `GLCD_Open_PageTransaction` then a series of GLCD commands and then `GLCD_Close_PageTransaction`.
+
+WHen using GLCDtransactions as the number of buffer pages may be must greater then 1, then, process of variables and calls to non-GLCD methods must be considered carefully.  As the number of pages may be greater than one the process will increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDTransaction operations with this is mind.
 
 *Use of SRAM as the e-paper buffer*
 
