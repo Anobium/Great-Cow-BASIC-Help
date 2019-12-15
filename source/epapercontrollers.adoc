@@ -1,6 +1,6 @@
 ==== e-Paper Controllers
 
-This section covers GLCD devices know as e-Papers.
+This section covers GLCD devices known as e-Papers.
 
 An e-paper device is a Microencapsulated Electrophoretic Display, MED.
 
