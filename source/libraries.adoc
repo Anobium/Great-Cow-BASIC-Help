@@ -109,9 +109,17 @@ Great Cow BASIC supports the following device libraries.
 |Microchip read ID
 |A library that supports the identification of Microchip microcontrollers.
 
-|GLCD
-|Graphical LCD
+|EPD_EPD2In13
+|Graphical e-Paper display
 |A core library for Graphical LCD support.
+
+|EPD_EPD7in5
+|Graphical e-Paper display
+|A core library for Graphical LCD support.
+
+|GLCD_
+|Graphical LCD
+|A device specific library for an Graphical LCD.
 
 |GLCD_HX8347
 |Graphical LCD
@@ -311,6 +319,10 @@ Support up to four devices via the I2C bus.
 |SRF02
 |Distance Sensor
 |A library that supports the SRF02 ultrasonic sensor.
+
+|SRAM
+|Memory devices
+|A library that supports 23LC1024, 23LCV1024, 23LC1024,  23A1024,  23LCV512,  23LC512,  23A512,  23K256,  23A256,  23A640 or 23K640 devices
 
 |SRF04
 |Distance Sensor
