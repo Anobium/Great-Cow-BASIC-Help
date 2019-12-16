@@ -11,7 +11,7 @@ It is the ideal choice for e-reading or providing information that can be refesh
 
 *GLCD Support for e-Papers*
 
-Great Cow BASIC supports covers the full range of GLCD capabilities like line, circle, print.  
+Great Cow BASIC supports covers the full range of GLCD capabilities like line, circle, print.
 
 Great Cow BASIC supports SPI communications for the e-Papers - both hardware and software.  And, Great Cow BASIC suppors low memory configurations and SRAM for the display buffer.
 
@@ -35,7 +35,7 @@ GLCDTransaction automatically manages the methods to update the e-paper via the 
 The process of transaction send GLCD commands to the e-paper display on a page and page basis.&#160;&#160;
 Each page is the size of the buffer and for a large e-paper display the number of pages may be equivilent to the numbers of pixels high (height).
 
-GLCDTransaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the process to update to the display.  
+GLCDTransaction simplies the operation by ensure the buffer is setup correctly, handles the GLCD appropiately, handles the sending of the buffer and then close out the process to update to the display.
 
 To use GLCDTransaction use the followng two methods.
 
@@ -44,7 +44,7 @@ To use GLCDTransaction use the followng two methods.
             ....
             glcd commands
             .....
-        
+
         GLCD_Close_PageTransaction
 ----
 
@@ -172,12 +172,15 @@ The Great Cow BASIC constants for control display characteristics are shown in t
 |`GLCD_TYPE_EPD_EPD7in5`
 |GLCD_TYPE_EPD_EPD7in5 and GLCD_TYPE_EPD_EPD2in13D supported
 
-|`GLCD_TYPE_<device>_LOWMEMORY4_GLCD_MODE`
+|`GLCD_TYPE_<device_memory_mode>`
 |Memory usage for the display buffer.&#160;&#160;
 
 Memory management is crutial when using the e-paper displays.
-|`GLCD_TYPE_EPD7in5_LOWMEMORY4_GLCD_MODE`..`GLCD_TYPE_EPD7in5_LOWMEMORY1_GLCD_MODE`, or,
-`GLCD_TYPE_EPD2in13D _LOWMEMORY4_GLCD_MODE`..`GLCD_TYPE_EPD2in13D _LOWMEMORY1_GLCD_MODE`
+|`GLCD_TYPE_EPD7in5_LOWMEMORY4_GLCD_MODE` ...  `GLCD_TYPE_EPD7in5_LOWMEMORY1_GLCD_MODE`,
+
+or,
+
+`GLCD_TYPE_EPD2in13D_LOWMEMORY4_GLCD_MODE` ...  `GLCD_TYPE_EPD2in13D_LOWMEMORY1_GLCD_MODE`
 
 |`GLCD_DC`
 |Specifies the output pin that is connected to Data/Command IO pin on the
@@ -295,14 +298,12 @@ specific attribute.
 
 |`GLCD_Open_PageTransaction`
 |Commence a series of GLCD commands with memory buffer management.  Must be followed a  `GLCD_Close_PageTransaction` command.
-|`GLCD_Close_PageTransaction`. Parameters may be passed where the two parameters are the range of pages to be updated
+|`GLCD_Open_PageTransaction`. Parameters may be passed where the two parameters are the range of pages to be updated
 
 |`GLCD_Close_PageTransaction`
 |Terminate a series of GLCD commands.  Must follow a `GLCD_Open_PageTransaction` command.
-|
+|`GLCD_Close_PageTransaction`. Terminates the GLCDTransaction.
 
-
- Any color can be defined using a valid hexidecimal word value between 0x0000 to 0xFFFF.
 |===
 
 
