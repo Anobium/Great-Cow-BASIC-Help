@@ -60,7 +60,7 @@ The library exposes a set of method to support use of SRAM memory.
 The library requires a set of constants to support use of SRAM memory.
 {empty} +
 {empty} +
-[cols="3,1,3",width="80%"]
+[cols="<3,<1,<3",width="80%"]
 |===
 |Constant
 |Parameters
