@@ -66,9 +66,9 @@ The library requires a set of constants to support use of SRAM memory.
 |Parameters
 |Usage
 
-^|SPISRAM_TYPE
-^|Specifies the type of SRAM.
-^|Requires one of the following constants
+^.<|SPISRAM_TYPE
+^.<|Specifies the type of SRAM.
+^.<|Requires one of the following constants
 
 SRAM_23LC1024,
 
