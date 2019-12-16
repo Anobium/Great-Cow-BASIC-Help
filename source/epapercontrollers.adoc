@@ -23,7 +23,7 @@ See the demonstration programs to show you how to use these GCLD capabilities.
 The Great Cow BASIC library uses RAM to buffer the e-paper display.&#160;&#160;
 The amount of RAM used is specific the the total pixel of the specific e-paper display.&#160;&#160;
 You can control to amount of RAM used as the buffer using the device specific constants, see below.&#160;&#160;
-The library have four memory options.&#160;&#160;
+Each device specific library has four memory options.&#160;&#160;
 Each of the memory options uses different amount RAM.&#160;&#160;
 The greater the amount of RAM used the faster the process of updating the e-paper display.&#160;&#160;
 Conversely, the smaller the amount of RAM used the slower the process of updating the e-paper display.&#160;&#160;
