@@ -264,6 +264,10 @@ Great Cow BASIC supports the following device libraries.
 |Clock
 |A library that supports the timer clock and NVRAM functions.
 
+|MILLIS
+|Clock
+|A library that supports the 1000ms timer event cycle.
+
 
 |NUNCHUCK
 |Game controller
