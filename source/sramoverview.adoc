@@ -69,16 +69,27 @@ The library requires a set of constants to support use of SRAM memory.
 |SPISRAM_TYPE
 |Specifies the type of SRAM.
 |Requires one of the following constants
+
 SRAM_23LC1024,
+
 SRAM_23LCV1024,
+
 SRAM_23LC1024, 
-SRAM_23A1024, 
+
+SRAM_23A1024,
+
 SRAM_23LCV512, 
+
 SRAM_23LC512, 
+
 SRAM_23A512, 
+
 SRAM_23K256, 
+
 SRAM_23A256, 
+
 SRAM_23A640, or 
+
 SRAM_23K640
 
 |SPISRAM_CS
