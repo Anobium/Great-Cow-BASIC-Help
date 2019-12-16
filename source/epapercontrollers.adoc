@@ -52,7 +52,7 @@ It recommended to use GLCDTransactions at all times.&#160;&#160;These methods re
 
 When using GLCDTransaction you must start the transaction with`GLCD_Open_PageTransaction` then include a series of GLCD commands and then terminate the transaction with `GLCD_Close_PageTransaction`.
 
-**GLCDTransaction Insight**: When using GLCDtransactions the number of buffer pages is probably be greater then 1 (unless using the SRAM option), so the process of incrementing variables and calls to non-GLCD methods must be considered carefully. &#160;&#160; The transaction process *will* increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDTransaction operations with this is mind.
+**GLCDTransaction Insight**: When using GLCDtransactions the number of buffer pages is probably be greater then 1 (unless using the SRAM option), so the process of incrementing variables and calls to non-GLCD methods must be considered carefully. &#160;&#160; The transaction process *will* increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;Therefore, design GLCDTransaction operations with this is mind.
 
 *SRAM as the e-paper buffer*
 
