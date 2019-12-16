@@ -14,12 +14,13 @@ Typical displays are
 
 - Color or mono displays
 - Low power white LED, OLED with or without back-light
-- Driven by on-board interface chipsets or SPI interface controllers
-- The GLCDs are very common and well documente
-- Typically with viewing area is 71mmx39mm (2.8" x 1.5")
-- Typically requires a 36-pin 0.1" header and 10K contrast pot
+- e-Paper with low power consumption
+- Driven by on-board interface chipsets amd/or interface controllers
+- The GLCDs are very common and well documented
+- Small to large view areas
+- Typically requires from 3-pin to 36-pin header connections and 10K contrast pot
 - Typically have back-lit pixels
-- Require memory in the microcontroller to support graphial operations or can be used in text and jpg mode only.
+- Require memory in the microcontroller to support graphial operations or can be used in text and picture mode
 
 
 Great Cow BASIC makes this type of device easier to control with the
