@@ -52,13 +52,13 @@ It recommended to use GLCDTransactions at all times.&#160;&#160;These methods re
 
 When using GLCDTransaction you must start the transaction with`GLCD_Open_PageTransaction` then include a series of GLCD commands and then terminate the transaction with `GLCD_Close_PageTransaction`.
 
-**GLCDTransaction Insight**: When using GLCDtransactions the number of buffer pages may be must greater then 1, then, process of variables and calls to non-GLCD methods must be considered carefully.  As the number of pages may be greater than one the process will increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDTransaction operations with this is mind.
+**GLCDTransaction Insight**: When using GLCDtransactions the number of buffer pages is probably be greater then 1 (unless using the SRAM option), so the process of incrementing variables and calls to non-GLCD methods must be considered carefully. &#160;&#160; The transaction process *will* increment variables and call non-GLCD methods the same number of times as the number of pages.&#160;&#160;THerefore, design GLCDTransaction operations with this is mind.
 
-*Use of SRAM as the e-paper buffer*
+*SRAM as the e-paper buffer*
 
-To improve memory usage the e-paper libraries support the use of SRAM.&#160;&#160;
-SRAM can be used as an alternative to minimize the amount of allocation RAM.&#160;&#160;
-Using SRAM does have a small performance impact but free up the critical resource of the microcontrollers RAM.&#160;&#160;
+To improve memory usage the e-paper the e-Paper libraries support the use of SRAM.&#160;&#160;
+SRAM can be used as an alternative to the microcontrollers RAM.&#160;&#160;
+Using SRAM does have a small performance impact but does free up the critical resource of the microcontroller RAM.&#160;&#160;
 The use of SRAM within the e-paper library is transparent to the user.&#160;&#160;
 To use SRAM as the e-paper buffer you will need to set-up the SRAM library.&#160;&#160;
 See the SRAM library for more details on SRAM usage. &#160;&#160;
@@ -67,32 +67,36 @@ When using SRAM for the e-paper buffer it is still remcommend to use GLCDTransac
 
 *Refresh mode*
 
-This library uses Full refresh: The e-Paper will flicker when full refreshing.This flicker removes the ghost image from the display.&#160;&#160;
-You could use Partial refresh as this doesnot flicker. Note that you cannot use Partial refresh all the time, you should full refresh e-paper regularly, otherwise, the ghost problem will get worse and even damage the display.&#160;&#160;
+This library uses Full refresh:&#160;&#160;The e-Paper will flicker when full refreshing.&#160;&#160;
+This flicker removes the ghost image from the display.&#160;&#160;
+You could use Partial refresh as this doesnot flicker.&#160;&#160;
+Note that you cannot use Partial refresh all the time, you should full refresh e-paper regularly, otherwise, the ghost problem will get worse and even damage the display.&#160;&#160;
 
 *Refresh rate*
 
-When using, you should set the update interval at least 180seconds, except when using Partial mode.&#160;&#160;
+When using the e-Paper library, you should set the update interval at least 180seconds, except when using Partial mode.&#160;&#160;
 
 Please set the e-Paper to sleep mode in software or remove the power directly, otherwise, the e-Paper will be damaged because of working in high voltage for extendedtime periods.&#160;&#160;
-You need to update the content of the e-Paper at least once every 24h to avoid from burn-in problem.&#160;&#160;
+You need to update the content of the e-Paper at least once every 24 hours to avoid from burn-in problem.&#160;&#160;
 
 *Operating Voltages*
 
 The e-Paper should be driven with 3V3 operating voltages and signals.&#160;&#160;
 
-If your Microcontroller (PIC, AVR and therefore an Arduino)cannot drive the e-Paper successfully. You must convert the level to 3.3V. &#160;&#160;
-The I/O level of Arduino is 5V. HEALTH WARNING:You can also try to connect the Vcc pin to the 5V of Arduino to see whether the e-Paper works, but we recommend you not to use 5V for a long time.&#160;&#160;
+If your Microcontroller (PIC, AVR and therefore an Arduino)cannot drive the e-Paper successfully.&#160;&#160;
+You must convert the level to 3.3V. &#160;&#160;
+The I/O level of Arduino is 5V.&#160;&#160; HEALTH WARNING:You can also try to connect the Vcc pin to the 5V of Arduino to see whether the e-Paper works, but we recommend you not to use 5V for a long time.&#160;&#160;
 
 *The e-Paper looks a little black or grey*
 
-You can try to change the value of Vcom the library by setting the VCOM_AND_DATA_INTERVAL constant.See table 'CDI[3:0]' Vcom and data interval in the dataheet.&#160;&#160;VCOM_AND_DATA_INTERVAL can be 0x00 to 0x0F
+You can try to change the value of Vcom the library by setting the VCOM_AND_DATA_INTERVAL constant.&#160;&#160;
+See the Vcom and data interval in the dataheet.&#160;&#160;VCOM_AND_DATA_INTERVAL can be 0x00 to 0x0F
 
 *Great Cow BASIC library supports Black/White NOT Black/White/Red*
 
 The default is Black/White. To support Black/White/Red add `#define PANEL_SETTING_KWR 0x00`to you user program.&#160;
 
-The constant can be 0x00 for Black/White/Red. Default is 0x10 for Black/White.&#160;&#160;
+The constant are the TFT_BLACK and TFT_WHITE constants.
 
 *The e-paper has ghosting problem after working for some days*
 
@@ -101,7 +105,7 @@ Please set the e-paper to sleep mode or disconnect it if you do not refresh the 
 Do NOT leave power on for extended periods, otherwise, the voltage of panel remains high and it will damage the e-paper display.&#160;&#160;
 
 
-Rules
+*e-Paper Guidelines*
 
 Remove power if practical.
 
@@ -109,18 +113,24 @@ ALWAYS use `GLCDDisplay Off` or sleep mode.
 
 When in storage CLEAR the screen.... avoid burn it - use
 
+----
+    GLCDCLD TFT_WHITE
     GLCDDisplay Off
+----
 
 The recommended method is:
 
-    GLCDCLS
+----
+    GLCDCLS TFT_WHITE
     GLCDDisplay Off
     do
     loop
+----
 
-
+*Using the e-Paper Library*
 
 To use the e-Paper driver for a specific simply include the following in your user code.&#160;&#160;
+
 This will initialise the driver.&#160;&#160;
 
 ----
