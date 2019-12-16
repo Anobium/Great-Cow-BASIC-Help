@@ -9,6 +9,15 @@ The e-paper screen display patterns by reflecting the ambient light, so it has n
 Under sunshine, the e-paper screen still has high visibility with a wide viewing angle of 180 degree.&#160;&#160;
 It is the ideal choice for e-reading or providing information that can be refeshed at a slow rate of change.&#160;&#160;
 
+*GLCD Support for e-Papers*
+
+Great Cow BASIC supports covers the full range of GLCD capabilities like line, circle, print.  
+
+Great Cow BASIC supports SPI communications for the e-Papers - both hardware and software.  And, Great Cow BASIC suppors low memory configurations and SRAM for the display buffer.
+
+See the demonstration programs to show you how to use these GCLD capabilities.
+
+
 *Memory Usage*
 
 The Great Cow BASIC library uses RAM to buffer the e-paper display.&#160;&#160;
