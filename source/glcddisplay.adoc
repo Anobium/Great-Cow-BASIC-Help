@@ -8,7 +8,7 @@
 ----
 *Explanation:*
 
-Places the e-paper display in sleep mode or enables the e-paper display for normal operations.
+Places the GLCD in sleep mode or enables the GLCD for normal operations.
 
 
 The options are:
