@@ -80,7 +80,7 @@ The options for `HWSPIMode` are:
 
 `MASTERSLOW`, or, `MASTER` or `MASTERFAST` or `MASTERULTRAFAST` for specific AVRs only.
 
-This constant set the library to the desire SPI fequency, therefore enable adaption of the SPI frequency without have to change the library.
+This constant sets the library to the desire SPI fequency, therefore enable adaption of the SPI frequency without have to change the library.
 
 
 
