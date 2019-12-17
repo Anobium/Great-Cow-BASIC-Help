@@ -103,7 +103,10 @@ SRAM_23K640
 |Specifies the speed of the SPI communications for Hardware SPI only.
 |Optional defaults to MASTERFAST.
 
-Options are MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST for specific AVRs only.
+Options are MASTERSLOW, +
+MASTER, +
+MASTERFAST, or +
+MASTERULTRAFAST for specific AVRs only.
 
 |SPISRAM_HARDWARESPI
 |Instructs the library to use hardware SPI, remove or comment out if you want to use software SPI.
