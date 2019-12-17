@@ -1,0 +1,54 @@
+==== SRAMRead
+
+*Syntax:*
+[subs="quotes"]
+----
+    SRAMRead _location, store_
+
+    or
+
+    _store = SRAMRead location_
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC and Atmel AVR microcontrollers with SRAM data memory attached.
+
+*Explanation:*
+
+`SRAMRead` is the method, a function or a subroutine, used to read information from the SRAM data storage.
+
+`_location_` represents the location to read data from.
+
+`_store_` is the variable in which to store the data after it has been read from SRAM.
+
+*Example:*
+
+----
+    #include <uno_mega328p.h>
+    #option explicit
+
+    'Set up SRAM
+    #define SPISRAM_CS      DIGITAL_5     'Also known as SS, or Slave Select
+    #define SPISRAM_SCK     DIGITAL_13    'Also known as CLK
+    #define SPISRAM_DO      DIGITAL_11    'Also known as MOSI
+    #define SPISRAM_DI      DIGITAL_12    'Also known as MISO
+
+    #define SPISRAM_HARDWARESPI
+    #define SPISRAM_TYPE     SRAM_23LC1024
+
+  '********************************************************************************
+
+  'Main program
+
+  dim in_byte as byte
+
+  'Using a function:  Read from SRAM location 0x10 and place the results in the variable in_byte
+  in_byte = SRAMRead ( 0x10 )
+
+  'Using a subroutine:  Read from SRAM location 0x10 and place the results in the variable in_byte
+  SRAMRead ( 0x10, in_byte )
+
+----
+
+*For more help, see <<_sram_overview,SRAM Overview>> or <<_sramwrite,SRAMWrite>>*

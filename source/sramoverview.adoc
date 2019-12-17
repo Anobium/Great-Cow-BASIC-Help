@@ -16,7 +16,6 @@ This will initialise the driver.&#160;&#160;
 
 ----
 
-    #include <spisram.h>
     #define SPISRAM_CS      Porta.2      'Also known as SS, or Slave Select
     #define SPISRAM_SCK     Portc.3      'Also known as CLK
     #define SPISRAM_DO      Portc.5      'Also known as MOSI
@@ -41,15 +40,15 @@ The library exposes a set of method to support use of SRAM memory.
 |Parameters
 |Usage
 
-|SPISRAM_wr_byte
+|SRAMWrite
 |eepAddr as long, eepromVal as byte
 |A subroutine that required the address and the value to be written to SRAM.
 
-|SPISRAM_rd_byte
+|SRAMRead
 |eepAddr as long, eepromVal as byte
 |A subroutine that required the address and variable to updated with the byte value from the specified SRAM address.
 
-|SPISRAM_rd_byte
+|SRAMRead
 |eepAddr as long
 |A function that required the address. The function returns a byte value from the specified SRAM address.
 
@@ -96,8 +95,15 @@ SRAM_23K640
 
 
 |SPISRAM_DI
-Specifies the port for the data in, or MISO, port.
+|Specifies the port for the data in, or MISO, port.
 |Required
+
+
+|HWSPIMode
+|Specifies the speed of the SPI communications for Hardware SPI only.
+|Optional defaults to MASTERFAST.
+
+Options are MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST for specific AVRs only.
 
 |SPISRAM_HARDWARESPI
 |Instructs the library to use hardware SPI, remove or comment out if you want to use software SPI.
@@ -149,7 +155,6 @@ A user may use this public constant.
     'Mega:   MOSI - pin 51, MISO - pin 50, CLK - pin 52, CS - pin 4 (CS pin can be changed) and pin #52 (SS) must be an output
     'Leonardo: Connect to hardware SPI via the ICSP header
 
-    #include <spisram.h>
     #define SPISRAM_CS      DIGITAL_5     'Also known as SS, or Slave Select
     #define SPISRAM_SCK      DIGITAL_13    'Also known as CLK
     #define SPISRAM_DO      DIGITAL_11    'Also known as MOSI
@@ -158,7 +163,7 @@ A user may use this public constant.
     #define SPISRAM_HARDWARESPI
     #define SPISRAM_TYPE     SRAM_23LC1024
 
-    #define HWSPIMode MASTERULTRAFAST       'MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST
+    #define HWSPIMode MASTERULTRAFAST       'MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST for specific AVRs only. Defaults to MASTERFAST
 
 
   '********************************************************************************
@@ -171,24 +176,24 @@ A user may use this public constant.
     HSerPrintCRLF 2
     HSerPrint "Writing..."
     HSerPrintCRLF
-    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-     SPISRAM_wr_byte ( [long]EPD_Ind_raw, EPD_Ind_raw and 255 )
+    For SRAM_location=0 to SPISRAM_CAPACITY - 1
+     SRAMWrite ( [long]SRAM_location, SRAM_location and 255 )
     Next
 
 
     dim spirambyteread as Byte
     spirambyteread = 11
     HSerPrintCRLF 2
-    dim EPD_Ind_raw as long
+    dim SRAM_location as long
     HSerPrint "Reading..."
     HSerPrintCRLF
-    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+    For SRAM_location=0 to SPISRAM_CAPACITY - 1
      'choose one....
-     'SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+     'SRAMread ( SRAM_location, spirambyteread )
     'or, as a function
-     spirambyteread = SPISRAM_rd_byte ( EPD_Ind_raw )
+     spirambyteread = SRAMread ( SRAM_location )
 
-     if spirambyteread = ( EPD_Ind_raw and 255 ) then
+     if spirambyteread = ( SRAM_location and 255 ) then
        HSerPrint hex(spirambyteread)
      else
        HSerPrint "**"
@@ -202,14 +207,14 @@ A user may use this public constant.
 
     HSerPrint "Rewriting to 0x00 ..."
     HSerPrintCRLF
-    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-     SPISRAM_wr_byte ( [long]EPD_Ind_raw, 0 )
+    For SRAM_location=0 to SPISRAM_CAPACITY - 1
+     SRAMWrite ( [long]SRAM_location, 0 )
     Next
 
     Dim errorcount as long
     errorcount = 0
-    For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-     SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+    For SRAM_location=0 to SPISRAM_CAPACITY - 1
+     SRAMRead ( SRAM_location, spirambyteread )
      if spirambyteread <> 0 then
        errorcount++
      end if
@@ -222,7 +227,7 @@ A user may use this public constant.
     end
 ----
 
-or, for a PIC
+or, for a PIC with PPS
 
 ----
     'Chip Settings.
@@ -264,7 +269,6 @@ or, for a PIC
    #define USART_BLOCKING
    #define USART_TX_BLOCKING
 
-   #include <spisram.h>
    #define SPISRAM_CS      Porta.2      'Also known as SS, or Slave Select
    #define SPISRAM_SCK      Portc.3      'Also known as CLK
    #define SPISRAM_DO      Portc.5      'Also known as MOSI
@@ -272,9 +276,6 @@ or, for a PIC
 
    #define SPISRAM_HARDWARESPI
    #define SPISRAM_TYPE     SRAM_23LC1024
-
-   'This is specific to the K42 chips
-   #define SPI_BAUD_RATE_REGISTER 7
 
    '********************************************************************************
 
@@ -292,9 +293,9 @@ or, for a PIC
    HSerPrintCRLF
    wait 100 ms
 
-   dim EPD_Ind_raw as long
-   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-    SPISRAM_wr_byte ( [long]EPD_Ind_raw, EPD_Ind_raw and 255 )
+   dim SRAM_location as long
+   For SRAM_location=0 to SPISRAM_CAPACITY - 1
+    SRAMWrite ( [long]SRAM_location, SRAM_location and 255 )
    Next
 
 
@@ -304,13 +305,13 @@ or, for a PIC
 
    HSerPrint "Reading..."
    HSerPrintCRLF
-   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
+   For SRAM_location=0 to SPISRAM_CAPACITY - 1
     'choose one....
-    'SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+    'SRAMRead ( SRAM_location, spirambyteread )
    'or, as a function
-    spirambyteread = SPISRAM_rd_byte ( EPD_Ind_raw )
+    spirambyteread = SRAMRead ( SRAM_location )
 
-    if spirambyteread = ( EPD_Ind_raw and 255 ) then
+    if spirambyteread = ( SRAM_location and 255 ) then
       HSerPrint hex(spirambyteread)
     else
       HSerPrint "**"
@@ -324,14 +325,14 @@ or, for a PIC
 
    HSerPrint "Rewriting to 0x00 ..."
    HSerPrintCRLF
-   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-    SPISRAM_wr_byte ( [long]EPD_Ind_raw, 0 )
+   For SRAM_location=0 to SPISRAM_CAPACITY - 1
+    SRAMWrite ( [long]SRAM_location, 0 )
    Next
 
    Dim errorcount as long
    errorcount = 0
-   For EPD_Ind_raw=0 to SPISRAM_CAPACITY - 1
-    SPISRAM_rd_byte ( EPD_Ind_raw, spirambyteread )
+   For SRAM_location=0 to SPISRAM_CAPACITY - 1
+    SRAMRead ( SRAM_location, spirambyteread )
     if spirambyteread <> 0 then
       errorcount++
     end if
@@ -347,3 +348,5 @@ or, for a PIC
    loop
 
 ----
+
+*For more help, see <<sramread,SRAMRead>> or <<_sramwrite,SRAMWrite>>*

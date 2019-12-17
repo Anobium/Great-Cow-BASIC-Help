@@ -182,6 +182,10 @@ This is the SRAM section of the Help file.  Please refer the sub-sections for de
 
 include::SRAMoverview.adoc[]
 
+include::SRAMRead.adoc[]
+
+include::SRAMWrite.adoc[]
+
 
 :leveloffset: -1
 
