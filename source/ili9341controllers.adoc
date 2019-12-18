@@ -66,8 +66,13 @@ The Great Cow BASIC constants for the interface to the controller are shown in t
 |
 
 |`HWSPIMode`
-|User can specify the hardware SPI mode.  Must be one of MasterSlow, Master, Masterfast
-|Optional. Defaults to Masterfast when chipMhz is less than 64mhz
+|Specifies the speed of the SPI communications for Hardware SPI only.
+|Optional defaults to MASTERFAST.
+
+Options are MASTERSLOW, +
+MASTER, +
+MASTERFAST, or +
+MASTERULTRAFAST for specific AVRs only.
 
 |===
 

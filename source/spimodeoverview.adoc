@@ -62,7 +62,7 @@ This example show using the hardware SPI option and a sofware SPI option.
 Using hardware SPI mode - make sure the `#define SPI_HardwareSPI` is not commented out.
 Using software SPI mode - comment out `#define SPI_HardwareSPI`. The example code will then use software SPI.
 
-*Using*
+*Setting the SPI Mode*
 
 Hardware SPI mode the Data Out, Data In and Clock (DO/DI and SCK) cannot be moved but the optional Data Command, Chip Select and Reset are all moveable.
 
@@ -82,6 +82,18 @@ The options for `HWSPIMode` are:
 
 This constant sets the library to the desire SPI fequency, therefore enable adaption of the SPI frequency without have to change the library.
 
+The SPI frequnecy must be the same for all the used devices.&#160;&#160; In particular, it must be set equal to the one dictated by the slowest SPI device to be used.
+
+More freedom is available when more than an hardware SPI is available as well as when the user want to use hardware SPI for a device and software SPI for a second one.
+
+
+*Using multiple SPI device*
+
+There willbe use cases were you need to use more than one SPI target device at a time.&#160;&#160;In such cases the device defined for SPI must be inserted in your program for each device.
+
+As an example using e-Paper and SRAM at the same time, with an hardware SPI would require `#define SPISRAM_HARDWARESPI` and `#define EPD_HardwareSPI`.&#160;&#160;
+
+Obviously, when all SPI devices use the same SPI lines, you must  select one device at a time by setting SPI Chip Select line to 1OFF1 for the specific target SPI device, and you must set `ON` the SPI Chip Select line for any other SPI device&#160;&#160;-&#160;&#160;this is a normal conventation of SPI usage. &#160;&#160; This is not specific to Great Cow BASIC..
 
 
 *Code overview*

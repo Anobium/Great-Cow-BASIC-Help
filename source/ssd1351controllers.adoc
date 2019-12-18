@@ -59,6 +59,22 @@ the GLCD.
 |Specifies the output pin that is connected to Clock (CLK) pin on the
 GLCD.
 |Required
+
+|`SSD1351_HardwareSPI`
+|Specifies that hardware SPI will be used
+|SPI ports MUST be defined that match the SPI module for each specific microcontroller
+
+    *#define SSD1351_HardwareSPI*
+
+|HWSPIMode
+|Specifies the speed of the SPI communications for Hardware SPI only.
+|Optional defaults to MASTERFAST.
+
+Options are MASTERSLOW, +
+MASTER, +
+MASTERFAST, or +
+MASTERULTRAFAST for specific AVRs only.
+
 |===
 
 The Great Cow BASIC constants for control display characteristics are shown in the table below. +

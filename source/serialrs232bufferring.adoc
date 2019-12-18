@@ -12,6 +12,8 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
 
 *Demonstration program:*
 
+This demonstration program will support up to 256 bytes. For a larger buffer change the variables to words.
+
 ----
     ;Chip Settings
     #chip 16F1937,32
@@ -23,12 +25,7 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
     #define USART_BAUD_RATE 9600
     #define USART_TX_BLOCKING
     #define USART_BLOCKING
-    ' [change to your config] Ensure these port addresses are correct
-    #define SerInPort PORTc.7
-    #define SerOutPort PORTc.6
-    'Set pin directions
-    Dir SerOutPort Out
-    Dir SerInPort In
+    #define USART_DELAY OFF    'See below for repeat. Just in case you delete this constant!
 
     'This assumes you are using an ANSI compatible terminal.  Use PUTTY.EXE it is very easy to use.
 
@@ -39,17 +36,15 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
     ' Pot port
     DIR PORTA.0 IN
 
-    'Interrupt Handlers
-    On Interrupt UsartRX1Ready Call readUSART
-
     ' Constants etc required for Buffer Ring
     #define BUFFER_SIZE 8
     #define bkbhit (next_in <> next_out)
-    ;Variables
+    #define USART_DELAY OFF
+
+    ;Buffer
     Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
-    Dim next_in as byte: next_in = 0
-    Dim next_out as byte: next_out = 0
-    Dim syncbyte as Byte
+    'Call init the buffer
+    InitBufferRing
 
     syncbyte = 0x55 ' you can use 255 - your choice
 
@@ -85,5 +80,18 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
         bgetc = buffer(next_out)
         next_out=(next_out+1) % BUFFER_SIZE
     end Function
+
+    'Create variables
+    Dim next_in as byte
+    Dim next_out as byte
+    Dim syncbyte as Byte
+
+    Sub InitBufferRing
+      'Set the buffer to the first address
+      next_in = 0
+      next_out = 0
+      'Interrupt Handler
+      On Interrupt UsartRX1Ready Call readUSART
+    End Sub
 
 ----

@@ -53,6 +53,7 @@ to a terminal, these commands should follow every `HSerPrint` :
   'USART settings
   #define USART_BAUD_RATE 9600
   #define USART_TX_BLOCKING
+  #define USART_BAUD_RATE OFF
 
   'Potentiometer
   #define POT_PORT PORTA.0

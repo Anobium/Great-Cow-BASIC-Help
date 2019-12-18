@@ -39,7 +39,7 @@ This program has an interrupt driven serial handler to capture and manage input 
     #define USART_BAUD_RATE 9600
     Dir PORTc.6 Out
     Dir PORTc.7 In
-    #define USART_DELAY 0 ms
+    #define USART_DELAY OFF
     #define USART_TX_BLOCKING
     wait 500 ms
 

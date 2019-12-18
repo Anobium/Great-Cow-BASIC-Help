@@ -73,6 +73,22 @@ the GLCD.
 GLCD.
 |Required
 
+|`ST7735_HardwareSPI`
+|Specifies that hardware SPI will be used
+|SPI ports MUST be defined that match the SPI module for each specific microcontroller
+
+    *#define ST7735_HardwareSPI*
+
+|HWSPIMode
+|Specifies the speed of the SPI communications for Hardware SPI only.
+|Optional defaults to MASTERFAST.
+
+Options are MASTERSLOW, +
+MASTER, +
+MASTERFAST, or +
+MASTERULTRAFAST for specific AVRs only.
+
+
 |
 |
 |
