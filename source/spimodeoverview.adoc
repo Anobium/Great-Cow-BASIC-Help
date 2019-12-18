@@ -87,9 +87,9 @@ The SPI frequnecy must be the same for all the used devices.&#160;&#160; In part
 More freedom is available when more than an hardware SPI is available as well as when the user want to use hardware SPI for a device and software SPI for a second one.
 
 
-*Using multiple SPI device*
+*Using multiple SPI devices*
 
-There willbe use cases were you need to use more than one SPI target device at a time.&#160;&#160;In such cases the device defined for SPI must be inserted in your program for each device.
+There will be use cases were you need to use more than one SPI target device at a time.&#160;&#160;In such cases the device defined for SPI must be inserted in your program for each device.
 
 As an example using e-Paper and SRAM at the same time, with an hardware SPI would require `#define SPISRAM_HARDWARESPI` and `#define EPD_HardwareSPI`.&#160;&#160;
 
