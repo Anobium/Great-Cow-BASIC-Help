@@ -93,7 +93,7 @@ There will be use cases were you need to use more than one SPI target device at 
 
 As an example using e-Paper and SRAM at the same time, with an hardware SPI would require `#define SPISRAM_HARDWARESPI` and `#define EPD_HardwareSPI`.&#160;&#160;
 
-Obviously, when all SPI devices use the same SPI lines, you must  select one device at a time by setting SPI Chip Select line to 1OFF1 for the specific target SPI device, and you must set `ON` the SPI Chip Select line for any other SPI device&#160;&#160;-&#160;&#160;this is a normal conventation of SPI usage. &#160;&#160; This is not specific to Great Cow BASIC..
+Obviously, when all SPI devices use the same SPI lines, you must  select one device at a time by setting SPI Chip Select line to `OFF` for the specific target SPI device, and you must set `ON` the SPI Chip Select line for any other SPI device&#160;&#160;-&#160;&#160;this is a normal convention of SPI usage. &#160;&#160; This is not specific to Great Cow BASIC..
 
 
 *Code overview*
