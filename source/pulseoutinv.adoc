@@ -17,7 +17,6 @@ The `PulseOutInv` command will set the specified pin low, wait for the specified
 ----
     'This program flashes an LED on GPIO.0 using PulseOutInv
     #chip 12F629, 4
-    #config INTRC_OSC_NOCLKOUT
 
     Dir GPIO.0 Out
     Do

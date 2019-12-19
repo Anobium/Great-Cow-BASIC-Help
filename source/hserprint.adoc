@@ -38,7 +38,6 @@ to a terminal, these commands should follow every `HSerPrint` :
 
   'Chip settings
   #chip 18F2525, 8
-  #config Osc = Int
 
   'LCD settings
   #define LCD_IO 4

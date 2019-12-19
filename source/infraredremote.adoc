@@ -17,7 +17,6 @@ The example is expected to work with most any IR sensor running at a 38 kHz carr
 
     #chip 16F88, 8                    ;PIC16F88 running at 8 MHz
     #config mclr=off                  ;reset handled internally
-    #config osc=int                   ;use internal clock
     #include <SonyRemote.h>           ;include the header file
 
     ;----- Constants

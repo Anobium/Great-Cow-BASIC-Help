@@ -443,7 +443,6 @@ to value*
 This code uses Timer 2 and On Interrupt to flash an LED every 200 timer ticks.
 ----
     #chip 16F1788, 8
-    #config OSC = INTOSC
 
     #DEFINE LED PORTA.1
     DIR LED OUT

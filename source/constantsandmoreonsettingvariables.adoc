@@ -16,7 +16,7 @@ Within Great Cow BASIC you can define binary, hexidecimal and decimal constants,
 
 ----
     #chip 16F88, 4
-    #config Osc = INT, MCLRE_OFF
+    #config Osc = MCLRE_OFF
 
     ' All these work
     #define Test1 0b11111111

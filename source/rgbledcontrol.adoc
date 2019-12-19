@@ -18,7 +18,7 @@ In this demonstration, three potentiometers are used to set the color levels usi
     ;----- Configuration
     #chip 16F88, 8                ;PIC16F88 running at 8 MHz
     #config mclr=off              ;reset handled internally
-    #config osc=int               ;use internal clock
+
     ;----- Constants
     #define LED_R PortB.0         ;pin to red element
     #define LED_G PortB.1         ;pin to green element

@@ -85,8 +85,8 @@ A ChipMHz of 32 does two things.
 
 1.  When using the internal oscillator,  it tells the compiler to set the chip clock frequency (FOSC) to 32MHz
 
-2.  It tells the compiler to calculate all delays (wait times) based upon FOSC of 32 MHz. 
-    Unlike Picaxe Basic (and other compilers) Great Cow delays ("wait") are correct regardless of the setting of FOSC. 
+2.  It tells the compiler to calculate all delays (wait times) based upon FOSC of 32 MHz.
+    Unlike Picaxe Basic (and other compilers) Great Cow delays ("wait") are correct regardless of the setting of FOSC.
     If you set the internal oscillator to 4 MHz a "wait 1 ms" will still be 1 ms.
 
 If you set chipMHz to something other than the valid options in the [ChipData] IntOsc section of the microcontroller specific dat file, then, the compiler assumes that you are using an external oscillator and will calculate the delays according to the value you use. The wait times will be incorrect if you are not using an external oscillator at the same frequency as ChipMhz.
@@ -99,7 +99,7 @@ Since "12" is not a valid internal osc frequency, the microcontroller FOSC will 
 
 *ConfigOps section*
 
-The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file. For the 12F1940 is looks like this 
+The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file. For the 12F1940 is looks like this
 
 ----
     [ConfigOps]
@@ -122,16 +122,16 @@ The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file.
 
 `OSC` specifies which oscillator options are available for the specific microcontroller.
 `INTOSC` is the internal oscillator. All others are some form of external clock source.
-`PLLEN` sets the internal Phase Lock Loop either on or off. With this chip the default clock frequency is 8 Mhz. The PLL multiplies this by 4. So to get 32 Mhz the basic internal oscillator will be 8 Mhz then multiplied by 4. For 16 MHz it wil be 4 multiplied by 2. 
+`PLLEN` sets the internal Phase Lock Loop either on or off. With this chip the default clock frequency is 8 Mhz. The PLL multiplies this by 4. So to get 32 Mhz the basic internal oscillator will be 8 Mhz then multiplied by 4. For 16 MHz it wil be 4 multiplied by 2.
 
-GCB sets the PLL automatically, so this option should generally be left alone. IF PLLEN is set to ON, then GCB may not be able to set the correct frewuency of the internal oscillator. Only set PLL = ON if you know what you are doing. 
+GCB sets the PLL automatically, so this option should generally be left alone. IF PLLEN is set to ON, then GCB may not be able to set the correct frewuency of the internal oscillator. Only set PLL = ON if you know what you are doing.
 
 
-It is always a good practice to set the oscillator source in #config at the beginning of your code. This prevents potential errors. Example:
+It is a good practice to set the oscillator source in #config at the beginning of your code when you are not using the internal oscillator.  This prevents potential errors. Example:
 
 ----
     #Chip 12F1840, 16
-    #Config OSC = INTOSC
+    #Config OSC = INTOSC   'This is normally not required as the internal oscillator is the default oscillator.
 ----
 
 In  this example above, Great Cow BASIC will automatically set the necessary OSC bits for the microcontroller. Frequency bits will be set to 4 MHz and the PLL will be turned on and wait times will be calculated on an FOSC of 16.
@@ -154,14 +154,14 @@ Example: For a 2.1 MHz clock you would need to set the #config and the clock fre
 
 *Notes*
 
-When "#config osc=" is not specified in the source code, most microcontrollers will default to an external oscillator source. This means at runtime the chip is expecting an external clock signal.  If the external clock signal is not present, the chip detects a "failure" of the external clock and will  "falls back" to the default internal oscillator setting. 
+When "#config osc=" is not specified in the source code, most microcontrollers will default to an external oscillator source. This means at runtime the chip is expecting an external clock signal.  If the external clock signal is not present, the chip detects a "failure" of the external clock and will  "falls back" to the default internal oscillator setting.
 
 The PLLEN bit defaults to OFF. The PLL is enabled depending upon the ChipMhz in #Chip xxxxxx, ChipMhz.
 
 The Great Cow BASIC defaults - This is how the bits are set if there is no #config in the source code, Great Cow BASIC does set certain bits.  To examine what bits are set on a particular chip you can omit #config in the source code, thenm compile the code and then use "Open ASM" in the Great Cow BASIC IDE. The bits that are set will be in the config section. All other bits ( those not specifically set) with #Config will be at the POR setting as described below, The `POR` settings are shown in the datasheet for each microcontroller.
 
-Currently Great Cow BASIC sets the `LVP` bit `OFF` by default on many chips. This does not affect normal HV programming like a with a PicKit3.   The default of LVP = OFF  will prevent the microcontroller from being programmed with Low Voltage Programmer. This means that if a PIC microcontroller has previously been programmed with with "LVP =  OFF",  then it must be erased or reprogrammed with LVP = ON using a HVP programmer prior to using certain programming devices e.g. Curiosity development boards, or "NS"  programmers as these  required that LVP = ON. 
- 
-When LVP = ON, the MCLR pin is automatically set to EXTERNAL MCLR.  This means that the MCLRE pin CANNOT be sue for general purpose I/O functions.  
+Currently Great Cow BASIC sets the `LVP` bit `OFF` by default on many chips. This does not affect normal HV programming like a with a PicKit3.   The default of LVP = OFF  will prevent the microcontroller from being programmed with Low Voltage Programmer. This means that if a PIC microcontroller has previously been programmed with with "LVP =  OFF",  then it must be erased or reprogrammed with LVP = ON using a HVP programmer prior to using certain programming devices e.g. Curiosity development boards, or "NS"  programmers as these  required that LVP = ON.
+
+When LVP = ON, the MCLR pin is automatically set to EXTERNAL MCLR.  This means that the MCLRE pin CANNOT be sue for general purpose I/O functions.
 
 The native `POR` (Power On Reset) defaults. This is the state of the config bits after Power on if the ASM code has no configuration entries or on a blank factory chip. The only way to power up in this state with GCB code is to use " #option NoConfig" in the Great Cow BASIC source code.

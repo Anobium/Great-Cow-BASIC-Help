@@ -18,7 +18,6 @@ then be displayed on the LCD
 ----
     ;Chip Settings
     #chip 16F88,8
-    #config osc = intrc
 
     ;Defines (Constants)
     #define LCD_IO 4

@@ -106,7 +106,6 @@ The circuit for the IR receiver and the chip is shown below.
 
     #chip 16F88, 8                    'PIC16F88 running at 8 MHz
     #config mclr=off                  'reset handled internally
-    #config osc=int                   'use internal clock
 
     '----- Constants
 

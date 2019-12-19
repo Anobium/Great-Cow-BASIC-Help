@@ -57,14 +57,14 @@ or
     #define GLCD_DB6 PORTB.6    'Data Port.bit 6
     #define GLCD_DB7 PORTB.7    'Data Port.bit 7
     ;End of define as 8 port,bit(s)
-    
+
     #define GLCD_CS1 PORTC.7    'CS1 control line
     #define GLCD_CS2 PORTC.6    'CS2 control line
     #define GLCD_RS PORTC.5     'RS control line
     #define GLCD_ENABLE PORTA.4 'Enable control line
     #define GLCD_RW PORTC.4     'RW control line
     #define GLCD_RESET PORTC.3  'Reset control line
-    
+
 ----
 
 
@@ -264,7 +264,7 @@ details, this is an external web site.
   ;Chip Settings
   #chip 16F1939,32
   #option explicit
-  #config Osc = INT, MCLRE_On
+  #config MCLRE_On
 
    #include <glcd.h>
    #define GLCD_TYPE GLCD_TYPE_NT7108C               ' Specify the GLCD type

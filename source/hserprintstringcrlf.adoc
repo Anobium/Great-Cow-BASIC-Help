@@ -31,7 +31,6 @@ The data will be sent out the hardware serial module.
 
   'Chip settings
   #chip 18F2525, 8
-  #config Osc = Int
 
   'USART settings
   #define USART_BAUD_RATE 9600

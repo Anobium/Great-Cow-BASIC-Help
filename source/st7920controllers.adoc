@@ -191,7 +191,7 @@ details, this is an external web site.
 ----
     ;Chip Settings
     #chip 16F1937,32
-    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+    #config  MCLRE_ON
 
     #include <glcd.h>
 
@@ -255,7 +255,7 @@ details, this is an external web site.
 ----
     ;Chip Settings
     #chip 16F1937,32
-    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+    #config MCLRE_ON
 
     #include <glcd.h>
 

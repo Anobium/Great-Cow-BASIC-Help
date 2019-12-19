@@ -84,7 +84,6 @@ Use `Set C Off` before using the `Rotate` command to clear the flag.
     '8 LEDs should be connected to PORTB, one on each pin.
 
     #chip 16F819, 8
-    #config osc = int
 
     'Set port direction
     Dir PORTB Out

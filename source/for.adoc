@@ -38,14 +38,13 @@ condition.
     'This code will flash a green light 6 times.
 
     #chip 16F88, 8
-    #config Osc = Int
 
     #define LED PORTB.0
     Dir LED Out
 
     For LoopCounter = 1 to 6
-    	PulseOut Led, 1 s
-    	Wait 1 s
+      PulseOut Led, 1 s
+      Wait 1 s
     Next
 ----
 
@@ -55,7 +54,6 @@ condition.
 'This code will flash alternate LEDS until the switch is pressed.
 
     #chip 16F88, 8
-    #config Osc = Int
 
     #define LED1 PORTB.0
     Dir LED1 Out
@@ -67,8 +65,8 @@ condition.
     main:
     PulseOut LED1, 1 s
     For LoopCounterOut = 1 to 250
-    	PulseOut LED2, 4 Ms
-    	if switch = On then Exit For
+      PulseOut LED2, 4 Ms
+      if switch = On then Exit For
     Next
     Set LED2 OFF
     goto main

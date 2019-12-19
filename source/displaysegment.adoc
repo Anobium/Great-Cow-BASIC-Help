@@ -28,7 +28,6 @@ display.
       ; ----- Configuration
 
         #chip 16F690, 4
-        #config WDT_OFF
 
       ; ----- Define Hardware settings
         Dir PORTC Out

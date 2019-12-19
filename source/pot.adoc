@@ -31,7 +31,6 @@ This command should be used carefully. Each time it is inserted, 20 words of pro
     'A potentiometer is used to adjust the threshold
 
     #chip 16F628A, 4
-    #config INTOSC_OSC_NOCLKOUT
 
     #define ADJUST PORTB.0
     #define LDR PORTB.1

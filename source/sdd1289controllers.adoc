@@ -174,7 +174,7 @@ This example shows how to drive a SDD1289 based Graphic LCD module with the buil
 ----
     ;Chip Settings
     #chip 16F1937,32
-    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+    #config MCLRE_ON
 
     #include <glcd.h>
 

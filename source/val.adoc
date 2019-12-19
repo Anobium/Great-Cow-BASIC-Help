@@ -6,8 +6,8 @@
     var = Val(__string__)   'Supports decimal byte and word strings only.
 
     'use the following for strings that represent Long numbers
-    var = Val32(__string__)   'Supports decimal long number strings only. 
-    
+    var = Val32(__string__)   'Supports decimal long number strings only.
+
 
 ----
 *Command Availability:*
@@ -86,8 +86,7 @@ The `Val` function will not extract a value from a hexadecimal string.
     ' ----- Configuration
     'Chip Settings.
     #chip 16f18855,32
-    #Config FEXTOSC_OFF, RSTOSC_HFINT32
-    #Config WRT_OFF, CPD_ON, MCLRE_ON
+    #Config MCLRE_ON
 
     ; ----- Define Hardware settings
 

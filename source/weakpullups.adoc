@@ -24,8 +24,6 @@ The following code demonstrates how to set the weak pullups available on port B 
     'A program to show the use of weak pullups on portb.
     'Set chip model
     #chip 18F25k20,16 'at 16 MHz
-    'Switch Low-Volt-Programming:
-    #config LVP = Off
     #config MCLR = Off
 
     Set RBPU = 0 'enabling Port B pullups in general.

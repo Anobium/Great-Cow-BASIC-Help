@@ -19,7 +19,7 @@ This program has an interrupt driven serial handler to capture and manage input 
 ----
     'Change the microcontroller, frequency and config to suit your needs.
     #chip 16F1937, 32
-    #config Osc = intOSC, MCLRE_ON, PLLEN_ON, VCAPEN_OFF
+    #config MCLRE_ON
 
     'Required Library to read and write to an EEPROM
     #include <I2CEEPROM.h>

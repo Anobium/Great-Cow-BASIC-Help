@@ -23,7 +23,6 @@ EEPROM, and can be a value or a variable.
 
 ----
     #chip 16F819, 8
-    #config osc = int
 
     'Set the input pin direction
     Dir PORTA.0 In

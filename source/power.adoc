@@ -24,7 +24,7 @@ Non-negative numbers are assumed throughout.
 
     #chip 16F88, 8              ;PIC16F88 running at 8 MHz
     #config mclr=off            ;reset handled internally
-    #config osc=int             ;use internal clock
+
     #include <maths.h>          ;required maths.h
 
     ;----- Constants

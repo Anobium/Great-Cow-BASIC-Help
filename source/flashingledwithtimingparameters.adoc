@@ -32,7 +32,6 @@ Connect an LED to the LED pin via a 1K series resistor.
 *Demonstration program:*
 ----
     #chip 18F25K22, 16
-    #config OSC = INTIO67, MCLRE = OFF, XINST = OFF
     #define LED PORTC.1       'Led on PIN 14 via 1K resistor
     DIR LED OUT
     wait 1 sec

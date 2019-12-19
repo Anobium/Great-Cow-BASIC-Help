@@ -181,7 +181,7 @@ Example:
 ----
       #chip 16lf1939,32
       #option Explicit
-      #config Osc = INT, MCLRE_ON, PLLEN_Off, CLKOUTEN_OFF
+      #config MCLRE_ON
 
       #include <glcd.h>
 

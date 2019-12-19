@@ -29,7 +29,6 @@ The command also support HEX characters in the range between 0x00 and
 ----
     'This program will count from 0 to 99 on two LED displays
     #chip 16F819, 8
-    #config osc = int
 
   'See 7 Segment Display Overview for alternate ways of defining Ports
     #define DISP_SEG_A PORTB.0
@@ -76,7 +75,6 @@ The command also support HEX characters in the range between 0x00 and
 ----
     'This program will count from 0 to 0xff on two LED displays
     #chip 16F819, 8
-    #config osc = int
 
     #define DISP_SEG_A PORTB.0
     #define DISP_SEG_B PORTB.1

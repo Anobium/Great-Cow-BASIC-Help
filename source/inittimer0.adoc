@@ -153,7 +153,6 @@ This code uses Timer 0 and On Interrupt to generate a Pulse Width Modulation
 signal, that will allow the speed of a motor to be easily controlled.
 ----
     #chip 16F88, 8
-    #config osc = int
 
     #define MOTOR PORTB.0
 

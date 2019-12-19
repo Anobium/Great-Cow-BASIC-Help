@@ -20,7 +20,6 @@ referred to as `_channel_` according to the rules set using `InitSer`.
   'depends on whether a button is pressed. This can be used with the example for SerReceive.
 
   #chip 16F819, 8
-  #config Osc = Int
 
   #define RS232Out PORTB.2
   #define RS232In  PORTB.1

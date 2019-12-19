@@ -76,7 +76,6 @@ Supported:
     'Turn a light on or off depending on a light sensor
 
     #chip 12F683, 8
-    #config osc = int
 
     #define LIGHT GPIO.1
     #define SENSOR AN3
@@ -86,11 +85,11 @@ Supported:
     Dir SENSOR_PORT In
 
     Do
-    	If ReadAD(SENSOR) > 128 Then
-    		Set LIGHT Off
-    	Else
-    		Set LIGHT On
-    	End If
+      If ReadAD(SENSOR) > 128 Then
+        Set LIGHT Off
+      Else
+        Set LIGHT On
+      End If
     Loop
 ----
 

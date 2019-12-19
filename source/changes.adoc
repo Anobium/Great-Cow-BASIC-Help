@@ -32,6 +32,13 @@
 - Updated GLCD overview section to include e-Paper devices
 - Added GLCDDisplay section
 - Added GLCDTransaction section
+- Removal references to #config where appropiate
+- Revised demonstration code
+- Added clarification on HPISPIMODE constant(s) when using multiple SPI devices
+- Added clarification on HPISPIMODE constant(s) for specific SPI device help pages
+- Added #define USART_BAUD_RATE OFF where appropiate to improve default performance on the serial communications
+
+
 
 {empty} +
 {empty} +

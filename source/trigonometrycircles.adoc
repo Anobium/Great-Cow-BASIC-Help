@@ -17,7 +17,6 @@ image::trigonometrycirclesb1.PNG[graphic,align="center"]
 
     #chip 16F88, 8              ;PIC16F88 running at 8 MHz
     #config mclr=off            ;reset handled internally
-    #config osc=int             ;use internal clock
 
     #include <GLCD.h>
     #include <Trig2Places.h>

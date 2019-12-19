@@ -73,8 +73,6 @@ The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, wher
 This example reads the ADC port and writes the output to the EEPROM.
 ----
     #chip 16F819, 8
-    #config osc = int
-
 
     'Set the input pin direction
     Dir PORTA.0 In

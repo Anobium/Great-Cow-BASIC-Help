@@ -10,7 +10,7 @@ Below is a program that yields an 8 custom character animation.
  +
 #chip 12F683,8 ;PIC12F683 running at 8 MHz
 #config mclr=on ;reset handled manually
-#config osc=int ;use internal clock
+
 ;relevant constants for 2-wire mode------------------------------------
 #define LCD_IO 2
 #define LCD_DB GPIO.0 ;shift register data on GP0, pin 7
@@ -47,4 +47,3 @@ wait 200 ms
 next
 loop
  +
-

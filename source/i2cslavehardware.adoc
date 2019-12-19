@@ -34,7 +34,6 @@ This program also has an interrupt driven I2C handler to manage the I2C from the
 
     'Chip and config
     #chip 16F882, 8
-    #config osc = INTOSCIO
 
     'Ports connected to keypad
     'Column ports need pullups, hence columns are on PORTB for built in weak pullups

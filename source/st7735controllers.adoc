@@ -203,7 +203,7 @@ https://cdn-shop.adafruit.com/datasheets/ST7735R_V0.2.pdf[here.]
 ----
     ;Chip Settings
     #chip 16F1937,32
-    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF
+    #config MCLRE_ON
 
     #include <glcd.h>
 

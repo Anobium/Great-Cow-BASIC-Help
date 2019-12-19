@@ -66,8 +66,6 @@ The default value of AD_Acquisition_Time_Select_bits is 0b100 or decimal 4, wher
 
 ----
     #chip 16F1788, 8
-    #config osc = int
-
 
     'Set the input pin direction
     Dir PORTA.0 In

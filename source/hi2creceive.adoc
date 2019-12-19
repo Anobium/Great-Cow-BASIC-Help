@@ -40,7 +40,7 @@ This command is also available on microcontrollers with a second hardware I2C po
     'It will read from I2C device with an address of 83, register 1.
     ' Change the processor
     #chip 16F1937, 32
-    #config Osc = intOSC, MCLRE_ON, PLLEN_ON, VCAPEN_OFF
+    #config MCLRE_ON
 
 
     ' Define I2C settings

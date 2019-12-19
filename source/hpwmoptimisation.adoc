@@ -48,8 +48,7 @@ This will save 335 bytes of program memory by removing support for CCP1, CCP2 an
 ----
 
     #chip 16f18855,32
-    #Config FEXTOSC_OFF, RSTOSC_HFINT32
-    #Config WRT_OFF, CPD_ON, MCLRE_ON
+    #Config MCLRE_ON
 
     UNLOCKPPS
         RC2PPS = 0x0A       'RC2->CCP2:CCP2;

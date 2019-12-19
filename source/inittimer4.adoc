@@ -333,7 +333,6 @@ to value*
 This code uses Timer 4 and On Interrupt to generate a 1ms pulse 20 ms.
 ----
     #chip 18F25K80, 8
-    #config OSC =INTIO2
 
     #DEFINE PIN3 PORTA.1
     DIR PIN3 OUT

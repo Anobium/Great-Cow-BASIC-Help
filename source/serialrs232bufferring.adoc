@@ -6,6 +6,8 @@
 
 This program demonstrates how to create a serial input buffer ring.
 
+The program receives a character into the buffer and sends back.  Try sending large volumes of characters.....
+
 This program program uses an interrupt event to capture the incoming byte value and place in the buffer ring. When a byte is received the buffer ring is incremented to ensuer the next byte is handled correctly.
 
 Testing `bkbhit` will set to True when a byte has been received. Reading the function `bgetc` will return the last byte received.
@@ -15,17 +17,16 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
 This demonstration program will support up to 256 bytes. For a larger buffer change the variables to words.
 
 ----
-    ;Chip Settings
-    #chip 16F1937,32
-    #config LVP=OFF, BODEN=OFF, WDT=OFF, OSC=XT
+  #chip 16F1937
 
+    ' Add PPS if appropiate for your chip
     ' [change to your config] This is the config for a serial terminal
     ' turn on the RS232 and terminal port.
-    ' Define the USART port
+    ' Define the USART settings
     #define USART_BAUD_RATE 9600
     #define USART_TX_BLOCKING
     #define USART_BLOCKING
-    #define USART_DELAY OFF    'See below for repeat. Just in case you delete this constant!
+    #define USART_DELAY OFF    'See below for duplication. Just in case you delete this constant!
 
     'This assumes you are using an ANSI compatible terminal.  Use PUTTY.EXE it is very easy to use.
 
@@ -36,33 +37,17 @@ This demonstration program will support up to 256 bytes. For a larger buffer cha
     ' Pot port
     DIR PORTA.0 IN
 
-    ' Constants etc required for Buffer Ring
-    #define BUFFER_SIZE 8
-    #define bkbhit (next_in <> next_out)
-    #define USART_DELAY OFF
-
-    ;Buffer
-    Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
-    'Call init the buffer
     InitBufferRing
 
-    syncbyte = 0x55 ' you can use 255 - your choice
-
+    'Get character(s) and send back
     Do
-        ' Send some info to another device
-        Repeat 3
-            HSerSend syncbyte
-        end Repeat
-        HSerprint readad(an0)
 
+        ' Do we have data in the buffer?
         do while bkbhit
-        ' get three sync chars  then display the next char in buffer
-            if bgetc = syncbyte and bgetc = syncbyte and bgetc = syncbyte then
-                HSerPrint "sync'ed '"
-                HSerPrint chr(bgetc)
-                HSerSend 10
-                HSerSend 13
-            end if
+
+            'Send the next character in the buffer, exposed via the function `bgetc` back the terminal
+            HSerSend bgetc
+
         Loop
     Loop
 
@@ -81,17 +66,34 @@ This demonstration program will support up to 256 bytes. For a larger buffer cha
         next_out=(next_out+1) % BUFFER_SIZE
     end Function
 
-    'Create variables
+    'Create supporting variables
     Dim next_in as byte
     Dim next_out as byte
     Dim syncbyte as Byte
+
+    ' Constants etc required for Buffer Ring
+    #define BUFFER_SIZE 8
+    #define bkbhit (next_in <> next_out)
+    #define USART_DELAY OFF
+
+    ;Buffer
+    Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
+    'Call init the buffer
+
 
     Sub InitBufferRing
       'Set the buffer to the first address
       next_in = 0
       next_out = 0
-      'Interrupt Handler
-      On Interrupt UsartRX1Ready Call readUSART
+      'Interrupt Handler - some have RCIE and some have U1RXIE, so handle
+      #ifdef bit( RCIE )
+          On Interrupt UsartRX1Ready Call readUSART
+      #endif
+      #ifdef bit( U1RXIE )
+          On Interrupt UART1ReceiveInterrupt Call readUSART
+      #endif
+
     End Sub
+
 
 ----

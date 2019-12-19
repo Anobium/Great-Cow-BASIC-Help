@@ -17,7 +17,6 @@ image::midpointcirclealgorithmb1.PNG[graphic,align="center"]
     'Chip model
     #chip 16F886, 8             ;PIC16F88 running at 8 MHz
     #config mclr=off            ;reset handled internally
-    #config osc=int             ;use internal clock
 
     #include <glcd.h>
 

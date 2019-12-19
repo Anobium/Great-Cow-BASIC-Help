@@ -75,7 +75,6 @@ work accurately.
     'a light every half a second and produce a 440 Hz tone.
 
     #chip 16F819, 8
-    #config osc = int
 
     #define BUTTON PORTB.0
     #define SPEAKER PORTB.1

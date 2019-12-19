@@ -193,7 +193,7 @@ This example shows how to drive a ILI9340 based Graphic LCD module with the buil
 ----
     ;Chip Settings
     #chip 16F1937,32
-    #config Osc = INT, VCAPEN_OFF, MCLRE_ON, PLLEN_ON, CLKOUTEN_OFF      'microcontroller specific configuration
+    #config VCAPEN_OFF, MCLRE_ON     'microcontroller specific configuration
 
     #include <glcd.h>
 

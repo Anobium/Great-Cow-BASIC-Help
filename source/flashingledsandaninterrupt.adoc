@@ -11,7 +11,7 @@ This implements an interrupt for the switch press, reads the analog port and set
 *Demonstration program:*
 ----
     #chip 18F14K22, 32
-    #config OSC = IRC, MCLRE_OFF
+    #config MCLRE_OFF
 
     'Works with the low count demo board
 
