@@ -51,7 +51,7 @@ Refer to your particular Device Datasheet to confirm the address table
 
 
       #chip 16F1455
-      #Config WRT_OFF, MCLRE_ON
+      #Config MCLRE_ON
 
       #include <GetUserID.h>
 

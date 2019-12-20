@@ -99,7 +99,7 @@ device to control this Slave mode device.
 
 
     #chip 16F88, 4
-    #config INTRC_IO,MCLR_Off
+    #config  MCLR_Off
 
     #define I2C_MODE    Slave     ;this is a slave device now
     #define I2C_CLOCK   portb.4   ;SCL on pin 10
