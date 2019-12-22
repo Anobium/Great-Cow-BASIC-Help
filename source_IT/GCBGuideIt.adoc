@@ -1,7 +1,6 @@
-== Documentazione su Great Cow BASIC. 
+== Documentazione su Great Cow BASIC.  
 
 
- 
  
 Il team di sviluppo di Great Cow BASIC al 2019.
  
@@ -16,12 +15,7 @@ Il team di sviluppo di Great Cow BASIC al 2019.
 
 ****
 .Great Cow BASIC Guide.
-Italian version of the guide in English. 
-
-Written by `_Evan Venn_.`
-
-
-
+Italian version of the guide in English, Written by `_Evan Venn_.`
 
 
 *Note:* errors, translation and typing reports are welcome via the Forum. `_Thanks for collaboration._`
@@ -34,6 +28,7 @@ Written by `_Evan Venn_.`
 .Guida di Great Cow BASIC.
 Versione Italiana, della guida in lingua Inglese, scritta da `_Evan Venn_`.
 
+Traduzione dell'ultimo pdf del 2019. Versione 0.98.06 2019-06-12 del compilatore Great Cow BASIC.
 
 *Nota:* sono gradite segnalazioni di errori, di traduzione e battitura, tramite Forum. `_Grazie per la collaborazione_`.
 
@@ -48,18 +43,18 @@ Per informazioni sull'installazione di Great Cow BASIC e diversi altri programmi
  
 Se sei nuovo alla programmazione, dovresti provare i programmi dimostrativi di Great Cow BASIC, spiega tutto in modo graduale e non presuppone conoscenze preliminari.
 
-Se ai programmato in un'altra lingua, puoi seguire passo passo, i programmi dimostrativi, e il modo migliore per imparare.
+Se ai programmato in un'altro linguaggio, puoi seguire passo passo, i programmi dimostrativi, e il modo migliore per imparare.
 Se c'è qualcos'altro su cui ai bisogno di aiuto, visita http://www.sougeforge.net/forum?group_id=169286
 
 
 === Usare Great Cow BASIC.
 
-Ai bisogno di compilare un programma con Great Cow BASIC, ma non sai da dove cominciare? Prova questi semplici Istruzioni:
+Ai bisogno di compilare un programma con Great Cow BASIC, ma non sai da dove cominciare? Prova queste semplici Istruzioni:
 
 * Completa l'installazione utilizzando i valori predefiniti: seleziona tutti i programmatori ma non quelli in modalità portatile.
 * Il programma di installazione avvierà automaticamente l'IDE.
 * Quando viene aperto un file di origine di Great Cow BASIC, consulta il menu "Strumenti GCB" (strumenti IDE / strumenti GCB
-): attraverso questo menu è possibile accedere ai comandi con un click. Oppure prova il tasto destro del mouse -  puoi accedere alle stesse opzioni.
+): attraverso questo menu è possibile accedere ai comandi con un click. Oppure prova il tasto destro del mouse, puoi accedere alle stesse opzioni.
 * I comandi IDE Tools (tasti funzione F5 - F8) avviano un'utility, Great Cow BASIC chiama il file
 batch per compilare codice sorgente e programmazione (della memoria flash) (1) del microcontrollore target. 
 Seleziona il programmatore appropriato in "Modifica preferenze programmatore" (strumenti IDE / strumenti GCB / Modifica le preferenze del programmatore o premendo Ctrl + Alt + E).
@@ -69,8 +64,8 @@ con quel programmatore per prima cosa quando fai clic su "Make HEX and FLASH" (F
 Preferenze del programmatore ". Dovresti conoscere la directory di lavoro e le opzioni della riga di comando
 ecc. per il programmatore. Vedere i suggerimenti della guida in basso facendo clic sui campi.
 * Per programmare il microcontrollore con memoria flash specifico del progetto è possibile modificare i programmatori correnti in "Modifica preferenze programmatore"
-per soddisfare le tue esigenze facendo clic su "Modifica ...". Usa il parametro "“Use If:" per scegliere il programmatore 
-preferito. Vedi i suggerimenti di aiuto. Il modello di chip è riconosciuto automaticamente dall'IDE per l'uso in "Use IF:" o in opzioni da riga di comando, ecc.
+per soddisfare le tue esigenze facendo clic su "Modifica ...". Usa il parametro " "Use If:" per scegliere il programmatore preferito. 
+Vedi i suggerimenti di aiuto. Il modello di chip è riconosciuto automaticamente dall'IDE per l'uso in "Use IF:" o in opzioni da riga di comando, ecc.
 * Alcuni programmatori usano un file .hex per programmare il microcontrollore com memoria flash. Selezionando "Esegui HEX" (F5), Great Cow BASIC compilerà il programma e creerà un file .hex nella stessa directory di Great Cow BASIC. 
 Questo metodo può anche essere usato per verificare gli errori nel programma Great Cow BASIC prima di programmare il microcontrollore.
 Il software per i programmatori incluso ed è:
@@ -93,9 +88,9 @@ Il software per i programmatori incluso ed è:
 [options="header,footer"]
 |======================= 
 ^|Riferimento  ^|Orario Stampa  
-|ASCIIDOCs presentato|20-01-2019
+^|ASCIIDOCs presentato|20-01-2019
 23:10:56 Ora standard GMT
-|Informazioni ToC master|12-01-2019
+^|Informazioni ToC master|12-01-2019
 23:00:06 Ora standard GMT
  
 |=======================  
@@ -122,7 +117,7 @@ Il software per i programmatori incluso ed è:
  
 * Aggiornata la sezione Randomize.
 
-* Aggiunto il supporto PCA9685 alla sezione. Libreria.
+* Aggiunto il supporto PCA9685 alla sezione Libreria.
 
 * Sezione Libreria aggiornata per includere l'elenco completo dei driver di libreria.
 
@@ -166,7 +161,7 @@ Il software per i programmatori incluso ed è:
 
 * Aggiornato i parametri per GLCDCLS per vedere i colori sui dispositivi GLCD.
 
-* Agiunti il metodo Scale.  
+* Agiunto il metodo Scale.  
 
 * Aggiunta la costante LCD_WIDTH.  
 
@@ -606,7 +601,7 @@ Aggiungendo questa definizione si tornera alle vecchie routine di disegno a line
 
 * Aiuto e revisione dei file.
 
-* Aggiunto xref:anchor-5[PunseIn].
+* Aggiunto xref:anchor-5[PunlseIn].
 
 * Aggiunto esempio di intestazione xref:anchor-6[IR_Remote].  
 
@@ -1081,7 +1076,7 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 * Le porte settate come uscite quando invece devono funzionare come ingressi e viceversa. 
 
-* Livelli analogici, applicati sui pin definiti come ingressi digitali. Possono causare un consumo di corrente nel buffer di ingresso, che è fuori dalle specifiche del dispositivo.
+* Livelli analogici, applicati sui pin definiti come ingressi digitali. Possono causare un consumo di corrente nel buffer di ingresso, è possibile danneggiare il dispositivo.
 
 * Corrente prelevata dalle uscite del microcontrollore, superiore a quella massima consentita (non tutti i pin erogano la stessa corrente).
 
@@ -1107,9 +1102,9 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 * Calcolo di eventuali temporizzazioni riferiti alla frequenza dell'oscillatore, senza tenere conto della divisione per 4. AVR Esclusi.
 
-* le variabili dichiarate sono insufficienti a contenere i valori che si intende elaborare.
+* Le variabili dichiarate non sono sufficienti a contenere i valori che si intende elaborare.
 
-* Il programma caricato nel microcontrollore é diverso da quello presupposto.
+* Il programma caricato nel microcontrollore non é quello presupposto.
 
 ****
 
@@ -1177,7 +1172,7 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 [red]#Expression:#	una variabile, costante, o combinazione che rappresenta un valore memorizzato o calcolato.
 
-[red]#Esadecimale:#	sistema numerico con base 16. I numeri da 0 a 9, le lettere da A a F (0123456789ABCDEF)
+[red]#Esadecimale:#	sistema numerico con base 16. Numeri da 0 a 9, lettere da A a F (0123456789ABCDEF)
 
 [red]#Firmware:# programma compilato e assemblato, adatto per essere caricato nella memoria programma, di un dispositivo programmabile.
 
@@ -1211,7 +1206,7 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 [red]#Linguaggio Assembly:#	il linguaggio di programmazione che corrisponde più da vicino con i codici in linguaggio macchina. Ogni produttore di microcontrollori ha una versione di assembly, ottimizzata per i propri prodotti.
 
-[red]#Livelli di tensione:#		in questa guida si fa riferimento a livelli TTL, quindi circa 0 Volt per il livello basso e circa 5 Volt o il Vcc del microcontrollore per il livello alto.
+[red]#Livelli di tensione:#		in questa guida si fa riferimento a livelli TTL, quindi circa 0 Volt per il livello basso e circa 5 Volt o il Vdd del microcontrollore per il livello alto.
 
 [red]#Livello 0:#	equivalente al livello basso.
 
@@ -1231,15 +1226,15 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 [red]#ms:#	millisecondi.
 
-[red]#Modifier:#	parola chiave che in qualche modo cambia l'interpretazione o comportamento associato con un comando o variabile che viene scritto prima o dopo il modificatore.	
-            			
+[red]#Modifier:# (Modificatore)	parola chiave che in qualche modo cambia l'interpretazione o comportamento associato con un comando o variabile che viene scritto prima o dopo il modificatore.
+
 [red]#Most-significant:#	in riferimento a numeri binari, il bit o gruppo di bit che includono il bit che indica la massima potenza di due. Il bit più a sinistra o gruppo di bit quando un numero è scritto in binario.
 
 [red]#Nibble:#	una quantità in binario a 4 bit, può spesso utilizzato per fare riferimento ai 4 bit più significativi o meno significativi di byte di 8 bit. Una singola cifra esadecimale rappresenta un un nibble in binario. Non è un tipo di variabile in Great Cow BASIC.
 
 [red]#ns:#	nanosecondi.
 
-[red]#NC:#	non connesso o, normalmente chiuso(dipende dal contesto).
+[red]#NC:#	non connesso o, normalmente chiuso (dipende dal contesto).
 
 [red]#Overflow:# 	l'evento che si verifica quando un valore in una variabile viene aumentato oltre la capacità del tipo di variabile, determinando un risultato errato.
 
@@ -1277,7 +1272,7 @@ Il compilatore produce solo il file errors.txt se c'e un errore. La creazione de
 
 [red]#SFR:# registri con funzione speciale. In grado di rappresentare o di elaborare numeri negativi e positivi.
 
-[red]#Stack:# memoria RAM indipendente disposta a Pila. In questa memoria viene salvata la posizione, in cui bisogna ritornare dopo aver processato un interrupt o una routine o una chiamata con Gosub. Lo stack è quantificato in livelli, il cui numero dipende dal tipo di chip.
+[red]#Stack:# memoria RAM indipendente disposta a Pila. In questa memoria viene salvata la posizione, in cui bisogna ritornare dopo aver processato un interrupt o una routine o una chiamata con Gosub. Lo stack è quantificato in livelli, il cui numero dipende dal tipo di MCU.
 
 [red]#String:# 	in grado di trattare numeri lettere e simboli, è anche un tipo di variabile in Great Cow BASIC.
  
@@ -1476,7 +1471,7 @@ L'assembly generato sarà  il seguente: questo presuppone che la modalità  de
         banksel OSCCON1
 		
         
-=== Librerie - Panoramica  
+=== Panoramica - Librerie    
 
 
 Infomazioni sulle librerie 
@@ -1906,7 +1901,7 @@ I seguenti aspetti del chip sono regolati dalla CONFIG Word:
 
 * Utilizzo dei pin: quali pin sono disponibili per la programmazione, il reset del chip o l'emissione di segnali PWM?
 
-Le esatte impostazioni di configurazione variano tra i chip. Per trovare un elenco di impostazioni valide, consultare la scheda tecnica per i microcontrollori che desidera utilizzare.
+Le esatte impostazioni di configurazione variano tra i chip. Per trovare un elenco di impostazioni valide, consultare la scheda tecnica per i microcontrollori che si desidera utilizzare.
 
 *Questo potrebbe creare confusione quindi, Great Cow BASIC imposterà automaticamente alcuni registri di configurazione, salvo diversa indicazione:*
 
@@ -1942,7 +1937,7 @@ Great Cow BASIC supporta anche questo formato sui chip della serie 10/12/16:
 
 Tuttavia, per la compatibilità verso l'alto con i chip 18F, è necessario utilizzare le impostazioni di configurazione stile =.
 
-È possibile avere diverse linee *#config* in un programma, ad esempio una nel programma principale e uno in ciascuno di diversi file *#include*. Tuttavia, è necessario prestare attenzione per garantire che le impostazioni in un file non siano in conflitto con quelli in un altro.
+In un programma, è possibile avere diverse linee *#config*, ad esempio una nel programma principale e uno in ciascuno di diversi file *#include*. Tuttavia, è necessario prestare attenzione per garantire che le impostazioni in un file non siano in conflitto con quelli in un altro.
 
 Per ulteriore aiuto, vedere xref:anchor-16[#config]
 
@@ -1982,7 +1977,7 @@ Utilizzare il comando DIM per definire un array.
 
         DIM nome_array (numero_elementi)
 
-Il numero di elementi può essere il numero o una costante,*non una variabile*.
+numero_elementi può essere un numero o una costante, **non una variabile**.
 
 Il valore per gli elementi numerici in un array deve essere un numero o una costante. Il compilatore si alloca RAM per gli array in fase di compilazione, e quindi non è possibile utilizzare una variabile perché durante la compilazione il valore di una variabile non può essere determinato.
 
@@ -1994,9 +1989,13 @@ Impostazione di un intero array in una sola volta.
 
 Quando si utilizza il metodo sopra l'elemento 0 dell'array, TestVar verrà impostato sul numero di elementi dell'elenco, che in questo caso è 9. Ogni elemento dell'array verrà quindi caricato con il valore corrispondente nell'elenco: quindi nell'esempio, TestVar(1) sarà impostato su 1, TestVar (2) su 2 e così via.
 
-*Solo l'elemento 0 è impostato sul numero di elementi nell'array quando si utilizza questo metodo di dati fino a 48 elementi. 
-Array Length l'elemento 0 non deve essere utilizzato per ottenere la lunghezza dell'array. 
-L'elemento 0 sarà solo coerente con la lunghezza dell'array, quando l'array è impostato come mostrato sopra.*
+[red]#Attenzione:#
+ 
+[red]#Solo l'elemento 0 è impostato sul numero di elementi nell'array quando si utilizza questo metodo di dati fino a 48 elementi. 
+L'elemento 0 di Array Length non deve essere utilizzato per ottenere la lunghezza dell'array. 
+L'elemento 0 sarà solo coerente con la lunghezza dell'array, quando l'array è impostato come mostrato sopra.#
+ 
+
 
 Il metodo corretto consiste nell'utilizzare una costante per impostare la dimensione dell'array e utilizzare la costante all'interno del codice per ottenere la lunghezza dell'array.
 
@@ -2004,7 +2003,7 @@ Il metodo corretto consiste nell'utilizzare una costante per impostare la dimens
     Dim TestVar( ArraySizeConstant )
     SerPrint ArraySizeConstant 'o, altro uso
 
-==== Utilizzo di array  
+==== Utilizzo delle variabili Array  
 
 Per utilizzare un'Array, viene specificato il suo nome, quindi l'indice. Le matrici possono essere utilizzate ovunque dove normali variabili possono essere usate.
 
@@ -2070,7 +2069,7 @@ anchor:anchor-28[]
 
 Informazioni sulle  Condizioni:
 
-In Great Cow BASIC (e nella maggior parte degli altri linguaggi di programmazione) una condizione, è un'affermazione che può essere o vera o falsa. Le condizioni sono usate quando il programma deve prendere una decisione. Una condizione è generalmente data come valore o variabile, un operatore relativo (come = o >), e un altro valore o variabile. Diverse condizioni possono essere combinate per formare una condizione attraverso l'us di operatori logici, come AND e OR.
+In Great Cow BASIC (e nella maggior parte degli altri linguaggi di programmazione) una condizione, è un'affermazione che può essere o vera o falsa. Le condizioni sono usate quando il programma deve prendere una decisione. Una condizione è generalmente data come valore o variabile, un operatore relativo (come = o >), e un altro valore o variabile. Diverse condizioni possono essere combinate per formare una condizione attraverso l'uso di operatori logici, come AND e OR.
 
 Great Cow BASIC supporta questi operatori relativi:
 
@@ -2084,7 +2083,7 @@ Great Cow BASIC supporta questi operatori relativi:
 ^|  < ^|Minore di  
 ^|  > ^|Maggiore di  
 ^|  <=  ^|Minore o ugale a  
-^|  >= ^|Maggior o uguale a   
+^|  >= ^|Maggiore o uguale a   
  
 |======================= 
 
@@ -2095,7 +2094,7 @@ Inoltre, questi operatori logici possono essere utilizzati per combinare più co
 [format="csv",cols="3"]
 |====== 
  Nome  ,Abbreviazione   , Condizione 
- AND  ,&  ,entrambe le condizioni sono vere
+AND  ,&  ,entrambe le condizioni sono vere
   
 OR,  |   ,almeno una condizione è vera
   
@@ -2111,7 +2110,7 @@ NOT,!, la condizione non è vera
 
 Informazioni sulle Constanti:
 
-Una costante dice al compilatore di trovare una determinata word e la sostituisce con un'altra word o numero. 
+Una costante dice al compilatore di trovare una determinata parola e la sostituisce con un'altra parola o numero. 
 
 Definire le direttive che creano costanti.
 
@@ -2154,7 +2153,9 @@ Per creare una definizione è questione di utilizzare la direttiva *#define*. Ec
 
 * Costante speciale di Great Cow BASIC Grafico 
 
-[red]#*Forever*# è una costante speciale. Per gli utenti di Great Cow BASIC Grafico, ciò viene considerato 'falso'. Per quelli che non usano Great Cow BASIC grafico, Great Cow considera questo come un valore non numerico che non ha valore. Puoi usare Forever in un DO-LOOP ma non in un ciclo REPEAT-END REPEAT, poiché nel caso successivo REPEAT non hanno alcun valore creerai una condizione di errore.
+[red]#*Forever*#
+
+É una costante speciale per gli utenti di Great Cow BASIC Grafico, ciò viene considerato 'falso'. Per quelli che non usano Great Cow BASIC grafico, Great Cow considera questo come un valore non numerico che non ha valore. Puoi usare Forever in un DO-LOOP ma non in un ciclo REPEAT-END REPEAT, poichè nel caso successivo REPEAT non ha alcun valore creerai una condizione di errore.
 
 
 * Precedenza delle costanti all'interno di Great Cow BASIC.
@@ -2177,11 +2178,10 @@ anchor:anchor-22[]
 ==== Funzioni 
 
 
-
 Informazioni sulle Funzioni:
-*Le funzioni sono un tipo speciale di subroutine che possono restituire un valore. Ciò significa che, quando il nome della funzione viene utilizzato al posto di una variabile, Great Cow BASIC chiamerà la funzione, otterrà un valore da essa e quindi inserirà il valore nella riga di codice al posto della variabile.*
 
 ****
+*Le funzioni sono un tipo speciale di subroutine che possono restituire un valore. Ciò significa che, quando il nome della funzione viene utilizzato al posto di una variabile, Great Cow BASIC chiamerà la funzione, otterrà un valore da essa e quindi inserirà il valore nella riga di codice al posto della variabile.*
 
 ****
 
@@ -2258,7 +2258,7 @@ anchor:anchor-21[]
 === Tabelle di ricerca (Lookup Tables)
 
 
-Una tabella di ricerca è un elenco di valori che sono memorizzati nella memoria programma del chip, che può essere accessibile tramite il comando ReadTable. 
+Una tabella di ricerca è un elenco di valori che sono memorizzati nella memoria programma del chip, e può essere accessibile tramite il comando ReadTable. 
 
 
 Il vantaggio delle tabelle di ricerca è che sono efficienti in termini di memoria, rispetto a un set equivalente di dichiarazioni IF.
@@ -2275,7 +2275,7 @@ Le tabelle dati sono definite come:
 
 * un file di origine dati esterno.
 
-* Definizione di tabelle: 
+*Definizione di tabelle* 
 
 Un singolo valore per ogni riga:
 
@@ -2493,18 +2493,17 @@ Per ulteriore aiuto, vedere xref:anchor-21[Lookup Tables]
 
 anchor:anchoor-199[]
 
-==== Scripts 
+===== Scripts 
 
 ****
 Uno script è una piccola sezione di codice eseguita da Great Cow BASIC, quando inizia la compilazione di un programma. Gli script includono l'esecuzione di calcoli che sono necessari per regolare il programma per diverse frequenze del chip.
 
-Gli script non vengono compilati o scaricati sul microcontroller - Great Cow BASIC li legge, li esegue, quindi li rimuove dal programma e quindi i risultati calcolati possono essere utilizzati come costanti nel programma utente.
+Gli script non vengono compilati o scaricati sul microcontroller Great Cow BASIC li legge, li esegue, quindi li rimuove dal programma e quindi i risultati calcolati possono essere utilizzati come costanti nel programma utente.
 
 All'interno di uno script, le costanti vengono trattate come variabili. Gli script possono leggere i valori delle costanti e impostarli perché possano contenere nuovi valori.
 
 ****
 
- 
 
 [red]#*Usare gli Scripts*# 
 
@@ -2517,7 +2516,7 @@ Gli script iniziano con *#script* e terminano con *#endscript*. All'interno, pos
     Warning	
     Int() 
 
-* If è simile al comando nel normale codice di Great Cow BASIC , eccetto che non ha una clausola di Else. È usato per confrontare i valori delle costanti dello script.
+* If è simile al comando nel normale codice di Great Cow BASIC , eccetto che non ha una clausola Else. È usato per confrontare i valori delle costanti dello script.
 
 * Il segno = è identico a quello dei programmi di Great CowBASIC . 
 
@@ -2529,9 +2528,10 @@ Gli script iniziano con *#script* e terminano con *#endscript*. All'interno, pos
 
 * Int() calcolerà il valore intero, del valore calcolato.*Usare Int() è fondamentale per impostare la costante sulla componente intera del calcolo.*
 
-Nota:
-
-Usa Warning per visualizzare valori e costanti durante la creazione e il debug degli script. 
+[red]#NOTA:#
+  
+Usa Warning per visualizzare valori e costanti durante la creazione e il debug degli script.
+ 
 
 Gli script hanno una sintassi limitata e un controllo degli errori limitato durante la compilazione. *Il compilatore può fermarsi se ci sono errori.*
 
@@ -2604,15 +2604,15 @@ Normalmente, è possibile che le subroutine chiamino altre subroutine. Esistono 
  
 [options="header,footer"]
 |=======================
-|Famiglia Microcontrollori  ^|Istruzioni bit |Numero di chiamate alle sub    
+^|Famiglia Microcontrollori  ^|Istruzioni bit ^|Numero di chiamate alle sub    
 |10F*, 12C5*, 12F5*, 16C5*, 16F5*  ^|12  ^|1  
 |12C*, 12F*, 16C*, 16F* esclusi i midrange enhanced  ^|14  ^| 7 
-|18F*, 18C*  ^|16  ^|31 
+^|18F*, 18C*  ^|16  ^|31 
 
 |======================= 
 
 
-Questi limiti sono dovuti alla quantità di memoria (stack) sul microcontrollore che salva la sua posizione prima di saltare a una nuova subroutine. Alcuni comandi di Great Cow BASIC sono subroutine, quindi devi sempre disporre di 2 o 3 possibilità di chiamate di subroutine in più nel tuo programma.
+Questi limiti sono dovuti al numero di livelli dello stack sul microcontrollore, che utilizza per salvare la sua posizione prima di saltare a una nuova subroutine. Alcuni comandi di Great Cow BASIC sono subroutine, quindi devi sempre disporre di 2 o 3 possibilità di chiamate di subroutine in più nel tuo programma.
 
 Sui chip 16F, la memoria programma è divisa in pagine. Ogni pagina contiene 2048 istruzioni. Se il programma salta dal codice su una pagina per codificarne un'altra, il compilatore deve selezionare la nuova pagina. 
 
@@ -2624,7 +2624,7 @@ Se si dispone di una sub principale di 1500 word e di altre quattro subroutine c
 
 Il problema però è che una volta che la routine principale prende 1500 word dalla pagina 1, nient'altro si adatterà dopo di essa. Tre delle subroutine di 600 word si adatterebbero alla pagina 2, ma ciò lascia una subroutine di 600 word che non si adatta alle 500 della pagina 1 o le 200 della pagina 2. 
 
-Se si desidera ridurre la possibilità che ciò accada, l'opzione migliore è mantenere le subroutine più piccole - spostare qualsiasi cosa fuori dalla routine principale in un'altra - questo risolverà i vincoli della pagina di memoria. 
+Se si desidera ridurre la possibilità che ciò accada, l'opzione migliore è mantenere le subroutine più piccole,  spostare qualsiasi cosa fuori dalla routine principale in un'altra, questo risolverà i vincoli della pagina di memoria. 
 
 I microcontroller Atmel AVR non hanno limiti fissi su quante subroutine possono essere chiamate contemporaneamente, ma se vengono chiamate troppe variabili allora alcune variabili potrebbero essere sovra scritte. 
 
@@ -2632,14 +2632,17 @@ Per verificare se ci sono troppe subroutine, calcolare il massimo che verrà chi
 
 Un'altra caratteristica delle subroutine è che sono in grado di accettare parametri. Si tratta di valori che vengono passati dal programma principale alla subroutine quando viene chiamato e quindi restituiti al termine della subroutine.
 
-[red]#*Attenzione:# Non usare Goto, per uscire da una routine chiamata con Gosub o una sub routine. In tal caso lo stack rimane con un livello abbandonato, questo crea un comportamento anomalo del programma, difficile da indviduare.* 
+[red]#Avvertimento:#
 
-
+*Non usare Goto, per uscire da una routine chiamata con Gosub, sub routine o Funzione. In tal caso lo stack rimane con un livello abbandonato, questo crea un comportamento anomalo del programma, difficile da indviduare.* 
+ 
+ 
+ 
 
 ==== Usare le subroutine    
 
 
-Chiamare una subroutine è molto semplice - tutto ciò che serve è il nome della sub, e quindi una lista di parametri. Questo codice chiamerà una subroutine denominata "Buzz" che non ha parametri:
+Chiamare una subroutine è molto semplice, tutto ciò che serve è il nome della sub, e quindi una lista di parametri. Questo codice chiamerà una subroutine denominata "Buzz" che non ha parametri:
 
     Buz
 
@@ -2732,7 +2735,7 @@ la sub produrrà un tono a 1000 Hz.
 Quando si utilizzano diversi parametri, è possibile rendere qualsiasi numero Optional. Se il / i parametri / facoltativi /o sono alla fine della chiamata, non è necessario specificare alcun valore. Se sono all'inizio o nel mezzo, è necessario inserire virgole per indicare a Great Cow BASIC dove sono i parametri opzionali.
 
 
-==== Overload  
+==== Sovraccarico (Overload)  
 
 
 È possibile avere 2 subroutine con lo stesso nome, ma diversi parametri. Questo è noto come Overload e Great Cow BASIC seleziona automaticamente la subroutine più appropriata per ogni chiamata.
@@ -2776,7 +2779,7 @@ Esistono diversi tipi di variabili e ogni tipo può memorizzare un diverso tipo 
 
 
  
-options="header,footer"]
+[options="header,footer"]
 |=======================
 |Tipo Variabile  |Informazioni che questa variabile può memorizzare  |Esempi di utilizzo per questo tipo di variabile  
 | Bit  |Valore 1 o 0  |Flags per tracciare se un pezzo di codice è stato eseguito o meno
@@ -2817,8 +2820,9 @@ Una caratteristica chiave delle variabili è che è possibile avere nel microcon
 
 Le stringhe sono definite come segue:
 
- 'Create buffer variables to store received messages
-
+  
+ ' Creare la variabile buffer per ricevere e momorizzare messaggi
+ 
     Dim Buffer As String
 
 
@@ -2912,7 +2916,7 @@ Spiegazione:
 
 * La direttiva *#asmraw* viene utilizzata per specificare l'assembly che verrà utilizzato da Great Cow BASIC. 
 
-* Tutto ciò che segue questa direttiva verrà inserito nel file sorgente ASM senza altre modifiche oltre agli spazi di ritaglio - nessuna sostituzione di costanti.
+* Tutto ciò che segue questa direttiva verrà inserito nel file sorgente ASM senza altre modifiche oltre agli spazi di ritaglio, nessuna sostituzione di costanti.
 
 * Assembly è un linguaggio di programmazione che puoi utilizzare per sviluppare il codice sorgente per la tua applicazione. 
 
@@ -2936,7 +2940,7 @@ Spiegazione:
 
 * La larghezza massima della colonna è di 255 caratteri. 
 
-* Lo spazio bianco o i due punti devono separare l'etichetta e il mnemonico, e lo spazio bianco deve separare il mnemonico e l'operando (i). 
+* Lo spazio bianco o i due punti devono separare l'etichetta e il mnemonico, e lo spazio bianco deve separare il mnemonico e l'operando/i. 
 
 * Gli operandi multipli devono essere separati da virgole.
 
@@ -3017,7 +3021,7 @@ Ad esempio, se si desidera eseguire un
 *Supporto di Great Cow BASIC per i microcontrollori:*
 
 Ogni microcontrollore ha un file .dat, contiene il setup dei registri. 
-Questo ile si trova in / GreatCowBasic / chipdata / quando installato.
+Questo file si trova in / GreatCowBasic / chipdata / quando installato.
 
 Un esempio è 12F1840.dat
 
@@ -3073,7 +3077,7 @@ Esempio:
 
 *Dal momento che "12" non è una frequenza osc automatica interna, il microcontrollore FOSC imposterà automaticamente a 8 MHz perché non è installato alcun cristallo esterno.* 
 
-*Tuttavia, i tempi di attesa saranno errati come saranno calcolato dal compilatore basato su un orologio da 12 Mhz.*
+*Tuttavia, i tempi di attesa saranno errati come saranno calcolato dal compilatore basato su un clock da 12 Mhz.*
 
 *Sezione ConfigOps*
 
@@ -3083,50 +3087,50 @@ Per il 12F1940 è come questo esempio:
 
     [ConfigOps]
 
-	OSC=LP,XT,HS,EXTRC,INTOSC,ECL,ECM,ECH
+	OSC=LP, XT, HS, EXTRC, INTOSC, ECL, ECM, ECH
 
-	WDTE=OFF,SWDTEN,NSLEEP,ON
+	WDTE=OFF, SWDTEN, NSLEEP, ON
 
-	PWRTE=ON,OFF
+	PWRTE=ON, OFF
 
-	MCLRE=OFF,ON
+	MCLRE=OFF, ON
 
-	CP=ON,OFF
+	CP=ON, OFF
 
-	CPD=ON,OFF
+	CPD=ON, OFF
 
-	BOREN=OFF,SBODEN,NSLEEP,ON
+	BOREN=OFF, SBODEN, NSLEEP, ON
 
-	CLKOUTEN=ON,OFF
+	CLKOUTEN=ON, OFF
 
-	IESO=OFF,ON
+	IESO=OFF, ON
 
-	FCMEN=OFF,ON
+	FCMEN=OFF, ON
 
-	WRT=ALL,HALF,BOOT,OFF
+	WRT=ALL, HALF, BOOT, OFF
 
-	PLLEN=OFF,ON
+	PLLEN=OFF, ON
 
-	STVREN=OFF,ON
+	STVREN=OFF, ON
 
-	BORV=HI,LO,19
+	BORV=HI, LO, 19
 
-	LVP=OFF,ON
+	LVP=OFF, ON
 
 * OSC specifica quali opzioni dell'oscillatore sono disponibili per il microcontrollore specifico. 
 * INTOSC è l'oscillatore interno. Tutti gli
 altri sono una forma di sorgente di clock esterna. 
 * PLLEN imposta il Phase Lock interno (PLL).
 
-* Loop on o off. Con questo chip la frequenza di clock predefinita è 8 Mhz. Il PLL moltiplica questa frequenza per 4.
+* PLLEN on o off. Con questo chip la frequenza di clock predefinita è 8 Mhz. Il PLL moltiplica questa frequenza per 4.
 
 * Quindi per ottenere 32 Mhz l'oscillatore interno di base sarà 8 Mhz va moltiplicato per 4. 
 
-* Per 16 MHz sarà moltiplicato per 2. GCB imposta automaticamente il PLL, quindi questa opzione generalmente non dovrebbe  essere utilizzata.
+* Per 16 MHz sarà moltiplicato per 2. GCB imposta automaticamente il PLLE = off, quindi questa opzione generalmente non dovrebbe  essere utilizzata.
 
 * SE PLLEN è impostato su ON, GCB potrebbe non essere in grado di impostare la corretta frequenza dell'oscillatore interno. 
 
-* Imposta PLL = ON solo se sai cosa stai facendo. 
+* Imposta PLLE = ON solo se sai cosa stai facendo. 
 
 * È sempre buona norma impostare la sorgente dell'oscillatore in *#config* all'inizio del codice. 
 Questo previene potenziali errori. 
@@ -3167,7 +3171,7 @@ Ci sono tre modalità EC sul PIC12F1840:
 
 * Il bit PLLEN si imposta automaticamente su OFF. 
 
-* Il PLL è abilitato a seconda del ChipMhz in
+* Il PLL è abilitato a seconda del ChipMhz con
 *#Chip xxxxxx, ChipMhz.*
 
 *Le impostazioni di base di Great Cow BASIC* 
@@ -3195,8 +3199,7 @@ precedentemente programmato con "LVP = OFF", allora deve essere cancellato o rip
 
 * Quando LVP = ON, il pin MCLR viene automaticamente impostato su MCLR ESTERNO. Ciò significa che il pin MCLRE NON può essere utilizzato per funzioni di I / O generiche. 
 
-* I valori di default POR (Power On Reset) nativi. Questo è lo stato dei bit di configurazione dopo l'accensione se il codice ASM  non ha voci di configurazione o su un chip di fabbrica vuoto. L'unico modo per accedervi in questo stato con il codice GCB è
-utilizzare *"#option NoConfig"* nel codice sorgente di Great Cow BASIC.
+* I valori di default POR (Power On Reset) nativi. Questo è lo stato dei bit di configurazione dopo l'accensione se il codice ASM  non ha voci di configurazione o su un chip di fabbrica vuoto. L'unico modo per accedervi in questo stato con il codice GCB è utilizzare *"#option NoConfig"* nel codice sorgente di Great Cow BASIC.
 
 
 anchor:anchor-16[]
@@ -3250,7 +3253,7 @@ La direttiva *#if* viene utilizzata per impedire la compilazione di una sezione 
 
 Esempio:
 
-'Questo programma pulserà su un numero regolabile di pin su PORTB  
+'Questo programma pulserà su un numero impostabile di pin su PORTB  
 'Il numero di pin è controllato dalla costante FlashPins
 
 	#chip 16F88, 8
@@ -3365,7 +3368,7 @@ Abilitazione del Codice come una costante che è definita a un determinato valor
 
 Questo programma usa una costante chiamata *PinsToFlash* che controlla quante luci sono pulsate. PORTB.0 è pulsato quando *PinsToFlash* è uguale a 1, 2 o 3, PORTB.1 viene pulsato quando PinsToFlash è uguale a 2 o 3, e PORTB.2 lampeggia quando *PinsToFlash* è uguale a  3.
 
-Example 3: 
+Esempio 3: 
 Abilitazione del codice se è definita una variabile di sistema.
 
 	#ifdef NoVar(ANSEL)
@@ -3389,7 +3392,7 @@ Abilitazione del codice se è definita una variabile di sistema.
 La precedente sezione di codice è stata copiata direttamente da ad.h.
 Viene utilizzato per disabilitare la funzione A / D dei pin, in modo che possano essere utilizzati come porte I / O digitali standard. 
 
-Se ANSEL non viene dichiarato come variabile di sistema per un determinato chip, il programma utilizza ADCON1 per controllare le modalità di porta. Se ANSEL è definito, i chip più recenti e le loro porte possono essere impostate su digitale deselezionando ANSEL.
+Se ANSEL non viene dichiarato come variabile di sistema per un determinato chip, il programma utilizza ADCON1 per controllare le modalità di porta. Se ANSEL è definito, nei chip più recenti le loro porte possono essere impostate su digitale deselezionando ANSEL.
 
 Vedere xref:anchor-196[#ifdef] e xref:anchor-18[#define] per ulteriori informazioni.
 
@@ -3427,22 +3430,24 @@ Sintassi:
 Spiegazione:
 
 *#include* dice Great Cow BASIC dir aprire un altro file, leggere tutte le subroutine e le costanti da esso, e quindi copiarle nel programma corrente. Ci sono due forme di inclusione:
-assoluto e relativo. 
+*Assoluto e Relativo*. 
 
-Assoluto è usato per fare riferimento ai file nella directory .. \ GreatCowBASIC \ include. Il nome del file è specificato tra simboli < >. Ad esempio, per includere il file srf04.h, la direttiva è:
+*Assoluto* è usato per fare riferimento ai file nella directory .. \ GreatCowBASIC \ include. Il nome del file è specificato tra simboli < >. Ad esempio, per includere il file srf04.h, la direttiva è:
 
 	#include <srf04.h>
 
-Relativo è usato per leggere i file nella stessa cartella del programma attualmente selezionato. 
+*Relativo* è usato per leggere i file nella stessa cartella del programma attualmente selezionato. 
 I nomi dei file sono dati racchiusi tra virgolette, ad esempio dove mycode.h è il nome del file che deve essere letto.
 
 	#include "mycode.h"
 
-*NOTA:*
-Non è essenziale che il nome del file include termini in .h - l'importante è che il nome dato a Great Cow BASIC sia il nome esatto del file da includere.
-
-Coloro che hanno familiarità con *#include in assembly o C* dovrebbero tenere a mente che *#include* in Great Cow BASIC funziona in modo diverso da *#include nella maggior parte degli altri linguaggi* - il codice non è
-inserito nella posizione di #include, *ma piuttosto alla fine del programma corrente.*
+[red]#NOTA:#
+ 
+Non è essenziale che il nome del file include termini in .h, l'importante è che il nome dato a Great Cow BASIC sia il nome esatto del file da includere.
+ 
+[red]#Avvertimento:#
+ 
+[red]#Coloro che hanno familiarità con *#include in assembly o C* dovrebbero tenere presente che: *#include* in Great Cow BASIC funziona in modo diverso da *#include nella maggior parte degli altri linguaggi*, il codice non è inserito nella posizione di #include, *ma alla fine del programma corrente.*#
 
 
 anchor:anchor-199[]
@@ -3461,7 +3466,7 @@ Sintassi:
 
 Spiegazione:
 
-Il blocco *#script* viene utilizzato per creare piccole sezioni di codice che Great Cow BASIC esegue durante la compilazione. Una spiegazione dettagliata e un esempio sono inclusi nell'articolo degli script.
+Il blocco *#script* viene utilizzato per creare piccole sezioni di codice che Great Cow BASIC esegue durante la compilazione. Una spiegazione dettagliata e un esempio sono inclusi nella descrizione degli script.
 
 Vedere anche xref:anchor-199[Scripts]
 
@@ -3571,7 +3576,7 @@ file .dat del microcontroller attualmente specificato. NoBit (bit_name)
  
 |======================= 
 
-La tabella seguente mostra due direttive speciali che supportano la mappatura per una variabile  bit a un'altra variabile  bit. Questo è utile quando si creano codici o librerie portatili per garantire Great Cow BASIC.
+La tabella seguente mostra due direttive speciali che supportano la mappatura per una variabile  bit a un'altra variabile bit. Questo è utile quando si creano codici o librerie portatili per istruire Great Cow BASIC.
 
 
 
@@ -3579,20 +3584,19 @@ La tabella seguente mostra due direttive speciali che supportano la mappatura pe
 |======================= 
 |Direttiva 	|Spiegazione	|Utilizzo
 |#samebit	|Il compilatore controlla ogni elemento dell'elenco
-vedere quali sono implementati sul
+per vedere quali sono implementati sul
 microcontrollore attuale.
-Se uno qualsiasi dei bit non esiste, il compilatore
-creerà una mappatura costante al nome
-del primo parametro nell'elenco di
-parametri che esistono. + Se nessuno dei
-i bit esistono senza la costante.|#samebit PLLEN, SPLLEN, SPLLMULT Set SPLLEN On
-|#samevar	|Il compilatore controlla ogni elemento dell'elenco
-vedere quali sono implementati sul
-microcontrollore attuale.
-Se nessuna delle variabili non esiste, il
-il compilatore creerà una mappatura costante con 
+Se nessuna delle variabili esiste, il
+il compilatore creerà una costante con 
 il nome del primo parametro nell'elenco di
-parametri che esistono. Se nessuna delle variabili esiste senza la costante, viene creata.	|#samevar CMCON, CMCON0, CMCONbob
+parametri che esistono. Se nessun parametro (bit) esiste , la costante non viene creata.|#samebit PLLEN, SPLLEN, SPLLMULT Set SPLLEN On
+|#samevar	|Il compilatore controlla ogni elemento dell'elenco
+per vedere quali sono implementati sul
+microcontrollore attuale.
+Se nessuna delle variabili esiste, il
+il compilatore creerà una costante con 
+il nome del primo parametro nell'elenco di
+parametri che esistono. Se nessun parametro (bit) esiste , la costante non viene creata.	|#samevar CMCON, CMCON0, CMCONbob
 #ifdef Var(CMCONbob)
 CMCONbob = 7
 #endif
@@ -3605,21 +3609,21 @@ movwf CMCON,ACCESS
 
 
 Questa tabella mostra le costanti di ChipFamily mappate
-sull'architettura del microcontrollore.
+nell'architettura del microcontrollore.
 
 
 [options="header,footer"]
 |======================= 
-|Valore Famibglia Chip	|Caratteristiche Microcontrollore
-|100	|AVR core versione V0E microcontrollori di classe
-|110	|AVR microcontrollori di classe versione V1E core
-|120	|AVR core versione V2E microcontrollori di classe
-|130	|AVR core versione V3E microcontrollori di classe ma essenzialmente solo mega32u6
-|12	|Dispositivi di base. Set di istruzioni a 12 bit
-|15	|Dispositivi core di fascia media. 14 Istruzione bit impostata con classe di istruzioni avanzate
-|15 plus familyVariant=1	|Dispositivi core di fascia media. 14 Bit set di istruzioni con set di istruzioni avanzate e
+^|Valore Famibglia Chip	|Caratteristiche Microcontrollore
+^|100	|AVR core versione V0E microcontrollori di classe
+^|110	|AVR microcontrollori di classe versione V1E core
+^|120	|AVR core versione V2E microcontrollori di classe
+^|130	|AVR core versione V3E microcontrollori di classe ma essenzialmente solo mega32u6
+^|12	|Dispositivi di base. Set di istruzioni a 12 bit
+^|15	|Dispositivi core di fascia media. 14 Istruzione bit impostata con classe di istruzioni avanzate
+^|15 plus familyVariant=1	|Dispositivi core di fascia media. 14 Bit set di istruzioni con set di istruzioni avanzate e
 con grande capacità di memoria (detti enhanced)
-|16	|Dispositivi core di fascia alta. Set di istruzioni a 16 bit, architettura di indirizzamento della memoria
+^|16	|Dispositivi core di fascia alta. Set di istruzioni a 16 bit, architettura di indirizzamento della memoria
 e un set di istruzioni esteso.
  
 |======================= 
@@ -3722,7 +3726,7 @@ Lo schema seguente mostra l'architettura di un bootloader.
 
 A sinistra l'operazione delle istruzioni senza un bootloader. 
 
-La figura destra mostra le istruzioni iniziali di goto il bootolader, quindi, quando il bootloader ha inizializzato l'esecuzione del codice di avvio.
+La figura destra mostra le istruzioni iniziali di goto bootolader, quindi, quando il bootloader ha inizializzato l'esecuzione del codice di avvio.
 
 
 image::images/tab18_bootLoader.png[]
@@ -3743,7 +3747,7 @@ Spiegazione:
 
 Gli interrupt possono verificarsi in qualsiasi momento e possono interrompere un altro comando mentre viene eseguito. Per garantire che il comando interrotto possa continuare correttamente dopo l'interruzione, è necessario salvare alcune variabili temporanee (nel
 context). Normalmente Great Cow BASIC lo farà automaticamente, ma in alcuni casi potrebbe essere necessario prevenirlo. Se si esegue il porting di un codice assembly esistente su Great Cow BASIC o si crea un bootloader utilizzando Great Cow BASIC che chiamerà un altro programma, è possibile utilizzare *NoContextSave* per impedire l'aggiunta automatica
-del codice di salvataggio del context. State molto attenti a usare questa opzione - è molto facile causare il danneggiamento casuale delle variabili. Se si crea il proprio codice di salvataggio del context,
+del codice di salvataggio del context. State molto attenti a usare questa opzione, è molto facile causare il danneggiamento casuale delle variabili. Se si crea il proprio codice di salvataggio del context,
 potrebbe essere necessario salvare diverse variabili. Questi sono:
 
 1. Per Pic Microchip microcontrollers 12F/16F: W, STATUS, PCLATH
@@ -5092,7 +5096,8 @@ Disponibile su tutti i microcontrollori.
 Spiegazione:
 
 
-*SetWith* è una versione estesa di SET, consente di impostare o cancellare un campo bit valutando il contenuto di Source. 
+*SetWith* è una versione estesa di SET, consente di impostare o cancellare un campo bit valutando il contenuto di Source.
+
 *SetWith deve sempre essere usato quando TargetBit è un Bit I / O e Source è una Funzione, al fine di evitare la possibilità di jitter sugli I / O.*
 
 Source può essere una variabile di tipo: Bit, Byte, Word o Long, una costante, un'espressione o una funzione.
@@ -5242,7 +5247,10 @@ Questo comando deve essere chiamato prima di scrivere su un blocco di memoria.
 È lento rispetto ad altri comandi di Great Cow BASIC. 
 Nota che, cancella la memoria in blocchi da 32 byte, consulta la scheda tecnica del microcontrollore PIC di Microchip per ulteriori informazioni.
 
-*Questo è un comando avanzato che dovrebbe essere usato solo da programmatori esperti.* 
+[red]#NOTA:#
+ 
+Questo è un comando avanzato che dovrebbe essere usato solo da programmatori esperti. 
+ 
 
 Bisogna fare attenzione con questo comando, in quanto può facilmente cancellare il programma in esecuzione sul microcontrollore.   
 
@@ -5253,7 +5261,7 @@ Per ulteriore aiuto, vedere xref:anchor-42[ProgramRead] e xref:anchor-43[Program
 
 anchor:anchor-42[]
 
-==== ProgramRead  
+==== ProgramRead 
 
 
 Sintassi:
@@ -5298,7 +5306,6 @@ Disponibilità del comando:
 
 Disponibile su tutti i microcontrollori Pic Microchip con capacità di scrittura automatica. 
 *Al momento non disponibile su Atmel AVR*.
-
 Spiegazione:
 
 ProgramWrite scrive informazioni nella memoria programma sui chip che supportano questa funzione. 
@@ -5343,7 +5350,9 @@ Si veda anche la nota applicativa AN1673 della Microchip, che utilizza il blocco
 
 La libreria *hefsaf.h* supporta le operazioni HEF per Great Cow BASIC.
 
-*Nota:* per impostazione predefinita, Great Cow BASIC utilizzerà la memoria HEF per il codice eseguibile normale, a meno che non venga indicato diversamente.
+[red]#Nota:#
+
+per impostazione predefinita, Great Cow BASIC utilizzerà la memoria HEF per il codice eseguibile normale, a meno che non venga indicato diversamente.
 
 Se si desidera memorizzare i dati qui, è necessario prenotare la memoria HEF utilizzando l'opzione del compilatore, come mostrato di seguito per riservare 128 word di memoria HEF:
 
@@ -5353,7 +5362,7 @@ La memoria HEF è un blocco di posizioni di memoria che si trovano nella parte s
 
 Ogni posizione di memoria può essere utilizzata per contenere un valore byte di 8 bit.
 
-Per spiegare ulteriormente, l'architettura di memoria Sevices Midrange Sevices di PIC 16F ha una larghezza di 14 bit.
+Per spiegare ulteriormente, l'architettura di memoria Sevices Midrange Sevices di PIC 16F ha una larghezza di 14 bit. 
 
 Pertanto, per una singola allocazione di memoria a 14 bit è possibile memorizzare un valore di byte a 8 bit e due posizioni di memoria a 14 bit per contenere un valore word a 16 bit. 
 Questo perché l'architettura della memoria consente solo l'uso degli 8 bit più bassi di ciascuna locazione di memoria flash a 14 bit per l'utilizzo HEF. 
@@ -5430,10 +5439,9 @@ Un utente può utilizzare queste costanti pubbliche.
 |=======================
 
 
-==== Avvertimento: 
 
-
-****
+[red]#Avvertimento:#
+ 
 Ogni volta che si aggiorna il file esadecimale del microcontrollore PIC Microchip  con il programmatore, è POSSIBILE cancellare i dati memorizzati nella memoria HEF. Se si vuole evitare che si debba accedere il microcontrollore Pic Microchip con un software che consente l'esclusione della memoria flash.
 
 Questo è il caso di Pic Microchip MPLAB IPE (Va a Advanced Mode/Enter password/Select Memory/Tick
@@ -5441,7 +5449,6 @@ Questo è il caso di Pic Microchip MPLAB IPE (Va a Advanced Mode/Enter password/
 
 Oppure, utilizzare semplicemente la suite di software PICkitPlus per conservare la memoria HEF durante la programmazione.
 
-****
 
 Vedere anche xref:anchor-45[HEFRead], xref:anchor-46[HEFReadWord], xref:anchor-47[HEFWrite], xref:anchor-48[HEFWriteWord], xref:anchor-49[HEFReadBlock], xref:anchor-50[HEFWriteBlock], xref:anchor-51[HEFEraseBlock]
 
@@ -5618,14 +5625,14 @@ Esempio 2:
 	 '... codice 
 	 '.. tipo di microcontrollore supportato
 	 '... codice per l'installazione seriale
-	 'Questo esempio occuperà tutti i 128 byte della memoria HEF con un valore uguale a la posizione HEFM
+	 'Questo esempio occuperà tutti i 128 byte della memoria HEF con un valore uguale alla posizione HEFM
 	 Dim Rel_Address, DataByte as Byte
 	 Dim NVM_Address as Long
 	 Dim DataWord, as Word
 	 Dim HEFaddress as Byte
 	 For Rel_Address = 0 to 127
 	 HEFWrite ( Rel_Address, Rel_Address )NextHEFM_DUMPEnd' Questa subroutine visualizza la parte alta della memoria flash su un 'terminale.
-	 ' Le parole sono in ordine inverso di byte relativo all'indirizzo.
+	 ' Le word sono in ordine inverso del byte relativo all'indirizzo.
 	 ' I dati HEF risiedono nel byte basso di ogni word di memoria 
 	 ' programma a 14 bit.
 	 ' Il byte alto non è HEF e dovrebbe sempre leggere "3F".
@@ -5821,15 +5828,15 @@ Il parametro block_number viene utilizzato per calcolare le posizioni di memoria
 
 * *buffer()* rappresenta un'Array o una stringa. Il buffer verrà utilizzato come origine dati che viene scritta nel blocco HEFM. 
 
-Il buffer viene gestito come un buffer di valori di byte. Nella maggior parte dei casi il buffer dovrebbe avere le stesse dimensioni di una riga / blocco di HEFM. 
+Il buffer viene gestito come un buffer di valori di tipo byte. Nella maggior parte dei casi il buffer dovrebbe avere le stesse dimensioni di una riga / blocco di HEFM. 
 
 Per la maggior parte dei microcontrollori PIC questo sarà 32 byte. Per PIC microcontrollori con 2KB o meno di Flash Program Memory saranno 16 byte. 
 
-È consigliabile dimensionare il buffer utilizzando la costante HEF_ROWSIZE_BYTES. Se la dimensione del buffer supera il HEF_ROWSIZE_BYTES specifico del dispositivo, i dati in eccesso non verranno gestiti e il buffer verrà troncato al limite HEF_ROWSIZE_BYTES. 
+È consigliabile dimensionare il buffer utilizzando la costante HEF_ROWSIZE_BYTES. Se la dimensione del buffer supera il HEF_ROWSIZE_BYTES specifico del dispositivo, i dati in eccesso non verranno gestiti e il buffer verrà troncato al limite di HEF_ROWSIZE_BYTES. 
 
 * *num_bytes* è un parametro facoltativo e può essere utilizzato per specificare il numero di byte da scrivere in HEFM, a partire dalla prima posizione nel blocco HEFM selezionato. 
 
-Normalmente questo parametro non è richiesto poiché il valore predefinito è impostato sulla costante da Great Cow BASIC HEF_ROWSIZE_BYTES.
+Normalmente questo parametro non è richiesto poiché il valore predefinito è impostato sulla costante da Great Cow BASIC in HEF_ROWSIZE_BYTES.
 
 Esempio 1:
 
@@ -5894,7 +5901,7 @@ Spiegazione:
 *HEFEraseBlock* viene utilizzato per cancellare tutte le posizioni dei dati all'interno del blocco HEFM. 
 Dati HEFM all'interno del blocco HEFM per cancellare il valore dello stato del dispositivo.
 
-Questo valore è 0xFF e leggerà 0x3FFF se viene visualizzata l'intera Word di memoria di programma a 14 bit.
+Questo valore è 0xFF e leggerà 0x3FFF se viene visualizzata l'intera Word nella memoria programma a 14 bit.
 
 Fare attenzione. Una volta cancellato il blocco HEFM, i dati HEFM sono persi per sempre e non possono essere ripristinati se non sono stati salvati in precedenza. 
 
@@ -5930,7 +5937,7 @@ Il dispositivo EERam 47xxx è un dispositivo di memoria organizzato come 512 x 8
 
 Il 47xxx fornisce cicli di lettura e scrittura infiniti alla SRAM, mentre le celle EEPROM offrono una memoria non volatile di elevata affidabilità dei dati con oltre un milione di cicli di memorizzazione in EEPROM e una conservazione dei dati > 200 anni.
 
-Con un condensatore esterno (~ 10uF), i dati SRAM vengono automaticamente trasferiti alla EEPROM in caso di perdita di alimentazione, offrendo i vantaggi della NVRAM eliminando al contempo la necessità di batterie di riserva. 
+Con un condensatore esterno (~ 10uF), i dati SRAM vengono automaticamente trasferiti alla EEPROM in caso di perdita di alimentazione, offrendo i vantaggi della NVRAM eliminando al contempo la necessità di batterie di backup. 
 
 È anche possibile eseguire il backup manuale dei dati utilizzando il pin dell'Hardware Store (HS) o il controllo software.
 
@@ -6912,7 +6919,7 @@ Spiegazione:
 Il comando *Goto* farà saltare il microcontroller alla linea specificata e continuerà a eseguire il programma da lì. 
 Il comando *Goto* è utile principalmente per uscire da loop: se ai bisogno di creare un loop infinito, usa invece il comando *Do*. 
 
-Fai attenzione a come usi Goto. Se usato troppo, può rendere i programmi molto difficili da leggere.
+*Fai attenzione a come usi Goto. Se usato troppo, può rendere i programmi molto difficili da leggere.*
 
 
 Per definire un'etichetta, inserisci il nome dell'etichetta su una riga, con solo due punti (:) dopo di essa.
@@ -7790,7 +7797,7 @@ All'interno della routine secondaria di gestione degli interrupt, assicurarsi ch
 cancelli il timer è impostato in modo appropriato.  |AVR  
 |[red]#Timer5Match3#  |Il timer 5 corrisponde all'uscita del timer 5 confronta il registro C (OCR5C)
 All'interno della routine secondaria di gestione degli interrupt, assicurarsi che il timer resetta e
-cancelli timer è impostato in modo appropriato.  |AVR  
+cancella timer è impostato in modo appropriato.  |AVR  
 |[red]#Timer5Overflow#  |Timer 5 è andato in  overflow  |Microchip & AVR  
 |[blue]#Timer6Match#  |Il timer 6 corrisponde al registro di comparazione dell'uscita del timer 6 (PR6)  |Microchip  
 |[blue]#Timer7Overflow#  |Timer 7 è andato overflow  |Microchip  
@@ -8072,15 +8079,15 @@ Perché funzioni, la tastiera deve essere connessa come segue:
  
 [options="header,footer"]
 |======================= 
-|Pin della porta del microcontrollore  |Connessione tastiera  
-|0  |Riga 1  
-|1  |Riga 2  
-|2  |Riga 3  
-|3  |Riga 4  
-|4  |Colonna 1  
-|5  |Colonna 2  
-|6  |Colonna 3  
-|7  |Colonna 4  
+|Pin della porta del microcontrollore|Connessione tastiera  
+^|0  ^|Riga 1  
+^|1  ^|Riga 2  
+^|2  ^|Riga 3  
+^|3  ^|Riga 4  
+^|4  ^|Colonna 1  
+^|5  ^|Colonna 2  
+^|6  ^|Colonna 3  
+^|7  ^|Colonna 4  
  
 |======================= 
 
@@ -8109,24 +8116,24 @@ Questa funzione restituirà un valore corrispondente al tasto premuto sulla tast
 
 [options="header,footer"]
 |=======================
-|Valore   |Nome costante  |Tasto premuto  
-|0  |  |0  
-|1  |  |1  
-|2  |  |2  
-|3  |  |3  
-|4  |  |4  
-|5  |  |5  
-|6  |  |6  
-|7  |  |7  
-|8  |  |8  
-|9  |  |9  
-|10  |Tasto_A  |A  
-|11  |Tasto_B  |B  
-|12  |Tasto_C  |C  
-|13  |Tasto_D  |D  
-|14  |Tasto_asterisco  |* asterisco  
-|15   |Tasto Hash   |# Hash
-|255  |Nessun tasto  |Nessun valore  
+^|Valore   ^|Nome costante  ^|Tasto premuto  
+^|0  |  ^|0  
+^|1  |  ^|1  
+^|2  |  ^|2  
+^|3  |  ^|3  
+^|4  |  ^|4  
+^|5  |  ^|5  
+^|6  |  ^|6  
+^|7  |  ^|7  
+^|8  |  ^|8  
+^|9  |  ^|9  
+^|10  ^|Tasto_A  ^|A  
+^|11  ^|Tasto_B  ^|B  
+^|12  ^|Tasto_C  ^|C  
+^|13  ^|Tasto_D  ^|D  
+^|14  ^|Tasto_asterisco  ^|* asterisco  
+^|15   ^|Tasto Hash   ^|# Hash
+^|255  ^|Nessun tasto  ^|Nessun valore  
  
 |======================= 
 
@@ -8592,7 +8599,7 @@ Esempio: connessione KS0108
  #define GLCD_DB7_I/O pin_ ‘Data pin 7 Connection
  #define GLCD_PROTECTOVERRUN 'previene il sovra pilotaggio dello
  schermo , Solo GLCD SSD1306
- #define GLCDDirection 'Invert GLCD Y axis ' \*solo* GLCD KS0108 
+ #define GLCDDirection 'Invert GLCD Y axis ' \ solo GLCD KS0108 
 
 I comandi comuni supportati su tutta la gamma di GLCD sono:
 
@@ -9327,7 +9334,7 @@ GLCDPrint ( 40, 0, "OLED" )
 GLCDPrint ( 0, 18, "Typ: ILI9341" )
 GLCDPrint ( 0, 34, "Size: 320 x 240" )
 GLCDfntDefaultSize = 1
-GLCDPrint(20, 56,"http://url goo.gl/gjrxkp"
+GLCDPrint(20, 56, "http://url goo.gl/gjrxkp"
 
 Esempio #3 
 Questo esempio mostra come disabilitare il Fontset dei
@@ -14134,70 +14141,70 @@ Si presuppone un LCD 2 x 16. Basato sulle opere di Thomas Henry e poi rivisto Ev
  ' Qui ci sono vari comandi LCD che possono essere utilizzati.
  ' Questi sono i comandi LCD per il controller HD44780
 
- #define clrHome = 1 'clear the display, home the cursor
- #define home = 2 'home the cursor only
- #define RtoL = 4 'print characters right to left
- #define insR = 5 'insert characters to right
- #define LtoR = 6 'print characters left to right
- #define insL = 7 'insert characters to left
- #define lcdOff = 8 'LCD screen off
- #define lcdOn = 12 'LCD screen on, no cursor
- #define curOff = 12 'an alias for the above
- #define block = 13 'LCD screen on, block cursor
- #define under = 14 'LCD screen on, underline cursor
- #define undblk = 15 'LCD screen on, blinking and underline cursor
- #define CLeft = 16 'cursor left
- #define CRight = 20 'cursor right
- #define panR = 24 'pan viewing window right
- #define panL = 28 'pan viewing window left
- #define bus4 = 32 '4-bit data bus mode
- #define bus8 = 48 '8-bit data bus mode
- #define mode1 = 32 'one-line mode (alias)
- #define mode2 = 40 'two-line mode
- #define line1 = 128 'go to start of line 1
- #define line2 = 192 'go to start of line 2
+ #define clrHome = 1 ;clear the display, home the cursor
+ #define home = 2 ;home the cursor only
+ #define RtoL = 4 ;print characters right to left
+ #define insR = 5 ;insert characters to right
+ #define LtoR = 6 ;print characters left to right
+ #define insL = 7 ;insert characters to left
+ #define lcdOff = 8 ;LCD screen off
+ #define lcdOn = 12 ;LCD screen on, no cursor
+ #define curOff = 12 ;an alias for the above
+ #define block = 13 ;LCD screen on, block cursor
+ #define under = 14 ;LCD screen on, underline cursor
+ #define undblk = 15 ;LCD screen on, blinking and underline cursor
+ #define CLeft = 16 ;cursor left
+ #define CRight = 20 ;cursor right
+ #define panR = 24 ;pan viewing window right
+ #define panL = 28 ;pan viewing window left
+ #define bus4 = 32 ;4-bit data bus mode
+ #define bus8 = 48 ;8-bit data bus mode
+ #define mode1 = 32 ;one-line mode (alias)
+ #define mode2 = 40 ;two-line mode
+ #define line1 = 128 ;go to start of line 1
+ #define line2 = 192 ;go to start of line 2
  '----- Variables
  dim char, msn, lsn, index, ii as byte
  '----- Main Program
- LoadEeprom 'load the EEprom with strings
+ LoadEeprom ;load the EEprom with strings
  do forever
- printMsg(0) 'print first message
- wait 3 S 'pause 3 seconds
- printMsg(2) 'print next message
- wait 3 S 'pause 3 seconds
- repeat 5 'blink it five times
- LCDCmd(lcdOff) 'display off
- wait 500 mS 'pause
- LCDCmd(lcdOn) 'display on
- wait 500 mS 'pause
+ printMsg(0) ;print first message
+ wait 3 S ;pause 3 seconds
+ printMsg(2) ;print next message
+ wait 3 S ;pause 3 seconds
+ repeat 5 ;blink it five times
+ LCDCmd(lcdOff) ;display off
+ wait 500 mS ;pause
+ LCDCmd(lcdOn) ;display on
+ wait 500 mS ;pause
  end repeat
- wait 1 S 'pause before next demo
+ wait 1 S ;pause before next demo
  'demonstrate panning
- printMsg(4) 'print next message
- wait 3 S 'pause 3 seconds
+ printMsg(4) ;print next message
+ wait 3 S ;pause 3 seconds
  repeat 16
- LCDCmd(panL) 'pan left a step at a time
- wait 300 mS 'slow down to avoid blur
+ LCDCmd(panL) ;pan left a step at a time
+ wait 300 mS ;slow down to avoid blur
  end repeat
  repeat 16
- LCDCmd(panR) 'then pan right
+ LCDCmd(panR) ;then pan right
  wait 300 mS
  end repeat
- wait 1 S 'pause before next demo
+ wait 1 S ;pause before next demo
  'demonstrate moving the cursor
- printMsg(6) 'print next message
- wait 3 S 'pause 3 seconds
- doHome 'home cursor
- LCDCmd(under) 'choose underline cursor
- for ii = 0 to 15 'move cursor across first line
+ printMsg(6) ;print next message
+ wait 3 S ;pause 3 seconds
+ doHome ;home cursor
+ LCDCmd(under) ;choose underline cursor
+ for ii = 0 to 15 ;move cursor across first line
  LCDCmd(line1+i)
  wait 200 mS
  next i
- for ii = 0 to 15 ';move cursor across second line
+ for ii = 0 to 15 ;move cursor across second line
  LCDCmd(line2+i)
  wait 200 mS
  next i
- for ii = 15 to 0 step -1 'move cursor back over second line
+ for ii = 15 to 0 step -1 ;move cursor back over second line
  LCDCmd(line2+i)
  wait 200 mS
  next i
@@ -14207,35 +14214,35 @@ Si presuppone un LCD 2 x 16. Basato sulle opere di Thomas Henry e poi rivisto Ev
  next i
  wait 3 S
  'demonstrate blinking block cursor
- printMsg(8) 'print next message
- doHome 'home the cursor
- LCDCmd(block) 'choose blinking block cursor
- wait 4 S 'pause 4 seconds
- LCDCmd(mode1) 'change to one long line mode
- doHome 'home the cursor again
- LCDCmd(curOff) 'and disable it
+ printMsg(8) ;print next message
+ doHome ;home the cursor
+ LCDCmd(block) ;choose blinking block cursor
+ wait 4 S ;pause 4 seconds
+ LCDCmd(mode1) ;change to one long line mode
+ doHome ;home the cursor again
+ LCDCmd(curOff) ;and disable it
  'demonstrate scrolling a lengthy one-line marquee
- for ii = 0xd0 to 0xff 'print next message - the remaining EEPROM
- EPread ii, char 'fetch directly from eeprom
+ for ii = 0xd0 to 0xff ;print next message - the remaining EEPROM
+ EPread ii, char ;fetch directly from eeprom
  print chr(char)
  next i
  wait 1 S
- doHome 'home cursor once more
- repeat 141 'scroll message twice
+ doHome ;home cursor once more
+ repeat 141 ;scroll message twice
  LCDCmd(panR)
  wait 250 mS
  end repeat
  wait 2 S
- LCDCmd(mode2) 'change back to two line mode
- doClr 'clear the screen
+ LCDCmd(mode2) ;change back to two line mode
+ doClr ;clear the screen
  'demonstrate all of the characters
- printMsg(11) 'print next message
- for ii = 33 to 127 'print first batch of ASCII characters
- LCDCmd(line1+12) 'overwrite each character displayed
- print chr(ii) 'this is the ASCII code
+ printMsg(11) ;print next message
+ for ii = 33 to 127 ;print first batch of ASCII characters
+ LCDCmd(line1+12) ;overwrite each character displayed
+ print chr(ii) ;this is the ASCII code
  wait 500 mS
  next i
- for ii = 161 to 255 'print next batch of ASCII characters
+ for ii = 161 to 255 ;print next batch of ASCII characters
  LCDCmd(line1+12)
  print chr(ii)
  wait 500 mS
@@ -14259,17 +14266,17 @@ Si presuppone un LCD 2 x 16. Basato sulle opere di Thomas Henry e poi rivisto Ev
  '----- Print a message to the LCD
  'The parameter 'row' points to the start of the string.
  sub printMsg(in row as byte, in Optional StringLength As Byte = 15)
- LCDCmd(line1) 'get set for first line
+ LCDCmd(line1) ;get set for first line
  for ii = 0 to StringLength
  index = row*16+ii
- EPread index, char 'fetch next character and
- print chr(char) 'transmit to the LCD
+ EPread index, char ;fetch next character and
+ print chr(char) ;transmit to the LCD
  next
- LCDCmd(line2) 'get set for second line
+ LCDCmd(line2) ;get set for second line
  for ii = 0 to StringLength
  index = (row+1)*16+ii
- EPread index, char 'fetch next character and
- print chr(char) 'transmit to the LCD
+ EPread index, char ;fetch next character and
+ print chr(char) ;transmit to the LCD
  next
  end sub
  sub loadEeprom
@@ -14319,141 +14326,141 @@ caratteristiche del LCD. Questo per il 16F877A, ma può essere facilmente adatta
  'Here are various LCD commands which can be used.
  'These are the LCD commands for the HD44780 controller
  #define clrHome = 1 ;clear the display, home the cursor
- #define home = 2 'home the cursor only
- #define RtoL = 4 'print characters right to left
- #define insR = 5 'insert characters to right
- #define LtoR = 6 'print characters left to right
- #define insL = 7 'insert characters to left
- #define lcdOff = 8 'LCD screen off
- #define lcdOn = 12 'LCD screen on, no cursor
- #define curOff = 12 'an alias for the above
- #define block = 13 'LCD screen on, block cursor
- #define under = 14 'LCD screen on, underline cursor
- #define undblk = 15 'LCD screen on, blinking and underline cursor
- #define CLeft = 16 'cursor left
- #define CRight = 20 'cursor right
- #define panR = 24 'pan viewing window right
- #define panL = 28 'pan viewing window left
- #define bus4 = 32 '4-bit data bus mode
- #define bus8 = 48 '8-bit data bus mode
- #define mode1 = 32 'one-line mode (alias)
- #define mode2 = 40 'two-line mode
- #define line1 = 128 'go to start of line 1
- #define line2 = 192 'go to start of line 2
+ #define home = 2 ;home the cursor only
+ #define RtoL = 4 ;print characters right to left
+ #define insR = 5 ;insert characters to right
+ #define LtoR = 6 ;print characters left to right
+ #define insL = 7 ;insert characters to left
+ #define lcdOff = 8 ;LCD screen off
+ #define lcdOn = 12 ;LCD screen on, no cursor
+ #define curOff = 12 ;an alias for the above
+ #define block = 13 ;LCD screen on, block cursor
+ #define under = 14 ;LCD screen on, underline cursor
+ #define undblk = 15 ;LCD screen on, blinking and underline cursor
+ #define CLeft = 16 ;cursor left
+ #define CRight = 20 ;cursor right
+ #define panR = 24 ;pan viewing window right
+ #define panL = 28 ;pan viewing window left
+ #define bus4 = 32 ;4-bit data bus mode
+ #define bus8 = 48 ;8-bit data bus mode
+ #define mode1 = 32 ;one-line mode (alias)
+ #define mode2 = 40 ;two-line mode
+ #define line1 = 128 ;go to start of line 1
+ #define line2 = 192 ;go to start of line 2
  '----- Variables
  dim char, msn, lsn, index, ii as byte
  '----- Main Program
- LoadEeprom 'load the EEprom with strings
+ LoadEeprom ;load the EEprom with strings
  do forever
- printMsg(0) 'print first message
- wait 3 S 'pause 3 seconds
- printMsg(2) 'print next message
- wait 3 S 'pause 3 seconds
- repeat 5 'blink it five times
- LCDCmd(lcdOff) 'display off
- wait 500 mS 'pause
- LCDCmd(lcdOn) 'display on
- wait 500 mS 'pause
+ printMsg(0) ;print first message
+ wait 3 S ;pause 3 seconds
+ printMsg(2) ;print next message
+ wait 3 S ;pause 3 seconds
+ repeat 5 ;blink it five times
+ LCDCmd(lcdOff) ;display off
+ wait 500 mS ;pause
+ LCDCmd(lcdOn) ;display on
+ wait 500 mS ;pause
  end repeat
- wait 1 S 'pause before next demo
+ wait 1 S ;pause before next demo
  'demonstrate panning
- printMsg(4) 'print next message
- wait 3 S 'pause 3 seconds
+ printMsg(4) ;print next message
+ wait 3 S ;pause 3 seconds
  repeat 16
- LCDCmd(panL) 'pan left a step at a time
- wait 300 mS 'slow down to avoid blur
+ LCDCmd(panL) ;pan left a step at a time
+ wait 300 mS ;slow down to avoid blur
  end repeat
  repeat 16
- LCDCmd(panR) 'then pan right
+ LCDCmd(panR) ;then pan right
  wait 300 mS
  end repeat
- wait 1 S 'pause before next demo
+ wait 1 S ;pause before next demo
  'demonstrate moving the cursor
- printMsg(6) 'print next message
- wait 3 S 'pause 3 seconds
- doHome 'home cursor
- LCDCmd(under) 'choose underline cursor
- for ii = 0 to 15 'move cursor across first line
+ printMsg(6) ;print next message
+ wait 3 S ;pause 3 seconds
+ doHome ;home cursor
+ LCDCmd(under) ;choose underline cursor
+ for ii = 0 to 15 ;move cursor across first line
  LCDCmd(line1+i)
  wait 200 mS
  next i
- for ii = 0 to 15 'move cursor across second line
+ for ii = 0 to 15 ;move cursor across second line
  LCDCmd(line2+i)
  wait 200 mS
  next i
- for ii = 15 to 0 step -1 'move cursor back over second line
+ for ii = 15 to 0 step -1 ;move cursor back over second line
  LCDCmd(line2+i)
  wait 200 mS
  next i
- for ii = 15 to 0 step -1 'move cursor back over first line
+ for ii = 15 to 0 step -1 ;move cursor back over first line
  LCDCmd(line1+i)
  wait 200 mS
  next i
  wait 3 S
  'demonstrate blinking block cursor
- printMsg(8) 'print next message
- doHome 'home the cursor
- LCDCmd(block) 'choose blinking block cursor
- wait 4 S 'pause 4 seconds
- LCDCmd(mode1) 'change to one long line mode
- doHome 'home the cursor again
- LCDCmd(curOff) 'and disable it
+ printMsg(8) ;print next message
+ doHome ;home the cursor
+ LCDCmd(block) ;choose blinking block cursor
+ wait 4 S ;pause 4 seconds
+ LCDCmd(mode1) ;change to one long line mode
+ doHome ;home the cursor again
+ LCDCmd(curOff) ;and disable it
  'demonstrate scrolling a lengthy one-line marquee
- for ii = 0xd0 to 0xff 'print next message - the remaining EEPROM
- EPread ii, char 'fetch directly from eeprom
+ for ii = 0xd0 to 0xff ;print next message - the remaining EEPROM
+ EPread ii, char ;fetch directly from eeprom
  print chr(char)
  next i
  wait 1 S
- doHome 'home cursor once more
- repeat 141 'scroll message twice
+ doHome ;home cursor once more
+ repeat 141 ;scroll message twice
  LCDCmd(panR)
  wait 250 mS
  end repeat
  wait 2 S
- LCDCmd(mode2) 'change back to two line mode
- doClr 'clear the screen
+ LCDCmd(mode2) ;change back to two line mode
+ doClr ;clear the screen
  'demonstrate all of the characters
- printMsg(11) 'print next message
- for ii = 33 to 127 'print first batch of ASCII characters
- LCDCmd(line1+12) 'overwrite each character displayed
- print chr(ii) 'this is the ASCII code
+ printMsg(11) ;print next message
+ for ii = 33 to 127 ;print first batch of ASCII characters
+ LCDCmd(line1+12) ;overwrite each character displayed
+ print chr(ii) ;this is the ASCII code
  wait 500 mS
  next i
- for ii = 161 to 255 'print next batch of ASCII characters
+ for ii = 161 to 255 ;print next batch of ASCII characters
  LCDCmd(line1+12)
  print chr(ii)
  wait 500 mS
  next i
  'say good-bye
  LCDCmd(line2)
- printMsg(11) 'print next message
- doHome 'home the cursor
+ printMsg(11) ;print next message
+ doHome ;home the cursor
  loop
  end
  '----- Clear the screen
  sub doClr
  LCDCmd(clrHome)
- wait 5 mS 'this command takes extra time
+ wait 5 mS ;this command takes extra time
  end sub
  '----- Home the cursor
  sub doHome
  LCDCmd(home)
- wait 5 mS 'and so does this one
+ wait 5 mS ;and so does this one
  end sub
  '----- Print a message to the LCD
  ' The parameter 'row' points to the start of the string.
  sub printMsg(in row as byte, in Optional StringLength As Byte = 15)
- LCDCmd(line1) 'get set for first line
+ LCDCmd(line1) ;get set for first line
  for ii = 0 to StringLength
  index = row*16+ii
- EPread index, char 'fetch next character and
- print chr(char) 'transmit to the LCD
+ EPread index, char ;fetch next character and
+ print chr(char) ;transmit to the LCD
  next
- LCDCmd(line2) 'get set for second line
+ LCDCmd(line2) ;get set for second line
  for ii = 0 to StringLength
  index = (row+1)*16+ii
- EPread index, char 'fetch next character and
- print chr(char) 'transmit to the LCD
+ EPread index, char ;fetch next character and
+ print chr(char) ;transmit to the LCD
  next
  end sub
  sub loadEeprom
@@ -18066,7 +18073,7 @@ Può essere usato solo come subroutine. Il tipo di variabile è una stringa e i 
     Dir PORTB.1 Out ' LED hooked up for testing
     Wait 100 Ms
     
-    ' ----- Variabili 
+    ' ----- Variabili
     
     'Tutte le variabili di byte sono definite al momento dell'uso.
     
@@ -18429,7 +18436,8 @@ Atmel AVR supporta USART 1,2,3 e 4.
 
 Spiegazione:
 
-Questo comando leggerà un byte dal modulo hardware RS232. 
+Questo comando leggerà un byte dal modulo hardware RS232.
+
 * Può essere usato solo come una funzione. 
 Restituirà il valore ricevuto.
 
@@ -19845,10 +19853,9 @@ Queste costanti controllano il metodo del I2C hrdware:
 Predefinito a 100 kbit/s  |Per Microchip SSP o moduli MSSP e microcontrollori AVR: #define HI2C_BAUD_RATE 400 o #define HI2C_BAUD_RATE 100. Where #define HI2C_BAUD_RATE 100 è il
 valore predefinito e quindi deve essere specificato. Per il modulo Microchip I2C: 'define HI2C_BAUD_RATE 125' è il valore predefinito. È possibile sovrascrivere questo valore se si imposta un
 fonte di clock alternativa. 
-|HI2CITSCL WaitPeriod  |Imposta il periodo TSCL su Zero poiché la condizione di arresto deve essere mantenuta per TSCL dopo l'arresto
-transizione. Predefinito a 70, alcune soluzioni possono
-usa questo set a 0. La sorgente e l'orologio dell'orologio
-il metodo deve essere rivisto prima di cambiare
+|HI2CITSCL WaitPeriod  |Imposta il periodo TSCL su Zero poiché la condizione di arresto deve essere mantenuta per TSCL dopo la transizione di arresto. Predefinito a 70, alcune soluzioni possono
+usare questo set a 0. Il metodo della sorgente del clock
+ deve essere rivisto prima di cambiare
 questa impostazione.  |#define HI2CITSCLWaitPeriod 70  
  
 |=======================  
@@ -19856,9 +19863,9 @@ questa impostazione.  |#define HI2CITSCLWaitPeriod 70
 
 *Impostazioni della porta:*
 
-Le impostazioni della direzione dei pin sono fondamentali per il funzionamento di questi metodi. Per i moduli Microchip SSP / MSSP, entrambe le porte devono essere impostate come input.
+Le impostazioni della direzione dei pin sono fondamentali per il funzionamento per questi metodi. Per i moduli Microchip SSP / MSSP, entrambe le porte devono essere impostate come input.
 
-Per il modulo Microchip I2C le porte bith devono essere impostate come output. E, configurare i pin come open-drain e impostare i livelli I2C - vedere l'esempio sotto per l'uso.
+Per il modulo Microchip I2C i bit delle porte devono essere impostate come output. E, configurare i pin come open-drain e impostare i livelli I2C - vedere l'esempio sotto.
 
 In tutti i casi i dati e la linea di clock * deve * essere mantenuta a livello alto, con un resistore appropriato (tipicamente 4.k a 5.0 v per trasmissioni 100khz).
 
@@ -22635,7 +22642,7 @@ anchor:anchor-305[]
 [red]#*InitTimer8*# 
 
 
-Sintassi: (Pic Microchip)**
+Sintassi: (Pic Microchip) 
 
 	InitTimer8 prescaler, postscaler
 
@@ -25808,7 +25815,7 @@ Syntax:
 
 Spiegazione:
 
-Questa funzione solleva una base per un esponente, cioè, potenza (base, esponente). I poteri di calcolo diventeranno grandi, in termini di numeri lunghi, è necessario assicurarsi che i numeri di gestione del
+Questa funzione eleva una base per un esponente, cioè, una potenza (base, esponente). I risultati di calcolo diventeranno grandi, in termini di numeri lunghi, è necessario assicurarsi che i numeri di gestione del
 programma rimangano nelle dimensioni delle variabili definite.
 
 La base e l'esponente sono numeri di dimensioni Byte in questo metodo.
@@ -25999,7 +26006,7 @@ anchor:anchor-190[]
 === TRIGONOMETRIA
 
 
-[red]#SENO, COSENO e TANGENTE*#
+[red]#SENO, COSENO e TANGENTE#
 
 
 Sintassi:
@@ -26176,9 +26183,9 @@ Introduzione:
 
 Peripheral Pin Select (PPS) consente di modificare i pin I / O periferici digitali per supportare la mappatura di pin esterni su pin diversi.
 
-Nei vecchi dispositivi Microchip a 8 bit, una periferica era cablata su un pin specifico (esempio:
+Nei vecchi dispositivi Microchip a 8 bit, una periferica era cablata su un pin specifico. 
 
-    uscita PWM1 sul pin RC2).
+esempio:  (uscita PWM1 sul pin RC2).
 
 PPS consente di scegliere tra un numero di pin di uscita e di input per la connessione alla periferica digitale. Questo può essere estremamente utile per i circuiti di routing. Ci sono casi in cui un cambio di
 posizione I / O può rendere più semplice il routing di un circuito. 
@@ -28306,4 +28313,5 @@ I microchip in passato hanno usato le Word, ma poi hanno iniziato a utilizzare i
 Un esempio: se un dispositivo ha 8192 word, che è 8192 * 14 = 114688 bit o 14336 byte. È una strana misura perché dividendo 14336 per 14/8 per vedere quante istruzioni puoi usare in matematica extra per lavorare all'interno del compilatore.  
 Le grandi misure della memoria PROGram di Great COW BASIC nel
 compilatore sono espresse in word.
-  
+
+   
