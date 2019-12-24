@@ -72,6 +72,9 @@ include::subroutines.adoc[]
 
 include::variables.adoc[]
 
+include::numbervariabletypes.adoc[]
+
+
 // include::referencing.adoc[]
 
 include::converters.adoc[]

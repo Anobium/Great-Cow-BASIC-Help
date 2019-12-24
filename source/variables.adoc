@@ -3,7 +3,7 @@
 // Added   091116 added String examplkes
 === Variables
 
-*About Variables*
+*About Variables and Variable Types*
 
 A variable is an area of memory on the microcontroller that can be used
 to store a number or a series of letters. This is useful for many
