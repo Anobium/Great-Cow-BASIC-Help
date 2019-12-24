@@ -44,7 +44,7 @@ All of the number types can be considered to be Integer Values of varying magnit
 An **integer** is a Mathematical Construct that represents a whole number (not a fractional number) that can be Positive, Negative, or Zero. Of itself the Integer is not a computer construct but is a root principal of Mathematics.
 
 
-In real world applications we also need to be able represent Negative Numbers in our variables and that is where the Great Cow BASIC **Integer Variable Type** enters the discussion. An **Integer Variable** is exactly the same as a **Word Variable** as they are both 16 bits and can store a positive whole number. &#160;&#160; The difference is not in the Physical storage but rather how the Compiler Interprets the bits that it contains.
+In real world applications there is a need to be able represent Negative Numbers in our variables and that is where the Great Cow BASIC **Integer Variable Type** enters the discussion. An **Integer Variable** is exactly the same as a **Word Variable** as they are both 16 bits and can store a positive whole number. &#160;&#160; The difference is not in the Physical storage but rather how the Compiler Interprets the bits that it contains.
 
 
 The compiler will treat a** Word Variable Type** as a Variable that can store the values 0 < 65535 but it will see the **Integer Variable Type** as a Variable that can store values of -32768 < 0 <32767.
@@ -79,7 +79,7 @@ All 4 of the above are Integers in that they are representations of a non fracti
     32 Bits - 0 to 43294967295
 ----
 
-But they can only represent positive numbers. In Mathematics we need an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is a Positive Whole Number.
+But they can only represent positive numbers. In Mathematics there is a need for an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is a Positive Whole Number.
 
 
 To add to the confusion (and hindering code portability) different implementations of C and C++ as well as versions of BASIC, PASCAL, FORTRAN and FORTH all use different sizes of Integer as the default integer size.
@@ -125,7 +125,7 @@ To correlate the Great Cow BASIC variable Type when porting code between Arduino
 As dicussed above, the mathematical definition of an integer also requires that it be able to represent a negative number but the computer has no such concept.
 
 
-In mathematics, a negative number is a positive number prefixed by a ‘-’ (minus) symbol.  So in order to distinguish a negative from a positive number in binary we use a sign Bit. &#160;&#160;If the Most significant bit is Set (1) the value is negative if it is Clear (zero) the number is positive.
+In mathematics, a negative number is a positive number prefixed by a ‘-’ (minus) symbol.  So in order to distinguish a negative from a positive number in binary use a sign Bit. &#160;&#160;If the Most significant bit is Set (1) the value is negative if it is Clear (zero) the number is positive.
 
 
 But this simple solution would have repercussions:
