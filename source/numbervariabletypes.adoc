@@ -69,7 +69,9 @@ As you can see that eliminates the conflict between Word Size and the Size of a 
 
 
 A lot of  confusion comes from the Type definitions of the chosen language, in this case Great Cow BASIC  these are:
-----    Byte (8 Bit)
+
+----
+    Byte (8 Bit)
     Integer / Word (16 Bit)
     Long (32 Bit)
 ----
