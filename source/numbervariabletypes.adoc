@@ -18,14 +18,13 @@ Great Cow BASIC (with respect to numbers) has Bit, Byte, Word and Long Variable 
 
 **Bit** is typically used as a flag or a Port.Pin. A flag has two states they can be any of the following and many other complementary states depending on how your application interprets and handles the data.
 
----
+----
     ON or OFF
     TRUE or FALSE
     HIGH or LOW
     1 or 0
     SET or RESET
 ----
-
 
 *Byte* is the most common variable size in 8 Bit devices and could represent a Number, an ASCII Character, a Port, two Nibbles ( in the context of Think Hex or BCD), an Internal Register or any user defined collection of to eight Bits such as a group of flags.
 
