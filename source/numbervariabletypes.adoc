@@ -18,7 +18,8 @@ Great Cow BASIC (with respect to numbers) has Bit, Byte, Word and Long Variable 
 
 **Bit** is typically used as a flag or a Port.Pin. A flag has two states they can be any of the following and many other complementary states depending on how your application interprets and handles the data.
 
-c    ON or OFF
+---
+    ON or OFF
     TRUE or FALSE
     HIGH or LOW
     1 or 0
