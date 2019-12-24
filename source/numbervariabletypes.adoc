@@ -207,12 +207,14 @@ It is obviously important from the above that the Program or methods need to kno
 *Summary*
 
 
-The Negative Number is a Mathematical Construct that can be represented in Microcontrolers as a two’s complement number of arbitrary length.&#160;&#160; The Microcontroller itself has no concept of Negative numbers and the ALU is not able to perform a subtraction. &#160;&#160;It subtracts by adding the Two’s Compliment of the value it wants to subtract.
+The Negative Number is a Mathematical Construct that can be represented in Microcontrolers as a two’s complement number of arbitrary length.&#160;&#160; The microcontroller itself has no concept of Negative numbers and the ALU is not able to perform a subtraction. &#160;&#160;It subtracts by adding the Two’s Compliment of the value it wants to subtract.
 
 
 A Two's Complement number can be any bit size, in the case of Great Cow BASIC there is only one Signed Variable Type Defined, that is the Integer Type which is used to hold an Int16_t value. &#160;&#160;That is a Signed 16 bit Integer with a value range of -32768 < 0 <32767.
 
 
-There is nothing wrong with treating any variable Type as signed and as seen you can even take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;But the Maths methods of Great Cow BASIC are intended to work with Signed 16 bit integers and may fail if you try to use a signed 8 Bit or Signed 32 bit values.
+There is nothing wrong with treating any variable Type as signed and as seen you can even take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;
+
+//But the Maths methods of Great Cow BASIC are intended to work with Signed 16 bit integers and may fail if you try to use a signed 8 Bit or Signed 32 bit values.
 
 
