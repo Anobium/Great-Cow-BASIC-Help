@@ -1,0 +1,213 @@
+﻿**Positives and Negatives Number Types**
+
+
+This section discusses the different types and sizes of data variables used by Great Cow BASIC, how they are interpreted or handled by Great Cow BASIC methods and to provide insights of which type of variable to use and when.
+
+**Why does Great Cow BASC support different variable Types?**
+
+
+Some background:&#160;&#160;In computer science numbers are represented in Binary and numbers have specific sizes set by the memory or register size and the ALU (Arithmetic Logic Unit) of the device that is acting on the data.  See https://en.wikipedia.org/wiki/Arithmetic_logic_unit but the context of and ALU applies to the microcontrollers that Great Cow BASIC supports.
+
+Common sizes are **Bit** (1 Bit), **Nibble** (4 Bit), **Byte** (8 Bit), **Word** (16 Bit), **Long** (32 Bit) and **Long Long** (64 Bit).
+
+
+Great Cow BASIC (with respect to numbers) has Bit, Byte, Word and Long Variable Types, all of which are described below, but Great Cow BASIC does not support Long Long (64 Bit).
+
+
+**Bit** is typically used as a flag or a Port.Pin. A flag has two states they can be any of the following and many other complementary states depending on how your application interprets and handles the data.
+
+c    ON or OFF
+    TRUE or FALSE
+    HIGH or LOW
+    1 or 0
+    SET or RESET
+----
+
+**Byte** is the most common variable size in 8 Bit devices and could represent a Number, an ASCII Character, a Port, two Nibbles ( in the context of Think Hex or BCD), an Internal Register or any user defined collection of to eight Bits such as a group of flags.
+
+
+**Word** is normally used for its Numeric value. 16 Bits will allow it to store Numbers from Zero to 65535 which is large enough to store the product of any two 8 bit Bytes without overflowing. &#160;&#160;However, it is not confined to being used as a numeric value.&#160;&#160; A Word may be used in any manner that your application needs depending on how it interprets the 16 Bits of data. Examples may be a memory address or data pointer.
+
+
+* **Note:** the **Word variable type** in Great Cow BASIC, or any other language, has nothing to do with the **Word Size** of the **ALU (Arithmetic and Logic Unit).** The Word size of a device (as opposed to the Word Type above) is a representation of the number of Bits that it can manipulate simultaneously in the ALU. &#160;&#160;The Word Size is generally 4 Bits in older Microprocessors (intel 4004) to 64 Bits in modern computer and 4G devices.&#160;&#160; The ALU size of the PIC and AVR Microcontrolers supported by Great Cow BASIC are 8 Bits and so they are considered to have an 8 Bit Word.*
+
+
+**Long** is for situations where Values exceeding 65535 have to be handled and has a range of zero to 4.29 Billion.&#160;&#160; The number type can be used in 8 Bit devices but uses more memory than the other variables but it is invaluable on the rare occasions that it is needed.&#160;&#160; The Millis function uses the Long Data Type to handle long time periods
+
+
+All of the number types can be considered to be Integer Values of varying magnitude as they can hold non Fractional Positive Whole Numbers, but try not to confuse **Integer Values** with the **Integer Variable Type**, they are complementary but separate concepts show below.
+
+
+**In the real world.............**
+
+
+An **integer** is a Mathematical Construct that represents a whole number (not a fractional number) that can be Positive, Negative, or Zero. Of itself the Integer is not a computer construct but is a root principal of Mathematics.
+
+
+In real world applications we also need to be able represent Negative Numbers in our variables and that is where the Great Cow BASIC **Integer Variable Type** enters the discussion. An **Integer Variable** is exactly the same as a **Word Variable** as they are both 16 bits and can store a positive whole number. &#160;&#160; The difference is not in the Physical storage but rather how the Compiler Interprets the bits that it contains.
+
+
+The compiler will treat a** Word Variable Type** as a Variable that can store the values 0 < 65535 but it will see the **Integer Variable Type** as a Variable that can store values of -32768 < 0 <32767.
+
+
+In Computer Science the Great Cow BASIC Word Variable type would be called an Unsigned Integer and the otherwise identical Integer Data type would be a Signed Integer.
+
+
+The modern way to refer to such types is:
+
+
+Uint16_t for an Unsigned 16 bit Integer Value and Int16_t for a Signed 16 Bit Integer Value.
+
+
+As you can see that eliminates the conflict between Word Size and the Size of a Word Variable as well as the Definition of an Integer Variable as opposed to a Word Variable both of which are 16 bit values.
+
+
+**One Size does not fit all**
+
+
+A lot of  confusion comes from the Type definitions of the chosen language, in this case Great Cow BASIC  these are:
+----    Byte (8 Bit)
+    Integer / Word (16 Bit)
+    Long (32 Bit)
+----
+
+All 4 of the above are Integers in that they are representations of a non fractional number:
+
+----
+    8  Bits - 0 to 255
+    16 Bits - 0 to 65535
+    32 Bits - 0 to 43294967295
+----
+
+But they can only represent positive numbers. In Mathematics we need an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is a Positive Whole Number.
+
+
+To add to the confusion (and hindering code portability) different implementations of C and C++ as well as versions of BASIC, PASCAL, FORTRAN and FORTH all use different sizes of Integer as the default integer size.
+
+
+They also differ in the declaration of signed vs unsigned Integers.
+
+
+In order to avoid confusion modern languages now encourage the use of  more specific types such as:
+----
+    Int8_t
+    Int16_t
+    Int32_t
+    Int64_t
+----
+
+And the Unsigned Equivalents
+
+----
+  Uint8_t
+  Uint16_t
+  Uint32_t
+  Uint64_t
+----
+
+Such descriptive types help when porting and debugging code.
+
+
+To correlate the Great Cow BASIC variable Type when porting code between Arduino and Great Cow BASIC here is a list of Equivalents that you may use:
+----
+  #define Uint8_t  Byte
+  #define Uint16_t Word
+  #define Uint32_t Long
+
+
+  #define Int16_t  Integer
+----
+
+
+**Negatives**
+
+
+As dicussed above, the mathematical definition of an integer also requires that it be able to represent a negative number but the computer has no such concept.
+
+
+In mathematics, a negative number is a positive number prefixed by a ‘-’ (minus) symbol.  So in order to distinguish a negative from a positive number in binary we use a sign Bit. &#160;&#160;If the Most significant bit is Set (1) the value is negative if it is Clear (zero) the number is positive.
+
+
+But this simple solution would have repercussions:
+
+
+1. The loss of a bit to represent the sign halves the magnitude of the variable.
+2. It allows the possibility of a Negative Zero
+3. Most ALU’s can only Add and Shift so they have no concept of negative.
+
+
+There is, however, a simple trick in Binary mathematics called the Two's Complement that overcomes all but the magnitude issue as the Most Significant Bit is still a sign bit.
+
+
+**Two's Complement**
+
+
+To take the Two's Complement of a number it is inverted then incremented:
+
+
+MyVar = NOT MyVar + 1
+
+
+The increment has two effects, it avoids the possible creation of a negative zero as a value of 1000000 would be seen as -128 and it allows subtraction to be achieved through addition.
+
+
+In the above if MyVar contained a value of 1 in an 8 Bit ALU that would be:
+----
+    00000001
+----
+The NOT will make it
+
+----
+    11111110
+----
+
+Note that the Most significant Bit is now 1 so the value is negative.
+
+
+The increment will result in a value of:
+----
+    11111111
+----
+So Minus one using an 8 Bit ALU in Two's Complement notation is 11111111
+
+
+Let's test it by adding -1 to plus 3
+----
+    11111111    -1
+    00000011 +   3
+    ==============
+    00000010     2
+----
+
+We have successfully subtracted 1 from 3 by adding Minus 1 to 3 and obtaining a result of 2.
+
+Notice that while a Byte is normally used to represent 0 < 255 by making the MSB (Most Significant Bit) into a sign bit the maximum value is now 127.&#160;&#160; A signed 8 Bit integer can represent numbers in the range -128 < 0 < 127. &#160;&#160;That is still 256 values including Zero but they can now be Negative or Positive numbers.
+
+
+The benefit of the two's complement method is that it works for any size of variable:
+----
+    MyByte = NOT MyByte +1
+    MyWord = NOT MyWord +1
+    MyLong = NOT MyLong +1
+----
+All of the above will result in a Negated version of the original contents.
+
+
+But not all, in fact relatively few, methods of a microcontroller require negative values so in situations where negative values are not required the loss of half of the magnitude of a Byte or Word can be significant. That is why it is necessary to be able to specify if a value is Signed or Unsigned, that is if the MSB is the sign bit or part of the value.
+
+
+It is obviously important from the above that the Program or methods need to know what sort of data to expect as a value of 0xFF could be considered to be both 255 and -1 depending on the interpretation of the variable. &#160;&#160; That is why it is important to have Signed and Unsigned Data Types so that the compiler can decide how to handle or interpret the contents. &#160;&#160;As show above in Great Cow BASIC those types are referred to as Integer and Word respectively.
+
+
+**Summary**
+
+
+The Negative Number is a Mathematical Construct that can be represented in Microcontrolers as a two’s complement number of arbitrary length.&#160;&#160; The Microcontroller itself has no concept of Negative numbers and the ALU is not able to perform a subtraction. &#160;&#160;It subtracts by adding the Two’s Compliment of the value it wants to subtract.
+
+
+A Two's Complement number can be any bit size, in the case of Great Cow BASIC there is only one Signed Variable Type Defined, that is the Integer Type which is used to hold an Int16_t value. &#160;&#160;That is a Signed 16 bit Integer with a value range of -32768 < 0 <32767.
+
+
+There is nothing wrong with treating any variable Type as signed and as seen you can even take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;But the Maths methods of Great Cow BASIC are intended to work with Signed 16 bit integers and may fail if you try to use a signed 8 Bit or Signed 32 bit values.
+
+
