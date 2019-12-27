@@ -45,6 +45,8 @@ include::inputsoutputs.adoc[]
 
 include::configuration.adoc[]
 
+include::numbervariabletypes.adoc[]
+
 ifdef::backend-pdf[<<<]
 == Syntax
 
@@ -72,7 +74,7 @@ include::subroutines.adoc[]
 
 include::variables.adoc[]
 
-include::numbervariabletypes.adoc[]
+
 
 
 // include::referencing.adoc[]

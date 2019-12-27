@@ -1,4 +1,4 @@
-﻿=== Positives and Negatives Number Types
+﻿=== Number Types
 
 
 This section discusses the different types and sizes of data variables used by Great Cow BASIC, how they are interpreted or handled by Great Cow BASIC methods.
@@ -71,29 +71,29 @@ As you can see that eliminates the conflict between Word Size and the Size of a 
 A lot of  confusion comes from the Type definitions of the chosen language, in this case Great Cow BASIC  these are:
 
 ----
-    Byte (8 Bit)
-    Integer / Word (16 Bit)
-    Long (32 Bit)
+    Byte                 8 Bit
+    Integer and Word    16 Bit
+    Long                32 Bit
 ----
 
-All 4 of the above are Integers in that they are representations of a non fractional number:
+All four of the above are number types are true Integers. &#160;&#160;In that they are representations of a non fractional number as follows:
 
 ----
-    8  Bits - 0 to 255
-    16 Bits - 0 to 65535
-    32 Bits - 0 to 43294967295
+    8  Bit - an 8 Bit number can be in the range of 0 to 255
+    16 Bit - a 16 Bit number can be in the range of 0 to 65535
+    32 Bit - a 32 Bit number can be in the range of 0 to 43294967295
 ----
 
-But they can only represent positive numbers. In Mathematics there is a need for an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is a Positive Whole Number.
+But, they can only represent positive numbers. &#160;&#160;In Mathematics there is a need for an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is a Positive Whole Number.
 
 
 To add to the confusion (and hindering code portability) different implementations of C and C++ as well as versions of BASIC, PASCAL, FORTRAN and FORTH all use different sizes of Integer as the default integer size.
 
 
-They also differ in the declaration of signed vs unsigned Integers.
+These different implementations also differ in the declaration of signed vs unsigned Integers.
 
 
-In order to avoid confusion modern languages now encourage the use of  more specific types such as:
+In order to avoid confusion modern languages now encourage the use of  more specific Signed number types such as:
 ----
     Int8_t
     Int16_t
@@ -216,5 +216,4 @@ A Two's Complement number can be any bit size, in the case of Great Cow BASIC th
 There is nothing wrong with treating any variable Type as signed and as seen you can even take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;
 
 //But the Maths methods of Great Cow BASIC are intended to work with Signed 16 bit integers and may fail if you try to use a signed 8 Bit or Signed 32 bit values.
-
 
