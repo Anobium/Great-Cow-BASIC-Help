@@ -352,4 +352,4 @@ or, for a PIC with PPS
 
 ----
 
-*For more help, see <<sramread,SRAMRead>> or <<_sramwrite,SRAMWrite>>*
+*For more help, see <<_sramread,SRAMRead>> or <<_sramwrite,SRAMWrite>>*

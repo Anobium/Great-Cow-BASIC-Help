@@ -381,6 +381,6 @@ GLCDBackground=TFT_WHITE
 
 
 *For more help, see*
-<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>>, <<_pset,Pset>> or <<_glcdransaction,GLCDTransaction>>
+<<_glcdcls,GLCDCLS>>, <<_glcddrawchar,GLCDDrawChar>>, <<_glcdprint,GLCDPrint>>, <<_glcdreadbyte,GLCDReadByte>>, <<_glcdwritebyte,GLCDWriteByte>>, <<_pset,Pset>> or <<_glcdtransaction,GLCDTransaction>>
 
 Supported in <GLCD.H>

@@ -60,4 +60,4 @@ This command will disable the output of the PWM module on the Microchip PIC chip
     HPWMOff 6, PWMHardware   'where PWMHardware is the defined constant or you can use TRUE
 ----
 
-*For more help, see* <<_hpwmoffccp,HPWMOff>>
+
