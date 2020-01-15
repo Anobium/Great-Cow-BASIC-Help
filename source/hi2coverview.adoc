@@ -142,53 +142,63 @@ Clock Constants that can be I2C clock sources are
 | I2C1CLOCK_SMT1
 |SMT
 |0x09+
+
 You MUST setup the SMT clock source.
 
 | I2C1CLOCK_TIMER6PSO
 |Timer 6 Postscaler
 |0x08+
+
 You MUST setup the timer6 clock source.
 
 | I2C1CLOCK_TIMER4PSO
 |Timer 4 Postscaler
 |0x07+
+
 You MUST setup the timer4 clock source.
 
 | I2C1CLOCK_TIMER2PSO
 |Timer 2 Postscaler
 |0x06+
+
 You MUST setup the timer3 clock source.
 
 | I2C1CLOCK_TIMER0OVERFLOW
 |Timer 0 Overflow
 |0x05+
+
 You MUST setup the timer0 clock source.
 
 
 | I2C1CLOCK_REFERENCEOUT
 |Reference clock out
 |0x04+
+
 You MUST ensure the clock source generates a within specification clock source.  Check the datasheet for more details.
 
 | I2C1CLOCK_MFINTOSC
 |MFINTOSC
 |0x03 (default)+
+
 This is the default and will set the I2C clock to 125khz
 
 
 | I2C1CLOCK_HFINTOSC
 |HFINTOSC
 |0x02+
+
 You MUST ensure the clock source generates a within specification clock source.  Check the datasheet for more details.
 
 | I2C1CLOCK_FOSC
 |FOSC
 |0x01+
+
 You MUST ensure the clock source generates a within specification clock source.  Check the datasheet for more details.
 
 | I2C1CLOCK_FOSC4
 |FOSC/4
 |0x00+
+
 You MUST ensure the clock source generates a within specification clock source.  Check the datasheet for more details.
 
 |===
