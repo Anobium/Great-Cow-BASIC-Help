@@ -27,6 +27,8 @@ A hardware I2C/TWI module within the microcontroller is required for these metho
 
 The driver supports two hardware I2C ports.  The second port is addressed by the suffix HI2C2.  All HI2C commands are applicable to the second HI2C2 port.
 
+For the Microchip I2C modules Specific for the 18F class including the K42, K83 and Q10, see the later section regarding clock sources and I2C frequencies.
+
 The method supports the following frequencies:
 
 [cols=3, options="header,autowidth"]
