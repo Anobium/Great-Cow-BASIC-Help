@@ -120,7 +120,7 @@ appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
 |Must be defined
 |===
 {empty} +
-*Microchip I2C modules Specific Support*
+*Microchip I2C modules Specific Support - 18F class including the K42, K83 and Q10*
 
 Clock Sources: The Microchip I2C can select one of ten clocks sources as shown in the table below.  I2C1Clock_MFINTOSC is the default which support 125hz.
 {empty} +
