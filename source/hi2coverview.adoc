@@ -85,7 +85,7 @@ Where  `#define HI2C_BAUD_RATE 100` is the default value and therefore does need
 
 For Microchip I2C module:
 
-'define HI2C_BAUD_RATE 125' is the default.  You can override this value if you set up an alternative clock source.
+'define HI2C_BAUD_RATE 125' is the default KHz.  You can override this value if you set up an alternative clock source.
 
 |`HI2CITSCLWaitPeriod`
 
@@ -122,10 +122,10 @@ appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
 {empty} +
 *Microchip I2C modules Specific Support - 18F class including the K42, K83 and Q10*
 
-Clock Sources: The Microchip I2C can select one of ten clocks sources as shown in the table below.  I2C1Clock_MFINTOSC is the default which support 125hz.
+Clock Sources: The Microchip I2C can select one of ten clocks sources as shown in the table below.  I2C1Clock_MFINTOSC is the default which supports 125KHz.
 {empty} +
 {empty} +
-It is important to change the clock source from the default of 125khz if you want faster I2C communications.   Change the following constant to change the clock source.
+It is important to change the clock source from the default of 125KHz if you want faster I2C communications.   Change the following constant to change the clock source.
 Obviously, you setup the clock source correctly for I2C to operate:
 {empty} +
 {empty} +
@@ -180,7 +180,7 @@ You MUST ensure the clock source generates a within specification clock source. 
 |MFINTOSC
 |0x03 (default)+
 
-This is the default and will set the I2C clock to 125khz
+This is the default and will set the I2C clock to 125KHz
 
 
 | I2C1CLOCK_HFINTOSC
@@ -211,9 +211,9 @@ An exampe of an alternative Clock Source using the SMTClock source as the clock 
     #define I2C1ClockSource I2C1Clock_SMT1
     #Include <SMT_Timers.h>
 
-    '400 KHZ @ 64MHZ
+    '400 KHz @ 64MHZ
     SETSMT1PERIOD ( 39 )
-      ' 100 KHZ @ 64MHZ
+      ' 100 KHz @ 64MHZ
       ' SETSMT1PERIOD ( 158 )
     InitSMT1(SMT_FOSC,SMTPres_1)
     StartSMT1
