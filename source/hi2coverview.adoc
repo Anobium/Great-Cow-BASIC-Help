@@ -210,13 +210,18 @@ This an example of using a Clock Source.  This example uses the SMTClock source 
 {empty} +
 ----
 
-    #define I2C1ClockSource I2C1Clock_SMT1
+    'Set the clock source constant
+    #define I2C1CLOCKSOURCE I2C1CLOCK_SMT1
+
+    'include the SMT capability
     #Include <SMT_Timers.h>
 
+    'Setup the SMT
     '400 KHz @ 64MHZ
-    SETSMT1PERIOD ( 39 )
+    Setsmt1Period ( 39 )
       ' 100 KHz @ 64MHZ
-      ' SETSMT1PERIOD ( 158 )
+      ' Setsmt1Period ( 158 )
+    'Initialise and start the SMT
     InitSMT1(SMT_FOSC,SMTPres_1)
     StartSMT1
 ----
