@@ -206,7 +206,7 @@ You MUST ensure the clock source generates a within specification clock source. 
 |===
 {empty} +
 {empty} +
-An exampe of an alternative Clock Source using the SMTClock source as the clock source, the following methods implement the SMT as the clock source.  The defintion of the constant, the include, setting of the SMT period, initialisation and starting of the clock source are ALL required.
+This an example of using a Clock Source.  This example uses the SMTClock source as the clock source, the following methods implement the SMT as the clock source.  The defintion of the constant, the include, setting of the SMT period, initialisation and starting of the clock source are ALL required.
 {empty} +
 ----
 
