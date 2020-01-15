@@ -101,7 +101,7 @@ methods.
 {empty} +
 For the Microchip SSP/MSSP modules both ports *must* be set as *input*.
 {empty} +
-For the  Microchip I2C module bith ports *must* be set as *output*.  And, configure the pins as open-drain and set the I2C levels - see example below for usage.
+For the  Microchip I2C module both ports *must* be set as *output*.  And, configure the pins as open-drain and set the I2C levels - see example below for usage.
 {empty} +
 In all case the data and clock line *must * be pulled up with an
 appropriate resistor (typically 4.k @ 5.0v for 100Mkz transmissions).
@@ -126,7 +126,7 @@ Clock Sources: The Microchip I2C can select one of ten clocks sources as shown i
 {empty} +
 To change the clock source, change the constant as follows:
 ----
-        #define I2C1ClockSource  I2C1Clock_MFINTOSC
+        #define I2C1CLOCKSOURCE  I2C1CLOCK_MFINTOSC
 ----
 Clock Constants
 [cols=3, options="header,autowidth"]
@@ -135,34 +135,42 @@ Clock Constants
 |*Clock Source*
 |*Default Value*
 
-| I2C1Clock_SMT1
+| I2C1CLOCK_SMT1
 |SMT
 |0x09
-| I2C1Clock_Timer6PSO
+
+| I2C1CLOCK_TIMER6PSO
 |Timer 6 Postscaler
 |0x08
-| I2C1Clock_Timer4PSO
+
+| I2C1CLOCK_TIMER4PSO
 |Timer 4 Postscaler
 |0x07
-| I2C1Clock_Timer2PSO
+
+| I2C1CLOCK_TIMER2PSO
 |Timer 2 Postscaler
 |0x06
-| I2C1Clock_Timer0Overflow
+
+| I2C1CLOCK_TIMER0OVERFLOW
 |Timer 0 Overflow
 |0x05
-| I2C1Clock_ReferenceOut
+
+| I2C1CLOCK_REFERENCEOUT
 |Reference clock out
 |0x04
-| I2C1Clock_MFINTOSC
+| I2C1CLOCK_MFINTOSC
 |MFINTOSC
 |0x03 (default)
-| I2C1Clock_HFINTOSC
+
+| I2C1CLOCK_HFINTOSC
 |HFINTOSC
 |0x02
-| I2C1Clock_FOSC
+
+| I2C1CLOCK_FOSC
 |FOSC
 |0x01
-| I2C1Clock_FOSC4
+
+| I2C1CLOCK_FOSC4
 |FOSC/4
 |0x00
 |===
@@ -171,6 +179,7 @@ Clock Constants
 Alternative Clock Source:  Using SMTClock source as the clock spurce, the following methods implement the SMT as the clock source.  The defintion of the constant, the include, setting of the SMT period, initialisation and starting of the clock source are ALL required.
 {empty} +
 ----
+
     #define I2C1ClockSource I2C1Clock_SMT1
     #Include <SMT_Timers.h>
 
