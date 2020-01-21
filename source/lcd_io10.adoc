@@ -10,7 +10,7 @@ Finally, set the backlight control, if required.
 
 *Relevant Constants:*
 
-Specific constants are used to control settings for the Liquid Crystal Display routines included with Great Cow BASIC.  To set these constants the main program should specific constants to support the connection mode using #define.
+Specific constants are used to control settings for the Liquid Crystal Display routines included with Great Cow BASIC.  To set these constants the main program should specify constants to support the connection mode using #define.
 
 [cols=3, options="header,autowidth"]
 |===
