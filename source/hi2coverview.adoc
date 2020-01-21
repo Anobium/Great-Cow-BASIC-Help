@@ -10,7 +10,7 @@ These methods allow Great Cow BASIC programs to send and receive Inter- Integrat
 These methods are serial interfaces that are useful for communicating with other peripheral or microcontroller devices.
 These peripheral devices may be serial EEPROMs, shift registers, display drivers, A/D converters, etc.
 
-The method can operate in one of two operational modes:
+This method can operate in one of two operational modes:
 
 * Master Mode, or
 * Slave mode (with general address call)
