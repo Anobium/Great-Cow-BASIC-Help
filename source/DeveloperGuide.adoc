@@ -68,12 +68,11 @@ The following rules are recommended.
 
           #SCRIPT
             
-                        .. script code
-                        .. script code
-                        .. script code
-                        
-      
-         #ENDSCRIPT
+                'script code
+                'script code
+                'script code
+                             
+          #ENDSCRIPT
 ----
 
 
