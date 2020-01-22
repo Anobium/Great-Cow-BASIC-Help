@@ -104,3 +104,47 @@ The following rules are recommended.
  
 *VARIABLES*
 
+
+*PROGRAMMING STYLES*
+
+Indenting is standardized.
+4 spaces not tab are to be used.
+
+As follows where the indents are all four spaces.  
+
+----
+sub  ExampleSub (In VariableName)
+    select case VariableName
+        case 1
+            Do This 
+        case 2 
+            Do That
+    end select
+end sub 
+----
+
+Not like this:
+
+----
+SUB  ExampleSub (In VariableName)
+        Select Case VariableName
+              Case 1
+                               Do This 
+              Case 2 
+                                Do That
+         End Select
+End SUB 
+----
+
+and, not like this
+
+----
+Sub  ExampleSub (In VariableName)
+Select Case VariableName
+Case 1
+Do This 
+Case 2 
+Do That
+End Select
+End Sub
+----
