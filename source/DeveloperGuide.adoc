@@ -1,0 +1,139 @@
+==== Development Guide
+
+There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
+This guide provides information that will not only help you get started as a Great COW BASIC contributor, 
+but that you wiil find useful to refer to even if you are already an experienced contributor.
+
+*Need help?*
+
+The Great Cow BASICcommunity prides itself on being an open, accessible, and friendly community for new participants.
+If you have any difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
+
+We know even before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge. 
+We are always looking for ways to improve this process: making Great Cow BASIC more open, accessible, and easier to participate with. 
+If you are having any trouble following this documentation, or hit a barrier you cannot get around, please contact use via the discussion forum.
+We will solve hurdles for new contributors and make Great Cow BASIC better.
+
+This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.&nbsp;&nbsp;
+The section covers Constants, Variables and program style.
+
+*Constants*
+
+A constant is a value that cannot be altered by the program during normal execution.&nbsp;&nbsp;
+Within 
+
+
+1.  All CONSTANTS are capitalized
+
+2.  Underscores are permitted in constant names within Scripts **
+3. No prefix is required when a CONSTANT is PUBLIC.  A PUBLIC constant is one that the user sets or the user can use.
+4.  Prefix CONSTANTS with SCRIPT_  when the CONSTANT is used outside of the library specific script section AND ARE NOT EXPOSED AS PUBLIC Constants.  
+5.  Prefix CONSTANTS with __ (two underscores)  when the CONSTANT is ONLY used inside the library specific script section
+6.  For PUBLIC prefix CONSTANTS with the capability name, _ (one underscore)  and then a meaningful title, as follows
+            GLCD_HEIGHT
+            SPISRAM_TYPE
+6.  All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used.
+
+  ** Other Use of underscores.
+
+7.  Do not use underscores in subroutine, function or variable names
+
+8. All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used. 
+
+This may not always be  prudent.   Some #defines may need to be placed before the script(s)
+
+--- Example LIB ----
+       
+        #startup  startupsub
+
+        #Define I2C_ADDRESS_1  0x4E    'Default address if user omits 
+
+        #SCRIPT
+       
+      
+       #ENDSCRIPT
+
+
+
+'================  Usage Example   =================
+
+ 
+
+     #SCRIPT  'Calculate Delay Time
+
+   
+             __LCD_DELAY  = ( __LCD_TIMEPERIOD - __LCD_DELAYS) - (INT((4/ChipMHZ) * __LCD_INSTRUCTIONS))
+
+            SCRIPT_LCD_POSTWRITEDELAY = __LCD_DELAY  
+ 
+            SCRIPT_LCD_CHECKBUSYFLAG = TRUE           
+ 
+
+     #ENDSCRIPT
+
+ 
+
+      ... user code or code outside of script          
+ 
+
+    #IF SCRIPT_LCD_CHECKBUSYFLAG = TRUE
+
+  
+             WaitForReady    'Call subroutine to poll busy flag
+
+             set LCD_RW OFF  'Write mode
+
+
+    #ENDIF
+
+ 
+
+    WAIT SCRIPT_LCDPOSTWRITEDELAY us
+ 
+ 
+On Sun, Jan 19, 2020 at 10:45 AM Evan Venn <evan@anobium.co.uk> wrote:
+Script Guidelines
+       
+1.  All CONSTANTS are capitalised
+2.  Prefix CONSTANTS “SCRIPT_”  when the CONSTANT is used outside of the library specific script section
+3.  Prefix CONSTANTS “__”  when the CONSTANT is ONLY used inside the library specific script section
+4.  Underscores are permitted
+5.  All script with in a specific library should be the first major section of the library.  Scripts within methods should not be used.
+ 
+Use of underscores.
+ 
+6.  Not to used sub or variable names
+ 
+ 
+ 
+ 
+'======================== USAGE =========================
+ 
+ 
+ 
+     #SCRIPT  'Calulate Delay Time
+        
+ 
+         __LCD_DELAY  = ( __TIMEPERIOD - __LCD_DELAY) - (INT((4/ChipMHZ) * __LCD_INSTRUCTION))
+        SCRIPT_LCDPOSTWRITEDELAY = __LCD_DELAY  
+ 
+        SCRIPT_CHECKBUSYFLAG = TRUE            
+ 
+     #ENDSCRIPT 
+ 
+ 
+      ... user code           
+ 
+    #IF SCRIPT_CHECKBUSYFLAG = TRUE
+        
+             WaitForReady    'Call subroutine to poll busy flag
+             set LCD_RW OFF  'Write mode
+       
+    #ENDIF
+ 
+    WAIT SCRIPT_LCDPOSTWRITEDELAY us
+     
+=================================================================
+ 
+ 
+
