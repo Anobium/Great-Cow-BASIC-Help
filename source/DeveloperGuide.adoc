@@ -39,7 +39,7 @@ The script construct is
         #ENDSCRIPT
 ----
 
-<u>Guide for constants</u>
++++<u>Guide for constants</u>+++
 
 The following rules are recommended.
 
