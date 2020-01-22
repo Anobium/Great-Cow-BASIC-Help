@@ -1,12 +1,12 @@
 == Development Guide
 
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
-This guide provides information that will not only help you get started as a Great COW BASIC contributor, 
+This guide provides information that will not only help you get started as a Great Cow BASIC contributor, 
 but that you wiil find useful to refer to even if you are already an experienced contributor.
 
 *_Need help?_*
 
-The Great Cow BASICcommunity prides itself on being an open, accessible, and friendly community for new participants.
+The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.
 If you have any difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
 
 We know even before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge. 
