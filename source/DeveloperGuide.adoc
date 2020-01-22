@@ -17,7 +17,7 @@ We will solve hurdles for new contributors and make Great Cow BASIC better.
 This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.&nbsp;&nbsp;
 The section covers Constants, Variables and program style.
 
-*Constants*
+*CONSTANTS*
 
 A constant is a value that cannot be altered by the program during normal execution.&nbsp;&nbsp;
 Within Great Cow BASIC there is two ways to create constants.&nbsp; &nbsp;
@@ -39,7 +39,7 @@ The script construct is
         #ENDSCRIPT
 ----
 
-*Guide for constants*
+_Guide for constants_
 
 The following rules are recommended.
 
@@ -55,7 +55,7 @@ The following rules are recommended.
 8.  All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used. 
 
 
-**Other naming recommendations**
+_Other naming recommendations_
 
 9.  Do not use underscores in subroutine, function or variable names
 
@@ -77,7 +77,7 @@ The following rules are recommended.
 ----
 
 
-**Usage Example**
+_Usage Example_
 
 ----
 
@@ -103,5 +103,5 @@ The following rules are recommended.
      WAIT SCRIPT_LCDPOSTWRITEDELAY us
  ----
  
-*Defining Varibales*
+*VARIABLES*
 
