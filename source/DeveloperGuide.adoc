@@ -39,7 +39,7 @@ The script construct is
         #ENDSCRIPT
 ----
 
-_*Guide for constants*_
+*_Guide for constants_*
 
 The following rules are recommended.
 
@@ -55,11 +55,11 @@ The following rules are recommended.
 8.  All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used. 
 
 
-_*Other naming recommendations*_
+*_Other naming recommendations_*
 
 9.  Do not use underscores in subroutine, function or variable names
 
-_*Example library*_
+*_Example library_*
        
   ----
           #startup  startupsub
@@ -77,7 +77,7 @@ _*Example library*_
 ----
 
 
-_*Usage Example*_
+*_Usage Example_*
 
 ----
 
