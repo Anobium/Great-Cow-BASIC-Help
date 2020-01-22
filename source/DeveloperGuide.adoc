@@ -15,7 +15,7 @@ If you are having any trouble following this documentation, or hit a barrier you
 We will solve hurdles for new contributors and make Great Cow BASIC better.
 
 This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.&nbsp;&nbsp;
-The section covers Constants, Variables and program style.
+The section covers Constants, Variables and a recommended programming style.
 
 *CONSTANTS*
 
