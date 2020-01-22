@@ -1,4 +1,4 @@
-==== Development Guide
+== Development Guide
 
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
 This guide provides information that will not only help you get started as a Great COW BASIC contributor, 
