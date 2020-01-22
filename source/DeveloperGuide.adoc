@@ -20,7 +20,7 @@ The section covers Constants, Variables and a recommended programming style.
 *CONSTANTS*
 
 A constant is a value that cannot be altered by the program during normal execution.&nbsp;&nbsp;
-Within Great Cow BASIC there is two ways to create constants.&nbsp; &nbsp;
+Within Great Cow BASIC there are two ways to create constants.&nbsp; &nbsp;
 1. with the `#DEFINE` instruction, or,
 2. via `#SCRIPT .. #ENDSCRIPT'. &nbsp; &nbsp;Within a script constants can be created and changed.  A script is process prior to the Great Cow BASIC source program is process by creating constant as the first step.
 
