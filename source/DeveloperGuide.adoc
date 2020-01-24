@@ -93,7 +93,7 @@ The following rules are recommended.
  
 *VARIABLES*
 
-[to be done]
+Words need to be added
 
 
 *SCRIPT SYNTAX*
