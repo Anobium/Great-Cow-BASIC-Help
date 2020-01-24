@@ -63,7 +63,7 @@ The following rules are recommended.
 
 *_Example library_*
        
-  ----
+----
           #startup  startupsub
           #DEFINE I2C_ADDRESS_1  0x4E    'Default address if user omits
           #SCRIPT
@@ -89,7 +89,7 @@ The following rules are recommended.
            set LCD_RW OFF  'Write mode
      #ENDIF
      WAIT SCRIPT_LCDPOSTWRITEDELAY us
- ----
+----
  
 *VARIABLES*
 
