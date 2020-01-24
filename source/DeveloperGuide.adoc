@@ -15,7 +15,9 @@ If you are having any trouble following this documentation, or hit a barrier you
 We will solve hurdles for new contributors and make Great Cow BASIC better.
 
 This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.&nbsp;&nbsp;
-The section covers Constants, Variables and a recommended programming style.
+
+
+The section covers Constants, Variables, Script syntax (gotchas) and a recommended programming style.
 
 *CONSTANTS*
 
@@ -104,6 +106,29 @@ The following rules are recommended.
  
 *VARIABLES*
 
+*SCRIPT SYNTAX*
+
+Scripting suppport the preprocessing of the program to create specific constants.&nbsp;&nbsp;
+Scripting has a basic syntax and this is detailed in the HELP.&nbsp;&nbsp;
+However, this guide is intended to provide insights into the gotchas and best practices.
+
+*_Script Insights_*
+
+Scripting handles the creation of specific constants that can be used within the library.&nbsp;&nbsp;
+Many libraries have script to create constants to support PWM, Serial, HEFSAF etc.&nbsp;&nbsp;
+
+You can use the limited script language to complete calculations using real numbers but you MUST ensure the resulting constant is an integer value.&nbsp;&nbsp;
+Use the IN() method to ensure an integer is assigned.
+
+You can use IF-THEN-ENDIF but if your IF condtional test uses a chip regiseter or a user define constant then you must ensure the register or constant exists.&nbsp;&nbsp;
+If you do not check the registrer or constant exists the script will fail to operate as expected.&nbsp;&nbsp;
+
+There is limted syntax checking.  
+You must ensure the quality of the script by extensive testing.
+
+int( register +1s)) will not create an error, but, simple give an unexpected result.
+
+
 
 *PROGRAMMING STYLES*
 
@@ -148,3 +173,5 @@ Do That
 End Select
 End Sub
 ----
+
+
