@@ -65,15 +65,11 @@ The following rules are recommended.
        
   ----
           #startup  startupsub
-
-          #DEFINE I2C_ADDRESS_1  0x4E    'Default address if user omits 
-
+          #DEFINE I2C_ADDRESS_1  0x4E    'Default address if user omits
           #SCRIPT
-            
                 'script code
                 'script code
-                'script code
-                             
+                'script code                         
           #ENDSCRIPT
 ----
 
@@ -81,30 +77,24 @@ The following rules are recommended.
 *_Usage Example_*
 
 ----
-
      #SCRIPT  'Calculate Delay Time
-
-   
              __LCD_DELAY  = ( __LCD_TIMEPERIOD - __LCD_DELAYS) - (INT((4/ChipMHZ) * __LCD_INSTRUCTIONS))
-
             SCRIPT_LCD_POSTWRITEDELAY = __LCD_DELAY  
- 
             SCRIPT_LCD_CHECKBUSYFLAG = TRUE           
- 
-
      #ENDSCRIPT
 
      'user code or code outside of script          
- 
      #IF SCRIPT_LCD_CHECKBUSYFLAG = TRUE
            WaitForReady    'Call subroutine to poll busy flag
            set LCD_RW OFF  'Write mode
      #ENDIF
-
      WAIT SCRIPT_LCDPOSTWRITEDELAY us
  ----
  
 *VARIABLES*
+
+[to be done]
+
 
 *SCRIPT SYNTAX*
 
