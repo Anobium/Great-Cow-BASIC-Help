@@ -1,0 +1,7 @@
+== Reserved Words for Great Cow BASIC
+
+
+=== Introduction
+
+This the reserved word set for the Great Cow BASIC tool chain.
+
