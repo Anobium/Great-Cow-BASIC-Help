@@ -12,6 +12,8 @@ The `#chip` directive is used to specify the chip model and frequency that Great
 The `_model_` is the specific microcontroller  - examples are "16F819".
 
 The `_frequency_` is the frequency of the chip in MHz, and is required for the delay and PWM routines.
+The following constants simplify setting specific frequencies.
+`31k` and `32.768K`.  They can be used as shown in the examples.
 
 If `frequency` is not present the compiler will select a frequency default frequency that should work for the microcontroller.
 
@@ -28,6 +30,15 @@ When using an AVR, there is no need to specify "AT" before the name.
     #chip 16F88, 0.125
     #chip tiny2313, 1
     #chip mega8, 16
+
+    'Select the internal low frequency oscillator. The microcontroller must have the LFINT or LFINTOSC option.
+    #chip 16f18326, 31k
+    #config osc=LFINT
+
+    'Select the external SOSC clock source.
+    #chip 16f18855, 23.768k
+    #config osc=SOSC
+
 ----
 
 
