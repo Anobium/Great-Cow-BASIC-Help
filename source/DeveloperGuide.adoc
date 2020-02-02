@@ -39,6 +39,16 @@ Some #defines may need to be placed before the script to provide clarity to the 
        #ENDSCRIPT
 ----
 
+Scripts support structures like IF <CONDITION> THEN <ACTION> END iF. 
+Scripts supports the <condition> argument that must generate a TRUE result, meaning that at a literal level, your conditional formatting rule is an If - THEN statement along the lines of “If this condition is TRUE, THEN process the <ACTION>.  the condition must use   logical "AND" and "OR" to test two conditions.  
+Using "AND" or "OR" reduces the script size, however, it is essential the the conditional test(s) are valid.  If a test fails then  you may not get the results you expect.
+
+----
+        IF .. THEN
+        
+        END IF
+
+----
 
 *CONSTANTS*
 
