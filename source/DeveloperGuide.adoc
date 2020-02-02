@@ -17,7 +17,28 @@ We will solve hurdles for new contributors and make Great Cow BASIC better.
 This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.&nbsp;&nbsp;
 
 
-The section covers Constants, Variables, Script syntax (gotchas) and a recommended programming style.
+The section covers the recommended programming style, Constants, Variables, Script syntax (gotchas) and tab usage.
+
+*PROGRAMMING STYLES*
+
+Indenting is standardized.
+
+All scripts within a specific library should be the first major section the library.   Scripts within methods should not be used.
+
+Some #defines may need to be placed before the script to provide clarity to the structure of the library.
+
+----       
+        #startup  startupsub
+
+        #Define I2C_ADDRESS_1  0x4E    'The default address if user does not specify in the user program 
+
+        #SCRIPT
+                ... code script       
+                ... code script                
+                ... code script
+       #ENDSCRIPT
+----
+
 
 *CONSTANTS*
 
@@ -120,12 +141,11 @@ int( register +1s)) will not create an error, but, simple give an unexpected res
 
 
 
-*PROGRAMMING STYLES*
+*TAB usage and indenting*
 
-Indenting is standardized.
-4 spaces not tab are to be used.
+Four spaces are to be used. A tab is not permitted
 
-As follows where the indents are all four spaces.  
+Example follows where the indents are all four spaces.  
 
 ----
 sub  ExampleSub (In VariableName)
