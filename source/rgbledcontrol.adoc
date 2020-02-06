@@ -2,7 +2,7 @@
 
 *Explanation:*
 
-This program demonstrates how to drive an RGB LED to create 4096 different colors. Each of the three ;elements (red, green and blue) responds to 16 different levels. A value of 0 means the element never turns on, while a value of 15 means the element never shuts off. Values in between these two extremes vary the pulse width.
+This program demonstrates how to drive an RGB LED to create 4096 different colors. Each of the three elements (red, green and blue) responds to 16 different levels. A value of 0 means the element never turns on, while a value of 15 means the element never shuts off. Values in between these two extremes vary the pulse width.
 
 This program is an interrupt driven three channel PWM implementation.
 
