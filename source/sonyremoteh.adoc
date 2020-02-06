@@ -9,7 +9,7 @@ This has been tested and confirmed with a fixed remote control purchased surplus
 
 Moreover it has also been tested with a Panasonic IR sensor and a Vishay sensor, both purchased surplus for about fifty cents.
 
-Every combination performed well, and it is probably the; case that most any garden variety 38 kHz IR sensor will work. The only tricky bit is making sure you get the pinout for your sensor correct; search out the datasheet for whichever device you use.
+Every combination performed well, and it is probably the case that most any garden variety 38 kHz IR sensor will work. The only tricky bit is making sure you get the pinout for your sensor correct, search out the datasheet for whichever device you use.
 
 There are only three pins: Ground Vcc Data
 
