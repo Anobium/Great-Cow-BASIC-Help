@@ -98,8 +98,8 @@ Exit Function
 Exit Repeat
 Exit Sub
 Explicit
-False
-Fast
+FALSE
+FAST
 FastHWSPITransfer
 Fill
 FilledBox
@@ -271,7 +271,7 @@ LCD_I2C_Address_3
 LCD_I2C_Address_4
 LCD_I2C_Address_Current
 LCD_IO
-LCD_Speed
+LCD_SPEED
 Left
 LeftPad
 Len
@@ -287,7 +287,7 @@ Loop
 Ltrim
 m
 Macro
-Medium
+MEDIUM
 MFINTOSC
 Mid
 ms
@@ -378,7 +378,7 @@ SetTimer
 SetWith
 ShortTone
 Simple
-Slow
+SLOW
 SOSC
 SPIMode
 SPITransfer
@@ -455,7 +455,7 @@ To
 Tone
 Triangle
 Trim
-True
+TRUE
 TxCKIPPS
 UCase
 UNLOCKPPS
