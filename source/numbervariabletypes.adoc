@@ -1,4 +1,4 @@
-﻿=== Number Types
+﻿=== Data Types
 
 
 This section discusses the different types and sizes of data variables used by Great Cow BASIC, how they are interpreted or handled by Great Cow BASIC methods.
