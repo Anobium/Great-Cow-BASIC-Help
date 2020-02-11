@@ -13,7 +13,7 @@ Some background:&#160;&#160;In computer science numbers are represented in Binar
 Common sizes are **Bit** (1 Bit), **Nibble** (4 Bit), **Byte** (8 Bit), **Word** (16 Bit), **Long** (32 Bit) and **Long Long** (64 Bit).
 
 
-Great Cow BASIC (with respect to numbers) has Bit, Byte, Word and Long Variable Types, all of which are described below, but Great Cow BASIC does not support Long Long (64 Bit).
+Great Cow BASIC implements support for Bit, Byte, Word and Long Variable Types, all of which are described below, but Great Cow BASIC does not support Long Long (64 Bit).
 
 
 **Bit** is typically used as a flag or a Port.Pin. A flag has two states they can be any of the following and many other complementary states depending on how your application interprets and handles the data.
