@@ -64,25 +64,6 @@ All four of the above are number types are true Integers. &#160;&#160;In that th
 
 But, they can only represent positive numbers. &#160;&#160;In Mathematics there is a need for an Integer that can be Positive, Negative, or Zero. &#160;&#160;Note that Zero is always a Positive Whole Number.
 
-//*Negatives*
-//
-//As dicussed above, the mathematical definition of an integer also requires that it be able to represent a negative number but a computer has no such concept.//
-//
-//
-//In mathematics, a negative number is a positive number prefixed by a ‘-’ (minus) symbol.  So in order to distinguish a negative from a positive number in binary a sign Bit may be used. &#160;&#160; In its simplest form if the MSB (Most Significant Bit) is Set (1) then the value is negative and if it is Clear (zero) the number is positive.//
-//
-//
-//But this simple solution would have repercussions://
-//
-//
-1. The loss of a bit to represent the sign halves the magnitude of the variable.//
-2. It allows the possibility of a Negative Zero//
-3. Most ALU’s can only Add and Shift so they have no concept of negative.//
-//
-//
-//There is, however, a simple trick in Binary mathematics called the Two's Complement that overcomes all but the magnitude issue and the Most Significant Bit is still a sign bit.//
-//
-
 *Two's Complement*
 
 To take the Two's Complement of a number it is inverted then incremented:
