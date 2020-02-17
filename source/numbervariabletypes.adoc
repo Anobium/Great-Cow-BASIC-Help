@@ -125,9 +125,9 @@ It is obviously important from the above that the user program ds need to know w
 
 GCB implements support for Bit, Byte, Word, Integer and Long Variable Types, all of which are described above.
 
-And, that negative numbers are   represented as two’s complement.&#160;&#160; 
+And, that negative numbers are represented as two’s complement.&#160;&#160; 
 
-There is nothing wrong with treating any variable Type as signed and as seen you can even take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;
+//There is nothing wrong with treating any variable type as signed number, and, as explained  you can take the two’s compliment of a Byte and add it to another Byte in order to subtract one byte value from another. &#160;&#160;
 
 //Note that the Maths methods of Great Cow BASIC are intended to work with Signed 16 bit integers and may fail if you try to use a signed 8 Bit or Signed 32 bit values.
 
