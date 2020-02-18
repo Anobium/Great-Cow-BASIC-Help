@@ -87,49 +87,63 @@ also known as 4004 type LCD displays.
 {empty} +
 {empty} +
 {empty} +
+To change the performance (communications speed) of the LCD use `#DEFINE LCD_SPEED`
 
-When `#DEFINE LCD_NO_RW` is defined, reading data from the HD44780 is not possible since this disables Read Mode on the controller.&NBSP;&NBSP;In this case busy flag checking is not available and the GET subroutine is not avaiable. 
+This method allows the timing to be optimised.
 
-In order to enable busy flag checking and to use the GET command
-the follwing are required.
+*Example*
 
-1. I/O Mode must be either 4-wire or 8-wire 
-2. Do not define LCD_NO_RW
-3. Connect an I\O pin to RW on the Display
-4. Define LCD_RW  pin in BASIC Source Code  
+ #DEFINE LCD_SPEED  FAST
+
+[cols=2, options="header,autowidth"]
+|===
+|Define
+|Required Connections
+
+|`LCD_SPEED`
+|Options are: +
+`FAST`     - The speed is approximately 20,000 CPS. +
+`MEDIUM`   - The speed is approximately 15,000 CPS. +
+`SLOW`     - The speed is approximately 10,000 CPS. +
+`OPTIMAL`  - The speed is approximately 20,000 CPS. +
+|===
+
+If `LCD_SPEED` is not defined, the speed defaults to `SLOW`
+
+**Speed Parameter  OPTIMAL**
+
+WHEN LCD_NO_RW is not defined,  OPTIMAL disables fixed delays and allows the LCD operate as fast as it can.
+
+In this mode, The the busy flag is polled before each byte is sent to the HD44780 controller. &#160;&#160;This not only optimizes speed, but also assures that data is not sent to the diplay controler until it is ready to receive the data.
+
+With most displays this equates to a speed of about 30,000 characters per second.  For comparision about 10 times faster than I2C using a PC8574 Expander (See LCD_IO 10 or  See LCD_IO 112)
+
+`OPTIMAL` is only supported in LCD_IO 4,8 and only when LCD_NO_RW is not defined  (RW Mode) 
+
+When `#DEFINE LCD_NO_RW` is defined, reading data from the HD44780 is not possible since this disables Read Mode on the controller.&#160;&#160;In this case busy flag checking is not available and the GET subroutine is not avaiable. 
+
+In order to enable busy flag checking, and, therefore to use the `GET` command the following criteria must be true.
+
+1. LCD I/O Mode must be either 4-wire or 8-wire 
+2. `#DEFINE LCD_NO_RW` is not defined
+3. An I\O pin is connected between the microcontroller and the RW connection on the LCD Display
+4. `'DEFINE LCD_RW  port.pin` is defined in the Great Cow BASIC source code  
+
 
 Example:
+----
+  #DEFINE LCD_IO 4
+  #DEFINE LCD_SPEED OPTIMAL
 
-    #DEFINE LCD_IO 4
-    #DEFINE LCD_SPEED OPTIMAL
- 
-    #DEFINE LCD_DB7 PORTB.5
-    #DEFINE LCD_DB6 PORTB.4
-    #DEFINE LCD_DB7 PORTB.3
-    #DEFINE LCD_DB6 PORTB.2  
-   
-    #DEFINE LCD_RW PORTA.3    'Must be defined for RW Mode
-    #DEFINE LCD_RS PORTA,2
-    #DEFINE LCD_ENABLE PORTA.1
+  #DEFINE LCD_DB7 PORTB.5
+  #DEFINE LCD_DB6 PORTB.4
+  #DEFINE LCD_DB7 PORTB.3
+  #DEFINE LCD_DB6 PORTB.2  
 
-
-
-NEW: Speed Parameter  OPTIMAL
-
-WHEN LCD_NO_RW is not defined,  OPTIMAL disables fixed
-delays and allows the LCD operate as fast as it can.
-
-In this mode, The the busy flag is polled before each byte
-is sent to the HD44780 controller. This not only optimizes
-speed, but also assures that data is not sent to the diplay
-controler until it is ready to receive the data.
-
-With most displays this equates to a speed of about 30,000
-characters per second.  For comparision about 10 times
-faster than I2C using a PC8574 Expander.     
-
-OPTIMAL is only supported in LCD_IO 4,8 and only
-when LCD_NO_RW is not defined  (RW Mode) 
+  #DEFINE LCD_RW PORTA.3    'Must be defined for RW Mode
+  #DEFINE LCD_RS PORTA,2
+  #DEFINE LCD_ENABLE PORTA.1
+----
 
 
  
@@ -138,10 +152,9 @@ when LCD_NO_RW is not defined  (RW Mode)
 {empty} +
 {empty} +
 
-To change the performance (communications speed) of the LCD use `#define LCD_SPEED` and/or to change the LCD width characteristics use `#define LCD_WIDTH`
+To change the LCD width characteristics use `#define LCD_WIDTH`
 
-See the separate sections of the Help file for the specifics of each
-Connection Mode.
+See the separate sections of the Help file for the specifics of each Connection Mode.
 
 *For more help, see*
 <<_lcd_io_0,LCD_IO 0>>, <<_lcd_io_1,LCD_IO 1>>, <<_lcd_io_2,LCD_IO 2>>, <<_lcd_io_3,LCD_IO 3>>,
