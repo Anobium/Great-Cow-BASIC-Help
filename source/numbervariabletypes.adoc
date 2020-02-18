@@ -6,11 +6,11 @@ This section discusses the different types and sizes of data variables used by G
 The section also provides an insight of which type of variable to use and when.
 
 
-**What variable sizes are suported by GCB?**
+**What variable sizes are suported by Great Cow BASIC?**
 
 Great Cow BASIC implements support for Bit, Byte, Word, Integer and Long Variable Types, all of which are described below.
 
-Supported variables are **Bit** (1 Bit), **Byte** (8 Bit), **Word** (16 Bit), **Long** (32 Bit).  GCB does not support decimal numbers.
+Supported variables are **Bit** (1 Bit), **Byte** (8 Bit), **Word** (16 Bit), **Long** (32 Bit).  Great Cow BASIC does not support decimal numbers.
 
 **Bit** is used as a Flag or a Port Pin and has two states which may be: 
 ----
@@ -39,7 +39,7 @@ All of the above can be considered to be Integer Values of varying magnitude as 
 
 An *integer* is a whole number (not a fractional number) that can be Positive, Negative, or Zero. 
 
-In your application there may be a need to be able represent Negative Numbers in our variables and that is where the Great Cow BASIC *Integer Variable Type* is useful.  An *Integer Variable* is similar to the *Word Variable* as they are both 16 bits. &#160;&#160; The difference how the GCB compiler interprets the data bits that it contains.
+In your application there may be a need to be able represent Negative Numbers in our variables and that is where the Great Cow BASIC *Integer Variable Type* is useful.  An *Integer Variable* is similar to the *Word Variable* as they are both 16 bits. &#160;&#160; The difference how the Great Cow BASIC compiler interprets the data bits that it contains.
 
 The compiler will treat a *Word Variable Type* as a Variable that can store the values 0 < 65535 but it will see the *Integer Variable Type* as a Variable that can store values of -32768 < 0 <32767.
 
@@ -123,7 +123,7 @@ It is obviously important from the above that the user program ds need to know w
 
 *Summary*
 
-GCB implements support for Bit, Byte, Word, Integer and Long Variable Types, all of which are described above.
+Great Cow BASIC implements support for Bit, Byte, Word, Integer and Long Variable Types, all of which are described above.
 
 And, that negative numbers are represented as two’s complement.&#160;&#160; 
 
