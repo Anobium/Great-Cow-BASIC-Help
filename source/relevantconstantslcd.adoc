@@ -64,7 +64,7 @@ This is a common method and requires two data ports on the microcontroller.
 
 {empty} +
 {empty} +
-The support of the types of LCD displays is shown in the following table.
+The support of various types of LCD displays are shown in the following table.
 
 [cols="^1,1", options="header,autowidth"]
 |===
