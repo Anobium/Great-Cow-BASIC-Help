@@ -64,8 +64,6 @@ This is a common method and requires two data ports on the microcontroller.
 
 {empty} +
 {empty} +
-{empty} +
-{empty} +
 The support of the types of LCD displays is shown in the following table.
 
 [cols="^1,1", options="header,autowidth"]
@@ -83,8 +81,6 @@ also known as 1601, 1602, 2002, 2004 type LCD displays.
 also known as 4004 type LCD displays.
 
 |===
-{empty} +
-{empty} +
 {empty} +
 {empty} +
 To change the performance (communications speed) of the LCD use `#DEFINE LCD_SPEED`.  This method allows the timing to be optimised.
@@ -147,11 +143,6 @@ Example:
   #DEFINE LCD_RS PORTA,2
   #DEFINE LCD_ENABLE PORTA.1
 ----
-
-
- 
-{empty} +
-{empty} +
 {empty} +
 {empty} +
 
