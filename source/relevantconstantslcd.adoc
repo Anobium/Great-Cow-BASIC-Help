@@ -158,4 +158,4 @@ See the separate sections of the Help file for the specifics of each Connection 
 
 *and,*
 
-<<_lcd_width,LCD_Width>>, <<_lcd_speed,lcd_speed>>
+<<_lcd_width,LCD_Width>>, <<_lcd_speed,LCD_Speed>>
