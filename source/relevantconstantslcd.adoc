@@ -78,7 +78,7 @@ number of characters x number of lines
 |16 x 1, 16 x 2, 20 x 2, 20 x 4 type LCD displays, +
 also known as 1601, 1602, 2002, 2004 type LCD displays.
 
-|4
+|404
 |40 x 4 LCD displays, +
 also known as 4004 type LCD displays.
 
