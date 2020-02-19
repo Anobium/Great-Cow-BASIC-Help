@@ -6,12 +6,16 @@ The LCD routines in this section allow Great Cow BASIC programs to control an
 alphanumeric Liquid Crystal Displays based on the *HD44780* IC. This
 covers most 16 x 1, 16 x 2, 20 x 4 and 40 x 4 LCD displays.
 
-These methods allow the displays to be connected to the microcontroller
-in many different ways:
+The Great Cow BASIC methods allow the displays to be connected to the microcontroller
+
+*Connection Modes:*
+
+The table below shows the connection modes.  These modes support the connection to the LCD using differting methods.
+
 [cols="^1,1", options="header,autowidth"]
 |===
-|*Connection Mode*
-|*Required Connections*
+|Connection Mode
+|Required Connections
 |0
 |No configuration is required directly by this method. The LCD routines
 *must* be provided with other subroutines which will handle the
@@ -64,25 +68,36 @@ This is a common method and requires two data ports on the microcontroller.
 
 {empty} +
 {empty} +
+
+**Supported LCDs mapped to Connnection Mode**
+
 The support of various types of LCD displays are shown in the following table.
+
 
 [cols="^1,1", options="header,autowidth"]
 |===
 
-|*Connection Mode*
-|*Supported LCD Types:* +
+Supported LCD Type +
 number of characters x number of lines
-|0,1,2,4,8,10 and 12
+|
+Connection Mode
+
 |16 x 1, 16 x 2, 20 x 2, 20 x 4 type LCD displays, +
 also known as 1601, 1602, 2002, 2004 type LCD displays.
+|0,1,2,4,8,10 and 12
 
-|404
 |40 x 4 LCD displays, +
 also known as 4004 type LCD displays.
+|4
 
 |===
 {empty} +
 {empty} +
+
+**Communication Performance**
+
+There may be a need to change the communication performance for a specific LCD as some LCD's are slower to operate.  Great Cow BASIC supports change the communications speed.
+
 To change the performance (communications speed) of the LCD use `#DEFINE LCD_SPEED`.  This method allows the timing to be optimised.
 
 *Example*
@@ -90,43 +105,39 @@ To change the performance (communications speed) of the LCD use `#DEFINE LCD_SPE
  #DEFINE LCD_SPEED  FAST
 ----
 
-**Performace Characteristics**
 
 [cols=2, options="header,autowidth"]
 |===
 |Define
-|Required Connections
+|Performace Characteristics
 
 |`LCD_SPEED`
-|Options are: +
-`FAST`     - The speed is approximately 20,000 CPS. +
+|`FAST`     - The speed is approximately 20,000 CPS. +
 `MEDIUM`   - The speed is approximately 15,000 CPS. +
 `SLOW`     - The speed is approximately 10,000 CPS. +
 `OPTIMAL`  - The speed is approximately 20,000 CPS. +
 |===
 
 If `LCD_SPEED` is not defined, the speed defaults to `SLOW`
+{empty} +
+{empty} +
 
 
 
-**Speed Parameter  OPTIMAL**
+**Using LCD_Speed OPTIMAL**
 
-WHEN LCD_NO_RW is not defined,  OPTIMAL disables fixed delays and allows the LCD operate as fast as it can.
+`OPTIMAL` disables fixed delays and allows the LCD operate as fast as it can.&#160;&#160;In this mode, The the busy flag is polled before each byte is sent to the HD44780 controller. &#160;&#160;This not only optimizes speed, but also assures that data is not sent to the diplay controler until it is ready to receive the data.
 
-In this mode, The the busy flag is polled before each byte is sent to the HD44780 controller. &#160;&#160;This not only optimizes speed, but also assures that data is not sent to the diplay controler until it is ready to receive the data.
+With most displays this equates to a speed of about 30,000 characters per second.&#160;&#160;For comparision about 10 times faster than I2C using a PC8574 Expander (See LCD_IO 10 or  See LCD_IO 112)
 
-With most displays this equates to a speed of about 30,000 characters per second.  For comparision about 10 times faster than I2C using a PC8574 Expander (See LCD_IO 10 or  See LCD_IO 112)
-
-`OPTIMAL` is only supported in LCD_IO 4,8 and only when LCD_NO_RW is not defined  (RW Mode) 
-
-When `#DEFINE LCD_NO_RW` is defined, reading data from the HD44780 is not possible since this disables Read Mode on the controller.&#160;&#160;In this case busy flag checking is not available and the GET subroutine is not avaiable. 
+`OPTIMAL` is only supported in LCD_IO 4,8 and only when LCD_NO_RW is not defined  (RW Mode).&#160;&#160;When `#DEFINE LCD_NO_RW` is defined, reading data from the HD44780 is not possible since this disables Read Mode on the controller.&#160;&#160;In this case busy flag checking is not available and the GET subroutine is not avaiable.
 
 In order to enable busy flag checking, and, therefore to use the `GET` command the following criteria must be true.
 
-1. LCD I/O Mode must be either 4-wire or 8-wire 
+1. LCD I/O Mode must be either 4-wire or 8-wire
 2. `#DEFINE LCD_NO_RW` is not defined
 3. An I\O pin is connected between the microcontroller and the RW connection on the LCD Display
-4. `'DEFINE LCD_RW  port.pin` is defined in the Great Cow BASIC source code  
+4. `'DEFINE LCD_RW  port.pin` is defined in the Great Cow BASIC source code
 
 
 Example:
@@ -137,7 +148,7 @@ Example:
   #DEFINE LCD_DB7 PORTB.5
   #DEFINE LCD_DB6 PORTB.4
   #DEFINE LCD_DB7 PORTB.3
-  #DEFINE LCD_DB6 PORTB.2  
+  #DEFINE LCD_DB6 PORTB.2
 
   #DEFINE LCD_RW PORTA.3    'Must be defined for RW Mode
   #DEFINE LCD_RS PORTA,2
@@ -146,7 +157,19 @@ Example:
 {empty} +
 {empty} +
 
+
+**Changing the LCD Width**
+
 To change the LCD width characteristics use `#define LCD_WIDTH`
+
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
 
 See the separate sections of the Help file for the specifics of each Connection Mode.
 
