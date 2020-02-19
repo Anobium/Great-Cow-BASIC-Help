@@ -7,8 +7,8 @@
 *Command Availability:*
 
 Available on all microcontrollers with the LCD R/W line (pin 5) connected and if the following constant definition is used;
-`#define LCD_RW`. Not available if the LCD is connected using the 0 or 2 bit mode or if the constant definition
-`#define LCD_NO_RW` is used.
+`#define LCD_RW`. Only available when the LCD is connected using the 4 or 8 bit mode and when the constant definition
+`#define LCD_NO_RW` is NOT used.
 
 *Explanation:*
 
