@@ -36,7 +36,7 @@
 - Revised demonstration code
 - Added clarification on HPISPIMODE constant(s) when using multiple SPI devices
 - Added clarification on HPISPIMODE constant(s) for specific SPI device help pages
-- Added #define USART_BAUD_RATE OFF where appropiate to improve default performance on the serial communications
+- Added #define USART_DELAY OFF where appropiate to improve default performance on the serial communications
 - Added Number variablles and type section
 
 

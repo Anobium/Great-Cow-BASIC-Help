@@ -30,7 +30,7 @@ module.
   '#define USART_BLOCKING   ' Both of these blocking statements will
   #define USART_TX_BLOCKING ' wait for tx register to be empty
                 ' use only one of the two constants
-  #define USART_BAUD_RATE OFF
+  #define USART_DELAY OFF
 
   'Set PORTB to input
   Dir PORTB In

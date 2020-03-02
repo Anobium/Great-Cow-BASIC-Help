@@ -69,15 +69,15 @@ This is a common method and requires two data ports on the microcontroller.
 {empty} +
 {empty} +
 
-**Supported LCDs mapped to Connnection Mode**
+.Supported LCDs mapped to Connnection Mode
 
 The support of various types of LCD displays are shown in the following table.
 
 
-[cols="^1,1", options="header,autowidth"]
+[cols=2, options="header,autowidth"]
 |===
 
-Supported LCD Type +
+|Supported LCD Type +
 number of characters x number of lines
 |
 Connection Mode
@@ -94,13 +94,22 @@ also known as 4004 type LCD displays.
 {empty} +
 {empty} +
 
-**Communication Performance**
+
+.Optional Title
+[NOTE]
+===============================
+*NOTE* Block
+
+Use: multi-paragraph notes.
+===============================
+
+.Communication Performance
 
 There may be a need to change the communication performance for a specific LCD as some LCD's are slower to operate.  Great Cow BASIC supports change the communications speed.
 
 To change the performance (communications speed) of the LCD use `#DEFINE LCD_SPEED`.  This method allows the timing to be optimised.
 
-*Example*
+_Example_
 ----
  #DEFINE LCD_SPEED  FAST
 ----
