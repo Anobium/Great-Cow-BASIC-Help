@@ -69,7 +69,10 @@ This is a common method and requires two data ports on the microcontroller.
 {empty} +
 {empty} +
 
+
 .Supported LCDs mapped to Connnection Mode
+[NOTE]
+===============================
 
 The support of various types of LCD displays are shown in the following table.
 
@@ -91,19 +94,14 @@ also known as 4004 type LCD displays.
 |4
 
 |===
-{empty} +
-{empty} +
 
-
-.Optional Title
-[NOTE]
 ===============================
-*NOTE* Block
 
-Use: multi-paragraph notes.
-===============================
+
 
 .Communication Performance
+[NOTE]
+===============================
 
 There may be a need to change the communication performance for a specific LCD as some LCD's are slower to operate.  Great Cow BASIC supports change the communications speed.
 
@@ -130,10 +128,12 @@ _Example_
 If `LCD_SPEED` is not defined, the speed defaults to `SLOW`
 {empty} +
 {empty} +
+===============================
 
 
-
-**Using LCD_Speed OPTIMAL**
+.Using LCD_Speed OPTIMAL
+[NOTE]
+===============================
 
 `OPTIMAL` disables fixed delays and allows the LCD operate as fast as it can.&#160;&#160;In this mode, The the busy flag is polled before each byte is sent to the HD44780 controller. &#160;&#160;This not only optimizes speed, but also assures that data is not sent to the diplay controler until it is ready to receive the data.
 
@@ -163,19 +163,17 @@ Example:
   #DEFINE LCD_RS PORTA,2
   #DEFINE LCD_ENABLE PORTA.1
 ----
-{empty} +
-{empty} +
+
+===============================
 
 
-**Changing the LCD Width**
-
+.Changing the LCD Width
+[NOTE]
+===============================
 To change the LCD width characteristics use `#define LCD_WIDTH`
 
+===============================
 
-{empty} +
-{empty} +
-{empty} +
-{empty} +
 {empty} +
 {empty} +
 
