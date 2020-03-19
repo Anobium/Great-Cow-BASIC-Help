@@ -100,7 +100,7 @@ also known as 4004 type LCD displays.
 
 
 .Communication Performance
-[NOTE]
+[INDENT]
 ===============================
 
 There may be a need to change the communication performance for a specific LCD as some LCD's are slower to operate.  Great Cow BASIC supports change the communications speed.
