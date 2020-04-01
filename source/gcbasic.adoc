@@ -1051,6 +1051,8 @@ include::optionnocontextsave.adoc[]
 
 include::optionnolatch.adoc[]
 
+include::optionrequired.adoc[]
+
 include::optionvolatile.adoc[]
 
 include::optionReserveHighProg.adoc[]

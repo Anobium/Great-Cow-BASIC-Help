@@ -2,11 +2,28 @@
 
 *About Comments*
 
-Adding comments to your Great Cow BASIC program is done with an apostrophe before
-the comment line. You can also comment out sections of code if you want
-just by placing an apostrophe, a semi-colon or use the statement REM at
-the beginning of each line. The SynGCB IDE has a feature to do this
-automatically.
+Adding comments to your Great Cow BASIC program can be done using a number of methods. &#160;&#160;
+Explanatory notes embedded within the code.&#160;&#160;
+Comments are used to remind yourself and to inform others about the function of your program.&#160;&#160;
+Comments are ignored by the compiler
+
+You can comment out sections of code if you want just by placing an apostrophe at
+the beginning of each line. The SynGCB IDE has a feature to do this automatically.
+{empty} +
+{empty} +
+You can also use a REM (for REMark statement), a semi-colon or two forward slashes.
+{empty} +
+{empty} +
+Multiline comments are support for large text descriptions of code or to comment out chunks of code while debugging applications.
+
+*Syntax:*
+
+----
+    /*
+      block comment
+    */
+----
+
 
 Warning: Great Cow Graphical BASIC uses semi-colons to mark comments that it has
 inserted automatically. It does not read these comments when opening a file, so any

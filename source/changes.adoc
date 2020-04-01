@@ -38,6 +38,8 @@
 - Added clarification on HPISPIMODE constant(s) for specific SPI device help pages
 - Added #define USART_DELAY OFF where appropiate to improve default performance on the serial communications
 - Added Number variablles and type section
+- Updated the comments section with the new comments capabilities
+- Added #OPTION REQUIRED section
 
 
 {empty} +
