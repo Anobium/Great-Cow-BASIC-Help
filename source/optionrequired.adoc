@@ -6,7 +6,7 @@
     #option REQUIRED PIC|AVR CONSTANT "Message string"
 
 ----
-This option ensure that the specific CONSTANT existing within a library to ensure a specific capability is available with the microcontroller.
+This option ensure that the specific CONSTANT exists within a library to ensure a specific capability is available with the microcontroller.
 
 *Introduction:*
 
