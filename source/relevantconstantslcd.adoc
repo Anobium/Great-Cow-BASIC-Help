@@ -55,15 +55,23 @@ connected to the same I/O port, in sequential order. For example, `DB0` to
 This is a common method to connect a microcontroller to a LCD. This
 requires 11(10) data ports on the microcontroller.
 |10
-|The LCD is controlled via I2C. A type 10 LCD 12C adapter. Set `LCD_10` to
+|The LCD is controlled via I2C. A type 10 LCD 12C adapter. Set `LCD_IO` to
 `10` for the YwRobot LCD1602 IIC V1 or the Sainsmart LCD_PIC I2C adapter
  +
 This is a common method and requires two data ports on the microcontroller.
 |12
-|The LCD is controlled via I2C. A type 12 LCD 12C adapter. Set `LCD_10` to
+|The LCD is controlled via I2C. A type 12 LCD 12C adapter. Set `LCD_IO` to
 `12`for the Ywmjkdz I2C adapter with a potentiometer (variable resistance) bent over top of chip.
  +
 This is a common method and requires two data ports on the microcontroller.
+
+|107
+|The LCD is controlled via serial. Set `LCD_IO` to
+`107` or `K107`.
+ +
+The K107 requires one serial data ports on the microcontroller.
+
+
 |===
 
 {empty} +

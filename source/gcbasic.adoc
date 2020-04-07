@@ -442,6 +442,8 @@ include::lcd_io12.adoc[]
 
 include::lcd_io12portconfiguration.adoc[]
 
+include::lcd_io107.adoc[]
+
 include::lcd_speed.adoc[]
 
 include::lcd_width.adoc[]

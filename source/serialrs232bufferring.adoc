@@ -17,83 +17,96 @@ Testing `bkbhit` will set to True when a byte has been received. Reading the fun
 This demonstration program will support up to 256 bytes. For a larger buffer change the variables to words.
 
 ----
-  #chip 16F1937
+    #chip 16F1937
+
 
     ' Add PPS if appropiate for your chip
     ' [change to your config] This is the config for a serial terminal
     ' turn on the RS232 and terminal port.
     ' Define the USART settings
-    #define USART_BAUD_RATE 9600
-    #define USART_TX_BLOCKING
-    #define USART_BLOCKING
-    #define USART_DELAY OFF    'See below for duplication. Just in case you delete this constant!
+    #DEFINE USART_BAUD_RATE 9600
 
     'This assumes you are using an ANSI compatible terminal.  Use PUTTY.EXE it is very easy to use.
 
+    '   Main program
+
+    'Create the supporting variables
+    Dim next_in As Byte
+    Dim next_out As Byte
+    Dim syncbyte As Byte
+    Dim temppnt As Byte
+
+    ' Constants etc required for Buffer Ring
+    #DEFINE BUFFER_SIZE 8
+    #DEFINE bkbhit (next_in <> next_out)
+
+    'Define the Buffer
+    Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
+
+    'Call init the buffer
+    InitBufferRing
+
+    HSerSend 10
+    HSerSend 13
+    HSerSend 10
+    HSerSend 13
     HSerPrint "Started: Serial between two devices"
     HSerSend 10
     HSerSend 13
 
-    ' Pot port
-    DIR PORTA.0 IN
-
-    InitBufferRing
 
     'Get character(s) and send back
     Do
 
         ' Do we have data in the buffer?
-        do while bkbhit
+        if bkbhit then
 
             'Send the next character in the buffer, exposed via the function `bgetc` back the terminal
             HSerSend bgetc
 
-        Loop
+        end if
+
     Loop
 
+    'Supporting subroutines
+
     Sub readUSART
+
         buffer(next_in) = HSerReceive
         temppnt = next_in
         next_in = ( next_in + 1 ) % BUFFER_SIZE
-        if ( next_in = next_out ) then  ' buffer is full!!
+        If ( next_in = next_out ) Then  ' buffer is full!!
             next_in = temppnt
-        end if
+        End If
+
     End Sub
 
-    function bgetc
-        wait while !(bkbhit)
-        bgetc = buffer(next_out)
-        next_out=(next_out+1) % BUFFER_SIZE
-    end Function
+    Function bgetc
+        Dim local_next_out as Byte    'maintain a local copy of the next_out variable to ensure it does not change when an Interrupt happens
+        local_next_out = next_out
+        bgetc = buffer(local_next_out)
+        local_next_out=(local_next_out+1) % BUFFER_SIZE
+        INTOFF
+        next_out = local_next_out
+        INTON
+    End Function
 
-    'Create supporting variables
-    Dim next_in as byte
-    Dim next_out as byte
-    Dim syncbyte as Byte
 
-    ' Constants etc required for Buffer Ring
-    #define BUFFER_SIZE 8
-    #define bkbhit (next_in <> next_out)
-    #define USART_DELAY OFF
-
-    ;Buffer
-    Dim buffer( BUFFER_SIZE - 1 ) 'we will use element 0 in the array as part of out buffer
-    'Call init the buffer
 
 
     Sub InitBufferRing
-      'Set the buffer to the first address
-      next_in = 0
-      next_out = 0
-      'Interrupt Handler - some have RCIE and some have U1RXIE, so handle
-      #ifdef bit( RCIE )
-          On Interrupt UsartRX1Ready Call readUSART
-      #endif
-      #ifdef bit( U1RXIE )
-          On Interrupt UART1ReceiveInterrupt Call readUSART
-      #endif
+
+        'Set the buffer to the first address
+        next_in = 0
+        next_out = 0
+        'Interrupt Handler - some have RCIE and some have U1RXIE, so handle
+        #IFDEF BIT( RCIE )
+            On Interrupt UsartRX1Ready Call readUSART
+        #ENDIF
+        #IFDEF BIT( U1RXIE )
+            On Interrupt UART1ReceiveInterrupt Call readUSART
+        #ENDIF
 
     End Sub
-
 
 ----

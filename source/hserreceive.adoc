@@ -17,9 +17,9 @@ or, if other multiple comports are in use, set the comport before using HSerRece
 *_Used as function:_*
 [subs="quotes"]
 ----
-	_user_byte_variable_ = `HSerReceive`	'Supports only USART1
-	_user_byte_variable_ = `HSerReceive1`	'Supports only USART1
-	_user_byte_variable_ = `HSerReceive2`	'Supports only USART2
+  _user_byte_variable_ = `HSerReceive`  'Supports only USART1
+  _user_byte_variable_ = `HSerReceive1` 'Supports only USART1
+  _user_byte_variable_ = `HSerReceive2` 'Supports only USART2
 
 ----
 For other comports use Function `HSerReceiveFrom`
@@ -30,6 +30,18 @@ Available on all microcontrollers with a USART or UART module.
 
 Microchip PIC supports USART1 and 2. +
 Atmel AVR supports USART 1,2,3 and 4.
+
+*Enabling Constants:*
+
+To enable the use of the USART these are the enabling constants. &#160;&#160;These constants are required.&#160;&#160;You can change the `USART_BAUD_RATE` and to meet your needs.&#160;&#160;For addition USART ports use `#define USART**n**_BAUD_RATE 9600` where `**n**`` is the required port number.
+
+----
+    'USART settings for USART1
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_RX_BLOCKING
+    #define USART_DELAY OFF
+----
 
 *Explanation:*
 
@@ -42,80 +54,80 @@ The subroutine HSerReceive can get a byte from any comport but must set the comp
 
 *Example:*
 ----
-	'This program will read a value from the USART, and send it to PORTB.
+  'This program will read a value from the USART, and send it to PORTB.
 
-	#chip 16F877A, 20
+  #chip 16F877A, 20
 
-	'USART settings
-	#define USART_BAUD_RATE 9600	'sets up comport 1 for 9600 baud
+  'USART settings
+  #define USART_BAUD_RATE 9600  'sets up comport 1 for 9600 baud
 
-	'Set PORTB to output
-	Dir PORTB Out
-	'Set USART receive pin to input
-	Dir PORTC.7 In
+  'Set PORTB to output
+  Dir PORTB Out
+  'Set USART receive pin to input
+  Dir PORTC.7 In
 
-	'Main loop
-	Do
-		'Get serial data and output value to PortB as 8 bit binary
-		HSerReceive(InChar)	 'Receive data as Subroutine from comport 1
-		'InChar = HSerReceive	 'Could also be written as Function
-		If InChar <> 255 Then   'If value is 255 then it is old data
-			PortB = InChar		'If new data then it goes to PortB
-		End If
-	Loop
+  'Main loop
+  Do
+    'Get serial data and output value to PortB as 8 bit binary
+    HSerReceive(InChar)  'Receive data as Subroutine from comport 1
+    'InChar = HSerReceive  'Could also be written as Function
+    If InChar <> 255 Then   'If value is 255 then it is old data
+      PortB = InChar    'If new data then it goes to PortB
+    End If
+  Loop
 ----
 
 *Example 2:*
 ----
-	'If you choose no “Blocking” and comment both of them out.
-	'USART settings
-	#define USART_BAUD_RATE 9600
-	'#define USART_BLOCKING        ' just none OR one of the blocking
-	'#define USART_TX_BLOCKING    ' statements should be defined
+  'If you choose no “Blocking” and comment both of them out.
+  'USART settings
+  #define USART_BAUD_RATE 9600
+  '#define USART_BLOCKING        ' just none OR one of the blocking
+  '#define USART_TX_BLOCKING    ' statements should be defined
 
-	'Main loop
-	Do
-		'Get and display value
-		'If there is no new data, HSerReceive will return default value.
-		comport = 1
-		HSerReceive tempvalue
-		If tempvalue <> 255    Then    ‘ don’t change PortB if it is default
-			PortB = tempvalue
-		End If
+  'Main loop
+  Do
+    'Get and display value
+    'If there is no new data, HSerReceive will return default value.
+    comport = 1
+    HSerReceive tempvalue
+    If tempvalue <> 255    Then    ‘ don’t change PortB if it is default
+      PortB = tempvalue
+    End If
 
-	Loop
+  Loop
 ----
 
 
 *Example 3:*
 ----
-	'If you choose no “Blocking” and comment both of them out.
-	#chip mega328p, 16
+  'If you choose no “Blocking” and comment both of them out.
+  #chip mega328p, 16
 
-	#define USART_BAUD_RATE 9600
-	'#define USART_BLOCKING
-	'#define USART_TX_BLOCKING
+  #define USART_BAUD_RATE 9600
+  '#define USART_BLOCKING
+  '#define USART_TX_BLOCKING
 
-	'Don't forget to Set usart pin directions
-	Dir PortD.1 Out    'com1   USART0
-	Dir PortD.0 In
+  'Don't forget to Set usart pin directions
+  Dir PortD.1 Out    'com1   USART0
+  Dir PortD.0 In
 
-	Wait 1 s
+  Wait 1 s
 
-	'Message after reset
-	HSerPrint "ATmega328P  com test"
-	HSerPrintCRLF
+  'Message after reset
+  HSerPrint "ATmega328P  com test"
+  HSerPrintCRLF
 
-	'Main routine  hook up FTDI232 usb to serial and use terminal program to check
-	Start:
-		comport = 1
-		HSerReceive(InChar)    'Subroutine needs the comport set
-		'InChar = HSerReceive    ' This function will get from comport 1
-			If InChar <> 255 Then    ' check if for received byte
-									'return 255 if old data
-				HSerSend InChar    'send back char to UART
-			End If
-	Goto Start
+  'Main routine  hook up FTDI232 usb to serial and use terminal program to check
+  Start:
+    comport = 1
+    HSerReceive(InChar)    'Subroutine needs the comport set
+    'InChar = HSerReceive    ' This function will get from comport 1
+      If InChar <> 255 Then    ' check if for received byte
+                  'return 255 if old data
+        HSerSend InChar    'send back char to UART
+      End If
+  Goto Start
 
 ----
 *See also* <<_rs232_hardware_overview,RS232 Hardware Overview>>

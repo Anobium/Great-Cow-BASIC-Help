@@ -13,6 +13,16 @@ Available on all microcontrollers with a USART or UART module. +
 Microchip PIC supports USART1 and 2. +
 Atmel AVR supports USART 1,2,3 and 4.
 
+*Enabling Constants:*
+
+To enable the use of the USART these are the enabling constants. &#160;&#160;These constants are required.&#160;&#160;You can change the `USART_BAUD_RATE` and to meet your needs.&#160;&#160;For addition USART ports use `#define USART**n**_BAUD_RATE 9600` where `**n**`` is the required port number.
+
+----
+    'USART settings for USART1
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_DELAY OFF
+----
 
 *Explanation:*
 

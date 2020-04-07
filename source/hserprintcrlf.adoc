@@ -12,6 +12,17 @@ Available on all microcontrollers with a USART or UART module. +
 Microchip PIC supports USART1 and 2.+
 Atmel AVR supports USART 1,2,3 and 4.
 
+*Enabling Constants:*
+
+To enable the use of the USART these are the enabling constants. &#160;&#160;These constants are required.&#160;&#160;You can change the `USART_BAUD_RATE` and to meet your needs.&#160;&#160;For addition USART ports use `#define USART**n**_BAUD_RATE 9600` where `**n**`` is the required port number.
+
+----
+    'USART settings for USART1
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_DELAY OFF
+----
+
 *Explanation:*
 
 This command will send ASCII codes 13 and 10 only using the hardware
@@ -25,16 +36,16 @@ Also you can choose the comport with second optional parameter if it is not the 
 
 *Examples:*
 ----
-	'This Line will send 1  CR and LF
-	HserPrintCRLF    ' Will send a CR & LF to the terminal
+  'This Line will send 1  CR and LF
+  HserPrintCRLF    ' Will send a CR & LF to the terminal
 
-	'This Line will send 2  times (CR and LF)
-	HserPrintCRLF 2    ' Will send 2 times (CR & LF) to the terminal
-						'out of comport 1
+  'This Line will send 2  times (CR and LF)
+  HserPrintCRLF 2    ' Will send 2 times (CR & LF) to the terminal
+            'out of comport 1
 
-	'This Line will send 1  CR and LF
-	HserPrintCRLF 1,2    ' Will send a CR & LF out of
-						'comport 2 to the terminal
+  'This Line will send 1  CR and LF
+  HserPrintCRLF 1,2    ' Will send a CR & LF out of
+            'comport 2 to the terminal
 
 ----
 *See also* <<_hserprintbytecrlf,HserPrintByteCRLF>>

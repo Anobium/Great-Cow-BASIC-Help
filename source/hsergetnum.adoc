@@ -17,6 +17,17 @@ Available on all microcontrollers with a USART or UART module. +
 Microchip PIC supports USART1 and 2. +
 Atmel AVR supports USART 1,2,3 and 4.
 
+*Enabling Constants:*
+
+To enable the use of the USART these are the enabling constants. &#160;&#160;These constants are required.&#160;&#160;You can change the `USART_BAUD_RATE` and to meet your needs.&#160;&#160;For addition USART ports use `#define USART**n**_BAUD_RATE 9600` where `**n**`` is the required port number.
+
+----
+    'USART settings for USART1
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_DELAY OFF
+----
+
 *Explanation:*
 
 This command will read a multi digit number received as ascii chars followed by a CR from an external serial source using a  hardware serial module.  The command checks that only numbers are input disregarding other characters while waiting for the ending <CR>.  It can be used only as a subroutine.
@@ -95,4 +106,3 @@ Therefore, the result is in the range of 0-99999.  The example also shows how to
 ----
 
 *See also* <<_hserreceive,HSerReceive>> and <<_hsergetstring,HSerGetString>>
-

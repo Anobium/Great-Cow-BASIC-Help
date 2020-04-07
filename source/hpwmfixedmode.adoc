@@ -12,18 +12,16 @@
 ----
 *Command Availability:*
 
-*Only* available on Microchip PIC microcontrollers with a CCP1 module.
-
-See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels - this method is fixed to CCP1.
+*Only* available on Microchip PIC microcontrollers with a CCP1/PWM module.  This method is a constrained to supporting CCP1/PWM.
 
 *Explanation:*
 
-This command sets up the hardware PWM module of the Microchip PIC microcontroller to generate
-a PWM waveform of the given frequency and duty cycle. Once this command
-is called, the PWM will be emitted until PWMOff is called.
+This command sets up the hardware CCP1/PWM module of the Microchip PIC microcontroller to generate
+a PWM waveform of the given frequency and duty cycle. Once the `PWMOn` command
+is called, the PWM signal will be generated until `PWMOff` is called.
 
 
-These constants are required for PWMOn.
+These constants are required for PWMOn:
 
 [cols=3, options="header,autowidth"]
 |===
@@ -40,12 +38,9 @@ These constants are required for PWMOn.
 |50
 |===
 
+////
 HPWM and PWMOff do not require any constants to operate.
 
-Optimisation of the hardware PWM code can be implemented within Great Cow BASIC, see <<_hardware_pwm_code_optimisation, Hardware PWM Code Optimisation>>
-
-
-*_Software PWM_*
 [cols=3, options="header,autowidth"]
 [subs="specialcharacters,quotes"]
 |===
@@ -64,8 +59,9 @@ routine.
 _n_ can represent 1, 2, 3 or 4.
 |Not Defined
 |===
+////
 
-
+////
 *Example 1:*
 ----
     'This program will set the brightness of an LED.
@@ -108,6 +104,9 @@ _n_ can represent 1, 2, 3 or 4.
 ----
 
 *Example 2:*
+////
+
+*Example:*
 ----
     #chip 16f877a,20
 
@@ -129,6 +128,15 @@ _n_ can represent 1, 2, 3 or 4.
     loop
 
 ----
+
+{empty} +
+{empty} +
+{empty} +
+
+
+See here <<_hpwm_ccp,HPWM CCP>> for the method to change PWM parameters dynamically or to use other CCP channels.
+
+See here for the optimisation of the hardware PWM code that can be implemented within Great Cow BASIC, see <<_hardware_pwm_code_optimisation, Hardware PWM Code Optimisation>>
 
 
 *For more help, see* <<_pwmon,PWMOn>> and <<_pwmoff,PWMOff>>
