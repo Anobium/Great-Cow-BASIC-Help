@@ -40,15 +40,20 @@ This method returns whole part of the sensor value in the byte variable `DSint`,
     ' DS18B20 port settings
     #define DQ PortC.3
 
-    ReadDigitalTemp
+    do forever
 
-    ' Display the integer value of the sensor on the LCD
-    locate 0,0
-    print "Temp"
-    locate 0,8
-    print DSInt
-    print "."
-    print DSdec
-    print chr(223)+"C"
+        ReadDigitalTemp
+
+        ' Display the integer value of the sensor on the LCD
+        cls
+        print "Temp"
+        locate 0,8
+        print DSInt
+        print "."
+        print DSdec
+        print chr(223)+"C"
+        wait 2 s
+
+    loop
+
 ----
-

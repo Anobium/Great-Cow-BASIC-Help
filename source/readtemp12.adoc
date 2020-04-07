@@ -41,10 +41,14 @@ The function `readtemp12` does not work with the older DS1820 or DS18S20 as they
     #define LCD_DB6 PORTD.6
     #define LCD_DB7 PORTD.7
 
-
-    ' DS18B20 port settings
+; ----- DS18B20 port settings
     #define DQ PortC.3
-    dim TempC_100 as word   ' a variable to handle the temperature calculations
+
+; ----- Variables
+    Dim TempC_100 as word   ' a variabler to handle the temperature calculations
+    Dim CCOUNT, SIGNBIT, WHOLE, FRACT, DIG as Byte
+    Dim TempC_100 as word   ' a variable to handle the temperature calculations
+
     ccount = 0
     CLS
 
