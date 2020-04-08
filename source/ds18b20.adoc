@@ -16,3 +16,39 @@ Note the Great Cow BASIC commands do not work with the older DS1820 or DS18S20 a
 
 These commands are not designed to be used with parasitically powered DS18B20 sensors.
 
+[cols="10%,60%,30%",options="header"]
+|===
+|Command
+|Usage
+|Returns
+
+|ReadDigitalTemp
+|Returns two global variables.&#160;&#160;As follows:
+
+*`DSint`* the integer value read from the sensors
+*`DSdec`* the string value read from the sensors
+
+|Byte variables:
+*`DSint`*
+
+String variable: *`DSdec`*
+
+|ReadTemp
+|*`ReadTemp`* is a function that returns the raw value of the sensor.
+
+The temperature is read back in whole degree steps, and the sensor operates from -55 to + 125 degrees Celsius.;&#160;&#160Note that bit 7 is 0 for positive temperature values and 1 for negative values (ie negative values will appear as 128 + numeric value).
+|Word variable via the ReadTemp() function
+
+
+|ReadTemp12
+|*`ReadTemp`* is a function that returns the raw 12bit value of the sensor.
+
+The temperature is read back as the raw 12 bit data into a word variable (0.0625 degree resolution).;&#160;&#160The user must interpret the data through mathematical manipulation. See the DS18B20 datasheet for more information on the 12 bit temperature/data information construct.
+|Word variable via the ReadTemp12() function
+|===
+
+{empty} +
+{empty} +
+
+*For more help, see*
+<<_readdigitaltemp, ReadDigitalTemp>>, <<_readtemp,ReadTemp>> or <<_readtemp12,ReadTemp12>>
