@@ -25,7 +25,7 @@ This command should be used carefully. Each time it is inserted, 20 words of pro
 
 `_output_` is the name of the variable that will receive the value.
 
-*Example:*
+*Example 1:*
 ----
     'This program will beep whenever a shadow is detected
     'A potentiometer is used to adjust the threshold
@@ -46,6 +46,48 @@ This command should be used carefully. Each time it is inserted, 20 words of pro
         End If
     Loop
 ----
+
+*Example 2:*
+
+This program is an implementation of the capacitor and resistor principle using the chips internal capacitor and the internal pullup resistor.
+
+The will test the state of the GPIO.3 port by using these internal components, and, after the charge state has been complete the LED PWM will represent the detected value of signal on the GPIO.3 port.
+
+It should be note that Great Cow BASIC will set the DIRection of GPIO.2 and GPIO.3 automatically.  And, this solution is specific to the 12F509 and therefore the 12F509 register called `NOT_GPPU` may be different on another chip.
+
+----
+    #chip 12F509
+    #option Explicit
+
+      ;Defines (Constants)
+      #define PWM_Out1 GPIO.2
+
+      ;Variables
+      Dim TimeCount As byte
+      Dim OPTION_REG as byte
+
+      Do Forever
+
+          NOT_GPPU = Off
+          Wait 1 ms
+          NOT_GPPU = On
+          TimeCount = 0
+
+          'Do while held high by the internal capacitance
+          Do While GPIO.3 = 1
+
+            TimeCount = TimeCount + 1
+            If TimeCount = 255 Then
+                Exit Do
+            End If
+
+          Loop
+
+          PWMout 1, TimeCount, 5
+
+      Loop
+----
+
 
 *See also*  http://ladyada.net/library/rccalc.html[ladyada.net/library/rccalc.html] or http://web.archive.org/web/20100818230450/http://www.cvs1.uklinux.net/cgi-bin/calculators/time_const.cgi[cvs1.uklinux.net/cgi-bin/calculators/time_const.cgi]
 for calculating capacitor value. These sites are not associated with Great Cow BASIC.

@@ -2,25 +2,32 @@
 
 *About Lookup Tables*
 
-A lookup table is a list of values that are stored in the program memory
-of the chip, which can be accessed using the `ReadTable` command.
+A lookup table is a list of values that are stored in the memory of the microcontroller, which then can be accessed using the `ReadTable` command.
 
 The advantage of lookup tables is that they are memory efficient,
-compared to an equivalent set of IF statements.
+compared to an equivalent set of alternative command statements.
 
-Data tables are defined as
+Data tables are defined as follows:
 
 . a single value on each line
-. byte, word, longs and integer values are valid (no strings or decimals!)
+. byte, word, longs and integer values are valid.&#160;&#160;
+. Strings must be expressed as ASCII byte value(s)
 . multiple elements on a single line separated by commas
 . constants and calculations within the single line data table entries are permitted
 . an external data source file
+. decimal values are NOT supported
+{empty} +
+{empty} +
 
 *Defining Tables*
 
-A single value on each line
+
+_Single data values_
+
+A single value on each line with in the table.&#160;&#160;The example table, shown below, has the data on different line in within the table.
 ----
-    Table TestDataSource as Integer
+
+    Table TestDataSource
         12
         24
         36
@@ -28,32 +35,64 @@ A single value on each line
         60
         72
     End Table
+
+    Dim TableCounter, Invalue as byte
+
+    CLS
+    For TableCounter = 1 to 6
+      ReadTable  TestDataSource, TableCounter, Invalue
+      Print InValue
+      Print ","
+    Next
 ----
-Multiple elements on a single line separated by commas:
+
+_Multiple data values of the same line_
+
+Multiple elements on a single line separated by commas.&#160;&#160;The example table, shown below, has the data separated by `,` and on different line in within the table.
 ----
-    Table TestDataSource as Integer
+    Table TestDataSource
         12,  24, 36
         48,  60, 72
     End Table
+
+    Dim TableCounter, Invalue as byte
+
+    CLS
+    For TableCounter = 1 to 6
+      ReadTable  TestDataSource, TableCounter, Invalue
+      Print InValue
+      Print ","
+    Next
 ----
 
-Constants and calculations within the single line:
+_Data values as constants, and, with data transformation_
+
+Constants and calculations within the single line.  &#160;&#160;The example table, shown below, uses a defined constant to multiple the data with the table.
 ----
 #define calculation_constant 2
 
-    Table TestDataSource as Integer
+    Table TestDataSource
       1 * calculation_constant
       2 * calculation_constant
-      4 * calculation_constant
+      3 * calculation_constant
       8 * calculation_constant
-      16 * calculation_constant
-      32 * calculation_constant
+      4 * calculation_constant
+      5 * calculation_constant
     End Table
+
+    Dim TableCounter, Invalue as byte
+
+    CLS
+    For TableCounter = 1 to 6
+      ReadTable  TestDataSource, TableCounter, Invalue
+      Print InValue
+      Print ","
+    Next
 ----
-Data tables can now be loaded directly from a file.  The source file will be read as a hexidecimal raw file.
-----
-Table TestDataSource from "sourcefile.raw"
-----
+&#160;&#160;
+&#160;&#160;
+
+
 
 *Using Lookup Tables*
 
@@ -61,19 +100,18 @@ First, the table must be created. The code to create a lookup table is
 simple - a line that has `Table` and then the name of the table, a list
 of numbers (up to 10,000 elements), and then `End Table`.
 
-For tables with more than 255 elements it is mandated to used a WORD variable to read the size of the table. See below.
+For tables with more than 255 elements it is mandated to used a WORD variable to read the size of the table. See below for an example.
 
 Once the table is created, the `ReadTable` command is used to read data
 from it. The `ReadTable` command requires the name of the table it is to
 read, the location of the item to retrieve, and a variable to store the
 retrieved number in.
 
-Lookup tables can store byte, word, longs and integer values. Great Cow BASIC
-will automatically detect the type of the table depending on the values
-in it. Great Cow BASIC can be explicitly instructed to cast the table to a
-variable type, as follows:
+Lookup tables can store byte, word, longs and integer values.&#160;&#160;
+Great Cow BASIC will try automatically detect the type of the table depending on the values in it.&#160;&#160;
+Great Cow BASIC can be explicitly instructed to cast the table to a variable type, as follows:
 ----
-    Table TestDataSource as Integer
+    Table TestDataSource as [Byte | Word | Integer | Long ]
         12
         24
         36
@@ -82,21 +120,34 @@ variable type, as follows:
         72
     End Table
 ----
-Item 0 of a lookup table stores the size of the table. If the `ReadTable`
-command attempts to read beyond the end of the table, the value 0 will
-be returned.
 
-For tables with more than 255 elements it is *mandatory* to use a WORD variable to read the size of the table. See below.
+_Addresssing the Table Data_
+
+
+Item 0 of a lookup table stores the size of the table.
+If the `ReadTable` command attempts to read beyond the end (number of data items) of the table, the value 0 will be returned.
+For tables with more than 255 elements it is *mandatory* to use a WORD variable to read the size of the table. See example below.
+
 ----
-    dim lengthoftable  word
+    dim lengthoftable as word
+
     readtable TestDataSource , 0, lengthoftable
     print lengthoftable  ; will print the size as a word
 
     table TestDataSource
     'a table with more than 255 elements
+    ... 'item 1
+    ...
+    ...
+    ...  'item 1027
     end table
 ----
-For tables that are defined using an external file the table data will be read into the TestDataSource table from the external file.
+
+_Importing External Text File for table conversion_
+
+An external file can be used as the table data source.&#160;&#160;
+The file will be read into the specified table name from the external file.&#160;&#160;
+The source file will be treated as a byte value file.
 
 An example file is shown below:
 
@@ -110,14 +161,20 @@ The following program will import the external data file.
 
     for nn = 1 to 10
       ReadTable TestDataSource, nn, inc
-      HSerPrint inc
+      Print inc
     next
 ----
 And the program will out the following:
 
 image::lookuptablesb2.PNG[graphic,align="center"]
 
-*Advanced use of Lookup Tables - using EEPROM*
+
+{empty} +
+{empty} +
+
+
+
+_Advanced use of Lookup Tables - using EEPROM for Table data storage_
 
 You can use the `Table` statement to store the data table in EEPROM. If
 the compiler is told to store a data table in "Data" memory, it will
@@ -127,7 +184,7 @@ store it in the EEPROM.
 The limitation of of using EPPROM tables is that you can only
 store BYTEs. You cannot store WORD values in the EEPROM tables.
 
-Here is some example code:
+Example code:
 ----
     #chip 16F628
 
@@ -154,4 +211,7 @@ Here is some example code:
         72
     End Table
 ----
+{empty} +
+{empty} +
+
 *For more help, see* <<_readtable,ReadTable>>
