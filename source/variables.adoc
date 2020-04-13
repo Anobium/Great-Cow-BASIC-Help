@@ -69,6 +69,77 @@ A key feature of variables is that it is possible the have the
 microcontroller check a variable, and only run a section of code if it
 is a given value. This can be done with the IF command.
 
+
+*Number Variables*
+
+You can assign values to number variables using&#160;&#160`=`.&#160;&#160;
+
+A simple, but typical example follows.&#160;&#160;This is the typical for numeric variable assignment.
+
+----
+
+    myByteVarible = 127       'assign the value of 127
+
+----
+
+
+Great Cow BASIC support bitwise assignments s follows:
+
+
+----
+    portc.0 = !porta.1  'set a single bit to the value of another bit
+----
+
+
+You can also use a shift function.  As in other languages, by using the Shift Function FnLSL.  AN example is:
+----
+    MyVar = FnLSL( 1, BitNum)`  is Equivalent to `MyVar = 1<<BitNum`
+----
+
+
+To set a bit of a port and to prevent glitches during operations, use `#option volatile` as folllows.
+----
+    'add this option for a specific port.
+    #option volatile portc.0
+
+    'then in your code
+    portc.0 = !porta.1
+----
+
+
+To set a bit of a port or variable. Encapsulate it in the SetWith method, this also eliminates any glitches during the update, use this method.
+----
+    SetWith(MyPORT, MyPORT OR FnLSL( 1, BitNum))
+----
+
+
+To clear a bit of a port, use this method.
+----
+    MyPORT = MyPORT AND NOT FnLSL( 1, BitNum))
+----
+
+
+To set a bit within an array, use this method.
+----
+    video_buffer_A1(video_adress) = video_buffer_A1(video_adress) OR FnLSL( 1, BitNum)
+----
+
+
+To set a bit within a variable, use this method.
+----
+    Dim my_variable as byte
+    Dim my_bit_address_variable as byte
+
+    'example
+    my_variable = 0
+    my_bit_address_variable = 7
+
+    my_variable.my_bit_address_variable = 1   ' where 1 or 0 or any bit address is valid
+
+    'Sets bit 7 of my_variable therefore 128
+----
+
+
 *String Variables*
 
 Strings are defined as follows:
@@ -132,6 +203,43 @@ variable together to form word variables.
 Alias are not like pointers in many languages - they must always refer
 to the same variable or variables and cannot be changed.
 
+When setting register/variable bit ( i.e  my_variable.my_bit_address_variable ) and using a alias for the my_variable then you must ensure the bytes that construct the variable are consective.&#160;&#160;
+The coding approach should be to DIMension the variable (long/integer or word ) first then create the byte aliases, as follows:
+
+----
+		Dim my_variable as LONG
+		Dim ByteOne   as Byte alias my_variable_E
+		Dim ByteTwo   as Byte alias my_variable_U
+		Dim ByteThree as Byte alias my_variable_H
+		Dim ByteFour  as Byte alias my_variable
+
+		Dim my_bit_address_variable as Byte
+		my_bit_address_variable = 23
+
+		'set the bit in the variable
+		my_variable.my_bit_address_variable = 1
+
+		'then, use the four byte varialbles as you need to.
+----
+
+To set a series of registers it recommended to use the following coding method.&#160;&#160;
+If the target regiesters are not consective.&#160;&#160;
+Use the a mask variable then apply to the register.&#160;&#160;
+----
+		Dim my_variable as LONG
+		Dim my_bit_address_variable as Byte
+		my_bit_address_variable = 23
+
+		'set the bit in the variable
+		my_variable.my_bit_address_variable = 1
+		
+		porta =  my_variable_E
+		portb =  my_variable_E
+		portc =  my_variable_E
+		portd =  my_variable_E
+
+----
+
 *Casting*
 
 Casting changes the type of a variable or value. Placing the type that
@@ -150,7 +258,7 @@ the result. However, when the cast is added, Great Cow BASIC will treat `ByteVar
 as if it were a word, and so will use the word addition code. This will
 cause the correct result to be calculated.
 
-Often, a cast will be used when calculating an average:
+It is good practice to cast when calculating an average:
 ----
     MyAverage = ([word]Value1 + Value2) / 2
 ----
@@ -159,6 +267,9 @@ It's also possible to cast the second value:
     MyAverage = (Value1 + [word]Value2) / 2
 ----
 The result will be exactly the same.
+
+
+
 
 {empty} +
 Doing things to individual bits of variables see,
