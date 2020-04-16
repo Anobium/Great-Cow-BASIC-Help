@@ -617,6 +617,10 @@ include::readtemp.adoc[]
 
 include::readtemp12.adoc[]
 
+include::ds18b20setresolution.adoc[]
+
+
+
 ifdef::backend-pdf[<<<]
 === Serial Communications
 

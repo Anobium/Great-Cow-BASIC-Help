@@ -1,0 +1,78 @@
+==== D18B20SetResolution
+
+*Syntax:*
+[subs="quotes"]
+For Single Channel/Device only. The method assumes a single DS18B20.
+----
+    D18B20SetResolution ( [D18B20SetResolution_CONTSTANT] )
+----
+
+
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+Set the DS18B20 operating resolution.&#160;&#160;
+The configuration register of the DS18B20 allows the user to set the resolution of the temperature-to-digital conversion to 9, 10, 11, or 12 bits. &#160;&#160;
+This method set the operating resolution to either 9, 10, 11, or 12 bits.&#160;&#160;
+
+Calling the method with no parameter will set the operating resolution of the DS18B20 to 12 bits.&#160;&#160;
+See example 3 below.
+
+*Constants*
+
+[cols=2, options="header,autowidth"]
+|===
+|CONSTANT
+|Operating resolution
+
+|DS18B20_TEMP_9_BIT
+|9 bits
+
+
+|DS18B20_TEMP_10_BIT
+|10 bits
+
+|DS18B20_TEMP_11_BIT
+|11 bits
+
+|DS18B20_TEMP_12_BIT
+|12 bits
+
+|===
+{empty} +
+*Example Usage 1*
+
+The follow example sets the operating resolution of the DS18B20 to 12 bits.
+
+[subs="specialcharacters,quotes"]
+----
+    #include <DS18B20.h>
+    #define DQ PortC.3 ; change port configuration as required
+    D18B20SetResolution ( DS18B20_TEMP_12_BIT )
+----
+
+
+*Example Usage 2*
+
+The follow example sets the operating resolution of the DS18B20 to 9 bits.
+
+[subs="specialcharacters,quotes"]
+----
+    #include <DS18B20.h>
+    #define DQ PortC.3 ; change port configuration as required
+    D18B20SetResolution ( DS18B20_TEMP_9_BIT )
+----
+
+*Example Usage 3*
+
+The follow example sets the operating resolution of the DS18B20 to the default value of 12 bits.
+
+[subs="specialcharacters,quotes"]
+----
+    #include <DS18B20.h>
+    #define DQ PortC.3 ; change port configuration as required
+    D18B20SetResolution ( )
+----
