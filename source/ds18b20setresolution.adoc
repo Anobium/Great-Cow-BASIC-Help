@@ -2,7 +2,7 @@
 
 *Syntax:*
 [subs="quotes"]
-For Single Channel/Device only. The method assumes a single DS18B20.
+For Single Channel/Device only. The method assumes a single DS18B20 device on the OneWire bus.
 ----
     D18B20SetResolution ( [D18B20SetResolution_CONTSTANT] )
 ----
