@@ -41,6 +41,7 @@
 - Updated the comments section with the new comments capabilities
 - Added #OPTION REQUIRED section
 - Added K107 LCD adapter section
+- Added DS18B20 set resolution section
 
 
 {empty} +

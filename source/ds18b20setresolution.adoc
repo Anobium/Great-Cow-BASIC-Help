@@ -1,10 +1,10 @@
-==== D18B20SetResolution
+==== DS18B20SetResolution
 
 *Syntax:*
 [subs="quotes"]
 For Single Channel/Device only. The method assumes a single DS18B20 device on the OneWire bus.
 ----
-    D18B20SetResolution ( [D18B20SetResolution_CONTSTANT] )
+    DS18B20SetResolution ( [DS18B20SetResolution_CONTSTANT] )
 ----
 
 
@@ -23,23 +23,27 @@ See example 3 below.
 
 *Constants*
 
-[cols=2, options="header,autowidth"]
+[cols=3, options="header,autowidth"]
 |===
 |CONSTANT
 |Operating resolution
+|Temprature resolution
 
 |DS18B20_TEMP_9_BIT
 |9 bits
-
+|0.5c
 
 |DS18B20_TEMP_10_BIT
 |10 bits
+|0.25c
 
 |DS18B20_TEMP_11_BIT
 |11 bits
+|0.125c
 
 |DS18B20_TEMP_12_BIT
 |12 bits
+|0.0625c
 
 |===
 {empty} +
@@ -51,7 +55,7 @@ The follow example sets the operating resolution of the DS18B20 to 12 bits.
 ----
     #include <DS18B20.h>
     #define DQ PortC.3 ; change port configuration as required
-    D18B20SetResolution ( DS18B20_TEMP_12_BIT )
+    DS18B20SetResolution ( DS18B20_TEMP_12_BIT )
 ----
 
 
@@ -63,7 +67,7 @@ The follow example sets the operating resolution of the DS18B20 to 9 bits.
 ----
     #include <DS18B20.h>
     #define DQ PortC.3 ; change port configuration as required
-    D18B20SetResolution ( DS18B20_TEMP_9_BIT )
+    DS18B20SetResolution ( DS18B20_TEMP_9_BIT )
 ----
 
 *Example Usage 3*
@@ -74,5 +78,5 @@ The follow example sets the operating resolution of the DS18B20 to the default v
 ----
     #include <DS18B20.h>
     #define DQ PortC.3 ; change port configuration as required
-    D18B20SetResolution ( )
+    DS18B20SetResolution ( )
 ----
