@@ -1148,8 +1148,10 @@ This is the Great Cow BASIC for FreeBSD OS section of the Help file.  Please ref
 
 include::freebsdoverview.adoc[]
 
-== Great Cow BASIC Maintenance
+== Great Cow BASIC Maintenance and Development
 
 This is the Great Cow BASIC maintenance section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
 include::maintenance.adoc[]
+
+include::DeveloperGuide.adoc[]
