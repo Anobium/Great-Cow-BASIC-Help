@@ -1,5 +1,5 @@
 = Great Cow BASIC documentation
-The Great Cow BASIC development team @ 2019
+The Great Cow BASIC development team @ 2020
 
 
 
@@ -443,6 +443,8 @@ include::lcd_io12.adoc[]
 include::lcd_io12portconfiguration.adoc[]
 
 include::lcd_io107.adoc[]
+
+include::lcd_variants.adoc[]
 
 include::lcd_speed.adoc[]
 

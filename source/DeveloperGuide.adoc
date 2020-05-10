@@ -125,16 +125,20 @@ The following rules are recommended.
      WAIT SCRIPT_LCDPOSTWRITEDELAY us
 ----
 
-'''
+___
+
 
 *VARIABLES*
 
-Words need to be added
+Scripting has the concept of variable that can be used within the script.&#160;&#160;
+The variables are NOT available as variables to a user program or a library beyond the scope of the script.&#160;&#160;
+The variables are available  to a user program as constants.&#160;&#160;
+The variables will be integer values, if accessed in a user program.&#160;&#160;
 
 
 *SCRIPT SYNTAX*
 
-Scripting suppport the preprocessing of the program to create specific constants.&#160;&#160;
+Scripting support the preprocessing of the program to create specific constants.&#160;&#160;
 Scripting has a basic syntax and this is detailed in the HELP.&#160;&#160;
 However, this guide is intended to provide insights into the gotchas and best practices.
 
@@ -152,7 +156,12 @@ If you do not check the registrer or constant exists the script will fail to ope
 There is limted syntax checking.
 You must ensure the quality of the script by extensive testing.
 
-int( register +1s)) will not create an error, but, simple give an unexpected result.
+----
+    int( register +1s))  'Will not create an error, but, simple give an unexpected result.
+----
+{empty} +
+{empty} +
+
 
 '''
 

@@ -1,0 +1,76 @@
+===== LCD_VARIANT
+
+*Using LCD_VARIANT:*
+
+Some LCDs are none standard.&#160;&#160;
+The LCD may have a different memory architecture where the memory is non-consective or truely compatible with the standard LCD chipset.&#160;&#160;
+Use the `LCD_VARIANT` to change the operating behaviour of Great Cow BASIC with respect to LCD operations.
+
+
+*LCD_VARIANT 1601a:*
+
+Use `#define LCD_VARIANT 1601a` to use this sub variant. Requires a LCD_IO then this sub type modifier.&#160;&#160;
+This variant has a non consective memory as shown in the diagram below.
+
+image::Variant_1601a_LCD_Solution-Memory_Map.png[graphic,align="center"]
+
+
+
+*Example:*
+
+This example shows how to use the LCD_VARIANT constant.&#160;&#160;
+This example shows the use of software I2C - any LCD mode can be used not just software I2C.&#160;&#160;
+
+
+----
+    #chip tiny84,1
+
+    'Set up LCD
+    #define LCD_IO 10
+    #define LCD_VARIANT 1601a
+
+    'You may need to use SLOW or MEDIUM if your LCD is a slower device.
+    #define LCD_SPEED FAST
+
+    ' ----- Define Hardware settings
+    ' Define I2C settings - CHANGE PORTS FOR YOUR NEEDS
+    #define LCD_I2C_Address 0x0E
+    #define I2C_MODE Master
+    #define I2C_DATA PORTA.4
+    #define I2C_CLOCK PORTA.5
+    #define I2C_DISABLE_INTERRUPTS ON
+
+    'You may need to invert these states. Dependent of LCD I2C adapter.
+    #define LCD_Backlight_On_State  1
+    #define LCD_Backlight_Off_State 0
+
+    ; ----- Main body of program commences here.
+    Locate 0,0
+    PRINT "Great Cow Basic"
+
+
+    Do
+    Loop
+
+
+----
+
+
+For code examples see https://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/tree/master/LCD_Solutions/Variant1601a_LCD_Solutions[I2C Variants LCD Solutions].
+
+
+
+
+
+See the separate sections of the Help file for the specifics of each
+Connection Mode.
+
+*For more help, see*
+<<_lcd_io_0,LCD_IO 0>>, <<_lcd_io_1,LCD_IO 1>>, <<_lcd_io_2,LCD_IO 2>>
+<<_lcd_io_2_74xx164,LCD_IO 2_74xx164>>, <<_lcd_io_2_74xx174,LCD_IO 2_74xx174>>,
+<<_lcd_io_4,LCD_IO 4>>, <<_lcd_io_8,LCD_IO 8>>,
+<<_lcd_io_10,LCD_IO 10>>
+
+
+
+

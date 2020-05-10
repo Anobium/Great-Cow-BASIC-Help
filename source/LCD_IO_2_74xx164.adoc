@@ -42,7 +42,7 @@ How to connect and control the LCD background led: see http://gcbasic.sourceforg
 
 For a code example download http://gcbasic.sourceforge.net/library/DEMO%20CODE/Demo%20code%20for%20lcd/Demo%20mode%202.gcb[Two Wire LCD Example].
 
-See for further code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[Two Wire LCD Solutions].
+See for further code examples see http://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/tree/master/LCD_Solutions[Two Wire LCD Solutions].
 
 See the separate sections of the Help file for the specifics of each Connection Mode.
 

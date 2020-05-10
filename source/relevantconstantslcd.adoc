@@ -102,6 +102,17 @@ also known as 1601, 1602, 2002, 2004 type LCD displays.
 also known as 4004 type LCD displays.
 |4
 
+|16 x 1 LCD displays, with a non-standard/non-consective memory map. +
+
+This LCD sub type is supported using a specific constant.
+
+Use `*#define LCD_VARIANT 1601a*` to use this sub variant.
+
+Also known as 1601 type LCD displays.
+|Supports any LCD_IO mode.
+
+
+
 |===
 
 ===============================

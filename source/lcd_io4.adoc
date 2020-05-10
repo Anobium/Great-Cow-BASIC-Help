@@ -27,32 +27,48 @@ Constants are required for 4-bit mode as follows.
 |`LCD_RS`
 |Specifies the output pin that is connected to Register Select on the
 LCD.
-|*_Must be defined_*
+|Must be defined as `port.bit`
 
 |`LCD_RW`
 |Specifies the output pin that is connected to Read/Write on the LCD. The
 R/W pin can be disabled*.
-|*_Must be defined_* _(unless R/W is disabled)_
+|Must be defined as `port.bit` _(unless R/W is disabled)_
 
 |`LCD_Enable`
 |Specifies the output pin that is connected to Read/Write on the LCD.
-|*_Must be defined_*
+|Must be defined as `port.bit`
 
 |`LCD_DB4`
 |Output pin used to interface with bit 4 of the LCD data bus
-|*_Must be defined_*
+|Must be defined as `port.bit`
 
 |`LCD_DB5`
 |Output pin used to interface with bit 5 of the LCD data bus
-|*_Must be defined_*
+|Must be defined as `port.bit`
 
 |`LCD_DB6`
 |Output pin used to interface with bit 6 of the LCD data bus
-|*_Must be defined_*
+|Must be defined as `port.bit`
 
 |`LCD_DB7`
 |Output pin used to interface with bit 7 of the LCD data bus
-|*_Must be defined_*
+|Must be defined as `port.bit`
+
+|
+|
+|
+
+|`LCD_VFD_DELAY`
+|Specifies a delay between transmission of data nibbles to LCD or VFD.
+
+Usage must include number value and unit of time.
+
+`#DEFINE LCD_VFD_DELAY 1 ms`
+
+Only applicable when using LCD_IO 4
+|None.
+
+
 
 |===
 
@@ -65,7 +81,7 @@ the LCD is connected to ground if not used.
 
 For a code example download http://gcbasic.sourceforge.net/library/DEMO%20CODE/Demo%20code%20for%20lcd/Demo%20mode%204.gcb[Four Wire LCD Example].
 
-Also see for further code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[Four Wire LCD Solutions].
+Also see for further code examples see http://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/tree/master/LCD_Solutions[Four Wire LCD Solutions].
 
 See the separate sections of the Help file for the specifics of each
 Connection Mode.

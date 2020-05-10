@@ -42,6 +42,10 @@
 - Added #OPTION REQUIRED section
 - Added K107 LCD adapter section
 - Added DS18B20 set resolution section
+- Updated LCD_4 section with LCD_VFD_DELAY
+- Updated PWMON section with improved examples
+- Add Developer Guide section
+- Add LCD_VARIANTS section to support LCD_VARIANT
 
 
 {empty} +

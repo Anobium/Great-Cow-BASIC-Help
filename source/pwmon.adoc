@@ -17,9 +17,10 @@ This command does not operate on any other CCP channel.
 
 *Explanation:*
 
+*Example 1:*
+
 This command will enable the output of the CCP1/PWM module on the Microchip PIC microcontroller.
 
-*Example:*
 ----
     'This program will enable a 76 Khz PWM signal, with a duty cycle
     'of 80%. It will emit the signal for 10 seconds, then stop.
@@ -31,5 +32,56 @@ This command will enable the output of the CCP1/PWM module on the Microchip PIC 
 ----
 {empty} +
 {empty} +
+
+*Example 2:*
+
+This command will enable the output of the CCP1/PWM module on the Microchip PIC microcontroller.
+
+Note the chip frequency.
+
+----
+    'This program will enable a 62Hz PWM signal, with a duty cycle
+    'of 50%.
+
+
+    #Chip 12F1840, 1
+
+    dir porta.2 out
+    #define PWM_Freq .0625    'Set frequency in Hz equates to 62Hz
+    #define PWM_Duty 50       'Set duty cycle to 80 %
+    PWMON
+
+    Do
+    loop
+
+----
+{empty} +
+{empty} +
+*Example 3:*
+
+This command will enable the output of the CCP1/PWM module on the Microchip PIC microcontroller.
+
+Note the chip frequency.
+
+----
+    'This program will enable a 7.7Hz PWM signal, with a duty cycle
+    'of 50%.
+
+
+    #Chip 12F1840, 0.125
+
+    dir porta.2 out
+    #define PWM_Freq .0077   'Set frequency in Hz equates to 7.7Hz
+    #define PWM_Duty 50       'Set duty cycle to 50 %
+    PWMON
+
+    Do
+    loop
+
+----
+{empty} +
+{empty} +
+
+
 
 *For more help, also see* <<_pwmoff,PWMOff>>

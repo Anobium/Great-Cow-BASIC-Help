@@ -62,7 +62,7 @@ the LCD is connected to ground if not used.
 For a code example download http://gcbasic.sourceforge.net/library/DEMO%20CODE/Demo%20code%20for%20lcd/Demo%20mode%208.gcb[Eight Wire LCD example].
 
 
-For code examples see http://sourceforge.net/projects/gcbasic/files/Demonstration%20Files/LCD%20Solutions/[Eight Wire Examples].
+For code examples see http://github.com/Anobium/Great-Cow-BASIC-Demonstration-Sources/tree/master/LCD_Solutions[Eight Wire Examples].
 
 
 See the separate sections of the Help file for the specifics of each
