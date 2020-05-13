@@ -2,9 +2,10 @@
 
 *Using LCD_VARIANT:*
 
-Some LCDs are none standard.&#160;&#160;
-The LCD may have a different memory architecture where the memory is non-consective or truely compatible with the standard LCD chipset.&#160;&#160;
-Use the `LCD_VARIANT` to change the operating behaviour of Great Cow BASIC with respect to LCD operations.
+Some LCDs are non-standard.&#160;&#160;
+The non-standard LCDs may have a different memory architecture where the memory is non-consective or different delay timing is required  for the LCD IC.&#160;&#160;
+Use `LCD_VARIANT` to change the operating behaviour of Great Cow BASIC with respect to LCD operations.&#160;&#160;
+If a `LCD_VARIANT` adapation has been created in the library then the non-standard LCD can be supported. 
 
 
 *LCD_VARIANT 1601a:*
