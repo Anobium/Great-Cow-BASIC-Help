@@ -8,7 +8,7 @@ Use `LCD_VARIANT` to change the operating behaviour of Great Cow BASIC with resp
 If a `LCD_VARIANT` adaption has been created in the library then the non-standard LCD can be supported. 
 
 
-*LCD_VARIANT 1601a:*
+*#DEFINE LCD_VARIANT 1601a*
 
 Use `#define LCD_VARIANT 1601a` to use this sub variant. Requires a LCD_IO then this sub type modifier.&#160;&#160;
 This variant has a non consective memory as shown in the diagram below.
