@@ -169,6 +169,8 @@ This table shows the ChipFamily constants mapped to the microcontroller architec
 |AVR core version V1E class microcontrollers
 |120
 |AVR core version V2E class microcontrollers
+|121
+|AVR core version AVR8L reduced core class microcontrollers
 |130
 |AVR core version V3E class microcontrollers but essentially the mega32u6 only
 |12
