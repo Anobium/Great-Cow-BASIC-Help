@@ -8,15 +8,19 @@ This is achieved by exposing two user interrupt "Hooks" that allow user code to 
 
 These "Hooks" are:
 
-`User_Int_sec` - which generates a user interrupt every Second
+1. `User_Int_sec` - which generates a user interrupt every second
 
-`User_Int_ms`  - which generates a user interrupt every Millisecond
+2. `User_Int_ms`  - which generates a user interrupt every millisecond
 
+3. `User_Int_XmS` - which generates a user interrupt every user specified time period expressed in milliseconds.
 
-*Usage - User_Int_sec*
+See each usage section below to show to use each type of "hook".
+
+*1. Usage - User_Int_sec*
 
 To define an interrupt every second use: `#Define  User_Int_sec    MyTimerInterrupt` where `User_Int_sec` is mandated.
 
+As follows:
 ----
     #Define  User_Int_Sec  MyTimerInterrupt
     Init_Millis()
@@ -25,9 +29,11 @@ To define an interrupt every second use: `#Define  User_Int_sec    MyTimerInterr
 Where MyTimerInterrupt, shown above, is called every second and `Init_Millis()` starts the millis library timer.
 
 
-*Usage - User_Int_ms*
+*2. Usage - User_Int_ms*
 
 To define an interrupt every millisecond use: `#Define  User_Int_ms    MyTimerInterrupt` where `User_Int_ms` is mandated.
+
+As follows:
 
 ----
     #Define  User_Int_ms    MyTimerInterrupt
@@ -123,4 +129,43 @@ The entire “Blink.gcb” example is.
          Pin = !Pin
       end if
     end macro
+----
+
+
+*3. Usage - User_Int_Xms*
+
+To define an interrupt at a specified period use: `#Define User_Int_XmS   type, period, task` where `User_Int_XmS` is mandated.
+
+Where `type` is Byte, Word, Long or any valid variable, `period` is the number of mS between the call to the hook, `task` is the Macro, Sub or Inline code to be run when the hook is called.
+
+As follows:
+
+----
+    #Define  User_Int_XmS    Word, 500, MyLED = !MyLED
+    Init_Millis()
+
+----
+
+#Define User_Int_XmS   type, period, task
+
+
+The entire “Blink.gcb” example using User_Int_XmS is.
+----
+        #chip 16f18855
+        #option Explicit
+        #include "millis.h"
+
+        #define MyLED porta.2
+        dir MyLED out
+
+        #Define  User_Int_XmS    Word, 500, MyLED = !MyLED
+        Init_Millis()
+
+        do
+          ' main loop is empty as everything happens within
+          ' the Timer0 interrupt. It is required, however, to
+          ' prevent the device going to Sleep.
+        loop
+
+        end
 ----
