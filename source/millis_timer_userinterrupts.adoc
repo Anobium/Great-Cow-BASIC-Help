@@ -101,7 +101,7 @@ To change the PIC example to an ARDUINO UNO Board.
 
 Change `#chip 16f18855` to `#chip mega328p,16` and `#define MyLED porta.2` to `#define MyLED portb.5`
 
-The entire “Blink.gcb” example is.
+The “Blink.gcb” example is.
 
 ----
     #chip mega328p,16
@@ -146,7 +146,7 @@ As follows:
 
 ----
 
-The entire “Blink.gcb” example using User_Int_XmS is.
+The  “Blink.gcb” example using User_Int_XmS is.&#160;&#160;This example calls the hook every 500ms to toggle MyLED.
 ----
         #chip 16f18855
         #option Explicit
@@ -160,7 +160,7 @@ The entire “Blink.gcb” example using User_Int_XmS is.
 
         do
           ' main loop is empty as everything happens within
-          ' the Timer0 interrupt. It is required, however, to
+          ' the user hook. It is required, however, to
           ' prevent the device going to Sleep.
         loop
 
