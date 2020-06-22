@@ -4,7 +4,7 @@
 
 Intended to provide a simple timing method to applications and libraries.&#160;&#160;
 These timer based functions are supported on AVR and PIC.&#160;&#160;
-This is achieved by exposing two user interrupt "Hooks" that allow user code to be run as part of the millis() library implementation.&#160;&#160;
+This is achieved by exposing three user interrupt "Hooks" that allow user code to be run as part of the millis() library implementation.&#160;&#160;
 
 These "Hooks" are:
 
@@ -14,7 +14,7 @@ These "Hooks" are:
 
 3. `User_Int_XmS` - which generates a user interrupt every user specified time period expressed in milliseconds.
 
-See each usage section below to show to use each type of "hook".
+See each numbered section below shows how to use each type of "hook".
 
 *1. Usage - User_Int_sec*
 
