@@ -146,9 +146,6 @@ As follows:
 
 ----
 
-#Define User_Int_XmS   type, period, task
-
-
 The entire “Blink.gcb” example using User_Int_XmS is.
 ----
         #chip 16f18855
