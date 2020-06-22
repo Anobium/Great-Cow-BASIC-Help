@@ -9,6 +9,7 @@ This is achieved by exposing two user interrupt "Hooks" that allow user code to 
 These "Hooks" are:
 
 `User_Int_sec` - which generates a user interrupt every Second
+
 `User_Int_ms`  - which generates a user interrupt every Millisecond
 
 
@@ -59,7 +60,7 @@ A "Blink" example could is written as follows:
 ----
 
 
-The entire “Blink.gcb” example is.
+The entire â€œBlink.gcbâ€ example is.
 
 ----
     #chip 16f18855
@@ -96,7 +97,7 @@ To change the PIC example to an ARDUINO UNO Board.
 
 Change `#chip 16f18855` to `#chip mega328p,16` and `#define MyLED porta.2` to `#define MyLED portb.5`
 
-The entire “Blink.gcb” example is.
+The entire â€œBlink.gcbâ€ example is.
 
 ----
     #chip mega328p,16
