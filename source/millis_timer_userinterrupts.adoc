@@ -1,0 +1,127 @@
+==== Millis - Timer based functions
+
+*Introduction*
+
+Intended to provide a simple timing method to applications and libraries.&#160;&#160;
+These timer based functions are supported on AVR and PIC.&#160;&#160;
+This is achieved by exposing two user interrupt "Hooks" that allow user code to be run as part of the millis() library implementation.&#160;&#160;
+
+These "Hooks" are:
+
+`User_Int_sec` - which generates a user interrupt every Second
+`User_Int_ms`  - which generates a user interrupt every Millisecond
+
+
+*Usage - User_Int_sec*
+
+To define an interrupt every second you use:
+#define  `User_Int_` `User_sub_`
+
+----
+    #Define  User_Int_Sec  MyTimerInterrupt
+    Init_Millis()
+----
+
+Where MyTimerInterrupt, shown above, is called every second and `Init_Millis()` starts the millis library timer.
+
+
+*Usage - User_Int_ms*
+
+To define an interrupt every milliseconf you use:
+#Define  `User_Int_ms`    `MyTimerInterrupt`
+
+----
+    #Define  `User_Int_ms`    `MyTimerInterrupt`
+    Init_Millis()
+
+----
+
+Where MyTimerInterrupt, shown above, can be a Subroutine, Function, Macro or Inline Code but the code MUST be short as it is executed within the millis() library interrupt handler.
+
+
+*Example for PIC:*
+
+
+A "Blink" example could is written as follows:
+
+----
+    #Define  User_Int_mS    Blink(MyLED, 250)
+    *Note that  the User_Interrupt can be any name and not only MyTimerInterrupt
+    where Blink is:
+    Macro Blink(Pin, Period)
+      dim  BlinkX as word
+      BlinkX += 1
+      if BlinkX >= Period then
+         BlinkX = 0
+         Pin = !Pin
+      end if
+    end macro
+----
+
+
+The entire “Blink.gcb” example is.
+
+----
+    #chip 16f18855
+    #option Explicit
+    #include "millis.h"
+
+    #Define  User_Int_mS    Blink(MyLED, 250)
+    Init_Millis()
+
+    #define MyLED porta.2
+    dir MyLED out
+
+    do
+      ' main loop is empty but it is required to
+      ' prevent the device performing a Sleep call on end
+    loop
+
+    end
+
+    Macro Blink(Pin, Period)
+      dim  BlinkX as word
+      BlinkX += 1
+      if BlinkX >= Period then
+         BlinkX = 0
+         Pin = !Pin
+      end if
+    end macro
+----
+The above code was written and tested on the Microchip Xpress Demo Board but, unlike when using the millis() library this is fully portable.
+
+*Example for AVR:*
+
+To change the PIC example to an ARDUINO UNO Board.
+
+Change `#chip 16f18855` to `#chip mega328p,16` and `#define MyLED porta.2` to `#define MyLED portb.5`
+
+The entire “Blink.gcb” example is.
+
+----
+    #chip mega328p,16
+    #option Explicit
+    #include "millis.h"
+
+    #Define  User_Int_mS    Blink(MyLED, 250)
+    Init_Millis()
+
+    #define MyLED portb.5
+    dir MyLED out
+
+    do
+      ' main loop is empty but it is required to
+      ' prevent the device performing a Sleep call on end
+    loop
+
+    end
+
+    Macro Blink(Pin, Period)
+      dim  BlinkX as word
+      BlinkX += 1
+      if BlinkX >= Period then
+         BlinkX = 0
+         Pin = !Pin
+      end if
+    end macro
+----
