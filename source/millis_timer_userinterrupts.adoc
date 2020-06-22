@@ -15,8 +15,7 @@ These "Hooks" are:
 
 *Usage - User_Int_sec*
 
-To define an interrupt every second you use:
-#define  `User_Int_` `User_sub_`
+To define an interrupt every second use: `#Define  User_Int_sec    MyTimerInterrupt` where `User_Int_sec` is mandated.
 
 ----
     #Define  User_Int_Sec  MyTimerInterrupt
@@ -28,11 +27,10 @@ Where MyTimerInterrupt, shown above, is called every second and `Init_Millis()` 
 
 *Usage - User_Int_ms*
 
-To define an interrupt every milliseconf you use:
-#Define  `User_Int_ms`    `MyTimerInterrupt`
+To define an interrupt every millisecond use: `#Define  User_Int_ms    MyTimerInterrupt` where `User_Int_ms` is mandated.
 
 ----
-    #Define  `User_Int_ms`    `MyTimerInterrupt`
+    #Define  User_Int_ms    MyTimerInterrupt
     Init_Millis()
 
 ----
