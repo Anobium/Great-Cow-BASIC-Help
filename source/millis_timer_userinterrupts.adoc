@@ -64,7 +64,7 @@ A "Blink" example could is written as follows:
 ----
 
 
-The entire “Blink.gcb” example is.
+PIC “Blink.gcb” example is.
 
 ----
     #chip 16f18855
@@ -95,7 +95,7 @@ The entire “Blink.gcb” example is.
 ----
 The above code was written and tested on the Microchip Xpress Demo Board but, unlike when using the millis() library this is fully portable.
 
-*Example for AVR:*
+AVR “Blink.gcb” example is.
 
 To change the PIC example to an ARDUINO UNO Board.
 
