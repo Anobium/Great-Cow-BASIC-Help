@@ -170,7 +170,7 @@ This table shows the ChipFamily constants mapped to the microcontroller architec
 |120
 |AVR core version V2E class microcontrollers
 |121
-|AVR core version AVR8L reduced core class microcontrollers
+|AVR core version AVR8L, also called AVRrc, reduced core class microcontrollers.  ATTiny4-5-9-10 and ATTiny102-104 with only 16 GPR's from r16-r31 and only 54 instructions.
 |130
 |AVR core version V3E class microcontrollers but essentially the mega32u6 only
 |12
