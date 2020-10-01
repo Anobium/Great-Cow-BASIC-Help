@@ -336,6 +336,9 @@ Support up to four devices via the I2C bus.
 |I2C Radio
 |A library that supports the TEA5767 radio.
 
+|TM1637
+|7 Segment LED display
+|A library that supports the TM1637 7-Segment LED displays
 
 |TRIG2PLACES
 |Maths functions
@@ -375,7 +378,7 @@ Great Cow BASIC supports the following core libraries.   These libraries are aut
 
 |7SEGMENT
 |7 Segment LED display
-|A library that interfaces the device.
+|A library that interfaces the device. See also TM1637a library.
 
 |A-D
 |Analog to Digital

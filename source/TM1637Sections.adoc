@@ -1,0 +1,143 @@
+==== TMWrite4Dig
+
+*Syntax:*
+[subs="quotes"]
+----
+    TMWrite4Dig (dig1, dig2, dig3, dig4  [, Brightness ],  Colon ]  ] )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+Command defines each digit (left to right) as 0 to 9  OR 0x00 to 0x0F  (15). Additionally  0x10  (16) is a blank, 0x11 (17) is a minus sign, 0x12 (18) is a degree sign,  0x13 (19) is a  bracket and 0x14 (20) is a question mark.
+
+_Brightness_ set the brightness (8-15).
+_Colon_  turns the colon (only on  digit 2) to off (0) or on (1).
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+
+
+
+==== TMchar_Bright
+
+
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    TM_Bright = Brightness
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+_Brightness_ sets the brightness for the display with a range of 8 to 15.&#160;&#160;
+Default to 15.&#160;&#160;
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+
+
+==== TMDec
+
+
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    TMDec  Value [, Options ]
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+_Value_ is a word value.&#160;&#160;
+Only values from 0 to 9999 can be displayed, values greater than 9999 will be  displayed as ----.
+
+
+_Options_ as follows:
+
+* 0 or omitted, only decimal value will be displayed;
+*	1 decimal valur with  the leading zeros;
+*	2 decimal number with the colon on digit 2;
+*	3 decimal number with the colon on digit 2 and the leading zeros.
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+
+
+==== TMHex
+
+
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    TMHex  Value
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+_Value_ is a word value.&#160;&#160;
+Only values from from 0x0000 to 0xFFFF can be displayed. Non-hex values will be displayed as greater than 9999 will be  displayed ??.
+
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+
+
+==== TMWriteChar
+
+
+
+
+*Syntax:*
+[subs="quotes"]
+----
+    TMWriteChar ( TMaddr, TMchar )
+----
+*Command Availability:*
+
+Available on all microcontrollers.
+
+*Explanation:*
+
+_TMaddr_ is 0 , 1 , 2 , 3 (display left to right)
+_TMchar_ is a letter from A to Z (default alphabet) or from `a` to `z` Siekoo alphabet by Alexander Fakoo, more info at: http://en.fakoo.de/siekoo.html. &#160;&#160;
+You can insert the special characters (blank, -, ) and/or ?).
+{empty} +
+{empty} +
+Character map:
+
+
+image::TM1657a.png[graphic,align="center", 70%]
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+

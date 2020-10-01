@@ -592,17 +592,29 @@ include::7segmentdisplaysoverview.adoc[]
 
 :leveloffset: +1
 
+include::7segmentLegacy.adoc[]
+
+:leveloffset: +1
 include::commoncathode.adoc[]
 
 include::commonanode.adoc[]
-
-:leveloffset: -1
 
 include::displayvalue.adoc[]
 
 include::displaychar.adoc[]
 
 include::displaysegment.adoc[]
+
+:leveloffset: -1
+
+include::TM1637.adoc[]
+
+:leveloffset: +1
+
+include::TM1637Sections.adoc[]
+
+:leveloffset: -1
+:leveloffset: -1
 
 
 ifdef::backend-pdf[<<<]
