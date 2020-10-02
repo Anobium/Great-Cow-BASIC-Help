@@ -72,10 +72,9 @@ The TM1637 chip supports the reading of the keyboard matrix however that is not 
 
 The datasheets can found here:
 
-  English:  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4_EN.pdf[here].
+English -  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4_EN.pdf[here].
   
-  Chinese:  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4.pdf[here].
-
+Chinese - http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4.pdf[here].
 
 
 *Usage*
