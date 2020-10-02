@@ -9,7 +9,7 @@
 
 *Introduction*
 
-The TM1637 disaplay module is used for displaying numbers on an LED matrix.&#160;&#160;
+The TM1637 disaplay module is used for displaying numbers on a keyboard matrix.&#160;&#160;
 The matrix of LEDs consists of four 7- segment displays working together.&#160;&#160;
 
 The TM1637 specification is
@@ -65,7 +65,17 @@ The Great Cow BASIC methods support up to four digit 7 segment display devices, 
 
 Brightness can be set: 8 is display on minimum bright , 15 is display on max bright. Less than 8  is display off.
 
-The TM1637 chip supports the reading of the LED matrix however that is not supported in the library.
+The TM1637 chip supports the reading of the keyboard matrix however that is not supported in the library.
+
+
+*DataSheets*
+
+The datasheets can found here:
+
+  English:  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4_EN.pdf
+
+  Chinese:  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4.pdf
+
 
 
 *Usage*
