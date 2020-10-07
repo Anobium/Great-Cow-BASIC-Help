@@ -64,6 +64,9 @@
 - Added FreeBSD section
 - Updated ST7735 section for ST7735TABCOLOR
 - Added GLCDPrinLargeFont section
+- Added Pi & ARM section
+- Added TM1637 7-Segment section
+
 
 {empty} +
 {empty} +
