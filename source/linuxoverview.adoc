@@ -1,4 +1,4 @@
-=== Overview
+=== Overview - Linux Operating System
 
 *Introduction:*
 Great Cow BASIC can be used when using the Linux Operating System.
@@ -45,4 +45,3 @@ To program your microcontroller with your Great Cow BASIC created hex file, you 
 For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
 
 For Atmel AVR microcontroller programming, you will need `avrdude`. It should be available in your distributions repository. If not, check here: http://www.nongnu.org/avrdude/
-

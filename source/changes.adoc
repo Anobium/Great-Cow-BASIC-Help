@@ -46,6 +46,8 @@
 - Updated PWMON section with improved examples
 - Add Developer Guide section
 - Add LCD_VARIANTS section to support LCD_VARIANT
+- Added Pi & ARM section
+- Added TM1637 7-Segment section
 
 
 {empty} +
@@ -64,8 +66,6 @@
 - Added FreeBSD section
 - Updated ST7735 section for ST7735TABCOLOR
 - Added GLCDPrinLargeFont section
-- Added Pi & ARM section
-- Added TM1637 7-Segment section
 
 
 {empty} +
