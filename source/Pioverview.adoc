@@ -1,52 +1,91 @@
+== Introduction
 
-=== Overview
+You can install the command-line version of Great Cow BASIC on a Raspberry Pi (and similar single-board computers) and use it to compile your Great Cow BASIC programs.
 
-*Introduction:*
-Great Cow BASIC can be used when using the Pi Platform and the Operating System.
+You can also program most PICs and AVRs using only the Pi's GPIO pins (see <<Programming>>), as well as communicate with your device over the Pi's serial port.  This makes it easy to program, modify, and communicate with a PIC or AVR using just a Pi and an SSH connection.
 
-This instructions are not distribution specific, but are for Pi.
+== Installation Procedure
 
-*Instructions:*
-Complete the following steps to compile and install Great Cow BASIC for Pi:
+There is currently no pre-compiled version of Great Cow Basic for ARM-based computers, so you will have to compile it from source.  The Great Cow Basic compiler is written in https://www.freebasic.net/[FreeBASIC] (an open-source version of BASIC), so you will need to first install the FreeBASIC compiler on your Pi, then use it to compile the Great Cow Basic compiler from its source code.
 
-**NOT EDITED FROM THIS POINT**
+FreeBASIC is not included in any of the major Linux repositories, but there is a customized version for ARMv7 boards like the Raspberry Pi on their https://users.freebasic-portal.de/stw/builds/linux-armv7a-hf-debian/[web site].
+
+The following procedure will work with any ARMv7 single-board computer running a Debian derivative like https://www.raspberrypi.org/downloads/raspberry-pi-os/[Raspberry Pi OS ] or https://www.armbian.com/[Armbian].  This includes the Raspberry Pi 2 and 3, and all single board computers with an Allwinner H2+ or H3 microprocessor (Orange Pi PC, Orange Pi Zero, Nano Pi R1, etc).  It has not been tested with a Raspberry Pi 4.
+
+== Instructions:
+
+All commands should be performed on your Pi board, either through a remote SSH terminal or using a keyboard and monitor connected to your Pi.
+
+=== Install FreeBASIC
 
 [start=1]
- . Install FreeBasic from your distributions repository or http://www.freebasic.net/wiki/CompilerInstalling
-
-
- . Download the "Great Cow BASIC - Linux Distribution" from SourceForge at https://sourceforge.net/projects/gcbasic/files/
-
-
- . Unrar/unpack GCB@Syn.rar to a location of your choice within your home directory (eg. within Downloads) with either a file manager or from a console.
-
-
- . From a console, change to the Great Cow BASIC Sources in the unpacked directory:
+ . Install FreeBASIC dependencies
 ----
-   eg. cd ~/Downloads/GCB@Syn/GreatCowBasic/Sources/GCBASIC
+    $ sudo apt-get install libx11-dev libxext-dev libxpm-dev libxrandr-dev libncurses5 libncurses5-dev
 ----
-[start=5]
- . Make sure that `install.sh` is set as executable (ie. `chmod +x install.sh`), and then execute: ./install.sh build
 
-
- . You will need root privileges for this step. You can switch user (su) to root, or optionally use `sudo`.
+[start=2]
+ . Download the latest version FreeBASIC for ARMv7 from https://users.freebasic-portal.de/stw/builds/linux-armv7a-hf-debian/ :
 ----
-   Execute: [sudo] ./install.sh install
+    $ cd ~ 
+    $ wget https://users.freebasic-portal.de/stw/builds/linux-armv7a-hf-debian/fbc_linux_armv7a_hf_debian_0376_2020-09-17.zip
+    $ unzip fbc_linux_armv7a_hf_debian_0376_2020-09-17.zip
 ----
-[start=7]
- . If you su'd to root, use `exit` to drop back to your normal user. Then, be sure to follow the instructions given by the script for updating your path.
+
+[start=3]
+ . Install FreeBASIC
+----
+  $ cd fbc_linux_armv7a_hf_debian/
+  $ chmod +x install.sh
+  $ sudo ./install.sh -i
+----
+
+== Install Great Cow Basic 
+
+ . Download and extract the Great Cow Basic sources:
+----
+    $ wget "https://downloads.sourceforge.net/project/gcbasic/GCBasic%20-%20Linux%20Distribution/GCB%40Syn.rar"
+    $ sudo apt install unar
+    # the password when requested in the next step is "GWB"
+    $ unar GCB@Syn.rar
+    $ cd GCB@Syn/GreatCowBASIC/sources/linuxbuild/
+----
+
+[start=2]
+ . Build and install the compiler:
+----
+    $ chmod +x install.sh
+    $ ./install.sh build
+    $ sudo ./install.sh install
+----
+
+[start=3]
+ . Verify the compiler is properly installed and view the full list of compiler options
+----
+    $ gcbasic
+----
+
+Now you can create and compile Great Cow BASIC source files. For example, to compile a program you created named `myprogram.bas` into `myprogram.hex`, you could run:
+
+----
+    $ gcbasic -A:GCASM -R:none -K:A -WX -V myprogram.bas
+----
+
+This will:
+
+ * use Great Cow BASIC's internal assembler,
+ * turn off report creation,
+ * preserve all code in the assembly file output (useful for debugging)
+ * treat warnings as errors, and
+ * print compiler messages in verbose mode
+ 
+== Programming
+
+To transfer your compiled .hex program files from your Pi to your microcontroller, you will need additional software.
+
+For most PIC microcontrollers, you can use https://wiki.kewl.org/dokuwiki/projects:pickle[pickle].  A description of how to use it is https://www.pedalpc.com/blog/program-pic-raspberry-pi/[here]
+
+For AVR microcontrollers, you will need `avrdude`. It should be available in your distribution's repository. If not, check here: http://www.nongnu.org/avrdude/ .  Instructions on how to use it can be found https://learn.adafruit.com/program-an-avr-or-arduino-using-raspberry-pi-gpio-pins/overview[here].
 
 
- . Confirm proper execution, and the version, of Great Cow BASIC by executing: gcbasic /version
-
-
-Now you can create and compile Great Cow BASIC source files.
-
-*Programming microcontrollers:*
-
-To program your microcontroller with your Great Cow BASIC created hex file, you will need additional programming and programmer software.
-
-For Microchip PIC microcontroller programming, you might find what you need at: http://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=pg164120
-
-For Atmel AVR microcontroller programming, you will need `avrdude`. It should be available in your distributions repository. If not, check here: http://www.nongnu.org/avrdude/
 
