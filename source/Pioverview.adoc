@@ -6,7 +6,7 @@ You can also program most PICs and AVRs using only the Pi's GPIO pins (see <<Pro
 
 == Installation Procedure
 
-There is currently no pre-compiled version of Great Cow Basic for ARM-based computers, so you will have to compile it from source.  The Great Cow Basic compiler is written in https://www.freebasic.net/[FreeBASIC] (an open-source version of BASIC), so you will need to first install the FreeBASIC compiler on your Pi, then use it to compile the Great Cow Basic compiler from its source code.
+Great Cow Basic is not published for ARM-based computers, there is currently no pre-compiled version for ARM-based computers, so you will have to compile it from source.  The Great Cow Basic compiler is written in https://www.freebasic.net/[FreeBASIC] (an open-source version of BASIC), so you will need to first install the FreeBASIC compiler on your Pi, then use it to compile the Great Cow Basic compiler from its source code.  This is relatively simple.
 
 FreeBASIC is not included in any of the major Linux repositories, but there is a customized version for ARMv7 boards like the Raspberry Pi on their https://users.freebasic-portal.de/stw/builds/linux-armv7a-hf-debian/[web site].
 
@@ -46,7 +46,7 @@ All commands should be performed on your Pi board, either through a remote SSH t
 ----
     $ wget "https://downloads.sourceforge.net/project/gcbasic/GCBasic%20-%20Linux%20Distribution/GCB%40Syn.rar"
     $ sudo apt install unar
-    # the password when requested in the next step is "GWB"
+    # the password when requested in the next step is "GCB"
     $ unar GCB@Syn.rar
     $ cd GCB@Syn/GreatCowBASIC/sources/linuxbuild/
 ----
