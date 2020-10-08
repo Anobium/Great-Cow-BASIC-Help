@@ -72,4 +72,69 @@ condition.
     goto main
 ----
 
+*Handling a FOR-NEXT Overflow*
+
+When using FOR-NEXT with Great Cow BASIC you may need to handle an overflow situation.&#160;&#160;
+An overflow will happen when the next step in your increment exceeds the variable type.&#160;&#160;
+
+Consider.  For = 250 to 255 STEP 3.&#160;&#160;The steps will be 250, 253 and 0 etc.&#160;&#160;
+As the third in this sequence has overflowed to 0 not 256 the For-Next loop will continue and you may have unexpected outcomes from your program.&#160;&#160;
+
+To resolve this.  Do not use a FOR-NEXT but a construct that will ensure an overflow is controlled.&#160;&#160;
+
+
+The following code shows how to use a DO-LOOP to increment (the constant __INC) from the base ( __MIN) to a maximum value ( __MAX).&#160;&#160;
+This program tests for an overflow condition and will exit, and, the program tests to ensure the next value is less than the maximum.&#160;&#160;
+
+Consider.  __MIN = 250, __MAX = 255 and IINC=3.&#160;&#160;
+The steps will be 250 and 253. There is no overflow and the incremented value is always less then the maximum &#160;&#160;
+
+----
+    #chip  lgt8fx328p
+    #option Explicit
+
+    'USART settings for USART1
+    #define USART_BAUD_RATE 9600
+    #define USART_TX_BLOCKING
+    #define USART_DELAY OFF
+
+    'Wait for terminal to select.. or, give time for me to get to terminal....
+    wait 2 s
+
+
+    '******************************************** START OF CODE ***********************
+    #DEFINE __MIN 250
+    #DEFINE __MAX 255
+    #DEFINE __INC 3
+    'This variable needs to be of the correct type Byte, Word etc to handle the maximum value
+    dim __nextremetest as byte
+
+    __nextremetest = __MIN
+
+    do
+        'Code to show results. Remove from target code
+            hserprint __nextremetest
+            HSerPrintCRLF
+            wait 100 ms
+        'Do Stuff
+        '...
+        'Do Stuff
+
+        __nextremetest = __nextremetest  + __INC
+        'Test of overflow
+        if c then exit do
+
+        'Now test for maximum has not been exceeded
+        if __nextremetest > __MAX then exit do
+    loop
+
+----
+
+This code is efficient in terms coding.&#160;&#160;
+And, this method should be used there is a risk that an overflow situation may happen.
+
+
+
+
+
 *For more help, see <<_repeat,Repeat>>*
