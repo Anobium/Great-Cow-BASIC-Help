@@ -68,10 +68,49 @@ if %1 == gcbasic call ..\..\source\cleanhhc.bat
 copy %GCBase%\source\gcbdoc.css .
 rem copy %GCBase%\source\images\logo.png .\images
 call %GCBase%\prog\utils\hhc %1.hhp
+
+xcopy *.* ..\md /I /Y /S > nul
+
 del *.htm*
 del *.hh*
 del *.css
 rmdir .\images /s /q
+
+
+REM Make WIKI section
+pause
+echo on
+cd
+pause
+cd ..\md
+del *.md
+del *.mod > nul
+
+
+del D:\PICKitPlus.wiki.git\trunk\*.* /Q
+FOR /F "tokens=*" %%G IN ('dir/b /s ^"*.html^"') DO (
+	rem echo %%G
+	rem "%~d1%~p1%~n1.lst"
+
+	..\..\prog\pandoc\pandoc -f HTML -t GFM %%G  -o "%%~dG%%~pG%%~nG.md"
+	gawk -f ../../prog/reprocess.awk "%%~dG%%~pG%%~nG.md" > "%%~dG%%~pG%%~nG.mod"
+)		
+
+rename "_*.*" "/*.*"
+copy *.mod ..\md\*.md
+del *.md
+ren *.mod *.md
+ren ..\md\index.md  "home.md"
+
+del *.htm*
+del *.hh*
+del *.css
+del *.chm
+
+rmdir .\images /s /q
+REM Make WIKI section
+
+
 cd %GCBase%\source
 del %1.xml
 set CLASSPATH=
