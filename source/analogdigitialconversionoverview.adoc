@@ -48,6 +48,48 @@ Example
   Print ReadAD12( AN3, An4 )
 ----
 
+*Using Voltage Reference*
+
+Voltage references come in many forms and offer different features across the PICs, AVR and LGTs microcontrollers.&#160;&#160;
+But, in the end, accuracy and stability are a voltage reference’s most important features, as the main purpose of the reference is to provide a known output voltage.&#160;&#160;
+Variation from this known value is an error.&#160;&#160;
+Therefore, it is useful to use the internal voltage reference provided within the microcontroller.
+
+
+To use a voltage reference source for ADC operation sett the `AD_REF_SOURCE` constant to your chosen source.&#160;&#160;
+The defaults to the VCC pin, and there for the constant is set by default to `AD_REF_AVCC`.&#160;&#160;
+The voltage reference is specific to the microcontroller but the options are as follows:
+
+
+[cols=2, options="header,autowidth"]
+|===
+|*AD_REF_SOURCEConstant*
+|*Reference Voltage*
+
+|AD_REF_AVCC
+|VCC supplied Voltage
+
+|AD_REF_1024
+|1.024v internal reference source
+
+|AD_REF_2048
+|2.048v internal reference source
+
+|AD_REF_4096
+|4.096v internal reference source
+
+|AD_REF_AREF
+|Extenal voltage reference source
+
+|AD_REF_256
+|AD_REF_256 for ATMegas
+
+
+
+|===
+
+
+
 *Optimising Great Cow BASIC Code*
 
 Great Cow BASIC supports a wide range of A/D modules and the supporting library addresses up to 34 channels.
