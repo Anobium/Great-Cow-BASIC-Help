@@ -78,10 +78,10 @@ rmdir .\images /s /q
 
 
 REM Make WIKI section
-pause
+rem pause
 echo on
 cd
-pause
+rem pause
 cd ..\md
 del *.md
 del *.mod > nul
