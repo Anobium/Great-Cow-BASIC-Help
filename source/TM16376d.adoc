@@ -1,0 +1,129 @@
+// Copyright (C)  2020  Friderik Back
+// This document is a part of the free software; you can redistribute it and/or  modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+//
+// This document is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+//
+==== 7 Segment Displays - TM1637 6 Digits
+
+*Introduction*
+
+The TM1637 display module is used for displaying numbers on a keyboard matrix.&#160;&#160;
+The matrix of LEDs consists of six 7- segment displays working together.&#160;&#160;
+
+The TM1637 specification is
+
+* Two wire interface
+* Eight adjustable luminance levels
+* 3.3V/5V interface
+* Supports six alpha-numeric digits
+* Operating current consumption: 80mA
+{empty} +
+{empty} +
+
+*Using the TM1637 Display Module*
+
+image::TM1637_6d.gif[graphic,align="center", 40%]
+
+*Why to use TM1637 Display Module?*
+
+The TM1637 can be interfaced to any system using only two ports.&#160;&#160;
+This is the main reason the module is preferred over other module.
+
+Another reason TM1637 display is preferred is because of its low cost. &#160;&#160;
+Although there are other display modules present in the market they cost more.
+
+The module design is robust so it can sustain in tough environments and still can perform its function for a long time.&#160;&#160;
+The module consumes low power and can be installed in mobile applications.&#160;&#160;
+
+{empty} +
+{empty} +
+
+*How to use TM1637 Display Module?*
+
+As mentioned earlier the module communication can only be done using the two pins DIO and CLK respectively.&#160;&#160;
+The data is sent to the module or received from the module though these two pins.&#160;&#160;
+So the characters to be displayed are sent in the form of serial data through this interface.
+A typical circuit diagram of display module interface to a controller is shown below.
+
+{empty} +
+{empty} +
+
+image::Display-Module-Interface-with-Controller.png[graphic,align="center", 70%]
+{empty} +
+{empty} +
+
+
+The module can work on +5V regulated power and any higher voltage may lead to permanent damage.&#160;&#160;
+The interface is established as shown in figure above.&#160;&#160;
+All you need to do is connect DIO and CLK to any of GPIO (General Purpose Input Output) pins of controller and establish serial data exchange through programming.
+{empty} +
+{empty} +
+
+*Great Cow BASIC Support*
+
+The Great Cow BASIC 7 segment display methods make it easier for Great Cow BASIC programs to display numbers and letters on 7 segment LED displays.
+[subs="specialcharacters,quotes"]
+The Great Cow BASIC methods support up to four digit 7 segment display devices, common anode/cathode and inversion of the port logic to support driving the device(s) via a transistor.
+
+Brightness can be set: 8 is display on minimum bright , 15 is display on max bright. Less than 8  is display off.
+
+The TM1637 chip supports the reading of the keyboard matrix however that is not supported in the library.
+
+
+*DataSheets*
+
+The datasheets can found here:
+
+English -  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4_EN.pdf[here].
+
+Chinese - http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4.pdf[here].
+
+
+*Usage*
+
+The following will set the display.
+
+
+[cols=2, options="header,autowidth"]
+|===
+|*Constant*
+|*Description*
+
+|TM1637_CLK
+|Must be a bi-directional port.&#160;&#160;
+The direction/port setting is managed by the library.
+
+|TM1637_DIO
+|Must be a bi-directional port.&#160;&#160;
+The direction/port setting is managed by the library.
+
+|===
+*Example program*
+
+----
+
+  #chip mega328p,16
+  #include <TM1637a.h>
+
+  #define TM1637_CLK PortD.2      ' Arduino Digital_2
+  #define TM1637_DIO PortD.3      ' Arduino Digital_3
+
+  '---- main program --------
+
+    TMWrite6Dig (17, 16, 17, 16, 0) 'clear display
+      wait 2 s
+    TMWrite6Dig (17, 16, 17, 16, 10,0) '- -
+      wait 2 s
+    TMchar_Bright = 10
+
+----
+
+
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +

@@ -25,7 +25,7 @@ _Colon_  turns the colon (only on  digit 2) to off (0) or on (1).
 
 
 
-==== TMchar_Bright
+==== TM_Bright
 
 
 
@@ -140,4 +140,3 @@ image::TM1657a.png[graphic,align="center", 70%]
 {empty} +
 {empty} +
 {empty} +
-

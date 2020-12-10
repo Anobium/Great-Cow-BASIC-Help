@@ -614,6 +614,15 @@ include::TM1637.adoc[]
 include::TM1637Sections.adoc[]
 
 :leveloffset: -1
+
+include::TM16376d.adoc[]
+
+:leveloffset: +1
+
+include::TM16376dSections.adoc[]
+
+
+:leveloffset: -1
 :leveloffset: -1
 
 

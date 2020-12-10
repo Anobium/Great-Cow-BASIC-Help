@@ -5,7 +5,7 @@
 //
 // You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
-==== 7 Segment Displays - TM1637
+==== 7 Segment Displays - TM1637 4 Digits
 
 *Introduction*
 
@@ -73,7 +73,7 @@ The TM1637 chip supports the reading of the keyboard matrix however that is not 
 The datasheets can found here:
 
 English -  http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4_EN.pdf[here].
-  
+
 Chinese - http://gcbasic.sourceforge.net/library/TM1637/TM1637_V2.4.pdf[here].
 
 
