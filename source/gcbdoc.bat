@@ -101,7 +101,8 @@ copy *.mod ..\md\*.md
 del *.md
 ren *.mod *.md
 ren ..\md\index.md  "home.md"
-del D:\Great-Cow-BASIC-Help.wiki.git\trunk\*.*
+del /q D:\Great-Cow-BASIC-Help.wiki.git\trunk\*.*
+del /q ..\md\*.ht*
 move ..\md\*.* D:\Great-Cow-BASIC-Help.wiki.git\trunk
 
 copy  D:\Great-Cow-BASIC-Help.git\trunk\source\images D:\Great-Cow-BASIC-Help.wiki.git\trunk\images 
