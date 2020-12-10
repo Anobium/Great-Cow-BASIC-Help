@@ -87,7 +87,7 @@ del *.md
 del *.mod > nul
 
 
-del D:\PICKitPlus.wiki.git\trunk\*.* /Q
+del D:\Great-Cow-BASIC-Help.wiki.git\trunk\*.* /Q
 FOR /F "tokens=*" %%G IN ('dir/b /s ^"*.html^"') DO (
 	rem echo %%G
 	rem "%~d1%~p1%~n1.lst"
