@@ -117,7 +117,7 @@ del *.css
 del *.chm
 
 rmdir .\images /s /q
-pause
+rem pause
 REM End Make WIKI section
 
 
