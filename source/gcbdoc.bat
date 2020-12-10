@@ -101,6 +101,10 @@ copy *.mod ..\md\*.md
 del *.md
 ren *.mod *.md
 ren ..\md\index.md  "home.md"
+del D:\Great-Cow-BASIC-Help.wiki.git\trunk\*.*
+move ..\md\*.* D:\Great-Cow-BASIC-Help.wiki.git\trunk
+
+copy  D:\Great-Cow-BASIC-Help.git\trunk\source\images D:\Great-Cow-BASIC-Help.wiki.git\trunk\images 
 
 del *.htm*
 del *.hh*
@@ -108,7 +112,8 @@ del *.css
 del *.chm
 
 rmdir .\images /s /q
-REM Make WIKI section
+pause
+REM End Make WIKI section
 
 
 cd %GCBase%\source
