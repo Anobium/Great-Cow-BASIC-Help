@@ -11,7 +11,7 @@ Available on all microcontrollers.
 
 *Explanation:*
 
-C•	Command defines each digit (left to right) as 0 to 9  or 0x00 to 0x0F  (15). Additionally  0x10  (16) is a blank, 0x11 (17) is a minus sign, 0x12 (18) is a degree sign,  0x13 (19) is a  bracket and 0x14 (20) is a question mark.
+Command defines each digit (left to right) as 0 to 9  or 0x00 to 0x0F  (15). Additionally  0x10  (16) is a blank, 0x11 (17) is a minus sign, 0x12 (18) is a degree sign,  0x13 (19) is a  bracket and 0x14 (20) is a question mark.
 
 _Brightness_ set the brightness (8-15).
 _Colon_  turns the colon (only on  digit 2) to off (0) or on (1).
@@ -76,9 +76,9 @@ Only values from 0 to 9999 can be displayed, values greater than 9999 will be  d
 _Options_ as follows:
 
 * 0 or omitted, only decimal value will be displayed;
-*	1 decimal valur with  the leading zeros;
-*	2 decimal number with the colon on digit 2;
-*	3 decimal number with the colon on digit 2 and the leading zeros.
+* 1 decimal valur with  the leading zeros;
+* 2 decimal number with the colon on digit 2;
+* 3 decimal number with the colon on digit 2 and the leading zeros.
 
 {empty} +
 {empty} +
@@ -171,9 +171,9 @@ The state of the last two bits is ignored because it is only 6 digits.&#160;&#16
 
 Examples:
 
-•	binary number 0B01010000 (decimal 80) switch on decimal point on digits 2 and 4.
-•	number 0 switch off all digital points
-•	255 (0B11111111) switch all on.
+• binary number 0B01010000 (decimal 80) switch on decimal point on digits 2 and 4.
+• number 0 switch off all digital points
+• 255 (0B11111111) switch all on.
 
 {empty} +
 {empty} +

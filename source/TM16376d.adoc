@@ -65,7 +65,7 @@ All you need to do is connect DIO and CLK to any of GPIO (General Purpose Input 
 
 The Great Cow BASIC 7 segment display methods make it easier for Great Cow BASIC programs to display numbers and letters on 7 segment LED displays.
 [subs="specialcharacters,quotes"]
-The Great Cow BASIC methods support up to four digit 7 segment display devices, common anode/cathode and inversion of the port logic to support driving the device(s) via a transistor.
+The Great Cow BASIC methods supports six 7 segment display devices, common anode/cathode and inversion of the port logic to support driving the device(s) via a transistor.
 
 Brightness can be set: 8 is display on minimum bright , 15 is display on max bright. Less than 8  is display off.
 
