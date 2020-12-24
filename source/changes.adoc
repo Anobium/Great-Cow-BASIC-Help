@@ -48,6 +48,7 @@
 - Add LCD_VARIANTS section to support LCD_VARIANT
 - Added Pi & ARM section
 - Added TM1637 7-Segment section
+- Moved PROGMEM section from EEPROM to specific section
 
 
 {empty} +

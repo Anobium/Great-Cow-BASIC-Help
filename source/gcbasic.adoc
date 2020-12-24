@@ -130,12 +130,6 @@ include::epread.adoc[]
 
 include::epwrite.adoc[]
 
-include::programerase.adoc[]
-
-include::programread.adoc[]
-
-include::programwrite.adoc[]
-
 ifdef::backend-pdf[<<<]
 
 === HEFM
@@ -162,6 +156,18 @@ include::hefmEraseBlock.adoc[]
 This is the EERAM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
 
 include::47XXX.adoc[]
+
+=== PROGMEM
+This is the PROGMEM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
+
+include::programerase.adoc[]
+
+include::programread.adoc[]
+
+include::programwrite.adoc[]
+
+ifdef::backend-pdf[<<<]
+
 
 === SAFM
 This is the SAFM section of the Help file.  Please refer the sub-sections for details using the contents/folder view.
