@@ -5,6 +5,10 @@
 
 ----
     ProgramRead (_location, store_)
+
+    or for the 18FxxQ41 family of chips use:
+    PFMRead (_location, store_)
+
 ----
 
 *Command Availability:*
