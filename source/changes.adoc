@@ -49,6 +49,7 @@
 - Added Pi & ARM section
 - Added TM1637 7-Segment section
 - Moved PROGMEM section from EEPROM to specific section
+- Added Line Continuation section
 
 
 {empty} +

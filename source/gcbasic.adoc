@@ -54,6 +54,8 @@ include::arrays.adoc[]
 
 include::comments.adoc[]
 
+include::continuation.adoc[]
+
 include::conditions.adoc[]
 
 include::constants.adoc[]
