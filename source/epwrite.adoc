@@ -39,4 +39,4 @@ EEPROM, and can be a value or a variable.
     Next
 ----
 
-*For more help, see <<_epread,EPRead>>*
+*For more help, see <<_epread,EPRead>>,<<_lookup_tables, Creating EEProm data from a Lookup Table>>*
