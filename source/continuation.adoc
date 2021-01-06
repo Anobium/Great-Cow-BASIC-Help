@@ -7,7 +7,7 @@ A single _ (underscore) character at the end of a line of code tells the compile
 Be careful when adding the _ line continuation character right behind an identifier or keyword. It MUST be separated with at least *one space* character, otherwise it would be treated as part of the identifier or keyword.
 
 
-*Example:*
+*Example 1:*
 ----
     #CHIP 18f27k42
 
@@ -43,4 +43,32 @@ Be careful when adding the _ line continuation character right behind an identif
 
 
 This example will print on the serial terminal the string "one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty twentyOne twentyTwo twentyThree twentyFour twentyFive"
+
+
+*Example 2:*
+----
+    Sub Aiguillages (In voie_principale As Byte, _
+                     In voie_marchandises As Byte, _
+                     In voie_gravier As Byte)
+
+        ' code segment
+        ' code segment
+        ' code segment
+
+    End Sub
+----
+
+This example improves the layout of definition of the sub-routine.
+
+
+
+*Example 3:*
+----
+
+ #DEFINE Ouvrir_voie_marchandises Aiguillages _
+              (0, Marche_avant, Marche_arriere)
+
+----
+
+This example creates a constants over two lines.  This improves readability.
 
