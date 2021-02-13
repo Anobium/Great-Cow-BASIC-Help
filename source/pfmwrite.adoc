@@ -1,0 +1,27 @@
+==== PFMWrite
+
+*Syntax:*
+[subs="quotes"]
+
+----
+    PFMWrite (_location_, _value_)
+----
+
+*Command Availability:*
+
+Available on all Microchip PIC microcontrollers with PFM self write capability.
+
+*Explanation:*
+
+`PFMWrite` writes information to the program memory on chips that
+support this feature. `_location_` is a word variable, and `_store_` can be a byte of word.
+
+The largest value possible for `_location_` depends on the amount of
+program memory on the microcontroller.
+
+This is an advanced command which should only be used by advanced
+developers.
+
+*Example:*
+
+*For more help, see *<<_pfmread,PFMRead>>*
