@@ -317,6 +317,8 @@ include::ssd1351controllers.adoc[]
 
 include::st7735controllers.adoc[]
 
+include::st7789controllers.adoc[]
+
 include::st7920controllers.adoc[]
 
 include::st7920glcdcleargraphics.adoc[]

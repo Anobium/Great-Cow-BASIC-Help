@@ -97,10 +97,10 @@ Sensitive to operating voltages.
 |2.8 Inch or 3.2 Inch
 |320 * 240
 |Medium
-|Color
-|TFT LCD
+|Color TFT
 |SPI  PIC and AVR: Hardware and software SPI
 |Typically operates at VCC 5. Always check voltage specifications
+|+VCC from 2.7 to 5. Always check voltage specifications
 |Very nice display.
 |SPI requires 4 ports plus 2 ports. Typically 6 in total.
 |Good  for cost and performance
@@ -401,6 +401,18 @@ Typically operates at VCC 2.8v. Always check voltage specifications  Very good d
 |Very good color e-Paper displays, excellent value for money
 Display can operate in text mode only for low RAM microcontrollers using SRAM solution.
 
+|25
+|ST7789
+|2.0 Inch
+|240 * 240
+|Medium
+|Color TFT
+|SPI  PIC and AVR: Hardware and software SPI
+|Typically operates at 3v3. Always check voltage specifications
+|+VCC from 3v3. Always check voltage specifications
+|Very nice display.
+|SPI requires 3 ports (data, clock & command/data) plus 1 port ( reset ). Typically 4 in total.
+|Good  for cost and performance
 
 |===
 
