@@ -150,19 +150,20 @@ Accepted escape strings are shown in the table below.
 
 [cols=2, options="header,autowidth"]
 |===
-Escape sequence | Meaning
-|\a	|beep
-|\b	|backspace
-|\f	|formfeed
-|\l or \n	|newline
-|\r	|carriage return
-|\t	|tab
+|Escape sequence | Meaning
+|\a |beep
+|\b |backspace
+|\f |formfeed
+|\l or \n |newline
+|\r |carriage return
+|\t |tab
 |\0 |Nul value, equates to ASCII 0. Same as \&000
-|\&nnn	|ascii char in decimal
-|\\	|backslash
-|\"	|double quote
-|\'	|single quote
+|\&nnn  |ascii char in decimal
+|\\ |backslash
+|\" |double quote
+|\' |single quote
 |===
+
 
 *Using Lookup Tables*
 

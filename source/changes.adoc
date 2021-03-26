@@ -51,6 +51,7 @@
 - Moved PROGMEM section from EEPROM to specific section
 - Added Line Continuation section
 - Added ST7789 GLCD section
+- Added VarxBin string sections
 
 
 {empty} +

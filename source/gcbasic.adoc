@@ -971,6 +971,14 @@ include::ucase.adoc[]
 
 include::val.adoc[]
 
+include::VarToBin.adoc[]
+
+include::VarWToBin.adoc[]
+
+include::VarIntegerToBin.adoc[]
+
+include::VarLongToBin.adoc[]
+
 include::wordtobin.adoc[]
 
 include::concatenation.adoc[]
