@@ -1,0 +1,27 @@
+==== VarWToBin
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = VarWToBin(__wordvar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `VarWToBin` function creates a string of a ANSI (16) characters.
+The function converts a number to a string consisting of ones and zeros that represents the binary value.
+
+*Note:*
+Supports WORD variables only.  For BYTE variables use `VarToBin`, for INTEGER variables use `IntegerToBin` and for LONG variables use `VarLongToBin`,
+
+*Example:*
+----
+    string = VarWToBin( 1 )   ' Returns "0000000000000001"
+
+    string = VarWToBin( 254 ) ' Returns "0000000011111110"
+----
+*For more help, see* <<_vartobin,VarToBin>>, <<_integertobin,IntegerToBin>>, <<_varlongtobin,VarLongToBin>>,

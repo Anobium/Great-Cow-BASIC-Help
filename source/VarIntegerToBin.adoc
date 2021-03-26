@@ -1,0 +1,27 @@
+==== IntegerToBin
+
+*Syntax:*
+[subs="quotes"]
+----
+    __stringvar__ = IntegerToBin(__integervar__)
+----
+
+*Command Availability:*
+
+Available on all microcontrollers
+
+*Explanation:*
+
+The `IntegerToBin` function creates a string of a ANSI (16-byte) characters.
+The function converts a number to a string consisting of ones and zeros that represents the binary value.
+
+*Note:*
+Supports Integer variables only.  For BYTE variables use `VarToBin`, for Word variables use `VarWToBin` and for LONG variables use `VarLongToBin`,
+
+*Example:*
+----
+    string = IntegerToBin( 1 )   ' Returns "0000000000000001"
+
+    string = IntegerToBin( -1 )  ' Returns "10000000000000001"
+----
+*For more help, see* <<_vartobin,VarToBin>>, <<_varwtobin,VarWToBin>>, <<_varlongtobin,VarLongToBin>>,
