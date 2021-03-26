@@ -4,13 +4,13 @@
 *About the Command Line Parameters*
 [subs="quotes"]
 ----
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:\{C|A}] [/V] [/L] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:\{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/NP] _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX]  [/NP] _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX] [/S:Use.ini] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX] [/S:Use.ini] [/NP] _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/V] [/L] [/WX]  [/S:Use.ini] [/F[O]] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX]  [/S:Use.ini] [/F[O]] [/NP] _filename_
 
     GCBASIC /version
 
@@ -28,6 +28,10 @@
 |`/A:assembler`
 |Batch file used to call assembler^(1)^. If `/A:GCASM` is given, Great Cow BASIC will use its internal assembler.
 |The program will not be assembled
+
+|`/H:[Y/1 | N/0]`
+|Set the production, or not, of the hex output file.  /H:1 is the default.  To prevent production of the hex output file - use /H:0
+|The default is to produce the hex output file
 
 |`/P:programmer`
 |Batch file used to call programmer^(1)^. This parameter is ignored if the program is not assembled.
@@ -144,4 +148,3 @@ Then, it will run the programmer, and give it these parameters when it calls it:
 The compiler only produces the file errors.txt if there is an error. The creation of the errors.txt file makes it easier for IDEs to detect if the program compiled successfully - if the file was not produced then the IDE would be unalbe to present the error message to the user.
 
 The file error.txt is always produced in the same folder as the compiler.  Typically: C:\GCB@Syn\GreatCowBasic\Errors.txt
-

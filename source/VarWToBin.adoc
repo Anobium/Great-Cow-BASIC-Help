@@ -24,4 +24,4 @@ Supports WORD variables only.  For BYTE variables use `VarToBin`, for INTEGER va
 
     string = VarWToBin( 254 ) ' Returns "0000000011111110"
 ----
-*For more help, see* <<_vartobin,VarToBin>>, <<_integertobin,IntegerToBin>>, <<_varlongtobin,VarLongToBin>>,
+*For more help, see* <<_vartobin,VarToBin>>, <<_integertobin,IntegerToBin>>, <<_varlongtobin,VarLongToBin>>

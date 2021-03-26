@@ -92,7 +92,77 @@ Constants and calculations within the single line.  &#160;&#160;The example tabl
 &#160;&#160;
 &#160;&#160;
 
+_Data values as Strings_
 
+Strings can be defined.&#160;&#160;Strings are delimited by double quotes. &#160;&#160; The following examples show the methods.
+
+Any ASCII characters between any two "    " (double quotes) will be converted to table data.&#160;&#160; Also see ASCII escape codes.
+
+A source string can be one string per line or comma separated strings, therefore, on the same line.
+
+Simple Example 1.
+
+----
+    Table Test_1
+     "ABCDEFGHIJ"
+    End Table
+----
+
+Simple Example 2.
+
+----
+    '
+    Table  MnuTxt_1  'Home disp
+       "  Display_1    Display_2    Display_3  "
+    End Table
+
+    Table MnuTxt_2   'Main Menu
+     "1: Display"       ' Main1
+     "2: System Setup"  ' Main2
+     "3: Config 1"      ' Main3
+     "4: Config 2"      ' Main4
+     "5: Data Log"      ' Main5
+     "6: Diagnostic"    ' Main6
+     "7: Help+"         ' Main7
+    End Table
+----
+
+The following 2 table lines produce the same table data.
+
+----
+    "String1","String2", "String3"
+    "String1String2String3"
+----
+
+And, the following 3 table lines produce the same table data.
+
+----
+    "String1"
+    "String2"
+    "String3"
+----
+
+_ASCII Escape code_
+
+
+
+Accepted escape strings are shown in the table below.
+
+[cols=2, options="header,autowidth"]
+|===
+Escape sequence | Meaning
+|\a	|beep
+|\b	|backspace
+|\f	|formfeed
+|\l or \n	|newline
+|\r	|carriage return
+|\t	|tab
+|\0 |Nul value, equates to ASCII 0. Same as \&000
+|\&nnn	|ascii char in decimal
+|\\	|backslash
+|\"	|double quote
+|\'	|single quote
+|===
 
 *Using Lookup Tables*
 

@@ -24,4 +24,4 @@ Supports Integer variables only.  For BYTE variables use `VarToBin`, for Word va
 
     string = IntegerToBin( -1 )  ' Returns "10000000000000001"
 ----
-*For more help, see* <<_vartobin,VarToBin>>, <<_varwtobin,VarWToBin>>, <<_varlongtobin,VarLongToBin>>,
+*For more help, see* <<_vartobin,VarToBin>>, <<_varwtobin,VarWToBin>>, <<_varlongtobin,VarLongToBin>>
