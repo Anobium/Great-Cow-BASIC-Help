@@ -16,7 +16,7 @@ The `VarWToBin` function creates a string of a ANSI (16) characters.
 The function converts a number to a string consisting of ones and zeros that represents the binary value.
 
 *Note:*
-Supports WORD variables only.  For BYTE variables use `VarToBin`, for INTEGER variables use `IntegerToBin` and for LONG variables use `VarLongToBin`,
+Supports WORD variables only.  For BYTE variables use `VarToBin`, for INTEGER variables use `IntegerToBin` and for LONG variables use `VarLongToBin`
 
 *Example:*
 ----

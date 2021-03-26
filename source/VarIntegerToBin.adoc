@@ -16,7 +16,7 @@ The `IntegerToBin` function creates a string of a ANSI (16-byte) characters.
 The function converts a number to a string consisting of ones and zeros that represents the binary value.
 
 *Note:*
-Supports Integer variables only.  For BYTE variables use `VarToBin`, for Word variables use `VarWToBin` and for LONG variables use `VarLongToBin`,
+Supports Integer variables only.  For BYTE variables use `VarToBin`, for Word variables use `VarWToBin` and for LONG variables use `VarLongToBin`
 
 *Example:*
 ----

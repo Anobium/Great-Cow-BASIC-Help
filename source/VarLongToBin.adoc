@@ -16,7 +16,7 @@ The `VarLongToBin` function creates a string of a ANSI (32) characters.
 The function converts a number to a string consisting of ones and zeros that represents the binary value.
 
 *Note:*
-Supports LONG variables only.  For BYTE variables use `VarToBin`, for WORD variables use `VarWToBinand` for INTEGER variables use `VarIntegerToBin`,
+Supports LONG variables only.  For BYTE variables use `VarToBin`, for WORD variables use `VarWToBinand` for INTEGER variables use `VarIntegerToBin`
 
 *Example:*
 ----
