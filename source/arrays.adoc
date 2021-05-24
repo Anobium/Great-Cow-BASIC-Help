@@ -34,7 +34,7 @@ value in the variable `Temp`
 Use the DIM command to define an array.
 
 ----
-    DIM array_title ( number_of_elements ) [ As _type_]
+    DIM array_title ( number_of_elements ) [As _type_]
 ----
 
 The number of elements can be number or a constant - not a variable.
@@ -53,7 +53,7 @@ It is possible to set several elements of a byte array with a single line of cod
 
 When using this method above element 0 of the array TestVar will be set to the number of items in the list, which in this case is 9. Each element of the array will then be loaded with the corresponding value in the list - so in the example, TestVar(1) will be set to 1, TestVar(2) to 2, and so on.  Element 0 will only be set to number of items in the array when using this method up to 48 data elements.
 
-This only works for `byte` arrays, however.  For `integer`, `word`, or `long` arrays, each element must be set separately:
+This only works for *byte* arrays, however.  For arrays of type `integer`, `word`, or `long`, each element must be set separately:
 
 ----
     Dim TestVar(5) As Word
@@ -93,10 +93,13 @@ To use an array, its name is specified, then the index. Arrays can be used every
 
 The limit on the array size is dependent on the chip type, the amount of RAM, and the number of other variable you use in your program.
 
-Use the following simple program to determine the maximum array size. Set `CHIP` to your device, `MAXSCOPE` to a value which is less the total RAM, and the data type of `test_array` to the data type to be stored in the array.  If the array does not fit, the compiler will issue an error message.  Reduce MAXSCOPE until the error message is not issued.  
+Use the following simple program to determine the maximum array size. Set `CHIP` to your device, `MAXSCOPE` to a value which is less the total RAM, and the data type of `test_array` to the data type to be stored in the array.
 
 The data type of `imaxscope` must be set to match the size of the constant `MAXSCOPE`.  If `MAXSCOPE` <= 255, `imaxscope` should be a byte.  If `MAXSCOPE` > 255, `imaxscope` should be a word.
 
+If the array is too large to fit, the compiler will issue an error message.  Reduce MAXSCOPE until the error message is not issued.  The largest `MAXSCOPE` value without an error message is the largest useable array of this type for this chip.
+
+----
     #CHIP   12f1571
     #OPTION Explicit
 
@@ -108,6 +111,7 @@ The data type of `imaxscope` must be set to match the size of the constant `MAXS
     For imaxscope = 0 to MAXSCOPE
       test_array( imaxscope ) = imaxscope
     Next
+----
 
 For the Atmel AVR, LGT 328p or an 18F array sizes are limited to 10,000 elements.
 
