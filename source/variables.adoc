@@ -47,7 +47,7 @@ Cow BASIC can currently use:
 |Storing very, very big numbers
 
 |Array
-|A list of whole numbers ranging from 0 to 255
+|A list of whole numbers, each of which may be a byte, word, integer, or long
 |Logs of sensor readings
 
 |String
@@ -77,9 +77,7 @@ You can assign values to number variables using&#160;&#160`=`.&#160;&#160;
 A simple, but typical example follows.&#160;&#160;This is the typical for numeric variable assignment.
 
 ----
-
     myByteVarible = 127       'assign the value of 127
-
 ----
 
 
@@ -90,14 +88,14 @@ Great Cow BASIC support bitwise assignments s follows:
     portc.0 = !porta.1  'set a single bit to the value of another bit
 ----
 
+The function `FnLSL` performs the shift operation found in other languages.  Here is an example:  
 
-You can also use a shift function.  As in other languages, by using the Shift Function FnLSL.  AN example is:
 ----
     MyVar = FnLSL( 1, BitNum)`  is Equivalent to `MyVar = 1<<BitNum`
 ----
 
+To set a bit of a port and to prevent glitches during operations, use `#option volatile` as folllows:
 
-To set a bit of a port and to prevent glitches during operations, use `#option volatile` as folllows.
 ----
     'add this option for a specific port.
     #option volatile portc.0
@@ -106,26 +104,27 @@ To set a bit of a port and to prevent glitches during operations, use `#option v
     portc.0 = !porta.1
 ----
 
+To set a bit of a port or variable, encapsulate it in the `SetWith` method.  Using this method also eliminates any glitches during the update.
 
-To set a bit of a port or variable. Encapsulate it in the SetWith method, this also eliminates any glitches during the update, use this method.
 ----
     SetWith(MyPORT, MyPORT OR FnLSL( 1, BitNum))
 ----
 
+To clear a bit of a port, use this method:
 
-To clear a bit of a port, use this method.
 ----
     MyPORT = MyPORT AND NOT FnLSL( 1, BitNum))
 ----
 
 
-To set a bit within an array, use this method.
+To set a bit within an array, use this method:
+
 ----
     video_buffer_A1(video_adress) = video_buffer_A1(video_adress) OR FnLSL( 1, BitNum)
 ----
 
+To set a bit within a variable, use this method:
 
-To set a bit within a variable, use this method.
 ----
     Dim my_variable as byte
     Dim my_bit_address_variable as byte
@@ -143,11 +142,13 @@ To set a bit within a variable, use this method.
 *String Variables*
 
 Strings are defined as follows:
+
 ----
     'Create buffer variables to store received messages
 
     Dim Buffer As String
 ----
+
 String variables default to the following rules and the RAM constraints
 of a specific chip.
 
@@ -159,52 +160,48 @@ of a specific chip.
 
 You cannot store a string 20 characters long in a chip with 16 bytes of RAM.
 
-To change the default string size handled internally by the Great Cow BASIC compiler you add increase/decrease the default string size
+You can change the default string size handled internally by the Great Cow BASIC compiler by changing the `STRINGSIZE` constant:
 
 ----
-    'To define the default string size as the follows constant.
+    'set the default string to 24 bytes
     #define STRINGSIZE 24
 ----
 
-Defining a length for the string is the best way to limit memory usage.
-It is good practice if you need a string of a certain size to set the
-length of a strings, since the default length for a string variable
-changes depending on the amount of memory in the microcontroller (see
+Defining a length for the string is the best way to limit memory usage.  It is good practice if you need a string of a certain size to set the length of a strings, since the default length for a string variable changes depending on the amount of memory in the microcontroller (see
 above).
 
 To set the length of a string, see the example below:
+
 ----
     'Create buffer variables to store received messages as 16 bytes long
     Dim OutBuffer As String * 16
 ----
 
 To place quotation marks (" ") in a string of text. For example:
+
 ----
     She said, "You deserve a treat!"
 ----
 
-Use the following method to show the string with the insertion of two quotation marks in a row as an embedded quotation mark.
-These two examples apply to all output methods like HerPrint, Print etc.
+To place quotation marks (") in a string of text, use two quotation marks in a row instead of one for each quote mark.  The following example shows two ways of printing `She said, "You deserve a treat!"`.  This technique works for all output methods (HSerPrint, Print, etc.)
 
 ----
-    hserprint "She said, ""You deserve a treat!"" "
+    HSerPrint "She said, ""You deserve a treat!"" "
 
-    dim myString as string * 39
+    Dim myString As String * 39
     myString = "She said, ""You deserve another treat!"" "
-    hserprint myString
+    HSerPrint myString
 ----
 
 *Variable Aliases*
 
-Some variables are aliases, which are used to refer to memory locations
-used by other variables. These are useful for joining predefined byte
-variable together to form word variables.
+Some variables are aliases, which are used to refer to memory locations used by other variables. These are useful for joining predefined byte variables together to form a word variable.
 
-Alias are not like pointers in many languages - they must always refer
-to the same variable or variables and cannot be changed.
+Aliases are not like pointers in many languages - they must always refer to the same variable or variables and cannot be changed.
 
-When setting register/variable bit ( i.e  my_variable.my_bit_address_variable ) and using a alias for the my_variable then you must ensure the bytes that construct the variable are consective.&#160;&#160;
-The coding approach should be to DIMension the variable (long/integer or word ) first then create the byte aliases, as follows:
+When setting a register/variable bit ( i.e  my_variable.my_bit_address_variable ) and using a alias for the variable then you must ensure the bytes that construct the variable are consective.  
+
+The coding approach should be to DIMension the variable (word, integer, or long) first, then create the byte aliases:
 
 ----
 		Dim my_variable as LONG
@@ -219,12 +216,11 @@ The coding approach should be to DIMension the variable (long/integer or word ) 
 		'set the bit in the variable
 		my_variable.my_bit_address_variable = 1
 
-		'then, use the four byte varialbles as you need to.
+		'then, use the four byte variables as you need to.
 ----
 
-To set a series of registers it recommended to use the following coding method.&#160;&#160;
-If the target regiesters are not consective.&#160;&#160;
-Use the a mask variable then apply to the register.&#160;&#160;
+To set a series of registers that are not consecutive, it is recommended to use a mask variable then apply it to the registers:
+
 ----
 		Dim my_variable as LONG
 		Dim my_bit_address_variable as Byte
@@ -242,44 +238,36 @@ Use the a mask variable then apply to the register.&#160;&#160;
 
 *Casting*
 
-Casting changes the type of a variable or value. Placing the type that
-the value should be converted to in square brackets will tell the
-compiler to convert it. For example, this will cause two byte variables
-to be treated as word variables by the addition code:
+Casting changes the type of a variable or value.  To tell the compiler to perform a type conversion, put the desired type in square brackets before the variable.  The following example will cause two byte variables added together to be treated as a word variable.
+
 ----
     Dim MyWord As Word
     MyWord = [word]ByteVar + AnotherByteVar
 ----
-Why do this? If there are no casts, then Great Cow BASIC will add the two values
-using the byte addition code, and then convert the result to a word to
-store in `MyWord`. Suppose that `ByteVar` is 150, and `AnotherByteVar` is 231.
-When added, this will come to 381 - which will overflow, leaving 125 in
-the result. However, when the cast is added, Great Cow BASIC will treat `ByteVar`
-as if it were a word, and so will use the word addition code. This will
-cause the correct result to be calculated.
+
+Why do this?   Suppose that `ByteVar` is 150, and `AnotherByteVar` is 231.  When added, this will come to 381 - which will overflow, leaving 125 in the result.  However, when the cast is added, Great Cow BASIC will treat `ByteVar` as if it were a word, and so will use the word addition code.  This will cause the correct result to be calculated.
 
 It is good practice to cast when calculating an average:
+
 ----
     MyAverage = ([word]Value1 + Value2) / 2
 ----
-It's also possible to cast the second value:
+
+It's also possible to cast the second value instead of the first:
+
 ----
     MyAverage = (Value1 + [word]Value2) / 2
 ----
+
 The result will be exactly the same.
 
-
-
-
 {empty} +
-Doing things to individual bits of variables see,
-<<_set,Set>>, <<_rotate,Rotate>>
+To apply operations to individual bits of variables see, <<_set,Set>>, <<_rotate,Rotate>>
 {empty} +
 {empty} +
 
-Checking variables and doing different things based on their value, see
+To check variables and apply logic based on their value, see
 <<_if,If>>, <<_do,Do>>, <<_for,For>>, <<_conditions,Conditions>>
 {empty} +
 
-*For more help, see:* <<_dim,Declaring variables with DIM>>,
-<<_setting_variables,Setting Variables>>
+*For more help, see:* <<_dim,Declaring variables with DIM>>, <<_setting_variables,Setting Variables>>
