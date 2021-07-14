@@ -148,4 +148,16 @@ On 18Fs, it will guess based on where the lowest SFR is, and from what the total
     .... many other data rows
 ----
 {empty} +
+
+In the example shown above the following can be extracted.
+{empty} +
+1. RAM size:              RAM = 8192d
+2. Minimum RAM address:   FREERAM = 0x500
+3. Maximum RAM address:   FREERAM = 0x24FF
+4. Maximum RAM address:   MAXADDRESS=9471d or 0x24FF
+5. ACCESS RAM:            NOBANKRAM = 0x500-0x55F
+6. BANKED SFR:            NOBANKRAM = 0x460-0x4FF
+
+
+{empty} +
 {empty} +
