@@ -19,10 +19,12 @@ Variables of  type _byte_, _word_, _integer_, _longs_ are placed in RAM using th
 
 Variables of  _array_ and _strings_ type are placed in RAM using the following simple rules.
 
-1. A RAM memory location is automatically assigned from the end of RAM less the size of the array.
+1. A RAM memory location is automatically assigned from the end of RAM less the ( size of the array + 1 byte ).
 2. The last memory location is last RAM location as defined in the chip datasheet.
 3. Once an array is allocated the RAM location is marked as used and the start of the array RAM location can be reviewed in the ASM source.
 4. Subsequent variables of type array in RAM at the next available RAM location subtracted from the start the of previous RAM location minus the size of this next array.
+
+
 
 
 Variables of _bit_ type are placed in RAM using the following simple rules.
