@@ -119,3 +119,29 @@ The first range is the FAST SFR range
 
 If there are no ranges defined in NoBankRAM, the compiler will try to guess them.&#160;&#160;
 On 18Fs, it will guess based on where the lowest SFR is, and from what the total RAM on the chip is.&#160;&#160; If there's only one range defined. &#160;&#160; in the NoBankRAM locations, the compiler will assume that is the range for the RAM, and then will guess where the range for the access bank SFRs is.
+
+----
+    'GCBASIC/GCGB Chip Data File
+    'Chip: 18F27Q43
+
+    [ChipData]
+
+    .... many other data rows
+
+    'This constant is exposed as ChipRAM
+    RAM=8192
+
+    .... many other data rows
+
+
+    [FreeRAM]
+    500:24FF
+
+    [NoBankRAM]
+    500:55F
+    460:4FF
+
+    .... many other data rows
+----
+{empty} +
+{empty} +
