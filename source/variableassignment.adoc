@@ -129,17 +129,21 @@ On 18Fs, it will guess based on where the lowest SFR is, and from what the total
     .... many other data rows
 
     'This constant is exposed as ChipRAM
-    RAM=8192
+    RAM=8192             'Dec values
 
     .... many other data rows
 
+    'This constant is exposed as ChipMaxAddress
+    MaxAddress=9471      'Dec values
+
+    .... many other data rows
 
     [FreeRAM]
-    500:24FF
+    500:24FF             'Hex value
 
     [NoBankRAM]
-    500:55F
-    460:4FF
+    500:55F              'Hex value
+    460:4FF              'Hex value
 
     .... many other data rows
 ----
