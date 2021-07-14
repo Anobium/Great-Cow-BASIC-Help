@@ -373,7 +373,7 @@ For 16f18855 family of microcontrollers this is a example.  This will save 149 b
     '''  IDE: GCB@SYN
     '''
     '''  Board: Xpress Evaluation Board
-    '''  Date: 13.3.2016
+    '''  Date: 13.3.2021
     '''
 
 

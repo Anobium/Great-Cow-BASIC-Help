@@ -76,7 +76,7 @@ These methods will not support  conversion of hexadecimal number strings.
     '''  IDE: GCB@SYN
     '''
     '''  Board: Xpress Evaluation Board
-    '''  Date: June 2016
+    '''  Date: June 2021
     '''
     ' ----- Configuration
       'Chip Settings.

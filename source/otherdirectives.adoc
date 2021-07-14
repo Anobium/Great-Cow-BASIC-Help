@@ -186,6 +186,27 @@ This table shows the ChipFamily constants mapped to the microcontroller architec
 |Mid-range core devices. 14 Bit instruction set with enhanced instruction set  and with large memory capability class
 |16
 |High end core devices. 16 Bit instruction set, memory addressing architecture and an extended instruction set.
+
+Chip family 16 also have a sub chip family Constant.&#160;&#160; These constants are shown below:
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ10 = 16100
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ43 = 16101
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ41 = 16102
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxK42 = 16103
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxK40 = 16104
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ40 = 16105
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ84 = 16106
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxK83 = 16107
+
+    &#160;&#160;&#160;&#160;ChipFamily18FxxQ83 = 16108
+
 |===
 {empty} +
 {empty} +

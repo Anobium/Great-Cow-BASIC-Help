@@ -22,6 +22,8 @@ This demonstration program will support up to 256 bytes. For a larger buffer cha
 
     ' Add PPS if appropiate for your chip
     ' [change to your config] This is the config for a serial terminal
+
+    ' assumes USART1
     ' turn on the RS232 and terminal port.
     ' Define the USART settings
     #DEFINE USART_BAUD_RATE 9600
@@ -29,6 +31,9 @@ This demonstration program will support up to 256 bytes. For a larger buffer cha
     'This assumes you are using an ANSI compatible terminal.  Use PUTTY.EXE it is very easy to use.
 
     '   Main program
+
+    'Wait for terminal to settle
+    wait 3 s
 
     'Create the supporting variables
     Dim next_in As Byte
@@ -105,6 +110,9 @@ This demonstration program will support up to 256 bytes. For a larger buffer cha
         #ENDIF
         #IFDEF BIT( U1RXIE )
             On Interrupt UART1ReceiveInterrupt Call readUSART
+        #ENDIF
+        #IFDEF AVR
+            On Interrupt UsartRX1Ready Call readUSART
         #ENDIF
 
     End Sub

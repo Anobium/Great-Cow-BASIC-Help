@@ -1,7 +1,7 @@
 // Edit EvanV 061116
 // Added   #define STRINGSIZE 24 constant information.
 // Added   091116 added String examplkes
-=== Variables
+=== Variable Types
 
 *About Variables and Variable Types*
 
@@ -88,7 +88,7 @@ Great Cow BASIC support bitwise assignments s follows:
     portc.0 = !porta.1  'set a single bit to the value of another bit
 ----
 
-The function `FnLSL` performs the shift operation found in other languages.  Here is an example:  
+The function `FnLSL` performs the shift operation found in other languages.  Here is an example:
 
 ----
     MyVar = FnLSL( 1, BitNum)`  is Equivalent to `MyVar = 1<<BitNum`
@@ -199,40 +199,40 @@ Some variables are aliases, which are used to refer to memory locations used by 
 
 Aliases are not like pointers in many languages - they must always refer to the same variable or variables and cannot be changed.
 
-When setting a register/variable bit ( i.e  my_variable.my_bit_address_variable ) and using a alias for the variable then you must ensure the bytes that construct the variable are consective.  
+When setting a register/variable bit ( i.e  my_variable.my_bit_address_variable ) and using a alias for the variable then you must ensure the bytes that construct the variable are consective.
 
 The coding approach should be to DIMension the variable (word, integer, or long) first, then create the byte aliases:
 
 ----
-		Dim my_variable as LONG
-		Dim ByteOne   as Byte alias my_variable_E
-		Dim ByteTwo   as Byte alias my_variable_U
-		Dim ByteThree as Byte alias my_variable_H
-		Dim ByteFour  as Byte alias my_variable
+    Dim my_variable as LONG
+    Dim ByteOne   as Byte alias my_variable_E
+    Dim ByteTwo   as Byte alias my_variable_U
+    Dim ByteThree as Byte alias my_variable_H
+    Dim ByteFour  as Byte alias my_variable
 
-		Dim my_bit_address_variable as Byte
-		my_bit_address_variable = 23
+    Dim my_bit_address_variable as Byte
+    my_bit_address_variable = 23
 
-		'set the bit in the variable
-		my_variable.my_bit_address_variable = 1
+    'set the bit in the variable
+    my_variable.my_bit_address_variable = 1
 
-		'then, use the four byte variables as you need to.
+    'then, use the four byte variables as you need to.
 ----
 
 To set a series of registers that are not consecutive, it is recommended to use a mask variable then apply it to the registers:
 
 ----
-		Dim my_variable as LONG
-		Dim my_bit_address_variable as Byte
-		my_bit_address_variable = 23
+    Dim my_variable as LONG
+    Dim my_bit_address_variable as Byte
+    my_bit_address_variable = 23
 
-		'set the bit in the variable
-		my_variable.my_bit_address_variable = 1
-		
-		porta =  my_variable_E
-		portb =  my_variable_E
-		portc =  my_variable_E
-		portd =  my_variable_E
+    'set the bit in the variable
+    my_variable.my_bit_address_variable = 1
+
+    porta =  my_variable_E
+    portb =  my_variable_E
+    portc =  my_variable_E
+    portd =  my_variable_E
 
 ----
 

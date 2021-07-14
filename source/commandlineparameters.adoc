@@ -29,7 +29,11 @@
 |Batch file used to call assembler^(1)^. If `/A:GCASM` is given, Great Cow BASIC will use its internal assembler.
 |The program will not be assembled
 
-|`/H:[Y/1 | N/0]`
+|`/CP`
+|Exports the config bits automatically selected by the compiler to an output file called `source_filename.config`.  The output file is the source filename with the extension of config.
+|None
+
+|`/H:[Y/1 \| N/0]`
 |Set the production, or not, of the hex output file.  /H:1 is the default.  To prevent production of the hex output file - use /H:0
 |The default is to produce the hex output file
 

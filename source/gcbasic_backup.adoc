@@ -1,5 +1,5 @@
 = Great Cow BASIC documentation
-The Great Cow BASIC Development Team @ 2016
+The Great Cow BASIC Development Team @ 2021
 
 
 This document supports Great Cow BASIC compiler.

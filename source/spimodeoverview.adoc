@@ -46,7 +46,7 @@ The first clock signal falling can be used to prepare the data. The clock idle s
 
     FastHWSPITransfer( _OutByte_ )
 
-    #define HWSPIMode MASTERULTRAFAST       'MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST for specific AVRs only.
+    #define HWSPIMode MASTERULTRAFAST       'MASTERSLOW | MASTER | MASTERFAST | MASTERULTRAFAST for specific AVRs only | MasterSSPADDMode for specific PICs SSPADD support
                                             'Defaults to MASTERFAST when microcontroller frequency less or equal to 32 mhz
                                             'Defaults to MASTER when microcontroller frequency more than 32 mhz.
 ----
@@ -78,7 +78,7 @@ Great Cow BASIC libraries will default to to MASTERFAST when microcontroller fre
 
 The options for `HWSPIMode` are:
 
-`MASTERSLOW`, or, `MASTER` or `MASTERFAST` or `MASTERULTRAFAST` for specific AVRs only.
+`MASTERSLOW`, or, `MASTER` or `MASTERFAST` or `MASTERULTRAFAST` for specific AVRs only or `MasterSSPADDMode` for specific PICs SSPADD support
 
 This constant sets the library to the desire SPI fequency, therefore enable adaption of the SPI frequency without have to change the library.
 

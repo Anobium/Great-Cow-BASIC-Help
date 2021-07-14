@@ -61,7 +61,7 @@ When using 3-bit mode only three constants must be set.
 
      PRINT "Great Cow BASIC"
      Locate 1,0
-     PRINT "@2019"
+     PRINT "@2021"
      Wait 4 s
 
       DO Forever

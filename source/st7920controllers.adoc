@@ -340,10 +340,10 @@ details, this is an external web site.
           GLCDDrawChar xxpos , 0 , gtext(xchar)
     next
 
-    GLCDDrawString  1, 9, "Great Cow BASIC @2014"
+    GLCDDrawString  1, 9, "Great Cow BASIC @2021"
     GLCDDrawString  1, 18,"GLCD 128*64"
     GLCDDrawString  1, 27,"Using GLCD.H from GCB"
-    GLCDDrawString  1, 37,"Using GLCD.H GCB@2014"
+    GLCDDrawString  1, 37,"Using GLCD.H GCB@2021"
     GLCDDrawString  1, 45,"GLCDDrawChar method"
     'GLCDDrawString  1, 54,"ST7920 @QC12864B"
     GLCDDrawString  1, 54,"Test Routines"

@@ -135,7 +135,7 @@ You may need to change the chip, edit/remove PPS, and/or the change LCD settings
 
     ccount = 0
     CLS
-    print "GCBasic 2020"
+    print "GCBasic 2021"
     locate 1,0
     print "DS18B20 Demo"
     wait 2 s

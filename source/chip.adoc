@@ -13,7 +13,7 @@ The `_model_` is the specific microcontroller  - examples are "16F819".
 
 The `_frequency_` is the frequency of the chip in MHz, and is required for the delay and PWM routines.
 The following constants simplify setting specific frequencies.
-`31k` and `32.768K`.  They can be used as shown in the examples.
+`31k`,  `32.768K`, `125k`, `250k` or `500k`.  Any of these constant can be used. As shown in the example below.
 
 If `frequency` is not present the compiler will select a frequency default frequency that should work for the microcontroller.
 
@@ -30,6 +30,10 @@ When using an AVR, there is no need to specify "AT" before the name.
     #chip 16F88, 0.125
     #chip tiny2313, 1
     #chip mega8, 16
+    #chip 12f1840, 31k
+    #chip 12f1840, 500k
+    #chip 12f1840, 250k
+    #chip 12f1840, 125k
 
     'Select the internal low frequency oscillator. The microcontroller must have the LFINT or LFINTOSC option.
     #chip 16f18326, 31k
@@ -76,6 +80,7 @@ The ChipData section for 12F1840 microcontroller. The 12F1840 is used an example
     ADC=4
     MaxMHz=32
     IntOsc=32, 16, 8, 4, 2, 1, 0.5, 0.25, 0.125
+    31kSupport=INTOSC,OSCCON,2
     Pins=8
     Family=15
     ConfigWords=2
@@ -83,9 +88,8 @@ The ChipData section for 12F1840 microcontroller. The 12F1840 is used an example
     MaxAddress=4095
 ----
 
-The IntOsc line specifies the supported internal clock frequencies.
-
-The 12F1840 microcontroller supports nine internal frequencies (ChipMHz). #Chip is used as follows:
+The IntOsc line specifies the supported internal clock frequencies -  The 12F1840 microcontroller supports nine internal frequencies (ChipMHz). #Chip is used as follows:
+The 31kSupport line specifies the chip supports 31k for internal clock frequency.
 
 ----
     #chip 12F1840, 32
@@ -110,7 +114,7 @@ Since "12" is not a valid internal osc frequency, the microcontroller FOSC will 
 
 *ConfigOps section*
 
-The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file. For the 12F1940 is looks like this
+The [ConfigOps] section of 12F1840.dat is towards the end of the chip data file. For the 12F1840 is looks like this
 
 ----
     [ConfigOps]

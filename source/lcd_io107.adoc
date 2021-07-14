@@ -60,7 +60,7 @@ be ignored.
 
     do Forever
       CLS
-      Print "Great Cow BASIC 2020"
+      Print "Great Cow BASIC 2021"
       Locate 1, 0
       Print "Reading ADC ANA0"
 

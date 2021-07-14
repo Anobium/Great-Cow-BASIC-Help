@@ -208,7 +208,7 @@ Complete code would like this - this not optimised - this shows the use of the e
 This outputs the following - where #20 is the current build and the date/time is correct for build time.
 
 ----
-    Max7219 build20@01-06-2019 08:00:21
+    Max7219 build20@01-06-2021 08:00:21
     Commence main program
 ----
 

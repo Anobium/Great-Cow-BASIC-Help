@@ -1,5 +1,5 @@
 = Great Cow BASIC documentation
-The Great Cow BASIC development team @ 2020
+The Great Cow BASIC development team @ 2021
 
 
 
@@ -47,6 +47,11 @@ include::configuration.adoc[]
 
 include::numbervariabletypes.adoc[]
 
+include::variables.adoc[]
+
+include::variableassignment.adoc[]
+
+
 ifdef::backend-pdf[<<<]
 == Syntax
 
@@ -73,9 +78,6 @@ include::readtable.adoc[]
 include::scripts.adoc[]
 
 include::subroutines.adoc[]
-
-include::variables.adoc[]
-
 
 
 
@@ -970,10 +972,6 @@ include::trim.adoc[]
 include::ucase.adoc[]
 
 include::val.adoc[]
-
-include::VarToBin.adoc[]
-
-include::VarWToBin.adoc[]
 
 include::VarIntegerToBin.adoc[]
 

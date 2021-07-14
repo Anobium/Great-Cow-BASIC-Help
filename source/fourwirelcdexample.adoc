@@ -20,11 +20,11 @@ A 2 by 16 LCD is assumed.
     ;----- Main Program
 
     do forever
-            
-            Print "Great Cow BASIC 2020"
+
+            Print "Great Cow BASIC 2021"
             wait 3 s
             CLS
-            
+
     loop
     end
 

@@ -193,7 +193,7 @@ specific attribute.
     GLCDPrintStringLN ("")
     GLCDPrintStringLN ("Test of the SSD1351")
     GLCDPrintStringLN ("")
-    GLCDPrintStringLN ("October 2019")
+    GLCDPrintStringLN ("October 2021")
     end
 ----
 

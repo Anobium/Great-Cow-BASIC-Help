@@ -363,7 +363,7 @@ GLCDBackground=TFT_WHITE
     GLCDPrintStringLN ("")
     GLCDPrintStringLN ("Test of the e-Paper")
     GLCDPrintStringLN ("")
-    GLCDPrintStringLN ("December 2019")
+    GLCDPrintStringLN ("December 2021")
  GLCD_Close_PageTransaction
  GLCDDisplay Off
 

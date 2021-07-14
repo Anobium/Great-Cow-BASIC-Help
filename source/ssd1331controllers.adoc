@@ -198,7 +198,7 @@ specific attribute.
     GLCDPrintStringLN ("")
     GLCDPrintStringLN ("Test of the SSD1331")
     GLCDPrintStringLN ("")
-    GLCDPrintStringLN ("Anobium 2019")
+    GLCDPrintStringLN ("Anobium 2021")
     end
 ----
 

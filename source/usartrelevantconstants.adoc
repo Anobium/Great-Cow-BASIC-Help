@@ -239,6 +239,14 @@ To disable this delay between characters ...  Use #define  `USART_DELAY  0 MS`, 
 To disable this delay between characters ...  Use #define  `USART_DELAY  OFF`
 
 
+|`CHECK_USART_BAUD_RATE`
+|Instruct the compiler to show the real BPS to be used
+|Not the default operation
+
+|`ISSUE_CHECK_USART_BAUD_RATE_WARNING`
+|Instruct the compiler to show BPS calculation errors
+|Not the default operation
+
 |`SerPrintCR` | Causes a Carriage return to be sent after every HserPrint automatically. | No parameter needed. User “#defining” it implements the action
 
 |`SerPrintLF` | Causes a LineFeed to be sent after every HserPrint. Some communications require both CR and LF | No parameter needed. User “#defining” it implements the action

@@ -54,7 +54,7 @@ These tests were completed using a Saleae Logic Analyzer.
 ----
     ;**************************************
     ; Code:  Output an accurate pulse
-    ; Author: William Roth 03/13/2015
+    ; Author: William Roth 03/13/2021
     ;**************************************
 
     #chip 16F690,8
