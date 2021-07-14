@@ -1,15 +1,15 @@
 === Variable Memory Allocation
 
-This note discusses the allocation of variables to RAM ( GPR, SRAM etc).
+This section discusses the allocation of variables to RAM ( GPR, SRAM or other TLA).
 
-Variables in Great Cow BASIC can be bits, bytes, words, integers, longs, arrays or reals. &#160;&#160;This section will NOT address reals (as these are developmental variables only).
+Variables in Great Cow BASIC can be bits, bytes, words, integers, longs, arrays or reals. &#160;&#160;This section will NOT address reals as these are developmental variables only.
 
-Variables can also be defined as Aliases - this is discussed later.
+Variables can also be defined as Aliases - this is discussed later in this section.
 
 
 **Basic variable allocation**
 
-Variables of the type _byte_, _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
+Variables of the type ##byte##, _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
 
 1. A RAM memory location  is automatically assigned starting at the first available memory location.
 2. The first memory location is first RAM location as defined in the chip datasheet.
