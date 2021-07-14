@@ -9,7 +9,7 @@ Variables can also be defined as Aliases - this is discussed later in this secti
 
 **Basic variable allocation**
 
-Variables of the type ##byte##, _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
+Variables of the type [byte], _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
 
 1. A RAM memory location  is automatically assigned starting at the first available memory location.
 2. The first memory location is first RAM location as defined in the chip datasheet.
