@@ -9,7 +9,7 @@ Variables can also be defined as Aliases - this is discussed later in this secti
 
 **Basic variable allocation**
 
-Variables of the type [byte], _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
+Variables of  type _byte_, _word_, _integer_, _longs_ are placed in RAM using the following simple rules.
 
 1. A RAM memory location  is automatically assigned starting at the first available memory location.
 2. The first memory location is first RAM location as defined in the chip datasheet.
@@ -17,7 +17,7 @@ Variables of the type [byte], _word_, _integer_, _longs_ are placed in RAM using
 4. Bytes use a single  RAM location, words two  RAM locations, integer and longs four  RAM locations.
 5. Subsequent variables of type byte, word, integer, longs are placed in RAM at the next available RAM location.
 
-Variables of the _array_ and _strings_ type are placed in RAM using the following simple rules.
+Variables of  _array_ and _strings_ type are placed in RAM using the following simple rules.
 
 1. A RAM memory location is automatically assigned from the end of RAM less the size of the array.
 2. The last memory location is last RAM location as defined in the chip datasheet.
@@ -25,7 +25,7 @@ Variables of the _array_ and _strings_ type are placed in RAM using the followin
 4. Subsequent variables of type array in RAM at the next available RAM location subtracted from the start the of previous RAM location minus the size of this next array.
 
 
-Variables of the  _bit_ type are placed in RAM using the following simple rules.
+Variables of _bit_ type are placed in RAM using the following simple rules.
 
 1. Bit memory location is automatically assigned to the first bit with the creation of a BYTE variable at a RAM memory location that is automatically assigned starting at the first available memory location. &#160;&#160; This byte can handle 8 bits.
 2. Once a bit is allocated the byte is marked as used and this specific location can be reviewed in the ASM source.
@@ -46,13 +46,13 @@ The following example shows registers DMAnSSAU, DMAnSSAH, DMAnSSAL being loaded 
     DMAnSS = @WaveArray
 
 ----
-
+{empty} +
 
 **AT allocation**
 
-The Dim variable command can be used to instruct Great Cow BASIC to allocate variables  at a specific memory location using AT.
+The Dim variable command can be used to instruct Great Cow BASIC to allocate variables  at a specific memory location using the parameter AT.
 
-The compiler will inspect the provide AT memory location and if the memory location is already used ( by an existing variable), lower than the minimum memory location or greater than the maximum memory location an error will be issued.
+The compiler will inspect the provided AT memory location and if the memory location is already used ( by an existing variable), lower than the minimum memory location or greater than the maximum memory location an error will be issued.
 
 {empty} +
 **Variable Aliases**
@@ -103,9 +103,9 @@ To set a series of registers that are not consecutive, it is recommended to use 
 
 **Memory Specification**
 
-All memory specifics like size, lower and upper addresses are specified in the chip specific dat file.
+All memory specifics like RAM size, lower and upper RAM addresses are specified in the chip specific dat file.
 
-The dat file details should be reviewed in PICINFO.   See the CHIPDATA tab for RAM and MaxAddress.
+The dat file details should be reviewed in PICINFO application.   See the PICINFO/CHIPDATA tab for RAM and MaxAddress etc.
 
 A simple calculation is MaxAddress - RAM +1 = the 'first memory address'.  And, 'first memory address' + RAM -1 = 'the last memory address.
 
