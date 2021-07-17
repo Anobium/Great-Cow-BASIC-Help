@@ -2,11 +2,11 @@
 
 *About Arrays*
 
-An array is a special type of variable - one which can store several values at once. It is essentially a list of numbers in which each one can be addressed individually through the use of an "index". 
+An array is a special type of variable - one which can store several values at once.&nbsp;&nbsp;It is essentially a list of numbers in which each one can be addressed individually through the use of an "index". 
 
-The numbers can be bytes (the default), longs, integers, or words.  The index is a value in brackets immediately after the name of the array.
+The numbers can be bytes (the default), longs, integers, or words.  &nbsp;&nbsp;The index is a value in brackets immediately after the name of the array.
 
-All the numbers stored in an array must be of the same type.  For instance, you cannot store bytes and words in the same array.
+All the numbers stored in an array must be of the same type.  &nbsp;&nbsp;For instance, you cannot store bytes and words in the same array.
 
 Examples of array names are:
 
@@ -51,7 +51,7 @@ It is possible to set several elements of a byte array with a single line of cod
     TestVar = 1, 2, 3, 4, 5, 6, 7, 8, 9
 ----
 
-When using this method above element 0 of the array TestVar will be set to the number of items in the list, which in this case is 9. Each element of the array will then be loaded with the corresponding value in the list - so in the example, TestVar(1) will be set to 1, TestVar(2) to 2, and so on.  Element 0 will only be set to number of items in the array when using this method up to 48 data elements.
+When using this method above element 0 of the array TestVar will be set to the number of items in the list, which in this case is 9. &nbsp;&nbsp;Each element of the array will then be loaded with the corresponding value in the list - so in the example, TestVar(1) will be set to 1, TestVar(2) to 2, and so on.  &nbsp;&nbsp;Element 0 will only be set to number of items in the array when using this method.   &nbsp;&nbsp;For microcontrollers with less than 2048 bytes of RAM the limit is 250 elements or the array cannot exceed the microcontrollers RAM size.  &nbsp;&nbsp;For microcontrollers with more than 2048 bytes of RAM the limit is 255 elements.  
 
 This only works for *byte* arrays, however.  For arrays of type `integer`, `word`, or `long`, each element must be set separately:
 
@@ -75,7 +75,7 @@ If each element has the same value, this can be shortened using a loop:
 
 *Array Length*
 
-Element 0 should not be used to obtain the length of the array. Element 0 will only be a consistent with respect to the length of the array when the array is set as shown above.
+Element 0 should not be used to obtain the length of the array.&nbsp;&nbsp; Element 0 will only be a consistent with respect to the length of the array when the array is set as shown above.
 
 The correct method is to use a constant to set the array size and use the constant within your code to obtain the array length.
 ----
@@ -95,9 +95,9 @@ The limit on the array size is dependent on the chip type, the amount of RAM, an
 
 Use the following simple program to determine the maximum array size. Set `CHIP` to your device, `MAXSCOPE` to a value which is less the total RAM, and the data type of `test_array` to the data type to be stored in the array.
 
-The data type of `imaxscope` must be set to match the size of the constant `MAXSCOPE`.  If `MAXSCOPE` <= 255, `imaxscope` should be a byte.  If `MAXSCOPE` > 255, `imaxscope` should be a word.
+The data type of `imaxscope` must be set to match the size of the constant `MAXSCOPE`.  If `MAXSCOPE` <= 255, `imaxscope` should be a byte.&nbsp;&nbsp;  If `MAXSCOPE` > 255, `imaxscope` should be a word.
 
-If the array is too large to fit, the compiler will issue an error message.  Reduce MAXSCOPE until the error message is not issued.  The largest `MAXSCOPE` value without an error message is the largest useable array of this type for this chip.
+If the array is too large to fit, the compiler will issue an error message.  &nbsp;&nbsp;Reduce MAXSCOPE until the error message is not issued.  &nbsp;&nbsp;The largest `MAXSCOPE` value without an error message is the largest useable array of this type for this chip.
 
 ----
     #CHIP   12f1571
@@ -119,11 +119,11 @@ If a memory limit is reached, the compiler will issue an error message.
 
 *Get the most from the available memory*
 
-Array RAM usage is determined by the architecture of the chip type. Getting most out of the available memory is determined by the allocation of the array within the available banks of memory.
+Array RAM usage is determined by the architecture of the chip type. &nbsp;&nbsp;Getting most out of the available memory is determined by the allocation of the array within the available banks of memory.
 
-An example is an array of 6 or 7 bytes when there is only 24 bytes of RAM  and the 24 bytes is split across multiple memory banks.  Assume in this example that 18 bytes have allocated to other variables and there is 29 bytes total available.  An array of 6 bytes will fit into the free space in one bank, but the array of 7 will not.
+An example is an array of 6 or 7 bytes when there is only 24 bytes of RAM  and the 24 bytes is split across multiple memory banks.  &nbsp;&nbsp;Assume in this example that 18 bytes have allocated to other variables and there is 29 bytes total available.  &nbsp;&nbsp;An array of 6 bytes will fit into the free space in one bank, but the array of 7 will not.
 
-Great Cow BASIC currently cannot split an array over banks, so if there are 6 bytes free in one bank and 5 in another, you cannot have an array of 7 bytes.  This would be very hard to do efficiently on 12F/16F as there would be a series of special function registers in the middle of the array when using a 12F or 16F.   This constraint is not the case on 16F1/18F as linear addressing makes it easy to span banks because the SFRs are not making the problem (as with 12F/16F).
+Great Cow BASIC currently cannot split an array over banks, so if there are 6 bytes free in one bank and 5 in another, you cannot have an array of 7 bytes. &nbsp;&nbsp; This would be very hard to do efficiently on 12F/16F as there would be a series of special function registers in the middle of the array when using a 12F or 16F.   &nbsp;&nbsp;This constraint is not the case on 16F1/18F as linear addressing makes it easy to span banks because the SFRs are not making the problem (as with 12F/16F).
 
 *Using Tables as an alternative.*
 
