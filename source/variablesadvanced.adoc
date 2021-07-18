@@ -3,7 +3,7 @@
 *About Variable Advanced Types*
 
 A variable is an area of memory on the microcontroller that can be used
-to store a number or a series of letters.&#160;&#160; This is useful for many
+to store a number or other data.&#160;&#160; This is useful for many
 purposes, such as taking a sensor reading and acting on it, or counting
 the number of times the microcontroller has performed a particular task.
 
