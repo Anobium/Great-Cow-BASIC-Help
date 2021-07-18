@@ -96,7 +96,8 @@ The functional characteristics are:
 
 Functions explicitly not supported
 
-These are the functions that aere known to silently fail.
+These are the functions that are not supported.&#160;&#160;
+Use of these function may cause and error message or may silently fail producing invalid ASM.
 
 - Multiplication
 - Division
