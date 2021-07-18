@@ -131,7 +131,7 @@ Another example is bitwise assignments as follows:
 
 *Example Program*
 
-This program shows the values of calculation of 4.5 * a value.&#160;&#160;
+This program shows the values of calculation of 4.5 * multiplied by a number ( 4.5 x a range of 0 to 40,000).&#160;&#160;
 The program shows setting up the advanced variables, assigned a value and completing the multiplication of the initial value using a repeat loop.&#160;&#160;
 The repeat loop is used as advanced variables are are not supported by multiplication ( or division ), so, using the repeat an alternative to multiplication, just a lot slower.&#160;&#160;
 
