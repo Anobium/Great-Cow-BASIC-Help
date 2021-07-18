@@ -98,6 +98,8 @@ Functions explicitly not supported
 
 These are the functions that aere known to silently fail.
 
+- Multiplication
+- Division
 - IntToString
 - SingleToString
 - StringToVal
