@@ -892,6 +892,8 @@ include::variablelifecycle.adoc[]
 
 include::dim.adoc[]
 
+include::alloc.adoc[]
+
 include::bcdtodec.adoc[]
 
 include::dectobcd.adoc[]
