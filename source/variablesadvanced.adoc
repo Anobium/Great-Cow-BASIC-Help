@@ -116,7 +116,7 @@ A simple, but typical example follows.&#160;&#160;This is the typical for numeri
 
 ----
     Dim myLontINT as LontINT
-    myByteVarible = 0XFFFFFF       'assign the value of 16777215
+    myLontINT = 0XFFFFFF       'assign the value of 16777215
 ----
 
 
@@ -133,10 +133,11 @@ Another example is bitwise assignments as follows:
 
 This program shows the values of calculation of 4.5 * a value.&#160;&#160;
 The program shows setting up the advanced variables, assigned a value and completing the multiplication of the initial value using a repeat loop.&#160;&#160;
-The repeat loop is used as Advanced variables are are not supported by multiplication of division, so, using the repeat is a alternative to multiplication, just a lot slower.&#160;&#160;
+The repeat loop is used as advanced variables are are not supported by multiplication ( or division ), so, using the repeat an alternative to multiplication, just a lot slower.&#160;&#160;
 
 
-The program using advanced variables and then uses factorised ineger maths to show the performance of each approach.
+The program using advanced variables to show the results, and, then uses factorised ineger maths to show the results.&#160;&#160;
+The performance of each approach can be examined on the serial terminal.
 
 
 ----
