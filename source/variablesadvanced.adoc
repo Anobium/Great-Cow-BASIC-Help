@@ -46,7 +46,7 @@ There are 52 fraction bits in a double.
 *Using Advanced Variables*
 
 
-Advanced variables must be "DIMensioned" first.&#160;160;This involves using the DIM command,
+Advanced variables must be "DIMensioned" first.&#160;&#160;This involves using the DIM command,
 to tell Great Cow BASIC that it is dealing with an advanced variable.
 
 ----
@@ -68,9 +68,9 @@ to tell Great Cow BASIC that it is dealing with an advanced variable.
 
 *Using Advanced Variables*
 
-Advanced variables are supported by a subset of the functions of Great Cow BASIC.&#160;160;
+Advanced variables are supported by a subset of the functions of Great Cow BASIC.&#160;&#160;
 
-If the function is NOT shown below assume the function is NOT supported.&#160;160;If you use a function that is not shown below then you may get a silent failure and you may not get the results you expected.
+If the function is NOT shown below assume the function is NOT supported.&#160;&#160;If you use a function that is not shown below then you may get a silent failure and you may not get the results you expected.
 
 The function characteristics are:
 
@@ -79,7 +79,7 @@ The function characteristics are:
 - Assigning a single to double and double to single.
 - Assigning single to long and long to single.
 - Assigning double to long and long to double.
-- The assignment of a single or a double to a long also deals with byte and word.&#160;160; This is very inefficient.
+- The assignment of a single or a double to a long also deals with byte and word.&#160;&#160; This is very inefficient.
 - Copying between variables of the same type (so double to double, and single to single).
 - Extract of the unit value of a single or double to a long.
 - Setting of variable bits.
