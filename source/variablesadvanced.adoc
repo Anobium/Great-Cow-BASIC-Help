@@ -97,10 +97,10 @@ The functional characteristics are:
 Functions explicitly not supported
 
 These are the functions that are not supported.&#160;&#160;
-Use of these function may cause and error message or may silently fail producing invalid ASM.
+Assuming that a function is not supported is the best approach when using advanced variables.&#160;&#160;
+Use of these functions may cause an error message or may silently fail producing invalid ASM.
 {empty} +
 Functionality explicitly not supported is shown below.&#160;&#160;
-Assuming that a function is not supported is the best approach when using advanced variables.&#160;&#160;
 {empty} +
 
 
