@@ -98,6 +98,11 @@ Functions explicitly not supported
 
 These are the functions that are not supported.&#160;&#160;
 Use of these function may cause and error message or may silently fail producing invalid ASM.
+{empty} +
+Functionality explicitly not supported is shown below.&#160;&#160;
+Assuming that a function is not supported is the best approach when using advanced variables.&#160;&#160;
+{empty} +
+
 
 - Multiplication
 - Division
@@ -106,7 +111,10 @@ Use of these function may cause and error message or may silently fail producing
 - StringToVal
 - StringToInt
 - StringToSingle
-- There are no string/int routines string.h
+- Advanced variable(s) to string functions
+- Serial operations using methods like HSerPrint or SerPrint.
+
+
 {empty} +
 {empty} +
 
