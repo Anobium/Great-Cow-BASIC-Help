@@ -64,15 +64,17 @@ to tell Great Cow BASIC that it is dealing with an advanced variable.
     myDouble=3.141592
 
 ----
+{empty} +
+{empty} +
 
 
 *Using Advanced Variables*
 
-Advanced variables are supported by a subset of the functions of Great Cow BASIC.&#160;&#160;
+Advanced variables are only supported by a subset of the functions of Great Cow BASIC.&#160;&#160;
 
 If the function is NOT shown below assume the function is NOT supported.&#160;&#160;If you use a function that is not shown below then you may get a silent failure and you may not get the results you expected.
 
-The function characteristics are:
+The functional characteristics are:
 
 - Dimensioning of  longInt, ulongInt, single and souble variable types.
 - Assigning single and double variables creation of values from constants.
@@ -89,6 +91,9 @@ The function characteristics are:
 - Boolean operators working on Single and Double
 - Extraction of mantissa of advanced variables is explicitly not supported.
 
+{empty} +
+{empty} +
+
 Functions explicitly not supported
 
 These are the functions that aere known to silently fail.
@@ -99,11 +104,13 @@ These are the functions that aere known to silently fail.
 - StringToInt
 - StringToSingle
 - There are no string/int routines string.h
+{empty} +
+{empty} +
 
 
 *Assigning Values to Advanced Variables*
 
-You can assign values to number variables using&#160;&#160`=`.&#160;&#160;
+You can assign values to number variables using&#160;&#160;`=`.&#160;&#160;
 
 A simple, but typical example follows.&#160;&#160;This is the typical for numeric variable assignment.
 
@@ -113,12 +120,14 @@ A simple, but typical example follows.&#160;&#160;This is the typical for numeri
 ----
 
 
-Great Cow BASIC support bitwise assignments as follows:
+Another example is bitwise assignments as follows:
 
 
 ----
     myLontINT.16 = 1  'set the single bit to 1
 ----
+{empty} +
+{empty} +
 
 *Example Program*
 
