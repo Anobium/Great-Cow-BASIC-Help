@@ -87,7 +87,7 @@ The functional characteristics are:
 - Setting of advanced variable bits.
 - Addition and subtraction of advanced variables.
 - Rotate of longInt & ulongInt advanced variables.
-- Negate of advanced variables.
+- Negate of longInt & ulongInt advanced variables.
 - Boolean operators working on advanced variables.
 
 {empty} +
@@ -114,6 +114,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 - Advanced variable(s) to string functions
 - Math functions for float variable(s) (see below for pseudo functions)
 - Rotate of single & double advanced variable(s)
+- Negate of single & double advanced variable(s)
 - Reliable serial operations using methods like HSerPrint or SerPrint.
 
 
