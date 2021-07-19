@@ -140,6 +140,55 @@ Another example is bitwise assignments as follows:
 {empty} +
 {empty} +
 
+*INT() and ROUND()*
+
+Floating point numbers are not exact, and may yield unexpected results when compared using conditions (IF etc).&#160;&#160; 
+For example 6.0 / 3.0 may not equal 2.0.&#160;&#160;
+Users should instead check that the absolute value of the difference between the numbers is less than some small number.
+{empty} +
+
+These techniques replace the INT() and ROUND() functions.
+{empty} +
+{empty} +
+
+**Pseudo INT()**
+
+Using the INT() function is not supported.&#160;&#160;
+
+So, use the conversion from floating point to integer as this results in integer truncation. 
+
+----
+        dim mySingleVar as Single
+        mySingleVar = 2.9  'A float type variable
+
+        dim myLongVar as Long
+        myLongVar = mySingleVar ' will set myLongVar to 2
+
+----
+{empty} +
+{empty} +
+
+**Pseudo ROUND()
+
+Using the ROUND() function is not supported.&#160;&#160;
+
+So, to round off during the conversion process,  add 0.5:&#160;&#160;As follows:
+
+----
+        'Add 0.5 to a single or double and then assign to an integer variable
+        
+        dim mySingleVar as Single
+        mySingleVar = 2.9
+        
+        dim myLongVar as Long
+        myLongVar= mySingleVar + [single]0.5  '3
+----
+{empty} +
+{empty} +
+
+
+
+
 *Example Program*
 
 This program shows the values of calculation of 4.5 * multiplied by a number ( 4.5 x a range of 0 to 40,000).&#160;&#160;
