@@ -86,7 +86,7 @@ The functional characteristics are:
 - Extract of the unit value of a single or double variable to a long variable.
 - Setting of advanced variable bits.
 - Addition and subtraction of advanced variables.
-- Rotate of advanced variables.
+- Rotate of longInt & ulongInt advanced variables.
 - Negate of advanced variables.
 - Boolean operators working on advanced variables.
 
