@@ -76,20 +76,19 @@ If the function is NOT shown below assume the function is NOT supported.&#160;&#
 
 The functional characteristics are:
 
-- Dimensioning of  longInt, ulongInt, single and souble variable types.
-- Assigning single and double variables creation of values from constants.
+- Dimensioning of  longInt, ulongInt, single and double advanced variable types.
+- Assigning advanced variables creation of values from constants.
 - Assigning a single to double and double to single.
 - Assigning single to long and long to single.
 - Assigning double to long and long to double.
 - The assignment of a single or a double to a long also deals with byte and word.&#160;&#160; This is very inefficient.
-- Copying between variables of the same type (so double to double, and single to single).
-- Extract of the unit value of a single or double to a long.
-- Setting of variable bits.
+- Copying between variables of the same type (so double to double, and single to single and other advanced variables).
+- Extract of the unit value of a single or double variable to a long variable.
+- Setting of advanced variable bits.
 - Addition and subtraction of advanced variables.
 - Rotate of advanced variables.
 - Negate of advanced variables.
-- Boolean operators working on Single and Double
-- Extraction of mantissa of advanced variables is explicitly not supported.
+- Boolean operators working on advanced variables.
 
 {empty} +
 {empty} +
@@ -104,6 +103,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 {empty} +
 
 
+- Extraction of mantissa value
 - Multiplication
 - Division
 - IntToString
@@ -112,7 +112,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 - StringToInt
 - StringToSingle
 - Advanced variable(s) to string functions
-- Serial operations using methods like HSerPrint or SerPrint.
+- Reliable serial operations using methods like HSerPrint or SerPrint.
 
 
 {empty} +
@@ -121,7 +121,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 
 *Assigning Values to Advanced Variables*
 
-You can assign values to number variables using&#160;&#160;`=`.&#160;&#160;
+You can assign values to advanced variables using&#160;&#160;`=`.&#160;&#160;
 
 A simple, but typical example follows.&#160;&#160;This is the typical for numeric variable assignment.
 
