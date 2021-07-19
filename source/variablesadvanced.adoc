@@ -1,3 +1,5 @@
+// updated with the latest demo code to improve variable naming. still a pseudo multiplier
+// :-)
 === Variable Advanced Types
 
 *About Variable Advanced Types*
@@ -150,16 +152,17 @@ The performance of each approach can be examined on the serial terminal.
 
 
 ----
+
     HSerPrintCRLF 2
     HSerPrint "Maths test "
-    HSerPrintCRLF
+    HSerPrintCRLF 2
 
     DIM multiplier as Word
     DIM ccount as Double
     DIM calcresult as Single
     Dim result as Long
 
-    HSerPrint "Use reals"
+    HSerPrint "Use floats with pseudo multiplier  maths"
     HSerPrintCRLF
 
     'Assign a value to a double variable
@@ -175,7 +178,7 @@ The performance of each approach can be examined on the serial terminal.
 
         HSerPrint "4.5"
         HSerPrint " x "
-        HSerPrint left(str32(baseline)+"        ", 8 )
+        HSerPrint left(str32(multiplier)+"        ", 8 )
         HSerPrint " = "
 
         'Convert Single to Long to get the result
@@ -193,21 +196,21 @@ The performance of each approach can be examined on the serial terminal.
 
 
     'Use conventional Integer number using facttoristion
-    HSerPrint "Use factored INT"
+    HSerPrint "Use factored integer maths"
     HSerPrintCRLF
     dim ccount_int as Byte 'integer byte
 
     'Factored the 4.5 x 10 larger
     ccount_int   = 45
 
-    For  baseline = 0 to 40000 step 2500
+    For  multiplier = 0 to 40000 step 2500
 
-      'Do some maths... baseline x ccount
-      result = baseline * ccount_int
+      'Do some maths... multiplier x ccount
+      result = multiplier * ccount_int
 
       HSerPrint "45"
       HSerPrint " x "
-      HSerPrint left(str32(baseline)+"        ", 8 )
+      HSerPrint left(str32(multiplier)+"        ", 8 )
       HSerPrint " = "
 
       HSerPrint left(str32(result)+"        ", 8 )
