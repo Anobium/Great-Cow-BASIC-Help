@@ -112,6 +112,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 - StringToInt
 - StringToSingle
 - Advanced variable(s) to string functions
+- Math functions for float variable(s) (see below for pseudo functions)
 - Reliable serial operations using methods like HSerPrint or SerPrint.
 
 
@@ -151,7 +152,7 @@ These techniques replace the INT() and ROUND() functions.
 {empty} +
 {empty} +
 
-_*Pseudo INT()*_
+_Pseudo INT()_
 
 Using the INT() function is not supported.&#160;&#160;
 
@@ -168,7 +169,7 @@ So, use the conversion from floating point to integer as this results in integer
 {empty} +
 {empty} +
 
-_*Pseudo ROUND()*_
+_Pseudo ROUND()_
 
 Using the ROUND() function is not supported.&#160;&#160;
 
