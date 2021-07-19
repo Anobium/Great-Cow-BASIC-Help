@@ -1,3 +1,4 @@
+// erv updated demo code to table
 ==== Alloc
 
 
@@ -99,26 +100,27 @@ The array variant is then populated with data and then shown on a serial termina
 
     Dim mybuffer1 as ALLOC * BUFFERSIZE at 0x2400
 
-    'Load the buffer with data - a table is best for this.. but, this is to demonstrate only
-    mybuffer1 = 1,23,4,5,1,2,4,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,6,1,2,3,4,5,6,1,2, _
-                3,4,5,6,1,2,3,4,5,6,1,2,3,4,5, _
-                6,1,2,3,4,5,61,2,3,4,5,6,1,2,3
+    'A data table
+    Table myDataTable
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+                                  0,1,2,3,4,5,6,7,8,9,0x0A,0X0B,0X0C,0X0D,0X0E,0X0F
+    End Table
 
-    Dim iLoop as byte
+    Dim iLoop, tableDataValue, memoryDataValue as byte
     Dim mybuffer1startaddress, mybuffer1endaddress as word ' this ONLY required to demonstrate the showing of the address
 
     mybuffer1startaddress = @mybuffer1
@@ -135,13 +137,32 @@ The array variant is then populated with data and then shown on a serial termina
     HSerPrint hex( mybuffer1endaddress )
     HSerPrintCRLF 2
 
-    'Dump array to serial terminal
-    for iLoop = 1 to [byte]( BUFFERSIZE - 1 )
-      HSerPrint leftpad(str( myBuffer1(iLoop)),3)
-      If iLoop % 15 = 0 Then HSerPrintCRLF
+    'Load buffer with table data
+    for iLoop = 0 to 255
+        ReadTable myDataTable, [word]iLoop+1, tableDataValue
+        mybuffer1( iLoop ) = tableDataValue
     next
 
     wait 100 ms
+
+    HserPrint "Print dataDump array to serial terminal"
+    HSerPrintCRLF
+    for iLoop = 0 to 255
+      HSerPrint leftpad(str( myBuffer1(iLoop)),3)
+      If iLoop % 16 = 15 Then HSerPrintCRLF
+    next
+
+    Wait 100 ms
+    HSerPrintCRLF
+    HserPrint "Print memory to serial terminal using PEEK to get the memory location byte value"
+    HSerPrintCRLF
+    for iLoop = 0 to 255
+      memoryDataValue = PEEK ( @myBuffer1+iLoop )
+      HSerPrint leftpad(str( memoryDataValue ) ,3)
+      If iLoop % 16 = 15 Then HSerPrintCRLF
+    next
+    HSerPrintCRLF
+    Wait 100 ms
 
 ----
 

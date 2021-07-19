@@ -49,6 +49,9 @@ include::numbervariabletypes.adoc[]
 
 include::variables.adoc[]
 
+include::variablesadvanced.adoc[]
+
+
 include::variableassignment.adoc[]
 
 
