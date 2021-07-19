@@ -154,7 +154,7 @@ The performance of each approach can be examined on the serial terminal.
     HSerPrint "Maths test "
     HSerPrintCRLF
 
-    DIM baseline as Word
+    DIM multiplier as Word
     DIM ccount as Double
     DIM calcresult as Single
     Dim result as Long
@@ -162,14 +162,14 @@ The performance of each approach can be examined on the serial terminal.
     HSerPrint "Use reals"
     HSerPrintCRLF
 
-    'Assign a double
+    'Assign a value to a double variable
     ccount   = 4.5
 
-      For  baseline = 0 to 40000 step 2500
+      For  multiplier = 0 to 40000 step 2500
         calcresult = 0
 
-        'Do some maths... baseline x ccount .... slow but as there is NO multi or divide.. this is the only way
-        Repeat baseline
+        'Do some maths... multiplier x ccount .... slow but as there is NO multi or divide for floats.. this is a method to simulate a multiplier operation
+        Repeat multiplier
             calcresult = calcresult + ccount
         End Repeat
 
