@@ -113,6 +113,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 - StringToSingle
 - Advanced variable(s) to string functions
 - Math functions for float variable(s) (see below for pseudo functions)
+- Rotate of single & double advanced variable(s)
 - Reliable serial operations using methods like HSerPrint or SerPrint.
 
 
