@@ -6,7 +6,7 @@
 
 Alloc creates a special type of variable - an array variant. &#160;&#160;This array variant can store values.&#160;&#160;  The values stored in this array variant must be of the same type.
 
-Essentially, ALLOCate will reserve a memory range as described by the given layout that can be used an array or a RAM buffer.
+Essentially, ALLOCate will reserve a memory range as described by the given layout that can be used as a RAM buffer or as an array variant.
 
 
 Layout:
