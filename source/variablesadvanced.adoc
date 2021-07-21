@@ -42,12 +42,12 @@ The advanced variable types that Great Cow BASIC supports are:
 
 
 |Single
-|A numeric floating point values that range from -3.4x10^38  to +3.4x10^38  with up to seven significant digits.   
-|Storing decimal numbers that could be a negative number
+|A numeric floating point values that range from -3.4x10 ^ 38 and +3.4x10 ^ 38  with up to seven significant digits.   
+|Storing decimal numbers that could be a negative number and positive.
 
 |Double
-|A numeric floating point values that range from 	-1.7x10^308  to +1.7x10^308 with up to 15 significant digits.
-|Storing decimal numbers that could be a negative number
+|A numeric floating point values that range from 	-1.7x10 ^ 308 and +1.7x10 ^ 308 with up to 15 significant digits.
+|Storing decimal numbers that could be a negative number and positive.
 
 |===
 {empty} +
