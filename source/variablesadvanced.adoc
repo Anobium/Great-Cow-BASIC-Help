@@ -4,8 +4,7 @@
 
 *About Variable Advanced Types*
 
-A variable is an area of memory on the microcontroller that can be used
-to store a number or other data.&#160;&#160; 
+A variable is an area of memory on the microcontroller that can be used to store a number or other data.&#160;&#160;
 This is useful for many purposes, such as taking a sensor reading and acting on it, or counting the number of times the microcontroller has performed a particular task.
 
 Each variable must be given a name, such as "MyVariable" or "PieCounter".&#160;&#160;
@@ -14,7 +13,17 @@ Choosing a name for a variable is easy - do not include spaces or any symbols (o
 *Advanced Types*
 
 There are a number different types of advanced variable types, and each type can store a different range of numeric information.&#160;&#160;
-These are the advanced variable types that Great Cow BASIC supports:
+With respect to advanced variables Great Cow BASIC supports:
+
+  - large integers which can be signed & unsigned
+  - floating points floats) which can be signed and unsigned.&#160;&#160;
+
+However, using large integers and floats point maths is also much slower than integer maths when performing calculations and loops, therefore should be avoided if.&#160;&#160;
+You should convert float calculations to integer maths to increase operation of your solution.&#160;&#160;
+The example program (shown below) shows how use a float maths and how to achieve the same calculation using integer maths.&#160;&#160;
+{empty} +
+{empty} +
+The advanced variable types that Great Cow BASIC supports are:
 
 [cols=3, options="header,autowidth",width="80%"]
 |===
@@ -34,15 +43,48 @@ These are the advanced variable types that Great Cow BASIC supports:
 
 |Single
 |A numeric floating point values that range from -3.4 x 1038 to +3.4 x 1038 and up to seven significant digits.
-|Storing very, very big decimal numbers that could be a negative number
+|Storing decimal numbers that could be a negative number
 
 |Double
 |A numeric floating point values that range from -1.797 x 10308 to +1.797 x 10308 and up to 15 significant digits.
 
 There are 52 fraction bits in a double.
-|Storing very, very big decimal numbers that could be a negative number
+|Storing decimal numbers that could be a negative number
 
 |===
+{empty} +
+The format for single and double floats is defined by the IEEE 754 standard.&#160;&#160;
+Sign, exponent and mantissa are all in the positions described here: https://www.geeksforgeeks.org/ieee-standard-754-floating-point-numbers/
+
+*Organisation of advanced variables*
+
+Great Cow BASIC stores advanced variables in bytes.&#160;&#160;
+The format of these bytes is:
+
+    _ D, _C, _B, _A, _E, _U, _H, variable_name  ( from high to Low)
+
+You can access the bytes within advanced variables using the following as a guide using the suffixes _A, _B, _C etc.
+
+Example of accessing the lowest byte, the _H, _U and the _A bytes.
+----
+    Dim workvariable as longInt
+    workvariable = 21845
+    Dim lowb as byte
+    Dim highb as byte
+    Dim upperb as byte
+    Dim lastb as byte
+
+
+    lowb = workvariable
+    highb = workvariable_H
+    upperb = workvariable_U
+    lastb = workvariable_A
+----
+
+
+
+{empty} +
+{empty} +
 *Using Advanced Variables*
 
 
@@ -145,7 +187,7 @@ Another example is bitwise assignments as follows:
 
 *INT() and ROUND()*
 
-Floating point numbers are not exact, and may yield unexpected results when compared using conditions (IF etc).&#160;&#160; 
+Floating point numbers are not exact, and may yield unexpected results when compared using conditions (IF etc).&#160;&#160;
 For example 6.0 / 3.0 may not equal 2.0.&#160;&#160;
 Users should instead check that the absolute value of the difference between the numbers is less than some small number.
 {empty} +
@@ -158,7 +200,7 @@ _Pseudo INT()_
 
 Using the INT() function is not supported.&#160;&#160;
 
-So, use the conversion from floating point to integer as this results in integer truncation. 
+So, use the conversion from floating point to integer as this results in integer truncation.
 
 ----
         dim mySingleVar as Single
@@ -179,10 +221,10 @@ So, to round off during the conversion process,  add 0.5:&#160;&#160;As follows:
 
 ----
         'Add 0.5 to a single or double and then assign to an integer variable
-        
+
         dim mySingleVar as Single
         mySingleVar = 2.9
-        
+
         dim myLongVar as Long
         myLongVar= mySingleVar + [single]0.5  '3
 ----
