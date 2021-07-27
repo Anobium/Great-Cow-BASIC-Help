@@ -81,11 +81,11 @@ Then, let us know via the Forum so we can correct the source microcontroller DAT
 {empty} +
 [horizontal]
 Capability::Add to your source program
-EEPROM::#DEFINE CHIPEEPROM = 1
-HEF::#DEFINE  CHIPHEFWORDS = 128
-SAF::#DEFINE  CHIPSAFWORDS = 128
-PWM16::#DEFINE  CHIPPWM16TYPE  = 1
-USART hardware::#DEFINE  CHIPUSART  = 1
+EEPROM::  #DEFINE CHIPEEPROM = 1
+HEF::  #DEFINE  CHIPHEFWORDS = 128
+SAF::  #DEFINE  CHIPSAFWORDS = 128
+PWM16::  #DEFINE  CHIPPWM16TYPE  = 1
+USART hardware::  #DEFINE  CHIPUSART  = 1
 
 {empty} +
 {empty} +
