@@ -1,5 +1,28 @@
 == Tricks and Tips
 
+*RAM, variables and resets*
+
+When you define a variable it will be mapped to a RAM location.&#160;&#160;
+As you develop your solution your should always do the following to ensure the variable are initialised correctly.&#160;&#160;
+
+- Always initialise variables to a known state
+
+A variable will not show up in the ASM source code unless it is used somewhere in code. &#160;&#160;
+Adding `Variable = 0`  will assure that the variable is initialised and will show up in the ASM.&#160;&#160;
+This is very useful for troubleshooting.&#160;&#160;
+This is essential when debugging ASM to look at variables that are defined using "EQU".&#160;&#160;
+If you do not initialise or use the variable then the variable will not be shown in the EQU list of variables.&#160;&#160;
+So, initialise all your variables.
+
+- Always power cycle the microcontroller after programming
+
+A soft reset when debugging/testing/programming will not reset the RAM to a know state.
+This is essential when debugging ASM to look at variables that are defined using "EQU".&#160;&#160;
+A soft reset  does not change the contents of RAM.&#160;&#160;
+Where a hard reset reverts ram back to and undefined /random state!&#160;&#160;
+So, a power cycle is good practice.&#160;&#160;
+
+
 
 *Reverting the FOR-NEXT loop to the Legacy FOR-NEXT method ?*
 
@@ -21,7 +44,7 @@ Adding this constant will revert the FOR-NEXT loop asm generated to the legacy m
 ----
 {empty} +
 {empty} +
-*How do change the compilers behaviour when the compiler states a capability is not available when I know it is ?*
+*How to change the compilers behaviour when the compiler states a capability is not available when I know it is ?*
 
 The compiler is issuing an error message that a EEPROM, HEF, SAF, PWM16 or hardware USART is not available... but, it is.&#160;&#160;
 
