@@ -4,8 +4,11 @@ This is a collation of tricks and tips that may be useful to you.
 {empty} +
 {empty} +
 <<RAMVARIABLESANDRESETS,RAM, variables and resets>>
+
 <<FORNEXTLEGACY,Reverting the FOR-NEXT loop to the Legacy FOR-NEXT method>>
+
 <<REQUIRED,Change the compilers behaviour when the compiler states a capability is not available>>
+
 <<MINIMALASM,Create a minimal ASM source with no config and/or initsys>>
 {empty} +
 {empty} +
