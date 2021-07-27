@@ -80,7 +80,6 @@ Then, let us know via the Forum so we can correct the source microcontroller DAT
 {empty} +
 {empty} +
 [horizontal]
-Capability:: 
 EEPROM:: #DEFINE CHIPEEPROM = 1
 HEF:: #DEFINE  CHIPHEFWORDS = 128
 SAF:: #DEFINE  CHIPSAFWORDS = 128
