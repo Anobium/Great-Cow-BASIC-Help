@@ -12,6 +12,8 @@ This is a collation of tricks and tips that may be useful to you.
 <<MINIMALASM,Create a minimal ASM source with no config and/or initsys>>
 {empty} +
 {empty} +
+{empty} +
+{empty} +
 
 
 [#RAMVARIABLESANDRESETS]
@@ -36,6 +38,8 @@ This is essential when debugging ASM to look at variables that are defined using
 A soft reset  does not change the contents of RAM.&#160;&#160;
 Where a hard reset reverts ram back to an undefined /random state!&#160;&#160;
 So, a power cycle is good practice.&#160;&#160;
+{empty} +
+{empty} +
 
 
 [#FORNEXTLEGACY]
