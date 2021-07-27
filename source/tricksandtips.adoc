@@ -20,7 +20,7 @@ So, initialise all your variables.
 
 - Always power cycle the microcontroller after programming
 
-A soft reset when debugging/testing/programming will not reset the RAM to a know state.
+A soft reset when debugging/testing/programming will not reset the RAM to a known state.
 This is essential when debugging ASM to look at variables that are defined using "EQU".&#160;&#160;
 A soft reset  does not change the contents of RAM.&#160;&#160;
 Where a hard reset reverts ram back to an undefined /random state!&#160;&#160;
