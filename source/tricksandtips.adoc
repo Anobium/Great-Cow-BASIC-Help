@@ -1,0 +1,109 @@
+== Tricks and Tips
+
+
+*Reverting the FOR-NEXT loop to the Legacy FOR-NEXT method ?*
+
+Why do this?  To reduce the PROGMEM size.&#160;&#160;
+But, you must assure yourself that the loop variable cannot overflow as the legacy FOR-NEXT does not prevent an overflow of the loop variable.
+
+Some background.&#160;&#160;
+In 2021 the Great Cow BASIC compiler was updated to improve the operation of the FOR-NEXT loop.&#160;&#160;
+The improvement did increase the size of the ASM generated.&#160;&#160;
+The legacy FOR-NEXT loop had some major issues that included never ending loops, incorrect end loop and unexpected operations.&#160;&#160;
+This was all caused by the compiler, not the user, and in 2021 the compiler was updated to resolve these issues.&#160;&#160;
+
+However, there is a risk that the new FOR-NEXT method causes 1) larger ASM that will not fit in small microcontrollers or 2) the new code does not operate as expected.&#160;&#160;
+In either case you can disable the new FOR-NEXT method by adding a constant as shown below.&#160;&#160;
+Adding this constant will revert the FOR-NEXT loop asm generated to the legacy method.&#160;&#160;
+
+----
+    #DEFINE USELEGACYFORNEXT
+----
+{empty} +
+{empty} +
+*How do change the compilers behaviour when the compiler states a capability is not available when I know it is ?*
+
+The compiler is issuing an error message that a EEPROM, HEF, SAF, PWM16 or hardware USART is not available... but, it is.&#160;&#160;
+
+This is caused by the microcontroller DAT file.&#160;&#160;
+The microcontroller DAT file is missing key information that informs the compiler that a specific capability is available.&#160;&#160;
+This information was added to prevent silent failures where you could use a capability when it is not available.&#160;&#160;
+
+The compiler thinks your microcontroller does not have the selected capability. &#160;&#160;
+Simply use the table below to resolve.&#160;&#160;
+Adding the constant defined to your source program.&#160;&#160;
+
+Then, let us know via the Forum so we can correct the source microcontroller DAT file.
+{empty} +
+{empty} +
+[cols=2, options="header,autowidth",width="80%"]
+|===
+|Capability
+|Add to your source program
+
+|EEPROM
+|#DEFINE CHIPEEPROM = 1
+
+|HEF
+|#DEFINE  CHIPHEFWORDS = 128
+
+|SAF
+|#DEFINE  CHIPSAFWORDS = 128
+
+|PWM16
+|#DEFINE  CHIPPWM16TYPE  = 1
+
+|USART hardware
+|#DEFINE  CHIPUSART  = 1
+
+|===
+{empty} +
+{empty} +
+*How do I create a minimal ASM source with no config and/or initsys?*
+
+Very easy.&#160;&#160;
+Simple add two `#OPTION` statements.&#160;&#160;
+
+`#OPTION UserCodeOnly ENTERBOOTLOADER:` &#160;&#160;This will instruct the compiler to NOT call the INITSYS() method.&#160;&#160;
+And, to jump to a label.&#160;&#160;
+The label is mandated.&#160;&#160;The label specified will be included in the ASM generated.
+
+`#OPTION NoConfig`&#160;&#160;This will instruct the compiler to NOT add the microcontroller specific config statements.
+
+
+Example:
+----
+    #chip 16f877a, 4
+    #OPTION Explicit
+
+    #OPTION UserCodeOnly ENTERBOOTLOADER:
+    #OPTION NoConfig
+
+    ENTERBOOTLOADER:
+----
+
+The example above yields the following asm.&#160;&#160;
+Comment lines have been removed for clarity.
+
+----
+
+     LIST p=16F877A, r=DEC
+    #include <P16F877A.inc>
+
+    ;Vectors
+      ORG 0
+      pagesel ENTERBOOTLOADER
+      goto  ENTERBOOTLOADER
+
+    ;ORG 5
+
+
+    ENTERBOOTLOADER
+
+    ;ORG 2048
+    ;ORG 4096
+    ;ORG 6144
+
+     END
+
+----
