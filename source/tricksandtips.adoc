@@ -150,4 +150,8 @@ Comment lines have been removed for clarity.
 
      END
 
+[horizontal]
+ITEM1::tEST
+ITEM2::TEst2
+
 ----
