@@ -48,7 +48,7 @@ Adding this constant will revert the FOR-NEXT loop asm generated to the legacy m
 ----
 {empty} +
 {empty} +
-*How to change the compilers behaviour when the compiler states a capability is not available when I know it is ?*
+*TRICK: How to change the compilers behaviour when the compiler states a capability is not available when I know it is ?*
 
 The compiler is issuing an error message that a EEPROM, HEF, SAF, PWM16 or hardware USART is not available... but, it is.&#160;&#160;
 
