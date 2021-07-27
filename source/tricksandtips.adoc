@@ -1,6 +1,10 @@
 == Tricks and Tips
 
-*RAM, variables and resets*
+This is a collation of tricks and tips that may be useful to you.
+{empty} +
+{empty} +
+
+*Tip: RAM, variables and resets*
 
 When you define a variable it will be mapped to a RAM location.&#160;&#160;
 As you develop your solution your should always do the following to ensure the variable are initialised correctly.&#160;&#160;
@@ -24,7 +28,7 @@ So, a power cycle is good practice.&#160;&#160;
 
 
 
-*Reverting the FOR-NEXT loop to the Legacy FOR-NEXT method ?*
+*TRICK: Reverting the FOR-NEXT loop to the Legacy FOR-NEXT method ?*
 
 Why do this?  To reduce the PROGMEM size.&#160;&#160;
 But, you must assure yourself that the loop variable cannot overflow as the legacy FOR-NEXT does not prevent an overflow of the loop variable.
@@ -82,7 +86,7 @@ Then, let us know via the Forum so we can correct the source microcontroller DAT
 |===
 {empty} +
 {empty} +
-*How do I create a minimal ASM source with no config and/or initsys?*
+*TRICK: How do I create a minimal ASM source with no config and/or initsys?*
 
 Very easy.&#160;&#160;
 Simple add two `#OPTION` statements.&#160;&#160;
