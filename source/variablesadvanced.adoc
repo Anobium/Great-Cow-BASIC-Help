@@ -2,6 +2,8 @@
 // :-)
 === Variable Advanced Types
 
+Experimental - Not Supported - For Development Team use only
+
 *About Variable Advanced Types*
 
 A variable is an area of memory on the microcontroller that can be used to store a number or other data.&#160;&#160;
@@ -42,11 +44,11 @@ The advanced variable types that Great Cow BASIC supports are:
 
 
 |Single
-|A numeric floating point values that range from -3.4x10 ^ 38 and +3.4x10 ^ 38  with up to seven significant digits.   
+|A numeric floating point values that range from -3.4x10 ^ 38 and +3.4x10 ^ 38  with up to seven significant digits.
 |Storing decimal numbers that could be a negative number and positive.
 
 |Double
-|A numeric floating point values that range from 	-1.7x10 ^ 308 and +1.7x10 ^ 308 with up to 15 significant digits.
+|A numeric floating point values that range from  -1.7x10 ^ 308 and +1.7x10 ^ 308 with up to 15 significant digits.
 |Storing decimal numbers that could be a negative number and positive.
 
 |===
