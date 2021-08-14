@@ -38,6 +38,8 @@ include::libraries.adoc[]
 ifdef::backend-pdf[<<<]
 include::acknowledgements.adoc[]
 
+include::tricksandtips.adoc[]
+
 ifdef::backend-pdf[<<<]
 == Microcontroller Fundamentals
 

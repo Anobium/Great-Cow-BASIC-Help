@@ -2,7 +2,7 @@
 // :-)
 === Variable Advanced Types
 
-Experimental - Not Supported - For Development Team use only
+WARNING: Experimental - Not Supported - For Development Team use only
 
 *About Variable Advanced Types*
 

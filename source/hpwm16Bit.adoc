@@ -14,6 +14,14 @@
 
 *Only* available on Microchip PIC microcontrollers with the 16-bit PWM module.  16-bit PWM support includes both dynamic mode and fixed mode operations. See the examples below for usage.
 
+The PIC microcontroller chip specific DAT file must contain `CHIPPWM16TYPE = 1`.&#160;&#160;
+If the chip specific DAT does not contain `CHIPPWM16TYPE = 1` and the microcontroller does support PWM 16 Bit then add the following to your source program.&#160;&#160;
+And, report the omission to us via the support forum.&#160;&#160;
+
+----
+    #DEFINE CHIPPWM16TYPE 1
+----
+
 For the Capture/Compare/PWM (CCP) module or the 10-bit PWM module, see the other sections of the Help.
 
 *Explanation:*
@@ -44,11 +52,11 @@ ranges from 0 to 0xFFFF where 0xFFFF is 100% duty cycle.&#160;&#160;&#160; This 
 ----
     ' This program will enable dynamic mode PWM signals
     '
-    ' All the 12 PWM16 channels can configured at seperate dynamic frequencies  dynamic duty, the syntax is:
+    ' All the 12 PWM16 channels can configured at separate dynamic frequencies  dynamic duty, the syntax is:
     '
     ' HPWM16(xx, frequency, duty )
     '
-    ' xx can be 1 through 12, for this specifc microcontroller there are three PWM16 channels.
+    ' xx can be 1 through 12, for this specific microcontroller there are three PWM16 channels.
     '
     ' To set the parameters of Great Cow BASIC PWM fixed mode for the channels use the commands shown below::
 
@@ -90,7 +98,7 @@ The 16-bit library also supports fixed mode PWM operations.  The following two e
 ----
     ' This program will enable fix mode PWM signals
     '
-    ' All the 12 PWM16 channels can configured at seperate fixed frequencies and fixed duty, the syntax is:
+    ' All the 12 PWM16 channels can configured at separate fixed frequencies and fixed duty, the syntax is:
     '
     ' #define HPWM16_xx_Freq 38     'Set frequency in KHz on channel xx
     ' #define HPWM16_xx_Duty 50     'Set duty cycle to 50%  on channel xx
@@ -123,12 +131,12 @@ The 16-bit library also supports fixed mode PWM operations.  The following two e
 ----
     ' This program will enable fix mode PWM signals
     '
-    ' All the 12 PWM16 channels can configured at seperate fixed frequencies and fixed duty, the syntax is:
+    ' All the 12 PWM16 channels can configured at separate fixed frequencies and fixed duty, the syntax is:
     '
     ' #define HPWM16_xx_Freq 38     'Set frequency in KHz on channel xx
     ' #define HPWM16_xx_Duty 50     'Set duty cycle to 50%  on channel xx
     '
-    ' xx can be 1 through 12, for this specifc microcontroller there are three PWM16 channels.
+    ' xx can be 1 through 12, for this specific microcontroller there are three PWM16 channels.
     '
     ' To set the parameters of Great Cow BASIC PWM fixed mode for the three channels use the following:
 
