@@ -131,6 +131,7 @@ The functional characteristics are:
 - Rotate of longInt & ulongInt advanced variables.
 - Negate of longInt & ulongInt advanced variables.
 - Boolean operators working on advanced variables.
+- Use of  float variable(s) as global variables. &#160;&#160;Passing float variable(s) as parameters to methods ( sub, function and macro) not supported.
 
 {empty} +
 {empty} +
@@ -144,7 +145,7 @@ Use of these functions may cause an error message or may silently fail producing
 Functionality explicitly not supported is shown below.&#160;&#160;
 {empty} +
 
-
+- Passing float variable(s) as parameters to methods ( sub, function and macro) 
 - Extraction of mantissa value
 - Multiplication
 - Division
