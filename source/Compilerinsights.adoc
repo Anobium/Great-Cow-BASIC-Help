@@ -23,11 +23,11 @@ Essentially the compiler maintains a special variable and manages the whole proc
 
 The compiler ensures that a TRIS cache matches the actual TRIS register.  The TRIS cache is a byte variable called TRISIO.  The TRISIO cache is required as TRIS is a write-only register.
 
-All ports default to input ( where all TRIS bits to 1) on reset.  Therefore, this is assummed to be the value 255.
+All ports default to input ( where all TRIS bits to 1) on reset.  Therefore, this is assumed to be the value 255.
 
 TRISIO is updated when required by the user code and then used in the writing to the correct register.
 
-The example user code and the assiocated assembly shows TRISIO cache in use.  This method complies with datasheet.
+The example user code and the associated assembly shows TRISIO cache in use.  This method complies with datasheet.
 
 User Code
 
@@ -89,33 +89,110 @@ The generated assembly will be as following - this assumes verbose mode is not s
       banksel OSCCON1
 ----
 
-*Constants, variables, subs and function and labels* 
-A namespace is a set of names used to identify and refer to objects of various kinds. in Great Cow BASIC these can be constants, variables, methods, and labels {where a label is a true label like the start of sub, function or macro} A namespace ensures that all of a given set of objects have unique names so that they can be identified. Great Cow BASIC organises constants, variables, methods, labels etc into a single list - the single namespace.
+*Constants, variables, subs and function and labels*
 
-The namespace includes all libraries and source Great Cow BASIC source files. If using MPASM this expands to chip specific INF file. If using PICAS then all of the PICAS toolchain including non-chip specific files ( there are changes already in place to resolve this issue for PICAS as HEX and LINE are reserved with PICAS toolchain and these conflict with Great Cow BASIC methods. These are resolved by the Great Cow BASIC compiler).
+Great Cow BASIC uses a single namespace.  A namespace is the set of names used to identify and refer to objects of various kinds.&#160;&#160;
+In Great Cow BASIC these can be constants, variables, methods, and labels.&#160;&#160;Wwhere a label is a true label like the start of sub, function or macro.&#160;&#160;
+A namespace ensures that all of a given set of objects have unique names so that they can be identified.&#160;&#160;
+This organises constants, variables, methods, labels etc into a single list - the single namespace.
 
-So, given that a constants, variables, methods, labels etc are number, in this use case, where Normal equates to 0 the call to call normal is totally valid. The compiler does not know if that is a constant, a variable, a method, or a call to a label. Some are use cases using normal follow:
+The namespace includes all libraries and source Great Cow BASIC source files. &#160;&#160;
+If using MPASM this expands to chip specific INF file.&#160;&#160;
+If using PICAS then all of the PICAS toolchain including non-chip specific files. &#160;&#160;There are changes already in place to resolve this issue for PICAS as HEX and LINE are reserved with PICAS toolchain and these conflict with Great Cow BASIC methods.&#160;&#160;
+These are automatically resolved by the Great Cow BASIC compiler.
 
-No error. Silently does stuffCall normal - this calls normal which has a value of 0
-;CALL Normal
-call 0
+So, given that a constants, variables, methods, labels etc are number, the compiler does not know if that is a constant, a variable, a method, or a call to a label. Some are use cases using a constant called `NORMAL` follow.&#160;&#160;
+`NORMAL` is defined as a constant with `0`.&#160;&#160;
 
-No error. Silently does stuffCall normal() - this calls normal which has a value of 0
-;CALL Normal()
-call 0
 
-Error message issued Normal - this tries to resolve the constant normal to a sub but it cannot as it is a value of 0.
-;Normal
-0 ;?F1L8S0I8?
+#1. Code segment
+----
+  #DEFINE NORMAL 0
+  CALL Normal
+----
 
-Error message issued Normal() - this just inserts normal into the source
-;Normal()
-0() ;?F1L8S0I8?
+The compiler will issue no error.&#160;&#160;
+The compiler will assume the following and will do as instructed.&#160;&#160;
+Call normal - this calls normal which has a value of 0
 
-Error message issued Normal = 1 - this tries to assign a value to the object.
-;Normal = 1
-0 = 1
+Resulting ASM
+----
+  ;CALL Normal
+  call 0
+----
 
-No error. Silently does stuff goto Normal - this goto's (same for jmp etc) to the value of the object.
-;goto Normal
-goto 0
+#2. Code segment
+----
+  #DEFINE NORMAL 0
+  CALL Normal()
+----
+
+The compiler will issue no error.&#160;&#160;
+The compiler will assume the following and will do as instructed.&#160;&#160;
+Call normal() - this calls normal which has a value of 0
+
+Resulting ASM
+----
+    ;CALL Normal()
+    call 0
+----
+
+#3. Code segment
+----
+  #DEFINE NORMAL 0
+  Normal
+----
+
+The compiler will issue an error message.&#160;&#160;
+The compiler will try to resolve the constant normal to a sub but it cannot as it is a value of 0.
+
+Resulting ASM
+----
+    ;Normal
+    0 ;?F1L8S0I8?
+----
+
+#4. Code segment
+----
+  #DEFINE NORMAL 0
+  Normal()
+----
+
+The compiler will issue an error message.&#160;&#160;
+The compiler will try to resolve the constant normal to a sub but it cannot as it is a value of 0.
+
+Resulting ASM
+----
+    ;Normal()
+    0() ;?F1L8S0I8?
+----
+
+#5. Code segment
+----
+  #DEFINE NORMAL 0
+  Normal = 1
+----
+
+The compiler will issue an error message.&#160;&#160;
+This tries to assign a value to the object.
+
+Resulting ASM
+----
+  ;Normal = 1
+  0 = 1
+----
+
+#6. Code segment
+----
+  #DEFINE NORMAL 0
+  Goto normal
+----
+
+The compiler will not issue an error message.&#160;&#160;
+The compiler will `goto` (same for `jmp`) to the value of the object.
+
+Resulting ASM
+----
+    ;goto Normal
+    goto 0
+----

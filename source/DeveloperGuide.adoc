@@ -2,14 +2,14 @@
 
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
 This guide provides information that will not only help you get started as a Great Cow BASIC contributor,
-but that you wiil find useful to refer to even if you are already an experienced contributor.
+but that you wiil find useful to refer to EVEN if you are already an experienced contributor.
 
 *Need Help?*
 
 The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.
 If you have any difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
 
-We know even before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge.
+We know EVEN before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge.
 We are always looking for ways to improve this process: making Great Cow BASIC more open, accessible, and easier to participate with.
 If you are having any trouble following this documentation, or hit a barrier you cannot get around, please contact use via the discussion forum.
 We will solve hurdles for new contributors and make Great Cow BASIC better.
@@ -80,6 +80,8 @@ The script construct is
 The following rules are recommended.
 
 1.  All CONSTANTS are capitalized
+2.  Do not define a constant in a library unless required
+3.  Create all library constants within a script ( see example below *Constrain a Constant Example* on how to constrain a constant)
 2.  Underscores are permitted in constant names within Scripts **
 3.  No prefix is required when a CONSTANT is PUBLIC.  A PUBLIC constant is one that the user sets or the user can use.
 4.  Prefix CONSTANTS with SCRIPT_  when the CONSTANT is used outside of the library specific script section AND ARE NOT EXPOSED AS PUBLIC Constants.
@@ -95,7 +97,7 @@ The following rules are recommended.
 
 
 
-*_Example library_*
+*_Example script within a library_*
 
 ----
           #startup  startupsub
@@ -108,7 +110,7 @@ The following rules are recommended.
 ----
 
 
-*_Usage Example_*
+*_Simple Example_*
 
 ----
      #SCRIPT  'Calculate Delay Time
@@ -117,7 +119,7 @@ The following rules are recommended.
             SCRIPT_LCD_CHECKBUSYFLAG = TRUE
      #ENDSCRIPT
 
-     'user code or code outside of script
+     'usage within user code or code outside of script
      #IF SCRIPT_LCD_CHECKBUSYFLAG = TRUE
            WaitForReady    'Call subroutine to poll busy flag
            set LCD_RW OFF  'Write mode
@@ -125,10 +127,65 @@ The following rules are recommended.
      WAIT SCRIPT_LCDPOSTWRITEDELAY us
 ----
 
+*_Create Constant Example_*
+
+Background:&#160;&#160;All constants are always processed, regardless of where they are placed in the user code or library.&#160;&#160;
+This includes any constant defined anywhere in user code or any library - the constant will be processed and the constant will be defined.&#160;&#160;
+The only method to constrain a constant is via a script.&#160;&#160;
+
+The following code segment will not constrain the constant.&#160;&#160;
+The constant `MYCONSTANT` will be created.&#160;&#160;The `#IFDEF PIC` will not constrain even if an AVR or LGT chip.
+
+----
+    #IFDEF PIC
+          #DEFINE MYCONSTANT 255
+    #ENDIF
+----
+
+The recommended method follows.  The constant will only be created when a PIC.
+
+----
+    #SCRIPT
+      IF PIC then
+          MYCONSTANT  = 255
+       End IF
+    #ENDSCRIPT
+----
+
+*_Constrain a Constant Example_*
+
+An example to constrain a constant is to test if a user constant is define in the user source program.&#160;&#160;
+In this example the constant `SENDALOW` is defined in user source program.&#160;&#160;
+
+- If yes, then define the library specific constants.&#160;&#160;
+- If no, then do not define the library specific constants.&#160;&#160;
+
+Using the method below defines constants only when the user requires the constants assuming they have defined `SENDALOW` in the user source program.
+
+----
+    #SCRIPT
+         IF SENDALOW then
+                NONE = 0 : ODD = 1 : EVEN = 2 : NORMAL = 0 : INVERT = 1
+                WAITFORSTART = 128 : SERIALINITDELAY = 5
+         END IF
+
+         IF SendBlow then
+                NONE = 0 : ODD = 1 : EVEN = 2 : NORMAL = 0 : INVERT = 1
+                WAITFORSTART = 128 : SERIALINITDELAY = 5
+         END IF
+
+         IF SendClow then
+                NONE = 0 : ODD = 1 : EVEN = 2 : NORMAL = 0 : INVERT = 1
+                WAITFORSTART = 128 : SERIALINITDELAY = 5
+         END IF
+    #ENDSCRIPT
+----
+
+
 ___
 
 
-*VARIABLES*
+*SCRIPTS VARIABLES*
 
 Scripting has the concept of variable that can be used within the script.&#160;&#160;
 The variables are NOT available as variables to a user program or a library beyond the scope of the script.&#160;&#160;
