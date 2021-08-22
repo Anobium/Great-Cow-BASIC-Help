@@ -88,3 +88,34 @@ The generated assembly will be as following - this assumes verbose mode is not s
       movlw 96
       banksel OSCCON1
 ----
+
+*Constants, variables, subs and function and labels* 
+A namespace is a set of names used to identify and refer to objects of various kinds. in Great Cow BASIC these can be constants, variables, methods, and labels {where a label is a true label like the start of sub, function or macro} A namespace ensures that all of a given set of objects have unique names so that they can be identified. Great Cow BASIC organises constants, variables, methods, labels etc into a single list - the single namespace.
+
+The namespace includes all libraries and source Great Cow BASIC source files. If using MPASM this expands to chip specific INF file. If using PICAS then all of the PICAS toolchain including non-chip specific files ( there are changes already in place to resolve this issue for PICAS as HEX and LINE are reserved with PICAS toolchain and these conflict with Great Cow BASIC methods. These are resolved by the Great Cow BASIC compiler).
+
+So, given that a constants, variables, methods, labels etc are number, in this use case, where Normal equates to 0 the call to call normal is totally valid. The compiler does not know if that is a constant, a variable, a method, or a call to a label. Some are use cases using normal follow:
+
+No error. Silently does stuffCall normal - this calls normal which has a value of 0
+;CALL Normal
+call 0
+
+No error. Silently does stuffCall normal() - this calls normal which has a value of 0
+;CALL Normal()
+call 0
+
+Error message issued Normal - this tries to resolve the constant normal to a sub but it cannot as it is a value of 0.
+;Normal
+0 ;?F1L8S0I8?
+
+Error message issued Normal() - this just inserts normal into the source
+;Normal()
+0() ;?F1L8S0I8?
+
+Error message issued Normal = 1 - this tries to assign a value to the object.
+;Normal = 1
+0 = 1
+
+No error. Silently does stuff goto Normal - this goto's (same for jmp etc) to the value of the object.
+;goto Normal
+goto 0
