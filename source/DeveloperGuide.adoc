@@ -169,12 +169,12 @@ Using the method below defines constants only when the user requires the constan
                 WAITFORSTART = 128 : SERIALINITDELAY = 5
          END IF
 
-         IF SendBlow then
+         IF SENDALOW then
                 NONE = 0 : ODD = 1 : EVEN = 2 : NORMAL = 0 : INVERT = 1
                 WAITFORSTART = 128 : SERIALINITDELAY = 5
          END IF
 
-         IF SendClow then
+         IF SENDALOW then
                 NONE = 0 : ODD = 1 : EVEN = 2 : NORMAL = 0 : INVERT = 1
                 WAITFORSTART = 128 : SERIALINITDELAY = 5
          END IF
