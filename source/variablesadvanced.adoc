@@ -149,6 +149,7 @@ Functionality explicitly not supported is shown below.&#160;&#160;
 - Extraction of mantissa value
 - Multiplication
 - Division
+- Modulo
 - IntToString
 - SingleToString
 - StringToVal
