@@ -145,6 +145,8 @@ Use of these functions may cause an error message or may silently fail producing
 Functionality explicitly not supported is shown below.&#160;&#160;
 {empty} +
 
+- Support for conditional statements
+- Support for overload subs/functions
 - Passing float variable(s) as parameters to methods ( sub, function and macro)
 - Extraction of mantissa value
 - Multiplication
