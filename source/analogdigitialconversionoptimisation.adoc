@@ -502,6 +502,10 @@ Example 1:
 
 The following example can be used to change the ADMUX only when the selected port is ADC4.
 
+This supports reading the internal temperature sensor on the ATTINY85.&#160; &#160;
+This method will work on other similar chips.&#160; &#160;
+Please refer the chip specific datasheet.
+
 This is will change the ADMUX to read the ATTINY85 internal temperature sensor, set the reference voltage to 1v1 and then wait 100 ms.
 
 
@@ -513,26 +517,25 @@ Example 2:
 
 ----
 
-This will generate the following ASM
+This will generate the following ASM.
 
 ----
 
     ;ADREADPREREADCOMMAND  'adds user code below
-      lds	SysCalcTempA,ADREADPORT
-      cpi	SysCalcTempA,4
-      brne	ENDIF2
-      ldi	SysTemp2,32
-      in	SysTemp3,ADMUX
-      and	SysTemp3,SysTemp2
-      mov	SysTemp1,SysTemp3
-      ldi	SysTemp2,143
-      or	SysTemp1,SysTemp2
-      out	ADMUX,SysTemp1
-      ldi	SysWaitTempMS,100
-      ldi	SysWaitTempMS_H,0
-      rcall	Delay_MS
+      lds SysCalcTempA,ADREADPORT
+      cpi SysCalcTempA,4
+      brne  ENDIF2
+      ldi SysTemp2,32
+      in  SysTemp3,ADMUX
+      and SysTemp3,SysTemp2
+      mov SysTemp1,SysTemp3
+      ldi SysTemp2,143
+      or  SysTemp1,SysTemp2
+      out ADMUX,SysTemp1
+      ldi SysWaitTempMS,100
+      ldi SysWaitTempMS_H,0
+      rcall Delay_MS
     ENDIF2:
 
 ----
-
 
