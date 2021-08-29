@@ -489,6 +489,7 @@ The constant *ADReadPreReadCommand* can be used to adapt the ADC methods. The co
 
 In the example above the following ASM will be added to your code.  This WILL be added just before the ADC is enabled and the setting of the acquisition delay.
 
+Example 1:
 ----
 
   ;ADReadPreReadCommand
@@ -498,3 +499,40 @@ In the example above the following ASM will be added to your code.  This WILL be
   bsf ANSELA,0
 
 ----
+
+The following example can be used to change the ADMUX only when the selected port is ADC4.
+
+This is will change the ADMUX to read the ATTINY85 internal temperature sensor, set the reference voltage to 1v1 and then wait 100 ms.
+
+
+Example 2:
+
+----
+
+#DEFINE ADREADPREREADCOMMAND IF ADReadPort=4 then ADMUX = ( ADMUX and 0X20 ) or 0X8F: wait 100 ms
+
+----
+
+This will generate the following ASM
+
+----
+
+    ;ADREADPREREADCOMMAND  'adds user code below
+      lds	SysCalcTempA,ADREADPORT
+      cpi	SysCalcTempA,4
+      brne	ENDIF2
+      ldi	SysTemp2,32
+      in	SysTemp3,ADMUX
+      and	SysTemp3,SysTemp2
+      mov	SysTemp1,SysTemp3
+      ldi	SysTemp2,143
+      or	SysTemp1,SysTemp2
+      out	ADMUX,SysTemp1
+      ldi	SysWaitTempMS,100
+      ldi	SysWaitTempMS_H,0
+      rcall	Delay_MS
+    ENDIF2:
+
+----
+
+
