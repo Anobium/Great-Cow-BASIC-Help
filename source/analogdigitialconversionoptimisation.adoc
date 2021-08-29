@@ -479,6 +479,9 @@ For 16f18855 family of microcontrollers this is a example.  This will save 149 b
 
 *2. Adapt the ADC configuration*
 
+
+Example 1:
+
 The following example will set the specific register bits.  The instruction will be added to the compiled code.
 
 ----
@@ -489,7 +492,6 @@ The constant *ADReadPreReadCommand* can be used to adapt the ADC methods. The co
 
 In the example above the following ASM will be added to your code.  This WILL be added just before the ADC is enabled and the setting of the acquisition delay.
 
-Example 1:
 ----
 
   ;ADReadPreReadCommand
@@ -500,6 +502,9 @@ Example 1:
 
 ----
 
+*Example 2:*
+
+
 The following example can be used to change the ADMUX only when the selected port is ADC4.
 
 This supports reading the internal temperature sensor on the ATTINY85.&#160; &#160;
@@ -507,9 +512,6 @@ This method will work on other similar chips.&#160; &#160;
 Please refer the chip specific datasheet.
 
 This is will change the ADMUX to read the ATTINY85 internal temperature sensor, set the reference voltage to 1v1 and then wait 100 ms.
-
-
-Example 2:
 
 ----
 
