@@ -502,7 +502,7 @@ In the example above the following ASM will be added to your code.  This WILL be
 
 ----
 
-*Example 2: *
+Example 2:
 
 
 The following example can be used to change the ADMUX to support a sensor on ADC4.
@@ -521,12 +521,12 @@ This will call a macro to change the ADMUX to read the ATTINY85 internal tempera
     /*
     17.12 of the datasheet
     The temperature measurement is based on an on-chip temperature sensor that is coupled to a single ended ADC4
-    channel. Selecting the ADC4 channel by writing the MUX[3:0] bits in ADMUX register to “1111” enables the temperature sensor. The internal 1.1V reference must also be selected for the ADC reference source in the
+    channel. Selecting the ADC4 channel by writing the MUX[3:0] bits in ADMUX register to Â“1111Â” enables the temperature sensor. The internal 1.1V reference must also be selected for the ADC reference source in the
     temperature sensor measurement. When the temperature sensor is enabled, the ADC converter can be used in
     single conversion mode to measure the voltage over the temperature sensor.
     The measured voltage has a linear relationship to the temperature as described in Table 17-2 The sensitivity is
     approximately 1 LSB / ?C and the accuracy depends on the method of user calibration. Typically, the measurement
-    accuracy after a single temperature calibration is ±10?C, assuming calibration at room temperature. Better
+    accuracy after a single temperature calibration is Â±10?C, assuming calibration at room temperature. Better
     accuracies are achieved by using two temperature points for calibration.
     */
       IF ADReadPort=4 then
