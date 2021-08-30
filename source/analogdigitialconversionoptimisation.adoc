@@ -502,20 +502,40 @@ In the example above the following ASM will be added to your code.  This WILL be
 
 ----
 
-*Example 2:*
+*Example 2: *
 
 
-The following example can be used to change the ADMUX only when the selected port is ADC4.
+The following example can be used to change the ADMUX to support a sensor on ADC4.
 
 This supports reading the internal temperature sensor on the ATTINY85.&#160; &#160;
 This method will work on other similar chips.&#160; &#160;
 Please refer the chip specific datasheet.
 
-This is will change the ADMUX to read the ATTINY85 internal temperature sensor, set the reference voltage to 1v1 and then wait 100 ms.
+This will call a macro to change the ADMUX to read the ATTINY85 internal temperature sensor, set the reference voltage to 1v1 and then wait 100 ms.
 
 ----
 
-#DEFINE ADREADPREREADCOMMAND IF ADReadPort=4 then ADMUX = ( ADMUX and 0X20 ) or 0X8F: wait 100 ms
+    #define ADREADPREREADCOMMAND ATTINY85ReadInternalTemperatureSensor
+
+    Macro ATTINY85ReadInternalTemperatureSensor
+    /*
+    17.12 of the datasheet
+    The temperature measurement is based on an on-chip temperature sensor that is coupled to a single ended ADC4
+    channel. Selecting the ADC4 channel by writing the MUX[3:0] bits in ADMUX register to “1111” enables the temperature sensor. The internal 1.1V reference must also be selected for the ADC reference source in the
+    temperature sensor measurement. When the temperature sensor is enabled, the ADC converter can be used in
+    single conversion mode to measure the voltage over the temperature sensor.
+    The measured voltage has a linear relationship to the temperature as described in Table 17-2 The sensitivity is
+    approximately 1 LSB / ?C and the accuracy depends on the method of user calibration. Typically, the measurement
+    accuracy after a single temperature calibration is ±10?C, assuming calibration at room temperature. Better
+    accuracies are achieved by using two temperature points for calibration.
+    */
+      IF ADReadPort=4 then
+          ADMUX = ( ADMUX and 0X20 ) or 0X8F
+          wait 100 ms
+      End if
+
+    End Macro
+
 
 ----
 
@@ -540,4 +560,3 @@ This will generate the following ASM.
     ENDIF2:
 
 ----
-
