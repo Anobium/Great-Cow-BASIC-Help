@@ -137,3 +137,27 @@ Comment lines have been removed for clarity.
      END
 
 ----
+
+[#PPS and duel USARTs]
+*TIP: PPS and duel USARTs*
+
+You can set up multiple pins to simultaneously as a peripheral output on microcontrollers with Peripheral Pin Select (PPS).
+{empty} +
+{empty} +
+PPS microcontrollers can set up to simultaneously output specific modules.&#160;&#160;
+The example below shows the method to output two TX ports.&#160;&#160;
+Hardware Serial (TX1) data will now be output on both B.6 and C.6 
+{empty} +
+{empty} +
+----
+    Sub InitPPS
+            'Module: UART pin directions
+            Dir PORTC.6 Out    ' Make TX1 pin an output
+            Dir PORTB.6 Out    ' Make TX1 pin an output
+            'Module: UART1 to two ports
+            RC6PPS = 0x0020    'TX1 > RC6
+            RB6PPS = 0x0020    'TX1 > RB6
+
+    End Sub
+----
+  
