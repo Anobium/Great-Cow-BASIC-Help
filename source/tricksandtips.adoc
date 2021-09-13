@@ -14,8 +14,6 @@ This is a collation of tricks and tips that may be useful to you.
 <<PPSandUSARTs,PPS microconrollers and multiple USARTs>>
 {empty} +
 {empty} +
-{empty} +
-{empty} +
 
 
 [#RAMVARIABLESANDRESETS]
