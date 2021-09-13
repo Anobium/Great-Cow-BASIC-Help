@@ -10,6 +10,8 @@ This is a collation of tricks and tips that may be useful to you.
 <<REQUIRED,Change the compilers behaviour when the compiler states a capability is not available>>
 
 <<MINIMALASM,Create a minimal ASM source with no config and/or initsys>>
+
+<<PPSandUSARTs,PPS and multiple USARTs*
 {empty} +
 {empty} +
 {empty} +
@@ -138,8 +140,8 @@ Comment lines have been removed for clarity.
 
 ----
 
-[#PPS and duel USARTs]
-*TIP: PPS and duel USARTs*
+[#PPSandUSARTs]
+*TIP: PPS and multiple USARTs*
 
 You can set up multiple pins to simultaneously as a peripheral output on microcontrollers with Peripheral Pin Select (PPS).
 {empty} +
