@@ -11,7 +11,7 @@ This is a collation of tricks and tips that may be useful to you.
 
 <<MINIMALASM,Create a minimal ASM source with no config and/or initsys>>
 
-<<PPSandUSARTs,PPS and multiple USARTs*
+<<PPSandUSARTs,PPS and multiple USARTs>>
 {empty} +
 {empty} +
 {empty} +
