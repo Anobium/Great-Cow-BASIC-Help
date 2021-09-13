@@ -141,7 +141,7 @@ Comment lines have been removed for clarity.
 [#PPSandUSARTs]
 *TIP: PPS and multiple USARTs*
 
-You can set up multiple pins to simultaneously as a peripheral output on microcontrollers with Peripheral Pin Select (PPS).
+You can set up multiple pins to simultaneously operate as a peripheral output on microcontrollers with Peripheral Pin Select (PPS).
 {empty} +
 {empty} +
 PPS microcontrollers can set up to simultaneously output specific modules.&#160;&#160;
