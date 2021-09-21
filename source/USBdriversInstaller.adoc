@@ -1,6 +1,6 @@
 === USB Drivers Installer
 
-* Description *
+*Description:*
 
 These drivers for windows x86, x64 correspond to the USB LIBKWIN capability of Great-Cow Basic for supported PIC microcontrollers.
 
@@ -12,7 +12,7 @@ This scenario will make installing test drivers difficult and frustrating for th
 
 This driver installer avoids the blockages imposed by the operating system and allow you to install the drivers in the easiest way possible, almost like any driver of a well-known company.
 
-* Usage *
+*Usage:*
 
 === IMPORTANT NOTICE: The installer will reboot the system without notice. Please close all programs and save any work you have open before begin whit the driver install.
 
@@ -27,9 +27,9 @@ Note: in case your computer has Secure Bot enabled, the installer will advise yo
 5.- when the driver has been installed, the computer will restart automatically.
 
 
-* See Also *
+*See Also:*
 
-the driver uses the following flags:
+The driver uses the following flags:
 
 USB_VID 0x1209
 USB_PID 0x2006
