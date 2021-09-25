@@ -14,7 +14,7 @@ We are always looking for ways to improve this process: making Great Cow BASIC m
 If you are having any trouble following this documentation, or hit a barrier you cannot get around, please contact use via the discussion forum.
 We will solve hurdles for new contributors and make Great Cow BASIC better.
 
-This section addresses developing libraries but this guide is appropiate to any Great Cow BASIC development.
+This section addresses developing libraries but this guide is appropriate to any Great Cow BASIC development.
 
 The section covers the recommended programming style, Constants, Variables, Script syntax (gotchas) and tab usage.
 
@@ -79,19 +79,29 @@ The script construct is
 
 The following rules are recommended.
 
-1.  All CONSTANTS are capitalized
-2.  Do not define a constant in a library unless required
-3.  Create all library constants within a script ( see example below *Constrain a Constant Example* on how to constrain a constant)
-2.  Underscores are permitted in constant names within Scripts **
-3.  No prefix is required when a CONSTANT is PUBLIC.  A PUBLIC constant is one that the user sets or the user can use.
-4.  Prefix CONSTANTS with SCRIPT_  when the CONSTANT is used outside of the library specific script section AND ARE NOT EXPOSED AS PUBLIC Constants.
-5.  Prefix CONSTANTS with __ (two underscores)  when the CONSTANT is ONLY used inside the library specific script section
-6.  For PUBLIC prefix CONSTANTS with the capability name, _ (one underscore)  and then a meaningful title, as follows
+1 - All CONSTANTS are capitalized
+
+2 - Do not define a constant in a library unless required
+
+3 - Create all library constants within a script ( see example below *Constrain a Constant Example* on how to constrain a constant)
+
+2 - Underscores are permitted in constant names within Scripts **
+
+3 - No prefix is required when a CONSTANT is PUBLIC.  A PUBLIC constant is one that the user sets or the user can use.
+
+4 - Prefix CONSTANTS with SCRIPT_  when the CONSTANT is used outside of the library specific script section AND ARE NOT EXPOSED AS PUBLIC Constants.
+
+5 - Prefix CONSTANTS with __ (two underscores)  when the CONSTANT is ONLY used inside the library specific script section
+
+6 - For PUBLIC prefix CONSTANTS with the capability name, _ (one underscore)  and then a meaningful title, as follows
             GLCD_HEIGHT
             SPISRAM_TYPE
-7.  All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used.
-8.  All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used.
-9.  Other naming recommendations.   Do not use underscores in subroutine, function or variable names
+
+7 - All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used.
+
+8 - All scripts within a specific library should be the first major section the library.   Scripts within methods  ( Sub, Functions) should not be used.
+
+9 - Other naming recommendations.   Do not use underscores in subroutine, function or variable names
 
 
 

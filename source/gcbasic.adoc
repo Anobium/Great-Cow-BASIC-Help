@@ -53,8 +53,9 @@ include::variables.adoc[]
 
 include::variablesadvanced.adoc[]
 
-
 include::variableassignment.adoc[]
+
+include::usbdriversinstaller.adoc[]
 
 
 ifdef::backend-pdf[<<<]
