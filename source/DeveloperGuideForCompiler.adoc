@@ -43,10 +43,10 @@ Final  name was Great Cow BASIC, which is named after something his sister and h
 No-one else had that name, it had no meanings that could offend, and it was something odd enough to be memorable, so Great Cow BASIC it was.
 
 In 2013 Evan Venn joined the team as a compiler developer, with others joining in Bernd Dau, Trevor Roydhouse, Pete Everett, Theo Loermans, Giuseppe D'Elia, Derek Gore,  Ian Smith, Bernd Dau, Theo Loermans, Urs Hopp, Kent Schafer, and Frank Steinberg.&#160;&#160;
-Some those that joined in drove changes to the compiler, some changed the source code, some built tools, some built libraries.&#160;&#160;
+Some those that joined in drove changes to the compiler, some changed the source code, some built tools and some built libraries.&#160;&#160;
 They all had one thing in common - improvements to the Great Cow BASIC compiler.
 
-In 2021 we are still having new developers join the project like ToniG addding a new capability for handling Tables.
+In 2021 we are still having new developers join the project like ToniG adding a new capability for handling Tables.
 {empty} +
 {empty} +
 
@@ -73,7 +73,7 @@ The source code is Open Source.&#160;&#160;
 And, has a GNU GENERAL PUBLIC LICENSE.&#160;&#160;
 {empty} +
 {empty} +
-The source code for the compiler can be found on https://sourceforge.net/p/gcbasic/code/HEAD/tree/GCBASIC/trunk/[SoureForge]
+The source code for the compiler can be found on https://sourceforge.net/p/gcbasic/code/HEAD/tree/GCBASIC/trunk/[SourceForge]
 {empty} +
 {empty} +
 Use SVN to UPDATE and COMMIT code changes.&#160;&#160;
