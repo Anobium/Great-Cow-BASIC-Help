@@ -124,7 +124,7 @@ The process, shown below, generates the ASM source and the HEX file from the use
     4. Compile the program using the CompileProgram method
     5. Allocate RAM using the AllocateRAM method
     6. Optimise the generated code using the TidyProgram method
-    7. Combine and location the subroutines and functions using the MergeSubroutines method
+    7. Combine and locate the subroutines and functions for the selected chip using the MergeSubroutines method
     8. Complete the final optimisation using the FinalOptimise method
     9. Write the assembly using the WriteAssembly method
     10. Assemble and generate the hex file using GCASM, MPASM, PICAS or some other define Assembler
