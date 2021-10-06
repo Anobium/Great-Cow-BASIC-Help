@@ -42,7 +42,9 @@ Then, Bear Basic, but decided against it on finding out the slang meaning of bea
 Final  name was Great Cow BASIC, which is named after something his sister and he came up with (when aged 12 and 15!!).&#160;&#160;
 No-one else had that name, it had no meanings that could offend, and it was something odd enough to be memorable, so Great Cow BASIC it was.
 
-In 2013 Evan Venn joined the team as a compiler developer, with others joining in Bernd Dau, Trevor Roydhouse, Pete Everett, Theo Loermans, Giuseppe D'Elia, Derek Gore,  Ian Smith, Bernd Dau, Theo Loermans, Urs Hopp, Kent Schafer, and Frank Steinberg.
+In 2013 Evan Venn joined the team as a compiler developer, with others joining in Bernd Dau, Trevor Roydhouse, Pete Everett, Theo Loermans, Giuseppe D'Elia, Derek Gore,  Ian Smith, Bernd Dau, Theo Loermans, Urs Hopp, Kent Schafer, and Frank Steinberg.&#160;&#160;
+Some those that joined in drove changes to the compiler, some changed the source code, some built tools, some built libraries.&#160;&#160;
+They all had one thing in common - improvements to the Great Cow BASIC compiler.
 
 In 2021 we are still having new developers join the project like ToniG addding a new capability for handling Tables.
 {empty} +
