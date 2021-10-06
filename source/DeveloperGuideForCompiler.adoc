@@ -188,7 +188,7 @@ For an IDE please see the information above.&#160;&#160;
 *For Developers*
 
 To build Great Cow Basic from the source files.&#160;&#160;
-This showns how to install one of the IDEs shown above.
+The list shows the installation of the FBEdit IDE.
 
 
 Complete the following:
