@@ -196,8 +196,8 @@ Complete the following:
 ----
         1. Download and install freebasic from  url shown above.
         2. Download and install fbedit from https://sourceforge.net/projects/fbedit/?source=dlp
-        3. Unzip uipdate.zip into gcbasic source folder.
-        4. Run fbedit.  load project  GCBASIC.fbp  from unpack of update.zip
+        3. Download the GCBASIC source using SVN into a gcbasic source folder.
+        4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from unpack of update.zip
         5. Hit <f5> to compile.
 ----
 
