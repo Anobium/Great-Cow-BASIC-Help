@@ -20,7 +20,7 @@ This addresses the changes and updates to the Great Cow BASIC compiler.
 
 *BACKGROUND*
 
-The compiler was created by Hugh Considine when he was 12 years old.&#160;&#160;That was in 2010.&#160;&#160;Hugh came up with the idea as compiler were hard to use, not free and he had some spare time.
+The compiler was created by Dr. Hugh Considine when he was 12 years old.&#160;&#160;That was in 2010.&#160;&#160;Hugh came up with the idea for a new compiler - of the available compilers they were hard to use and not free. &#160;&#160;And, he had some spare time.
 
 The original software was called GCBASIC, but he had some resistance in getting high schools in Australia to use and agree to the use of text based programming.&#160;&#160;
 Great Cow Graphical Basic was created to address the need for a graphical user interface.&#160;&#160;Great Cow Graphical Basic acts like a set of training wheels. &#160;&#160;
