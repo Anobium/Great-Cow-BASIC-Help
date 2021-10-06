@@ -1,0 +1,205 @@
+=== Development Guide
+
+There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
+This guide provides information that will not only help you get started as a Great Cow BASIC contributor,
+but that you wiil find useful to refer to EVEN if you are already an experienced contributor.
+
+*Need Help?*
+
+The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.
+If you have any difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
+
+We know EVEN before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge.
+We are always looking for ways to improve this process: making Great Cow BASIC more open, accessible, and easier to participate with.
+If you are having any trouble following this documentation, or hit a barrier you cannot get around, please contact use via the discussion forum.
+We will solve hurdles for new contributors and make Great Cow BASIC better.
+
+This addresses the changes and updates to the Great Cow BASIC compiler.
+
+'''
+
+*BACKGROUND*
+
+The compiler was created by Hugh Considine when he was 12 years old.&#160;&#160;That was in 2010.&#160;&#160;Hugh came up with the idea as compiler were hard to use, not free and he had some spare time.
+
+The original software was called GCBASIC, but he had some resistance in getting high schools in Australia to use and agree to the use of text based programming.&#160;&#160;
+Great Cow Graphical Basic was created to address the need for a graphical user interface.&#160;&#160;Great Cow Graphical Basic acts like a set of training wheels. &#160;&#160;
+The concept of Great Cow Graphical Basic is that the icons make it less scary, and since they all share names with the BASIC commands it is then easy to remember what command corresponds to each icon.Great Cow Graphical Basic
+Users can then switch to text mode whenever they want to, go backwards and forwards a few times if they want, and finally end up using just the text programming.&#160;&#160;
+It is a journey from a graphical user interface to text based programming.&#160;&#160;
+{empty} +
+{empty} +
+Those who already have programming experience can go straight to Great Cow Basic, while those who would prefer a lighter learning curve can take the Great Cow Graphical Basic option. &#160;&#160;
+The two approaches targets two different sets of users here who ultimately want to do the same thing.
+{empty} +
+{empty} +
+As for the name, it was about the fourth name Hugh tried. &#160;&#160;First name was BASPIC, but it did not seem memorable enough.&#160;&#160;
+Then, he considered some animal names - first thought was Chipmunk BASIC, but someone already used that!&#160;&#160;
+Then, Bear Basic, but decided against it on finding out the slang meaning of bear.&#160;&#160;
+Final  name was Great Cow BASIC, which is named after something his sister and I came up with (when aged 12 and 15!!).&#160;&#160;
+No-one else had that name, it had no meanings that could offend, and it was something odd enough to be memorable, so Great Cow BASIC it was.
+
+'''
+
+*THE COMPILER*
+
+The compiler executable is called GCBASIC.EXE. &#160;&#160;
+The compiler source is written in FREEBASIC.&#160;&#160;
+FreeBASIC is a multiplatform, free/open source (GPL) BASIC programming language and compiler for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux and FreeBSD.
+&#160;&#160;
+{empty} +
+{empty} +
+The official website is https://www.freebasic.net/[https://www.freebasic.net/]
+{empty} +
+{empty} +
+FreeBASIC provides syntax compatibility with programs originally written in Microsoft QuickBASIC (QB).&#160;&#160;
+FreeBASIC is a command line only compiler, unless users manually install an external integrated development environment (IDE) of their choice.&#160;&#160;
+IDEs specifically made for FreeBASIC include FBide and FbEdit, while more graphical options include WinFBE Suite and VisualFBEditor.&#160;&#160;
+{empty} +
+{empty} +
+The source code is Open Source.&#160;&#160;
+And, has the GNU GENERAL PUBLIC LICENSE.&#160;&#160;
+{empty} +
+{empty} +
+The source code for the compiler can be found on https://sourceforge.net/p/gcbasic/code/HEAD/tree/GCBASIC/trunk/[SoureForge]
+{empty} +
+{empty} +
+Use SVN to UPDATE and COMMIT your code changes.&#160;&#160;
+You require developer access to SourceForge but if you have got this far then you already know this.&#160;&#160;
+You therefore will require to SVN for source code management.
+
+When COMMITting you MUST update the change log, then, when you commit update the change log with the commit number.&#160;&#160;
+Add you new change at the end of the change log.&#160;&#160;
+The COMMIT message should be the same as the description in the change log.&#160;&#160;
+Add the [_COMMIT NUMBER]_ to the description in the change log to show the COMMIT number.&#160;&#160;
+
+
+You will find the changelog https://onedrive.live.com/Edit.aspx?resid=2F87FFE77F3DBEC7!67634&wd=cpe&authkey=!ADmkT3exl5l4Pkc[here].&#160;&#160;
+The change log is an EXCEL spreadsheet.&#160;&#160;
+
+
+'''
+
+*COMPILER ARCHITECTURE*
+
+The compiler is relatively simple in terms of the architecture.&#160;&#160;
+There is a main source program with a set of header files that contain other methods or declarations.&#160;&#160;
+The GCBASIC header files are the following:
+
+----
+    1. preprocessor.bi -  methods, statements, defines, declarations, prototypes, constants, enumerations, or similar types of statements.&#160;&#160;
+    2. utils.bi - methods that are shared across the architecture.&#160;&#160;
+    3. variables.bi - methods that control the creation and management of variables.&#160;&#160;
+    4. assembly.bi - methods specific to the generation of Great Cow Assembler (GCASM).&#160;&#160;
+    5. file.bi - the FREEBASIC files library
+    6. string.bi - the FREEBASIC string library
+----
+The architecture is relatively simple.
+
+Supporting files are follows:
+
+----
+    1. messages.dat - the English messages source file.&#160;&#160;
+    2. reservedwords.dat - the list of system reserved words.&#160;&#160;
+----
+{empty} +
+{empty} +
+The compiler process is simple to generate the ASM source and the HEX file.
+
+----
+    1. Create the indexes
+    2. Declare the methods, arrays and variables
+    3. Process the user source programs using PreProcessor method
+    4. Compile the program using the CompileProgram method
+    5. Allocate RAM using the AllocateRAM method
+    6. Optimise the generated code using the TidyProgram method
+    7. Combine and location the subroutines and functions using the MergeSubroutines method
+    8. Complete the final optimisation using the FinalOptimise method
+    9. Write the assembly using the WriteAssembly method
+    10. Assemble and generate the hex file using GCASM, MPASM, PICAS or some other define Assembler
+    11. Optionally, pass programming operations to the programmer
+    12. Write compilation report using the WriteCompilationReport method
+    13. If needed, write the error and warning log using the WriteErrorLog method
+    14. Exit, setting the ERRORLEVEL
+----
+
+
+
+'''
+
+*FREEBASIC COMPILER COMPILATION OF GCBASIC SOURCE CODE*
+
+The compiler is relatively simple in terms of the compilation.&#160;&#160;
+
+Use the following versions of the FREEBASIC compiler to compile the GCBASIC source code.
+
+For Windows 32 bit
+----
+    FreeBASIC Compiler - Version 1.07.1 (2019-09-27), built for win32 (32bit)
+    Copyright (C) 2004-2019 The FreeBASIC development team.
+----
+
+For Windows 64 bit
+----
+    FreeBASIC Compiler - Version 1.07.1 (2019-09-27), built for win64 (64bit)
+    Copyright (C) 2004-2019 The FreeBASIC development team.
+----
+
+Using other version of the FREEBASIC compiler are NOT tested and may fail.&#160;&#160;
+Use the specific versions shown above.
+
+The compile use the following command lines.
+Where "%ProgramFiles% is the root location of the FREEBASIC installation, and
+$SF is the location of the source files and the destination of the compiled executable.
+
+For Windows 32 bit
+----
+    "%ProgramFiles%\FreeBASIC\win32\fbc.exe"  $SF\GCBASIC\trunk\gcbasic.bas   -exx -arch 586 -x $SF\GCBASIC\trunk\gcbasic32.exe
+----
+
+For Windows 64 bit
+----
+    "%ProgramFiles%\FreeBASIC\win64\fbc.exe"  $SF\GCBASIC\trunk\gcbasic.bas   -x $SF\GCBASIC\trunk\gcbasic64.exe -ex
+
+----
+
+'''
+*FREEBASIC COMPILER*
+
+To simplify the compilation the complete installation for FREEBASIC can be found https://www.unknown.com[here].&#160;&#160;
+Simply unzip the ZIP to a folder and the toolchain is ready for use.&#160;&#160;
+The ZIP contains on the correct version of FREEBASIC and the libraries.&#160;&#160;
+For an IDE please see the information above.&#160;&#160;
+
+
+'''
+
+*CODING STYLES*
+
+Hugh was 12 when he started this project.&#160;&#160;
+You must forgive him for being a genius, but, he did not implement many programming styles and conventions that are common place today.&#160;&#160;
+
+There is a general lack of documentation.&#160;&#160;
+We are adding documentation as we progress.&#160;&#160;
+This can make the source frustrating initially but can find the code segments as they are clearly within method blocks.&#160;&#160;
+
+The following rules are recommended.
+
+----
+    1. All CONSTANTS are capitalized
+    2. Do not use TAB - use two spaces
+    3. You can rename an variable to a meaningful name.  Hugh uses a lot of single character variables.  This should be avoided.
+    4. Document as you progress.
+    5. Ask for help.
+----
+{empty} +
+*COMPILER SOURCE INSIGHTS*
+
+_There are many very useful methods_, a lot of methods, look at existing code before adding any new method.&#160;&#160;
+The compiler is mature from a functionality standpoint.&#160;&#160;
+Just immature in terms of documentation.&#160;&#160;
+
+_To isolate a specific issue_ use a binary chop and lots of debug using PRINT.&#160;&#160;
+Whilst, this may not be ideal this is the best approach.&#160;&#160;
+
+_Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in the source code.&#160;&#160;
