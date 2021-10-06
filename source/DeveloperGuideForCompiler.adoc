@@ -99,18 +99,18 @@ There is a main source program with a set of header files that contain other met
 The GCBASIC header files are the following:
 
 ----
-    1. preprocessor.bi -  methods, statements, defines, declarations, prototypes, constants, enumerations, or similar types of statements.&#160;&#160;
-    2. utils.bi - methods that are shared across the architecture.&#160;&#160;
-    3. variables.bi - methods that control the creation and management of variables.&#160;&#160;
-    4. assembly.bi - methods specific to the generation of Great Cow Assembler (GCASM).&#160;&#160;
+    1. preprocessor.bi -  methods, statements, defines, declarations, prototypes, constants, enumerations, or similar types of statements
+    2. utils.bi - methods that are shared across the architecture
+    3. variables.bi - methods that control the creation and management of variables
+    4. assembly.bi - methods specific to the generation of Great Cow Assembler (GCASM)
     5. file.bi - the FreeBASIC files library
     6. string.bi - the FreeBASIC string library
 ----
 The supporting files are:
 
 ----
-    1. messages.dat - the English messages source file.&#160;&#160;
-    2. reservedwords.dat - the list of system reserved words.&#160;&#160;
+    1. messages.dat - the English messages source file
+    2. reservedwords.dat - the list of system reserved words
 ----
 {empty} +
 {empty} +
