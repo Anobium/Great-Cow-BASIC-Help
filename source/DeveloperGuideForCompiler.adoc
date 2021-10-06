@@ -217,7 +217,7 @@ The following rules are recommended.
 ----
     1. All CONSTANTS are capitalized
     2. Do not use TAB - use two spaces
-    3. You can rename an variable to a meaningful name.  Hugh uses a lot of single character variables.  This should be avoided.
+    3. You can rename a variable to a meaningful name.  Hugh used a lot of single character variables many years ago.  This should be avoided in new code.
     4. Document as you progress.
     5. Ask for help.
 ----
