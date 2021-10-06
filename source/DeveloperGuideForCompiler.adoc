@@ -165,12 +165,12 @@ $SF is the location of the source files and the destination of the compiled exec
 
 For Windows 32 bit
 ----
-    "%ProgramFiles%\FreeBASIC\win32\fbc.exe"  $SF\GCBASIC\trunk\gcbasic.bas   -exx -arch 586 -x $SF\GCBASIC\trunk\gcbasic32.exe
+    "%ProgramFiles%\FreeBASIC\win32\fbc.exe"  $SF\gcbasic.bas   -exx -arch 586 -x $SF\gcbasic32.exe
 ----
 
 For Windows 64 bit
 ----
-    "%ProgramFiles%\FreeBASIC\win64\fbc.exe"  $SF\GCBASIC\trunk\gcbasic.bas   -x $SF\GCBASIC\trunk\gcbasic64.exe -ex
+    "%ProgramFiles%\FreeBASIC\win64\fbc.exe"  $SF\gcbasic.bas   -x $SF\gcbasic64.exe -ex
 
 ----
 
@@ -197,7 +197,7 @@ Complete the following:
         1. Download and install FreeBASIC from  url shown above.
         2. Download and install fbedit from https://sourceforge.net/projects/fbedit/?source=dlp
         3. Download the GCBASIC source using SVN into a gcbasic source folder.
-        4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from unpack of update.zip
+        4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from GBASIC source folder.
         5. Hit <f5> to compile.
 ----
 
