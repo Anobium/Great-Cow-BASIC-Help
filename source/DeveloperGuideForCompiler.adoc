@@ -1,42 +1,42 @@
 === Development Guide
 
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
-This guide provides information that will not only help you get started as a Great Cow BASIC contributor,
-but that you wiil find useful to refer to EVEN if you are already an experienced contributor.
+This guide provides information that will not only help you get started as a Great Cow BASIC contributor, but that you will inform you as an experienced contributor wanting to help.
 
 *Need Help?*
 
-The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.
-If you have any difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
+The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.&#160;&#160;
+If you have difficulties getting involved or finding answers to your questions, please bring those questions to the forum via the discussion boards, where we can help you get started.
 
-We know EVEN before you start contributing that getting set up to work on Great Cow BASIC and finding a bug that is a good fit for your skills can be a challenge.
-We are always looking for ways to improve this process: making Great Cow BASIC more open, accessible, and easier to participate with.
-If you are having any trouble following this documentation, or hit a barrier you cannot get around, please contact use via the discussion forum.
-We will solve hurdles for new contributors and make Great Cow BASIC better.
+We know EVEN before you start contributing that getting can be a challenge.&#160;&#160;
+This guide is intended to help.&#160;&#160;
+We are always looking for ways to improve the software: making Great Cow BASIC more open, accessible, and easier to participate with.&#160;&#160;
+If you are having any trouble following this guide, or hit a barrier you cannot get around, please contact use via the discussion forum.&#160;&#160;
+We will solve hurdles for new contributors and make Great Cow BASIC better.&#160;&#160;
 
-This addresses the changes and updates to the Great Cow BASIC compiler.
+This addresses the changes and updates to the Great Cow BASIC compiler.&#160;&#160;
 
 '''
 
 *BACKGROUND*
 
-The compiler was created by Dr. Hugh Considine when he was 12 years old.&#160;&#160;That was in 2010.&#160;&#160;Hugh came up with the idea for a new compiler - of the available compilers they were hard to use and not free. &#160;&#160;And, he had some spare time.
+The compiler was created by Dr. Hugh Considine when he was 12 years old.&#160;&#160;That was in 2010.&#160;&#160;Hugh came up with the idea for a new compiler - the available compilers they were hard to use and not free. &#160;&#160;And, he had some spare time.
 
-The original software was called GCBASIC, but he had some resistance in getting high schools in Australia to use and agree to the use of text based programming.&#160;&#160;
+The original software was called GCBASIC, but, he had some resistance in getting high schools in Australia to use and agree to the use of text based programming.&#160;&#160;
 Great Cow Graphical Basic was created to address the need for a graphical user interface.&#160;&#160;Great Cow Graphical Basic acts like a set of training wheels. &#160;&#160;
-The concept of Great Cow Graphical Basic is that the icons make it less scary, and since they all share names with the BASIC commands it is then easy to remember what command corresponds to each icon..&#160;&#160; 
-Using Great Cow Graphical Basicusers can then switch to text mode whenever they want to, go backwards and forwards a few times if they want, and finally end up using just the text programming.&#160;&#160;
+The concept of Great Cow Graphical Basic is that the icons make it less scary, and since they all share names with the BASIC commands it is then easy to remember what command corresponds to each icon..&#160;&#160;
+Using Great Cow Graphical Basic users can then switch to text mode whenever they want to, go backwards and forwards a few times if they want, and finally end up using just the text programming.&#160;&#160;
 It is a journey from a graphical user interface to text based programming.&#160;&#160;
 {empty} +
 {empty} +
 Those who already have programming experience can go straight to Great Cow Basic, while those who would prefer a lighter learning curve can take the Great Cow Graphical Basic option. &#160;&#160;
-The two approaches targets two different sets of users here who ultimately want to do the same thing.
+The two approaches targets two different sets of users who ultimately want to do the same thing.
 {empty} +
 {empty} +
-As for the name, it was about the fourth name Hugh tried. &#160;&#160;First name was BASPIC, but it did not seem memorable enough.&#160;&#160;
+As for the *name*, it was about the fourth name Hugh tried. &#160;&#160;First name was BASPIC, but it did not seem memorable enough.&#160;&#160;
 Then, he considered some animal names - first thought was Chipmunk BASIC, but someone already used that!&#160;&#160;
 Then, Bear Basic, but decided against it on finding out the slang meaning of bear.&#160;&#160;
-Final  name was Great Cow BASIC, which is named after something his sister and I came up with (when aged 12 and 15!!).&#160;&#160;
+Final  name was Great Cow BASIC, which is named after something his sister and he came up with (when aged 12 and 15!!).&#160;&#160;
 No-one else had that name, it had no meanings that could offend, and it was something odd enough to be memorable, so Great Cow BASIC it was.
 
 '''
@@ -45,7 +45,7 @@ No-one else had that name, it had no meanings that could offend, and it was some
 
 The compiler executable is called GCBASIC.EXE. &#160;&#160;
 The compiler source is written in FREEBASIC.&#160;&#160;
-FreeBASIC is a multiplatform, free/open source (GPL) BASIC programming language and compiler for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux and FreeBSD.
+FreeBASIC is a multiplatform, free/open source (GPL) BASIC programming language and a compiler for Microsoft Windows, protected-mode MS-DOS (DOS extender), Linux and FreeBSD.
 &#160;&#160;
 {empty} +
 {empty} +
@@ -58,18 +58,18 @@ IDEs specifically made for FreeBASIC include FBide and FbEdit, while more graphi
 {empty} +
 {empty} +
 The source code is Open Source.&#160;&#160;
-And, has the GNU GENERAL PUBLIC LICENSE.&#160;&#160;
+And, has a GNU GENERAL PUBLIC LICENSE.&#160;&#160;
 {empty} +
 {empty} +
 The source code for the compiler can be found on https://sourceforge.net/p/gcbasic/code/HEAD/tree/GCBASIC/trunk/[SoureForge]
 {empty} +
 {empty} +
-Use SVN to UPDATE and COMMIT your code changes.&#160;&#160;
+Use SVN to UPDATE and COMMIT code changes.&#160;&#160;
 You require developer access to SourceForge but if you have got this far then you already know this.&#160;&#160;
-You therefore will require to SVN for source code management.
+You are therefore  required to use SVN for source code management.
 
-When COMMITting you MUST update the change log, then, when you commit update the change log with the commit number.&#160;&#160;
-Add you new change at the end of the change log.&#160;&#160;
+When COMMITting you MUST update the change log, then, when you commit an update use the change log with the SourceForge commit number.&#160;&#160;
+Then, add the new change at the end of the change log.&#160;&#160;
 The COMMIT message should be the same as the description in the change log.&#160;&#160;
 Add the [_COMMIT NUMBER]_ to the description in the change log to show the COMMIT number.&#160;&#160;
 
@@ -94,9 +94,7 @@ The GCBASIC header files are the following:
     5. file.bi - the FREEBASIC files library
     6. string.bi - the FREEBASIC string library
 ----
-The architecture is relatively simple.
-
-Supporting files are follows:
+The supporting files are:
 
 ----
     1. messages.dat - the English messages source file.&#160;&#160;
@@ -104,7 +102,8 @@ Supporting files are follows:
 ----
 {empty} +
 {empty} +
-The compiler process is simple to generate the ASM source and the HEX file.
+The compiler process is simple.&#160;&#160;
+The process, shown below, generates the ASM source and the HEX file from the user source program.
 
 ----
     1. Create the indexes
@@ -176,7 +175,7 @@ For an IDE please see the information above.&#160;&#160;
 
 *CODING STYLES*
 
-Hugh was 12 when he started this project.&#160;&#160;
+Remember, Hugh was 12 when he started this project.&#160;&#160;
 You must forgive him for being a genius, but, he did not implement many programming styles and conventions that are common place today.&#160;&#160;
 
 There is a general lack of documentation.&#160;&#160;
