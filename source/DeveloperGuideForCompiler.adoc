@@ -129,6 +129,8 @@ The process, shown below, generates the ASM source and the HEX file from the use
     14. Exit, setting the ERRORLEVEL
 ----
 
+{empty} +
+
 *FreeBASIC COMPILER COMPILATION OF GCBASIC SOURCE CODE*
 
 The compiler is relatively simple in terms of the compilation.&#160;&#160;
@@ -147,7 +149,7 @@ For Windows 64 bit
     Copyright (C) 2004-2019 The FreeBASIC development team.
 ----
 
-Using other version of the FREEBASIC compiler are NOT tested and may fail.&#160;&#160;
+Using other version of Windows FREEBASIC compiler are NOT tested and may fail.&#160;&#160;
 Use the specific versions shown above.
 
 The compile use the following command lines.
@@ -164,6 +166,11 @@ For Windows 64 bit
     "%ProgramFiles%\FreeBASIC\win64\fbc.exe"  $SF\gcbasic.bas   -x $SF\gcbasic64.exe -ex
 
 ----
+
+Linux, FreeBSD and Pi OS are also supported.&#160;&#160;
+Please see http://gcbasic.sourceforge.net/help/[Online Help] and search for the specific operating system.&#160;&#160;
+
+{empty} +
 
 *FreeBASIC COMPILER TOOLCHAIN*
 
