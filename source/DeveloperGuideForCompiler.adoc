@@ -200,7 +200,7 @@ Please see http://gcbasic.sourceforge.net/help/[Online Help] and search for the 
 
 *FreeBASIC COMPILER TOOLCHAIN*
 
-To simplify the establishment of  development enviroment download a complete installation from https://www.unknown.com[here].&#160;&#160;
+To simplify the establishment of  development enviroment download a complete installation from https://sourceforge.net/projects/gcbasic/files/Support%20Files/GreatCowBASICWindowsToolchain/FreeBASIC.zip/download[here].&#160;&#160;
 This includes the correct version of FreeBASIC and the libraries - all ready for use.&#160;&#160;
 Simply unzip the ZIP to a folder and the toolchain is ready for use.&#160;&#160;
 For an IDE please see the information above.&#160;&#160;
