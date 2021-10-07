@@ -1,4 +1,4 @@
-=== Development Guide
+=== Development Guide for GCBASIC.EXE compiler
 
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
 This guide provides information that will not only help you get started as a Great Cow BASIC contributor, but that you will inform you as an experienced contributor wanting to help.
@@ -175,17 +175,17 @@ For Windows 64 bit
 ----
 
 '''
-*FreeBASIC COMPILER*
+*FreeBASIC COMPILER TOOLCHAIN*
 
-To simplify the compilation the complete installation for FreeBASIC can be found https://www.unknown.com[here].&#160;&#160;
+To simplify the establishment of  development enviroment download a complete installation from https://www.unknown.com[here].&#160;&#160;
+This includes the correct version of FreeBASIC and the libraries - all ready for use.&#160;&#160;
 Simply unzip the ZIP to a folder and the toolchain is ready for use.&#160;&#160;
-The ZIP contains on the correct version of FreeBASIC and the libraries.&#160;&#160;
 For an IDE please see the information above.&#160;&#160;
 
 
 '''
 
-*BUILDING EXECUTABLE USING THE FBEDIT IDE*
+*BUILDING THE GCBASIC EXECUTABLE USING THE FBEDIT IDE*
 
 To build Great Cow Basic from the source files.&#160;&#160;
 The list shows the installation of the FBEdit IDE.
@@ -220,8 +220,16 @@ The following rules are recommended.
     3. You can rename a variable to a meaningful name.  Hugh used a lot of single character variables many years ago.  This should be avoided in new code.
     4. Document as you progress.
     5. Ask for help.
+
 ----
+
 {empty} +
+
+
+'''
+
+
+
 *COMPILER SOURCE INSIGHTS*
 
 _There are many very useful methods_, a lot of methods, look at existing code before adding any new method.&#160;&#160;
@@ -232,3 +240,28 @@ _To isolate a specific issue_ use a binary chop and lots of debug using PRINT.&#
 Whilst, this may not be ideal this is the best approach.&#160;&#160;
 
 _Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in the source code.&#160;&#160;
+
+
+=== Development Guide for Great Cow BASIC Preferences Editor
+
+This section deals with the Great Cow BASIC Preferences Editor (Pref Editor).&#160;&#160;
+The Prefs Editor is the software enables the user to select programmers, select the options when compiling, select the assembler and other settings.&#160;&#160;
+
+The software is developed using Sharp Developer v.3.2.1 ( not Visual Studio ).&#160;&#160;
+
+*BUILDING THE programmer editorprogrammer editorPR EXECUTABLE USING THE FBEDIT IDE*
+
+To build Great Cow Basic from the source files.&#160;&#160;
+The list shows the installation of the FBEdit IDE.
+
+
+Complete the following:
+
+----
+        1. Download and install FreeBASIC from  url shown above.
+        2. Download and install fbedit from https://sourceforge.net/projects/fbedit/?source=dlp
+        3. Download the GCBASIC source using SVN into a gcbasic source folder.
+        4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from GBASIC source folder.
+        5. Hit <f5> to compile.
+----
+
