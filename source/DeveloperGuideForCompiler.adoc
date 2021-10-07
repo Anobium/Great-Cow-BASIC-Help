@@ -247,21 +247,60 @@ _Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in t
 This section deals with the Great Cow BASIC Preferences Editor (Pref Editor).&#160;&#160;
 The Prefs Editor is the software enables the user to select programmers, select the options when compiling, select the assembler and other settings.&#160;&#160;
 
-The software is developed using Sharp Developer v.3.2.1 ( not Visual Studio ).&#160;&#160;
+The software is developed using Sharp Develop v.3.2.1 ( not Visual Studio ).&#160;&#160;
 
-*BUILDING THE programmer editorprogrammer editorPR EXECUTABLE USING THE FBEDIT IDE*
 
-To build Great Cow Basic from the source files.&#160;&#160;
-The list shows the installation of the FBEdit IDE.
+*ABOUT THE PREFS EDITOR*
+
+This is a utility for editing GCBASIC ini files.&#160;&#160;
+It is derived from the Great Cow Graphical BASIC utilities, and requires some files from Great Cow Graphical BASIC to compile.&#160;&#160;
+
+*COMPILING*
+
+Ensure that the "Programmer Editor" folder is in the same folder as a "Great Cow Graphical BASIC" folder.&#160;&#160;
+The "Great Cow Graphical BASIC" folder must contain the following files from GCGB:
+ - Preferences.vb
+ - PreferencesWindow.vb
+ - ProgrammerEditor.vb
+ - Translator.vb
+ - ProgrammerEditor.resources
+
+Once these files are in place, it should be possible to compile the Programmer Editor using SharpDevelop 3.2 (or similar).
+
+*USING PREFS EDITOR*
+
+If run without any parameters, this program will create an ini file in whatever directory it is located in.&#160;&#160;
+If it is given the name of an ini file as a command line parameter, it will use that file.&#160;&#160;
+
+As well as the ini file it is told to load, this program will also read any files that are included from that file..&#160;&#160;
+This makes it possible to keep the settings file in the Application Data folder if GCBASIC is installed in the Program Files directory..&#160;&#160;
+To put the settings file into the Application Data folder, create a small ini file containing the following 3 lines and place it in the same directory as this program:
+
+----
+    include %appdata%\gcgb.ini
+    [gcgb]
+    useappdata = true
+----
+
+The include line tells the program (and GCBASIC) to read from the Application Data folder.&#160;&#160;
+The useappdata=true line in the [gcgb] section will cause this program to write any output to a file in Application Data called gcgb.ini.&#160;&#160;
+The hard coding of GCGB is required this program is based on GCGB.&#160;&#160;
+It will result in programmer definitions being shared between GCGB and any other environment using this editor, which may be a positive side effect.
+
+
+*BUILDING THE PROGRAMMER EDITOR EXECUTABLE USING SHARPDEVELOP*
+
+To build Prefs Editor from the source files.&#160;&#160;
+The list shows the installation of the Sharp Develop IDE.
 
 
 Complete the following:
 
 ----
-        1. Download and install FreeBASIC from  url shown above.
-        2. Download and install fbedit from https://sourceforge.net/projects/fbedit/?source=dlp
-        3. Download the GCBASIC source using SVN into a gcbasic source folder.
-        4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from GBASIC source folder.
-        5. Hit <f5> to compile.
+        1. Download and install Sharp Develop from  https://sourceforge.net/projects/sharpdevelop/files/SharpDevelop%203.x/3.2/[SourceForge]
+        2. Download the Prefs Editor source using SVN into a source folder.  This is the folder ..\utils\Programmer Editor
+        4. Run Sharp Develop (installed at step #1).  Load project  "Programmer Editor.sln"  from source source folder.
+        5. Hit <f8> to compile.
 ----
+
 
