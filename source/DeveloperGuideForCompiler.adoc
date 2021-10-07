@@ -16,7 +16,6 @@ We will solve hurdles for new contributors and make Great Cow BASIC better.&#160
 
 This addresses the changes and updates to the Great Cow BASIC compiler.&#160;&#160;
 
-'''
 
 *BACKGROUND*
 
@@ -49,8 +48,6 @@ They all had one thing in common - improvements to the Great Cow BASIC compiler.
 In 2021 we are still having new developers join the project like ToniG adding a new capability for handling Tables.
 {empty} +
 {empty} +
-
-'''
 
 
 *THE COMPILER*
@@ -89,8 +86,6 @@ Add the [_COMMIT NUMBER]_ to the description in the change log to show the COMMI
 You will find the changelog https://onedrive.live.com/Edit.aspx?resid=2F87FFE77F3DBEC7!67634&wd=cpe&authkey=!ADmkT3exl5l4Pkc[here].&#160;&#160;
 The change log is an EXCEL spreadsheet.&#160;&#160;
 
-
-'''
 
 *COMPILER ARCHITECTURE*
 
@@ -134,10 +129,6 @@ The process, shown below, generates the ASM source and the HEX file from the use
     14. Exit, setting the ERRORLEVEL
 ----
 
-
-
-'''
-
 *FreeBASIC COMPILER COMPILATION OF GCBASIC SOURCE CODE*
 
 The compiler is relatively simple in terms of the compilation.&#160;&#160;
@@ -174,7 +165,6 @@ For Windows 64 bit
 
 ----
 
-'''
 *FreeBASIC COMPILER TOOLCHAIN*
 
 To simplify the establishment of  development enviroment download a complete installation from https://www.unknown.com[here].&#160;&#160;
@@ -182,8 +172,6 @@ This includes the correct version of FreeBASIC and the libraries - all ready for
 Simply unzip the ZIP to a folder and the toolchain is ready for use.&#160;&#160;
 For an IDE please see the information above.&#160;&#160;
 
-
-'''
 
 *BUILDING THE GCBASIC EXECUTABLE USING THE FBEDIT IDE*
 
@@ -200,8 +188,6 @@ Complete the following:
         4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from GBASIC source folder.
         5. Hit <f5> to compile.
 ----
-
-'''
 
 *CODING STYLES*
 
@@ -226,10 +212,6 @@ The following rules are recommended.
 {empty} +
 
 
-'''
-
-
-
 *COMPILER SOURCE INSIGHTS*
 
 _There are many very useful methods_, a lot of methods, look at existing code before adding any new method.&#160;&#160;
@@ -241,8 +223,12 @@ Whilst, this may not be ideal this is the best approach.&#160;&#160;
 
 _Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in the source code.&#160;&#160;
 
+
 {empty} +
 {empty} +
+
+'''
+
 {empty} +
 {empty} +
 {empty} +
@@ -253,15 +239,14 @@ This section deals with the Great Cow BASIC Preferences Editor (Pref Editor).&#1
 The Prefs Editor is the software enables the user to select programmers, select the options when compiling, select the assembler and other settings.&#160;&#160;
 
 The software is developed using Sharp Develop v.3.2.1 ( not Visual Studio ).&#160;&#160;
-{empty} +
 
+{empty} +
 
 *ABOUT THE PREFS EDITOR*
 
 This is a utility for editing GCBASIC ini files.&#160;&#160;
 It is derived from the Great Cow Graphical BASIC utilities, and requires some files from Great Cow Graphical BASIC to compile.&#160;&#160;
 
-{empty} +
 {empty} +
 
 *COMPILING*
@@ -276,7 +261,6 @@ The "Great Cow Graphical BASIC" folder must contain the following files from GCG
 
 Once these files are in place, it should be possible to compile the Programmer Editor using SharpDevelop 3.2 (or similar).
 
-{empty} +
 {empty} +
 
 *USING PREFS EDITOR*
@@ -299,7 +283,7 @@ The useappdata=true line in the [gcgb] section will cause this program to write 
 The hard coding of GCGB is required this program is based on GCGB.&#160;&#160;
 It will result in programmer definitions being shared between GCGB and any other environment using this editor, which may be a positive side effect.
 
-{empty} +
+
 {empty} +
 
 *BUILDING THE PROGRAMMER EDITOR EXECUTABLE USING SHARP DEVELOP*
