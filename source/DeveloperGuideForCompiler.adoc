@@ -241,6 +241,11 @@ Whilst, this may not be ideal this is the best approach.&#160;&#160;
 
 _Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in the source code.&#160;&#160;
 
+{empty} +
+{empty} +
+{empty} +
+{empty} +
+{empty} +
 
 === Development Guide for Great Cow BASIC Preferences Editor
 
@@ -248,12 +253,16 @@ This section deals with the Great Cow BASIC Preferences Editor (Pref Editor).&#1
 The Prefs Editor is the software enables the user to select programmers, select the options when compiling, select the assembler and other settings.&#160;&#160;
 
 The software is developed using Sharp Develop v.3.2.1 ( not Visual Studio ).&#160;&#160;
+{empty} +
 
 
 *ABOUT THE PREFS EDITOR*
 
 This is a utility for editing GCBASIC ini files.&#160;&#160;
 It is derived from the Great Cow Graphical BASIC utilities, and requires some files from Great Cow Graphical BASIC to compile.&#160;&#160;
+
+{empty} +
+{empty} +
 
 *COMPILING*
 
@@ -266,6 +275,9 @@ The "Great Cow Graphical BASIC" folder must contain the following files from GCG
  - ProgrammerEditor.resources
 
 Once these files are in place, it should be possible to compile the Programmer Editor using SharpDevelop 3.2 (or similar).
+
+{empty} +
+{empty} +
 
 *USING PREFS EDITOR*
 
@@ -287,8 +299,10 @@ The useappdata=true line in the [gcgb] section will cause this program to write 
 The hard coding of GCGB is required this program is based on GCGB.&#160;&#160;
 It will result in programmer definitions being shared between GCGB and any other environment using this editor, which may be a positive side effect.
 
+{empty} +
+{empty} +
 
-*BUILDING THE PROGRAMMER EDITOR EXECUTABLE USING SHARPDEVELOP*
+*BUILDING THE PROGRAMMER EDITOR EXECUTABLE USING SHARP DEVELOP*
 
 To build Prefs Editor from the source files.&#160;&#160;
 The list shows the installation of the Sharp Develop IDE.
@@ -304,3 +318,7 @@ Complete the following:
 ----
 
 
+{empty} +
+{empty} +
+{empty} +
+{empty} +
