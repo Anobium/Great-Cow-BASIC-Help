@@ -104,7 +104,7 @@ The GCBASIC header files are the following:
 The supporting files are:
 
 ----
-    1. messages.dat - the English messages source file
+    1. messages.dat - the English messages source file.  All user messages from the compiler are sourced from this file.
     2. reservedwords.dat - the list of system reserved words
 ----
 {empty} +
