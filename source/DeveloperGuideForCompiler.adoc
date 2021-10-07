@@ -17,10 +17,8 @@ If you are having any trouble following this guide, or hit a barrier you cannot 
 We will solve hurdles for new contributors and make Great Cow BASIC better.&#160;&#160;
 
 This addresses the changes and updates to the Great Cow BASIC compiler.&#160;&#160;
-
 {empty} +
 {empty} +
-
 *BACKGROUND*
 
 The compiler was created by Dr. Hugh Considine when he was 12 years old.&#160;&#160;That was in 2005.&#160;&#160;Hugh came up with the idea for a new compiler - of the then available compilers - they were hard to use and not free. &#160;&#160;And, he had some spare time.
