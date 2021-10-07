@@ -156,7 +156,7 @@ The process, shown below, generates the ASM source and the HEX file from the use
 
 {empty} +
 
-*FreeBASIC COMPILER COMPILATION OF GCBASIC SOURCE CODE*
+*FreeBASIC COMPILATION OF GCBASIC SOURCE CODE*
 
 The compiler is relatively simple in terms of the compilation.&#160;&#160;
 
