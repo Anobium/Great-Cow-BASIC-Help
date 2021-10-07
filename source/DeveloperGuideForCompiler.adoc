@@ -123,6 +123,25 @@ The process, shown below, generates the ASM source and the HEX file from the use
     2. Declare the methods, arrays and variables
     3. Process the user source programs using PreProcessor method
     4. Compile the program using the CompileProgram method
+         i.    Compile calls to other subroutines, insert macros
+         ii.   Compile DIMs again, in case any come through from macros
+         iii.  Compile FOR commands
+         iv.   Process arrays
+         v.    Add system variable(s) and bit(s)
+         vi.   Compile Tables
+         vii.  Compile Pot
+         viii. Compile Do
+         ix.   Compile Dir
+         x.    Compile Wait
+         xi.   Compile On Interrupt
+         xii.  Compile Set(s)
+         xiii. Compile Rotate
+         xiv.  Compile Repeat
+         xv.   Compile Select
+         xvi.  Compile Return
+         xvii. Compile If(s)
+         xviii Compile Exit Sub
+         xix.  Compile Goto(s)       
     5. Allocate RAM using the AllocateRAM method
     6. Optimise the generated code using the TidyProgram method
     7. Combine and locate the subroutines and functions for the selected chip using the MergeSubroutines method
