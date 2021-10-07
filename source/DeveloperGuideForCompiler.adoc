@@ -3,6 +3,8 @@
 There are lots of ways to contribute to the Great Cow BASIC project: coding, testing, improving the build process and tools, or contributing to the documentation.
 This guide provides information that will not only help you get started as a Great Cow BASIC contributor, but that you will inform you as an experienced contributor wanting to help.
 
+{empty} +
+
 *Need Help?*
 
 The Great Cow BASIC community prides itself on being an open, accessible, and friendly community for new participants.&#160;&#160;
@@ -16,6 +18,8 @@ We will solve hurdles for new contributors and make Great Cow BASIC better.&#160
 
 This addresses the changes and updates to the Great Cow BASIC compiler.&#160;&#160;
 
+{empty} +
+{empty} +
 
 *BACKGROUND*
 
@@ -46,9 +50,9 @@ Some those that joined in drove changes to the compiler, some changed the source
 They all had one thing in common - improvements to the Great Cow BASIC compiler.
 
 In 2021 we are still having new developers join the project like ToniG adding a new capability for handling Tables.
-{empty} +
-{empty} +
 
+{empty} +
+{empty} +
 
 *THE COMPILER*
 
@@ -86,6 +90,8 @@ Add the [_COMMIT NUMBER]_ to the description in the change log to show the COMMI
 You will find the changelog https://onedrive.live.com/Edit.aspx?resid=2F87FFE77F3DBEC7!67634&wd=cpe&authkey=!ADmkT3exl5l4Pkc[here].&#160;&#160;
 The change log is an EXCEL spreadsheet.&#160;&#160;
 
+{empty} +
+{empty} +
 
 *COMPILER ARCHITECTURE*
 
@@ -169,9 +175,8 @@ For Windows 64 bit
 
 Linux, FreeBSD and Pi OS are also supported.&#160;&#160;
 Please see http://gcbasic.sourceforge.net/help/[Online Help] and search for the specific operating system.&#160;&#160;
-
 {empty} +
-
+{empty} +
 *FreeBASIC COMPILER TOOLCHAIN*
 
 To simplify the establishment of  development enviroment download a complete installation from https://www.unknown.com[here].&#160;&#160;
@@ -179,6 +184,8 @@ This includes the correct version of FreeBASIC and the libraries - all ready for
 Simply unzip the ZIP to a folder and the toolchain is ready for use.&#160;&#160;
 For an IDE please see the information above.&#160;&#160;
 
+{empty} +
+{empty} +
 
 *BUILDING THE GCBASIC EXECUTABLE USING THE FBEDIT IDE*
 
@@ -195,6 +202,9 @@ Complete the following:
         4. Run fbedit (installed at step #2).  Load project  GCBASIC.fbp  from GBASIC source folder.
         5. Hit <f5> to compile.
 ----
+
+{empty} +
+{empty} +
 
 *CODING STYLES*
 
