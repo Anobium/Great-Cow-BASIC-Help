@@ -175,8 +175,10 @@ For Windows 64 bit
 
 Linux, FreeBSD and Pi OS are also supported.&#160;&#160;
 Please see http://gcbasic.sourceforge.net/help/[Online Help] and search for the specific operating system.&#160;&#160;
+
 {empty} +
 {empty} +
+
 *FreeBASIC COMPILER TOOLCHAIN*
 
 To simplify the establishment of  development enviroment download a complete installation from https://www.unknown.com[here].&#160;&#160;
