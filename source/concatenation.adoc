@@ -18,6 +18,33 @@ This method does not change the existing strings, but returns a *new* string con
 Concatenation joins the elements of a specified values using the specified separator between each variable.
 
 
+WARNING: Using concatenation when the compiler where the compiler creates a system string variable is bad practice.&#160;&#160;There is a risk that the compiler does not allocate sufficient RAM to hold the concatenated string.&#160;&#160;
+The resulting string may be corrupted is the size of the system string variable is not set within the source program.
+
+*Set a specific size of compiler created system string variable*
+
+Use the following to set the size of compiler created system string variable.&#160;&#160;
+
+The compiler will create system string variables when you concatenate on a commands line like `HSerPrint`, `Print` and many others commands.&#160;&#160;
+Using concatenate with a command is bad practice, using a lot of RAM and may create a number of system string variables.&#160;&#160;
+It is recommended to define a string (of a known length), concatenate using an assignment then use the string.&#160;&#160;
+
+This constraint does not apply using concatenation as an assignment.&#160;&#160;
+
+To control the size of system string variable use the following.&#160;&#160;
+Also, use this constant to set the size when the compiler does not create a system string variable.&#160;&#160;
+
+----
+
+    'Define the constant to control the size of system created string variables called SYSSTRINGPARAM1, SYSSTRINGPARAM2 etc.
+    Use #DEFINE  SYSDEFAULTCONCATSTRING  4
+
+    'Then, use
+    HSerPrint "A"+"123"   'will print A123. Without the SYSDEFAULTCONCATSTRING constant some microcontrollers may corrupt the result of the concatentation.
+
+----
+{empty} +
+{empty} +
 *Example 1:*
 [subs="quotes"]
 ----
@@ -72,5 +99,3 @@ To resolve the constraint simply assign the source string to another string.
 
 {empty} +
 {empty} +
-
-
