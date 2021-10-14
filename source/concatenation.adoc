@@ -18,8 +18,8 @@ This method does not change the existing strings, but returns a *new* string con
 Concatenation joins the elements of a specified values using the specified separator between each variable.
 
 
-WARNING: Using concatenation when the compiler where the compiler creates a system string variable is bad practice.&#160;&#160;There is a risk that the compiler does not allocate sufficient RAM to hold the concatenated string.&#160;&#160;
-The resulting string may be corrupted is the size of the system string variable is not set within the source program.
+WARNING: Using concatenation with commands like HSerPrint, Print the compiler will create a system string variable.&#160;&#160;Examples of two strings constants ( HSerPrint "123"+"456" may yield incorrect results.&#160;&#160;See the use of SYSDEFAULTCONCATSTRING below&#160;&#160;Without using SYSDEFAULTCONCATSTRING there is a risk that the compiler does not allocate sufficient RAM to hold the concatenated string.&#160;&#160;
+The resulting string may be corrupted as the size of the system string variable if not set using SYSDEFAULTCONCATSTRING within the source program.
 
 *Set a specific size of compiler created system string variable*
 
