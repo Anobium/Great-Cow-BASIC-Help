@@ -71,10 +71,15 @@ work accurately.
 *Warning [PIC Devices]:*
 
 MS Delays at Clock frequency’s below 28kHz are not supported and will silently fail.
+
 US Delays at Clock frequency’s below 250kHz are not supported and will silently fail.
+
 US Delays at lower Clock frequency’s is accurate ONLY when nn is divisible by 4. This is caused by the minimum ASM delay loop being a specific number of instructions.
+
 US Delays at lower Clock frequency’ when not divisible by 4 will silently accept the nn value and incorrect delays will be produced.
+
 Delays at Clock frequency’s below 500kHz may be impacted by previous instructions; testing of actual delays is advised.
+
 
 
 *Example:*
