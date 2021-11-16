@@ -35,12 +35,11 @@ When using an AVR, there is no need to specify "AT" before the name.
     #chip 12f1840, 250k
     #chip 12f1840, 125k
 
-    'Select the internal low frequency oscillator. The microcontroller must have the LFINT or LFINTOSC option.
+    'Select the internal low frequency oscillator. The microcontroller must have a low frequency oscillator option.  The internal oscillator is automatically selected.
     #chip 16f18326, 31k
-    #config osc=LFINT
 
     'Select the external SOSC clock source.
-    #chip 16f18855, 23.768k
+    #chip 16f18855, 32.768k
     #config osc=SOSC
 
 ----

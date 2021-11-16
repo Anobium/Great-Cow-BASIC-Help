@@ -14,7 +14,7 @@ or, if other multiple comports are in use, set the comport before using HSerRece
     HSerReceive (_user_byte_variable_)
 
 ----
-*_Used as function:_*
+or, used as function.
 [subs="quotes"]
 ----
   _user_byte_variable_ = `HSerReceive`  'Supports only USART1
@@ -22,6 +22,19 @@ or, if other multiple comports are in use, set the comport before using HSerRece
   _user_byte_variable_ = `HSerReceive2` 'Supports only USART2
 
 ----
+
+or, used to support assigning of received byte to word (or other multi-byte variables).&#160;&#160;Note the use of casting to ensure the `HSerReceive` uses byte addressing.
+----
+
+  Dim dbAdr as Word
+
+  HSerReceive [byte]dbAdr_H
+  HSerReceive [byte]dbAdr
+
+
+----
+
+
 For other comports use Function `HSerReceiveFrom`
 
 *Command Availability:*

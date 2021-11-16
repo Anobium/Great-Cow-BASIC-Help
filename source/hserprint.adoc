@@ -5,6 +5,14 @@
 ----
     HSerPrint _user_value_ [,1|2|3|4]  'Choose comport with optional parameter
                                        'Default comport is 1
+
+    'Send a series of ASCII characters using the buffer called SerialPacket
+    Dim SerialPacket as Alloc
+    SerialPacket = 66, 105, 108, 108, 38, 69, 118, 97, 110, 13, 10
+    HserPrint ( SerialPacket, 1 )  ’explicit to comport 1
+    SerialPacket = 66,44,73,44,82,13,10
+    HserPrint ( SerialPacket )  ’defaults to comport 1
+
 ----
 *Command Availability:*
 
