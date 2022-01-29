@@ -1,5 +1,5 @@
 == Changes
-*Formal Release of v0.97.07*
+*Formal Release of <>*
 
 {empty} +
 [cols="^1,^1", options="header",width="60%"]
