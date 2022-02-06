@@ -1,5 +1,5 @@
 == Changes
-*Formal Release of <>*
+*Formal Release of Great Cow Basic Compiler v0.99.02*
 
 {empty} +
 [cols="^1,^1", options="header",width="60%"]

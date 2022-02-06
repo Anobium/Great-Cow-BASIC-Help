@@ -4,13 +4,13 @@
 *About the Command Line Parameters*
 [subs="quotes"]
 ----
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:\{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/NP] [/M:[Y/1 | N/0]]  _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX]  [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX] [/M:[Y/1 | N/0]] [/NP] _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX] [/S:Use.ini] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX] [/M:[Y/1 | N/0]] [/S:Use.ini] [/NP] _filename_
 
-    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX]  [/S:Use.ini] [/F[O]] [/NP] _filename_
+    GCBASIC [/O:output.asm] [/A:assembler] [/P:programmer] [/K:{C|A}] [/H:[Y/1 | N/0]] [/V] [/L] [/WX] [/M:[Y/1 | N/0]]  [/S:Use.ini] [/F[O]] [/NP] _filename_
 
     GCBASIC /version
 
@@ -36,6 +36,11 @@
 |`/H:[Y/1 \| N/0]`
 |Set the production, or not, of the hex output file.  /H:1 is the default.  To prevent production of the hex output file - use /H:0
 |The default is to produce the hex output file
+
+|`/M:[Y/1 \| N/0]`
+|Mute the banner messages, or not.  /M:1 is the default.  To prevent banner messages - use /M:0
+|The default is to output banner messages
+
 
 |`/P:programmer`
 |Batch file used to call programmer^(1)^. This parameter is ignored if the program is not assembled.
@@ -67,7 +72,7 @@
 |Shown build date and version of the compiler.
 |
 
-|`/S`
+|`/S:fsp`
 |Load the settings from a specified file, rather than use the defaults.
 | /S:use.ini
 

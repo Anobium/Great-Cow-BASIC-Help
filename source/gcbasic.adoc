@@ -1215,3 +1215,5 @@ This is the Great Cow BASIC maintenance section of the Help file.  Please refer 
 include::maintenance.adoc[]
 
 include::DeveloperGuide.adoc[]
+
+include::DeveloperGuideForCompiler.adoc[]

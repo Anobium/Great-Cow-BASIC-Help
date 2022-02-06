@@ -141,7 +141,7 @@ The process, shown below, generates the ASM source and the HEX file from the use
          xvi.  Compile Return
          xvii. Compile If(s)
          xviii Compile Exit Sub
-         xix.  Compile Goto(s)       
+         xix.  Compile Goto(s)
     5. Allocate RAM using the AllocateRAM method
     6. Optimise the generated code using the TidyProgram method
     7. Combine and locate the subroutines and functions for the selected chip using the MergeSubroutines method
@@ -275,15 +275,122 @@ _Revert_ code using SVN to remove all debug!.&#160;&#160;Do not leave debug in t
 
 This section deals with the Great Cow BASIC Preferences Editor (Pref Editor).&#160;&#160;
 The Prefs Editor is the software enables the user to select programmers, select the options when compiling, select the assembler and other settings.&#160;&#160;
-
-The software is developed using Sharp Develop v.3.2.1 ( not Visual Studio ).&#160;&#160;
+The Prefs Editor uses an ini to read and store the compiler settings.&#160;&#160;
+The INI structure is explained the first section, then, the Prefs Editor in detail.
 
 {empty} +
 
+*ABOUT THE INI FILES*
+
+You can provide the compiler an INI file with a number of settings and programmers.&#160;&#160;
+
+The following section provide details of the specifics within an example INI file.&#160;&#160;
+The comments are NOT part of an INI file.&#160;&#160;
+
+The settings are in the INI section called [gcbasic].&#160;&#160;
+
+
+----
+    [gcbasic]
+    'The current order of the programmers as shown in Prefs Editor
+    programmer = tinybootloader, lgt8fx8p, arduinouno, pickitpluscmd0, nsprog
+
+    'Show the progress counters when compiling.  This can be changed in the INI or by a command line switch. There is no support in Prefs Editor to change this parameter.
+    showprogresscounters = n
+
+    'Show verbose when compiling.  This can be changed in the INI or by a command line switch
+    verbose = n
+
+    'Show source code in the generated ASM or .S files. This can be changed in the INI or by a command line switch
+    preserve = a
+
+    'Treat warning as errors. This can be changed in the INI or by a command line switch.&#160;&#160;There is no support in Prefs Editor to change this parameter.
+    warningsaserrors = n
+
+    'Pause after compilation. This can be changed in the INI or by a command line switch.&#160;&#160;There is no support in Prefs Editor to change this parameter.
+    pauseaftercompile = n
+
+    'Flash the chip only. This can be changed in the INI or by a command line switch. There is no support in Prefs Editor to change this parameter.
+    flashonly = n
+
+    'Selected assembler. This can be changed in the INI or by a command line switch.
+    assembler = PIC-AS
+
+    'Add comments to hex to show source compiler. This can be changed in the INI or by a command line switch.
+    hexappendgcbmessage = n
+
+    'Mute banners when compiling. This can be changed in the INI or by a command line switch. There is no support in Prefs Editor to change this parameter.
+    mutebanners = n
+
+    'Show the extended verbose messages when compiling. his can only be changed in the INI. There is no support in Prefs Editor or a command line switch to change this parameter.
+    evbs = n
+
+----
+
+The section shows an example [tool] assembler section.&#160;&#160;
+
+----
+    [tool=pic-as]
+    'An assember
+    type = assembler
+    'Location of the assember using a parameter substitution.
+    command = %picaslocation%\pic-as.exe
+    'Parameters
+    params = -mcpu=%ChipModel%  "%Fn_NoExt%.S" -msummary=-mem,+psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull  -Wl -mcallgraph=std -mno-download-hex -o"%Fn_NoExt%.hex"  -Wl,-Map="%Fn_NoExt%.map" -Wa,-a
+
+    [tool=mpasm]
+    'An assember
+    type = assembler
+    'Location of the assember using a parameter substitution.
+    command = %mpasmlocation%\mpasmx.exe
+    'Paramters
+    params = /c- /o- /q+ /l+ /x- /w1 "%FileName%"
+
+----
+
+
+
+The section shows an example [patch] section.
+
+This section shows and explicit set of patches applied to PIC-AS assembler.
+
+----
+    [patch=asm2picas]
+    desc = PICAS correction entries.  Format is STRICT as follows:  Must have quotes and the equal sign as the delimeter. PartName +COLON+"BadConfig"="GoodConfig"    Where BadConfig is from .s file and GoodConfig is from .cfgmap file
+    16f88x:"intoscio = "="FOSC=INTRC_NOCLKOUT"
+    16f8x:"intrc = IO"="FOSC=INTOSCIO"
+    12f67x:"intrc = OSC_NOCLKOUT"="FOSC=INTRCIO"
+----
+
+The section shows an example [programmer] section.&#160;&#160;
+
+----
+    [tool = pk4_pic_ipecmd_program_release_from_reset]
+    'Description
+    desc = MPLAB-IPE PK4 CLI for PIC 5v0
+    'A programmer
+    type = programmer
+    'Command line using a parameter substitution.
+    command = %mplabxipedirectory%\ipecmd.exe
+    'Parameters using a parameter substitution.
+    params = -TPPK4 -P%chipmodel%  -F"%filename%" -M  -E -OL -W5
+    'Worting direcroty using a parameter substitution.
+    workingdir = %mplabxipedirectory%
+    'Useif constraints - this shows none
+    useif =
+    'Mandated programming config constraints - this shows none
+    progconfig =
+----
+
+
 *ABOUT THE PREFS EDITOR*
+
 
 This is a utility for editing GCBASIC ini files.&#160;&#160;
 It is derived from the Great Cow Graphical BASIC utilities, and requires some files from Great Cow Graphical BASIC to compile.&#160;&#160;
+
+The software is developed using Sharp Develop v.3.2.1 ( not Visual Studio ).&#160;&#160;
+
 
 {empty} +
 
